@@ -1,0 +1,1207 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>使用 LazyVGrid 和 LazyHGrid 构建集合视图 | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-progress-ring.html" />
+    
+    
+    <link rel="prev" href="./swiftui-expandable-list.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="29" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-29-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-lazyvgrid-%E5%92%8C-lazyhgrid-%E6%A7%8B%E5%BB%BA%E9%9B%86%E5%90%88%E8%A6%96%E5%9C%96">第 29 章<br>使用 LazyVGrid 和 LazyHGrid 构建集合视图</h1>
+<p>SwiftUI 最初的版本没有原生集合视图 (collection view)。你可以自己构建一个解决方案，或是使用<a href="https://github.com/apptekstudios/ASCollectionView" target="_blank">第三方程式库</a>。在2020年的 WWDC 中，Apple 为 SwiftUI 框架引入了许多新功能，其中一个就是实作 Grid 视图。SwiftUI 现在为开发者提供两个新的 UI 组件： LazyVGrid 和 LazyHGrid，一个用于创建垂直 Grid，另一种用于创建水平 Grid。正如 Apple 所说，“Lazy” 一词意思是 Grid 视图在需要时才会创建项目。</p>
+<p>在这章中，我会教你如何创建水平和垂直视图。LazyVGrid 和 LazyHGrid 都设计得十分灵活，因此开发者可以轻松创建各种类型的 Grid 布局。我们还会深入了解如何更改 Grid 项目的大小，以实现不同的布局（如图29.1）。</p>
+<figure id="fig29.1"><img src="images/gridlayout/swiftui-gridlayout-1.jpg" alt="图 29.1. 集合视图范例"><figcaption>图 29.1. 集合视图范例</figcaption></figure>
+<h3 id="swiftui-grid-%E4%BD%88%E5%B1%80%E7%9A%84%E5%9F%BA%E7%A4%8E">SwiftUI Grid 布局的基础</h3>
+<p>我们可以依照以下步骤，创建水平或垂直的网格(Grid) 布局：</p>
+<ol>
+<li><p>准备要显示在网格中的原始数据。例如，以下是我们将在范例 App 中显示的一组 SF Symbol：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> symbols = [<span class="hljs-string">&quot;keyboard&quot;</span>, <span class="hljs-string">&quot;hifispeaker.fill&quot;</span>, <span class="hljs-string">&quot;printer.fill&quot;</span>, <span class="hljs-string">&quot;tv.fill&quot;</span>, <span class="hljs-string">&quot;desktopcomputer&quot;</span>, <span class="hljs-string">&quot;headphones&quot;</span>, <span class="hljs-string">&quot;tv.music.note&quot;</span>, <span class="hljs-string">&quot;mic&quot;</span>, <span class="hljs-string">&quot;plus.bubble&quot;</span>, <span class="hljs-string">&quot;video&quot;</span>]
+</code></pre>
+</li>
+<li><p>创建一个 <code>GridItem</code> 阵列，来描述 Grid 的外观。比方说，Grid 需要有多少列？以下是描述一个 3 列 (column) 网格的范例程式码：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> threeColumnGrid = [<span class="hljs-type">GridItem</span>(.flexible()), <span class="hljs-type">GridItem</span>(.flexible()), <span class="hljs-type">GridItem</span>(.flexible())]
+</code></pre>
+</li>
+<li><p>使用 <code>LazyVGrid</code> 和 <code>ScrollView</code> 布局 Grid。可以参考以下这是范例程式码：</p>
+<pre><code class="lang-swift"><span class="hljs-type">ScrollView</span> {
+    <span class="hljs-type">LazyVGrid</span>(columns: threeColumnGrid) {
+        <span class="hljs-comment">// Display the item</span>
+    }
+}
+</code></pre>
+</li>
+<li><p>如果你想要构建水平 Grid，就如此使用 <code>LazyHGrid</code>：</p>
+<pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal) {
+    <span class="hljs-type">LazyHGrid</span>(rows: threeColumnGrid) {
+        <span class="hljs-comment">// Display the item</span>
+    }
+}
+</code></pre>
+</li>
+</ol>
+<h3 id="%E4%BD%BF%E7%94%A8-lazyvgrid-%E4%BE%86%E5%89%B5%E5%BB%BA%E5%9E%82%E7%9B%B4-grid">使用 LazyVGrid 来创建垂直 Grid</h3>
+<p>对 Grid 布局有一些基本了解之后，让我们开始编写程式码吧！我们将从构建一个 3 列的网格(Grid)开始。打开 Xcode 并使用 <em>App</em> 模板创建一个新项目。 请确保选择 <em>SwiftUI</em> 作为界面选项。 将项目命名为 <em>SwiftUIGridLayout</em> 或你喜欢的名称。</p>
+<figure id="fig29.2"><img src="images/gridlayout/swiftui-gridlayout-2.png" alt="图 29.2. 使用 App 模板创建一个新项目"><figcaption>图 29.2. 使用 App 模板创建一个新项目</figcaption></figure>
+<p>之后，在 <code>ContentView.swift</code> 内，宣告以下变数 (variable)：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> symbols = [<span class="hljs-string">&quot;keyboard&quot;</span>, <span class="hljs-string">&quot;hifispeaker.fill&quot;</span>, <span class="hljs-string">&quot;printer.fill&quot;</span>, <span class="hljs-string">&quot;tv.fill&quot;</span>, <span class="hljs-string">&quot;desktopcomputer&quot;</span>, <span class="hljs-string">&quot;headphones&quot;</span>, <span class="hljs-string">&quot;tv.music.note&quot;</span>, <span class="hljs-string">&quot;mic&quot;</span>, <span class="hljs-string">&quot;plus.bubble&quot;</span>, <span class="hljs-string">&quot;video&quot;</span>]
+
+private <span class="hljs-keyword">var</span> colors: [<span class="hljs-type">Color</span>] = [.yellow, .purple, .green]
+
+private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.flexible()), <span class="hljs-type">GridItem</span>(.flexible()), <span class="hljs-type">GridItem</span>(.flexible())]
+</code></pre>
+<p>我们将要在一个 3 列网格中显示一组 SF Symbol。如此更新 <code>body</code> 变数来显示网格：</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+    <span class="hljs-type">ScrollView</span> {
+        <span class="hljs-type">LazyVGrid</span>(columns: gridItemLayout, spacing: <span class="hljs-number">20</span>) {
+            <span class="hljs-type">ForEach</span>((<span class="hljs-number">0</span>...<span class="hljs-number">9999</span>), id: \.<span class="hljs-keyword">self</span>) {
+                <span class="hljs-type">Image</span>(systemName: symbols[$<span class="hljs-number">0</span> % symbols.<span class="hljs-built_in">count</span>])
+                    .font(.system(size: <span class="hljs-number">30</span>))
+                    .frame(width: <span class="hljs-number">50</span>, height: <span class="hljs-number">50</span>)
+                    .background(colors[$<span class="hljs-number">0</span> % colors.<span class="hljs-built_in">count</span>])
+                    .cornerRadius(<span class="hljs-number">10</span>)
+            }
+        }
+    }
+}
+</code></pre>
+<p>我们使用 <code>LazyVGrid</code>，并告诉垂直 Grid 使用 3 列布局。我们还指定行与行之间有 20 point 的间距。在程式码中，我们有一个 <code>ForEach</code> 回圈 (loop)，来显示总共 10,000 个图像视图。如果有正确地跟随步骤，你就会在预览中看到一个三列 Grid。</p>
+<figure id="fig29.3"><img src="images/gridlayout/swiftui-gridlayout-3.png" alt="图 29.3. 一个三列 Grid"><figcaption>图 29.3. 一个三列 Grid</figcaption></figure>
+<p>我们成功创建了一个三列的垂直 Grid 了！现在，图像框架 (frame) 的大小固定为 50 x 50 point。你可以如此更改框架修饰符 (modifier)：</p>
+<pre><code class="lang-swift">.frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">50</span>)
+</code></pre>
+<p>然后，图像的宽度就会扩大到列的宽度（如图29.4）。</p>
+<figure id="fig29.4"><img src="images/gridlayout/swiftui-gridlayout-4.png" alt="图 29.4. 更改网格项目的框架大小"><figcaption>图 29.4. 更改网格项目的框架大小</figcaption></figure>
+<p>请注意，列和行之间有一个空格。 有时，你可能想要建立一个没有任何空格的网格。 要怎么才能做到这一点？ 行之间的间距由 <code>LazyVGrid</code> 的 <code>spacing</code> 参数控制。 我们已将其值设置为20点。 你可以简单地将其更改为“0”，这样行之间就没有空格。</p>
+<p>网格项之间的间距由在 <code>gridItemLayout</code> 中的 <code>GridItem</code> 来控制。 你可以通过将值传给 <code>spacing</code> 参数来设置项目之间的间距。 因此，要删除行之间的空白地方，你可以像这样初始化 <code>gridLayout</code> 变数：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.flexible(), spacing: <span class="hljs-number">0</span>), <span class="hljs-type">GridItem</span>(.flexible(), spacing: <span class="hljs-number">0</span>), <span class="hljs-type">GridItem</span>(.flexible(), spacing: <span class="hljs-number">0</span>)]
+</code></pre>
+<p>对于每个“GridItem”，我们指定为零间距。 为简单起见，上面的程式码可以改写成这样：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = <span class="hljs-type">Array</span>(repeating: <span class="hljs-type">GridItem</span>(.flexible(), spacing: <span class="hljs-number">0</span>), <span class="hljs-built_in">count</span>: <span class="hljs-number">3</span>)
+</code></pre>
+<p>如果你已更新相关程式码，你的预览画布应该会显示一个没有任何间距的网格视图。</p>
+<figure id="fig29.5"><img src="images/gridlayout/swiftui-gridlayout-5.png" alt="Figure 5. Removing the spacing between columns and rows"><figcaption>Figure 5. Removing the spacing between columns and rows</figcaption></figure>
+<h2 id="%E5%88%A9%E7%94%A8-griditem-%E6%9B%B4%E6%94%B9-grid-%E4%BD%88%E5%B1%80-flexible-fixed-adaptive">利用 GridItem 更改 Grid 布局 (Flexible/ Fixed/ Adaptive)</h2>
+<p>让我们进一步看看 <code>GridItem</code>。你可以使用 <code>GridItem</code> 实例在 <code>LazyHGrid</code> 和 <code>LazyVGrid</code> 视图中配置项目的布局。在前文中，我们定义了一个有三个 <code>GridItem</code> 实例的阵列，而每个实例都使用尺寸型别 (Size Type) <code>.flexible()</code>。Flexible 尺寸型别让我们可以创建三个大小相等的列。如果想要一个 6 列的 Grid，则可以如此创建 <code>GridItem</code> 阵列：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> sixColumnGrid: [<span class="hljs-type">GridItem</span>] = <span class="hljs-type">Array</span>(repeating: .<span class="hljs-keyword">init</span>(.flexible()), <span class="hljs-built_in">count</span>: <span class="hljs-number">6</span>)
+</code></pre>
+<p><code>.flexible()</code> 只是其中一个用于控制 Grid 布局的尺寸型别。如果要在一行中放置尽可能多的项目，你可以使用如下的 <em>adaptive</em> 尺寸型别：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">50</span>))]
+</code></pre>
+<p><em>Adaptive</em> 尺寸型别要求你指定项目的最小尺寸 (minimum size)。在上面的程式码中，我们设定了每个 Grid 项目的最小尺寸为 50。如果你像这样修改 <code>gridItemLayout</code> 变数，就可以达到以下的 Grid 布局。</p>
+<figure id="fig29.6"><img src="images/gridlayout/swiftui-gridlayout-6.png" alt="图 29.6. 使用 adaptive 尺寸型别"><figcaption>图 29.6. 使用 adaptive 尺寸型别</figcaption></figure>
+<p>我们使用了 <code>.adaptive(minimum: 50)</code>，指示 <code>LazyVGrid</code> 在一行中填满尽可能多的图像，而每个项目的最小尺寸为 50 point。</p>
+<p><em>注意：我使用 iPhone 13 Pro 作为模拟器。 如果你使用其他屏幕尺寸不同的 iOS 模拟器，你可能会获得不同的结果。</em></p>
+<p>除了 <code>.flexible</code> 和 <code>.adaptive</code> 之外，如果想创建固定宽度的列，我们可以使用 <code>.fixed</code>。例如，我们想将图像分为两列，第一列的宽度为 100 point，第二列的宽度为 150 point，我们可以这样编写程式码：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.fixed(<span class="hljs-number">100</span>)), <span class="hljs-type">GridItem</span>(.fixed(<span class="hljs-number">150</span>))]
+</code></pre>
+<p>同样地，如果你像这样更新 <code>gridItemLayout</code> 变数，就会出现尺寸不同的两列 Grid。</p>
+<figure id="fig29.7"><img src="images/gridlayout/swiftui-gridlayout-7.png" alt="图 29.7. 具有固定大小项目的网格"><figcaption>图 29.7. 具有固定大小项目的网格</figcaption></figure>
+<p>你可以混合使用不同的尺寸型别，来创建更复杂的 Grid 布局。例如，你可以定义一个 <code>.fixed</code> 的<code>GridItem</code>，然后定义一个 <code>.adaptive</code> 的GridItem，像这样：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.fixed(<span class="hljs-number">150</span>)), <span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">50</span>))]
+</code></pre>
+<p>在这个情况下，<code>LazyVGrid</code> 将创建一个固定尺寸的列，其宽度为 100 point。然后，它会让尽可能多的项目填满剩余空间。</p>
+<figure id="fig29.8"><img src="images/gridlayout/swiftui-gridlayout-8.png" alt="图 29.8. 混合使用不同的尺寸型别"><figcaption>图 29.8. 混合使用不同的尺寸型别</figcaption></figure>
+<h4 id="%E4%BD%BF%E7%94%A8-lazyhgrid-%E4%BE%86%E5%89%B5%E5%BB%BA%E6%B0%B4%E5%B9%B3-grid">使用 LazyHGrid 来创建水平 Grid</h4>
+<p>现在，你已经创建了垂直 Grid，<code>LazyHGrid</code> 可以很容易地将垂直 Grid 转换为水平 Grid。水平 Grid 的用法与 <code>LazyVGrid</code> 几乎完全相同，只是我们会将其嵌入到水平滚动视图中。此外，<code>LazyHGrid</code>的参数是 <code>rows</code> 而不是 <code>columns</code>。</p>
+<p>因此，我们只需要重写几行程式码，就可以将 Grid 视图从垂直方向转换为水平方向：</p>
+<pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal) {
+    <span class="hljs-type">LazyHGrid</span>(rows: gridItemLayout, spacing: <span class="hljs-number">20</span>) {
+        <span class="hljs-type">ForEach</span>((<span class="hljs-number">0</span>...<span class="hljs-number">9999</span>), id: \.<span class="hljs-keyword">self</span>) {
+            <span class="hljs-type">Image</span>(systemName: symbols[$<span class="hljs-number">0</span> % symbols.<span class="hljs-built_in">count</span>])
+                .font(.system(size: <span class="hljs-number">30</span>))
+                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">50</span>, maxHeight: .infinity)
+                .background(colors[$<span class="hljs-number">0</span> % colors.<span class="hljs-built_in">count</span>])
+                .cornerRadius(<span class="hljs-number">10</span>)
+        }
+    }
+}
+</code></pre>
+<p>在预览中执行范例或在模拟器上进行测试，你应该会看到一个水平 Grid。最棒的是，此 Grid 视图可以自动支援 iPhone 和 iPad。</p>
+<figure id="fig29.9"><img src="images/gridlayout/swiftui-gridlayout-9.png" alt="Figure 9. Creating a horizontal grid with LazyHGrid"><figcaption>Figure 9. Creating a horizontal grid with LazyHGrid</figcaption></figure>
+<h3 id="%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E7%B6%B2%E6%A0%BC%E4%BD%88%E5%B1%80%E4%B9%8B%E9%96%93%E5%88%87%E6%8F%9B">在不同的网格布局之间切换</h3>
+<p>现在你已经对 LazyVGrid 和 LazyHGrid 有所认识，让我们创建一些更复杂的东西。 想像一下，你要构建一个显示咖啡照片集合的App。 在App中，使用者可以随时改变 Grid 的列数。在预设的情况下，它会在一列中显示所有照片。 使用者可以点击 <em>Grid</em> 按钮将列表视图更改为具有 2 列的网格视图。 再次点击相同的按钮以进行 3 列布局，然后是 4 列布局。</p>
+<figure id="fig29.10"><img src="images/gridlayout/swiftui-gridlayout-10.jpg" alt="图 29.10. 改变 Grid 的列数"><figcaption>图 29.10. 改变 Grid 的列数</figcaption></figure>
+<p>要开发这个范例App，请先创建一个新的 Xcode 项目。 今次也是选择 <em>App</em> 模板并将项目命名为 <em>SwiftUIPhotoGrid</em>。 接下来，在 <a href="https://www.appcoda.com/resources/swiftui/coffeeimages.zip" target="_blank">https://www.appcoda.com/resources/swiftui/coffeeimages.zip</a> 下载图像包。 解压缩图像并将它们添加到<code>Assets</code>。</p>
+<p>在建立网格视图之前，我们将为照片集合创建数据模型。 在项目导航器中，右键单击 <em>SwiftUIGridView</em> 并选择 <em>New file...</em> 以加入新文件。 选择 <em>Swift File</em> 模板并将文件命名为 <em>Photo.swift</em>。</p>
+<p>在 <code>Photo.swift</code> 文件中插入以下程式码以建立 <code>Photo</code> 结构：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Photo</span>: <span class="hljs-title">Identifiable</span> </span>{
+    <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
+    <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
+}
+
+<span class="hljs-keyword">let</span> samplePhotos = (<span class="hljs-number">1</span>...<span class="hljs-number">20</span>).<span class="hljs-built_in">map</span> { <span class="hljs-type">Photo</span>(name: <span class="hljs-string">&quot;coffee-<span class="hljs-subst">\($<span class="hljs-number">0</span>)</span>&quot;</span>) }
+</code></pre>
+<p>图像包中有 20 张咖啡照片，因此我们初始化了一个包含 20 个<code>Photo</code>实体的阵列。 准备好数据模型后，让我们切换到 <code>ContentView.swift</code> 来构建网格。</p>
+<p>首先，宣告一个 <code>gridLayout</code> 变数来定义我们首选的网格布局：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout: [<span class="hljs-type">GridItem</span>] = [ <span class="hljs-type">GridItem</span>() ]
+</code></pre>
+<p>在预设情况下，我们希望显示一个列表视图。 除了使用 <code>List</code>，你实际上还可以使用 <code>LazyVGrid</code> 来构建列表视图。 我们通过使用一个网格项定义 <code>gridLayout</code> 来做到这一点。 通过告诉 <code>LazyVGrid</code> 使用单列网格布局，它将像列表视图一样排列项目。 在 <code>body</code> 中插入以下程式码以创建网格视图：</p>
+<pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
+    <span class="hljs-type">ScrollView</span> {
+        <span class="hljs-type">LazyVGrid</span>(columns: gridLayout, alignment: .center, spacing: <span class="hljs-number">10</span>) {
+
+            <span class="hljs-type">ForEach</span>(samplePhotos.<span class="hljs-built_in">indices</span>, id: \.<span class="hljs-keyword">self</span>) { index <span class="hljs-keyword">in</span>
+
+                <span class="hljs-type">Image</span>(samplePhotos[index].name)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)
+                    .frame(height: <span class="hljs-number">200</span>)
+                    .cornerRadius(<span class="hljs-number">10</span>)
+                    .shadow(color: <span class="hljs-type">Color</span>.primary.opacity(<span class="hljs-number">0.3</span>), radius: <span class="hljs-number">1</span>)
+
+            }
+        }
+        .padding(.all, <span class="hljs-number">10</span>)
+    }
+
+    .navigationTitle(<span class="hljs-string">&quot;Coffee Feed&quot;</span>)
+}
+</code></pre>
+<p>我们使用 <code>LazyVGrid</code> 创建一个垂直网格，行间距为 10 点。 Grid用于显示咖啡照片，因此我们使用 <code>ForEach</code> 取得所有 <code>samplePhotos</code> 项目。 我们将网格嵌入到滚动视图中，使其可滚动并用导航视图包装。 更改程式码后，你应该会在预览画布中看到照片列表。</p>
+<figure id="fig29.11"><img src="images/gridlayout/swiftui-gridlayout-11.png" alt="图 29.11. 使用 LazyVGrid 创建列表视图"><figcaption>图 29.11. 使用 LazyVGrid 创建列表视图</figcaption></figure>
+<p>现在我们需要一个按钮让用户在不同的布局之间切换。 我们将按钮添加到导航栏。自 iOS 14 ，Apple 加入了一个名为<code>.toolbar</code>的新修饰器，用于填充导航栏中的项目。 在 <code>.navigationTitle</code> 之后，插入以下程式码：</p>
+<pre><code class="lang-swift">.toolbar {
+    <span class="hljs-type">ToolbarItem</span>(placement: .navigationBarTrailing) {
+        <span class="hljs-type">Button</span> {
+            <span class="hljs-keyword">self</span>.gridLayout = <span class="hljs-type">Array</span>(repeating: .<span class="hljs-keyword">init</span>(.flexible()), <span class="hljs-built_in">count</span>: <span class="hljs-keyword">self</span>.gridLayout.<span class="hljs-built_in">count</span> % <span class="hljs-number">4</span> + <span class="hljs-number">1</span>)
+        } label: {
+            <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;square.grid.2x2&quot;</span>)
+                .font(.title)
+                .foregroundColor(.primary)
+        }
+    }
+}
+</code></pre>
+<p>在上面的程式码中，我们更新了<code>gridLayout</code>变数并初始化了<code>GridItem</code>的阵列。 假设当前项目数为 1，我们将创建一个包含两个 <code>GridItem</code> 的数组以更改为 2 列网格。 由于我们将 <code>gridLayout</code> 标记为状态变数，因此每次更改变数时，SwiftUI 都会更新网格视图。</p>
+<figure id="fig29.12"><img src="images/gridlayout/swiftui-gridlayout-12.png" alt="图 29.12. 添加用于切换网格布局的按钮"><figcaption>图 29.12. 添加用于切换网格布局的按钮</figcaption></figure>
+<p>你可以执行该App进行快速测试。 点击网格按钮将切换到另一个网格布局。</p>
+<p>我们有几件事需要改进。 首先，对于具有两列或更多列的网格，应将网格项的高度调整为 100 点。 使用 <code>height</code> 参数更新 <code>.frame</code> 修饰器，如下所示：</p>
+<pre><code class="lang-swift">.frame(height: gridLayout.<span class="hljs-built_in">count</span> == <span class="hljs-number">1</span> ? <span class="hljs-number">200</span> : <span class="hljs-number">100</span>)
+</code></pre>
+<p>其次，当你从一种网格布局切换到另一种时，SwiftUI 只会简单地重绘网格视图。 如果我们在布局更改之间添加一个漂亮的过场动画是不是会更好呢？ 为此，你只需添加一行程式码。 在 <code>.padding(.all, 10)</code> 之后插入以下程式码：</p>
+<pre><code class="lang-swift">.animation(.interactiveSpring(), value: gridLayout.<span class="hljs-built_in">count</span>)
+</code></pre>
+<p>这就是 SwiftUI 的强大之处。 通过告诉 SwiftUI 你想要动画变化，框架会处理剩下的事情，而使用者就会看到漂亮的过场动画。</p>
+<figure id="fig29.13"><img src="images/gridlayout/swiftui-gridlayout-13.png" alt="图 29.13. SwiftUI 自动设置过场动画"><figcaption>图 29.13. SwiftUI 自动设置过场动画</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%A4%9A%E5%80%8B%E7%B6%B2%E6%A0%BC%E6%A7%8B%E5%BB%BA%E7%B6%B2%E6%A0%BC%E4%BD%88%E5%B1%80">使用多个网格构建网格布局</h3>
+<p>你不仅限于在你的App中使用单个 <code>LazyVGrid</code> 或 <code>LazyHGrid</code>。 通过组合多个<code>LazyVGrid</code>，你可以构建一些有趣的布局。 看一下图 29.14。我们将创建这种网格布局， 网格显示咖啡馆照片列表。 在每张咖啡馆照片下，它显示了一份咖啡照片列表。 当设备处于横向时，咖啡厅照片和咖啡照片列表将并排排列。</p>
+<figure id="fig29.14"><img src="images/gridlayout/swiftui-gridlayout-14.jpg" alt="图 29.14. 使用两个网格构建复杂的网格布局"><figcaption>图 29.14. 使用两个网格构建复杂的网格布局</figcaption></figure>
+<p>让我们回到 Xcode 项目，首先创建数据模型。 你之前下载的图像包带有一组咖啡馆照片。 因此，创建一个新的 Swift 文件并将其命名为 <em>Cafe.swift</em>。 在文件中，加入以下程式码：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Cafe</span>: <span class="hljs-title">Identifiable</span> </span>{
+    <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
+    <span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> coffeePhotos: [<span class="hljs-type">Photo</span>] = []
+}
+
+<span class="hljs-keyword">let</span> sampleCafes: [<span class="hljs-type">Cafe</span>] = {
+
+    <span class="hljs-keyword">var</span> cafes = (<span class="hljs-number">1</span>...<span class="hljs-number">18</span>).<span class="hljs-built_in">map</span> { <span class="hljs-type">Cafe</span>(image: <span class="hljs-string">&quot;cafe-<span class="hljs-subst">\($<span class="hljs-number">0</span>)</span>&quot;</span>) }
+
+    <span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> cafes.<span class="hljs-built_in">indices</span> {
+        <span class="hljs-keyword">let</span> randomNumber = <span class="hljs-type">Int</span>.random(<span class="hljs-keyword">in</span>: (<span class="hljs-number">2</span>...<span class="hljs-number">12</span>))
+        cafes[index].coffeePhotos = (<span class="hljs-number">1</span>...randomNumber).<span class="hljs-built_in">map</span> { <span class="hljs-type">Photo</span>(name: <span class="hljs-string">&quot;coffee-<span class="hljs-subst">\($<span class="hljs-number">0</span>)</span>&quot;</span>) }
+    }
+
+    <span class="hljs-keyword">return</span> cafes
+}()
+</code></pre>
+<p><code>Cafe</code> 结构是不言自明的。 它有一个用于存储咖啡照片的<code>image</code> 属性和用于存储咖啡照片列表的<code>coffeePhotos</code> 属性。 在上面的程式码中，我们还创建了一个<code>Cafe</code> 阵列。 对于每个咖啡馆，我们随机挑选一些咖啡照片。 如果你有其他喜欢的图像，请随时修改程式码。</p>
+<p>让我们创建一个新档案来实现这个网格视图。 右键单击 <em>SwiftUIPhotoGrid</em> 并选择 <em>New File...</em>。 选择 <em>SwiftUI View</em> 模板并将文件命名为 <em>MultiGridView</em>。</p>
+<p>与前面的实现类似，让我们宣告了一个 <code>gridLayout</code> 变数来储存当前的网格布局：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout = [ <span class="hljs-type">GridItem</span>() ]
+</code></pre>
+<p>在预设的情况下，我们的网格使用一个 <code>GridItem</code> 进行初始化。 接下来，在 <code>body</code> 中加入以下程式码以创建具有单列的垂直网格：</p>
+<pre><code class="lang-swift"><span class="hljs-type">NavigationView</span> {
+    <span class="hljs-type">ScrollView</span> {
+        <span class="hljs-type">LazyVGrid</span>(columns: gridLayout, alignment: .center, spacing: <span class="hljs-number">10</span>) {
+
+            <span class="hljs-type">ForEach</span>(sampleCafes) { cafe <span class="hljs-keyword">in</span>
+                <span class="hljs-type">Image</span>(cafe.image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)
+                    .frame(maxHeight: <span class="hljs-number">150</span>)
+                    .cornerRadius(<span class="hljs-number">10</span>)
+                    .shadow(color: <span class="hljs-type">Color</span>.primary.opacity(<span class="hljs-number">0.3</span>), radius: <span class="hljs-number">1</span>)
+            }
+
+        }
+        .padding(.all, <span class="hljs-number">10</span>)
+        .animation(.interactiveSpring(), value: gridLayout.<span class="hljs-built_in">count</span>)
+    }
+    .navigationTitle(<span class="hljs-string">&quot;Coffee Feed&quot;</span>)
+}
+</code></pre>
+<p>相信我不需要再次重复讲解这个程式码，因为它与我们之前编写的程式码几乎相同。 如果跟着做，你应该会看到一个列表视图，其中显示了咖啡馆照片的集合。</p>
+<figure id="fig29.15"><img src="images/gridlayout/swiftui-gridlayout-15.png" alt="图 29.15. 咖啡馆照片列表"><figcaption>图 29.15. 咖啡馆照片列表</figcaption></figure>
+<h4 id="%E6%B7%BB%E5%8A%A0%E9%A1%8D%E5%A4%96%E7%9A%84%E7%B6%B2%E6%A0%BC%EF%BC%88grid%EF%BC%89">添加额外的网格（Grid）</h4>
+<p>要如何在每张照片下显示另一个网格？ 你需要做的就是在 <code>ForEach</code> 循环中添加另一个 <code>LazyVGrid</code>。 在 <code>Image</code> 视图之后加入以下程式码：</p>
+<pre><code class="lang-swift"><span class="hljs-type">LazyVGrid</span>(columns: [<span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">50</span>))]) {
+    <span class="hljs-type">ForEach</span>(cafe.coffeePhotos) { photo <span class="hljs-keyword">in</span>
+        <span class="hljs-type">Image</span>(photo.name)
+            .resizable()
+            .scaledToFill()
+            .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)
+            .frame(height: <span class="hljs-number">50</span>)
+            .cornerRadius(<span class="hljs-number">10</span>)
+    }
+}
+.frame(minHeight: <span class="hljs-number">0</span>, maxHeight: .infinity, alignment: .top)
+.animation(.easeIn, value: gridLayout.<span class="hljs-built_in">count</span>)
+</code></pre>
+<p>我们为照片创建另一个垂直网格（Grid）。 通过使用 <em>adaptive</em> 尺寸类型，此网格将在一行中尽量填满最多的照片。 更改程式码后，App UI 就会如图 29.16 所示。</p>
+<figure id="fig29.16"><img src="images/gridlayout/swiftui-gridlayout-16.png" alt="图 29.16. 添加额外的网格显示图片"><figcaption>图 29.16. 添加额外的网格显示图片</figcaption></figure>
+<p>如果你喜欢并排排列咖啡馆和咖啡的照片，你可以像这样修改 <code>gridLayout</code> 变数：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout = [ <span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">100</span>)), <span class="hljs-type">GridItem</span>(.flexible()) ]
+</code></pre>
+<p>当你更改了 <code>gridLayout</code> 变数，你的预览将随即更新为并以另一种形式显示咖啡馆和咖啡的照片。</p>
+<figure id="fig29.17"><img src="images/gridlayout/swiftui-gridlayout-17.png" alt="图 29.17. 并排排列咖啡馆和咖啡的照片"><figcaption>图 29.17. 并排排列咖啡馆和咖啡的照片</figcaption></figure>
+<h4 id="%E8%99%95%E7%90%86%E6%A9%AB%E5%90%91%E6%96%B9%E5%90%91">处理横向方向</h4>
+<p>要在 Xcode 预览中测试横向模式，你可以选择 <em>Device Settings</em> 选项并启用 <em>Orientation</em> 选项。 将其设置为 <em>Landscape (Left)</em> 或 <em>Landscape (Right)</em>。</p>
+<figure id="fig29.18"><img src="images/gridlayout/swiftui-gridlayout-18.png" alt="图 29.18. 横向模式下的 App UI"><figcaption>图 29.18. 横向模式下的 App UI</figcaption></figure>
+<p>另外，你也可以在模拟器上运行App，然后将模拟器转为横向试一试。 </p>
+<p>但在执行App之前，你需要在 <code>SwiftUIGridLayoutApp.swift</code> 中做一个小的改动。 由于我们已经创建了一个新文件来实现这个多网格，所以将 <code>WindowGroup</code> 中的 <code>ContentView()</code>视图 修改为 <code>MultiGridView()</code>，如下所示：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SwiftUIPhotoGridApp</span>: <span class="hljs-title">App</span> </span>{
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">Scene</span> {
+        <span class="hljs-type">WindowGroup</span> {
+            <span class="hljs-type">MultiGridView</span>()
+        }
+    }
+}
+</code></pre>
+<p>现在你可以在 iPhone 模拟器中运行该App。 在直向上，App的UI没有任何问题，就像预览时一样。 但是，如果你通过 command + 左（或右）键来旋转模拟器，网格布局看起来就不像预期的那样。 我们期望的是它看起来应该与直向模式时差不多。</p>
+<p>为了解决这个问题，我们可以调整自适应网格项的最小宽度，并在iPhone处于横向时使其更宽一些。 问题是如何检测iPhone的旋转方向变化？</p>
+<p>在 SwiftUI 中，每个视图都带有一组环境变数。 你可以通过这组环境变数取得iPhone的营幕方向，如下所示：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.horizontalSizeClass) <span class="hljs-keyword">var</span> horizontalSizeClass: <span class="hljs-type">UserInterfaceSizeClass</span>?
+@<span class="hljs-type">Environment</span>(\.verticalSizeClass) <span class="hljs-keyword">var</span> verticalSizeClass: <span class="hljs-type">UserInterfaceSizeClass</span>?
+</code></pre>
+<p><code>@Environment</code> 属性包装器允许你读取环境值。 在上面的程式码中，我们告诉 SwiftUI 要同时读取水平和垂直尺寸类别，并侦测它们的变化。 换句话说，只要iPhone的营幕方向改变，App就会收到通知。</p>
+<p>如果你还没有这样做，请确保将上面的程式码插入到 <code>SwiftUIPhotoGrid</code> 中。</p>
+<p>下一个问题是我们如何取得通知并作出相对应的行动？ SwiftUI 提供了一个名为 <code>.onChange()</code> 的修饰器。 你可以将此修饰器附加到任何视图以侦视任何状态更改。 在这种情况下，我们可以像以程式码将修饰器附加到 <code>NavigationView</code>：</p>
+<pre><code class="lang-swift">.onChange(of: verticalSizeClass) { value <span class="hljs-keyword">in</span>
+    <span class="hljs-keyword">self</span>.gridLayout = [ <span class="hljs-type">GridItem</span>(.adaptive(minimum:  verticalSizeClass == .compact  ? <span class="hljs-number">100</span> : <span class="hljs-number">250</span>)), <span class="hljs-type">GridItem</span>(.flexible()) ]
+}
+</code></pre>
+<p>我们侦测 <code>horizontalSizeClass</code> 和 <code>verticalSizeClass</code> 变数的任何变化。 每当有改变时，我们都会用新的网格配置更新 <code>gridLayout</code> 变数。 iPhone 在横向上具有 <em>compact</em> 高度。 因此，如果 <code>verticalSizeClass</code> 的值等于 <code>.compact</code>，我们将网格项的最小大小更改为 250 点。</p>
+<p>现在再次在 iPhone 模拟器上运行App。 当你将iPhone向横转动时，它就会并排显示咖啡馆照片和咖啡照片。</p>
+<figure id="fig29.19"><img src="images/gridlayout/swiftui-gridlayout-19.png" alt="图 29.19. 横向形式的 App UI"><figcaption>图 29.19. 横向形式的 App UI</figcaption></figure>
+<h3 id="%E7%B7%B4%E7%BF%92">练习</h3>
+<p>我有几个简单练习给你。 首先，App UI 在 iPad 上看起来不是太好。 请修改一下程式码并解决下图的问题，使其仅显示两列：一列用于咖啡馆照片，另一列用于咖啡照片。</p>
+<figure id="fig29.20"><img src="images/gridlayout/swiftui-gridlayout-21.jpg" alt="图 29.21. 在iPad上的UI"><figcaption>图 29.21. 在iPad上的UI</figcaption></figure>
+<p>下一个练习会稍为复杂一点，以下是你要做的事项：</p>
+<ol>
+<li><strong>iPhone 和 iPad 的不同预设网格布局</strong> - 当首次执行App时，它会在iPhone直向模式下显示单个列网格。 但当 iPad 和 iPhone 在横向模式，App就会以 2 列网格显示咖啡馆照片。</li>
+<li><strong>显示/隐藏咖啡照片</strong> - 在导航栏中添加一个新按钮，用于显示/隐藏咖啡照片。 在预设的情况下，App仅显示咖啡馆照片列表。 点击此按钮时，就会显示咖啡照片网格。</li>
+<li><strong>建立另一个用于切换网格布局的按钮</strong> - 添加另一个条形按钮，使用者可以用于切换一列和两列的网格布局。</li>
+</ol>
+<figure id="fig29.21"><img src="images/gridlayout/swiftui-gridlayout-22.jpg" alt="图 29.22. 加强 App 在 iPhone 和 iPad 上的功能"><figcaption>图 29.22. 加强 App 在 iPhone 和 iPad 上的功能</figcaption></figure>
+<p>为了帮助你更理解这个练习，请去 <a href="https://link.appcoda.com/multigrid-demo" target="_blank">https://link.appcoda.com/multigrid-demo</a> 观看此动画示范。</p>
+<h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
+<p>第一个版本的 SwiftUI 框架缺少了的集合视图，新版本终于解决了这个问题。 苹果公司加入了 <code>LazyVGrid</code> 和 <code>LazyHGrid</code> 让开发者可以用几行程式码就能建立不同类型的网格布局。 本章只是简略示范了这两个新 UI 组件的运作， 我鼓励你尝试不同的 <code>GridItem</code> 配置，看看可以实现哪些网格布局。</p>
+<p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
+<ul>
+<li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGridLayout.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGridLayout.zip</a></li>
+<li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIPhotoGrid.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIPhotoGrid.zip</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-expandable-list.html" class="navigation navigation-prev " aria-label="Previous page: 如何建立展开式列表视图和大纲视图"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-progress-ring.html" class="navigation navigation-next " aria-label="Next page: 使用 Shape 和 Animatable 开发带动画的环形进度条"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -1,0 +1,1492 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>JSON、滑杆的运用与资料过滤 | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-core-data.html" />
+    
+    
+    <link rel="prev" href="./swiftui-advanced-animations.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="21" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-21-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-json%E3%80%81%E6%BB%91%E6%A1%BF%E8%88%87%E8%B3%87%E6%96%99%E7%AF%A9%E9%81%B8">第 21 章<br>使用 JSON、滑杆与资料筛选</h1>
+<p>JSON 是 JavaScript Object Notation 的缩写，是用户端- 伺服器应用程式中用于资料交换的通用资料格式。即使我们是行动装置 App 的开发者，也不可避免地要使用 JSON，因为几乎所有的 Web API 或后端网页服务都使用 JSON 作为资料交换的格式。</p>
+<p>在本章中，我们将讨论当使用 SwiftUI 框架建立 App 时如何使用 JSON。如果你对于不了解 JSON 的话，我建议看一下在《iOS 程式设计进阶攻略》一书中的 <a href="https://www.appcoda.com/intermediate-swift-tips/json.html" target="_blank">免费试阅章节</a> ，这里会详细解释在 Swift 中处理 JSON 的两种不同方法。</p>
+<figure id="fig21.1"><img src="images/json/swiftui-json-1.png" alt="图 21.1.　范例App"><figcaption>图 21.1.　范例App</figcaption></figure>
+<p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是透过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的范例 App，我们将呼叫一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
+<p>除此之外，我们将示范滑杆（Slider ）的用法，滑杆是SwiftUI 提供的众多内建 UI 控制元件之一。你将在 App 中实作一个资料筛选选项，以让使用者可以筛选清单中的贷款资料，如图 21.2 所示。</p>
+<figure id="fig21.2"><img src="images/json/swiftui-json-2.png" alt="图 21.2.　滑杆控制元件"><figcaption>图 21.2.　滑杆控制元件</figcaption></figure>
+<h3 id="%E4%BA%86%E8%A7%A3-json-%E8%88%87-codable">了解 JSON 与 Codable</h3>
+<p>首先，JSON 格式是什么样子呢？如果你不了解 JSON，则开启浏览器，并指向下列由 Kiva 提供的 Web API：</p>
+<pre><code>https://api.kivaws.org/v1/loans/newest.json
+</code></pre><p>你应该会看到下列的内容： </p>
+<pre><code>{
+    &quot;loans&quot;: [
+        {
+            &quot;activity&quot;: &quot;Fruits &amp; Vegetables&quot;,
+            &quot;basket_amount&quot;: 25,
+            &quot;bonus_credit_eligibility&quot;: false,
+            &quot;borrower_count&quot;: 1,
+            &quot;description&quot;: {
+                &quot;languages&quot;: [
+                    &quot;en&quot;
+                ]
+            },
+            &quot;funded_amount&quot;: 0,
+            &quot;id&quot;: 1929744,
+            &quot;image&quot;: {
+                &quot;id&quot;: 3384817,
+                &quot;template_id&quot;: 1
+            },
+            &quot;lender_count&quot;: 0,
+            &quot;loan_amount&quot;: 250,
+            &quot;location&quot;: {
+                &quot;country&quot;: &quot;Papua New Guinea&quot;,
+                &quot;country_code&quot;: &quot;PG&quot;,
+                &quot;geo&quot;: {
+                    &quot;level&quot;: &quot;town&quot;,
+                    &quot;pairs&quot;: &quot;-9.4438 147.180267&quot;,
+                    &quot;type&quot;: &quot;point&quot;
+                },
+                &quot;town&quot;: &quot;Port Moresby&quot;
+            },
+            &quot;name&quot;: &quot;Mofa&quot;,
+            &quot;partner_id&quot;: 582,
+            &quot;planned_expiration_date&quot;: &quot;2020-04-02T08:30:11Z&quot;,
+            &quot;posted_date&quot;: &quot;2020-03-03T09:30:11Z&quot;,
+            &quot;sector&quot;: &quot;Food&quot;,
+            &quot;status&quot;: &quot;fundraising&quot;,
+            &quot;tags&quot;: [],
+            &quot;themes&quot;: [
+                &quot;Vulnerable Groups&quot;,
+                &quot;Rural Exclusion&quot;,
+                &quot;Underfunded Areas&quot;
+            ],
+            &quot;use&quot;: &quot;to purchase additional vegetables to increase her currrent sales.&quot;
+        },
+
+        ...
+
+        &quot;paging&quot;: {
+        &quot;page&quot;: 1,
+        &quot;page_size&quot;: 20,
+        &quot;pages&quot;: 284,
+        &quot;total&quot;: 5667
+    }
+}
+</code></pre><p>你的显示结果可能不是相同的格式，但这就是 JSON 回应的样式。如果你使用的是 Chrome，则可以下载并安装一个名为“JSON Formatter”（<a href="http://link.appcoda.com/json-formatter" target="_blank">http://link.appcoda.com/json-formatter</a> ）的外挂程式，来美化 JSON 回应。</p>
+<p>或者，你可以在 Mac 上使用下列的指令，来对格式化 JSON 资料： </p>
+<pre><code class="lang-bash">curl https://api.kivaws.org/v1/loans/newest.json | python -m json.tool &gt; kiva-loans-data.txt
+</code></pre>
+<p>这将格式化 JSON 回应，并将其储存到文字档中。</p>
+<p>现在你对 JSON 有一些了解了，我们如何在 Swift 中解析 JSON 资料呢？从 Swift 4 开始， Apple 导入一个编码及解码 JSON 资料的新方式，即采用了一个名为 <code>Codable</code>的协定。</p>
+<p><code>Codable</code> 为开发者提供一个不同的方式来解码（或编码）JSON，从而简化了整个过程。只要你的型别遵循<code>Codable</code> 协定以及新的 <code>JSONDecoder</code>，你就能够将 JSON 资料解码到你指定的实例（instance ）中。</p>
+<p>图 21.3 说明了使用 <code>JSONDecoder</code>，将范例借贷资料解码为一个 <code>Loan</code> 实例。</p>
+<figure id="fig21.3"><img src="images/json/swiftui-json-3.png" alt="图 21.3.　JSONDecoder 解码 JSON 资料，并将其转换为一个 Loan 实例"><figcaption>图 21.3.　JSONDecoder 解码 JSON 资料，并将其转换为一个 Loan 实例</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8-jsondecoder-%E8%88%87-codable">使用 JSONDecoder 与 Codable</h3>
+<p>在建立范例 App 之前，我们在 Playgrounds 上尝试 JSON 解码。启动 Xcode，并开启一个新的 Playgrounds 专案（在 Xcode 选单并选择 <em>File &gt; New &gt; Playground...</em>），当你建立你的 Playground 专案后，宣告下列的 <code>json</code> 变数： </p>
+<pre><code class="lang-swift">let json = &quot;&quot;&quot;
+{
+
+&quot;name&quot;: &quot;John Davis&quot;,
+&quot;country&quot;: &quot;Peru&quot;,
+&quot;use&quot;: &quot;to buy a new collection of clothes to stock her shop before the holidays.&quot;,
+&quot;amount&quot;: 150
+
+}
+&quot;&quot;&quot;
+</code></pre>
+<p>假设你是 JSON 解析的新手，我们简单说明一下。上面是一个简化的 JSON 回应，类似于上一小节所示的回应。</p>
+<p>要解析资料，宣告 <code>Loan</code> 结构如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Codable</span> </span>{
+    <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> country: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> use: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> amount: <span class="hljs-type">Int</span>
+}
+</code></pre>
+<p>如你所见，该结构采用了 <code>Codable</code>协定。而且，结构中定义的变数与 JSON 回应的键值相符，这是让解码器知道如何解码资料的方法。</p>
+<p>现在，让我们来看看它的魔力 ！ </p>
+<p>继续在Playground 档案中插入下列的程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">let</span> decoder = <span class="hljs-type">JSONDecoder</span>()
+
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> jsonData = json.data(using: .utf8) {
+
+    <span class="hljs-keyword">do</span> {
+        <span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
+        <span class="hljs-built_in">print</span>(loan)
+
+    } catch {
+        <span class="hljs-built_in">print</span>(error)
+    }
+}
+</code></pre>
+<p>如果你执行这个专案，则应该在主控台中看到一个讯息，这是 <code>Loan</code> 实例，其中填满了解码后的值。</p>
+<figure id="fig21.4"><img src="images/json/swiftui-json-4.png" alt="图 21.4.　在主控台中显示解码后的借贷资料"><figcaption>图 21.4.　在主控台中显示解码后的借贷资料</figcaption></figure>
+<p>让我们再次研究程式码片段。我们实例化一个 <code>JSONDecoder</code> 实例，然后将 JSON 字串转换为 <code>Loan</code>。而魔法发生在下列这行程式码中： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
+</code></pre>
+<p>你只需要呼叫解码器的 <code>decode</code> 方法来对 JSON 资料解码，并指定要解码的值的型别（即 <code>Loan.self</code> ）。解码器会自动解析 JSON 资料，并将其转换为一个 <code>Loan</code> 物件。</p>
+<p>很酷，是吧？ </p>
+<h3 id="%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1">使用自定义属性名称</h3>
+<p>现在，让我们进入更复杂的内容。如果属性名称与 JSON 的键不同的话，该怎么办？你如何定义映射（mapping ）呢？ </p>
+<p>举例而言，我们修改 <code>json</code> 变数如下： </p>
+<pre><code class="lang-swift">let json = &quot;&quot;&quot;
+{
+
+&quot;name&quot;: &quot;John Davis&quot;,
+&quot;country&quot;: &quot;Peru&quot;,
+&quot;use&quot;: &quot;to buy a new collection of clothes to stock her shop before the holidays.&quot;,
+&quot;loan_amount&quot;: 150
+
+}
+&quot;&quot;&quot;
+</code></pre>
+<p>如你所见，<code>amount</code> 这个键现在改为 <code>loan_amount</code>。为了解码 JSON 资料，你可以将属性名称从 <code>amount</code> 改为<code>loan_amount</code>。不过，我们真的想要保留名称 <code>amount</code>，在这种的情况下，我们如何定义映射呢？ </p>
+<p>要定义键与属性名称之间的映射，你需要宣告一个名为“CodingKeys”的列举， <code>CodingKeys</code> 列举具有一个    <code>String</code> 型别的原始值，并遵循 <code>CodingKey</code> 协定。</p>
+<p>现在，更新 <code>Loan</code> 结构如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Codable</span> </span>{
+    <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> country: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> use: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> amount: <span class="hljs-type">Int</span>
+
+    <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">CodingKeys</span>: <span class="hljs-title">String</span>, <span class="hljs-title">CodingKey</span> </span>{
+        <span class="hljs-keyword">case</span> name
+        <span class="hljs-keyword">case</span> country
+        <span class="hljs-keyword">case</span> use
+        <span class="hljs-keyword">case</span> amount = <span class="hljs-string">&quot;loan_amount&quot;</span>
+    }
+}
+</code></pre>
+<p>在列举中，你定义了模型的所有属性名称，以及其在 JSON 资料中的对应键。例如：<code>amount</code> 定义为映射<code>loan_amount</code> 这个键，如果属性名称与 JSON 资料的键相同，则可以省略这个指定。</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%B7%A2%E7%8B%80-json-%E7%89%A9%E4%BB%B6">使用巢状 JSON 物件</h3>
+<p>现在，你应该了解基础知识了，让我们深入研究并解码一个更切合实际的 JSON 回应。首先，更新 <code>json</code> 变数如下： </p>
+<pre><code class="lang-swift">let json = &quot;&quot;&quot;
+{
+
+&quot;name&quot;: &quot;John Davis&quot;,
+&quot;location&quot;: {
+&quot;country&quot;: &quot;Peru&quot;,
+},
+&quot;use&quot;: &quot;to buy a new collection of clothes to stock her shop before the holidays.&quot;,
+&quot;loan_amount&quot;: 150
+
+}
+&quot;&quot;&quot;
+</code></pre>
+<p>我们已加入了 <code>location</code> 这个键，它具有巢状 JSON 物件以及 <code>country</code> 巢状键。那么，我们如何从巢状物件中解码 <code>country</code> 的值呢？ </p>
+<p>我们修改 <code>Loan</code> 结构如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Codable</span> </span>{
+    <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> country: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> use: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> amount: <span class="hljs-type">Int</span>
+
+    <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">CodingKeys</span>: <span class="hljs-title">String</span>, <span class="hljs-title">CodingKey</span> </span>{
+        <span class="hljs-keyword">case</span> name
+        <span class="hljs-keyword">case</span> country = <span class="hljs-string">&quot;location&quot;</span>
+        <span class="hljs-keyword">case</span> use
+        <span class="hljs-keyword">case</span> amount = <span class="hljs-string">&quot;loan_amount&quot;</span>
+    }
+
+    <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">LocationKeys</span>: <span class="hljs-title">String</span>, <span class="hljs-title">CodingKey</span> </span>{
+        <span class="hljs-keyword">case</span> country
+    }
+
+    <span class="hljs-keyword">init</span>(from decoder: <span class="hljs-type">Decoder</span>) throws {
+        <span class="hljs-keyword">let</span> values = try decoder.container(keyedBy: <span class="hljs-type">CodingKeys</span>.<span class="hljs-keyword">self</span>)
+
+        name = try values.decode(<span class="hljs-type">String</span>.<span class="hljs-keyword">self</span>, forKey: .name)
+
+        <span class="hljs-keyword">let</span> location = try values.nestedContainer(keyedBy: <span class="hljs-type">LocationKeys</span>.<span class="hljs-keyword">self</span>, forKey: .country)
+        country = try location.decode(<span class="hljs-type">String</span>.<span class="hljs-keyword">self</span>, forKey: .country)
+
+        use = try values.decode(<span class="hljs-type">String</span>.<span class="hljs-keyword">self</span>, forKey: .use)
+        amount = try values.decode(<span class="hljs-type">Int</span>.<span class="hljs-keyword">self</span>, forKey: .amount)
+
+    }
+}
+</code></pre>
+<p>和我们之前所做的类似，我们必须定义一个列举 <code>CodingKeys</code>。对于 <code>country</code> 这个 case， 我们指定要映射<code>location</code> 键。而要处理巢状的 JSON 物件，我们需要定义另一个列举，在上面的程式码中，我们将其命名为<code>LocationKeys</code>，并宣告与巢状物件的 <code>country</code> 键相符的 <code>country</code> 这个 case。</p>
+<p>因为它不是直接映射，我们需要实作 <code>Decodable</code>  协定的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 呼叫解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
+<p>要解码一个特定值，我们使用特定键（例如：.name ）和关联型别（例如：String.self ） 来呼叫 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 呼叫 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
+<p>以上为使用巢状物件来解码JSON 资料的方式。</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E9%99%A3%E5%88%97">使用阵列</h3>
+<p>从 Kiva API 所回传的 JSON 资料中，通常不只一笔贷款，多笔贷款以阵列的形式建构， 现在我们来看如何使用Codable 解码 JSON 物件的阵列。</p>
+<p>首先，修改 <code>json</code> 变数如下：</p>
+<pre><code class="lang-swift">let json = &quot;&quot;&quot;
+{
+&quot;loans&quot;:
+[{
+&quot;name&quot;: &quot;John Davis&quot;,
+&quot;location&quot;: {
+&quot;country&quot;: &quot;Paraguay&quot;,
+},
+&quot;use&quot;: &quot;to buy a new collection of clothes to stock her shop before the holidays.&quot;,
+&quot;loan_amount&quot;: 150
+},
+{
+&quot;name&quot;: &quot;Las Margaritas Group&quot;,
+&quot;location&quot;: {
+&quot;country&quot;: &quot;Colombia&quot;,
+},
+&quot;use&quot;: &quot;to purchase coal in large quantities for resale.&quot;,
+&quot;loan_amount&quot;: 200
+}]
+}
+&quot;&quot;&quot;
+</code></pre>
+<p>在上面的范例中，<code>json</code> 变数中有两笔贷款资料，你如何将其解码为 <code>Loan</code> 的阵列呢？ </p>
+<p>为此，宣告另一个名称为 <code>LoanStore</code>的结构，该结构也采用 <code>Codable</code> 协定： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Codable</span> </span>{
+    <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>]
+}
+</code></pre>
+<p>该 <code>LoanStore</code> 只有一个 <code>loans</code> 属性，它与 JSON 资料的 <code>loans</code> 键相符。并且，其型别定义为 <code>Loan</code> 的阵列。</p>
+<p>要解码贷款资料，将下列这行程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
+</code></pre>
+<p>修改为： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">let</span> loanStore = try decoder.decode(<span class="hljs-type">LoanStore</span>.<span class="hljs-keyword">self</span>, from: jsonData)
+</code></pre>
+<p>解码器将自动解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 阵列中。如果你印出 <code>loans</code>，应该会看到如图 21.5 所示的类似讯息。</p>
+<figure id="fig21.5"><img src="images/json/swiftui-json-5.png" alt="图 21.5.　印出loans 阵列"><figcaption>图 21.5.　印出loans 阵列</figcaption></figure>
+<p>以上就是使用 Swift 解码 JSON 的方式。</p>
+<p><em>注意：作为参考，Playgrounds 项目包含在最终下载档内。 你可以在本章末端找到下载连结。</em></p>
+<h3 id="%E5%BB%BA%E7%AB%8B-kiva-%E8%B2%B8%E6%AC%BE-app">建立 Kiva 贷款 App</h3>
+<p>好的，你现在应该已经了解如何处理 JSON 解码，让我们开始建立一个范例 App，来看如何运用刚刚所学的技术。</p>
+<p>倘若你已经开启 Xcode，至选单并选择“File → New → Projects”来建立一个新专案。如往常一样，使用“App”模板，并将专案名称命名为“SwiftUIKivaLoan”或是你所喜爱的其他名称。</p>
+<p>我们将从建立模型类别来开始，该模型类别储存从 Kiva 取得的所有最新贷款资料。对于使用者介面的实作，我们将稍后处理。</p>
+<h4 id="%E5%8F%96%E5%BE%97-kiva-%E6%9C%80%E6%96%B0%E7%9A%84%E8%B2%B8%E6%AC%BE%E8%B3%87%E6%96%99">取得 Kiva 最新的贷款资料</h4>
+<p>首先，使用“Swift File”模板来建立一个新档案，并将其命名为 <code>Loan.swift</code>。这个档案储存了采用 Codable 协定来进行 JSON 解码的 <code>Loan</code> 结构。</p>
+<p>在档案中插入下列的程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Identifiable</span> </span>{
+    <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
+    <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> country: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> use: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> amount: <span class="hljs-type">Int</span>
+
+    <span class="hljs-keyword">init</span>(name: <span class="hljs-type">String</span>, country: <span class="hljs-type">String</span>, use: <span class="hljs-type">String</span>, amount: <span class="hljs-type">Int</span>) {
+        <span class="hljs-keyword">self</span>.name = name
+        <span class="hljs-keyword">self</span>.country = country
+        <span class="hljs-keyword">self</span>.use = use
+        <span class="hljs-keyword">self</span>.amount = amount
+    }
+
+}
+
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Codable</span> </span>{
+    <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">CodingKeys</span>: <span class="hljs-title">String</span>, <span class="hljs-title">CodingKey</span> </span>{
+        <span class="hljs-keyword">case</span> name
+        <span class="hljs-keyword">case</span> country = <span class="hljs-string">&quot;location&quot;</span>
+        <span class="hljs-keyword">case</span> use
+        <span class="hljs-keyword">case</span> amount = <span class="hljs-string">&quot;loan_amount&quot;</span>
+    }
+
+    <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">LocationKeys</span>: <span class="hljs-title">String</span>, <span class="hljs-title">CodingKey</span> </span>{
+        <span class="hljs-keyword">case</span> country
+    }
+
+    <span class="hljs-keyword">init</span>(from decoder: <span class="hljs-type">Decoder</span>) throws {
+        <span class="hljs-keyword">let</span> values = try decoder.container(keyedBy: <span class="hljs-type">CodingKeys</span>.<span class="hljs-keyword">self</span>)
+
+        name = try values.decode(<span class="hljs-type">String</span>.<span class="hljs-keyword">self</span>, forKey: .name)
+
+        <span class="hljs-keyword">let</span> location = try values.nestedContainer(keyedBy: <span class="hljs-type">LocationKeys</span>.<span class="hljs-keyword">self</span>, forKey: .country)
+        country = try location.decode(<span class="hljs-type">String</span>.<span class="hljs-keyword">self</span>, forKey: .country)
+
+        use = try values.decode(<span class="hljs-type">String</span>.<span class="hljs-keyword">self</span>, forKey: .use)
+        amount = try values.decode(<span class="hljs-type">Int</span>.<span class="hljs-keyword">self</span>, forKey: .amount)
+
+    }
+}
+</code></pre>
+<p>程式码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协定，除了<code>Codable</code> 协定之外，这个结构也采用了 <code>Identifiable</code> 协定，并具有预设为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制元件来呈现这些贷款资料， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协定的原因。</p>
+<p>接下来， 使用“Swift File”模板来建立另一个档案， 并将其命名为“LoanStore. swift”。这个类别是负责连接到 Kiva 的 Web API、解码  JSON 资料，并将资料储存在本地端。</p>
+<p>我们来逐步撰写 <code>LoanStore</code> 类别， 如此你就可以更加了解我是如何实作的。在 <code>LoanStore.swift</code> 中插入下列的程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span> </span>{
+    <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
+}
+</code></pre>
+<p>稍后，解码器将解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 阵列中，这就是为什么我们建立上述 <code>LoanStore</code> 的原因。程式码看起来与我们之前建立的 <code>LoanStore</code> 结构非常相似，但是它采用 <code>Decodable</code> 协定而不是<code>Codable</code> 协定。</p>
+<p>如果你研究 <code>Codable</code> 的文件，它只是一个协定组成的型别别名： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">typealias</span> <span class="hljs-type">Codable</span> = <span class="hljs-type">Decodable</span> &amp; <span class="hljs-type">Encodable</span>
+</code></pre>
+<p><code>Decodable</code> 与 <code>Encodable</code> 是你需要实际使用的两个协定。由于<code>LoanStore</code> 只有负责处理 JSON 解码，因此我们采用 <code>Decodable</code> 协定。</p>
+<p>如前所述，我们将使用一个清单视图来显示 <code>loans</code>。因此，除了 <code>Decodable</code>之外，我们必须采用<code>ObservableObject</code> 协定，并使用 <code>@Published</code> 属性包裹器标记 <code>loans</code> 变数，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span>, <span class="hljs-title">ObservableObject</span> </span>{
+    @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
+}
+</code></pre>
+<p>如此，当 <code>loans</code> 变数有任何变动时，SwiftUI 将自动管理 UI 的更新。如果你已经忘记什么是 <code>ObservableObject</code>，则请再次阅读第 14 章。</p>
+<p>不过，当你加上 <code>@Published</code> 属性包裹器后，Xcode 就会显示一个错误讯息，如图 21.6 所示。<code>Decodable</code>（或Codable ）协定在 <code>@Published</code>上不好发挥作用。</p>
+<figure id="fig21.6"><img src="images/json/swiftui-json-6.png" alt="图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协定的错误讯息"><figcaption>图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协定的错误讯息</figcaption></figure>
+<p>要修正这个错误，需要做一些额外的工作。当使用 <code>@Published</code> 属性包裹器时，我们需要手动实作 <code>Decodable</code>所需的方法。如果你研究文件（<a href="https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：" target="_blank">https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：</a> </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">init</span>(from decoder: <span class="hljs-type">Decoder</span>) throws
+</code></pre>
+<p>实际上，在解码巢状的 JSON 物件时，我们已经实作这个方法，现在更新类别如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span>, <span class="hljs-title">ObservableObject</span> </span>{
+    @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
+
+    <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">CodingKeys</span>: <span class="hljs-title">CodingKey</span> </span>{
+        <span class="hljs-keyword">case</span> loans
+    }
+
+    required <span class="hljs-keyword">init</span>(from decoder: <span class="hljs-type">Decoder</span>) throws {
+        <span class="hljs-keyword">let</span> values = try decoder.container(keyedBy: <span class="hljs-type">CodingKeys</span>.<span class="hljs-keyword">self</span>)
+        loans = try values.decode([<span class="hljs-type">Loan</span>].<span class="hljs-keyword">self</span>, forKey: .loans)
+    }
+
+    <span class="hljs-keyword">init</span>() {
+
+    }
+}
+</code></pre>
+<p>我们加上 <code>CodingKeys</code> 列举来明确指定要解码的键，然后我们实作自订的初始器来处理解码。</p>
+<p>好的，错误现在已经修正了，那下一步呢？</p>
+<h3 id="%E5%91%BC%E5%8F%AB-web-api">呼叫 Web API</h3>
+<p>到目前为止，我们只设定了 JSON 解码的所有内容，但我们尚未使用 Web API。现在于 <code>LoanStore</code> 类别中宣告一个新变数，来储存 Kiva API 的URL： </p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> kivaLoanURL = <span class="hljs-string">&quot;https://api.kivaws.org/v1/loans/newest.json&quot;</span>
+</code></pre>
+<p>Next, insert the following methods in the class:</p>
+<pre><code class="lang-swift">func fetchLatestLoans() {
+    guard let loanUrl = URL(string: Self.kivaLoanURL) else {
+        return
+    }
+
+    let request = URLRequest(url: loanUrl)
+    let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -&gt; Void in
+
+        if let error = error {
+            print(error)
+            return
+        }
+
+        // 解析 JSON 资料
+        if let data = data {
+            DispatchQueue.main.async {
+                self.loans = self.parseJsonData(data: data)
+            }
+
+        }
+    })
+
+    task.resume()
+}
+
+func parseJsonData(data: Data) -&gt; [Loan] {
+
+    let decoder = JSONDecoder()
+
+    do {
+
+        let loanStore = try decoder.decode(LoanStore.self, from: data)
+        self.loans = loanStore.loans
+
+    } catch {
+        print(error)
+    }
+
+    return loans
+}
+</code></pre>
+<p><code>fetchLatestLoans()</code> 方法透过使用 <code>URLSession</code> 来连接到 Web API。当它接收到 API 回传的资料后，它会传送资料给 <code>parseJsonData</code> 方法来解码 JSON，并转换贷款资料为 <code>Loan</code> 阵列。</p>
+<p>你可能想知道为什么我们需要使用 <code>DispatchQueue.main.async</code> 来包裹这行程式码？ </p>
+<pre><code class="lang-swift"><span class="hljs-type">DispatchQueue</span>.main.async {
+    <span class="hljs-keyword">self</span>.loans = <span class="hljs-keyword">self</span>.parseJsonData(data: data)
+}
+</code></pre>
+<p>当呼叫 Web API 时， 该操作是在背景伫列中执行。在此，<code>loans</code> 变数标记为 <code>@Published</code>，这意味着对于变数的任何修改，SwiftUI 将触发使用者介面的更新。而且， UI 更新需要在主伫列中执行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
+<h4 id="%E5%AF%A6%E4%BD%9C%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">实作使用者介面</h4>
+<p>现在，我们已经建立了用于取得贷款资料的类别，让我们继续进行使用者介面的实作。我猜想你可能忘了UI 的外观，请参考图 21.7，这是我们将要建立的 UI。</p>
+<figure id="fig21.7"><img src="images/json/swiftui-json-7.png" alt="图 21.7.　范例 App 的使用者介面"><figcaption>图 21.7.　范例 App 的使用者介面</figcaption></figure>
+<p>而且，我们将UI 分成三个视图，而不是在同一个档案中撰写UI 的程式码： </p>
+<ul>
+<li><em>ContentView.swift</em> - 这是呈现贷款清单的主视图。</li>
+<li><em>LoanCellView.swift</em> - 这是单元格视图。</li>
+<li><em>LoanFilterView.swift</em> - 这是显示筛选选项的视图。</li>
+</ul>
+<p>我们从单元格视图开始。在专案导览器中，在 <code>SwiftUIKivaLoan</code>  按右键，选择“New file...”，然后选取“SwiftUI View”模板，并将档案命名为 <code>LoanCellView.swift</code>。</p>
+<p>更新 <code>LoanCellView</code> 如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanCellView</span>: <span class="hljs-title">View</span> </span>{
+
+    <span class="hljs-keyword">var</span> loan: <span class="hljs-type">Loan</span>
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">HStack</span>(alignment: .top) {
+            <span class="hljs-type">VStack</span>(alignment: .leading) {
+                <span class="hljs-type">Text</span>(loan.name)
+                    .font(.system(.headline, design: .rounded))
+                    .bold()
+                <span class="hljs-type">Text</span>(loan.country)
+                    .font(.system(.subheadline, design: .rounded))
+                <span class="hljs-type">Text</span>(loan.use)
+                    .font(.system(.body, design: .rounded))
+            }
+
+            <span class="hljs-type">Spacer</span>()
+
+            <span class="hljs-type">VStack</span> {
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;$<span class="hljs-subst">\(loan.amount)</span>&quot;</span>)
+                    .font(.system(.title, design: .rounded))
+                    .bold()
+            }
+        }
+        .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)
+
+    }
+}
+</code></pre>
+<p>这个视图带入 <code>Loan</code>，并渲染单元格视图。该程式码一目了然，但如果你想要预览单元格视图，你将需要修改<code>LoanCellView_Previews</code> 如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanCellView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">LoanCellView</span>(loan: <span class="hljs-type">Loan</span>(name: <span class="hljs-string">&quot;Ivan&quot;</span>, country: <span class="hljs-string">&quot;Uganda&quot;</span>, use: <span class="hljs-string">&quot;to buy a plot of land&quot;</span>, amount: <span class="hljs-number">575</span>)).previewLayout(.sizeThatFits)
+    }
+}
+</code></pre>
+<p>我们实例化一个虚构的贷款资料，并传送至单元格视图做渲染。只要你将预览设定为 <em>Selectable</em> 模式，你的预览面板看起来应该与图 21.8 类似。</p>
+<figure id="fig21.8"><img src="images/json/swiftui-json-8.png" alt="图 21.8.　贷款单元格视图"><figcaption>图 21.8.　贷款单元格视图</figcaption></figure>
+<p>现在回到 <code>ContentView.swift</code> 来实作清单视图，首先，宣告一个名为 <code>loanStore</code> 的变数： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">ObservedObject</span> <span class="hljs-keyword">var</span> loanStore = <span class="hljs-type">LoanStore</span>()
+</code></pre>
+<p>由于我们要观察贷款商店的变化并更新UI，因此将 <code>loanStore</code> 标记为 <code>@ObservedObject</code> 属性包裹器。</p>
+<p>接着，更新 <code>body</code>变数如下： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+    <span class="hljs-type">NavigationStack</span> {
+
+        <span class="hljs-type">List</span>(loanStore.loans) { loan <span class="hljs-keyword">in</span>
+
+            <span class="hljs-type">LoanCellView</span>(loan: loan)
+                .padding(.vertical, <span class="hljs-number">5</span>)
+        }
+
+        .navigationTitle(<span class="hljs-string">&quot;Kiva Loan&quot;</span>)
+
+    }
+    .task {
+        <span class="hljs-keyword">self</span>.loanStore.fetchLatestLoans()
+    }
+}
+</code></pre>
+<p>如果你已经阅读了第 10 章与第 11 章，则应该了解如何显示清单视图，并将其嵌入到导览视图中，这就是上面的程式码所做的事情。在视图出现时将呼叫 <code>task</code> 函数，并且我们呼叫 <code>fetchLatestLoans()</code> 方法来从 Kiva 取得最新的贷款资料。</p>
+<p>如果这是你第一次使用 .task ，它与 .onAppear 非常相似。 两者都允许你在视图出现时运行异步任务。 主要区别在于<code>.task</code>会在视图被销毁时自动取消任务。 在这种情况下更合适。</p>
+<p>现在，在预览中或模拟器上执行这个 App，你应该能够看到如图 21.9 所示的贷款纪录。</p>
+<figure id="fig21.9"><img src="images/json/swiftui-json-9.png" alt="图 21.9.　在清单视图中呈现贷款资料"><figcaption>图 21.9.　在清单视图中呈现贷款资料</figcaption></figure>
+<h4 id="%E4%BD%BF%E7%94%A8%E6%BB%91%E6%A1%BF%E5%BB%BA%E7%AB%8B%E7%AF%A9%E9%81%B8%E5%99%A8%E8%A6%96%E5%9C%96">使用滑杆建立筛选器视图</h4>
+<p>在完成本章之前，我想要介绍如何实作一个筛选功能。这个筛选功能可让使用者定义最大贷款金额，并只显示低于该金额的那些纪录。图 21.7 为筛选器视图的范例，使用者可以使用滑杆来设定最大数量。</p>
+<p>同样的，为了让程式更有组织性，因此为筛选器视图建立一个新档案，并将其命名为 <code>LoanFilterView.swift</code>。</p>
+<p>现在更新 <code>LoanFilterView</code> 结构如下：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView</span>: <span class="hljs-title">View</span> </span>{
+
+    @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> amount: <span class="hljs-type">Double</span>
+
+    <span class="hljs-keyword">var</span> minAmount = <span class="hljs-number">0.0</span>
+    <span class="hljs-keyword">var</span> maxAmount = <span class="hljs-number">10000.0</span>
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span>(alignment: .leading) {
+
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Show loan amount below $<span class="hljs-subst">\(Int(amount)</span>)&quot;</span>)
+                .font(.system(.headline, design: .rounded))
+
+            <span class="hljs-type">HStack</span> {
+
+                <span class="hljs-type">Slider</span>(value: $amount, <span class="hljs-keyword">in</span>: minAmount...maxAmount, step: <span class="hljs-number">100</span>)
+                    .accentColor(.purple)
+
+            }
+
+            <span class="hljs-type">HStack</span> {
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;<span class="hljs-subst">\(Int(minAmount)</span>)&quot;</span>)
+                    .font(.system(.footnote, design: .rounded))
+
+                <span class="hljs-type">Spacer</span>()
+
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;<span class="hljs-subst">\(Int(maxAmount)</span>)&quot;</span>)
+                .font(.system(.footnote, design: .rounded))
+            }
+
+        }
+        .padding(.horizontal)
+        .padding(.bottom, <span class="hljs-number">10</span>)
+    }
+}
+</code></pre>
+<p>我假设你完全了解堆叠视图，因此我将不讨论如何使用它们来实现布局，不过让我们再多谈一下滑杆控制元件，其是 SwiftUI 所提供的一个标准元件，你可以透过传送滑杆的绑定（Binding ）、范围与滑杆刻度（step ）来实例化滑杆。绑定保存滑杆的目前值。以下是用于建立滑杆的范例程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Slider</span>(value: $amount, <span class="hljs-keyword">in</span>: minAmount...maxAmount, step: <span class="hljs-number">100</span>)
+</code></pre>
+<p>刻度可控制使用者拖曳滑杆时的更改量。如果你让使用者拥有很好的控制元件，请将刻度设定更小一点。对于上列的程式码，我们将其设定为“100”。</p>
+<p>为了预览筛选器视图，更新 LoanFilterView_Previews 如下：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">LoanFilterView</span>(amount: .constant(<span class="hljs-number">10000</span>))
+    }
+}
+</code></pre>
+<p>现在，你的预览应该如图 21.10 所示。</p>
+<figure id="fig21.10"><img src="images/json/swiftui-json-10.png" alt="图 21.10.　用于设定显示条件的筛选器视图"><figcaption>图 21.10.　用于设定显示条件的筛选器视图</figcaption></figure>
+<p>好的，我们已经实作了筛选器视图，但是我们尚未实作筛选纪录的实际逻辑。让我们增强 <code>LoanStore.swift</code> 的筛选功能。</p>
+<p>首先，宣告以下的变数，该变数用来储存贷款纪录的复本，以作为筛选操作之用。</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> cachedLoans: [<span class="hljs-type">Loan</span>] = []
+</code></pre>
+<p>要储存该副本，请插入下列这行程式码，并将其放在 <code>self.loans = self.parseJsonData(data: data)</code> 的后面：</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">self</span>.cachedLoans = <span class="hljs-keyword">self</span>.loans
+</code></pre>
+<p>最后，为筛选建立一个新函数： </p>
+<pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">filterLoans</span><span class="hljs-params">(maxAmount: Int)</span> </span>{
+    <span class="hljs-keyword">self</span>.loans = <span class="hljs-keyword">self</span>.cachedLoans.<span class="hljs-built_in">filter</span> { $<span class="hljs-number">0</span>.amount &lt; maxAmount }
+}
+</code></pre>
+<p>这个函数带入最大金额的值，并筛选低于该限额的那些贷款项目。</p>
+<p>酷 ！我们快完成了。</p>
+<p>让我们回到 <code>ContentView.swift</code> 来显示筛选器视图，我们要做的是在右上角加上一个导览列按钮。当使用者点击按钮时，App 会显示筛选器视图。</p>
+<p>我们首先宣告两个状态变数： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> filterEnabled = <span class="hljs-built_in">false</span>
+@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> maximumLoanAmount = <span class="hljs-number">10000.0</span>
+</code></pre>
+<p><code>filterEnabled</code> 变数储存筛选器视图的目前状态。预设是设定为“false”，表示没有显示筛选器视 图。<code>maximumLoanAmount</code> 储存用于显示的最大贷款金额，任何大于该限额的贷款纪录都将被隐藏。</p>
+<p>接下来，将 <code>NavigationView</code> 的程式码更新如下： </p>
+<pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
+    <span class="hljs-type">VStack</span> {
+        <span class="hljs-keyword">if</span> filterEnabled {
+            <span class="hljs-type">LoanFilterView</span>(amount: <span class="hljs-keyword">self</span>.$maximumLoanAmount)
+                .transition(.opacity)
+        }
+
+        <span class="hljs-type">List</span>(loanStore.loans) { loan <span class="hljs-keyword">in</span>
+
+            <span class="hljs-type">LoanCellView</span>(loan: loan)
+                .padding(.vertical, <span class="hljs-number">5</span>)
+        }
+    }
+
+    .navigationTitle(<span class="hljs-string">&quot;Kiva Loan&quot;</span>)
+}
+</code></pre>
+<p>我们添加了<code>LoanFilterView</code>并将其嵌入到 <code>VStack</code> 中。 <code>LoanFilterView</code> 的外观由 <code>filterEnabled</code> 控制。 当 <code>filterEnabled</code> 设置为 <code>true</code> 时，App将在列表视图的顶部插入贷款过滤器视图。 剩下的部分是导览列按钮，插入下列的程式码，并将其放在 <code>.navigationBarTitle(&quot;Kiva Loan&quot;)</code> 的后面： </p>
+<pre><code class="lang-swift">.toolbar {
+    <span class="hljs-type">ToolbarItem</span>(placement: .navigationBarTrailing) {
+        <span class="hljs-type">Button</span> {
+            withAnimation(.linear) {
+                <span class="hljs-keyword">self</span>.filterEnabled.toggle()
+                <span class="hljs-keyword">self</span>.loanStore.filterLoans(maxAmount: <span class="hljs-type">Int</span>(<span class="hljs-keyword">self</span>.maximumLoanAmount))
+            }
+        } label: {
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Filter&quot;</span>)
+                .font(.subheadline)
+                .foregroundColor(.primary)
+        }
+    }
+}
+</code></pre>
+<p>这将在右上角加入一个导览列按钮。当点击按钮后，我们切换 <code>filterEnabled</code> 的值来显示/ 隐藏筛选器视图。除此之外，我们呼叫 <code>filterLoans</code> 函数来筛选贷款项目。</p>
+<p>现在执行 App 来测试它，你应该会在导览列上看到一个筛选器按钮，点击它一次，将带出筛选器视图，然后你可以设定新的上限（例如：$500）。再次点击按钮，App 只会显示低于 $500的贷款纪录。</p>
+<figure id="fig21.11"><img src="images/json/swiftui-json-11.png" alt="图 21.11.　显示筛选器视图"><figcaption>图 21.11.　显示筛选器视图</figcaption></figure>
+<h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
+<p>本章介绍了很多的内容，你应该知道如何使用 Web API、解析 JSON 内容，以及在清单视图中显示资料，我们还简要介绍了滑杆控制元件的用法。</p>
+<p>如果你之前使用 UIKit 开发过 App，你可能会对 SwiftUI 的简单性感到惊讶。再看一下 ContentView 的程式码，只需要 40 行的程式码就可以建立清单视图。最重要的是，你不需要手动处理 UI 更新及传送资料，一切都在背后运作。</p>
+<p>为了参考，你可以至下列的网址下载完整的专案： </p>
+<ul>
+<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip</a>)</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-advanced-animations.html" class="navigation navigation-prev " aria-label="Previous page: 建立像 Apple Wallet App 的动画和转场效果"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-core-data.html" class="navigation navigation-next " aria-label="Next page: 如何使用 Core Data 建立 ToDo App"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

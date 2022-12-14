@@ -1,0 +1,41 @@
+h1 {
+#  margin-bottom: 50px;
+  font-size: 18pt !important;
+}
+
+h2 {
+#  padding-bottom: 4em;
+  font-size: 16pt !important;
+}
+
+.hljs-string {
+  color: #DD1144;
+}
+
+.hljs-keyword {
+  color: #800080;
+}
+
+.hljs-title {
+  color: #666666;
+}
+
+body .page {
+  font-family: Georgia, Arial;
+  font-size: 12pt !important;
+}
+
+body .page pre {
+  width: 480px;
+  font-size: 0.8em;
+  padding: 2px;
+  white-space: pre-wrap;
+}
+
+body .page pre > code {
+  white-space: pre-wrap;
+}
+
+img {
+  max-width: 80% !important;
+}

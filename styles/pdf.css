@@ -1,0 +1,74 @@
+@page {
+  size: A4;
+  margin-left: 2.5cm;
+  margin-right: 2.5cm;
+  margin-top: 3cm;
+  margin-bottom: 3cm;
+}
+
+
+h1 {
+  font-size: 18pt !important;
+}
+
+h2 {
+  font-size: 15pt !important;
+}
+
+body {
+  font-family: "Lucida Grande", "Trebuchet MS", Tahoma, sans-serif;
+  font-size: 12pt !important;
+}
+
+code .hljs-string {
+  color: #DD1144;
+}
+
+code .hljs-keyword {
+  color: #800080;
+}
+
+code .hljs-title {
+  color: #666666;
+}
+
+pre > code {
+  white-space: pre-wrap;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+img {
+  max-width:80% !important;
+}
+
+.pdf-footer,
+.pdf-header {
+    margin-top: 20px;
+    color: #aaa;
+}
+.pdf-footer .sub {
+    padding-top: 8px;
+    font-size: 70%;
+}
+.pdf-header .sub {
+    padding-top: 2px;
+    font-size: 70%;
+}
+.pdf-footer {
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+.pdf-footer .footer-pages-count {
+    float: right;
+}
+.pdf-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+.pdf-header .header-pages-count {
+    float: right;
+    text-align: right;
+}

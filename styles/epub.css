@@ -1,0 +1,19 @@
+.book .book-body .page-wrapper .page-inner section.normal h1 {
+#  margin-bottom: 50px;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal h2 {
+#  padding-bottom: 4em;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal pre .hljs-string, .book .book-body .page-wrapper .page-inner section.normal code .hljs-string {
+  color: #DD1144;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal pre .hljs-keyword, .book .book-body .page-wrapper .page-inner section.normal code .hljs-keyword {
+  color: #800080;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal pre .hljs-title, .book .book-body .page-wrapper .page-inner section.normal code .hljs-title {
+  color: #666666;
+}

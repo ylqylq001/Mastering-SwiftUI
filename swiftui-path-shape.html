@@ -1,0 +1,1215 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>实作路径(Path)与形状(Shape)来画线与圆饼图 | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-animation.html" />
+    
+    
+    <link rel="prev" href="./swiftui-state.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="8" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-8-%E7%AB%A0-br-%E5%AF%A6%E4%BD%9C%E8%B7%AF%E5%BE%91%E8%88%87%E5%BD%A2%E7%8B%80%E4%BE%86%E7%B9%AA%E8%A3%BD%E7%B7%9A%E6%A2%9D%E8%88%87%E5%9C%93%E9%A4%85%E5%9C%96">第 8 章<br>实作路径与形状来绘制线条与圆饼图</h1>
+<p>对于有经验的开发者，你可能已使用过 Core Graphics API 来绘制形状与物件。这是一个非常强大的框架，可于建立向量图。在 SwiftUI 中，它也提供几个向量绘图 API，可供开发者绘制线条与形状。</p>
+<p>在本章中，你将学习如何使用 <code>Path</code> 与内建的 <code>Shape</code>（如 <code>Circle</code> 与 <code>RoundedRectangle</code> ）， 来绘制线条、圆弧、圆饼图与环圈图。下列是我将要介绍的主题： </p>
+<ul>
+<li>了解 Path 以及如何利用它来绘制线条。</li>
+<li>什么是 <code>Shape</code> 协定？如何遵循这个协定来绘制出自订的形状？ </li>
+<li>如何绘制圆饼图（ pie chart）？ </li>
+<li>如何以开口圆环（ open circle）来建立一个进度指示器？ </li>
+<li>如何绘制环圈图（ donut chart）？ </li>
+</ul>
+<p>图8.1 列出了我们在后面的小节中所要建立的一些形状与图表。</p>
+<figure id="fig8.1"><img src="images/shape/swiftui-shape-1.png" alt="图 8.1.　范例形状与图形"><figcaption>图 8.1.　范例形状与图形</figcaption></figure>
+<h3 id="%E4%BA%86%E8%A7%A3-path">了解 Path</h3>
+<p>在 SwiftUI 中，你可使用 Path 绘制线条与形状。如果你参考 Apple 的文件 (<a href="https://developer.apple.com/documentation/swiftui/path" target="_blank">https://developer.apple.com/documentation/swiftui/path</a>) ， <code>Path</code> 是一个包含 2D 形状轮廓的结构，基本上，线条与形状是以路径逐步描绘。以图 8.2 为例，这是我们要在荧幕上绘制的矩形。</p>
+<figure id="fig8.2"><img src="images/shape/swiftui-shape-2.png" alt="图 8.2　具有座标的矩形"><figcaption>图 8.2　具有座标的矩形</figcaption></figure>
+<p>请叙说你要如何逐步绘制正方形呢？你可能会提供下列的描述： </p>
+<ol>
+<li>移动至点( 20, 20)。</li>
+<li>从( 20, 20 )画一条线至( 300, 20 )。</li>
+<li>从( 300, 20 画一条线至 (300, 200 )。</li>
+<li>从( 300, 200 ) 画一条线至( 20, 200 )。</li>
+<li>以绿色填满整个区域。</li>
+</ol>
+<p>这就是所谓的 <code>Path</code>。如果将上面的步骤写成程式码，程式码如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Path</span>() { path <span class="hljs-keyword">in</span>
+    path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">20</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">300</span>, y: <span class="hljs-number">20</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">300</span>, y: <span class="hljs-number">200</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">200</span>))
+}
+.fill(.green)
+</code></pre>
+<p>这里初始化一个 <code>Path</code>，并在闭包中提供详细的说明。你可以呼叫 <code>move(to:)</code> 方法移动至一个特定的座标。要从目前的点画一条线到特定的点，则可以呼叫 <code>addLine(to:)</code> 方法。预设上，iOS 会以预设的前景色（即黑色）来填满路径，若填满其他颜色，则可以使用 <code>.fill</code> 修饰器，并设定为其颜色。</p>
+<p>你可以使用 “App”模板建立一个新专案来测试程式码。将专案命名为 <code>SwiftUIShape</code>（或你喜欢的任何名称），然后在 <code>body</code> 输入上列的程式码片段，预览画布即会显示出一个绿色矩形，如图 8.3 所示。</p>
+<figure id="fig8.3"><img src="images/shape/swiftui-shape-3.png" alt="图 8.3.　使用路径绘制一个矩形"><figcaption>图 8.3.　使用路径绘制一个矩形</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8stroke-%E7%B9%AA%E8%A3%BD%E9%82%8A%E6%A1%86">使用Stroke 绘制边框</h3>
+<p>你不需要以颜色填满整个区域，如果你只想绘制线条的话，则可以使用 <code>.stroke</code> 修饰器，并指定线条的宽度与颜色，如图 8.4 所示。</p>
+<figure id="fig8.4"><img src="images/shape/swiftui-shape-4.png" alt="图 8.4　使用 Stroke 绘制线条"><figcaption>图 8.4　使用 Stroke 绘制线条</figcaption></figure>
+<p>因为我们没有指定将线条绘制到原点的步骤，所以显示为一个开放路径。要封闭路径的话，你可以在 <code>Path</code> 闭包的结尾处呼叫 <code>closeSubpath()</code> 方法，此方法会自动将目前点与起点连接起来。</p>
+<figure id="fig8.5"><img src="images/shape/swiftui-shape-5.png" alt="图 8.5　使用 closeSubpath() 封闭路径"><figcaption>图 8.5　使用 closeSubpath() 封闭路径</figcaption></figure>
+<h3 id="%E7%B9%AA%E8%A3%BD%E6%9B%B2%E7%B7%9A">绘制曲线</h3>
+<p><code>Path</code> 提供了多个内建的 API 来帮助你绘制不同的形状。你不只能够画出直线，还可以使用 <code>addQuadCurve</code>、<code>addCurve</code> 与 <code>addArc</code> 方法来绘制出曲线与圆弧。例如：你想要在矩形顶部绘制出一个圆顶，如图 8.6 所示。</p>
+<figure id="fig8.6"><img src="images/shape/swiftui-shape-6.png" alt="图 8.6　具有矩形底座的圆顶"><figcaption>图 8.6　具有矩形底座的圆顶</figcaption></figure>
+<p>程式码可以这样编写： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Path</span>() { path <span class="hljs-keyword">in</span>
+    path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">60</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">40</span>, y: <span class="hljs-number">60</span>))
+    path.addQuadCurve(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">210</span>, y: <span class="hljs-number">60</span>), control: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">125</span>, y: <span class="hljs-number">0</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">230</span>, y: <span class="hljs-number">60</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">230</span>, y: <span class="hljs-number">100</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">100</span>))
+}
+.fill(<span class="hljs-type">Color</span>.purple)
+</code></pre>
+<p> <code>addQuadCurve</code>  方法可以让你透过定义一个控制点（control point ）来绘制曲线。参考图 8.6，(40, 60) 与(210, 60) 就是所谓的“锚点”（anchor point ），(125, 0) 则是计算建立圆顶形状的控制点，我不打算在这里讨论有关绘制曲线的数学，你可尝试更改控制点的值来查看效果。简单而言，该控制点控制如何绘制曲线。如果你将控制点放在更靠近矩形顶部的位置（例如：125, 30），则会绘制出不圆的外观。</p>
+<h3 id="fill-%E8%88%87-stroke">Fill 与 Stroke</h3>
+<p>如果要画出形状的边框，并同时以颜色填满形状，该怎么做呢？ <code>fill</code> 与 <code>stroke</code> 修饰器无法并行使用，不过你可以使用 <code>ZStack</code> 来达到相同的效果，程式码如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
+    <span class="hljs-type">Path</span>() { path <span class="hljs-keyword">in</span>
+        path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">60</span>))
+        path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">40</span>, y: <span class="hljs-number">60</span>))
+        path.addQuadCurve(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">210</span>, y: <span class="hljs-number">60</span>), control: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">125</span>, y: <span class="hljs-number">0</span>))
+        path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">230</span>, y: <span class="hljs-number">60</span>))
+        path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">230</span>, y: <span class="hljs-number">100</span>))
+        path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">100</span>))
+    }
+    .fill(<span class="hljs-type">Color</span>.purple)
+
+    <span class="hljs-type">Path</span>() { path <span class="hljs-keyword">in</span>
+        path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">60</span>))
+        path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">40</span>, y: <span class="hljs-number">60</span>))
+        path.addQuadCurve(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">210</span>, y: <span class="hljs-number">60</span>), control: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">125</span>, y: <span class="hljs-number">0</span>))
+        path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">230</span>, y: <span class="hljs-number">60</span>))
+        path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">230</span>, y: <span class="hljs-number">100</span>))
+        path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">100</span>))
+        path.closeSubpath()
+    }
+    .stroke(<span class="hljs-type">Color</span>.black, lineWidth: <span class="hljs-number">5</span>)
+}
+</code></pre>
+<p>我们使用相同的路径建立两个 <code>Path</code> 物件，然后使用 <code>ZStack</code> 来让一个 <code>Path</code> 物件叠在另一个 <code>Path</code> 物件上面。下面是使用 <code>fill</code> 填满紫色的圆顶矩形，并以黑色边框叠在上面，如图 8.7 所示。</p>
+<figure id="fig8.7"><img src="images/shape/swiftui-shape-7.png" alt="图 8.7.　具有边框的圆顶矩形"><figcaption>图 8.7.　具有边框的圆顶矩形</figcaption></figure>
+<h3 id="%E7%B9%AA%E8%A3%BD%E5%9C%93%E5%BC%A7%E8%88%87%E5%9C%93%E9%A4%85%E5%9C%96">绘制圆弧与圆饼图</h3>
+<p>SwiftUI 为开发者提供了一个方便的 API 来绘制圆弧，该 API 对于组合各种形状和物件（包含圆饼图）非常有用。要绘制圆弧，你可以撰写程式码如下： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Path</span> { path <span class="hljs-keyword">in</span>
+    path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">200</span>, y: <span class="hljs-number">200</span>))
+    path.addArc(center: .<span class="hljs-keyword">init</span>(x: <span class="hljs-number">200</span>, y: <span class="hljs-number">200</span>), radius: <span class="hljs-number">150</span>, startAngle: .degrees(<span class="hljs-number">0</span>), endAngle: .degrees(<span class="hljs-number">90</span>), clockwise: <span class="hljs-built_in">true</span>)
+}
+.fill(.green)
+</code></pre>
+<p>如果你将程式码放入 body 中，则会在预览画布中看到一个填满绿色的圆弧，如图 8.8 所示。</p>
+<figure id="fig8.8"><img src="images/shape/swiftui-shape-8.png" alt="图 8.8.　圆弧范例"><figcaption>图 8.8.　圆弧范例</figcaption></figure>
+<p>在上列的程式码中，我们先至起点 (200, 200)，然后呼叫 <code>addArc</code> 来建立圆弧。<code>addArc</code> 方法接受几个参数： </p>
+<ul>
+<li><strong>center</strong> - 圆的中心点。</li>
+<li><strong>radius</strong> - 建立圆弧的圆半径。</li>
+<li><strong>startAngle</strong> - 圆弧的起点角度。</li>
+<li><strong>endAngle</strong> - 圆弧的终点角度。</li>
+<li><strong>clockwise</strong> - 画圆弧的方向。</li>
+</ul>
+<p>如果只看“startAngle”与“endAngle”等两个参数的名称，应该会对其含义有点困惑， 图 8.9 可让你更加了解这些参数的含义。</p>
+<figure id="fig8.9"><img src="images/shape/swiftui-shape-9.png" alt="图 8.9.　了解起点角度与终点角度"><figcaption>图 8.9.　了解起点角度与终点角度</figcaption></figure>
+<p>使用 <code>addArc</code> 可轻松建立不同色扇形的圆饼图，你只需要以 <code>ZStack</code> 来重叠不同的扇形即可。组成其图的各个扇形都有不同 <code>startAngle</code> 值与 <code>endAngle</code> 值，下列是程式码片段： </p>
+<pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
+    <span class="hljs-type">Path</span> { path <span class="hljs-keyword">in</span>
+        path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>))
+        path.addArc(center: .<span class="hljs-keyword">init</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>), radius: <span class="hljs-number">150</span>, startAngle: .degrees(<span class="hljs-number">0</span>), endAngle: .degrees(<span class="hljs-number">190</span>), clockwise: <span class="hljs-built_in">true</span>)
+    }
+    .fill(.yellow)
+
+    <span class="hljs-type">Path</span> { path <span class="hljs-keyword">in</span>
+        path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>))
+        path.addArc(center: .<span class="hljs-keyword">init</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>), radius: <span class="hljs-number">150</span>, startAngle: .degrees(<span class="hljs-number">190</span>), endAngle: .degrees(<span class="hljs-number">110</span>), clockwise: <span class="hljs-built_in">true</span>)
+    }
+    .fill(.teal)
+
+    <span class="hljs-type">Path</span> { path <span class="hljs-keyword">in</span>
+        path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>))
+        path.addArc(center: .<span class="hljs-keyword">init</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>), radius: <span class="hljs-number">150</span>, startAngle: .degrees(<span class="hljs-number">110</span>), endAngle: .degrees(<span class="hljs-number">90</span>), clockwise: <span class="hljs-built_in">true</span>)
+    }
+    .fill(.blue)
+
+    <span class="hljs-type">Path</span> { path <span class="hljs-keyword">in</span>
+        path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>))
+        path.addArc(center: .<span class="hljs-keyword">init</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>), radius: <span class="hljs-number">150</span>, startAngle: .degrees(<span class="hljs-number">90</span>), endAngle: .degrees(<span class="hljs-number">360</span>), clockwise: <span class="hljs-built_in">true</span>)
+    }
+    .fill(.purple)
+
+}
+</code></pre>
+<p>这将渲染出一个具有四个扇形的圆饼图，如果你需要更多的扇形，则只要使用不同角度值来建立其他的路径物件即可。顺带一提，我使用的颜色是来自 iOS 所提供的标准颜色物件。你可以至下列的网址来了解完整的颜色物件：<a href="https://developer.apple.com/documentation/uikit/uicolor/standard_colors" target="_blank">https://developer.apple.com/documentation/uikit/uicolor/standard_colors</a>.</p>
+<p>有时，你可能想从圆饼图切分出来，以突显特定的扇形。举例而言，要以紫色突显扇形时，你可以应用 <code>offset</code> 修饰器来改变扇形的位置：</p>
+<pre><code class="lang-swift"><span class="hljs-type">Path</span> { path <span class="hljs-keyword">in</span>
+    path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>))
+    path.addArc(center: .<span class="hljs-keyword">init</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>), radius: <span class="hljs-number">150</span>, startAngle: .degrees(<span class="hljs-number">90</span>), endAngle: .degrees(<span class="hljs-number">360</span>), clockwise: <span class="hljs-built_in">true</span>)
+}
+.fill(.purple)
+.offset(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">20</span>)
+</code></pre>
+<p>或者，你可以叠加一个边框来进一步吸引人们目光。如果你要在突显的扇形上加入标签，则可以叠上一个 <code>Text</code> 视图，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Path</span> { path <span class="hljs-keyword">in</span>
+    path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>))
+    path.addArc(center: .<span class="hljs-keyword">init</span>(x: <span class="hljs-number">187</span>, y: <span class="hljs-number">187</span>), radius: <span class="hljs-number">150</span>, startAngle: .degrees(<span class="hljs-number">90</span>), endAngle: .degrees(<span class="hljs-number">360</span>), clockwise: <span class="hljs-built_in">true</span>)
+    path.closeSubpath()
+}
+.stroke(<span class="hljs-type">Color</span>(red: <span class="hljs-number">52</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">52</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">122</span>/<span class="hljs-number">255</span>), lineWidth: <span class="hljs-number">10</span>)
+.offset(x: <span class="hljs-number">20</span>, y: <span class="hljs-number">20</span>)
+.overlay(
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;25%&quot;</span>)
+        .font(.system(.largeTitle, design: .rounded))
+        .bold()
+        .foregroundColor(.white)
+        .offset(x: <span class="hljs-number">80</span>, y: -<span class="hljs-number">110</span>)
+)
+</code></pre>
+<p>该路径有与紫色扇形相同的起点角度与终点角度，但是它只仅绘制边框及加入一个文字视图，以使扇形突出，图 8.10 为最后的结果。</p>
+<figure id="fig8.10"><img src="images/shape/swiftui-shape-10.png" alt="图 8.10.　突出扇形的分裂式圆饼图"><figcaption>图 8.10.　突出扇形的分裂式圆饼图</figcaption></figure>
+<h3 id="%E4%BA%86%E8%A7%A3-shape-%E5%8D%94%E5%AE%9A">了解 Shape 协定</h3>
+<p>在我们深入了解 <code>Shape</code> 协定之前，我们先从一个简单的作业来开始。根据所学，使用 <code>Path</code> 绘制下列的形状，如图8.11 所示。</p>
+<figure id="fig8.11"><img src="images/shape/swiftui-shape-11.png" alt="图 8.11.　你的作业－使用Path 来绘制形状"><figcaption>图 8.11.　你的作业－使用Path 来绘制形状</figcaption></figure>
+<p>请先不要看解答，试着自己做看看。</p>
+<p>好，要建立一个像这样的形状，你可使用 <code>addLine</code> 与 <code>addQuadCurve</code> 来建立一个 <code>Path</code>： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Path</span>() { path <span class="hljs-keyword">in</span>
+    path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>))
+    path.addQuadCurve(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">200</span>, y: <span class="hljs-number">0</span>), control: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">100</span>, y: -<span class="hljs-number">20</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">200</span>, y: <span class="hljs-number">40</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">200</span>, y: <span class="hljs-number">40</span>))
+    path.addLine(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">40</span>))
+}
+.fill(<span class="hljs-type">Color</span>.green)
+</code></pre>
+<p>如果你阅读过 <code>Path</code> 的文件，则可能找到另一个名为 <code>addRect</code> 的函数，该函数可以让你以特定的宽度与高度来绘制矩形。因此，下面是替代的解决方案： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Path</span>() { path <span class="hljs-keyword">in</span>
+    path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>))
+    path.addQuadCurve(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">200</span>, y: <span class="hljs-number">0</span>), control: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">100</span>, y: -<span class="hljs-number">20</span>))
+    path.addRect(<span class="hljs-type">CGRect</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>, width: <span class="hljs-number">200</span>, height: <span class="hljs-number">40</span>))
+}
+.fill(<span class="hljs-type">Color</span>.green)
+</code></pre>
+<p>现在，我们来讨论一下 <code>Shape</code> 协定，这个协定非常简单，只有一个需求，当你使用它时，你必须实作下列函数： </p>
+<pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-keyword">in</span> rect: CGRect)</span> -&gt; <span class="hljs-title">Path</span>
+</span></code></pre>
+<p>那么，我们何时需要使用 <code>Shape</code> 协定呢？试问你如何重新使用刚建立的 <code>Path</code> 呢？例如： 你想要建立一个圆顶（Dome）形状、大小弹性的按钮，该如何实作呢？ </p>
+<p>再看一下上列的程式码，你以绝对座标与尺寸来建立一个路径。为了建立相同但大小可变的形状，则可以建立一个结构来采用 <code>Shape</code> 协定，并实作 <code>path(in:)</code> 函数。当 <code>path(in:)</code> 函数被框架呼叫时，你将获得 <code>rect</code> 的大小，然后可在 <code>rect</code> 中绘制路径。</p>
+<p>我们来了解如何建立圆顶形状，如此你便能更了解 <code>Shape</code> 协定。</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Dome</span>: <span class="hljs-title">Shape</span> </span>{
+    <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-keyword">in</span> rect: CGRect)</span> -&gt; <span class="hljs-title">Path</span> </span>{
+        <span class="hljs-keyword">var</span> path = <span class="hljs-type">Path</span>()
+
+        path.move(to: <span class="hljs-type">CGPoint</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>))
+        path.addQuadCurve(to: <span class="hljs-type">CGPoint</span>(x: rect.size.width, y: <span class="hljs-number">0</span>), control: <span class="hljs-type">CGPoint</span>(x: rect.size.width/<span class="hljs-number">2</span>, y: -(rect.size.width * <span class="hljs-number">0.1</span>)))
+        path.addRect(<span class="hljs-type">CGRect</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>, width: rect.size.width, height: rect.size.height))
+
+        <span class="hljs-keyword">return</span> path
+    }
+}
+</code></pre>
+<p>使用该协定后，我们会获得用于绘制路径的矩形区城，我们从 <code>rect</code> 可以找到矩形区域的宽度与高度来计算控制点，并绘制矩形底座。</p>
+<p>藉由这个形状，你就可以使用它来建立各种 <code>SwiftUI</code> 控制元件。举例而言，你可以建立一个具有圆顶形状的按钮，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
+    <span class="hljs-comment">// 执行动作</span>
+}) {
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Test&quot;</span>)
+        .font(.system(.title, design: .rounded))
+        .bold()
+        .foregroundColor(.white)
+        .frame(width: <span class="hljs-number">250</span>, height: <span class="hljs-number">50</span>)
+        .background(<span class="hljs-type">Dome</span>().fill(<span class="hljs-type">Color</span>.red))
+}
+</code></pre>
+<p>我们将圆顶形状作为按钮的背景，其宽度与高度是基于指定的框架大小。</p>
+<figure id="fig8.12"><img src="images/shape/swiftui-shape-12.png" alt="图 8.12　建立圆顶形状的按钮"><figcaption>图 8.12　建立圆顶形状的按钮</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%85%A7%E5%BB%BA%E5%BD%A2%E7%8B%80">使用内建形状</h3>
+<p>在前面，我们使用 <code>Shape</code> 协定自订了一个形状。而 <code>SwiftUI</code>其实有几种内建形状，如圆形（ <code>Circle</code> ）、矩形（ <code>Rectangle</code> ）、圆角矩形（ <code>RoundedRectangle</code> ）与椭圆（ <code>Ellipse</code> ）等， 如果你不想要太花俏的话，这些形状已经足以建立一些常见的物件了。</p>
+<figure id="fig8.13"><img src="images/shape/swiftui-shape-13.png" alt="图 8.13　停止按钮"><figcaption>图 8.13　停止按钮</figcaption></figure>
+<p>举例而言，你要建立一个如图 8.13 所示的“停止”按钮，此按钮是由一个圆角矩形与一个圆形所组成，你可以撰写程式码如下： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Circle</span>()
+    .foregroundColor(.green)
+    .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)
+    .overlay(
+        <span class="hljs-type">RoundedRectangle</span>(cornerRadius: <span class="hljs-number">5</span>)
+            .frame(width: <span class="hljs-number">80</span>, height: <span class="hljs-number">80</span>)
+            .foregroundColor(.white)
+    )
+</code></pre>
+<p>这里，我们初始化一个 <code>Circle</code> 视图，然后将一个 <code>RoundedRectangle</code> 视图叠在上面。</p>
+<h3 id="%E4%BD%BF%E7%94%A8-shape-%E5%BB%BA%E7%AB%8B%E9%80%B2%E5%BA%A6%E6%8C%87%E7%A4%BA%E5%99%A8">使用 Shape 建立进度指示器</h3>
+<p>透过内建形状的混搭，你可以为应用程式建立各种类型的向量式（vector-based ）UI 控制元件。我再举另一个例子，图 8.14 为一个使用 <code>Circle</code> 建立的进度指示器。</p>
+<figure id="fig8.14"><img src="images/shape/swiftui-shape-14.png" alt="图 8.14　进度指示器"><figcaption>图 8.14　进度指示器</figcaption></figure>
+<p>这个进度指示器其实是由两个圆形所组成，下方是一个灰色圆环，而在灰色圆环的上方则是一个开口圆环，指示完成的进度。你可以在 <code>ContentView</code> 中撰写程式码，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+
+    private <span class="hljs-keyword">var</span> purpleGradient = <span class="hljs-type">LinearGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [ <span class="hljs-type">Color</span>(red: <span class="hljs-number">207</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">150</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">207</span>/<span class="hljs-number">255</span>), <span class="hljs-type">Color</span>(red: <span class="hljs-number">107</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">116</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">179</span>/<span class="hljs-number">255</span>) ]), startPoint: .trailing, endPoint: .leading)
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+
+        <span class="hljs-type">ZStack</span> {
+            <span class="hljs-type">Circle</span>()
+                .stroke(<span class="hljs-type">Color</span>(.systemGray6), lineWidth: <span class="hljs-number">20</span>)
+                .frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">300</span>)
+
+        }
+    }
+}
+</code></pre>
+<p>我们使用 <code>stroke</code> 修饰器来画出圆环的轮廓，若是你喜欢较粗（或较细）的线条，则可以调整 <code>lineWidth</code> 参数。而 <code>purpleGradient</code> 属性定义了紫色渐层，我们稍后在绘制开口圆环时会使用它。</p>
+<figure id="fig8.15"><img src="images/shape/swiftui-shape-15.png" alt="图 8.15.　绘制灰色圆环"><figcaption>图 8.15.　绘制灰色圆环</figcaption></figure>
+<p>现在，在 <code>ZStack</code> 中插入下列的程式码，以建立开口圆环： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Circle</span>()
+    .trim(from: <span class="hljs-number">0</span>, to: <span class="hljs-number">0.85</span>)
+    .stroke(purpleGradient, lineWidth: <span class="hljs-number">20</span>)
+    .frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">300</span>)
+    .overlay {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;85%&quot;</span>)
+                .font(.system(size: <span class="hljs-number">80</span>, weight: .bold, design: .rounded))
+                .foregroundColor(.gray)
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Complete&quot;</span>)
+            .font(.system(.body, design: .rounded))
+            .bold()
+            .foregroundColor(.gray)
+        }
+    }
+</code></pre>
+<p>建立一个开口圆环的技巧是加上一个 <code>trim</code> 修饰器。你可指定 <code>from</code> 值与 <code>to</code> 值，以指示要显示圆环的哪一个部分，在这个范例中，我们想要显示 85% 的进度，所以设定 <code>from</code> 的值为“0”、to 的值为“0.85”。</p>
+<p>为了显示完成百分比（ completion percentage），我们将一个文字视图叠在圆环的中间， 如图 8.16 所示。</p>
+<figure id="fig8.16"><img src="images/shape/swiftui-shape-16.png" alt="图 8.16.　绘制进度视图"><figcaption>图 8.16.　绘制进度视图</figcaption></figure>
+<h3 id="%E7%B9%AA%E8%A3%BD%E7%92%B0%E5%9C%88%E5%9C%96">绘制环圈图</h3>
+<p>最后要示范的是环圈图，如果你完全了解 <code>trim</code> 修饰器的用法，那么你可能已经知道我们将如何实作环圈图了。处理 <code>trim</code> 修饰器的值，我们可以将圆环切分成多段。</p>
+<p>这是我们用来建立环圈图的技巧，程式码如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
+    <span class="hljs-type">Circle</span>()
+        .trim(from: <span class="hljs-number">0</span>, to: <span class="hljs-number">0.4</span>)
+        .stroke(<span class="hljs-type">Color</span>(.systemBlue), lineWidth: <span class="hljs-number">80</span>)
+
+    <span class="hljs-type">Circle</span>()
+        .trim(from: <span class="hljs-number">0.4</span>, to: <span class="hljs-number">0.6</span>)
+        .stroke(<span class="hljs-type">Color</span>(.systemTeal), lineWidth: <span class="hljs-number">80</span>)
+
+    <span class="hljs-type">Circle</span>()
+        .trim(from: <span class="hljs-number">0.6</span>, to: <span class="hljs-number">0.75</span>)
+        .stroke(<span class="hljs-type">Color</span>(.systemPurple), lineWidth: <span class="hljs-number">80</span>)
+
+    <span class="hljs-type">Circle</span>()
+        .trim(from: <span class="hljs-number">0.75</span>, to: <span class="hljs-number">1</span>)
+        .stroke(<span class="hljs-type">Color</span>(.systemYellow), lineWidth: <span class="hljs-number">90</span>)
+        .overlay(
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;25%&quot;</span>)
+                .font(.system(.title, design: .rounded))
+                .bold()
+                .foregroundColor(.white)
+                .offset(x: <span class="hljs-number">80</span>, y: -<span class="hljs-number">100</span>)
+        )
+}
+.frame(width: <span class="hljs-number">250</span>, height: <span class="hljs-number">250</span>)
+</code></pre>
+<p>第一段圆弧只显示圆环的 40%，第二段圆弧显示圆环的 20%，不过请注意 <code>from</code> 值是“0.4”，而不是“0”，这可以让第二段圆弧连接第一段圆弧。</p>
+<p>对于最后一个圆弧，我故意把线宽设得大一点，以使该段圆弧突出，如图8.17 所示。如果你不喜欢这样的设计，则可以将 <code>linewidth</code> 值由“90”改为“80”。</p>
+<figure id="fig8.17"><img src="images/shape/swiftui-shape-17.png" alt="图 8.17　绘制环圈图"><figcaption>图 8.17　绘制环圈图</figcaption></figure>
+<h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
+<p>我希望你喜欢本章内容，并爱上范例专案。藉由框架所提供的绘图 API，你可以轻松为应用程式建立自订形状。Path 与 Shape 的运用还有很多，我仅介绍本章中的一些技巧，但请试着运用所学来施展一些魔法吧 ！ </p>
+<p>在本章所准备的范例档中，有完整的专案可以下载： </p>
+<ul>
+<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIShape.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIShape.zip</a>)</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-state.html" class="navigation navigation-prev " aria-label="Previous page: 状态(State)与绑定(Binding)"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-animation.html" class="navigation navigation-next " aria-label="Next page: 基础动画与转场"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

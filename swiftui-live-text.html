@@ -1,0 +1,1045 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>利用 Live Text API 从图片中撷取文本 | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-sharelink.html" />
+    
+    
+    <link rel="prev" href="./swiftui-charts.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="39" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-39-%E7%AB%A0-br-%E5%88%A9%E7%94%A8-live-text-api-%E5%BE%9E%E5%9C%96%E7%89%87%E4%B8%AD%E6%93%B7%E5%8F%96%E6%96%87%E6%9C%AC">第 39 章<br>利用 Live Text API 从图片中撷取文本</h1>
+<p>去年，iOS 15 新增了一个非常有用的功能 ── Live Text。你可能也有听过 OCR（光学字元辨识的缩写）一词，这是一个将文本图像转换为机器可读的文本格式的过程；这就是 Live Text 所做的事。</p>
+<p>Live Text 内置在相机 App 和相片 App 中。如果你还没有尝试过这个功能，现在就来打开相机 App 试试吧！当我们把电话的镜头对准文本图像，右下角就会出现一个 Live Text 按钮。点击按钮后，iOS 就会自动撷取文本。然后，你就可以将其复制，并粘贴到其他 App（例如备忘录 App）中。</p>
+<p>对于使用者来说，这是一个非常强大又方便的功能。而对于开发者来说，我们都会希望把这个 Live Text 功能加到自己的 App 中。在 iOS 16，Apple 发布了 Live Text API，让开发者可以在自己的 App 中加入 Live Text 功能。在这个章节中，让我们一起来看看如何在 SwiftUI 中使用 Live Text API。</p>
+<h3 id="%E5%88%A9%E7%94%A8-datascannerviewcontroller-%E5%95%9F%E7%94%A8-live-text">利用 DataScannerViewController 启用 Live Text</h3>
+<p>在 WWDC 的 <a href="https://developer.apple.com/videos/play/wwdc2022-10025" target="_blank"><em>Capturing Machine-readable Codes and Text with VisionKit</em></a> Session 中，Apple 工程师展示了以下图片：</p>
+<figure id="fig39.1"><img src="images/livetext/swiftui-live-text-avfoundation.png" alt="图 39.1. AVfoundation 和 Vision 框架提供的 API"><figcaption>图 39.1. AVfoundation 和 Vision 框架提供的 API</figcaption></figure>
+<p>文本辨识 (Text Recognization) 不是 iOS 16 的新功能。在旧版本的 iOS 上，我们已经可以使用 AVFoundation 和 Vision 框架中的 API，来侦测和辨识文本。但是，实作起来十分复杂，尤其是对于那些刚接触 iOS 开发的人来说。</p>
+<p>在新版本的 iOS 中，以上所有的步骤都被简化为 VisionKit 中的一个新类别 <code>DataScannerViewController</code>。我们在 App 内使用这个视图控制器，就可以自动显示有 Live Text 功能的相机 UI。</p>
+<p>要使用这个类别，让我们先汇入 <code>VisionKit</code> 框架，并检查设备是否支援资料扫描器功能：</p>
+<pre><code class="lang-swift"><span class="hljs-type">DataScannerViewController</span>.isSupported
+</code></pre>
+<p>Live Text API 只支援 2018 年后推出、有 Neural Engine 的设备。另外，我们也要检查 availability，来确保使用者批准 App 使用资料扫描器：</p>
+<pre><code class="lang-swift"><span class="hljs-type">DataScannerViewController</span>.isAvailable
+</code></pre>
+<p>通过两项检查后，我们就可以开始扫描了。让我们看看以下范例程式码，来启用有 Live Text 功能的相机：</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">let</span> dataScanner = <span class="hljs-type">DataScannerViewController</span>(
+                     recognizedDataTypes: [.text()],
+                     qualityLevel: .balanced,
+                     isHighlightingEnabled: <span class="hljs-built_in">true</span>
+                  )
+
+present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
+    try? dataScanner.startScanning()
+}
+</code></pre>
+<p>我们只需要创建一个 <code>DataScannerViewController</code> 实例，并指定要辨识的资料型别即可。在范例中，我们要辨识的是文本，因此我们会把资料型别指定为 <code>.text()</code>。准备好实例之后，我们就可以调用 <code>startScanning()</code> 方法来开始扫描。</p>
+<h3 id="%E5%9C%A8-swiftui-%E4%BD%BF%E7%94%A8-datascannerviewcontroller">在 SwiftUI 使用 DataScannerViewController</h3>
+<p><code>DataScannerViewController</code> 类别现时只支援 UIKit，因此在 SwiftUI 我们需要多做几个步骤。我们需要采用 <code>UIViewControllerRepresentable</code> 协定，才可以在 SwiftUI 专案中使用这个类别。在这个情况下，让我们创建一个新的 <code>DataScanner</code>结构：</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">SwiftUI</span>
+<span class="hljs-keyword">import</span> <span class="hljs-type">VisionKit</span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DataScanner</span>: <span class="hljs-title">UIViewControllerRepresentable</span> </span>{
+    .
+  .    
+  .
+}
+</code></pre>
+<p>这个结构会接受两个 binding 变数 (variable)：一个用于触发资料扫描，另一个则用来储存扫描到的文本的 binding。</p>
+<pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> startScanning: <span class="hljs-type">Bool</span>
+@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> scanText: <span class="hljs-type">String</span>
+</code></pre>
+<p>让我们实作以下方法，来采用 <code>UIViewControllerRepresentable</code> 协定：</p>
+<pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">makeUIViewController</span><span class="hljs-params">(context: Context)</span> -&gt; <span class="hljs-title">DataScannerViewController</span> </span>{
+    <span class="hljs-keyword">let</span> controller = <span class="hljs-type">DataScannerViewController</span>(
+                        recognizedDataTypes: [.text()],
+                        qualityLevel: .balanced,
+                        isHighlightingEnabled: <span class="hljs-built_in">true</span>
+                    )
+
+    <span class="hljs-keyword">return</span> controller
+}
+
+<span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">updateUIViewController</span><span class="hljs-params">(<span class="hljs-number">_</span> uiViewController: DataScannerViewController, context: Context)</span> </span>{
+
+    <span class="hljs-keyword">if</span> startScanning {
+        try? uiViewController.startScanning()
+    } <span class="hljs-keyword">else</span> {
+        uiViewController.stopScanning()
+    }
+}
+</code></pre>
+<p>在 <code>makeUIViewController</code> 方法中，我们回传了一个 <code>DataScannerViewController</code>的实例。在 <code>updateUIViewController</code> 中，我们会根据 <code>startScanning</code> 的数值来开始或停止扫描。</p>
+<p>然后，我们要实作以下的 <code>DataScannerViewControllerDelegate</code> 方法，来撷取扫描到的文本。</p>
+<pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">dataScanner</span><span class="hljs-params">(<span class="hljs-number">_</span> dataScanner: DataScannerViewController, didTapOn item: RecognizedItem)</span> </span>{
+  .
+  .
+  .
+}
+</code></pre>
+<p>当使用者点击侦测到的文本时，就会调用这个方法，因此我们会这样实作它：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coordinator</span>: <span class="hljs-title">NSObject</span>, <span class="hljs-title">DataScannerViewControllerDelegate</span> </span>{
+    <span class="hljs-keyword">var</span> parent: <span class="hljs-type">DataScanner</span>
+
+    <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> parent: <span class="hljs-type">DataScanner</span>) {
+        <span class="hljs-keyword">self</span>.parent = parent
+    }
+
+    <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">dataScanner</span><span class="hljs-params">(<span class="hljs-number">_</span> dataScanner: DataScannerViewController, didTapOn item: RecognizedItem)</span> </span>{
+        <span class="hljs-keyword">switch</span> item {
+        <span class="hljs-keyword">case</span> .text(<span class="hljs-keyword">let</span> text):
+            parent.scanText = text.transcript
+        <span class="hljs-keyword">default</span>: <span class="hljs-keyword">break</span>
+        }
+    }
+
+}
+
+<span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">makeCoordinator</span><span class="hljs-params">()</span> -&gt; <span class="hljs-title">Coordinator</span> </span>{
+    <span class="hljs-type">Coordinator</span>(<span class="hljs-keyword">self</span>)
+}
+</code></pre>
+<p>我们会检查辨别到的物件，如果辨别到任何文本，就会把它储存。最后，在 <code>makeUIViewController</code> 方法中插入这行程式码来配置 delegate：</p>
+<pre><code class="lang-swift">controller.delegate = context.coordinator
+</code></pre>
+<p>现在，控制器已经可以在 SwiftUI 视图中使用了。</p>
+<h3 id="%E5%88%A9%E7%94%A8-datascanner-%E6%93%B7%E5%8F%96%E6%96%87%E6%9C%AC">利用 DataScanner 撷取文本</h3>
+<p>举个例子，我们会构建一个 UI 简单的文本扫描器 App。在启动 App 之后，它会自动显示 Live Text 的相机视图。当侦测到文本时，使用者可以点击文本来撷取它。扫描到的文本会在显示在荧幕的下半部分。</p>
+<figure id="fig39.2"><img src="images/livetext/swiftui-live-text-demo.png" alt="图 39.2. Live text 示范"><figcaption>图 39.2. Live text 示范</figcaption></figure>
+<p>创建好一个标准的 SwiftUI 专案后，让我们打开 <code>ContentView.swift</code> 和 <code>VisionKit</code>框架。</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">VisionKit</span>
+</code></pre>
+<p>然后，我们要宣告几个变数，来控制资料扫描器和扫描到的文本的操作。</p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> startScanning = <span class="hljs-built_in">false</span>
+@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> scanText = <span class="hljs-string">&quot;&quot;</span>
+</code></pre>
+<p>在 <code>body</code> 的部分，让我们这样更新程式码：</p>
+<pre><code class="lang-swift"><span class="hljs-type">VStack</span>(spacing: <span class="hljs-number">0</span>) {
+    <span class="hljs-type">DataScanner</span>(startScanning: $startScanning, scanText: $scanText)
+        .frame(height: <span class="hljs-number">400</span>)
+
+    <span class="hljs-type">Text</span>(scanText)
+        .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, maxHeight: .infinity)
+        .background(<span class="hljs-keyword">in</span>: <span class="hljs-type">Rectangle</span>())
+        .backgroundStyle(<span class="hljs-type">Color</span>(uiColor: .systemGray6))
+
+}
+.task {
+    <span class="hljs-keyword">if</span> <span class="hljs-type">DataScannerViewController</span>.isSupported &amp;&amp; <span class="hljs-type">DataScannerViewController</span>.isAvailable {
+        startScanning.toggle()
+    }
+}
+</code></pre>
+<p>我们在 App 启动时就开始启用资料扫描器，但在此之前，我们需要调用 <code>DataScannerViewController.isSupported</code> 和 <code>DataScannerViewController.isAvailable</code>，来确保设备支援 Live Text。</p>
+<p>这个范例 App 差不多完成了。因为 Live Text 需要相机的访问权限，所以我们要到专案配置，在 <code>Info.plist</code> 档案中添加 <em>Privacy – Camera Usage Description</em>Key，并说明 App 需要访问相机的原因。</p>
+<figure id="fig39.3"><img src="images/livetext/swiftui-live-text-camera-access.png" alt="图 39.3. 添加 key 以启用相机访问"><figcaption>图 39.3. 添加 key 以启用相机访问</figcaption></figure>
+<p>完成后，我们可以在真实的 iOS 设备上测试 App 的 Live Text 功能。</p>
+<p>Live Text 除了支援英语外，还支援法语、意大利语、德语、西班牙语、中文、葡萄牙语、日语、和韩语。</p>
+<figure id="fig39.4"><img src="images/livetext/swiftui-live-text-demo-chinese.png" alt="图 39.4. App 示范"><figcaption>图 39.4. App 示范</figcaption></figure>
+<h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
+<p>很高兴看到 Apple 向 iOS 开发人员开放实时文本功能。 虽然新的<code>DataScannerViewController</code>不是专门为 SwiftUI 设计的，但我们可以轻松地将其移植到我们的 Swift 项目中，并将实时文本功能整合到我们自己的应用程序中。 如果你打算发布下一个App更新，请考虑加入这一个功能，它肯定能提升用户体验。</p>
+<p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
+<ul>
+<li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUILiveText.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUILiveText.zip</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-charts.html" class="navigation navigation-prev " aria-label="Previous page: 利用 Charts 框架建立图表"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-sharelink.html" class="navigation navigation-next " aria-label="Next page: 透过 ShareLink 来分享文本和图像等资料"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

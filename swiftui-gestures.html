@@ -1,0 +1,1297 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>认识手势（Gestures） | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-bottom-sheet.html" />
+    
+    
+    <link rel="prev" href="./swiftui-actionsheet-context.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="17" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-17-%E7%AB%A0-br-%E4%BA%86%E8%A7%A3%E6%89%8B%E5%8B%A2">第 17 章<br>了解手势</h1>
+<p>在前面的章节中，你已经对使用 SwiftUI 建立手势有所了解。我们使用 <code>onTapGesture</code> 修饰器来处理使用者的触控，并做出相对的回应。而在本章中，我们更深入了解如何在 SwiftUI 中处理各种类型的手势。</p>
+<p>这个框架提供一些内建手势， 例如： 我们之前使用过的点击手势。除此之外， “DragGesture”、“MagnificationGesture”与“LongPressGesture”等都是现成可用的手势。我们将研究其中几个手势，并看看如何在 SwiftUI 中使用。最重要的是，你将学习如何建立一个可以支援拖曳手势的通用视图。</p>
+<figure id="fig17.1"><img src="images/gestures/swiftui-gestures-1.gif" alt="图 17.1.　范例展示可拖曳视图"><figcaption>图 17.1.　范例展示可拖曳视图</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8%E6%89%8B%E5%8B%A2%E4%BF%AE%E9%A3%BE%E5%99%A8">使用手势修饰器</h3>
+<p>要使用  框架识别特定手势，你需要做的就是使用 <code>.gesture</code> 修饰器将手势识别器加到视图上。下面是使用 <code>.gesture</code> 修饰器加到 <code>TapGesture</code> 的范例程式码片段： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+    <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
+        .font(.system(size: <span class="hljs-number">200</span>))
+        .foregroundColor(.green)
+        .gesture(
+            <span class="hljs-type">TapGesture</span>()
+                .onEnded({
+                    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Tapped!&quot;</span>)
+                })
+        )
+}
+</code></pre>
+<p>如果你想要测试程式码，则使用 “App”模板来建立一个新专案， 并确认你有选取 “Interface ”选项中的“SwiftUI”，然后在ContentView.swift 中贴上程式码。</p>
+<p>透过修改上列的程式码，并导入一个状态变数，我们可以在星形图片被点击时，建立一个简单的缩放动画。下列为更新后的程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isPressed = <span class="hljs-built_in">false</span>
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
+            .font(.system(size: <span class="hljs-number">200</span>))
+            .scaleEffect(isPressed ? <span class="hljs-number">0.5</span> : <span class="hljs-number">1.0</span>)
+            .animation(.easeInOut, value: isPressed)
+            .foregroundColor(.green)
+            .gesture(
+                <span class="hljs-type">TapGesture</span>()
+                    .onEnded({
+                        <span class="hljs-keyword">self</span>.isPressed.toggle()
+                    })
+            )
+    }
+}
+</code></pre>
+<p>当你在画布或模拟器中执行程式码时，应该会看到缩放效果，这就是如何使用 <code>.gesture</code> 修饰器来侦测与回应某些触控事件的方法。如果你忘记动画的工作原理，可以回头阅读第 9 章。</p>
+<figure id="fig17.2"><img src="images/gestures/swiftui-gestures-2.gif" alt="图 17.2.　简单的缩放效果"><figcaption>图 17.2.　简单的缩放效果</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8%E9%95%B7%E6%8C%89%E6%89%8B%E5%8B%A2">使用长按手势</h3>
+<p>其中一个是 <code>LongPressGesture</code>，这个手势识别器可以让你侦测长按事件。举例而言，如果你想只有当使用者长按星形图片一秒时可调整其大小，你可以使用 <code>LongPressGesture</code> 来侦测触控事件。</p>
+<p>修改 <code>.gesture</code> 修饰器中的程式码如下，以实作 <code>LongPressGesture</code>： </p>
+<pre><code class="lang-swift">.gesture(
+    <span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">1.0</span>)
+        .onEnded({ <span class="hljs-number">_</span> <span class="hljs-keyword">in</span>
+            <span class="hljs-keyword">self</span>.isPressed.toggle()
+        })
+)
+</code></pre>
+<p>在预览画布中执行专案来快速测试。现在，你必须至少长按星形图片一秒钟，才能切换其大小。</p>
+<h3 id="-gesturestate-%E5%B1%AC%E6%80%A7%E5%8C%85%E8%A3%B9%E5%99%A8">@GestureState 属性包裹器</h3>
+<p>当你按住星形图片时，在侦测到长按事件之前，图片不会给使用者任何回应。显然地，我们可以采取一些措施来改善使用者体验，我想要做的是在使用者点击图片时给予即时回馈。任何形式的回馈都将有助于改善情况，例如：当使用者点击图片时，我们可将图片调暗一点，这只是让使用者知道我们的 App 捕捉到触控事件，并且正在进行工作。图 17.3 说明了动画如何工作。</p>
+<figure id="fig17.3"><img src="images/gestures/swiftui-gestures-3.png" alt="图 17.3.　点击图片时应用暗淡效果"><figcaption>图 17.3.　点击图片时应用暗淡效果</figcaption></figure>
+<p>要实作这个动画，其中一项任务是追踪手势的状态。在长按手势的执行期间，我们必须区分点击与长按事件，那么我们该如何做呢？ </p>
+<p>SwiftUI 提供一个名为 <code>@GestureState</code> 的属性包裹器，它可以方便地追踪手势的状态变化，并让开发者决定对应的动作。要实作我们刚才描述的动画，我们可以使 用 <code>@GestureState</code> 宣告一个属性： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> longPressTap = <span class="hljs-built_in">false</span>
+</code></pre>
+<p>这个手势状态变数表示“执行长按手势期间是否侦测到点击事件”。当你定义了变数后，你可以修改 <code>Image</code> 视图的程式码，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
+    .font(.system(size: <span class="hljs-number">200</span>))
+    .opacity(longPressTap ? <span class="hljs-number">0.4</span> : <span class="hljs-number">1.0</span>)
+    .scaleEffect(isPressed ? <span class="hljs-number">0.5</span> : <span class="hljs-number">1.0</span>)
+    .animation(.easeInOut, value: isPressed)
+    .foregroundColor(.green)
+    .gesture(
+        <span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">1.0</span>)
+            .updating($longPressTap, body: { (currentState, state, transaction) <span class="hljs-keyword">in</span>
+                state = currentState
+            })
+            .onEnded({ <span class="hljs-number">_</span> <span class="hljs-keyword">in</span>
+                <span class="hljs-keyword">self</span>.isPressed.toggle()
+            })
+    )
+</code></pre>
+<p>我们只在上列的程式码中做了一些修改。首先，加入了 <code>.opacity</code>修饰器。当侦测到点击事件后，我们将不透明度值设定为 <code>0.4</code>，以使图片变暗。</p>
+<p>其次是 <code>LongPressGesture</code> 的 <code>updating</code> 方法。执行长按手势的期间，将呼叫此方法，并接收 value、state 与transaction 等三个参数： </p>
+<ul>
+<li>“value” 参数是手势的目前状态。这个值会依照手势而有所不同，但对于长按手势，<code>true</code> 值表示侦测到点击事件。</li>
+<li>“state”参数实际上是一个 in-out参数，可以让你更新 <code>longPressTap</code> 属性的值。在上列的程式码中，我们设定 <code>state</code> 的值为 <code>currentState</code>。换句话说，<code>longPressTap</code> 属性始终追踪长按手势的最新状态。</li>
+<li>“transaction” 参数储存了目前状态处理更新的内容。</li>
+</ul>
+<p>更改程式码后，在预览画布中执行专案来进行测试。当你点击图片时，图片会立即变暗，而持续按住一秒后，图片会自己调整尺寸。</p>
+<p>当使用者放开手指时，图片的不透明度会自动重置为正常状态，你是否想知道为什么呢？这是 <code>@GestureState</code> 的优点，当手势结束时，它会自动将手势状态属性的值设定为初始值，而在我们的范例中为 <code>false</code>。</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2">使用拖曳手势</h3>
+<p>现在你应该了解如何使用 <code>.gesture</code> 修饰器与 <code>@GestureState</code>，我们来看另一个常见的“拖曳”手势。我们要做的是，修改现有的程式码来支援拖曳手势，让使用者拖曳星形图片来移动它。</p>
+<p>现在更换 <code>ContentView</code> 结构如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    @<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragOffset = <span class="hljs-type">CGSize</span>.zero
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
+            .font(.system(size: <span class="hljs-number">100</span>))
+            .offset(x: dragOffset.width, y: dragOffset.height)
+            .animation(.easeInOut, value: dragOffset)
+            .foregroundColor(.green)
+            .gesture(
+                <span class="hljs-type">DragGesture</span>()
+                    .updating($dragOffset, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
+
+                        state = value.translation
+                    })
+            )
+    }
+}
+</code></pre>
+<p>要识别拖曳手势，你初始化一个 <code>DragGesture</code> 实例，并监听更新。在 <code>update</code> 函数中，我们传送一个手势状态属性来追踪拖曳事件。与长按手势类似，<code>update</code> 函数的闭包接收三个参数。在这个范例中，value 参数储存拖曳的目前资料（包含移动），这就是为什么我们将 <code>state</code> 变数（实际上是 <code>dragOffset</code> ）设定为<code>value.translation</code>的缘故。</p>
+<p>在预览画布中执行专案，你可以拖曳图片，而当你放开图片时，它会返回原始位置。</p>
+<p>你知道为什么图片会回到它的起点吗？如前一节所述，使用 <code>@GestureState</code> 的优点是， 当手势结束时，它会重置属性值为原始值。因此，当你放开手指结束拖曳时，<code>dragOffset</code> 会重置为<code>.zero</code>，即原始位置。</p>
+<p>不过，如果你想让图片停留在拖曳的终点，该如何做呢？给自己几分钟的时间来思考如何实作。</p>
+<p>由于 <code>@GestureState</code> 属性包裹器将重置属性为原始值，我们需要另一个状态属性来储存最终的位置。因此，我们宣告一个新的状态属性如下： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> position = <span class="hljs-type">CGSize</span>.zero
+</code></pre>
+<p>接下来，更新 <code>body</code> 变数如下： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+    <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
+        .font(.system(size: <span class="hljs-number">100</span>))
+        .offset(x: position.width + dragOffset.width, y: position.height + dragOffset.height)
+        .animation(.easeInOut, value: dragOffset)
+        .foregroundColor(.green)
+        .gesture(
+            <span class="hljs-type">DragGesture</span>()
+                .updating($dragOffset, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
+
+                    state = value.translation
+                })
+                .onEnded({ (value) <span class="hljs-keyword">in</span>
+                    <span class="hljs-keyword">self</span>.position.height += value.translation.height
+                    <span class="hljs-keyword">self</span>.position.width += value.translation.width
+                })
+        )
+}
+</code></pre>
+<p>我们在程式码中做了一些更改： </p>
+<ol>
+<li>除了 <code>update</code> 函数之外，我们还实作了 <code>onEnded</code> 函数，其在拖曳手势结束时呼叫。在闭包中，我们加入拖曳偏移来计算图片的新位置。</li>
+<li><code>.offset</code> 修饰器也已更新，如此我们将目前的位置列入计算。</li>
+</ol>
+<p>现在，当你执行专案并拖曳图片时，拖曳结束后，图片会停留在最后的位置，如图 17.4 所示。</p>
+<figure id="fig17.4"><img src="images/gestures/swiftui-gestures-4.gif" alt="图 17.4.　拖曳图片"><figcaption>图 17.4.　拖曳图片</figcaption></figure>
+<h3 id="%E7%B5%84%E5%90%88%E6%89%8B%E5%8B%A2">组合手势</h3>
+<p>在某些情况下，你需要在同一个视图中使用多个手势识别器。举例而言，我们想让使用者在开始拖曳之前按住图片，则必须结合长按与拖曳手势。SwiftUI 可以让你轻松组合手势，来执行一些复杂的互动。它提供三种手势组合类型，包括：“同时”（simultaneous ）、“依序”（sequenced ）与“专门”（exclusive ）。</p>
+<p>当你需要同时侦测多个手势时，可以使用“同时”（simultaneous ）组合类型。而当你专门组合多个手势为一个手势时，SwiftUI 会识别你指定的所有手势，但当侦测到其中一个手势后，它会忽略其他手势。</p>
+<p>顾名思义，如果你使用“依序”（sequenced ）组合类型来组合多个手势，SwiftUI 会以特定顺序来识别手势，这正是我们将用来对长按与拖曳手势进行排序的组合类型。</p>
+<p>要使用多个手势，程式码可以更新如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    <span class="hljs-comment">// 长按手势</span>
+    @<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> isPressed = <span class="hljs-built_in">false</span>
+
+    <span class="hljs-comment">// 拖曳手势</span>
+    @<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragOffset = <span class="hljs-type">CGSize</span>.zero
+    @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> position = <span class="hljs-type">CGSize</span>.zero
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
+            .font(.system(size: <span class="hljs-number">100</span>))
+            .opacity(isPressed ? <span class="hljs-number">0.5</span> : <span class="hljs-number">1.0</span>)
+            .offset(x: position.width + dragOffset.width, y: position.height + dragOffset.height)
+            .animation(.easeInOut, value: dragOffset)
+            .foregroundColor(.green)
+            .gesture(
+                <span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">1.0</span>)
+                .updating($isPressed, body: { (currentState, state, transaction) <span class="hljs-keyword">in</span>
+                    state = currentState
+                })
+                .sequenced(before: <span class="hljs-type">DragGesture</span>())
+                .updating($dragOffset, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
+
+                    <span class="hljs-keyword">switch</span> value {
+                    <span class="hljs-keyword">case</span> .first(<span class="hljs-built_in">true</span>):
+                        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Tapping&quot;</span>)
+                    <span class="hljs-keyword">case</span> .second(<span class="hljs-built_in">true</span>, <span class="hljs-keyword">let</span> drag):
+                        state = drag?.translation ?? .zero
+                    <span class="hljs-keyword">default</span>:
+                        <span class="hljs-keyword">break</span>
+                    }
+
+                })
+                .onEnded({ (value) <span class="hljs-keyword">in</span>
+
+                    guard <span class="hljs-keyword">case</span> .second(<span class="hljs-built_in">true</span>, <span class="hljs-keyword">let</span> drag?) = value <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">return</span>
+                    }
+
+                    <span class="hljs-keyword">self</span>.position.height += drag.translation.height
+                    <span class="hljs-keyword">self</span>.position.width += drag.translation.width
+                })
+            )
+    }
+}
+</code></pre>
+<p>你应该对部分程式码片段非常熟悉，因为我们结合已建立的长按手势与拖曳手势。</p>
+<p>我来逐行解释一下 <code>.gesture</code> 修饰器。我们要求使用者在开始拖曳之前，至少长按图片一秒钟，因此我们从建立<code>LongPressGesture</code> 来开始，与我们之前所实作的内容类似，我们有一个 <code>isPressed</code> 手势状态属性，当某人点击图片时，我们将变更图片的不透明度。</p>
+<p><code>sequenced</code> 关键字可将长按与拖曳手势连结在一起。我们告诉 SwiftUI，<code>LongPressGesture</code> 应该在<code>DragGesture</code> 之前发生。</p>
+<p><code>updating</code> 与 <code>onEnded</code> 函数中的程式码看起来非常相似，不过 <code>value</code> 参数现在实际上包含了两个手势（即长按与拖曳），这就是为何我们使用 <code>switch</code> 叙述来区分手势。你可以使用 <code>.first</code> 与 <code>.second</code> case 来找出要处理的手势。由于我们应该要在拖曳手势之前识别长按手势，因此这里的第一个手势是长按手势。在程式码中，我们只印出“点击”（Tapping ）讯息供你参考。</p>
+<p>当长按手势确认之后，我们会进到 <code>.second</code>  case。在这里，我们取出拖曳资料，并以对应的位移来更新<code>dragOffset</code>。</p>
+<p>当拖曳结束后，将呼叫 <code>onEnded</code> 函数。同样的，我们透过计算拖曳资料（也就是 <code>.second</code> case ）来更新最终的位置。</p>
+<p>现在，你可以测试手势组合了。在预览画布中，使用 debug 来执行 App，如此你可以在主控台中看到讯息。你必须按住星形图片至少一秒钟，才能拖曳它。</p>
+<figure id="fig17.5"><img src="images/gestures/swiftui-gestures-5.gif" alt="图 17.5.　只有当使用者长按图片至少一秒时，才能开始拖曳"><figcaption>图 17.5.　只有当使用者长按图片至少一秒时，才能开始拖曳</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%88%89%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">使用列举重构程式码</h3>
+<p>编写拖曳状态的更好方式是使用列举（Enum），这可让你将 <code>isPressed</code>与 <code>dragOffset</code> 状态结合为单个属性。我们宣告一个名为 <code>DragState</code> 的列举： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
+    <span class="hljs-keyword">case</span> inactive
+    <span class="hljs-keyword">case</span> pressing
+    <span class="hljs-keyword">case</span> dragging(translation: <span class="hljs-type">CGSize</span>)
+
+    <span class="hljs-keyword">var</span> translation: <span class="hljs-type">CGSize</span> {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .inactive, .pressing:
+            <span class="hljs-keyword">return</span> .zero
+        <span class="hljs-keyword">case</span> .dragging(<span class="hljs-keyword">let</span> translation):
+            <span class="hljs-keyword">return</span> translation
+        }
+    }
+
+    <span class="hljs-keyword">var</span> isPressing: <span class="hljs-type">Bool</span> {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .pressing, .dragging:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">true</span>
+        <span class="hljs-keyword">case</span> .inactive:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">false</span>
+        }
+    }
+}
+</code></pre>
+<p>这里有三种状态：“静止”（inactive ）、“按下”（pressing ）与“拖曳”（dragging ）， 这些状态足以表示长按与拖曳手势执行期间的状态。对于“拖曳”（dragging ）状态，它与拖曳的位移有关。</p>
+<p>使用 <code>DragState</code> 列举，我们可以修改原来的程式码如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    @<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragState = <span class="hljs-type">DragState</span>.inactive
+    @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> position = <span class="hljs-type">CGSize</span>.zero
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
+            .font(.system(size: <span class="hljs-number">100</span>))
+            .opacity(dragState.isPressing ? <span class="hljs-number">0.5</span> : <span class="hljs-number">1.0</span>)
+            .offset(x: position.width + dragState.translation.width, y: position.height + dragState.translation.height)
+            .animation(.easeInOut, value: dragState.translation)
+            .foregroundColor(.green)
+            .gesture(
+                <span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">1.0</span>)
+                .sequenced(before: <span class="hljs-type">DragGesture</span>())
+                .updating($dragState, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
+
+                    <span class="hljs-keyword">switch</span> value {
+                    <span class="hljs-keyword">case</span> .first(<span class="hljs-built_in">true</span>):
+                        state = .pressing
+                    <span class="hljs-keyword">case</span> .second(<span class="hljs-built_in">true</span>, <span class="hljs-keyword">let</span> drag):
+                        state = .dragging(translation: drag?.translation ?? .zero)
+                    <span class="hljs-keyword">default</span>:
+                        <span class="hljs-keyword">break</span>
+                    }
+
+                })
+                .onEnded({ (value) <span class="hljs-keyword">in</span>
+
+                    guard <span class="hljs-keyword">case</span> .second(<span class="hljs-built_in">true</span>, <span class="hljs-keyword">let</span> drag?) = value <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">return</span>
+                    }
+
+                    <span class="hljs-keyword">self</span>.position.height += drag.translation.height
+                    <span class="hljs-keyword">self</span>.position.width += drag.translation.width
+                })
+            )
+    }
+}
+</code></pre>
+<p>我们现在宣告一个 <code>dragState</code> 属性来追踪拖曳状态。预设上， 它设定为 <code>DragState. inactive</code>。程式码几乎相同，除了它修改为使用<code>dragState</code> 而不是使用 <code>isPressed</code> 与 <code>dragOffset</code>。举例而言，对于 <code>.offset</code> 修饰器，我们从拖曳状态的相关值中取得拖曳偏移量。</p>
+<p>程式码的结果是相同的，但是使用列举追踪手势的复杂状态是较好的作法。</p>
+<h3 id="%E5%BB%BA%E7%AB%8B%E9%80%9A%E7%94%A8%E7%9A%84%E5%8F%AF%E6%8B%96%E6%9B%B3%E8%A6%96%E5%9C%96">建立通用的可拖曳视图</h3>
+<p>到目前为止，我们已建立了一个可拖曳的图片视图，若是我们想要建立可拖曳的文字视图呢？或者我们想要建立可拖曳的圆形呢？是否应复制并贴上所有的程式码，来建立文字视图或圆形呢？ </p>
+<p>总是会有更好的方式来实作它，我们来看如何建立通用的可拖曳视图。</p>
+<p>在专案导览器中，右键点击 <code>SwiftUIGesture</code> 资料夹，选择“New File”，接着选取“SwiftUI View”模板，然后将档案命名为 <code>DraggableView</code>。</p>
+<p>宣告 <code>DragState</code> 列举，并更新 <code>DraggableView</code>结构如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DraggableState</span> </span>{
+    <span class="hljs-keyword">case</span> inactive
+    <span class="hljs-keyword">case</span> pressing
+    <span class="hljs-keyword">case</span> dragging(translation: <span class="hljs-type">CGSize</span>)
+
+    <span class="hljs-keyword">var</span> translation: <span class="hljs-type">CGSize</span> {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .inactive, .pressing:
+            <span class="hljs-keyword">return</span> .zero
+        <span class="hljs-keyword">case</span> .dragging(<span class="hljs-keyword">let</span> translation):
+            <span class="hljs-keyword">return</span> translation
+        }
+    }
+
+    <span class="hljs-keyword">var</span> isPressing: <span class="hljs-type">Bool</span> {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .pressing, .dragging:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">true</span>
+        <span class="hljs-keyword">case</span> .inactive:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">false</span>
+        }
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DraggableView</span>&lt;<span class="hljs-title">Content</span>&gt;: <span class="hljs-title">View</span> <span class="hljs-title">where</span> <span class="hljs-title">Content</span>: <span class="hljs-title">View</span> </span>{
+    @<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragState = <span class="hljs-type">DraggableState</span>.inactive
+    @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> position = <span class="hljs-type">CGSize</span>.zero
+
+    <span class="hljs-keyword">var</span> content: () -&gt; <span class="hljs-type">Content</span>
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        content()
+            .opacity(dragState.isPressing ? <span class="hljs-number">0.5</span> : <span class="hljs-number">1.0</span>)
+            .offset(x: position.width + dragState.translation.width, y: position.height + dragState.translation.height)
+            .animation(.easeInOut, value: dragState.translation)
+            .gesture(
+                <span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">1.0</span>)
+                .sequenced(before: <span class="hljs-type">DragGesture</span>())
+                .updating($dragState, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
+
+                    <span class="hljs-keyword">switch</span> value {
+                    <span class="hljs-keyword">case</span> .first(<span class="hljs-built_in">true</span>):
+                        state = .pressing
+                    <span class="hljs-keyword">case</span> .second(<span class="hljs-built_in">true</span>, <span class="hljs-keyword">let</span> drag):
+                        state = .dragging(translation: drag?.translation ?? .zero)
+                    <span class="hljs-keyword">default</span>:
+                        <span class="hljs-keyword">break</span>
+                    }
+
+                })
+                .onEnded({ (value) <span class="hljs-keyword">in</span>
+
+                    guard <span class="hljs-keyword">case</span> .second(<span class="hljs-built_in">true</span>, <span class="hljs-keyword">let</span> drag?) = value <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">return</span>
+                    }
+
+                    <span class="hljs-keyword">self</span>.position.height += drag.translation.height
+                    <span class="hljs-keyword">self</span>.position.width += drag.translation.width
+                })
+            )
+    }
+}
+</code></pre>
+<p>所有的程式码都与你之前编写的程式码非常相似。技巧是将 <code>DraggableView</code> 宣告为通用视图， 并建立一个<code>content</code> 属性，此属性接收任何视图，并且我们使用长按与拖曳手势为 <code>content</code> 视图提供支援。</p>
+<p>现在，你可透过替换 <code>DraggableView_Previews</code>来测试这个通用视图，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DraggableView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">DraggableView</span>() {
+            <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
+                .font(.system(size: <span class="hljs-number">100</span>))
+                .foregroundColor(.green)     
+        }
+    }
+}
+</code></pre>
+<p>在程式码中，我们初始化一个 <code>DraggableView</code>，并提供我们自己的内容（即星形图片）。在这个范例中，你应该完成支援长按与拖曳手势的相同星形图片。</p>
+<p>那么，如果我们要建立一个可拖曳的文字视图呢？你可以将程式码片段替换为下列程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DraggableView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">DraggableView</span>() {
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Swift&quot;</span>)
+                .font(.system(size: <span class="hljs-number">50</span>, weight: .bold, design: .rounded))
+                .bold()
+                .foregroundColor(.red)
+        }
+    }
+}
+</code></pre>
+<p>在闭包中，我们建立了一个文字视图而不是图片视图。如果你在预览画布中执行这个专案（如图 17.6 所示），则可以拖曳文字视图来移动它，是不是很酷呢？</p>
+<figure id="fig17.6"><img src="images/gestures/swiftui-gestures-6.gif" alt="图 17.6.　可拖曳的文字视图"><figcaption>图 17.6.　可拖曳的文字视图</figcaption></figure>
+<p>如果你想要建立一个可拖曳的圆形，则可以替换程式码如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DraggableView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">DraggableView</span>() {
+            <span class="hljs-type">Circle</span>()
+                .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)
+                .foregroundColor(.purple)
+        }
+    }
+}
+</code></pre>
+<p>这便是建立通用的可拖曳的方式。试着以其他视图替换圆形，来建立你自己的可拖曳视图，并享受其中的乐趣。</p>
+<h3 id="%E4%BD%9C%E6%A5%AD">作业</h3>
+<p>在本章中，我们探索了三个内建手势，包括：点击、拖曳与长按，不过有一些手势我们还没试过。作为练习，请试着建立一个通用的可缩放视图，它可以识别 <code>MagnificationGesture</code>，并且可相应缩放任何给定的视图。图 17.7 显示了一个范例结果。</p>
+<figure id="fig17.7"><img src="images/gestures/swiftui-gestures-7.gif" alt="图 17.7.　可缩放的图片视图"><figcaption>图 17.7.　可缩放的图片视图</figcaption></figure>
+<div style="page-break-after: always;"></div>
+
+<h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
+<p>SwiftUI 框架让手势处理变得非常容易。正如你在本章所学到的内容，这个框架提供几个可以立即使用的手势识别器。要使视图支援某个类型的手势，你需要做的是将其加上 <code>.gesture</code> 修饰器。组合多个手势从未如此简单。</p>
+<p>为行动应用程式建立手势驱动的使用者介面，是一种日益增长的趋势。藉由易于使用的 API，试着使用一些有用的手势来增强 App 的功能，以使你的使用者满意。</p>
+<p>在本章所准备的范例档中，有完整的专案可以下载： </p>
+<ul>
+<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGesture.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGesture.zip</a>)</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-actionsheet-context.html" class="navigation navigation-prev " aria-label="Previous page: 滑动删除、内容选单与动作列表"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-bottom-sheet.html" class="navigation navigation-next " aria-label="Next page: 以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

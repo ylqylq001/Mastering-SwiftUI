@@ -1,0 +1,1056 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>如何使用 AnimatableModifier 和 LibraryContentProvider | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-texteditor.html" />
+    
+    
+    <link rel="prev" href="./swiftui-progress-ring.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="31" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-31-%E7%AB%A0-br-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-animatablemodifier-%E5%92%8C-librarycontentprovider">第 31 章<br>如何使用 AnimatableModifier 和 LibraryContentProvider</h1>
+<p>之前，你学习了如何使用 <code>Animatable</code> 和 <code>AnimatableData</code> 为环形进度条设置动画。 在本章中，我们将更进一步，向你展示如何使用另一个名为 <code>AnimatableModifier</code> 的协议为视图设置动画。 此外，我将向你介绍 SwiftUI 的一个新功能，该功能将允许开发者轻松地将客制化视图共享到视图库让你更易重用自制的元件。 稍后，我将向你展示如何将进度环视图加到视图库中以供重用。 先睹为快，你可以看看图 31.1 或观看此示范视频 (<a href="https://link.appcoda.com/librarycontentprovider" target="_blank">https://link.appcoda.com/librarycontentprovider</a>) 了解如何LibraryContentProvider如何运作。</p>
+<figure id="fig31.1"><img src="images/librarycontentprovider/swiftui-library-1.jpg" alt="图 31.1. 在视图库中使用客制化视图"><figcaption>图 31.1. 在视图库中使用客制化视图</figcaption></figure>
+<h3 id="animatablemodifier-%E7%B0%A1%E4%BB%8B">AnimatableModifier 简介</h3>
+<p>我们先来看看 <code>AnimatableModifier</code> 协议。 顾名思义，<code>AnimatableModifier</code> 是一个视图修饰器，而它符合 <code>Animatable</code> 协议。 也因为此，这修饰器可以将不同类型视图的改变动画化。</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">AnimatableModifier</span> : <span class="hljs-title">Animatable</span>, <span class="hljs-title">ViewModifier</span>
+</span></code></pre>
+<p>那么，我们要制作什么动画呢？ 我们将以在前一章的示例为基础再添加一个文字标签。这标签会显示当前进度百分比。 随着进度条的移动，标签也相应更新。 图 31.2 显示了标签的外观。</p>
+<figure id="fig31.2"><img src="images/librarycontentprovider/swiftui-library-2.gif" alt="图 31.2. 带动画的进度标签"><figcaption>图 31.2. 带动画的进度标签</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8-animatablemodifer-%E5%BB%BA%E7%AB%8B%E6%96%87%E5%AD%97%E5%8B%95%E7%95%AB">使用 AnimatableModifer 建立文字动画</h3>
+<p>我强烈建议你先阅读第 30 章，因为这个示范项目是建基于前一个项目之上的。 如果你还没有做过该项目，你可以在 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIProgressRingExercise.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIProgressRingExercise.zip</a> 下载。</p>
+<p>在我们深入了解 <code>AnimatableModifier</code> 协议之前，让我问你。 你将如何布局进度标签并为其设置动画？ 如果你还记得，其实我们在第 9 章中构建了一个类似的进度指示器。根据你所学，可以像这样布局进度标签（在 <code>ProgressRingView.swift</code> 中）：</p>
+<pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
+    <span class="hljs-type">Circle</span>()
+        .stroke(<span class="hljs-type">Color</span>(.systemGray6), lineWidth: thickness)
+
+    <span class="hljs-type">Text</span>(progressText)
+        .font(.system(.largeTitle, design: .rounded))
+        .fontWeight(.bold)
+        .foregroundColor(.black)
+
+    ...
+}
+</code></pre>
+<p>你可以在 <code>ZStack</code> 中添加一个 <code>Text</code> 视图，并使用以下方式格式化文本以显示当前进度：</p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> progressText: <span class="hljs-type">String</span> {
+    <span class="hljs-keyword">let</span> formatter = <span class="hljs-type">NumberFormatter</span>()
+    formatter.numberStyle = .percent
+    formatter.percentSymbol = <span class="hljs-string">&quot;%&quot;</span>
+
+    <span class="hljs-keyword">return</span> formatter.string(from: <span class="hljs-type">NSNumber</span>(value: progress)) ?? <span class="hljs-string">&quot;&quot;</span>
+}
+</code></pre>
+<p>由于 <code>progress</code> 变数是一个状态变数，所以每当 <code>progress</code> 的值发生变化时，<code>progressText</code> 都会自动更新。 但是，解决方案存在一个问题，就是文字的动画效果不太好。</p>
+<p>如果你在 <code>ProgressRingView.swift</code> 中更改了程式码，则可以返回 <code>ContentView.swift</code> 查看结果。 此App确实显示了进度标签，但是当你将进度从一个值改为另一个值时，进度标签会立即使用淡出的动画效果来显示新值。</p>
+<p>这不是我们所寄望的结果。 进度标签不应直接从一个值（例如 100%）跳转到另一个值（例如 50%）。 我们期望进度标签跟随进度条的动画并逐步更新其值，如下所示：</p>
+<p>100 -&gt; 99 -&gt; 98 -&gt; 97 -&gt; 96 ... ... ... ... ... ... ... ... ... ... 53 -&gt; 52 -&gt; 51 -&gt; 50</p>
+<p>当前的做法不允许你为文字的变化设置动画， 这就是为什么我必须向你介绍 <code>AnimatableModifier</code> 协议的原因。</p>
+<p>为了制作文字动画，我们将在 <code>ProgressRingView.swift</code> 中创建一个名为 <code>ProgressTextModifier</code> 的新结构，并采用 <code>AnimatableModifier</code>：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressTextModifier</span>: <span class="hljs-title">AnimatableModifier</span> </span>{
+
+    <span class="hljs-keyword">var</span> progress: <span class="hljs-type">Double</span> = <span class="hljs-number">0.0</span>
+    <span class="hljs-keyword">var</span> textColor: <span class="hljs-type">Color</span> = .primary
+
+    private <span class="hljs-keyword">var</span> progressText: <span class="hljs-type">String</span> {
+        <span class="hljs-keyword">let</span> formatter = <span class="hljs-type">NumberFormatter</span>()
+        formatter.numberStyle = .percent
+        formatter.percentSymbol = <span class="hljs-string">&quot;%&quot;</span>
+
+        <span class="hljs-keyword">return</span> formatter.string(from: <span class="hljs-type">NSNumber</span>(value: progress)) ?? <span class="hljs-string">&quot;&quot;</span>
+    }
+
+    <span class="hljs-keyword">var</span> animatableData: <span class="hljs-type">Double</span> {
+        <span class="hljs-keyword">get</span> { progress }
+        <span class="hljs-keyword">set</span> { progress = newValue }
+    }
+
+    <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">body</span><span class="hljs-params">(content: Content)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> </span>{
+        content
+            .overlay(
+                <span class="hljs-type">Text</span>(progressText)
+                    .font(.system(.largeTitle, design: .rounded))
+                    .fontWeight(.bold)
+                    .foregroundColor(textColor)
+                    .animation(<span class="hljs-built_in">nil</span>)
+            )
+    }
+}
+</code></pre>
+<p>对你来说，这些程式码是不是很熟悉？ 如前所述，<code>AnimatableModifier</code> 协议同时符合 <code>Animatable</code> 和 <code>ViewModifier</code>。 因此，我们在 <code>animatableData</code> 属性中指定动画的值。 这里是<code>progress</code>。 为了符合 <code>ViewModifier</code> 的要求，我们实现了 <code>body</code> 函数并添加了 <code>Text</code> 视图。</p>
+<p>就是这样使用 <code>AnimatableModifier</code> 为文字加置动画。 为方便起见，在 <code>ProgressRingView</code> 的末尾插入以下程式码，以创建用于 <code>ProgressTextModifier</code> 的扩展：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">View</span> </span>{
+    <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">animatableProgressText</span><span class="hljs-params">(progress: Double, textColor: Color = Color.primary)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> </span>{
+        <span class="hljs-keyword">self</span>.modifier(<span class="hljs-type">ProgressTextModifier</span>(progress: progress, textColor: textColor))
+    }
+}
+</code></pre>
+<p>现在你可以像以下程式码将 <code>animatableProgressText</code> 修饰器附加到 <code>RingShape</code> 上：</p>
+<pre><code class="lang-swift"><span class="hljs-type">RingShape</span>(progress: progress, thickness: thickness)
+    .fill(<span class="hljs-type">AngularGradient</span>(gradient: gradient, center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(<span class="hljs-number">360</span> * progress + startAngle)))
+    .animatableProgressText(progress: progress)
+</code></pre>
+<p>更改后，你应该会在预览列看到进度标签。 要测试动画，请在 iPhone 模拟器上运行App或在 <code>ContentView.swift</code> 中执行App。 当你更改进度时，进度文字已经带有动画。</p>
+<figure id="fig31.3"><img src="images/librarycontentprovider/swiftui-library-3.png" alt="图 31.3. 应用客制化修饰符"><figcaption>图 31.3. 应用客制化修饰符</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8-librarycontentprovider">使用 LibraryContentProvider</h3>
+<p>从 Xcode 12 开始，Apple 在 SwiftUI 框架添加了一项功能，允许开发者将任何客制化视图加到 View 图库中。 如果你忘记了 View 图库是什么，只需按 <em>command-shift-L</em> 即可把它带出来。 该图库可让你轻松找寻所有可用的 UI 元件。 你可以从库中拖动元件并将其直接添加到App UI。</p>
+<figure id="fig31.4"><img src="images/librarycontentprovider/swiftui-library-4.png" alt="图 4. 视图库"><figcaption>图 4. 视图库</figcaption></figure>
+<p>Xcode 允许开发者使用名为<code>LibraryContentProvider</code>的协议将客制化视图添加到图库中。 要将客制化视图视图添加到视图库，你需要建立一个符合 <code>LibraryContentProvider</code> 协议的新结构。</p>
+<p>例如，要将进度环视图共享到视图库，我们可以在 <code>ProgressRingView.swift</code> 中创建一个名为 <code>ProgressBar_Library</code> 的结构，如下所示：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressBar_Library</span>: <span class="hljs-title">LibraryContentProvider</span> </span>{
+    @<span class="hljs-type">LibraryContentBuilder</span> <span class="hljs-keyword">var</span> views: [<span class="hljs-type">LibraryItem</span>] {
+        <span class="hljs-type">LibraryItem</span>(<span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">1.0</span>), thickness: <span class="hljs-number">12.0</span>, width: <span class="hljs-number">130.0</span>, gradient: <span class="hljs-type">Gradient</span>(colors: [.darkYellow, .lightYellow])), title: <span class="hljs-string">&quot;Progress Ring&quot;</span>, category: .control)
+    }
+}
+</code></pre>
+<p>你建立一个符合 <code>LibraryContentProvider</code> 的结构并覆载 <code>views</code> 属性以回一个客制化视图阵列。 在上面的程式码，我们回了带有一些预设值的进度环视图，将其命名为<code>Progress Ring</code>，并将其放入元件类别中。</p>
+<p>或者，如果你想添加多个库项目，你可以编写如下程式码：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressBar_Library</span>: <span class="hljs-title">LibraryContentProvider</span> </span>{
+    @<span class="hljs-type">LibraryContentBuilder</span> <span class="hljs-keyword">var</span> views: [<span class="hljs-type">LibraryItem</span>] {
+        <span class="hljs-type">LibraryItem</span>(<span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">1.0</span>), thickness: <span class="hljs-number">12.0</span>, width: <span class="hljs-number">130.0</span>, gradient: <span class="hljs-type">Gradient</span>(colors: [.darkYellow, .lightYellow])), title: <span class="hljs-string">&quot;Progress Ring&quot;</span>, category: .control)
+
+        <span class="hljs-type">LibraryItem</span>(<span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">1.0</span>), thickness: <span class="hljs-number">30.0</span>, width: <span class="hljs-number">250.0</span>, gradient: <span class="hljs-type">Gradient</span>(colors: [.darkPurple, .lightYellow])), title: <span class="hljs-string">&quot;Progress Ring - Bigger&quot;</span>, category: .control)
+    }
+}
+</code></pre>
+<p>再讲多一点点，你可以为项目的类别提供四种值，具体取决于图库项目所代表的内容：</p>
+<ul>
+<li><code>control</code></li>
+<li><code>effect</code></li>
+<li><code>layout</code></li>
+<li><code>other</code></li>
+</ul>
+<p>你可能还未知道 <code>@LibraryContentBuilder</code> 属性包装器是什么？ 它只是使你免于编写用于创建<code>LibraryItem</code>阵列的程式码。 上面的程式码其实可以改写成这样：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressBar_Library</span>: <span class="hljs-title">LibraryContentProvider</span> </span>{
+    <span class="hljs-keyword">var</span> views: [<span class="hljs-type">LibraryItem</span>] {
+        <span class="hljs-keyword">return</span> [<span class="hljs-type">LibraryItem</span>(<span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">1.0</span>), thickness: <span class="hljs-number">12.0</span>, width: <span class="hljs-number">130.0</span>, gradient: <span class="hljs-type">Gradient</span>(colors: [.darkYellow, .lightYellow])), title: <span class="hljs-string">&quot;Progress Ring&quot;</span>, category: .control),
+
+                <span class="hljs-type">LibraryItem</span>(<span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">1.0</span>), thickness: <span class="hljs-number">30.0</span>, width: <span class="hljs-number">250.0</span>, gradient: <span class="hljs-type">Gradient</span>(colors: [.darkPurple, .lightYellow])), title: <span class="hljs-string">&quot;Progress Ring - Bigger&quot;</span>, category: .control)
+    }
+}
+</code></pre>
+<p>当你加入程式码后，Xcode 会自动发现项目中新加入的<code>LibraryContentProvider</code>协议，并将进度环视图添加到视图库中。 你现在可以轻易将进度环视图添加到App UI。</p>
+<figure id="fig31.5"><img src="images/librarycontentprovider/swiftui-library-5.png" alt="图 31.5. 将进度环视图添加到视图库"><figcaption>图 31.5. 将进度环视图添加到视图库</figcaption></figure>
+<p>你不仅可以将客制化视图加至 Xcode 的视图库，还可以通过实现 <code>modifiers</code> 方法添加自己制的修饰器。 你可以通过如下方法将 <code>animatableProgressText</code> 修饰器添加到视图库：</p>
+<pre><code class="lang-swift">struct ProgressBar_Library: LibraryContentProvider {
+    .
+    .
+    .
+
+    @LibraryContentBuilder
+    func modifiers(base: Circle) -&gt; [LibraryItem] {
+        LibraryItem(base.animatableProgressText(progress: 1.0), title: &quot;Progress Indicator&quot;, category: .control)
+    }
+}
+</code></pre>
+<p><code>base</code> 参数允许你指定可以由修饰器修改的元件类型。 在上面的程式码，那个元件就是 <code>Circle</code> 视图。 同样地，一旦你将程式码加入<code>ProgressBar_Library</code>，Xcode 就会自动扫描相关项目并将其添加到修改器库中。</p>
+<figure id="fig31.6"><img src="images/librarycontentprovider/swiftui-library-6.png" alt="图 31.6. 将 Progress Indicator 加至 Modifier 库"><figcaption>图 31.6. 将 Progress Indicator 加至 Modifier 库</figcaption></figure>
+<h3 id="%E7%B7%B4%E7%BF%92">练习</h3>
+<p>进度环现在已合并到视图库中， 尝试使用它并构建一个如下图所示的App。 该App有 4 个 sliders，用于调整不同任务的进度。 除此之外，它也会计算并显示总体进度。</p>
+<figure id="fig31.7"><img src="images/librarycontentprovider/swiftui-library-7.gif" alt="图 7. Daily Task 练习 App"><figcaption>图 7. Daily Task 练习 App</figcaption></figure>
+<h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
+<p><code>AnimatableModifier</code> 协议是一个非常强大的协议，可为任何视图的变化建立动画。 在本章中，我们向你介绍了如何为标签的文字设置动画。 你可以应用此技巧为其他值设置动画，例如颜色和大小。</p>
+<p><code>LibraryContentProvider</code> 使开发者非常轻松地共享客制化视图并鼓励重用程式码。 想像一下，你可以构建一个客制化组件库并将它们放入 View/Modifier 库中，团队中的每个成员都可以轻松取得并使用元件。 在这一章，你只学习如何在同一个 Xcode 项目中使用这些元件。 往后，我们将讨论如何使用 Swift <em>Package</em> 来让你将元件分享至不同Xcode项目。</p>
+<p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
+<p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUITextAnimation.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITextAnimation.zip</a></p>
+<p>该练习的解决方案也包含在Xcode 专案中。 请参考 <code>TaskGridView.swift</code> 档。</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-progress-ring.html" class="navigation navigation-prev " aria-label="Previous page: 使用 Shape 和 Animatable 开发带动画的环形进度条"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-texteditor.html" class="navigation navigation-next " aria-label="Next page: 使用 TextEditor 支援多行文字输入"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

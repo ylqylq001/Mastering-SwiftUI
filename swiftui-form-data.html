@@ -1,0 +1,1209 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>使用 Combine 与 Environment 物件进行资料分享 | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-form-registration.html" />
+    
+    
+    <link rel="prev" href="./swiftui-form.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="14" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-14-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-combine-%E8%88%87-environment-%E7%89%A9%E4%BB%B6%E9%80%B2%E8%A1%8C%E8%B3%87%E6%96%99%E5%85%B1%E4%BA%AB">第 14 章<br>使用 Combine 与 Environment 物件进行资料共享</h1>
+<p>在第 13 章中，你学到了使用 Form 元件来布局表单。不过，目前表单还没有功能，不论你选择哪个选项，清单视图都不会反映使用者偏好而有任何改变，这也是我们将在本章中讨论与实作的内容。我们将继续开发设定画面，并依照使用者的个人偏好更新餐厅清单， 使 App 的功能完善。</p>
+<p>具体而言，我们将在后面的小节讨论下列主题： </p>
+<ol>
+<li>如何使用列举（enum）来组织程式码。</li>
+<li>如何使用 UserDefaults 来永久储存使用者偏好。</li>
+<li>如何使用 Combine 与 @EnvironmentObject 来共享资料。</li>
+</ol>
+<p>如果你还没有完成第 13 章作业，我鼓励你花点时间练习。不过，如果你等不及要阅读本章内容，你可以至下列网址下载范例专案：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip</a> 。</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%88%89%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">使用列举重构程式码</h3>
+<p>我们目前使用一个阵列来储存“Display Order”的三个选项，它虽然能够正常运作，不过还有一个更好的方式可以改善程式码。</p>
+<blockquote>
+<p>列举为一组相关的值定义一般型别，并使你在程式码中以型别安全的方式使用这些值。</p>
+<p>- Apple 的官方文件 (<a href="https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html" target="_blank">https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html</a>)</p>
+</blockquote>
+<p>由于这组固定值是和“Display Order”有关，因此我们可以使用列举（ <code>Enum</code> ）来存放它们，每个情况（case ）指定一个整数值，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DisplayOrderType</span>: <span class="hljs-title">Int</span>, <span class="hljs-title">CaseIterable</span> </span>{
+    <span class="hljs-keyword">case</span> alphabetical = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">case</span> favoriteFirst = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">case</span> checkInFirst = <span class="hljs-number">2</span>
+
+    <span class="hljs-keyword">init</span>(type: <span class="hljs-type">Int</span>) {
+        <span class="hljs-keyword">switch</span> type {
+        <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>: <span class="hljs-keyword">self</span> = .alphabetical
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: <span class="hljs-keyword">self</span> = .favoriteFirst
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: <span class="hljs-keyword">self</span> = .checkInFirst
+        <span class="hljs-keyword">default</span>: <span class="hljs-keyword">self</span> = .alphabetical
+        }
+    }
+
+    <span class="hljs-keyword">var</span> text: <span class="hljs-type">String</span> {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .alphabetical: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Alphabetical&quot;</span>
+        <span class="hljs-keyword">case</span> .favoriteFirst: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Show Favorite First&quot;</span>
+        <span class="hljs-keyword">case</span> .checkInFirst: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Show Check-in First&quot;</span>
+        }
+    }
+}
+</code></pre>
+<p>使用列举的优点是我们可在程式码中以型别安全的方式使用这些值。最重要的是， Swift 中的 <code>Enum</code> 本身就是一级型别，这表示你可以建立实例方法来提供与值相关的附加功能。稍后，我们将会加入一个处理筛选的功能。同时，我们建立一个名为 <code>SettingStore. swift</code> 的新 Swift 档来储存 Enum，如图 14.1 所示，你可以在专案导览处的 <code>SwiftUIForm</code> 资料夹点击右键，并选取 “ New File... ”来建立这个档案。</p>
+<figure id="fig14.1"><img src="images/formdata/swiftui-formdata-1.png" alt="图 14.1　建立一个新的 Swift 档"><figcaption>图 14.1　建立一个新的 Swift 档</figcaption></figure>
+<p>建立 <code>SettingStore.swift</code> 之后，将上列的程式码片段插入档案中。接下来，回到 <code>Setting View.swift</code>，我们将更新程式码来使用 <code>DisplayOrder</code> 列举，而不是使用 <code>displayOrders</code> 阵列。</p>
+<p>首先，从 <code>SettingView</code> 删除下列这行程式码： </p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">var</span> displayOrders = [ <span class="hljs-string">&quot;Alphabetical&quot;</span>, <span class="hljs-string">&quot;Show Favorite First&quot;</span>, <span class="hljs-string">&quot;Show Check-in First&quot;</span>]
+</code></pre>
+<p>接下来，更新 <code>selectedOrder</code> 的预设值为 <code>DisplayOrderType.alphabetical</code>，如下所示： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedOrder = <span class="hljs-type">DisplayOrderType</span>.alphabetical
+</code></pre>
+<p>这里，我们预设显示顺序为依字母排列（alphabetical ），如果你与先前的值（即“0”） 进行比较，转换为使用列举后，程式码更易于阅读了。接下来，你还需要在“Sort Preference”区块更改程式码，具体而言，我们更新<code>ForEach</code> 回圈中的程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-type">Section</span>(header: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;SORT PREFERENCE&quot;</span>)) {
+    <span class="hljs-type">Picker</span>(selection: $selectedOrder, label: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Display order&quot;</span>)) {
+        <span class="hljs-type">ForEach</span>(<span class="hljs-type">DisplayOrderType</span>.allCases, id: \.<span class="hljs-keyword">self</span>) {
+            orderType <span class="hljs-keyword">in</span>
+            <span class="hljs-type">Text</span>(orderType.text)
+        }
+    }
+}
+</code></pre>
+<p>由于我们在 <code>DisplayOrder</code> 列举中采用 <code>CaseIterable</code> 协定，因此我们可存取 <code>allCases</code> 属性（该属性包含所有列举情况的阵列）来找出所有的显示顺序。</p>
+<p>现在，你可以再次测试设定画面，它应该可正常运作且外观相同，不过底层程式码更易于管理及阅读了。</p>
+<h3 id="%E5%9C%A8-userdefaults-%E5%84%B2%E5%AD%98%E4%BD%BF%E7%94%A8%E8%80%85%E5%81%8F%E5%A5%BD">在 UserDefaults 储存使用者偏好</h3>
+<p>目前，App 还不能永久储存使用者偏好。每当你重新启动这个 App 时，设定画面都会重置为预设设定。</p>
+<p>有多种储存设定的方式。要储存少量资料（如 iOS 的使用者设定），内建的预设资料库是方案之一。此预设系统让App 以键值对的形式来储存使用者偏好。要和这个预设资料库互动，你可以使用一个名为 <code>UserDefaults</code>的可程式化介面（programmatic interface ）。</p>
+<p>在 <code>SettingStore.swift</code> 档中，我们将会建立一个 <code>SettingStore</code> 类别，以提供一些方便的方法来储存及载入使用者偏好，在 <code>SettingStore.swift</code> 中插入下列的程式码片段： </p>
+<pre><code class="lang-swift">final <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SettingStore</span> </span>{
+
+    <span class="hljs-keyword">init</span>() {
+        <span class="hljs-type">UserDefaults</span>.standard.register(defaults: [
+            <span class="hljs-string">&quot;view.preferences.showCheckInOnly&quot;</span> : <span class="hljs-built_in">false</span>,
+            <span class="hljs-string">&quot;view.preferences.displayOrder&quot;</span> : <span class="hljs-number">0</span>,
+            <span class="hljs-string">&quot;view.preferences.maxPriceLevel&quot;</span> : <span class="hljs-number">5</span>
+        ])
+    }
+
+    <span class="hljs-keyword">var</span> showCheckInOnly: <span class="hljs-type">Bool</span> = <span class="hljs-type">UserDefaults</span>.standard.bool(forKey: <span class="hljs-string">&quot;view.preferences.showCheckInOnly&quot;</span>) {
+        <span class="hljs-keyword">didSet</span> {
+            <span class="hljs-type">UserDefaults</span>.standard.<span class="hljs-keyword">set</span>(showCheckInOnly, forKey: <span class="hljs-string">&quot;view.preferences.showCheckInOnly&quot;</span>)
+        }
+    }
+
+    <span class="hljs-keyword">var</span> displayOrder: <span class="hljs-type">DisplayOrderType</span> = <span class="hljs-type">DisplayOrderType</span>(type: <span class="hljs-type">UserDefaults</span>.standard.integer(forKey: <span class="hljs-string">&quot;view.preferences.displayOrder&quot;</span>)) {
+        <span class="hljs-keyword">didSet</span> {
+            <span class="hljs-type">UserDefaults</span>.standard.<span class="hljs-keyword">set</span>(displayOrder.rawValue, forKey: <span class="hljs-string">&quot;view.preferences.displayOrder&quot;</span>)
+        }
+    }
+
+    <span class="hljs-keyword">var</span> maxPriceLevel: <span class="hljs-type">Int</span> = <span class="hljs-type">UserDefaults</span>.standard.integer(forKey: <span class="hljs-string">&quot;view.preferences.maxPriceLevel&quot;</span>) {
+        <span class="hljs-keyword">didSet</span> {
+            <span class="hljs-type">UserDefaults</span>.standard.<span class="hljs-keyword">set</span>(maxPriceLevel, forKey: <span class="hljs-string">&quot;view.preferences.maxPriceLevel&quot;</span>)
+        }
+    }
+
+}
+</code></pre>
+<p>我来简短解释一下程式码，在 <code>init</code>方法中，我们使用一些预设值来初始化预设系统。如果资料库中找不到使用者偏好，才会使用这些值。</p>
+<p>如前所述，你可以使用 <code>UserDefaults</code>，以键值对的形式储存设定。在上列的程式码中， 我们为此目的宣告了三个属性，以特定的键，从预设系统中载入对应的值，在didSet中，我们使用 <code>UserDefaults</code> 的 <code>set</code> 方法，来将值储存在使用者预设，这三个属性前面都标注 <code>@Published</code>，因此当值更新后，它会通知订阅者。</p>
+<p><code>settingStore</code> 准备好后，我们切换到 <code>SettingView.swift</code> 档来实作“Save”操作。首先， 在 <code>SettingView</code> 中为 <code>SettingStore</code> 宣告一个属性。</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
+</code></pre>
+<p>而“储存”（Save ）按钮的程式更新如下： </p>
+<p>至于 <em>Save</em> 按钮，你可以将 <em>Save</em> 按钮的程式码（在 <code>ToolbarItem(placement: .navigationBarTrailing)</code> 块中）并将之改为：</p>
+<pre><code class="lang-swift"><span class="hljs-type">Button</span> {
+    <span class="hljs-keyword">self</span>.settingStore.showCheckInOnly = <span class="hljs-keyword">self</span>.showCheckInOnly
+    <span class="hljs-keyword">self</span>.settingStore.displayOrder = <span class="hljs-keyword">self</span>.selectedOrder
+    <span class="hljs-keyword">self</span>.settingStore.maxPriceLevel = <span class="hljs-keyword">self</span>.maxPriceLevel
+    dismiss()
+
+} label: {
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Save&quot;</span>)
+        .foregroundColor(.primary)
+}
+</code></pre>
+<p>我们插入三行程式码来储存使用者偏好。要在带入设定视图时载入偏好，你可以加入一个 <code>onAppear</code>修饰器至<code>NavigationView</code>，如下列所示： </p>
+<pre><code class="lang-swift">.onAppear {            
+    <span class="hljs-keyword">self</span>.selectedOrder = <span class="hljs-keyword">self</span>.settingStore.displayOrder
+    <span class="hljs-keyword">self</span>.showCheckInOnly = <span class="hljs-keyword">self</span>.settingStore.showCheckInOnly
+    <span class="hljs-keyword">self</span>.maxPriceLevel = <span class="hljs-keyword">self</span>.settingStore.maxPriceLevel
+}
+</code></pre>
+<p>当视图出现时，<code>onAppear</code> 修饰器会被呼叫，因此我们在它的闭包中从预设系统载入使用者设定。</p>
+<p>在测试其变化之前，你必须更新 <code>SettingView_Previews</code>，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SettingView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">SettingView</span>(settingStore: <span class="hljs-type">SettingStore</span>())
+    }
+}
+</code></pre>
+<p>现在，切换至 <code>ContentView.swift</code>，并宣告 <code>settingStore</code> 属性： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
+</code></pre>
+<p>并更新 <code>sheet</code> 修饰器如下： </p>
+<pre><code class="lang-swift">.sheet(isPresented: $showSettings) {
+    <span class="hljs-type">SettingView</span>(settingStore: <span class="hljs-keyword">self</span>.settingStore)
+}
+</code></pre>
+<p>最后，更新 <code>ContentView_Previews</code> 如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">ContentView</span>(settingStore: <span class="hljs-type">SettingStore</span>())
+    }
+}
+</code></pre>
+<p>我们只是初始化一个 <code>SettingStore</code>，并将其传送给 <code>SettingView</code>。这是必需的，因为我们已经在 <code>SettingView</code> 中加入 <code>settingStore</code> 属性。</p>
+<p>如果你现在编译并执行该 App，Xcode 将显示一个错误。在 App 可正常运作之前，我们还需要做一个修改。</p>
+<figure id="fig14.2"><img src="images/formdata/swiftui-formdata-2.png" alt="图 14.2. SwiftUIFormApp.swift 中出现错误"><figcaption>图 14.2. SwiftUIFormApp.swift 中出现错误</figcaption></figure>
+<p>至 <code>SwiftUIFormApp.swift</code> 并加入下列属性来建立一个 <code>SettingStore</code> 实例： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore = <span class="hljs-type">SettingStore</span>()
+</code></pre>
+<p>接着，将这行程式码更改为下列程式码，来修正错误： </p>
+<pre><code class="lang-swift"><span class="hljs-type">ContentView</span>(settingStore: settingStore)
+</code></pre>
+<p>现在，你应该能够执行 App，并进行设定了。当你储存设定之后，它将永久储存在本地预设系统中。你可尝试停止 App，然后再次启动它，储存的设定应已载入至设定画面中，如图 14.3 所示。</p>
+<figure id="fig14.3"><img src="images/formdata/swiftui-formdata-3.png" alt="图 14.3.　设定画面应该已载入你的使用者偏好"><figcaption>图 14.3.　设定画面应该已载入你的使用者偏好</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8-environmentobject-%E5%9C%A8%E8%A6%96%E5%9C%96%E9%96%93%E5%85%B1%E4%BA%AB%E8%B3%87%E6%96%99">使用 @EnvironmentObject 在视图间共享资料</h3>
+<p>现在，使用者偏好已经储存在本地预设系统中，但是清单视图并没有依照使用者设定来变更。同样的，有多种方式可以解决这个问题。</p>
+<p>我们概括说明一下目前的情形，当使用者在设定画面中点击“Save”按钮，我们储存所选的选项至本地预设系统中，然后关闭设定画面，App 将带使用者回到清单视图。因此， 我们指示清单视图来重新载入设定，或者清单视图能够监控预设系统的变更，并触发清单的更新。</p>
+<p>随着 SwiftUI 的推出，Apple 还发布了一个名为“Combine”的新框架，根据Apple 的说法，这个框架提供一个宣告式 API 来随着时间推移处理值。在此范例的内容中，Combine 让你轻松监控单一物件，并取得变更通知。与SwiftUI 一起使用时，我们甚至可不撰写一行程式码，就触发视图更新，一切都由 SwiftUI 与 Combine 在幕后处理。</p>
+<p>那么，清单视图如何知道使用者偏好已被修改，并触发更新呢？ </p>
+<p>我来介绍三个关键字： </p>
+<ol>
+<li><strong>@EnvironmentObject</strong> - 以技术而言，这就是一个属性包裹器（ property wrapper ），不过，你可将此关键字视为一个特殊的标记，当你宣告一个属性为环境物件时，SwiftUI 会监控该属性的值，并在有任何改变时，使对应的视图无效。@EnvironmentObject 的运作方式与 @State 几乎相同，不过属性被宣告为环境物件时， 整个 App 中的所有视图皆可存取它。举例而言，如果你的App 有很多共享相同资料（例如：使用者设定）的视图，则环境物件在这种情况下可运作得很好，你不需要在视图间传送属性，就可以自动存取它。</li>
+<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协定。当你宣告一个属性为环境物件时， 该属性的型别必须实作此协定。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？透过实作此协定，这个物件可以作为一个发布者，发出更改后的值。而那些监控值的订阅者将会收到通知。</li>
+<li><strong>@Published</strong> - 这是一个与  <code>ObservableObject</code> 一起使用的属性包裹器。当一个属性以 <code>@Publisher</code> 为前缀时，这表示发布者应该在值发生更改时通知所有订阅者。</li>
+</ol>
+<p>我知道这有点令人困惑。不过，当我们看完程式码后，你将会更加了解。</p>
+<p>我们从 <code>SettingStore.swift</code> 开始。设定视图与清单视图需要监控使用者偏好的变化，因此 <code>SettingStore</code> 应该实作 <code>ObservableObject</code> 协定，并宣布 <code>defaults</code> 属性的变更。在 <code>Setting Store.swift</code> 档的开始处，我们必须先汇入 Combine 框架： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">Combine</span>
+</code></pre>
+<p><code>SettingStore</code> 类别应该采用 <code>ObservableObject</code> 协定。更新类别宣告，如下所示： </p>
+<pre><code class="lang-swift">final <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SettingStore</span>: <span class="hljs-title">ObservableObject</span> </span>{
+</code></pre>
+<p>接下来，如下，在所有的属性的前面插入 <code>@Published</code> 标注： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> showCheckInOnly: <span class="hljs-type">Bool</span> = <span class="hljs-type">UserDefaults</span>.standard.bool(forKey: <span class="hljs-string">&quot;view.preferences.showCheckInOnly&quot;</span>) {
+    <span class="hljs-keyword">didSet</span> {
+        <span class="hljs-type">UserDefaults</span>.standard.<span class="hljs-keyword">set</span>(showCheckInOnly, forKey: <span class="hljs-string">&quot;view.preferences.showCheckInOnly&quot;</span>)
+    }
+}
+
+@<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> displayOrder: <span class="hljs-type">DisplayOrderType</span> = <span class="hljs-type">DisplayOrderType</span>(type: <span class="hljs-type">UserDefaults</span>.standard.integer(forKey: <span class="hljs-string">&quot;view.preferences.displayOrder&quot;</span>)) {
+    <span class="hljs-keyword">didSet</span> {
+        <span class="hljs-type">UserDefaults</span>.standard.<span class="hljs-keyword">set</span>(displayOrder.rawValue, forKey: <span class="hljs-string">&quot;view.preferences.displayOrder&quot;</span>)
+    }
+}
+
+@<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> maxPriceLevel: <span class="hljs-type">Int</span> = <span class="hljs-type">UserDefaults</span>.standard.integer(forKey: <span class="hljs-string">&quot;view.preferences.maxPriceLevel&quot;</span>) {
+    <span class="hljs-keyword">didSet</span> {
+        <span class="hljs-type">UserDefaults</span>.standard.<span class="hljs-keyword">set</span>(maxPriceLevel, forKey: <span class="hljs-string">&quot;view.preferences.maxPriceLevel&quot;</span>)
+    }
+}
+</code></pre>
+<p>藉由使用 <code>@Published</code> 属性包裹器，发布者将在属性的值发生变化时通知订阅者（例如：<code>displayOrder</code> 的更新）。</p>
+<p>如你所见，使用 Combine 通知变更的值非常容易。实际上，我们还没有编写任何新程式码，只有采用所需的协定，并插入一个标记。</p>
+<p>现在，我们切换至 <code>SettingView.swift</code>。<code>settingStore</code> 现在应该宣告为环境物件，以让我们可以与其他视图共享资料。更新 <code>settingStore</code> 变数，如下所示： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">EnvironmentObject</span> <span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
+</code></pre>
+<p>你不需要更新和“Save”按钮有关的程式码。不过，当你设定一个新值至设定储存区时（例如：更新<code>showCheckInOnly</code>，从 true 改为 false ），此更新将会发布，并让所有订阅者知道。</p>
+<p>由于此变更，我们需要更新 <code>SettingView_Previews</code> 为下列内容： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SettingView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">SettingView</span>().environmentObject(<span class="hljs-type">SettingStore</span>())
+    }
+}
+</code></pre>
+<p>这里，我们将 <code>SettingStore</code> 的实例注入至环境中，以进行预览。</p>
+<p>好的，发布方已经完成，那么订阅者呢？我们要如何监控 <code>defaults</code> 的变化，并相应更新UI 呢？ </p>
+<p>在这个范例专案中，清单视图是订阅方，它需要监控设定储存区的变化，并重新渲染清单视图，以反映使用者的设定。现在开启 <code>ContentView.swift</code> 来做一些变更。和我们刚才所做的操作类似，<code>settingStore</code> 现在应该宣告为一个环境物件： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">EnvironmentObject</span> <span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
+</code></pre>
+<p>由于这个变更，因此应要修改 <code>sheet</code> 修饰器中的程式码，以获取此环境物件： </p>
+<pre><code class="lang-swift">.sheet(isPresented: $showSettings) {
+    <span class="hljs-type">SettingView</span>().environmentObject(<span class="hljs-keyword">self</span>.settingStore)
+}
+</code></pre>
+<p>另外，为了测试的目的，预览程式码应要相应更新，以注入环境物件： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">ContentView</span>().environmentObject(<span class="hljs-type">SettingStore</span>())
+    }
+}
+</code></pre>
+<p>最后，开启<code>SwiftUIFormApp.swift</code> ，并更新WindowGroup 内的程式码，如下所示：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SwiftUIFormApp</span>: <span class="hljs-title">App</span> </span>{
+
+    <span class="hljs-keyword">var</span> settingStore = <span class="hljs-type">SettingStore</span>()
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">Scene</span> {
+        <span class="hljs-type">WindowGroup</span> {
+            <span class="hljs-type">ContentView</span>().environmentObject(settingStore)
+        }
+    }
+}
+</code></pre>
+<p>这里，我们呼叫 <code>environmentObject</code> 方法，将设定储存区注入至环境。现在，设定储存区的实例可用于 App 内的所有视图。换句话说，设定与清单视图皆可自动存取它了。</p>
+<h3 id="%E5%AF%A6%E4%BD%9C%E7%AF%A9%E9%81%B8%E9%81%B8%E9%A0%85">实作筛选选项</h3>
+<p>现在，我们已经实作了一个可以让所有视图存取的通用设定储存区。最棒的是，只要设定储存区中有任何更改，它会自动通知监控更新的视图。尽管你看不出任何的视觉差异，但是当你更新设定画面的选项时，设定储存区会将变更通知至清单视图。</p>
+<p>我们最终任务是实作筛选与排序选项，以只显示和使用者偏好相配的餐厅。我们从实作下列两个筛选选项来开始： </p>
+<ul>
+<li>只显示打卡过的餐厅（Show Check-in Only）。</li>
+<li>显示低于某个价位级别的餐厅（Show restaurants below a certain price level）。</li>
+</ul>
+<p>在 <code>ContentView.swift</code> 中，我们将建立一个名为 <code>showShowItem</code> 的新函数来处理筛选： </p>
+<pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">shouldShowItem</span><span class="hljs-params">(restaurant: Restaurant)</span> -&gt; <span class="hljs-title">Bool</span> </span>{
+    <span class="hljs-keyword">return</span> (!<span class="hljs-keyword">self</span>.settingStore.showCheckInOnly || restaurant.isCheckIn) &amp;&amp; (restaurant.priceLevel &lt;= <span class="hljs-keyword">self</span>.settingStore.maxPriceLevel)
+}
+</code></pre>
+<p>该函数带入一个餐厅物件，并告诉呼叫者是否应该显示餐厅。在上列的程式码中，我们检查“Show Check-in Only”选项是否被选取，并检验指定餐厅的价位级别。</p>
+<p>接下来，使用 <code>if</code> 语句包裹 <code>BasicImageRow</code>，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.shouldShowItem(restaurant: restaurant) {
+        <span class="hljs-type">BasicImageRow</span>(restaurant: restaurant)
+            .contextMenu {
+
+                 ...
+
+            }
+}
+</code></pre>
+<p>这里，我们首先呼叫刚才实作的 <code>shouldShowItem</code> 函数，来检查是否应该显示餐厅。</p>
+<p>现在按 Play 在模拟器执行 App 并快速测试。在设定画面中，设定“Show Check-in Only”选项为“ON”， 并配置价位级别选项，以显示价位级别为 3（即$$$ ）或以下的餐厅，如图 14.4 所示。当你点击“Save”按钮后，清单视图应会自动更新（使用动画），并显示筛选后的纪录。</p>
+<figure id="fig14.4"><img src="images/formdata/swiftui-formdata-4.png" alt="图 14.4.　当你更改筛选偏好时，清单视图现在会更新其项目"><figcaption>图 14.4.　当你更改筛选偏好时，清单视图现在会更新其项目</figcaption></figure>
+<h3 id="%E5%AF%A6%E4%BD%9C%E6%8E%92%E5%BA%8F%E9%81%B8%E9%A0%85">实作排序选项</h3>
+<p>现在，我们已经完成筛选选项的实作，我们来继续处理排序选项。在 Swift 中，你可以使用 sort(by:) 方法对一个序列中的元素排序。当使用此方法时，你需要提供一个述词（predicate ）给它，在第一个元素应排在第二个元素之前，该述词会回传 <code>true</code>。</p>
+<p>举例而言，要将 <code>restaurants</code> 阵列依字母排序，则可以使用 <code>sort(by:)</code>方法，如下所示： </p>
+<pre><code class="lang-swift">restaurants.sorted(by: { $<span class="hljs-number">0</span>.name &lt; $<span class="hljs-number">1</span>.name })
+</code></pre>
+<p>这里，$0 是第一个元素，$1 是第二个元素。在这个例子中，名称为“Upstate”的餐厅大于名称为“Homei”的餐厅，因此“Homei”将依顺序放在“Upstate”的前面。</p>
+<p>反之，如果你想要以字母降幂来排序餐厅，你可以编写程式码如下： </p>
+<pre><code class="lang-swift">restaurants.sorted(by: { $<span class="hljs-number">0</span>.name &gt; $<span class="hljs-number">1</span>.name })
+</code></pre>
+<p>我们如何排序阵列来显示“check-in”优先，或显示“favorite”优先呢？我们可以使用相同的方法，但是提供不同的述词，如下所示： </p>
+<pre><code class="lang-swift">restaurants.sorted(by: { $<span class="hljs-number">0</span>.isFavorite &amp;&amp; !$<span class="hljs-number">1</span>.isFavorite })
+restaurants.sorted(by: { $<span class="hljs-number">0</span>.isCheckIn &amp;&amp; !$<span class="hljs-number">1</span>.isCheckIn })
+</code></pre>
+<p>为了更加组织程式码，我们可以将这些述词放在 <code>DisplayOrder</code> 列举中。至 SettingStore.swift 档，于 DisplayOrderType 中加入一个新函数，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">predicate</span><span class="hljs-params">()</span> -&gt; <span class="hljs-params">(<span class="hljs-params">(Restaurant, Restaurant)</span> -&gt; Bool)</span> </span>{
+    <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+    <span class="hljs-keyword">case</span> .alphabetical: <span class="hljs-keyword">return</span> { $<span class="hljs-number">0</span>.name &lt; $<span class="hljs-number">1</span>.name }
+    <span class="hljs-keyword">case</span> .favoriteFirst: <span class="hljs-keyword">return</span> { $<span class="hljs-number">0</span>.isFavorite &amp;&amp; !$<span class="hljs-number">1</span>.isFavorite }
+    <span class="hljs-keyword">case</span> .checkInFirst: <span class="hljs-keyword">return</span> { $<span class="hljs-number">0</span>.isCheckIn &amp;&amp; !$<span class="hljs-number">1</span>.isCheckIn }
+    }
+}
+</code></pre>
+<p>此函数仅回传对应显示顺序的述词（即一个闭包）。现在，我们准备进行最后的变更。回到 <code>ContentView.swift</code>，并将 <code>ForEach</code> 叙述从： </p>
+<pre><code class="lang-swift"><span class="hljs-type">ForEach</span>(restaurants) {
+  ...
+}
+</code></pre>
+<p>变更为： </p>
+<pre><code class="lang-swift"><span class="hljs-type">ForEach</span>(restaurants.sorted(by: <span class="hljs-keyword">self</span>.settingStore.displayOrder.predicate())) {
+  ...
+}
+</code></pre>
+<p>如此，你可以测试 App，并变更排序偏好。当你更新排序选项时，这个清单视图将得到通知，并相应地重新排序餐厅。</p>
+<h3 id="%E4%B8%8B%E4%B8%80%E7%AB%A0%E7%9A%84%E4%B8%BB%E9%A1%8C">下一章的主题</h3>
+<p>你知道 SwiftUI 与 Combine 可帮助我们撰写出更好的程式码吗？在本章最后两节中，我们并没有撰写很多的程式码来实作筛选及排序选项。Combine 处理事件处理的繁重工作， 将它与 SwiftUI 搭配使用时，它的功能更加强大，并节省你开发实作来监控物件的状态变化与触发 UI 更新的时间。一切几乎是自动的，并由这两个新框架来负责。</p>
+<p>在下一章中，我们将会继续透过“建立注册画面”来探索 Combine 。你将进一步了解 Combine 如何帮助你写出更简洁与模组化的程式码。</p>
+<p>在本章所准备的范例档中，有完整的专案可供下载： </p>
+<ul>
+<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormData.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormData.zip</a>)</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-form.html" class="navigation navigation-prev " aria-label="Previous page: 以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-form-registration.html" class="navigation navigation-next " aria-label="Next page: 以 Combine 与 视图模型建立一个注册表单"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -1,0 +1,1381 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>建立像 Apple Wallet App 的动画和转场效果 | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-json.html" />
+    
+    
+    <link rel="prev" href="./swiftui-trip-tinder.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="20" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-20-%E7%AB%A0-br-%E5%BB%BA%E7%AB%8B%E5%A6%82-apple-wallet-%E7%9A%84%E5%8B%95%E7%95%AB%E8%88%87%E8%A6%96%E5%9C%96%E8%BD%89%E5%A0%B4">第 20 章<br>建立如 Apple Wallet 的动画与视图转场</h1>
+<p>你使用过 Apple 电子钱包 App 吗？我相信应该有，在上一章中，我们建立了一个如 Tinder UI 的简单 App，而本章要做的是建立一个动态 UI，类似于你在电子钱包 App 中看到的 UI。当你在电子钱包 App 中长按信用卡时，则可使用拖曳手势来重新排列卡片。如果你没有使用过这个 App，请开启电子钱包快速浏览一下，或者你可以访问这个URL （<a href="https://link.appcoda.com/swiftui-wallet" target="_blank">https://link.appcoda.com/swiftui-wallet</a>）来了解我们将建立的动画。</p>
+<figure id="fig20.1"><img src="images/wallet/swiftui-wallet-1.png" alt="图 20.1.　建立如电子钱包的动画与视图转场"><figcaption>图 20.1.　建立如电子钱包的动画与视图转场</figcaption></figure>
+<p>在电子钱包 App 中，点击其中一张信用卡，就会带出交易历史纪录。我们还建立一个类似的动画，以让你更了解视图转场与水平滚动视图。</p>
+<h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">专案准备</h3>
+<p>为了让你专注于学习动画与视图转场，你可以从起始专案开始(<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip</a>)。这个起始专案已经绑定了所需的信用卡图片，并且带有内建的交易历史纪录视图，如果想要使用自己的图片，请在素材目录中替换它们，如图20.2 所示。</p>
+<figure id="fig20.2"><img src="images/wallet/swiftui-wallet-2.png" alt="图 20.2　起始专案绑定了信用卡图片"><figcaption>图 20.2　起始专案绑定了信用卡图片</figcaption></figure>
+<p>在专案导览器中，你应该会发现一些 <code>.swift</code> 档： </p>
+<ul>
+<li><strong>Transaction.swift</strong> - <code>Transaction</code> 结构代表电子钱包 App中的交易。每一笔交易有一个唯一的 ID、交易商、金额、日期与图示。除了 <code>Transaction</code> 结构之外，作为示范之用，我们还宣告一个测试交易的阵列。</li>
+<li><strong>Card.swift</strong> - 这个档案包含了 <code>Card</code> 的结构。<code>Card</code> 表示信用卡的资料，包含卡号、类型、有效日期、图片与客户姓名，除此之外，你可以在档案中找到一个测试信用卡的阵列。需要注意的一点是，卡片图片中不包含任何的个人资讯，而只包含卡片品牌（例如： Visa ）。稍后，我们将为信用卡建立一个视图。</li>
+<li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始专案已经带有交易历史纪录视图的实作。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
+<li><strong>ContentView.swift</strong> - 这是 Xcode产生的预设 SwiftUI 视图。</li>
+</ul>
+<figure id="fig20.3"><img src="images/wallet/swiftui-wallet-3.png" alt="图 20.3.　使用.horizontal 建立水平滚动视图"><figcaption>图 20.3.　使用.horizontal 建立水平滚动视图</figcaption></figure>
+<h3 id="%E5%BB%BA%E7%AB%8B%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">建立卡片视图</h3>
+<p>如上一节所述，所有的卡片图片皆不包含任何个人资讯与卡号。再次开启素材目录， 并看一下图片，每张卡片图片只具有卡片标志。我们将很快建立一个卡片视图，来布局个人资讯与卡号，如图 20.4 所示。</p>
+<figure id="fig20.4"><img src="images/wallet/swiftui-wallet-4.png" alt="图 20.4.　范例卡片"><figcaption>图 20.4.　范例卡片</figcaption></figure>
+<p>要建立卡片视图，则在专案导览器中，右键点选 <code>View</code> 群组，然后建立一个新档案。选取“SwiftUI View”模板，档案名称命名为 <code>CardView.swift</code>。接下来，更新程式码如下：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span> </span>{
+    <span class="hljs-keyword">var</span> card: <span class="hljs-type">Card</span>
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">Image</span>(card.image)
+        .resizable()
+        .scaledToFit()
+            .overlay(
+
+                <span class="hljs-type">VStack</span>(alignment: .leading) {
+                    <span class="hljs-type">Text</span>(card.number)
+                        .bold()
+                    <span class="hljs-type">HStack</span> {
+                        <span class="hljs-type">Text</span>(card.name)
+                            .bold()
+                        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Valid Thru&quot;</span>)
+                            .font(.footnote)
+                        <span class="hljs-type">Text</span>(card.expiryDate)
+                            .font(.footnote)
+                    }
+                }
+                .foregroundColor(.white)
+                .padding(.leading, <span class="hljs-number">25</span>)
+                .padding(.bottom, <span class="hljs-number">20</span>)
+
+            , alignment: .bottomLeading)
+            .shadow(color: .gray, radius: <span class="hljs-number">1.0</span>, x: <span class="hljs-number">0.0</span>, y: <span class="hljs-number">1.0</span>)
+
+    }
+}
+</code></pre>
+<p>我们宣告一个 <code>card</code> 属性来带入卡片资料。为了在卡片图片上显示个人资料与卡号，我们使用 <code>overlay</code> 修饰器，并以垂直堆叠视图与水平堆叠视图来布局文字元件。</p>
+<p>要预览卡片，则更新 <code>CardView_Previews</code>结构如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">ForEach</span>(testCards) { card <span class="hljs-keyword">in</span>
+            <span class="hljs-type">CardView</span>(card: card).previewDisplayName(card.type.rawValue)
+        }
+    }
+}
+</code></pre>
+<p><code>testCards</code> 变数在 <code>Card.swift</code> 中定义，因此我们使用 <code>ForEach</code> 来逐一执行卡片，并呼叫 <code>previewDisplayName</code> 来设定预览的名称。Xcode 将如图 20.5 所示布局卡片。</p>
+<figure id="fig20.5"><img src="images/wallet/swiftui-wallet-5.png" alt="图 20.5.　预览卡片视图"><figcaption>图 20.5.　预览卡片视图</figcaption></figure>
+<h3 id="%E5%BB%BA%E7%AB%8B%E9%9B%BB%E5%AD%90%E9%8C%A2%E5%8C%85%E8%A6%96%E5%9C%96%E8%88%87%E5%8D%A1%E7%89%87%E5%BA%AB">建立电子钱包视图与卡片库</h3>
+<p>我们现在已经实作了卡片视图，让我们开始建立电子钱包视图。如果你忘记电子钱包视图的外观，请看一下图 20.6。在进行手势与动画之前，我们将先布局卡片库。</p>
+<figure id="fig20.6"><img src="images/wallet/swiftui-wallet-6.png" alt="图 20.6　钱包视图"><figcaption>图 20.6　钱包视图</figcaption></figure>
+<p>在专案导览器中，你应该会看到 <code>ContentView.swift</code> 档。删除它，然后右键点选 <code>View</code> 资料夹，以建立一个新档案。在对话方块中，选取“SwiftUI View”作为模板，并将档案命名为 <code>WalletView.swift</code>。</p>
+<p>如果你预览 <code>WalletView</code>  或在模拟器中执行 App，Xcode 应该会显示一个错误，因为 <code>ContentView</code> 设定为初始视图，并且其被删除了。要修正这个错误，则开启 <code>SwiftUIWallet App.swift</code>，并将 <code>WindowGroup</code> 中下列这行程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-type">ContentView</span>()
+</code></pre>
+<p>更改为： </p>
+<pre><code class="lang-swift"><span class="hljs-type">WalletView</span>()
+</code></pre>
+<p>切换回 <code>WalletView.swift</code>。当你更改后，将可修正编译错误，现在我们继续布局电子钱包视图。首先，我们从标题列开始，在 <code>WalletView.swift</code> 档中，为标题列插入一个新结构： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TopNavBar</span>: <span class="hljs-title">View</span> </span>{
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">HStack</span> {
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Wallet&quot;</span>)
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.heavy)
+
+            <span class="hljs-type">Spacer</span>()
+
+            <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;plus.circle.fill&quot;</span>)
+                .font(.system(.title))
+        }
+        .padding(.horizontal)
+        .padding(.top, <span class="hljs-number">20</span>)
+    }
+}
+</code></pre>
+<p>程式码非常简单，我们使用水平堆叠来布局标题与加号图片。</p>
+<p>接下来，是针对卡片库。首先，在 <code>WalletView</code> 结构中，为信用卡阵列宣告一个属性： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> cards: [<span class="hljs-type">Card</span>] = testCards
+</code></pre>
+<p>为了示范，我们只将预设值设定为 <code>Card.swift</code> 档中定义的 <code>testCards</code>。要布局电子钱包视图，我们同时使用<code>VStack</code> 与 <code>ZStack</code>，更新 <code>body</code> 变数如下： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+   <span class="hljs-type">VStack</span> {
+
+        <span class="hljs-type">TopNavBar</span>()
+            .padding(.bottom)
+
+        <span class="hljs-type">Spacer</span>()
+
+        <span class="hljs-type">ZStack</span> {
+            <span class="hljs-type">ForEach</span>(cards) { card <span class="hljs-keyword">in</span>
+                <span class="hljs-type">CardView</span>(card: card)
+                    .padding(.horizontal, <span class="hljs-number">35</span>)
+            }
+        }
+
+        <span class="hljs-type">Spacer</span>()
+    }
+}
+</code></pre>
+<p>如果你在模拟器中执行这个 App 或直接预览 UI，则应该只看到卡片库中的最后一张卡片，如图 20.7 所示。</p>
+<figure id="fig20.7"><img src="images/wallet/swiftui-wallet-7.png" alt="图 20.7.　尝试显示卡片库"><figcaption>图 20.7.　尝试显示卡片库</figcaption></figure>
+<p>目前的实作有两个问题： </p>
+<ol>
+<li><em>卡片现在彼此重叠了</em> - 我们需要找出一种方式来展开一副卡片。</li>
+<li><em>Discover卡应该是最后一张卡片</em> - 在 ZStack中，项目彼此堆叠在一起。放入 ZStack的第一个项目成为最低层，而最后一个项目成为最高层。如果你看一下 <code>Card.swift</code> 中的 <code>testCards</code> 阵列，第一张卡片是 Visa 卡，最后一张卡片是 Discover 卡。</li>
+</ol>
+<p>那么，我们要如何修正这个问题呢？对于第一个问题，我们可以使用 <code>offset</code>修饰器来展开一副卡片。而对于第二个问题，我们显然可以更改每个 <code>CardView</code> 的 <code>zIndex</code>，以改变卡片的顺序。图 20.8 说明了这个解决方案是如何工作的。</p>
+<figure id="fig20.8"><img src="images/wallet/swiftui-wallet-8.png" alt="图 20.8.　了解zIndex 与偏移量"><figcaption>图 20.8.　了解zIndex 与偏移量</figcaption></figure>
+<p>我们先讨论一下 z-index。每张卡片的 z-index 是其在 <code>cards</code> 阵列中索引的负值，如此最后一个项目拥有阵列索引的最大值，也将会有最小的 z-index。对于实际的实作，我们将建立一个单独的函数来处理 z-index 的计算。在<code>WalletView</code> 中，插入下列的程式码： </p>
+<pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">zIndex</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Double</span> </span>{
+    guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span>
+    }
+
+    <span class="hljs-keyword">return</span> -<span class="hljs-type">Double</span>(cardIndex)
+}
+
+private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">index</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Int</span>? </span>{
+    guard <span class="hljs-keyword">let</span> index = cards.firstIndex(<span class="hljs-keyword">where</span>: { $<span class="hljs-number">0</span>.id == card.id }) <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">nil</span>
+    }
+
+    <span class="hljs-keyword">return</span> index
+}
+</code></pre>
+<p>这两个函数可以一起找出给定卡片的正确 z-index。要计算正确的 z-index，我们首先需要取得 <code>cards</code> 阵列中卡片的索引值，<code>index(for:)</code> 函数是为了找出给定卡片的阵列索引值而设计的。当我们有了索引值后，就可以将其变成负值，这就是 <code>zIndex(for:)</code> 函数的作用。</p>
+<p>现在，你可以将 <code>zIndex</code> 修饰器加到 <code>CardView</code>，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">CardView</span>(card: card)
+    .padding(.horizontal, <span class="hljs-number">35</span>)
+    .zIndex(<span class="hljs-keyword">self</span>.zIndex(<span class="hljs-keyword">for</span>: card))
+</code></pre>
+<p>当你更改后，Visa 卡片应该移到卡片库的最上方。</p>
+<p>接下来，我们修正第一个问题来展开卡片，每张卡片都应偏移一定的垂直距离。而这个距离是使用卡片的索引值来计算的。假设我们将预设的垂直偏移量设定为 50 点，最后一张卡片将会位移 200 点（50&#xD7;4）。</p>
+<p>现在，你应该了解我们将如何展开卡片了，我们来编写程式码。在 <code>WalletView</code> 中宣告预设的垂直偏移量： </p>
+<pre><code class="lang-swift">private <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> cardOffset: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">50.0</span>
+</code></pre>
+<p>接下来，建立一个名为 <code>offset(for:)</code>的新函数，用于计算给定卡片的垂直偏移量： </p>
+<pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">offset</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">CGSize</span> </span>{
+
+    guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-type">CGSize</span>()
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-type">CGSize</span>(width: <span class="hljs-number">0</span>, height: -<span class="hljs-number">50</span> * <span class="hljs-type">CGFloat</span>(cardIndex))
+}
+</code></pre>
+<p>最后，将 <code>offset</code> 修饰器加入到 <code>CardView</code>： </p>
+<pre><code class="lang-swift"><span class="hljs-type">CardView</span>(card: card)
+    .padding(.horizontal, <span class="hljs-number">35</span>)
+    .offset(<span class="hljs-keyword">self</span>.offset(<span class="hljs-keyword">for</span>: card))
+    .zIndex(<span class="hljs-keyword">self</span>.zIndex(<span class="hljs-keyword">for</span>: card))
+</code></pre>
+<p>这就是我们使用 <code>offset</code> 修饰器来展开卡片的方式。若是一切正确，你应该会看到如图 20.9 所示的预览。</p>
+<figure id="fig20.9"><img src="images/wallet/swiftui-wallet-9.png" alt="图 20.9.　展开卡片"><figcaption>图 20.9.　展开卡片</figcaption></figure>
+<h3 id="%E5%8A%A0%E5%85%A5%E6%BB%91%E5%85%A5%E5%8B%95%E7%95%AB">加入滑入动画</h3>
+<p>我们现在已经完成了电子钱包视图的布局，是时候加入一些动画了，我要加入的第一个动画是滑入动画。当第一次开启 App 时，每张卡片都从荧幕最左侧滑入，你可能认为这个动画是不必要的，但是我想藉此机会教你如何建立动画以及开启 App 时的视图转场。</p>
+<figure id="fig20.10"><img src="images/wallet/swiftui-wallet-10.png" alt="图 20.10　滑入动画"><figcaption>图 20.10　滑入动画</figcaption></figure>
+<p>首先，我们需要一种触发过渡动画的方法， 先在 <code>CardView</code> 的开头声明一个状态变数：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isCardPresented = <span class="hljs-built_in">false</span>
+</code></pre>
+<p>此变数指示卡片是否应显示在荧幕上。 在预设的情况下，它设置为<code>false</code>。 稍后，我们将此值设置为 <code>true</code> 以启动视图转换。</p>
+<p>每张卡片都是一个视图。要实作如图 20.10 所示的动画，我们需要将 <code>transition</code> 与 <code>animation</code> 修饰器加到<code>CardView</code> 上，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">CardView</span>(card: card)
+    .offset(<span class="hljs-keyword">self</span>.offset(<span class="hljs-keyword">for</span>: card))
+    .padding(.horizontal, <span class="hljs-number">35</span>)
+    .zIndex(<span class="hljs-keyword">self</span>.zIndex(<span class="hljs-keyword">for</span>: card))
+    .transition(<span class="hljs-type">AnyTransition</span>.slide.combined(with: .move(edge: .leading)).combined(with: .opacity))
+    .animation(<span class="hljs-keyword">self</span>.transitionAnimation(<span class="hljs-keyword">for</span>: card), value: isCardPresented)
+</code></pre>
+<p>对于转场，我们将预设的滑动转场与移动转场结合在一起。如前所述，若是没有 <code>animation</code> 修饰器，则转场将不会动画化，这就是为何我们还要加入 <code>animation</code> 修饰器的缘故。由于每张卡片都有自己的动画，我们建立一个名为 <code>transitionAnimation(for:)</code> 函数来计算动画。插入下列的程式码来建立函数： </p>
+<pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">transitionAnimation</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Animation</span> </span>{
+    <span class="hljs-keyword">var</span> delay = <span class="hljs-number">0.0</span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> index = index(<span class="hljs-keyword">for</span>: card) {
+        delay = <span class="hljs-type">Double</span>(cards.<span class="hljs-built_in">count</span> - index) * <span class="hljs-number">0.1</span>
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-type">Animation</span>.spring(response: <span class="hljs-number">0.1</span>, dampingFraction: <span class="hljs-number">0.8</span>, blendDuration: <span class="hljs-number">0.02</span>).delay(delay)
+}
+</code></pre>
+<p>事实上，所有的卡片都有相似的动画（即弹簧动画），差别在于“延迟”（delay ）。卡片库的最后一张卡片将先出现，因此延迟值应该最小。下面是我们如何计算每张卡片的延迟的公式，索引值越小，延迟越长。</p>
+<pre><code class="lang-swift">delay = <span class="hljs-type">Double</span>(cards.<span class="hljs-built_in">count</span> - index) * <span class="hljs-number">0.1</span>
+</code></pre>
+<p>哪我们要如何在 App 启动的时候触发转场？诀窍就是为每一个卡视图加入<code>id</code> 修饰器。</p>
+<pre><code class="lang-swift"><span class="hljs-type">CardView</span>(card: card)
+    .
+    .
+    .
+    .id(isCardPresented)
+    .
+    .animation(<span class="hljs-keyword">self</span>.transitionAnimation(<span class="hljs-keyword">for</span>: card), value: isCardPresented)
+</code></pre>
+<p><code>id</code> 的值设定为 <code>isCardPresented</code> 。之后，加入 <code>onAppear</code> 修饰器，并将它加到 <code>ZStack</code>：</p>
+<pre><code class="lang-swift">.onAppear {
+    isCardPresented.toggle()
+}
+</code></pre>
+<p> 当 <code>ZStack</code> 出现时，我们将 <code>isCardPresented</code> 的值从 <code>false</code> 更改为 <code>true</code>，这将触发卡片的视图动画。应用更改后，在预览画布中点墼“Play”按钮，来进行测试。</p>
+<p>更改后，点击 <em>Play</em> 按钮在模拟器中测试App，App启动时就会呈现动画。</p>
+<h3 id="%E8%99%95%E7%90%86%E9%BB%9E%E6%93%8A%E6%89%8B%E5%8B%A2%E5%8F%8A%E9%A1%AF%E7%A4%BA%E4%BA%A4%E6%98%93%E7%B4%80%E9%8C%84">处理点击手势及显示交易纪录</h3>
+<p>当使用者点击卡片时，App 会向上移动所选的卡片，并且显示历史交易纪录。对于其他没有选到的卡片，它们会被移出荧幕。</p>
+<p>要实作这个功能，我们还需要两个状态变数。在 <code>WalletView</code> 中宣告这些变数： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> isCardPressed = <span class="hljs-built_in">false</span>
+@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> selectedCard: <span class="hljs-type">Card</span>?
+</code></pre>
+<p><code>isCardPressed</code> 变数指示是否选择卡片，而 <code>selectedCard</code> 变数储存使用者选择的卡片。</p>
+<pre><code class="lang-swift">.gesture(
+    <span class="hljs-type">TapGesture</span>()
+        .onEnded({ <span class="hljs-number">_</span> <span class="hljs-keyword">in</span>
+            withAnimation(.easeOut(duration: <span class="hljs-number">0.15</span>).delay(<span class="hljs-number">0.1</span>)) {
+                <span class="hljs-keyword">self</span>.isCardPressed.toggle()
+                <span class="hljs-keyword">self</span>.selectedCard = <span class="hljs-keyword">self</span>.isCardPressed ? card : <span class="hljs-built_in">nil</span>
+            }
+        })
+)
+</code></pre>
+<p>要处理点击手势，我们可以将上述的 <code>gesture</code> 修饰器加到 <code>CardView</code>，并使用内建的 <code>TapGesture</code> 来捕捉点击事件。在程式码区块中，我们只需切换<code>isCardPressed</code>的状态，并将目前的卡片设定为 <code>selectedCard</code> 变数。</p>
+<p>要将所选的卡片（及其下方的卡片）向上移动，并让其余的卡片移出荧幕的话，则更新 <code>offset(for:)</code> 函数如下：</p>
+<pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">offset</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">CGSize</span> </span>{
+
+    guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-type">CGSize</span>()
+    }
+
+    <span class="hljs-keyword">if</span> isCardPressed {
+        guard <span class="hljs-keyword">let</span> selectedCard = <span class="hljs-keyword">self</span>.selectedCard,
+            <span class="hljs-keyword">let</span> selectedCardIndex = index(<span class="hljs-keyword">for</span>: selectedCard) <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> .zero
+        }
+
+        <span class="hljs-keyword">if</span> cardIndex &gt;= selectedCardIndex {
+            <span class="hljs-keyword">return</span> .zero
+        }
+
+        <span class="hljs-keyword">let</span> offset = <span class="hljs-type">CGSize</span>(width: <span class="hljs-number">0</span>, height: <span class="hljs-number">1400</span>)
+
+        <span class="hljs-keyword">return</span> offset
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-type">CGSize</span>(width: <span class="hljs-number">0</span>, height: -<span class="hljs-number">50</span> * <span class="hljs-type">CGFloat</span>(cardIndex))
+}
+</code></pre>
+<p>我们加入了一个 <code>if</code> 语句来检查卡片是否被选中。如果给定的卡片是使用者选择的卡片， 则我们将偏移量设定为<code>.zero</code>。对于所选卡片正下方的那些卡片，我们也将向上移动， 这就是为什么我们将偏移量设定为 <code>.zero</code>。而其余的卡片，我们将它们移出荧幕，因此垂直偏移量设定为 <code>1400 点</code>。</p>
+<p>现在，我们已经准备好编写用于带出交易历史纪录视图的程式码。正如一开始所述， 起始专案已经提供这个交易历史纪录视图。因此，你不需要自己建立它。</p>
+<p>藉由 <code>isCardPressed</code> 状态变数，我们可以使用它来确定是否显示交易历史纪录视图。在 <code>Spacer()</code> 前面插入下列程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">if</span> isCardPressed {
+    <span class="hljs-type">TransactionHistoryView</span>(transactions: testTransactions)
+        .padding(.top, <span class="hljs-number">10</span>)
+        .transition(.move(edge: .bottom))
+}
+</code></pre>
+<p>在上列的程式码中，我们设定转场为 <code>.move</code>，以从荧幕底部带入视图，你可以依照自己的喜好来随意更改它。</p>
+<figure id="fig20.11"><img src="images/wallet/swiftui-wallet-11.png" alt="图 20.11　显示交易历史纪录"><figcaption>图 20.11　显示交易历史纪录</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E5%8D%A1%E7%89%87">使用拖曳手势重新排列卡片</h3>
+<p>现在，来到本章的核心部分，我们来看如何让使用者以拖曳手势重新排列卡片库。首先，我详细描述此功能的工作原理： </p>
+<ol>
+<li>要开始拖曳动作，使用者必须长按卡片。简单的点击将只会带出交易历史纪录。</li>
+<li>当使用者成功按住卡片后，App会将卡片向上移动一点。这是我们想要给使用者的一种回馈，告诉使用者已经准备好可任意拖曳卡片了。</li>
+<li>当使用者拖曳卡片时，使用者应该能在卡片库中移动它。</li>
+<li>使用者在某个位置放开卡片后，App会更新卡片库中的所有卡片位置。</li>
+</ol>
+<figure id="fig20.12"><img src="images/wallet/swiftui-wallet-12.png" alt="图 20.12.　使用拖曳手势在卡片库上移动卡片"><figcaption>图 20.12.　使用拖曳手势在卡片库上移动卡片</figcaption></figure>
+<h4 id="%E8%99%95%E7%90%86%E9%95%B7%E6%8C%89%E8%88%87%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2">处理长按与拖曳手势</h4>
+<p>现在你应该了解我们将要做什么，我们来继续实作。如果你忘记我们如何使用 SwiftUI 处理手势，则请回头阅读第 17 章，该章已经讨论了我们将使用的大多数技术。</p>
+<p>首先，在 <code>WalletView.swift</code> 中插入下列的程式码，来建立 <code>DragState</code> 列举，以使我们可以轻松追踪拖曳状态：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
+    <span class="hljs-keyword">case</span> inactive
+    <span class="hljs-keyword">case</span> pressing(index: <span class="hljs-type">Int</span>? = <span class="hljs-built_in">nil</span>)
+    <span class="hljs-keyword">case</span> dragging(index: <span class="hljs-type">Int</span>? = <span class="hljs-built_in">nil</span>, translation: <span class="hljs-type">CGSize</span>)
+
+    <span class="hljs-keyword">var</span> index: <span class="hljs-type">Int</span>? {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .pressing(<span class="hljs-keyword">let</span> index), .dragging(<span class="hljs-keyword">let</span> index, <span class="hljs-number">_</span>):
+            <span class="hljs-keyword">return</span> index
+        <span class="hljs-keyword">case</span> .inactive:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">nil</span>
+        }
+    }
+    <span class="hljs-keyword">var</span> translation: <span class="hljs-type">CGSize</span> {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .inactive, .pressing:
+            <span class="hljs-keyword">return</span> .zero
+        <span class="hljs-keyword">case</span> .dragging(<span class="hljs-number">_</span>, <span class="hljs-keyword">let</span> translation):
+            <span class="hljs-keyword">return</span> translation
+        }
+    }
+
+    <span class="hljs-keyword">var</span> isPressing: <span class="hljs-type">Bool</span> {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .pressing, .dragging:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">true</span>
+        <span class="hljs-keyword">case</span> .inactive:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">false</span>
+        }
+    }
+
+    <span class="hljs-keyword">var</span> isDragging: <span class="hljs-type">Bool</span> {
+        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-keyword">case</span> .dragging:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">true</span>
+        <span class="hljs-keyword">case</span> .inactive, .pressing:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">false</span>
+        }
+    }
+}
+</code></pre>
+<p>接下来，在 <code>WalletView</code> 中宣告一个状态变数，来持续追踪拖曳状态： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragState = <span class="hljs-type">DragState</span>.inactive
+</code></pre>
+<p>如果你之前阅读过第 17 章，那么你应该已经知道如何侦测长按与拖曳手势。然而，这次有点不同，我们需要同时处理点击手势、拖曳与长按手势。而且，如果侦测到长按手势，则 App 应该忽略点击手势。</p>
+<p>现在更新 <code>CardView</code> 的 <code>gesture</code> 修饰器如下： </p>
+<pre><code class="lang-swift">.gesture(
+    <span class="hljs-type">TapGesture</span>()
+        .onEnded({ <span class="hljs-number">_</span> <span class="hljs-keyword">in</span>
+            withAnimation(.easeOut(duration: <span class="hljs-number">0.15</span>).delay(<span class="hljs-number">0.1</span>)) {
+                <span class="hljs-keyword">self</span>.isCardPressed.toggle()
+                <span class="hljs-keyword">self</span>.selectedCard = <span class="hljs-keyword">self</span>.isCardPressed ? card : <span class="hljs-built_in">nil</span>
+            }
+        })
+        .exclusively(before: <span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">0.05</span>)
+        .sequenced(before: <span class="hljs-type">DragGesture</span>())
+        .updating(<span class="hljs-keyword">self</span>.$dragState, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
+            <span class="hljs-keyword">switch</span> value {
+            <span class="hljs-keyword">case</span> .first(<span class="hljs-built_in">true</span>):
+                state = .pressing(index: <span class="hljs-keyword">self</span>.index(<span class="hljs-keyword">for</span>: card))
+            <span class="hljs-keyword">case</span> .second(<span class="hljs-built_in">true</span>, <span class="hljs-keyword">let</span> drag):
+                state = .dragging(index: <span class="hljs-keyword">self</span>.index(<span class="hljs-keyword">for</span>: card), translation: drag?.translation ?? .zero)
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-keyword">break</span>
+            }
+
+        })
+        .onEnded({ (value) <span class="hljs-keyword">in</span>
+
+            guard <span class="hljs-keyword">case</span> .second(<span class="hljs-built_in">true</span>, <span class="hljs-keyword">let</span> drag?) = value <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span>
+            }
+
+            <span class="hljs-comment">// 重新排列卡片</span>
+        })
+
+    )
+)
+</code></pre>
+<p>SwiftUI 让你可专门组合多种手势。在上列的程式码中，我们告诉 SwiftUI 捕捉点击手势或长按手势，换句话说，当侦测到点击手势时，SwiftUI 将忽略长按手势。</p>
+<p>点击手势的程式码与我们之前编写的程式码完全相同，而拖曳手势是排列在长按手势之后。在 <code>updating</code> 函数中，我们将拖曳的状态、转场与卡片的索引值设定为之前定义的 <code>dragState</code> 变数。我将不会像第 17 章那样详细解释程式码。</p>
+<p>在拖曳卡片之前，你必须更新 <code>offset(for:)</code> 函数如下： </p>
+<pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">offset</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">CGSize</span> </span>{
+
+    guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-type">CGSize</span>()
+    }
+
+    <span class="hljs-keyword">if</span> isCardPressed {
+        guard <span class="hljs-keyword">let</span> selectedCard = <span class="hljs-keyword">self</span>.selectedCard,
+            <span class="hljs-keyword">let</span> selectedCardIndex = index(<span class="hljs-keyword">for</span>: selectedCard) <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> .zero
+        }
+
+        <span class="hljs-keyword">if</span> cardIndex &gt;= selectedCardIndex {
+            <span class="hljs-keyword">return</span> .zero
+        }
+
+        <span class="hljs-keyword">let</span> offset = <span class="hljs-type">CGSize</span>(width: <span class="hljs-number">0</span>, height: <span class="hljs-number">1400</span>)
+
+        <span class="hljs-keyword">return</span> offset
+    }
+
+    <span class="hljs-comment">// Handle dragging</span>
+    <span class="hljs-keyword">var</span> pressedOffset = <span class="hljs-type">CGSize</span>.zero
+    <span class="hljs-keyword">var</span> dragOffsetY: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0.0</span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> draggingIndex = dragState.index,
+        cardIndex == draggingIndex {
+        pressedOffset.height = dragState.isPressing ? -<span class="hljs-number">20</span> : <span class="hljs-number">0</span>
+
+        <span class="hljs-keyword">switch</span> dragState.translation.width {
+        <span class="hljs-keyword">case</span> <span class="hljs-keyword">let</span> width <span class="hljs-keyword">where</span> width &lt; -<span class="hljs-number">10</span>: pressedOffset.width = -<span class="hljs-number">20</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-keyword">let</span> width <span class="hljs-keyword">where</span> width &gt; <span class="hljs-number">10</span>: pressedOffset.width = <span class="hljs-number">20</span>
+        <span class="hljs-keyword">default</span>: <span class="hljs-keyword">break</span>
+        }
+
+        dragOffsetY = dragState.translation.height
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-type">CGSize</span>(width: <span class="hljs-number">0</span> + pressedOffset.width, height: -<span class="hljs-number">50</span> * <span class="hljs-type">CGFloat</span>(cardIndex) + pressedOffset.height + dragOffsetY)
+}
+</code></pre>
+<p>我们加入一段程式码区块来处理拖曳。请谨记，只有选定的卡片是可拖曳的。因此， 在更改偏移量之前，我们需要检查给定的卡片是否为使用者拖曳的卡片。</p>
+<p>之前，我们将卡片索引值储存在 <code>dragState</code> 变数中，因此我们可轻松比较给定的卡片索引值与储存在 <code>dragState</code> 中的卡片索引值，以找出拖曳的卡片。</p>
+<p>对于拖曳的卡片，我们在水平与垂直方向上都加入了额外的偏移量。</p>
+<p>现在，你可以执行App 来进行测试，长按卡片并任意拖曳，如图20.13 所示。</p>
+<figure id="fig20.13"><img src="images/wallet/swiftui-wallet-13.png" alt="图 20.13.　拖曳卡片"><figcaption>图 20.13.　拖曳卡片</figcaption></figure>
+<p>现在，你应该可以拖曳卡片，不过卡片的 z-index 并没有相应做更改，例如：如果你拖曳Visa 卡，它总是停留在卡片库的最上层，我们透过更新 <code>zIndex(for:)</code> 函数来修正它： </p>
+<pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">zIndex</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Double</span> </span>{
+    guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span>
+    }
+
+    <span class="hljs-comment">// 卡片的预设 z-index 设定为卡片索引值的负值，</span>
+    <span class="hljs-comment">// 因此第一张卡片具有最大的 z-index</span>
+    <span class="hljs-keyword">let</span> defaultZIndex = -<span class="hljs-type">Double</span>(cardIndex)
+
+    <span class="hljs-comment">// 如果它是拖曳的卡片</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> draggingIndex = dragState.index,
+        cardIndex == draggingIndex {
+        <span class="hljs-comment">// 我们根据位移的高度来计算新的 z-index</span>
+        <span class="hljs-keyword">return</span> defaultZIndex + <span class="hljs-type">Double</span>(dragState.translation.height/<span class="hljs-type">Self</span>.cardOffset)
+    }
+
+    <span class="hljs-comment">// 否则我们回传预设的 z-index</span>
+    <span class="hljs-keyword">return</span> defaultZIndex
+}
+</code></pre>
+<p>预设的 z-index 仍设定为卡片索引值的负值。对于拖曳的卡片，当使用者在卡片库上拖曳时，我们需要计算一个新的 z-index。更新后的 z-index 是根据位移的高度与卡片的预设偏移量（即 50 点）来计算。</p>
+<p>执行 App 并尝试再次拖曳 Visa 卡片。现在，当你拖曳卡片时，z-index 会不断更新。</p>
+<figure id="fig20.14"><img src="images/wallet/swiftui-wallet-14.png" alt="图 20.14.　将 Visa 卡移到后面"><figcaption>图 20.14.　将 Visa 卡移到后面</figcaption></figure>
+<h4 id="%E6%9B%B4%E6%96%B0%E5%8D%A1%E7%89%87%E5%BA%AB">更新卡片库</h4>
+<p>当你放开卡片时，它现在会回到原来的位置，那么我们如何在拖曳之后重新排序卡片的位置呢？</p>
+<p>这里的技巧是更新 <code>cards</code>阵列的项目，以触发 UI 更新。首先，我们需要将 <code>cards</code> 变数标记为状态变数，如下所示： </p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> cards: [<span class="hljs-type">Card</span>] = testCards
+</code></pre>
+<p>接下来，我们建立另一个新函数来重新排列卡片：</p>
+<pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">rearrangeCards</span><span class="hljs-params">(with card: Card, dragOffset: CGSize)</span> </span>{
+    guard <span class="hljs-keyword">let</span> draggingCardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span>
+    }
+
+    <span class="hljs-keyword">var</span> newIndex = draggingCardIndex + <span class="hljs-type">Int</span>(-dragOffset.height / <span class="hljs-type">Self</span>.cardOffset)
+    newIndex = newIndex &gt;= cards.<span class="hljs-built_in">count</span> ? cards.<span class="hljs-built_in">count</span> - <span class="hljs-number">1</span> : newIndex
+    newIndex = newIndex &lt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : newIndex
+
+    <span class="hljs-keyword">let</span> removedCard = cards.remove(at: draggingCardIndex)
+    cards.insert(removedCard, at: newIndex)
+
+}
+</code></pre>
+<p>当你将卡片拖曳到相邻的卡片上时，一旦拖曳的位移量大于预设的偏移量，我们便需要更新 z-index。图 20.15 显示了拖曳的预期行为。</p>
+<figure id="fig20.15"><img src="images/wallet/swiftui-wallet-15.png" alt="图 20.15.　在相邻卡片之间拖曳万事达卡"><figcaption>图 20.15.　在相邻卡片之间拖曳万事达卡</figcaption></figure>
+<p>这是我们计算更新后的 z-index 的公式： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> newIndex = draggingCardIndex + <span class="hljs-type">Int</span>(-dragOffset.height / <span class="hljs-type">Self</span>.cardOffset)
+</code></pre>
+<p>一旦我们有了更新后的索引值，最后一步就是透过移除拖曳的卡片，并将其插入新位置，以更新在 <code>cards</code> 阵列中的项目。由于 <code>cards</code> 阵列现在是一个状态变数，因此 SwiftUI 更新卡片库且自动渲染动画。</p>
+<p>最后，在“// 重新排列卡片”的下面插入下列这行程式码来呼叫函数： </p>
+<pre><code class="lang-swift">withAnimation(.spring()) {
+    <span class="hljs-keyword">self</span>.rearrangeCards(with: card, dragOffset: drag.translation)
+}
+</code></pre>
+<p>之后，你可以执行 App 来测试它。你已经建立了如电子钱包般的动画。</p>
+<h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
+<p>阅读完本章后，我希望你对于 SwiftUI 动画与视图转场有更深入的了解。如果你将 SwiftUI 与原来的UIKit 框架进行比较，你会发现 SwiftUI 让“使用动画”变得非常容易。你还记得如何为使用者放开拖曳的卡片来渲染卡片动画吗？你需要做的是更新状态变数， 而 SwiftUI 就会处理这些繁重的工作，这就是 SwiftUI 的力量。</p>
+<p>为了方便进一步参考，您可以至下列网址下载完整专案： </p>
+<ul>
+<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWallet.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWallet.zip</a>)</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-trip-tinder.html" class="navigation navigation-prev " aria-label="Previous page: 使用手势与动画建立 Tinder 风格的 UI"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-json.html" class="navigation navigation-next " aria-label="Next page: JSON、滑杆的运用与资料过滤"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -1,0 +1,1298 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>以堆叠布局使用者介面 | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-scrollview.html" />
+    
+    
+    <link rel="prev" href="./swiftui-images.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="4" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-4-%E7%AB%A0-br-%E4%BB%A5%E5%A0%86%E7%96%8A%E4%BD%88%E5%B1%80%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">第 4 章<br>以堆叠布局使用者介面</h1>
+<p>SwiftUI 的“堆叠”（Stack ）和在 UIKit 的堆叠视图一样，透过水平与垂直堆叠结合视图，你可以为 App 建构复杂的使用者介面。对 UIKit 而言，使用自动布局（ Auto Layout ）来建立相容所有荧幕尺寸的介面是无法避免的。对初学者而言，自动布局是一个复杂的主题且难以学习，但好消息是你不再需要在 SwiftUI 中使用自动布局，所有东西都是堆叠，包括了 VStack、HStack 与 ZStack。</p>
+<p>在本章中，我将会介绍所有类型的堆叠，并使用堆叠来建立网格布局（Grid Layout ）， 那么，你将进行什么专案呢？参考图 4.1，我们会逐步布局一个简单的网格介面。学习完本章的内容之后，你将能够结合视图与堆叠，并建立想要的 UI。</p>
+<figure id="fig4.1"><img src="images/stacks/swiftui-stacks-1.png" alt="图 4.1.　范例App"><figcaption>图 4.1.　范例App</figcaption></figure>
+<h3 id="%E8%AA%8D%E8%AD%98-vstack%E3%80%81hstack-%E8%88%87-zstack">认识 VStack、HStack 与 ZStack</h3>
+<p>SwiftUI 为开发者提供了三种不同类型的堆叠，以在不同方向上结合视图。依据你如何去排列视图，而可以使用： </p>
+<ul>
+<li><strong>HStack</strong> - 水平排列视图。</li>
+<li><strong>VStack</strong> - 垂直排列视图。</li>
+<li><strong>ZStack</strong> - 在一个视图重叠在其他视图之上。</li>
+</ul>
+<p>图4.2 展示了如何使用这些堆叠来组织视图。</p>
+<figure id="fig4.2"><img src="images/stacks/swiftui-stacks-2.png" alt="图4.2　不同型态的堆叠视图"><figcaption>图4.2　不同型态的堆叠视图</figcaption></figure>
+<h3 id="%E5%95%9F%E7%94%A8-swiftui-%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88">启用 SwiftUI 建立新专案</h3>
+<p>首先，开启Xcode，并使用 iOS页签下的“App”模板来建立一个新专案。于下一个画面中，输入专案的名称，我将它设定为“SwiftUIStacks”，不过你可以自由使用其他的名称。你只须确保在 Interface 选取“SwiftUI”，如图 4.3 所示。</p>
+<figure id="fig4.3"><img src="images/stacks/swiftui-stacks-3.png" alt="图 4.3. 建立新专案"><figcaption>图 4.3. 建立新专案</figcaption></figure>
+<p>当你储存专案后，Xcode 应该能够载入 <code>ContentView.swift</code> 档，并在设计划布中显示预览画面。</p>
+<h3 id="%E4%BD%BF%E7%94%A8-vstack">使用 VStack</h3>
+<p>我们将建立如图 4.1 所示的UI，不过我们把UI 分成几个小部分来制作。我们将先进行标题部分，如图 4.4 所示。</p>
+<figure id="fig4.4"><img src="images/stacks/swiftui-stacks-4.png" alt="图 4.4　标题"><figcaption>图 4.4　标题</figcaption></figure>
+<p>目前，Xcode 应该已经产生了下列程式码来显示“Hello World”标签：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;globe&quot;</span>)
+                .imageScale(.large)
+                .foregroundColor(.accentColor)
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello, world!&quot;</span>)
+        }
+    }
+}
+</code></pre>
+<p>为了显示如图4.4 所示的文字，我们将会以 <code>VStack</code> 来结合两个 <code>Text</code> 视图，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Choose&quot;</span>)
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.black)
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Your Plan&quot;</span>)
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.black)
+        }
+    }
+}
+</code></pre>
+<p>当你在 <code>VStack</code> 嵌入视图，视图将会垂直排列，如图 4.5 所示。</p>
+<figure id="fig4.5"><img src="images/stacks/swiftui-stacks-5.png" alt="图 4.5.　使用VStack 来结合两个文字视图"><figcaption>图 4.5.　使用VStack 来结合两个文字视图</figcaption></figure>
+<p>预设上，嵌入堆叠的视图是对齐中心位置。当要将两个视图靠左对齐时，你可以指定 <code>alignment</code> 参数，并将其值设定为 <code>.leading</code>，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">VStack</span>(alignment: .leading, spacing: <span class="hljs-number">2</span>) {
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Choose&quot;</span>)
+        .font(.system(.largeTitle, design: .rounded))
+        .fontWeight(.black)
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Your Plan&quot;</span>)
+        .font(.system(.largeTitle, design: .rounded))
+        .fontWeight(.black)
+}
+</code></pre>
+<p>此外，你可以使用 <code>space</code> 参数来调整嵌入视图的间距。图 4.6 为调整后的视图。上面的程式码将参数<code>spacing</code>添加到VStack并将其值设置为<code>2</code>。</p>
+<figure id="fig4.6"><img src="images/stacks/swiftui-stacks-6.png" alt="图4.6.　变更 VStack 的对齐方式"><figcaption>图4.6.　变更 VStack 的对齐方式</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8-hstack">使用 HStack</h3>
+<p>接下来，我们布局两个售价方案。如果你比较“Basic”与“Pro”方案，这两个元件的外观非常相似。以“Basic”方案为例，要实现这样的布局，你可以使用 <code>VStack</code> 结合三个文字视图，如图 4.7 所示。</p>
+<figure id="fig4.7"><img src="images/stacks/swiftui-stacks-7.png" alt="图 4.7.　布局售价方案"><figcaption>图 4.7.　布局售价方案</figcaption></figure>
+<p>“Basic”与“Pro”元件是并排排列。使用 <code>HStack</code>，你可以水平布局视图。堆叠可以使用巢状结构，以致于你能够在堆叠视图之中放入另一个堆叠视图。由于售价方案区块位于标题视图的下方，因此我们会使用另外一个VStack 来嵌入一个垂直堆叠（即 Choose Your Plan ）与一个水平堆叠（即售价方案区块），如图 4.8 所示。</p>
+<figure id="fig4.8"><img src="images/stacks/swiftui-stacks-8.png" alt="图 4.8.　使用VStack 来嵌入其他堆叠视图"><figcaption>图 4.8.　使用VStack 来嵌入其他堆叠视图</figcaption></figure>
+<p>现在，你应该对如何使用 <code>VStack</code> 与 <code>HStack</code> 来实作 UI 有了一些基本观念，让我们进入程式码部分。</p>
+<p>要将目前的 <code>VStack</code> 嵌入另外一个 <code>VStack</code>，你可以按住 command  键，并点选 <code>VStack</code> 关键字，这会带出一个显示所有可用选项的内容选单（content menu ），选择“Embed in VStack”来嵌入 <code>VStack</code>，如图 4.9 所示。</p>
+<figure id="fig4.9"><img src="images/stacks/swiftui-stacks-9.png" alt="图 4.9.　在VStack 嵌入"><figcaption>图 4.9.　在VStack 嵌入</figcaption></figure>
+<p>Xcode 将会产生嵌入到此堆叠的所需程式码，你的程式码应如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">VStack</span>(alignment: .leading, spacing: <span class="hljs-number">2</span>) {
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Choose&quot;</span>)
+                    .font(.system(.largeTitle, design: .rounded))
+                    .fontWeight(.black)
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Your Plan&quot;</span>)
+                    .font(.system(.largeTitle, design: .rounded))
+                    .fontWeight(.black)
+            }
+        }    
+    }
+}
+</code></pre>
+<h4 id="%E5%8F%96%E5%87%BA%E8%A6%96%E5%9C%96">取出视图</h4>
+<p>在我们继续布局这个 UI 之前，让我教你一些整理程式码的技巧。当你要建立一个包含好几个元件的复杂 UI 时，在 <code>ContentView</code> 内的程式码最后会变成一个大而冗长的程式码区块，而难以检视与除错，因此较佳的作法是将程式码分拆成小块，如此程式码才能更易阅读与维护。</p>
+<p>Xcode 内建了重构 SwiftUI 程式码的功能。现在按住 command 键不放，并点选包含文字视图的 VStack（即是第 13 行），然后选择“Extract Subview”来取出程式码，如图 4.10 所示。</p>
+<figure id="fig4.10"><img src="images/stacks/swiftui-stacks-10.png" alt="图 4.10.　取出子视图"><figcaption>图 4.10.　取出子视图</figcaption></figure>
+<p>Xcode 取出程式码区块， 并建立一个名为 <code>ExtractedView</code> 的预设结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
+<figure id="fig4.11"><img src="images/stacks/swiftui-stacks-11.png" alt="图 4.11　取出子视图"><figcaption>图 4.11　取出子视图</figcaption></figure>
+<p>UI 现在仍然相同，不过请查看 <code>ContentView</code> 中的程式码区块，现在它变得更为简洁且易于阅读。</p>
+<p>我们继续实作售价方案的UI。首先，建立“Basic”方案的UI，然后如下所示更新 <code>ContentView</code>： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">HeaderView</span>()
+
+            <span class="hljs-type">VStack</span> {
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Basic&quot;</span>)
+                    .font(.system(.title, design: .rounded))
+                    .fontWeight(.black)
+                    .foregroundColor(.white)
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;$9&quot;</span>)
+                    .font(.system(size: <span class="hljs-number">40</span>, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;per month&quot;</span>)
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+            .padding(<span class="hljs-number">40</span>)
+            .background(<span class="hljs-type">Color</span>.purple)
+            .cornerRadius(<span class="hljs-number">10</span>)
+        }
+    }
+}
+</code></pre>
+<p>这里，我们只是在 <code>HeaderView</code> 下加入另一个 <code>VStack</code>。这个 <code>VStack</code> 是用来存放三个文字视图，以显示“Basic”方案。我将不再讨论有关 <code>padding</code>、<code>background</code> 与 <code>cornerRadius</code> 的详细内容，因为我们已经在前面的章节中已讨论过这些修饰器了。</p>
+<figure id="fig4.12"><img src="images/stacks/swiftui-stacks-12.png" alt="图 4.12　Basic 方案"><figcaption>图 4.12　Basic 方案</figcaption></figure>
+<p>接下来，我们将实作“Pro”方案的UI。这个“Pro”方案应该要放在“Basic”方案的旁边，因此你需要将“Basic”方案的 <code>VStack</code> 嵌入在 <code>HStack</code> 中。现在，按住 command 键不放，并点选 <code>VStack</code> 关键字，选择“Embed in HStack”，如图 4.13 所示。</p>
+<figure id="fig4.13"><img src="images/stacks/swiftui-stacks-13.png" alt="图 4.13. Embed in HStack"><figcaption>图 4.13. Embed in HStack</figcaption></figure>
+<p>Xcode 应该建立 <code>HStack</code> 的程式码，并在水平堆叠中嵌入所选的 <code>VStack</code>，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">HStack</span> {
+    <span class="hljs-type">VStack</span> {
+        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Basic&quot;</span>)
+            .font(.system(.title, design: .rounded))
+            .fontWeight(.black)
+            .foregroundColor(.white)
+        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;$9&quot;</span>)
+            .font(.system(size: <span class="hljs-number">40</span>, weight: .heavy, design: .rounded))
+            .foregroundColor(.white)
+        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;per month&quot;</span>)
+            .font(.headline)
+            .foregroundColor(.white)
+    }
+    .padding(<span class="hljs-number">40</span>)
+    .background(<span class="hljs-type">Color</span>.purple)
+    .cornerRadius(<span class="hljs-number">10</span>)
+}
+</code></pre>
+<p>现在，我们准备建立“Pro”方案的 UI。除了背景颜色与文字颜色之外，这个程式码和“Basic”方案很相似。在<code>cornerRadius(10)</code> 的下方插入下列的程式码： </p>
+<pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Pro&quot;</span>)
+        .font(.system(.title, design: .rounded))
+        .fontWeight(.black)
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;$19&quot;</span>)
+        .font(.system(size: <span class="hljs-number">40</span>, weight: .heavy, design: .rounded))
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;per month&quot;</span>)
+        .font(.headline)
+        .foregroundColor(.gray)
+}
+.padding(<span class="hljs-number">40</span>)
+.background(<span class="hljs-type">Color</span>(red: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>))
+.cornerRadius(<span class="hljs-number">10</span>)
+</code></pre>
+<p>当你插入程式码后，你应该会在画布中见到如图4.14 所示的布局。</p>
+<figure id="fig4.14"><img src="images/stacks/swiftui-stacks-14.png" alt="图 4.14.　使用HStack 水平布局两个视图"><figcaption>图 4.14.　使用HStack 水平布局两个视图</figcaption></figure>
+<p>售价区块的目前尺寸大小看起来很相似，不过实际上它们会根据文字的长度而变化。例如：如果将“Pro”这个字改成“Professional”，灰色区域将会扩展开来，以对应这个变更。简单而言，这个视图定义它自己的尺寸大小，并且该尺寸大小刚好足够容纳其内容。 </p>
+<figure id="fig4.15"><img src="images/stacks/swiftui-stacks-15.png" alt="图 4.15　Pro 区块的尺寸大小变宽"><figcaption>图 4.15　Pro 区块的尺寸大小变宽</figcaption></figure>
+<p>如果你再次参考图 4.1，两个售价方案都具有相同的大小。要将这两个区块调整为相同的大小，你可以使用 <code>.frame</code> 修饰器来将 <code>maxWidth</code> 设定为“.infinity”，如下所示： </p>
+<pre><code class="lang-swift">.frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">100</span>)
+</code></pre>
+<p><code>.frame</code> 修饰器可让你定义框架的尺寸。你可以指定尺寸大小为固定值。举例而言，在上列的程式码中，我们将<code>minHeight</code> 设定为“100 点”，当你设定 <code>maxWidth</code> 为 <code>.infinity</code>时， 此视图将会调整自己来填满最大宽度，例如：如果只有一个售价区块，则它会占满整个荧幕宽度，如图 4.16 所示。</p>
+<figure id="fig4.16"><img src="images/stacks/swiftui-stacks-16.png" alt="图4.16　设定 maxWidth 为“.infinity”"><figcaption>图4.16　设定 maxWidth 为“.infinity”</figcaption></figure>
+<p>对于这两个售价区块，当 <code>maxWidth</code> 设定为<code>.infinity</code>时，iOS 将平均填满填满区块。现在将上列程式码插入至每一个售价区块中，则你应该可完成如图 4.17 所示的荧幕画面。</p>
+<figure id="fig4.17"><img src="images/stacks/swiftui-stacks-17.png" alt="图 4.17. 以等宽来排列两个售价区块"><figcaption>图 4.17. 以等宽来排列两个售价区块</figcaption></figure>
+<p>要让水平堆叠一些间距，则你可以加入一个 <code>.padding</code> 修饰器，如图4.18 所示。</p>
+<figure id="fig4.18"><img src="images/stacks/swiftui-stacks-18.png" alt="图 4.18　为堆叠视图加入一些间距"><figcaption>图 4.18　为堆叠视图加入一些间距</figcaption></figure>
+<p><code>.horizontal</code> 参数表示我们只为 <code>HStack</code> 的前缘（leading）及后缘（trailing）加入一些间距。</p>
+<h3 id="%E6%95%B4%E7%90%86%E7%A8%8B%E5%BC%8F%E7%A2%BC">整理程式码</h3>
+<p>同样的，在我们布局其余的UI 元件之前，让我们先重构目前的程式码，以使其更有条理。如果你同时查看用来布局“Basic”与“Pro”售价方案的这两个堆叠，其程式码除了下列的项目之外，其他都很相似。</p>
+<ul>
+<li>售价方案的名称。</li>
+<li>售价。</li>
+<li>文字颜色。</li>
+<li>售价区块的背景颜色</li>
+</ul>
+<p>要简化这个程式码，并改善可重用性（reusability），我们可以取出 <code>VStack</code> 程式码区块， 并让它能适应不同售价方案的值。</p>
+<p>我们来看看如何做到这件事。</p>
+<p>回到程式码编辑器，按住 command 键不放，并点选“Basic”方案的 <code>VStack</code>。当 Xcode 取出程式码后，将这个子视图重新命名，名称从 <code>ExtractedView</code>改成 <code>PricingView</code>。</p>
+<figure id="fig4.19"><img src="images/stacks/swiftui-stacks-19.png" alt="图 4.19.　取出子视图"><figcaption>图 4.19.　取出子视图</figcaption></figure>
+<p>如前所述，<code>PricingView</code> 应该可弹性显示不同的售价方案，我们将会在 <code>PricingView</code> 结构中加入四个变数，现在更新 <code>PricingView</code> 如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PricingView</span>: <span class="hljs-title">View</span> </span>{
+
+    <span class="hljs-keyword">var</span> title: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> price: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> textColor: <span class="hljs-type">Color</span>
+    <span class="hljs-keyword">var</span> bgColor: <span class="hljs-type">Color</span>
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Text</span>(title)
+                .font(.system(.title, design: .rounded))
+                .fontWeight(.black)
+                .foregroundColor(textColor)
+            <span class="hljs-type">Text</span>(price)
+                .font(.system(size: <span class="hljs-number">40</span>, weight: .heavy, design: .rounded))
+                .foregroundColor(textColor)
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;per month&quot;</span>)
+                .font(.headline)
+                .foregroundColor(textColor)
+        }
+        .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">100</span>)
+        .padding(<span class="hljs-number">40</span>)
+        .background(bgColor)
+        .cornerRadius(<span class="hljs-number">10</span>)
+    }
+}
+</code></pre>
+<p>这里我们为售价区块的标题、售价、文字与背景颜色加入变数。另外，我们在程式码中使用这些变数来更新标题、售价、文字与背景颜色。</p>
+<p>当变更完成后，你会见到一个错误，如图 4.20 所示，指出 <code>PricingView</code> 少了一些参数。</p>
+<figure id="fig4.20"><img src="images/stacks/swiftui-stacks-20.png" alt="图 4.20.　Xcode 指出 PricingView 中的错误"><figcaption>图 4.20.　Xcode 指出 PricingView 中的错误</figcaption></figure>
+<p>之前，我们在视图中导入了四个变数。呼叫 <code>PricingView</code> 时，我们现在应该能提供这些参数的值，因此将<code>PricingView()</code> 更改如下： </p>
+<pre><code class="lang-swift"><span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Basic&quot;</span>, price: <span class="hljs-string">&quot;$9&quot;</span>, textColor: .white, bgColor: .purple)
+</code></pre>
+<p>另外，你也可以 <code>PricingView</code> 取代“Pro”方案的 <code>VStack</code>，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Pro&quot;</span>, price: <span class="hljs-string">&quot;$19&quot;</span>, textColor: .black, bgColor: <span class="hljs-type">Color</span>(red: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>))
+</code></pre>
+<p>售价区块的布局虽相同，但是底层程式码（underlying code ）已经变得更简洁且易于阅读了，如图 4.21 所示。</p>
+<figure id="fig4.21"><img src="images/stacks/swiftui-stacks-21.png" alt="图 4.21.　重构程式码后的 ContentView"><figcaption>图 4.21.　重构程式码后的 ContentView</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8zstack">使用ZStack</h3>
+<p>现在，你已经布局了售价区块，并且重构了程式码，不过对于“Pro”售价仍有一件事情漏掉了，在此设计中，我们要以黄色色块在售价区块重叠一个讯息。为此，我们可以使用 <code>ZStack</code>，这让你可叠一个视图在目前的视图之上。</p>
+<p>现在以 <code>ZStack</code> 嵌入“Pro”方案的 <code>PricingView</code>，并加入<code>Text</code> 视图，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
+    <span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Pro&quot;</span>, price: <span class="hljs-string">&quot;$19&quot;</span>, textColor: .black, bgColor: <span class="hljs-type">Color</span>(red: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>))
+
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Best for designer&quot;</span>)
+        .font(.system(.caption, design: .rounded))
+        .fontWeight(.bold)
+        .foregroundColor(.white)
+        .padding(<span class="hljs-number">5</span>)
+        .background(<span class="hljs-type">Color</span>(red: <span class="hljs-number">255</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">183</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">37</span>/<span class="hljs-number">255</span>))
+}
+</code></pre>
+<p>嵌入在 <code>ZStack</code> 的视图顺序，决定了视图之间的重叠方式。对于上列的程式码，<code>Text</code> 视图会叠在售价视图之上。在画布中，你应该会见到如图 4.22 所示的售价布局。</p>
+<figure id="fig4.22"><img src="images/stacks/swiftui-stacks-22.png" alt="图 4.22.　使用Zstack 重叠视图"><figcaption>图 4.22.　使用Zstack 重叠视图</figcaption></figure>
+<p>要调整文字的位置，你可以使用 <code>.offset</code> 修饰器，在 <code>Text</code> 视图的结尾处插入下列这行程式： </p>
+<pre><code class="lang-swift">.offset(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">87</span>)
+</code></pre>
+<p>这个“Best for designer”标签将会移到区块的底部，如图4.23 所示。如果你要重新放置它的话，将 <code>y</code> 设定为负值，则标签会移至顶部。</p>
+<figure id="fig4.23"><img src="images/stacks/swiftui-stacks-23.png" alt="图 4.23.　使用.offset 来放置文字视图"><figcaption>图 4.23.　使用.offset 来放置文字视图</figcaption></figure>
+<p>另外，如果你想要调整“Basic”与“Pro”售价区块之间的间距，则可以在 <code>HStack</code> 中指定 <code>spacing</code> 参数，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-type">HStack</span>(spacing: <span class="hljs-number">15</span>) {
+  ...
+}
+</code></pre>
+<h3 id="%E4%BD%9C%E6%A5%AD-1">作业 #1</h3>
+<p>我们还没有完成，我想要与你讨论如何在 SwiftUI 中处理Optional，并介绍另一个称为“留白”（Spacer ）的视图元件。在继续往下之前，我们来做一个简单的作业，你的任务是布局“ Team”售价方案，如图 4.24 所示。关于这个图片，我是使用来自 SF Symbols、名称为“wand.and.rays”的系统图片。</p>
+<figure id="fig4.24"><img src="images/stacks/swiftui-stacks-24.png" alt="图 4.24.　加入Team 方案"><figcaption>图 4.24.　加入Team 方案</figcaption></figure>
+<p>请先不要看解答，自己要开发自己的解决方案。</p>
+<h3 id="swiftui-%E4%B8%ADoptionals-%E7%9A%84%E8%99%95%E7%90%86">SwiftUI 中Optionals 的处理</h3>
+<p>你是否有试着提出作业的解决方案？这个“Team”方案的布局与“Basic &amp; Pro”方案很类似。你可以复制这两个方案的 <code>VStack</code>，并建立“Team”方案。但是，让我来介绍一个更优雅的解决方案。</p>
+<p>我们可以重新使用 <code>PricingView</code> 来建立“Team”方案。不过， 你可能会发现这个“Team”方案，有个图示位于标题上方。为了布局这个图示，我们需要修改 <code>PricingView</code> 来相容这个需求。因为这个图示并非售价方案强制性需要的，在 <code>PricingView</code> 中宣告一个 Optional： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> icon: <span class="hljs-type">String</span>?
+</code></pre>
+<p>如果你对Swift 感到陌生的话，所谓的 Optional 是表示变数可能有值或没有值。这里我们定义一个名为<code>icon</code>的变数，其型别为 <code>String</code>。如果售价方案需要显示图示时，则预计会有呼叫者传递图片名称，否则此变数预设为<code>nil</code>（空值）。</p>
+<p>那么，如何在SwiftUI 中处理Optional 呢？在Swift 中，我们有两个方法处理 Optional。其中一种方式是检查 Optional 是否具有一个非空值。例如：我们要在显示图片之前检查 <code>icon</code> 是否有一个值，我们可以将程式码撰写如下： </p>
+<pre><code class="lang-swift"><span class="hljs-keyword">if</span> icon != <span class="hljs-built_in">nil</span> {
+
+    <span class="hljs-type">Image</span>(systemName: icon!)
+        .font(.largeTitle)
+        .foregroundColor(textColor)
+
+}
+</code></pre>
+<p>另一个方法是使用 <code>if let</code> 来检查一个Optional 是否有值并解开（unwrap ）它。SwiftUI 框架已经支援 <code>if let</code> 的用法，这个写法比较常用亦更加清晰。程式码可以重新撰写如下：</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> icon = icon {
+
+    <span class="hljs-type">Image</span>(systemName: icon)
+        .font(.largeTitle)
+        .foregroundColor(textColor)
+
+}
+</code></pre>
+<p>要支援图示的渲染，<code>PricingView</code> 的最后程式码应更新如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PricingView</span>: <span class="hljs-title">View</span> </span>{
+
+    <span class="hljs-keyword">var</span> title: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> price: <span class="hljs-type">String</span>
+    <span class="hljs-keyword">var</span> textColor: <span class="hljs-type">Color</span>
+    <span class="hljs-keyword">var</span> bgColor: <span class="hljs-type">Color</span>
+    <span class="hljs-keyword">var</span> icon: <span class="hljs-type">String</span>?
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> icon = icon {
+
+                <span class="hljs-type">Image</span>(systemName: icon)
+                    .font(.largeTitle)
+                    .foregroundColor(textColor)
+
+            }
+
+            <span class="hljs-type">Text</span>(title)
+                .font(.system(.title, design: .rounded))
+                .fontWeight(.black)
+                .foregroundColor(textColor)
+            <span class="hljs-type">Text</span>(price)
+                .font(.system(size: <span class="hljs-number">40</span>, weight: .heavy, design: .rounded))
+                .foregroundColor(textColor)
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;per month&quot;</span>)
+                .font(.headline)
+                .foregroundColor(textColor)
+        }
+        .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">100</span>)
+        .padding(<span class="hljs-number">40</span>)
+        .background(bgColor)
+        .cornerRadius(<span class="hljs-number">10</span>)
+    }
+}
+</code></pre>
+<p>当你更改完成之后，就可以使用 <code>ZStack</code> 与 <code>PricingView</code> 来建立一个“Team”方案，如下所示，你可以将程式放在 <code>ContentView</code> 内，于 <code>.padding(.horiontal)</code> 后插入：</p>
+<pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
+    <span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Team&quot;</span>, price: <span class="hljs-string">&quot;$299&quot;</span>, textColor: .white, bgColor: <span class="hljs-type">Color</span>(red: <span class="hljs-number">62</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">63</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">70</span>/<span class="hljs-number">255</span>), icon: <span class="hljs-string">&quot;wand.and.rays&quot;</span>)
+        .padding()
+
+    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Perfect for teams with 20 members&quot;</span>)
+        .font(.system(.caption, design: .rounded))
+        .fontWeight(.bold)
+        .foregroundColor(.white)
+        .padding(<span class="hljs-number">5</span>)
+        .background(<span class="hljs-type">Color</span>(red: <span class="hljs-number">255</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">183</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">37</span>/<span class="hljs-number">255</span>))
+        .offset(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">110</span>)
+}
+</code></pre>
+<h3 id="%E4%BD%BF%E7%94%A8%E7%95%99%E7%99%BD">使用留白</h3>
+<p>将你目前的 UI 与图 4.1 进行比较，你看出任何差异了吗？你可能会注意两个差异点： </p>
+<ol>
+<li>“Choose Your Plan”标签没有靠左对齐。</li>
+<li>“Choose Your Plan”标签与售价方案应该要对齐荧幕的顶部。</li>
+</ol>
+<p>在UIKit 中，你可定义自动布局约束条件来放置视图。SwiftUI 没有自动布局，而是提供一个称为“留白”（Spacer ）的视图来建立复杂的布局。</p>
+<blockquote>
+<p>弹性空间（flexible space ）沿着堆叠布局内的长轴（major axis ）来扩展，或者如果不在堆叠中，则沿着两轴扩展。</p>
+<p>- SwiftUI 文件 (<a href="https://developer.apple.com/documentation/swiftui/spacer" target="_blank">https://developer.apple.com/documentation/swiftui/spacer</a>)</p>
+</blockquote>
+<p>要修复第一个项目，让我们更新 <code>HeaderView</code> 如下： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">HeaderView</span>: <span class="hljs-title">View</span> </span>{
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">HStack</span> {
+            <span class="hljs-type">VStack</span>(alignment: .leading, spacing: <span class="hljs-number">2</span>) {
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Choose&quot;</span>)
+                    .font(.system(.largeTitle, design: .rounded))
+                    .fontWeight(.black)
+                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Your Plan&quot;</span>)
+                    .font(.system(.largeTitle, design: .rounded))
+                    .fontWeight(.black)
+            }
+
+            <span class="hljs-type">Spacer</span>()
+        }
+        .padding()
+    }
+}
+</code></pre>
+<p>这里我们以一个 <code>HStack</code> 嵌入原来的 <code>VStack</code> 与一个 <code>Spacer</code>。透过使用一个留白，则会将 <code>VStack</code> 往左推。图 4.25 说明了留白的用法。</p>
+<figure id="fig4.25"><img src="images/stacks/swiftui-stacks-26.png" alt="图 4.25.　在HStack 中使用弹性空间"><figcaption>图 4.25.　在HStack 中使用弹性空间</figcaption></figure>
+<p>现在你可能知道如何修复第二个问题。解决方案是在 <code>ContentView</code> 的 <code>VStack</code> 结尾处加入一个留白，如下所示： </p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">HeaderView</span>()
+
+            <span class="hljs-type">HStack</span>(spacing: <span class="hljs-number">15</span>) {
+                ...
+            }
+            .padding(.horizontal)
+
+            <span class="hljs-type">ZStack</span> {
+                ...
+            }
+
+              <span class="hljs-comment">// Add a spacer</span>
+            <span class="hljs-type">Spacer</span>()
+        }
+    }
+}
+</code></pre>
+<p>同样的，图 4.26 向你形象地展示了留白的用法。</p>
+<figure id="fig4.26"><img src="images/stacks/swiftui-stacks-27.png" alt="图 4.26.　在VStack 中使用留白"><figcaption>图 4.26.　在VStack 中使用留白</figcaption></figure>
+<h3 id="%E4%BD%9C%E6%A5%AD-2">作业 #2</h3>
+<p>现在你应该已经知道 <code>VStack</code>、<code>HStack</code> 与 <code>ZStack</code> 的用法，你的最后作业是建立一个如图 4.28 所示的布局。对于作业中的图示，我使用 SF Symbols 的系统图片，你可以自由选择任何图片，而不必跟随我。提示这里可以使用 <code>.scale</code> 修饰器来缩放视图。譬如于视图上加上 <code>.scale(0.5)</code> 的话，则会将视图缩小一半。</p>
+<figure id="fig4.27"><img src="images/stacks/swiftui-stacks-28.png" alt="图 4.28.　你的作业－建立新布局"><figcaption>图 4.28.　你的作业－建立新布局</figcaption></figure>
+<p>在本章所准备的范例档中，有完整的专案与作业解答可以下载：</p>
+<ul>
+<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIStacks.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIStacks.zip</a>)</li>
+<li>作业 #2 的解答  (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIStacksExercise.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIStacksExercise.zip</a>)</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-images.html" class="navigation navigation-prev " aria-label="Previous page: 图片的处理"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-scrollview.html" class="navigation navigation-next " aria-label="Next page: ScrollView 与 Carousel UI 的建立"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

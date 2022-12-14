@@ -1,0 +1,1231 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset=utf-8"UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>使用 matchedGeometryEffect为 App 建立绚丽的视图动画 | 精通 SwiftUI - iOS 16 版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="author" content="Simon Ng">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="./swiftui-grid-animation.html" />
+    
+    
+    <link rel="prev" href="./swiftui-texteditor.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+    
+        <link rel="stylesheet" href="././styles/website.css">
+    
+
+        
+    <div class="book" data-level="33" data-basepath="." data-revision="Thu Dec 01 2022 17:36:55 GMT+0800 (HKT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="输入并搜寻" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw" target="blank" class="custom-link">Made by AppCoda</a>
+            </li>
+        
+            
+            <li>
+                <a href="https://www.appcoda.com.tw/contact" target="blank" class="custom-link">Contact us / Support</a>
+            </li>
+        
+            
+            <li>
+                <a href="http://twitter.com/share?text=Mastering%20SwiftUI%20via%20@appcodamobile&amp;url=https://www.appcoda.com.tw/swiftui/&amp;hashtags=swiftlang" target="blank" class="custom-link">Tweet this book</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="swiftui-basics.html">
+            
+                
+                    <a href="./swiftui-basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        SwiftUI 介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="swiftui-text.html">
+            
+                
+                    <a href="./swiftui-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        SwiftUI 入门 - 文字的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="swiftui-images.html">
+            
+                
+                    <a href="./swiftui-images.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        图片的处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="swiftui-stacks.html">
+            
+                
+                    <a href="./swiftui-stacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        以堆叠布局使用者介面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="swiftui-scrollview.html">
+            
+                
+                    <a href="./swiftui-scrollview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ScrollView 与 Carousel UI 的建立
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="swiftui-buttons.html">
+            
+                
+                    <a href="./swiftui-buttons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SwiftUI 按钮与渐层
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="swiftui-state.html">
+            
+                
+                    <a href="./swiftui-state.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        状态(State)与绑定(Binding)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="swiftui-path-shape.html">
+            
+                
+                    <a href="./swiftui-path-shape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="swiftui-animation.html">
+            
+                
+                    <a href="./swiftui-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基础动画与转场
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="swiftui-list.html">
+            
+                
+                    <a href="./swiftui-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        动态列表、 ForEach 与 Identifiable 的使用方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="swiftui-navigation.html">
+            
+                
+                    <a href="./swiftui-navigation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        导览UI与导览列客制化运用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="swiftui-modal.html">
+            
+                
+                    <a href="./swiftui-modal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        强制回应视图、浮动按钮与提示的实作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="swiftui-form.html">
+            
+                
+                    <a href="./swiftui-form.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        以选取器(Picker)、开关(Toggle)与步进器(Stepper)来建立一个表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="swiftui-form-data.html">
+            
+                
+                    <a href="./swiftui-form-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        使用 Combine 与 Environment 物件进行资料分享
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="swiftui-form-registration.html">
+            
+                
+                    <a href="./swiftui-form-registration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        以 Combine 与 视图模型建立一个注册表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="swiftui-actionsheet-context.html">
+            
+                
+                    <a href="./swiftui-actionsheet-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        滑动删除、内容选单与动作列表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="swiftui-gestures.html">
+            
+                
+                    <a href="./swiftui-gestures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        认识手势（Gestures）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="swiftui-bottom-sheet.html">
+            
+                
+                    <a href="./swiftui-bottom-sheet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        以SwiftUI 手势与 GeometryReader 建立一个底部展开式页面
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="swiftui-trip-tinder.html">
+            
+                
+                    <a href="./swiftui-trip-tinder.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        使用手势与动画建立 Tinder 风格的 UI
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="swiftui-advanced-animations.html">
+            
+                
+                    <a href="./swiftui-advanced-animations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        建立像 Apple Wallet App 的动画和转场效果
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="swiftui-json.html">
+            
+                
+                    <a href="./swiftui-json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        JSON、滑杆的运用与资料过滤
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="swiftui-core-data.html">
+            
+                
+                    <a href="./swiftui-core-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        如何使用 Core Data 建立 ToDo App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="swiftui-uikit.html">
+            
+                
+                    <a href="./swiftui-uikit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        利用 UIViewRepresentable 整合UIKit 组件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="swiftui-searchbar.html">
+            
+                
+                    <a href="./swiftui-searchbar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        建立搜寻栏视图并使用自订绑定（Custom Binding）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="swiftui-real-world-app.html">
+            
+                
+                    <a href="./swiftui-real-world-app.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        把所学应用出来！构建个人理财App
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="swiftui-appstoreanimation.html">
+            
+                
+                    <a href="./swiftui-appstoreanimation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        创建类似App Store使用的动画视图转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="swiftui-carousel.html">
+            
+                
+                    <a href="./swiftui-carousel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        如何建立图像轮播（Image Carousel）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="swiftui-expandable-list.html">
+            
+                
+                    <a href="./swiftui-expandable-list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        如何建立展开式列表视图和大纲视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="swiftui-gridlayout.html">
+            
+                
+                    <a href="./swiftui-gridlayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        使用 LazyVGrid 和 LazyHGrid 构建集合视图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="swiftui-progress-ring.html">
+            
+                
+                    <a href="./swiftui-progress-ring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        使用 Shape 和 Animatable 开发带动画的环形进度条
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="swiftui-library.html">
+            
+                
+                    <a href="./swiftui-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        如何使用 AnimatableModifier 和 LibraryContentProvider
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="swiftui-texteditor.html">
+            
+                
+                    <a href="./swiftui-texteditor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        使用 TextEditor 支援多行文字输入
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="33" data-path="swiftui-matchedgeometry.html">
+            
+                
+                    <a href="./swiftui-matchedgeometry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        使用 matchedGeometryEffect为 App 建立绚丽的视图动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="swiftui-grid-animation.html">
+            
+                
+                    <a href="./swiftui-grid-animation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        ScrollViewReader 和网格动画
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="swiftui-tabview.html">
+            
+                
+                    <a href="./swiftui-tabview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        标签视图的运用与自订标签列
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="swiftui-asyncimage.html">
+            
+                
+                    <a href="./swiftui-asyncimage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        利用 AsyncImage 非同步加载和显示图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="swiftui-searchable.html">
+            
+                
+                    <a href="./swiftui-searchable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        利用 Searchable 建立搜寻栏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="swiftui-charts.html">
+            
+                
+                    <a href="./swiftui-charts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        利用 Charts 框架建立图表
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="swiftui-live-text.html">
+            
+                
+                    <a href="./swiftui-live-text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        利用 Live Text API 从图片中撷取文本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="swiftui-sharelink.html">
+            
+                
+                    <a href="./swiftui-sharelink.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        透过 ShareLink 来分享文本和图像等资料
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="swiftui-imagerenderer.html">
+            
+                
+                    <a href="./swiftui-imagerenderer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="swiftui-pdf-doc.html">
+            
+                
+                    <a href="./swiftui-pdf-doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        如何把 SwiftUI 视图转换为 PDF 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="swiftui-gauge.html">
+            
+                
+                    <a href="./swiftui-gauge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        使用 Gauge 视图显示进度并创建速度计
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="swiftui-grid.html">
+            
+                
+                    <a href="./swiftui-grid.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        使用Grid API 创建网格布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="swiftui-anylayout.html">
+            
+                
+                    <a href="./swiftui-anylayout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        利用 AnyLayout 切换 UI 布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="swiftui-navigationstack.html">
+            
+                
+                    <a href="./swiftui-navigationstack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        使用新的 NavigationStack 视图构建资料导向的导航
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                本书使用 GitBook 释出
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="搜寻"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="字型设定"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">衬线体</button>
+        <button type="button" data-font="1" class="button">无衬线体</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    分享到 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    分享到 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    分享到 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    分享到 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    分享到 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >精通 SwiftUI - iOS 16 版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%AC%AC-33-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-matchedgeometryeffect%E7%82%BA-app-%E5%BB%BA%E7%AB%8B%E7%B5%A2%E9%BA%97%E7%9A%84%E8%A6%96%E5%9C%96%E5%8B%95%E7%95%AB">第 33 章<br>使用 matchedGeometryEffect为 App 建立绚丽的视图动画</h1>
+<p>在 iOS 14 中，Apple 为 SwiftUI 框架引入了很多新功能，像是 LazyVGrid 以及 LazyHGrid。其中 <code>matchedGeometryEffect</code> 非常引人注目，这个功能让开发者只需要几行程式码，就能够创造绚丽的视图动画。SwiftUI 框架已经让开发者可以简单地使用动画来呈现视图的变化，而 <code>matchedGeometryEffect</code> 修饰器 (modifier) 更将视图动画 (view animations) 的实作提升到另一个境界。</p>
+<p>对所有手机 App 来说，我们经常需要在多个视图之间转换，因此一个令人喜欢的视图转换绝对可以提升整体的使用者体验。有了 <code>matchedGeometryEffect</code>，你只需要描述两个视图的外观，修饰器就会自动计算两个视图的差异，并且自动为大小和位置的变化加上动画。</p>
+<p>可能你会觉得十分困惑，但别担心，介绍完整个范例 App 之后，你就会明白我在说什么了。</p>
+<h3 id="%E9%87%8D%E6%BA%AB-swiftui-%E5%8B%95%E7%95%AB">重温 SwiftUI 动画</h3>
+<p>在我们开始介绍 <code>matchedGeometryEffect</code> 之前，让我们先来看一下如何使用 SwiftUI 来实作动画。下面的图片显示了一个视图开始和结束的状态。当你点击左边的圆形视图，它应该会变大且往上移动；相反地，当你点击右边的视图时，它就会回到原本的大小和位置。</p>
+<figure id="fig33.1"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-1.png" alt="图 33.1. 圆形视图开始状态 (左), 圆形视图结束状态 (右)"><figcaption>图 33.1. 圆形视图开始状态 (左), 圆形视图结束状态 (右)</figcaption></figure>
+<p>要实作这个可点击的圆形视图非常简单。开启一个新的 SwiftUI 专案后，如此更新 <code>ContentView</code> 结构：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+
+    @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> expand = <span class="hljs-built_in">false</span>
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+        <span class="hljs-type">Circle</span>()
+            .fill(<span class="hljs-type">Color</span>.green)
+            .frame(width: expand ? <span class="hljs-number">300</span> : <span class="hljs-number">150</span>, height: expand ? <span class="hljs-number">300</span> : <span class="hljs-number">150</span>)
+            .offset(y: expand ? -<span class="hljs-number">200</span> : <span class="hljs-number">0</span>)
+            .animation(.<span class="hljs-keyword">default</span>, value: expand)
+            .onTapGesture {
+                <span class="hljs-keyword">self</span>.expand.toggle()
+            }
+    }
+}
+</code></pre>
+<p>我们用一个状态变数 <code>expand</code>，来记录 <code>Circle</code> 视图目前的状态。当状态改变时，我们会透过 <code>.frame</code> 和 <code>.offset</code> 这两个修饰器，来修改视图框 (frame) 的大小和位移 (offset)。如果在预览画面中执行这个 App ，你应该可以在点击圆形视图时看到动画效果。</p>
+<figure id="fig33.2"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-2.gif" alt="图 33.2. 圆形视图的动画效果"><figcaption>图 33.2. 圆形视图的动画效果</figcaption></figure>
+<h3 id="%E4%BA%86%E8%A7%A3-matchedgeometryeffect-%E4%BF%AE%E9%A3%BE%E5%99%A8">了解 matchedGeometryEffect 修饰器</h3>
+<p>那么到底什么是 <code>matchedGeometryEffect</code> 呢？这个功能如何简化实作视图动画的步骤？让我们再来看一下第一张图片、以及圆形视图动画的程式码。我们需要找出开始及结束状态时的确切数值差异。在这个例子当中，就是视图框的大小及位移。</p>
+<p>有了 <code>matchedGeometryEffect</code> 修饰器，你不再需要找出两个状态之间的差异了。你只需要描述两个视图：<em>一个是开始的状态，而另一个是结束的状态</em>，<code>matchedGeometryEffect</code> 会自动添加在两个视图之间大小和位置的差异。</p>
+<p>要使用 <code>matchedGeometryEffect</code> 建立跟之前一样的动画效果，你需要先宣告一个命名空间 (namespace) 变数：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> shapeTransition
+</code></pre>
+<p>然后，如此重写 <code>body</code> 的部分：</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+    <span class="hljs-keyword">if</span> expand {
+
+        <span class="hljs-comment">// Final State</span>
+        <span class="hljs-type">Circle</span>()
+            .fill(<span class="hljs-type">Color</span>.green)
+            .matchedGeometryEffect(id: <span class="hljs-string">&quot;circle&quot;</span>, <span class="hljs-keyword">in</span>: shapeTransition)
+            .frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">300</span>)
+            .offset(y: -<span class="hljs-number">200</span>)
+            .onTapGesture {
+                withAnimation(.easeIn) {
+                    expand.toggle()
+                }
+            }
+
+    } <span class="hljs-keyword">else</span> {
+
+        <span class="hljs-comment">// Start State</span>
+        <span class="hljs-type">Circle</span>()
+            .fill(<span class="hljs-type">Color</span>.green)
+            .matchedGeometryEffect(id: <span class="hljs-string">&quot;circle&quot;</span>, <span class="hljs-keyword">in</span>: shapeTransition)
+            .frame(width: <span class="hljs-number">150</span>, height: <span class="hljs-number">150</span>)
+            .offset(y: <span class="hljs-number">0</span>)
+            .onTapGesture {
+                withAnimation(.easeIn) {
+                    expand.toggle()
+                }
+            }
+    }
+}
+</code></pre>
+<p>在这段程式码中，我们建立了两个圆形视图，一个表示开始状态，而另一个表示结束状态。当它一开始被初始化之后，我们会得到一个 <code>Circle</code> 视图，位置置中以及宽度为 150 点。当 <code>expand</code> 状态变数从 <code>false</code> 变成 <code>true</code> 时， App 会显示另一个 <code>Circle</code> 视图，其位置是从中间往上 200 点以及宽度为 300 点。</p>
+<p>对于两个 <code>Circle</code> 视图，我们都添加了 <code>matchedGeometryEffect</code> 修饰器，并且指定了相同的 ID 和命名空间。透过这样的设定，SwiftUI 可以计算两个视图之间大小和位置的差异，并且添加视图转换。随着后续加上的 <code>animation</code> 修饰器，SwiftUI 框架会自动动画化视图转换。</p>
+<p>ID 以及命名空间的用途，是用来标记属于同一个转换的视图，所以两个 <code>Circle</code> 视图会使用相同的 ID 和命名空间。</p>
+<p>以上我们介绍了如何使用 <code>matchedGeometryEffect</code>，来实作两个视图之间的动画转换效果。如果你有使用过Keynote 的 Magic Move，这个新的修饰器跟 Magic Move非常类似。我建议你使用 iPhone 模拟器来执行这个 App，以便测试这个动画效果。在我写这篇文章时， Xcode  中有一个 bug，导致我们无法在预览画面测试这个动画效果。</p>
+<h3 id="%E5%BE%9E%E5%9C%93%E5%BD%A2%E8%AE%8A%E7%82%BA%E5%9C%93%E8%A7%92%E9%95%B7%E6%96%B9%E5%BD%A2">从圆形变为圆角长方形</h3>
+<p>现在，让我们来试试实作另一个视图转换动画。这一次，我们会将一个圆形变化成为一个圆角长方形 (rounded rectangle)。圆形位置于荧幕的上端，而圆角长方形则位于荧幕的底端。</p>
+<figure id="fig33.3"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-3.png" alt="图 33.3. 圆形视图的开始状态 (左), 圆角长方形的结束状态 (右)"><figcaption>图 33.3. 圆形视图的开始状态 (左), 圆角长方形的结束状态 (右)</figcaption></figure>
+<p>我们可以使用刚刚学到的技巧，准备两个视图：一个圆形视图和一个圆角长方形视图，<code>matchedGeometryEffect</code> 修饰器就会处理视图转换的部分。现在，让我们将 <code>body</code> 变数的 <code>ContentView</code> 结构改成这样：</p>
+<pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
+    <span class="hljs-keyword">if</span> expand {
+
+        <span class="hljs-comment">// Rounded Rectangle</span>
+        <span class="hljs-type">Spacer</span>()
+
+        <span class="hljs-type">RoundedRectangle</span>(cornerRadius: <span class="hljs-number">50.0</span>)
+            .matchedGeometryEffect(id: <span class="hljs-string">&quot;circle&quot;</span>, <span class="hljs-keyword">in</span>: shapeTransition)
+            .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, maxHeight: <span class="hljs-number">300</span>)
+            .padding()
+            .foregroundColor(<span class="hljs-type">Color</span>(.systemGreen))
+            .onTapGesture {
+                withAnimation {
+                    expand.toggle()
+                }
+            }
+
+    } <span class="hljs-keyword">else</span> {
+
+        <span class="hljs-comment">// Circle</span>
+        <span class="hljs-type">RoundedRectangle</span>(cornerRadius: <span class="hljs-number">50.0</span>)
+            .matchedGeometryEffect(id: <span class="hljs-string">&quot;circle&quot;</span>, <span class="hljs-keyword">in</span>: shapeTransition)
+            .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)
+            .foregroundColor(<span class="hljs-type">Color</span>(.systemOrange))
+            .onTapGesture {
+                withAnimation {
+                    expand.toggle()
+                }
+            }
+
+        <span class="hljs-type">Spacer</span>()
+    }
+}
+</code></pre>
+<p>我们同样使用 <code>expand</code> 状态变数，来切换圆形视图和圆角长方形视图。这段程式码跟之前的范例非常相似，只是我们在这边加上了 <code>VStack</code> 和 <code>Spacer</code> 来定位视图。或许你会问，为什么要使用 <code>RoundedRectangle</code> 来建立圆形物件呢？主要原因是这样可以让视图转换就会更顺畅。</p>
+<p>在这两个视图中，我们都加上了 <code>matchedGeometryEffect</code> 修饰器，并且指定了一样的 ID 以及命名空间，我们要做的事就完成了。修饰器会自动比较两个视图的差异，并且使用动画呈现这个改变。如果你在预览画面或是 iPhone 模拟器上执行这个 App，会看到视图在圆形和圆角长方形之间完美的转换。这就是 <code>matchedGeometryEffect</code> 的威力。</p>
+<figure id="fig33.4"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-4.gif" alt="图 33.4. 从圆形变为圆角长方形"><figcaption>图 33.4. 从圆形变为圆角长方形</figcaption></figure>
+<p>不过，你可能注意到这个修饰器无法执行改变颜色的动画。没错，<code>matchedGeometryEffect</code> 只能用来处理位置和大小的变化。</p>
+<h3 id="%E7%B7%B4%E7%BF%92%E4%B8%80">练习一</h3>
+<p>让我们来做一个小小的练习，来测试你对 <code>matchedGeometryEffect</code> 的了解。你的任务是要建立如下图的动画视图转换。开始时，它是一个橘色的圆形视图，圆形视图被点击后，就会转换成全荧幕的背景图。你可以在专案档中找到完整程式码。</p>
+<figure id="fig33.5"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-5.png" alt="图 33.5. 圆形视图转换成全荧幕的背景图"><figcaption>图 33.5. 圆形视图转换成全荧幕的背景图</figcaption></figure>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%8B%95%E7%95%AB%E8%BD%89%E6%8F%9B%E4%BE%86%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%A6%96%E5%9C%96">使用动画转换来交换两个视图</h3>
+<p>现在你应该对 <code>matchedGeometryEffect</code> 有了基础的认识，让我们继续来看看它如何帮助我们建立一些绚丽的动画。在这个范例中，我们会交换两个圆形视图的位置，并且套用修饰器来建立顺畅的视图转换。</p>
+<figure id="fig33.6"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-6.gif" alt="图 33.6. 交换两个视图的位置"><figcaption>图 33.6. 交换两个视图的位置</figcaption></figure>
+<p>我们会使用一个状态变数，来储存交换的状态，并建立一个命名空间变数给 <code>matchedGeometryEffect</code> 来使用。让我们在 <code>ContentView</code> 宣告这些参数：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> <span class="hljs-built_in">swap</span> = <span class="hljs-built_in">false</span>
+
+@<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> dotTransition
+</code></pre>
+<p>橘色圆形预设位在荧幕的左边，而绿色圆形则在荧幕的右边。当使用者点击任意一个圆形图案，就会触发互换的动画。使用 <code>matchedGeometryEffect</code> 时，你不用了解交换动画是如何达成的。要建立视图转换，你只需要做到以下事情：</p>
+<ol>
+<li>建立橘色和绿色圆形交换之前的版面配置</li>
+<li>建立两个圆形在交换之后的版面配置</li>
+</ol>
+<p>如果你要将版面配置转换成程式码，你可以如此编写 <code>body</code> 变数：</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">if</span> <span class="hljs-built_in">swap</span> {
+
+    <span class="hljs-comment">// After swap</span>
+    <span class="hljs-comment">// Green dot on the left, Orange dot on the right</span>
+
+    <span class="hljs-type">HStack</span> {
+        <span class="hljs-type">Circle</span>()
+            .fill(<span class="hljs-type">Color</span>.green)
+            .frame(width: <span class="hljs-number">30</span>, height: <span class="hljs-number">30</span>)
+            .matchedGeometryEffect(id: <span class="hljs-string">&quot;greenCircle&quot;</span>, <span class="hljs-keyword">in</span>: dotTransition)
+
+        <span class="hljs-type">Spacer</span>()
+
+        <span class="hljs-type">Circle</span>()
+            .fill(<span class="hljs-type">Color</span>.orange)
+            .frame(width: <span class="hljs-number">30</span>, height: <span class="hljs-number">30</span>)
+            .matchedGeometryEffect(id: <span class="hljs-string">&quot;orangeCircle&quot;</span>, <span class="hljs-keyword">in</span>: dotTransition)
+    }
+    .frame(width: <span class="hljs-number">100</span>)
+    .onTapGesture {
+        withAnimation {
+            <span class="hljs-built_in">swap</span>.toggle()
+        }
+    }
+
+} <span class="hljs-keyword">else</span> {
+
+    <span class="hljs-comment">// Start state</span>
+    <span class="hljs-comment">// Orange dot on the left, Green dot on the right</span>
+
+    <span class="hljs-type">HStack</span> {
+        <span class="hljs-type">Circle</span>()
+            .fill(<span class="hljs-type">Color</span>.orange)
+            .frame(width: <span class="hljs-number">30</span>, height: <span class="hljs-number">30</span>)
+            .matchedGeometryEffect(id: <span class="hljs-string">&quot;orangeCircle&quot;</span>, <span class="hljs-keyword">in</span>: dotTransition)
+
+        <span class="hljs-type">Spacer</span>()
+
+        <span class="hljs-type">Circle</span>()
+            .fill(<span class="hljs-type">Color</span>.green)
+            .frame(width: <span class="hljs-number">30</span>, height: <span class="hljs-number">30</span>)
+            .matchedGeometryEffect(id: <span class="hljs-string">&quot;greenCircle&quot;</span>, <span class="hljs-keyword">in</span>: dotTransition)
+    }
+    .frame(width: <span class="hljs-number">100</span>)
+    .onTapGesture {
+        withAnimation {
+            <span class="hljs-built_in">swap</span>.toggle()
+        }
+    }
+}
+</code></pre>
+<p>我们使用 <code>HStack</code> 来将两个圆形配置成水平排列，并且利用 <code>Spacer</code> 在两个圆形中间建立一些空间。当 <code>swap</code> 变数设定成 <code>true</code> 之后，绿色圆形会被放在橘色圆形的左边。相反地，绿色圆形则会被放在橘色圆形的右边。</p>
+<p>如你所见，我们只需要描述不同状态下圆形视图的配置，<code>matchedGeometryEffect</code> 就会处理余下的事情。我们在每个 <code>Circle</code> 视图加上修饰器，不过这次有一点不同，因为我们有两个不同的 <code>Circle</code>视图需要配置，我们使用了两个不同的 ID 来建立 <code>matchedGeometryEffect</code> 修饰器。我们将橘色圆形的识别名称设定为 <code>orangeCircle</code>，而绿色圆形则是设定为 <code>greenCircle</code>。</p>
+<p>现在，如果你在模拟器执行这个 App，应该可以在点击任何一个圆形时看到互换的动画。</p>
+<h3 id="%E7%B7%B4%E7%BF%92%E4%BA%8C">练习二</h3>
+<p>在刚刚的练习中，我们在两个圆形上使用了 <code>matchedGeometryEffect</code>，并交换它们的位置。这个练习会使用到一样的技巧，不过这次是要使用两张图片。图33.7展示了这个范例，点击交换按钮时，这个 App 就会用漂亮的动画来交换这两张图片。</p>
+<figure id="fig33.7"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-7.gif" alt="图 33.7. 交换两张图片"><figcaption>图 33.7. 交换两张图片</figcaption></figure>
+<p>你可以随意使用自己的图片。我在范例中使用了这些 Unsplash.com 的免费图片：</p>
+<ul>
+<li><a href="https://unsplash.com/photos/pMW4jzELQCw" target="_blank">https://unsplash.com/photos/pMW4jzELQCw</a></li>
+<li><a href="https://unsplash.com/photos/PM4Vu1B0gxk" target="_blank">https://unsplash.com/photos/PM4Vu1B0gxk</a></li>
+</ul>
+<h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E8%8B%B1%E9%9B%84%E5%8B%95%E7%95%AB%E6%95%88%E6%9E%9C%EF%BC%88hero-animation%EF%BC%89">建立一个英雄动画效果（Hero Animation）</h3>
+<p>除了从一种形状转换到另一种形状之外，你还可以使用 <code>matchedGeometryEffect</code> 修改器来创建基本的英雄动画。 给你一个例子，图 33.8 显示了一个图像和一段文字的堆栈视图。 点击视图时，图像和文字都会展开以占据全荧幕。 这种类型的动画通常被称为英雄动画（Hero Animation）。</p>
+<figure id="fig33.8"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-8.png" alt="图 33.8. 将堆栈视图扩展到全荧幕"><figcaption>图 33.8. 将堆栈视图扩展到全荧幕</figcaption></figure>
+<p>同样地，我们可以应用 <code>matchedGeometryEffect</code> 技巧来创建这种类型的过场动画。 如果参考图 33.8，视图转换中有两个视图：</p>
+<ol>
+<li>一个是显示较小图像和文章节录的视图。</li>
+<li>另一个是扩展为全荧幕的视图，显示精选照片和全文。</li>
+</ol>
+<p>首先，宣告一个状态变数来控制视图模式的状态：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showDetail = <span class="hljs-built_in">false</span>
+</code></pre>
+<p>当 <code>showDetail</code> 设定为 false 时，App就会显示具有较小图像的文章视图。 如果为 true，则将显示整个画面的文章视图。 要使用 <code>matchedGeometryEffect</code> 修饰器，我们必须宣告一个<code>namespace</code>变数：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> articleTransition
+</code></pre>
+<p>接下来，像这样更新 <code>body</code> 变数：</p>
+<pre><code class="lang-swift"><span class="hljs-comment">// Display an article view with smaller image</span>
+<span class="hljs-keyword">if</span> !showDetail {
+    <span class="hljs-type">VStack</span> {
+        <span class="hljs-type">Spacer</span>()
+
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;latte&quot;</span>)
+                .resizable()
+                .scaledToFill()
+                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)
+                .frame(height: <span class="hljs-number">200</span>)
+                .matchedGeometryEffect(id: <span class="hljs-string">&quot;image&quot;</span>, <span class="hljs-keyword">in</span>: articleTransition)
+                .cornerRadius(<span class="hljs-number">10</span>)
+                .padding()
+                .onTapGesture {
+                    withAnimation(.interactiveSpring(response: <span class="hljs-number">0.5</span>, dampingFraction: <span class="hljs-number">0.8</span>, blendDuration: <span class="hljs-number">0.2</span>)) {
+                        showDetail.toggle()
+                    }
+                }
+
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;The Watertower is a full-service restaurant/cafe located in the Sweet Auburn District of Atlanta.&quot;</span>)
+                .matchedGeometryEffect(id: <span class="hljs-string">&quot;text&quot;</span>, <span class="hljs-keyword">in</span>: articleTransition)
+                .padding(.horizontal)
+        }
+    }
+}
+
+<span class="hljs-comment">// Display the article view in a full screen</span>
+<span class="hljs-keyword">if</span> showDetail {
+
+    <span class="hljs-type">ScrollView</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;latte&quot;</span>)
+                .resizable()
+                .scaledToFill()
+                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)
+                .frame(height: <span class="hljs-number">400</span>)
+                .clipped()
+                .matchedGeometryEffect(id: <span class="hljs-string">&quot;image&quot;</span>, <span class="hljs-keyword">in</span>: articleTransition)
+                .onTapGesture {
+                     withAnimation(.interactiveSpring(response: <span class="hljs-number">0.5</span>, dampingFraction: <span class="hljs-number">0.8</span>, blendDuration: <span class="hljs-number">0.4</span>)) {
+                         showDetail.toggle()
+                     }
+                }
+
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;The Watertower is a full-service restaurant/cafe located in the Sweet Auburn District of Atlanta. The restaurant features a full menu of moderately priced \&quot;comfort\&quot; food influenced by African and French cooking traditions, but based upon time honored recipes from around the world. The cafe section of The Watertower features a coffeehouse with a dessert bar, magazines, and space for live performers.\n\nThe Watertower will be owned and operated by The Watertower LLC, a Georgia limited liability corporation managed by David N. Patton IV, a resident of the Empowerment Zone. The members of the LLC are David N. Patton IV (80%) and the Historic District Development Corporation (20%).\n\nThis business plan offers financial institutions an opportunity to review our vision and strategic focus. It also provides a step-by-step plan for the business start-up, establishing favorable sales numbers, gross margin, and profitability.\n\nThis plan includes chapters on the company, products and services, market focus, action plans and forecasts, management team, and financial plan.&quot;</span>)
+                .matchedGeometryEffect(id: <span class="hljs-string">&quot;text&quot;</span>, <span class="hljs-keyword">in</span>: articleTransition)
+                .animation(<span class="hljs-built_in">nil</span>, value: showDetail)
+                .padding(.all, <span class="hljs-number">20</span>)
+
+            <span class="hljs-type">Spacer</span>()
+        }
+
+    }
+    .edgesIgnoringSafeArea(.all)
+}
+</code></pre>
+<p>在上面的程式码中，我们将视图布局为不同的状态。 当 <code>showDetail</code> 设为 <code>false</code> 时，我们使用 <code>VStack</code> 来布局文章的图片和节录。 图像的高度设定为 200 点以使其变小。</p>
+<p>文章视图的布局在全荧幕模式下非常相似， 主要分别在于 <code>VStack</code> 视图嵌入在 <code>ScrollView</code> 中以使内容可滚动。 图像的高度设定为 400 点，这样图像就会变大一点。 为了将图像和文字视图扩展出荧幕安全区域以外，我们将 <code>.edgesIgnoringSafeArea</code> 修饰器加到滚动视图并将其值设置为 <code>.all</code>。</p>
+<p>由于我们在过场效果有两个不同的视图，因此我们在 <code>matchedGeometryEffect</code> 修饰器要使用两个不同的 ID。 对于图像，我们将 ID 设定为<code>image</code>：</p>
+<pre><code class="lang-swift">.matchedGeometryEffect(id: <span class="hljs-string">&quot;image&quot;</span>, <span class="hljs-keyword">in</span>: articleTransition)
+</code></pre>
+<p>另一方面，我们将文字视图的 ID 设定为 <code>text</code>：</p>
+<pre><code class="lang-swift">.matchedGeometryEffect(id: <span class="hljs-string">&quot;text&quot;</span>, <span class="hljs-keyword">in</span>: articleTransition)
+</code></pre>
+<p>此外，我们为文字和图像视图使用了两种不同的动画。 图像视图使用 <code>.interactiveSpring</code> 动画，至于文字视图，我们使用 <code>.easeOut</code> 动画。</p>
+<p>现在，可以在模拟器中运行App并试一下。 当你点击图像视图时，App会显示漂亮的动画并以全荧幕显示文章。</p>
+<figure id="fig33.9"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-9.gif" alt="图 33.9. 英雄动画效果"><figcaption>图 33.9. 英雄动画效果</figcaption></figure>
+<h3 id="%E5%9C%A8%E8%A6%96%E5%9C%96%E4%B9%8B%E9%96%93%E5%82%B3%E9%81%9E-namespace">在视图之间传递@Namespace</h3>
+<p>参考前面的例子，我们可以将两个不同的堆栈视图分成为子视图让程式码整理得更好。 但问题是我们如何在视图之间传递<code>@Namespace</code> 变数， 让我们可以怎样做。</p>
+<p>首先，按住command键并单击第一个堆栈视图的<code>VStack</code>。 从选单中选择 <em>Extract Subview</em> 并将子视图命名为<code>ArticleExcerptView</code>。</p>
+<figure id="fig33.10"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-10.png" alt="图 33.10. 将堆栈视图分成为子视图"><figcaption>图 33.10. 将堆栈视图分成为子视图</figcaption></figure>
+<p>你应该会在 <code>ArticleExcerptView</code> 结构中看到很多错误，说缺少namespace 和 <code>showDetail</code> 变数。 要改正 <code>showDetail</code> 变数的错误，你可以在 <code>ArticleExcerptView</code> 中宣告一个绑定，如下所示：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> showDetail: <span class="hljs-type">Bool</span>
+</code></pre>
+<p>要从另一个视图接受namespace，诀窍是宣告一个具有 <code>Namespace.ID</code> 类型的变数，如下所示：</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> articleTransition: <span class="hljs-type">Namespace</span>.<span class="hljs-type">ID</span>
+</code></pre>
+<p>现在应该可以修复 <code>ArticleExcerptView</code> 中的所有错误。 回到 <code>ContentView</code> 并将 <code>ArticleExcerptView()</code> 替换为：</p>
+<pre><code class="lang-swift"><span class="hljs-type">ArticleExcerptView</span>(showDetail: $showDetail, articleTransition: articleTransition)
+</code></pre>
+<p>我们将绑定传给<code>showDetail</code>，并将namespace变数传递给子视图。 这就是你在不同视图之间共享namespace的方式。 重复以上的程序将 <code>ScrollView</code> 抽出到另一个子视图中，并将子视图命名为<code>ArticleDetailView</code>。</p>
+<p>另外，你需要在 <code>ArticleDetailView</code> 中宣告以下变数和绑定以解决所有错误：</p>
+<pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> showDetail: <span class="hljs-type">Bool</span>
+
+<span class="hljs-keyword">var</span> articleTransition: <span class="hljs-type">Namespace</span>.<span class="hljs-type">ID</span>
+</code></pre>
+<p>你还要像这样更新 <code>ArticleDetailView()</code> ：</p>
+<pre><code class="lang-swift"><span class="hljs-type">ArticleDetailView</span>(showDetail: $showDetail, articleTransition: articleTransition)
+</code></pre>
+<p>在所有更改之后，<code>ContentView</code> 结构现在被简化如下：</p>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
+
+    @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showDetail = <span class="hljs-built_in">false</span>
+
+    @<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> articleTransition
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
+
+        <span class="hljs-comment">// Display an article view with smaller image</span>
+        <span class="hljs-keyword">if</span> !showDetail {
+            <span class="hljs-type">ArticleExcerptView</span>(showDetail: $showDetail, articleTransition: articleTransition)
+        }
+
+        <span class="hljs-comment">// Display the article view in a full screen</span>
+        <span class="hljs-keyword">if</span> showDetail {
+            <span class="hljs-type">ArticleDetailView</span>(showDetail: $showDetail, articleTransition: articleTransition)
+        }
+
+    }
+}
+</code></pre>
+<p>App的运作和之前一样，但程式码现在就更容易阅读。</p>
+<h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
+<p>引进 <code>matchedGeometryEffect</code> 修饰器之后，视图动画的实作提升到了另一个层次。你可以用更少的程式码来创造漂亮的视图动画。即便你是 SwiftUI 的新手，你也可以从这个新修饰器中得益，并且让你的 App 更棒。</p>
+<p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
+<p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIMatchedGeometry.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIMatchedGeometry.zip</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./swiftui-texteditor.html" class="navigation navigation-prev " aria-label="Previous page: 使用 TextEditor 支援多行文字输入"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./swiftui-grid-animation.html" class="navigation navigation-next " aria-label="Next page: ScrollViewReader 和网格动画"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"serif","size":3},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
