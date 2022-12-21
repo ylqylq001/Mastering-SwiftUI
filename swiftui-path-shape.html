@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -930,7 +930,7 @@
 }
 .fill(<span class="hljs-type">Color</span>.purple)
 </code></pre>
-<p> <code>addQuadCurve</code>  方法可以让你透过定义一个控制点（control point ）来绘制曲线。参考图 8.6，(40, 60) 与(210, 60) 就是所谓的“锚点”（anchor point ），(125, 0) 则是计算建立圆顶形状的控制点，我不打算在这里讨论有关绘制曲线的数学，你可尝试更改控制点的值来查看效果。简单而言，该控制点控制如何绘制曲线。如果你将控制点放在更靠近矩形顶部的位置（例如：125, 30），则会绘制出不圆的外观。</p>
+<p> <code>addQuadCurve</code>  方法可以让你通过定义一个控制点（control point ）来绘制曲线。参考图 8.6，(40, 60) 与(210, 60) 就是所谓的“锚点”（anchor point ），(125, 0) 则是计算建立圆顶形状的控制点，我不打算在这里讨论有关绘制曲线的数学，你可尝试更改控制点的值来查看效果。简单而言，该控制点控制如何绘制曲线。如果你将控制点放在更靠近矩形顶部的位置（例如：125, 30），则会绘制出不圆的外观。</p>
 <h3 id="fill-%E8%88%87-stroke">Fill 与 Stroke</h3>
 <p>如果要画出形状的边框，并同时以颜色填满形状，该怎么做呢？ <code>fill</code> 与 <code>stroke</code> 修饰器无法并行使用，不过你可以使用 <code>ZStack</code> 来达到相同的效果，代码如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
@@ -1103,7 +1103,7 @@
 </code></pre>
 <p>这里，我们初始化一个 <code>Circle</code> 视图，然后将一个 <code>RoundedRectangle</code> 视图叠在上面。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-shape-%E5%BB%BA%E7%AB%8B%E9%80%B2%E5%BA%A6%E6%8C%87%E7%A4%BA%E5%99%A8">使用 Shape 建立进度指示器</h3>
-<p>透过内建形状的混搭，你可以为应用程式建立各种类型的向量式（vector-based ）UI 控制元件。我再举另一个例子，图 8.14 为一个使用 <code>Circle</code> 建立的进度指示器。</p>
+<p>通过内建形状的混搭，你可以为应用程式建立各种类型的向量式（vector-based ）UI 控制元件。我再举另一个例子，图 8.14 为一个使用 <code>Circle</code> 建立的进度指示器。</p>
 <figure id="fig8.14"><img src="images/shape/swiftui-shape-14.png" alt="图 8.14　进度指示器"><figcaption>图 8.14　进度指示器</figcaption></figure>
 <p>这个进度指示器其实是由两个圆形所组成，下方是一个灰色圆环，而在灰色圆环的上方则是一个开口圆环，指示完成的进度。你可以在 <code>ContentView</code> 中撰写代码，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{

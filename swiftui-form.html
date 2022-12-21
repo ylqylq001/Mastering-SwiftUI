@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -953,7 +953,7 @@
 <p>上面是实现切换所需的代码，画布应该会在“Filter Preference”区块下显示一个切换开关，如图13.6 所示。如果你执行这个 App，你可以在 ON 与 OFF 状态之间切换。同样的，这个状态变量 <code>showCheckInOnly</code> 将会持续追踪使用者的选择。</p>
 <figure id="fig13.6"><img src="images/form/swiftui-form-6.png" alt="图 13.6.　显示一个切换开关"><figcaption>图 13.6.　显示一个切换开关</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%80%B2%E5%99%A8">使用步进器</h3>
-<p>设定表单中最后一个 UI 控制元件是“步进器”。再次参考图 13.1，使用者可以透过设定价位级别来筛选餐厅， 每间餐厅都有一个价位指示器，范围在1 至 5 之间。使用者可调整价位级别，以缩小清单视图中显示的餐厅数量。</p>
+<p>设定表单中最后一个 UI 控制元件是“步进器”。再次参考图 13.1，使用者可以通过设定价位级别来筛选餐厅， 每间餐厅都有一个价位指示器，范围在1 至 5 之间。使用者可调整价位级别，以缩小清单视图中显示的餐厅数量。</p>
 <p>在设定表单中，我们将实现一个步进器，供使用者调整设定。基本上，iOS 中的步进器显示了一个“+”和“-”的按钮，来执行递增及递减的动作。</p>
 <p>要在 SwiftUI 中实现步进器，我们首先需要一个状态变量来存放步进器的目前值。在本例中，这个变量储存使用者选择的价位级别。在 <code>SettingView</code> 中声明状态变量，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> maxPriceLevel = <span class="hljs-number">5</span>
@@ -981,7 +981,7 @@
     }
 }
 </code></pre>
-<p>你可透过初始化一个 <code>Stepper</code>元件来建立一个步进器。对于 <code>onIncrement</code> 参数，你指定点选“+”按钮时要执行的动作。在代码中，我们只将 <code>maxPriceLevel</code> 增加“1”。反之， 点选“-”按钮时将执行 <code>onDecrement</code> 参数中指定的代码。</p>
+<p>你可通过初始化一个 <code>Stepper</code>元件来建立一个步进器。对于 <code>onIncrement</code> 参数，你指定点选“+”按钮时要执行的动作。在代码中，我们只将 <code>maxPriceLevel</code> 增加“1”。反之， 点选“-”按钮时将执行 <code>onDecrement</code> 参数中指定的代码。</p>
 <p>由于价位级别在 1 至 5 的范围之间，我们执行检查来确保 <code>maxPriceLevel</code>的值介于 1 至 5 之间。在闭包中，我们显示筛选偏好的文字描述。这里的最高价位是以美元符号表示， 如图 13.7 所示。</p>
 <figure id="fig13.7"><img src="images/form/swiftui-form-7.png" alt="图 13.7.　实现一个步进器"><figcaption>图 13.7.　实现一个步进器</figcaption></figure>
 <p>要测试步进器，则点选“Play”按钮来执行 App。当你点选  <code>+</code>/ <code>-</code> 按钮时，将会调整 $ 符号的数量。</p>

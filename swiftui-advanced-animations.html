@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -1285,7 +1285,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>对于拖曳的卡片，我们在水平与垂直方向上都加入了额外的偏移量。</p>
 <p>现在，你可以执行App 来进行测试，长按卡片并任意拖曳，如图20.13 所示。</p>
 <figure id="fig20.13"><img src="images/wallet/swiftui-wallet-13.png" alt="图 20.13.　拖曳卡片"><figcaption>图 20.13.　拖曳卡片</figcaption></figure>
-<p>现在，你应该可以拖曳卡片，不过卡片的 z-index 并没有相应做更改，例如：如果你拖曳Visa 卡，它总是停留在卡片库的最上层，我们透过更新 <code>zIndex(for:)</code> 函数来修正它： </p>
+<p>现在，你应该可以拖曳卡片，不过卡片的 z-index 并没有相应做更改，例如：如果你拖曳Visa 卡，它总是停留在卡片库的最上层，我们通过更新 <code>zIndex(for:)</code> 函数来修正它： </p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">zIndex</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Double</span> </span>{
     guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
         <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span>
@@ -1334,7 +1334,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>这是我们计算更新后的 z-index 的公式： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> newIndex = draggingCardIndex + <span class="hljs-type">Int</span>(-dragOffset.height / <span class="hljs-type">Self</span>.cardOffset)
 </code></pre>
-<p>一旦我们有了更新后的索引值，最后一步就是透过移除拖曳的卡片，并将其插入新位置，以更新在 <code>cards</code> 数组中的项目。由于 <code>cards</code> 数组现在是一个状态变量，因此 SwiftUI 更新卡片库且自动渲染动画。</p>
+<p>一旦我们有了更新后的索引值，最后一步就是通过移除拖曳的卡片，并将其插入新位置，以更新在 <code>cards</code> 数组中的项目。由于 <code>cards</code> 数组现在是一个状态变量，因此 SwiftUI 更新卡片库且自动渲染动画。</p>
 <p>最后，在“// 重新排列卡片”的下面插入下列这行代码来调用函数： </p>
 <pre><code class="lang-swift">withAnimation(.spring()) {
     <span class="hljs-keyword">self</span>.rearrangeCards(with: card, dragOffset: drag.translation)

@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -879,7 +879,7 @@
                         <h1 id="%E7%AC%AC-5-%E7%AB%A0-br-%E4%BA%86%E8%A7%A3%E6%BB%BE%E5%8B%95%E8%A6%96%E5%9C%96%E8%88%87%E5%BB%BA%E7%AB%8B%E8%BC%AA%E6%92%AD-ui">第 5 章<br>了解滚动视图与建立轮播 UI</h1>
 <p>从前一章中，我相信你现在应该了解如何使用堆叠建立一个复杂的UI。当然，在你能够熟练 SwiftUI 的运用之前，需要许多的练习才行。因此，在我们深入研究 ScrollView， 学习如何让视图滚动之前，我们先进行一个挑战，来作为本章的开始。你的任务是建立一个卡片视图（card view ），如图5.1 所示。</p>
 <figure id="fig5.1"><img src="images/scrollview/swiftui-scrollview-1.png" alt="图 5.1. 卡片视图"><figcaption>图 5.1. 卡片视图</figcaption></figure>
-<p>透过使用堆叠、图片与文字视图，你应该能够建立 UI。虽然我会逐步示范如何实现， 但请先花一些时间来思考如何完成这个任务，以及找出自己的解决方案。</p>
+<p>通过使用堆叠、图片与文字视图，你应该能够建立 UI。虽然我会逐步示范如何实现， 但请先花一些时间来思考如何完成这个任务，以及找出自己的解决方案。</p>
 <p>当你完成卡片视图的建立之后，我将与你讨论 <code>ScrollView</code>，并使用卡片视图建立一个可滚动的介面，图 5.2 即是完成后的 UI。</p>
 <figure id="fig5.2"><img src="images/scrollview/swiftui-scrollview-2.jpg" alt="图 5.2.　使用 ScrollView 建立一个滚动式UI"><figcaption>图 5.2.　使用 ScrollView 建立一个滚动式UI</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%8D%A1%E7%89%87%E5%BC%8F-ui">建立一个卡片式 UI</h3>
@@ -921,7 +921,7 @@
 </code></pre>
 <p>显然的，你需要使用 <code>Text</code> 来建立文字视图。由于我们在叙述中实际上有三个垂直排列的文字视图，因此我们使用一个 <code>VStack</code> 来嵌入它们。对于 <code>VStack</code>，我们指定对齐方式为 <code>.leading</code>，这会将文字视图对齐堆叠视图的左侧。</p>
 <p>这些文字的修饰器皆在有关 <code>Text</code> 物件的章节讨论过。如果你对任何修饰器有疑问的话，可以回去参考。但是，这里会特别提到有关 <code>.primary</code> 与 <code>.secondary</code> 颜色。</p>
-<p>虽然你可在 <code>foregroundColor</code> 修饰器指定标准颜色，像是 <code>.black</code> 与 <code>.purple</code>，但 iOS 提供一套系统颜色，其中包含主色（ primary color ）、辅色（ secondary color ）、第三级色（ tertiary color ）等变化，透过使用此颜色变化，你的 App 可以轻松支持浅色模式与深色模式。举例而言，文字视图的主色预设设定为浅色模式的黑色。当 App 切换到深色模式， 主色将被调整为白色，这是由 iOS 自动调整，因此你无须另外编写写支持深色模式的代码，我们将在后面的章节中深入探讨深色模式。</p>
+<p>虽然你可在 <code>foregroundColor</code> 修饰器指定标准颜色，像是 <code>.black</code> 与 <code>.purple</code>，但 iOS 提供一套系统颜色，其中包含主色（ primary color ）、辅色（ secondary color ）、第三级色（ tertiary color ）等变化，通过使用此颜色变化，你的 App 可以轻松支持浅色模式与深色模式。举例而言，文字视图的主色预设设定为浅色模式的黑色。当 App 切换到深色模式， 主色将被调整为白色，这是由 iOS 自动调整，因此你无须另外编写写支持深色模式的代码，我们将在后面的章节中深入探讨深色模式。</p>
 <p>为了将图片与这些文字视图垂直排列，我们使用 <code>VStack</code> 来嵌入它们，目前的布局如图 5.7 所示。</p>
 <figure id="fig5.7"><img src="images/scrollview/swiftui-scrollview-7.png" alt="图 5.7.　将图片与文字视图嵌入到 VStack 中"><figcaption>图 5.7.　将图片与文字视图嵌入到 VStack 中</figcaption></figure>
 <p>还没有完成，尚有几件事情需要实现。首先，如果文字叙述区块要与图片的边缘对齐，该如何做呢？ </p>
@@ -1065,7 +1065,7 @@
 <p>在滚动视图时，荧幕底部附近有一个滚动指示器。这个指示器预设是显示的。如果你想要隐藏它，你可以将 <code>ScrollView</code> 的代码变更如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal, showsIndicators: <span class="hljs-built_in">false</span>)
 </code></pre>
-<p>透过指定 <code>showIndicators</code> 为 <code>false</code>，iOS 将不再显示该指示器。</p>
+<p>通过指定 <code>showIndicators</code> 为 <code>false</code>，iOS 将不再显示该指示器。</p>
 <h3 id="%E7%BE%A4%E7%B5%84%E8%A6%96%E5%9C%96%E5%85%A7%E5%AE%B9">群组视图内容</h3>
 <p>如果你再次阅读一下代码，所有的  <code>CardViews</code> 是以 <code>.frame</code> 修饰器来限制其宽度为 300 点，是否有其他简化的方式，并移除重复的代码呢？SwiftUI 框架提供了开发者群组视图（<code>Group</code> view）的功能，可以将相关内容群组起来。更重要的是，你可以将修饰器加至群组，所有嵌入群组内的视图皆能够同步做产生效果。 </p>
 <p>举例而言，你可以将 <code>HStack</code> 内的程式重写如下来完成同样的结果：</p>

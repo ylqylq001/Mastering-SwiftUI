@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -955,7 +955,7 @@
     }
 }
 </code></pre>
-<p>这个 <code>delete</code> 函数接受一个 =restaurant 物件，并在 <code>restaurants</code> 数组中搜寻它的索引。要找出索引，我们调用<code>firstIndex</code> 函数，并指定搜寻条件，这个函数会逐一执行数组，并将给定的餐厅 id 与数组中的 id 进行比对，如果有匹配的话，<code>firstIndex</code> 函式会回传给定餐厅的索引。当我们有了索引后，我们就可以透过调用 <code>remove(at:)</code> 从 <code>restaurants</code> 数组中删除餐厅。</p>
+<p>这个 <code>delete</code> 函数接受一个 =restaurant 物件，并在 <code>restaurants</code> 数组中搜寻它的索引。要找出索引，我们调用<code>firstIndex</code> 函数，并指定搜寻条件，这个函数会逐一执行数组，并将给定的餐厅 id 与数组中的 id 进行比对，如果有匹配的话，<code>firstIndex</code> 函式会回传给定餐厅的索引。当我们有了索引后，我们就可以通过调用 <code>remove(at:)</code> 从 <code>restaurants</code> 数组中删除餐厅。</p>
 <p>接下来，在“// 删除所选的餐厅”下面插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">self</span>.delete(item: restaurant)
 </code></pre>
@@ -1068,7 +1068,7 @@
 <p>如果你已正确进行变更，则在清单视图中点击其中一列时应可带出动作表。当选择“删除”（Delete）按钮，将会删除该列。若是你选择“标记为最爱”（Mark as Favorite）选项， 则将使用黄色星星标记该列，如图16.6 所示</p>
 <figure id="fig16.6"><img src="images/actionsheet/swiftui-actionsheet-6.png" alt="图 16.6.　点击一列来显示动作表"><figcaption>图 16.6.　点击一列来显示动作表</figcaption></figure>
 <p>一切都运作得很好，不过我承诺过带你了解使用 <code>actionSheet</code> 修饰器的第二种方法。我们已经介绍过第一种方法，它依据布林值（即 <code>showActionSheet</code> ）来指示是否应显示动作表。</p>
-<p>第二种方法是透过一个 Optional Identifiable 绑定来触发动作表： </p>
+<p>第二种方法是通过一个 Optional Identifiable 绑定来触发动作表： </p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">actionSheet</span><span class="hljs-generics">&lt;T&gt;</span><span class="hljs-params">(item: Binding&lt;T?&gt;, content: <span class="hljs-params">(T)</span> -&gt; ActionSheet)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> <span class="hljs-title">where</span> <span class="hljs-title">T</span> : <span class="hljs-title">Identifiable</span>
 </span></code></pre>
 <p>以白话来说，这表示当你传送的项目有值时，将会显示动作。对于我们的示例， <code>selectedRestaurant</code> 变量是一个 Optional，并遵循 <code>Identifiable</code> 协定。要使用第二种方法，你只需要将 <code>selectedRestaurant</code> 绑定传送至<code>actionSheet</code> 修饰器，如下所示： </p>

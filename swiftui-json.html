@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -880,7 +880,7 @@
 <p>JSON 是 JavaScript Object Notation 的缩写，是用户端- 伺服器应用程式中用于资料交换的通用资料格式。即使我们是行动装置 App 的开发者，也不可避免地要使用 JSON，因为几乎所有的 Web API 或后端网页服务都使用 JSON 作为资料交换的格式。</p>
 <p>在本章中，我们将讨论当使用 SwiftUI 框架建立 App 时如何使用 JSON。如果你对于不了解 JSON 的话，我建议看一下在《iOS 程式设计进阶攻略》一书中的 <a href="https://www.appcoda.com/intermediate-swift-tips/json.html" target="_blank">免费试阅章节</a> ，这里会详细解释在 Swift 中处理 JSON 的两种不同方法。</p>
 <figure id="fig21.1"><img src="images/json/swiftui-json-1.png" alt="图 21.1.　示例App"><figcaption>图 21.1.　示例App</figcaption></figure>
-<p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是透过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的示例 App，我们将调用一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
+<p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是通过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的示例 App，我们将调用一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
 <p>除此之外，我们将示范滑杆（Slider ）的用法，滑杆是SwiftUI 提供的众多内建 UI 控制元件之一。你将在 App 中实现一个资料筛选选项，以让使用者可以筛选清单中的贷款资料，如图 21.2 所示。</p>
 <figure id="fig21.2"><img src="images/json/swiftui-json-2.png" alt="图 21.2.　滑杆控制元件"><figcaption>图 21.2.　滑杆控制元件</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-json-%E8%88%87-codable">了解 JSON 与 Codable</h3>
@@ -1259,7 +1259,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     return loans
 }
 </code></pre>
-<p><code>fetchLatestLoans()</code> 方法透过使用 <code>URLSession</code> 来连接到 Web API。当它接收到 API 回传的资料后，它会传送资料给 <code>parseJsonData</code> 方法来解码 JSON，并转换贷款资料为 <code>Loan</code> 数组。</p>
+<p><code>fetchLatestLoans()</code> 方法通过使用 <code>URLSession</code> 来连接到 Web API。当它接收到 API 回传的资料后，它会传送资料给 <code>parseJsonData</code> 方法来解码 JSON，并转换贷款资料为 <code>Loan</code> 数组。</p>
 <p>你可能想知道为什么我们需要使用 <code>DispatchQueue.main.async</code> 来包裹这行代码？ </p>
 <pre><code class="lang-swift"><span class="hljs-type">DispatchQueue</span>.main.async {
     <span class="hljs-keyword">self</span>.loans = <span class="hljs-keyword">self</span>.parseJsonData(data: data)
@@ -1381,7 +1381,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     }
 }
 </code></pre>
-<p>我假设你完全了解堆叠视图，因此我将不讨论如何使用它们来实现布局，不过让我们再多谈一下滑杆控制元件，其是 SwiftUI 所提供的一个标准元件，你可以透过传送滑杆的绑定（Binding ）、范围与滑杆刻度（step ）来实例化滑杆。绑定保存滑杆的目前值。以下是用于建立滑杆的示例代码： </p>
+<p>我假设你完全了解堆叠视图，因此我将不讨论如何使用它们来实现布局，不过让我们再多谈一下滑杆控制元件，其是 SwiftUI 所提供的一个标准元件，你可以通过传送滑杆的绑定（Binding ）、范围与滑杆刻度（step ）来实例化滑杆。绑定保存滑杆的目前值。以下是用于建立滑杆的示例代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Slider</span>(value: $amount, <span class="hljs-keyword">in</span>: minAmount...maxAmount, step: <span class="hljs-number">100</span>)
 </code></pre>
 <p>刻度可控制使用者拖曳滑杆时的更改量。如果你让使用者拥有很好的控制元件，请将刻度设定更小一点。对于上列的代码，我们将其设定为“100”。</p>

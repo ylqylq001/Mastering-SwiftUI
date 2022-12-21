@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-23-%E7%AB%A0-br-%E5%88%A9%E7%94%A8-uiviewrepresentable-%E6%95%B4%E5%90%88uikit-%E7%B5%84%E4%BB%B6">第 23 章<br>利用 UIViewRepresentable 整合UIKit 组件</h1>
-<p>开发者一般都会问两个有关 SwiftUI 的常见问题。 首先是如何在SwiftUI项目使用 Core Data， 而另一个常见问题是如何在 SwiftUI 项目中使用 UIKit 视图。 在本章中，我们将透过在 Todo App 建立搜索栏以学习如何将UIKit内的 UISearchBar 整合至 SwiftUI 项目。</p>
+<p>开发者一般都会问两个有关 SwiftUI 的常见问题。 首先是如何在SwiftUI项目使用 Core Data， 而另一个常见问题是如何在 SwiftUI 项目中使用 UIKit 视图。 在本章中，我们将通过在 Todo App 建立搜索栏以学习如何将UIKit内的 UISearchBar 整合至 SwiftUI 项目。</p>
 <p>如果你是 UIKit 的新手，UISearchBar 是UIKit框架的一个内置组件，它允许开发者为数据搜索呈现一个搜索栏。 图 23.1 显示了 iOS 中的标准搜索栏。 然而，在SwiftUI 刚推出时，它并没有附带这个标准的 UI 组件。 要在 SwiftUI 项目（例如我们的 ToDo App）加入搜索栏，其中一种方法就是使用 UIKit 中的<code>UISearchBar</code> 组件。</p>
 <p>那么，我们如何在 SwiftUI 中整合 UIKit 视图或控制器？</p>
 <p>为了向后兼容，Apple 在 iOS SDK 中引入了几个新协议，即 UIViewRepresentable 和 UIViewControllerRepresentable。 使用这些协议，你可以包装 UIKit 视图（或视图控制器）并使其可用于你的 SwiftUI 项目。</p>
@@ -993,7 +993,7 @@
     }
 }
 </code></pre>
-<p><code>makeCoordinator</code> 方法只回一个 <code>Coordinator</code> 的实体。 <code>Coordinator</code>采用<code>UISearchBarDelegate</code> 协议并实现<code>searchBar(_:textDidChange:)</code> 方法。 如前所述，每次用户更改搜寻文字时都会调用此方法。 因此，当有更新时，我们透过更新 <code>text</code> 绑定将其传回 SwiftUI。 我特意在方法里加了一个<code>print</code>语句，方便以后我们测试app的时候可以看到变化。</p>
+<p><code>makeCoordinator</code> 方法只回一个 <code>Coordinator</code> 的实体。 <code>Coordinator</code>采用<code>UISearchBarDelegate</code> 协议并实现<code>searchBar(_:textDidChange:)</code> 方法。 如前所述，每次用户更改搜寻文字时都会调用此方法。 因此，当有更新时，我们通过更新 <code>text</code> 绑定将其传回 SwiftUI。 我特意在方法里加了一个<code>print</code>语句，方便以后我们测试app的时候可以看到变化。</p>
 <p>现在我们有一个采用了 <code>UISearchBarDelegate</code> 协议的 Coordinator，我们需要再做一个修改。 在 <code>makeUIView</code> 方法中，加入以下一行代码，将协调器指定给搜索栏：</p>
 <pre><code class="lang-swift">searchBar.delegate = context.coordinator
 </code></pre>
@@ -1039,7 +1039,7 @@
 <figure id="fig23.4"><img src="images/uikit/swiftui-uikit-4.png" alt="图 4. 搜寻待办事项"><figcaption>图 4. 搜寻待办事项</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8-fetchrequest-%E4%BE%86%E5%9F%B7%E8%A1%8C%E6%90%9C%E5%B0%8B">使用<code>FetchRequest</code>来执行搜寻</h4>
 <p>刚刚讨论的搜寻方法是从已取得的结果执行搜寻。 另一种方法则是直接使用 Core Data 执行搜寻。 当我们从数据库中获取数据时，我们明确指定要过虑的待办事项。</p>
-<p><code>@FetchRequest</code> 属性包装器允许你传递一个我们之前没有讨论过的述词（predicate）。透过提供述词，你就可指定过滤条件。</p>
+<p><code>@FetchRequest</code> 属性包装器允许你传递一个我们之前没有讨论过的述词（predicate）。通过提供述词，你就可指定过滤条件。</p>
 <p>以下是一个例子：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">FetchRequest</span>(
     entity: <span class="hljs-type">ToDoItem</span>.entity(),

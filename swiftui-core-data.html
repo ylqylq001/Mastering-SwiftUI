@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -888,7 +888,7 @@
 <p>究竟你会将会做什么以理解 Core Data？ 我已经构建了示例App的核心部分，你并不需要从头开始构建 ToDo App。 但是，它不能永久保存数据。 更具体地说，它只能将待办事项保存在记忆体当中。 每当用户关闭App并再次启动它时，所有数据都会消失。 我们将修改这个示例 App 并将其转换为使用 Core Data 将数据永久保存到本地数据库。 图 22.1 显示了 ToDo App 的一些示例屏幕截图。</p>
 <figure id="fig22.1"><img src="images/core-data/swiftui-core-data-1.png" alt="图 22.1. ToDo app"><figcaption>图 22.1. ToDo app</figcaption></figure>
 <p>在我们开始修改之前，我会先介绍一下这个 Starter 项目，以便你完全理解当中的代码。</p>
-<p>除了 Core Data，你还将会学习如何自定义切换的样式。 看看上面的截图，该核取方块实际上是 SwiftUI 的切换视图。 我将向你展示如何透过自定义 Toggle 的样式来建立这些核取方块。</p>
+<p>除了 Core Data，你还将会学习如何自定义切换的样式。 看看上面的截图，该核取方块实际上是 SwiftUI 的切换视图。 我将向你展示如何通过自定义 Toggle 的样式来建立这些核取方块。</p>
 <p>本章有很多内容要讲，让我们开始吧！</p>
 <h3 id="core-data-%E4%BB%8B%E7%B4%B9">Core Data 介绍</h3>
 <p>在我们查看 ToDo App的Starter项目之前，让我向你简单介绍一下 Core Data 以及你将如何在 SwiftUI 项目中使用它。 </p>
@@ -899,7 +899,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8-core-data-%E6%A8%A1%E6%9D%BF">使用 Core Data 模板</h3>
 <p>使用 Core Data 的最简单方式，就是建立一个新项目时启用 Core Data 选项 。你也可以试一试。 启动 Xcode 并使用 <em>App</em> 模板建立一个新项目。 将其命名为你喜欢的名称，但请确保选中 <em>Core Data</em> 选项。</p>
 <figure id="fig22.2"><img src="images/core-data/swiftui-core-data-2.png" alt="图 22.2. 建立一个启用 Core Data 的新项目"><figcaption>图 22.2. 建立一个启用 Core Data 的新项目</figcaption></figure>
-<p>透过使用 Core Data，Xcode 将为你生成所有必需的代码和托管物件模型。 建立项目后，你应该会看到一个名为“CoreDataTest.xcdatamodeld”的新文件。 在 Xcode 中，托管物件模型的副档名为“.xcdatamodeld”。 这是为你的项目生成的托管物件模型，也是你定义持久性物件的地方。</p>
+<p>通过使用 Core Data，Xcode 将为你生成所有必需的代码和托管物件模型。 建立项目后，你应该会看到一个名为“CoreDataTest.xcdatamodeld”的新文件。 在 Xcode 中，托管物件模型的副档名为“.xcdatamodeld”。 这是为你的项目生成的托管物件模型，也是你定义持久性物件的地方。</p>
 <p>看一下 <code>Persistence.swift</code> 文件，这是 Xcode 生成的另一个文件。 该文件包含用于加载托管物件模型并将数据保存到持久性储存器的代码。</p>
 <figure id="fig22.3"><img src="images/core-data/swiftui-core-data-3.png" alt="图 3. Core Data的附加代码"><figcaption>图 3. Core Data的附加代码</figcaption></figure>
 <p>如果你之前使用过 UIKit 开发App，你通常会使用容器来管理数据库或其他持久性储存器中的数据。 在 SwiftUI 中，它有点不同。 我们很少直接使用这个容器。 相反，SwiftUI 将托管物件内容（Managed Object Context）注入到SwiftUI 环境中，以便任何视图都可以检索物件内容并管理数据。</p>

@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -988,12 +988,12 @@
 <p><code>largeTitleTextAttributes</code> 属性用于设定大尺寸标题的文字属性，而 <code>titleTextAttributes</code> 属性则用于设定标准尺寸标题的文字属性。当我们设定 <code>navBarAppearance</code> 后，将其它指定给三个外观属性，包括<code>standardAppearance</code>、<code>scrollEdgeAppearance</code> 与 <code>compactAppearance</code>。如前所述，如果需要的话，你可以为 <code>scrollEdgeAppearance</code> 与 <code>compactAppearance</code> 建立及指定一个单独的外观物件。</p>
 <figure id="fig11.7"><img src="images/navigation/swiftui-navigation-7.png" alt="图 11.7.　对大尺寸标题与标准尺寸标题变更字型与颜色"><figcaption>图 11.7.　对大尺寸标题与标准尺寸标题变更字型与颜色</figcaption></figure>
 <h4 id="%E3%80%8C%E8%BF%94%E5%9B%9E%E3%80%8D%E6%8C%89%E9%88%95%E7%9A%84%E5%9C%96%E7%89%87%E8%88%87%E9%A1%8F%E8%89%B2">“返回”按钮的图片与颜色</h4>
-<p>导览视图的“返回”（Back ）按钮预设为蓝色，其使用V 形图示（chevron icon ）来表示“返回”，如图 11.8 所示。透过使用 <code>UINavigationBarAppearance</code>  API，你可以自订颜色、甚至是“返回”按钮的指示器图片。</p>
+<p>导览视图的“返回”（Back ）按钮预设为蓝色，其使用V 形图示（chevron icon ）来表示“返回”，如图 11.8 所示。通过使用 <code>UINavigationBarAppearance</code>  API，你可以自订颜色、甚至是“返回”按钮的指示器图片。</p>
 <figure id="fig11.8"><img src="images/navigation/swiftui-navigation-8.png" alt="图 11.8.　标准的“返回”按钮"><figcaption>图 11.8.　标准的“返回”按钮</figcaption></figure>
 <p>我们来看这个自定义是否如何工作的。要变更指示器的图片，你可以调用 <code>setBackIndicatorImage</code> 方法，并提供自己的 <code>UIImage</code>。这里，我设定系统图片为 <code>arrow.turn. up.left</code>。</p>
 <pre><code class="lang-swift">navBarAppearance.setBackIndicatorImage(<span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;arrow.turn.up.left&quot;</span>), transitionMaskImage: <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;arrow.turn.up.left&quot;</span>))
 </code></pre>
-<p>对于“返回”按钮的颜色，你可以透过设置 <code>accentColor</code> 属性来更改它，如下所示：</p>
+<p>对于“返回”按钮的颜色，你可以通过设置 <code>accentColor</code> 属性来更改它，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
   .
   .
@@ -1124,7 +1124,7 @@
     }
 }
 </code></pre>
-<p>透过更新程式后，你应该在预览画布中看到一个空白的导览列。</p>
+<p>通过更新程式后，你应该在预览画布中看到一个空白的导览列。</p>
 <p>现在我们已经完成了细节视图的布局，是时候该回到 <code>ContentView.swift</code> 来实现导览， 更新 <code>ContentView</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
@@ -1146,7 +1146,7 @@
     }
 }
 </code></pre>
-<p>在上列的代码中，我们将 <code>List</code> 视图嵌入至 <code>NavigationStack</code> 中， 并对每一列应用 <code>NavigationLink</code>。导览连结的目的地设定为我们刚才建立的细节视图。在预览中，你应该可透过点击“播放”（Play ）按钮来测试 App，并在选择文章后，导览至细节视图。</p>
+<p>在上列的代码中，我们将 <code>List</code> 视图嵌入至 <code>NavigationStack</code> 中， 并对每一列应用 <code>NavigationLink</code>。导览连结的目的地设定为我们刚才建立的细节视图。在预览中，你应该可通过点击“播放”（Play ）按钮来测试 App，并在选择文章后，导览至细节视图。</p>
 <h3 id="%E7%A7%BB%E9%99%A4%E6%8F%AD%E7%A4%BA%E6%8C%87%E7%A4%BA%E5%99%A8">移除揭示指示器</h3>
 <p>这个 App 运作得很完美，但是有两个问题你可能想要微调。首先是内容视图中的揭示指示器（disclosure indicator ），这里显示揭示指示器有点奇怪，我们可以禁用它吗？第二个问题是，在细节视图中精选图片的上方出现空白区域。我们来逐一讨论这些问题。</p>
 <figure id="fig11.12"><img src="images/navigation/swiftui-navigation-12.jpg" alt="图 11.12.　目前设计中的两个问题"><figcaption>图 11.12.　目前设计中的两个问题</figcaption></figure>
@@ -1177,10 +1177,10 @@
 <p>在 <code>ScrollView</code> 的括号后，插入下列这行代码： </p>
 <pre><code class="lang-swift">.navigationBarTitleDisplayMode(.inline)
 </code></pre>
-<p>透过将导览列设定为 <code>inline</code> 模式后，空白区域将被最小化，现在你可回到 <code>ContentView.swift</code> 来再次测试App，细节视图现在看起来好多了。</p>
+<p>通过将导览列设定为 <code>inline</code> 模式后，空白区域将被最小化，现在你可回到 <code>ContentView.swift</code> 来再次测试App，细节视图现在看起来好多了。</p>
 <h3 id="%E5%B8%B6%E6%9C%89%E5%AE%A2%E8%A3%BD%E5%8C%96%E3%80%8C%E8%BF%94%E5%9B%9E%E3%80%8D%E6%8C%89%E9%88%95%E7%9A%84%E7%B2%BE%E7%B7%BB-ui">带有客制化“返回”按钮的精致 UI</h3>
-<p>虽然你可使用内建的属性来自订“返回”按钮指示器图片，有时你可能想要建立一个客制化“返回”按钮来导览回内容视图。问题是如何透过编写代码来完成呢？ </p>
-<p>在最后一个小节中，我要介绍如何透过隐藏导览列及建立自己的“返回”按钮，来建立一个更精致的细节视图。首先，我们看一下如图 11.14 所示的最终设计，看起来不错吧？ </p>
+<p>虽然你可使用内建的属性来自订“返回”按钮指示器图片，有时你可能想要建立一个客制化“返回”按钮来导览回内容视图。问题是如何通过编写代码来完成呢？ </p>
+<p>在最后一个小节中，我要介绍如何通过隐藏导览列及建立自己的“返回”按钮，来建立一个更精致的细节视图。首先，我们看一下如图 11.14 所示的最终设计，看起来不错吧？ </p>
 <figure id="fig11.14"><img src="images/navigation/swiftui-navigation-14.png" alt="图 11.14.　经修订的细节视图"><figcaption>图 11.14.　经修订的细节视图</figcaption></figure>
 <p>要布局这个画面，我们必须要解决两个问题： </p>
 <ol>
@@ -1192,7 +1192,7 @@
 <p>要放置超出安全区域的内容，你可以使用名为 <code>ignoresSafeArea</code> 修饰器。对于我们的项目，由于我们想要滚动视图超出安全区域的顶部边缘，则可编写修饰器如下： </p>
 <pre><code class="lang-swift">.ignoresSafeArea(.all, edges: .top)
 </code></pre>
-<p>这个修饰器接收其他值，如 <code>.bottom</code> 与 <code>.leading</code>。如果你想要忽略整个安全区域，则可以直接使用<code>.ignoresSafeArea()</code>。透过将这个修饰器加到 <code>ScrollView</code>，我们可以隐藏导览列，并实现一个视觉上赏心悦目的细节视图。</p>
+<p>这个修饰器接收其他值，如 <code>.bottom</code> 与 <code>.leading</code>。如果你想要忽略整个安全区域，则可以直接使用<code>.ignoresSafeArea()</code>。通过将这个修饰器加到 <code>ScrollView</code>，我们可以隐藏导览列，并实现一个视觉上赏心悦目的细节视图。</p>
 <figure id="fig11.16"><img src="images/navigation/swiftui-navigation-16.png" alt="图 11.16.　应用这些修饰器至滚动视图"><figcaption>图 11.16.　应用这些修饰器至滚动视图</figcaption></figure>
 <p>现在谈到关于建立自己的“返回”按钮的第二个问题，这个问题比第一个问题更棘手。下面是我们要实现的内容： </p>
 <ol>

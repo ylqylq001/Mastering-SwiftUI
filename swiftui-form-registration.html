@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -883,7 +883,7 @@
 <p>如果你对 Swift 与 UIKit 有一些经验，你就会知道有各种类型的实现方式可处理表单验证。不过，在本章中，我们将探索如何利用 Combine 框架来执行表单验证。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-swiftui-%E4%BD%88%E5%B1%80%E8%A1%A8%E5%96%AE">使用 SwiftUI 布局表单</h3>
 <p>我们从一个练习来开始本章，使用至目前为止所学的内容，来布局如图 15.1 所示的表单 UI。要在 SwiftUI 中建立一个文字栏位，你可以使用 TextField 元件，而对于密码栏位， SwiftUI 提供了一个名为 <code>SecureField</code>安全文字栏位。</p>
-<p>要建立一个文字栏位，需要使用栏位名称与绑定（binding ）来初始化 TextField，这将渲染一个可编辑的文字栏位，而使用者输入会储存在给定的绑定中。和其他表单栏位类似，你可以透过使用相关的修饰器来修改它的外观。下面是示例代码片段： </p>
+<p>要建立一个文字栏位，需要使用栏位名称与绑定（binding ）来初始化 TextField，这将渲染一个可编辑的文字栏位，而使用者输入会储存在给定的绑定中。和其他表单栏位类似，你可以通过使用相关的修饰器来修改它的外观。下面是示例代码片段： </p>
 <pre><code class="lang-swift"><span class="hljs-type">TextField</span>(<span class="hljs-string">&quot;Username&quot;</span>, text: $username)
     .font(.system(size: <span class="hljs-number">20</span>, weight: .semibold, design: .rounded))
     .padding(.horizontal)
@@ -1046,7 +1046,7 @@
 <p>Combine 框架提供一个声明式方法，供App 处理事件。你可以为给定的事件源建立单一处理链（chain），而不是实现多个委派回呼（delegate callback ）或完成处理闭包（completion handler closure ）。链的每一个部分都是一个Combine 运算子，对上一个步骤收到的元素执行不同的动作。</p>
 <p>- Apple 的官方文件 (<a href="https://developer.apple.com/documentation/combine/receiving_and_handling_events_with_combine" target="_blank">https://developer.apple.com/documentation/combine/receiving_and_handling_events_with_combine</a>)</p>
 </blockquote>
-<p>发布者与订阅者是框架的两个核心元素。使用 Combine，发布者传送事件，订阅者订阅，以从发布者接收值。同样的，我们以文字栏位为例。透过使用 Combine，使用者在文字栏位中输入的每个按键，都会触发一个值更改的事件。而对监控这些值感兴趣的订阅者，可以订阅接收这些事件，并进一步执行操作（例如：验证）。</p>
+<p>发布者与订阅者是框架的两个核心元素。使用 Combine，发布者传送事件，订阅者订阅，以从发布者接收值。同样的，我们以文字栏位为例。通过使用 Combine，使用者在文字栏位中输入的每个按键，都会触发一个值更改的事件。而对监控这些值感兴趣的订阅者，可以订阅接收这些事件，并进一步执行操作（例如：验证）。</p>
 <p>举例而言，你正在写一个表单验证器，它有指示表单是否准备好送出的属性。在这个例子中，你可以使用<code>@Published</code> 标注来标记该属性，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FormValidator</span>: <span class="hljs-title">ObservableObject</span> </span>{
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> isReadySubmit: <span class="hljs-type">Bool</span> = <span class="hljs-built_in">false</span>

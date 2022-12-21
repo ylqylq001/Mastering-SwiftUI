@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -1529,7 +1529,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     <span class="hljs-type">PaymentFormView</span>(payment: <span class="hljs-keyword">self</span>.selectedPaymentActivity).environment(\.managedObjectContext, <span class="hljs-keyword">self</span>.context)
 }
 </code></pre>
-<p>当使用者按住其中一行时，它会显示一个包含删除和编辑选项的内容选单（Context Menu）。 选择编辑选项时，App将使用所选的交易创建<code>PaymentFormView</code>。 对于删除动作，我们透过 Core Data 从数据库中完全删除交易记录。</p>
+<p>当使用者按住其中一行时，它会显示一个包含删除和编辑选项的内容选单（Context Menu）。 选择编辑选项时，App将使用所选的交易创建<code>PaymentFormView</code>。 对于删除动作，我们通过 Core Data 从数据库中完全删除交易记录。</p>
 <figure id="fig25.7"><img src="images/real-world-app/real-world-app-7.png" alt="图 25.7. 内容选单"><figcaption>图 25.7. 内容选单</figcaption></figure>
 <p>不知你没有注意到 <code>paymentDataForView</code> 变量？ 列表视图并没有使用 <code>paymentActivities</code>，而是显示存放在 <code>paymentDataForView</code> 中的项目。 为什么是这样？</p>
 <p>在 <em>Recent Transactions</em> 部分，App为使用者提供了三个选项来过滤交易活动，包括全部（All）、收入（Income）和支出（Expense）。 例如，如果选择了 <em>expense</em> 选项，就仅显示与与支出相关的交易。</p>
@@ -1560,7 +1560,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 </code></pre>
 <p>我们在第 18 章中使用了<code>.presentationDetents</code> 修饰器来实现了一个类似的Bottom Sheet。因此，我们重用了该章中大部分的代码。 如果你想了解更多关于 <code>BottomSheet</code> 的构建原理，你可以重读那一章。 在这里，我们将工作表定义为可扩展的底部工作表。 它以 <em>medium</em> 大小开始。 但是使用者可以向上拖动工作表以将其扩展为<em>large</em>尺寸。</p>
 <h3 id="%E4%BD%BF%E7%94%A8core-data%E8%99%95%E7%90%86%E4%BA%A4%E6%98%93%E6%B4%BB%E5%8B%95">使用Core Data处理交易活动</h3>
-<p>如前所述，所有交易活动都存放在数据库中，并透过 Core Data 进行管理。 在代码中，我们使用 <code>@FetchRequest</code> 属性包装器来读取交易活动，如下所示：</p>
+<p>如前所述，所有交易活动都存放在数据库中，并通过 Core Data 进行管理。 在代码中，我们使用 <code>@FetchRequest</code> 属性包装器来读取交易活动，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">FetchRequest</span>(
     entity: <span class="hljs-type">PaymentActivity</span>.entity(),
     sortDescriptors: [ <span class="hljs-type">NSSortDescriptor</span>(keyPath: \<span class="hljs-type">PaymentActivity</span>.date, ascending: <span class="hljs-built_in">false</span>) ])

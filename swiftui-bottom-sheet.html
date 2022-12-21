@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -1021,7 +1021,7 @@
 <p>另外，如果你只需要显示一个文字栏位（如描述栏位），则可以像这样使用 <code>DetailInfoView</code> : </p>
 <pre><code class="lang-swift"><span class="hljs-type">DetailInfoView</span>(icon: <span class="hljs-built_in">nil</span>, info: <span class="hljs-keyword">self</span>.restaurant.description)
 </code></pre>
-<p>如你所见，透过建立一个通用视图来处理相似的布局，可以使代码更具模组化及可重用性。</p>
+<p>如你所见，通过建立一个通用视图来处理相似的布局，可以使代码更具模组化及可重用性。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-vstack-%E7%B5%84%E5%90%88%E5%85%83%E4%BB%B6">使用 VStack 组合元件</h4>
 <p>现在，我们已经建立了所有的元件，我们可以使用 <code>VStack</code> 组合它们，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView</span>: <span class="hljs-title">View</span> </span>{
@@ -1290,14 +1290,14 @@
 <pre><code class="lang-swift">.offset(y: geometry.size.height/<span class="hljs-number">2</span> + <span class="hljs-keyword">self</span>.dragState.translation.height + <span class="hljs-keyword">self</span>.positionOffset)
 </code></pre>
 <p>在计算偏移量时，将考虑到拖曳的位移与位置偏移量，而不是固定值，这就是我们如何启用细节视图来支持拖曳手势的方式。</p>
-<p>如果你在预览画布中测试细节视图，则应该能够拖曳横列来滑动视图。不过，透过拖曳内容视图来向上/ 向下滑动视图几乎是不可能的。</p>
+<p>如果你在预览画布中测试细节视图，则应该能够拖曳横列来滑动视图。不过，通过拖曳内容视图来向上/ 向下滑动视图几乎是不可能的。</p>
 <figure id="fig18.10"><img src="images/bottom-sheet/swiftui-bottom-sheet-10.png" alt="图 18.10.　拖曳细节视图的内容部分不会使视图向上滑动"><figcaption>图 18.10.　拖曳细节视图的内容部分不会使视图向上滑动</figcaption></figure>
 <p>为什么我们不能拖曳内容视图来展开细节视图呢？</p>
 <p>如果你还记得的话，细节视图的内容部分被嵌入到滚动视图中。因此，我们实际上有两个手势识别器：一个内建在滚动视图中，另一个是我们加入的拖曳手势。</p>
 <p>那么， 我们该如何解决呢？ 一种方式是禁用使用者与滚动视图的互动。你可以将 <code>.disabled</code> 修饰器加入到滚动视图，并设定其值为 <code>true</code>： </p>
 <pre><code class="lang-swift">.disabled(<span class="hljs-built_in">true</span>)
 </code></pre>
-<p>当你将这个修饰器加到 <code>ScrollView</code> 后，就可以透过拖曳内容部分来向上/ 向下滑动细节视图。</p>
+<p>当你将这个修饰器加到 <code>ScrollView</code> 后，就可以通过拖曳内容部分来向上/ 向下滑动细节视图。</p>
 <p>不过，接下来的问题是，当禁用滚动视图后，使用者无法与滚动视图互动，这表示使用者不能查看餐厅的全部内容，因此我们还是需要使内容部分可以滚动。</p>
 <p>用者不能查看餐厅的全部内容，因此我们还是需要使内容部分可以滚动。</p>
 <p>显然的，我们需要找到一种方式来控制滚动视图的启用。一个简单的解决方案是，当滚动视图在半开状态禁用它。在细节视图全部开启后，我们再次启用滚动视图。</p>
@@ -1347,7 +1347,7 @@
         <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.viewState == .half {
             <span class="hljs-comment">// 界限值 #1</span>
             <span class="hljs-comment">// 向上滑动，当它超过界限值时</span>
-            <span class="hljs-comment">// 透过更新位置偏移量来变更视图状态为全部开启</span>
+            <span class="hljs-comment">// 通过更新位置偏移量来变更视图状态为全部开启</span>
             <span class="hljs-keyword">if</span> value.translation.height &lt; -geometry.size.height * <span class="hljs-number">0.25</span> {
                 <span class="hljs-keyword">self</span>.positionOffset = -geometry.size.height/<span class="hljs-number">2</span> + <span class="hljs-number">50</span>
                 <span class="hljs-keyword">self</span>.viewState = .full
@@ -1355,7 +1355,7 @@
 
             <span class="hljs-comment">// 界限值 #2</span>
             <span class="hljs-comment">// 向下滑动，当它通过界限值</span>
-                      <span class="hljs-comment">// 透过设定isShow 为 false 来关闭视图</span>
+                      <span class="hljs-comment">// 通过设定isShow 为 false 来关闭视图</span>
             <span class="hljs-keyword">if</span> value.translation.height &gt; geometry.size.height * <span class="hljs-number">0.3</span> {
                 <span class="hljs-keyword">self</span>.isShow = <span class="hljs-built_in">false</span>
             }
@@ -1404,7 +1404,7 @@
 <p>为了定义自己的座标空间，如下，加上 <code>.coordinateSpace</code> 修饰器至 <code>ScrollView</code>：</p>
 <pre><code class="lang-swift">.coordinateSpace(name: <span class="hljs-string">&quot;scrollview&quot;</span>)
 </code></pre>
-<p>你可能想知道，为何我们必须使用自己的座标空间，而非使用  <code>.global</code> 。请再次参考图 8.13，红色线是参考点，也就是偏移值为 0 的位置， 透过座标空间的定义，就可以达成滚动视图的规范。</p>
+<p>你可能想知道，为何我们必须使用自己的座标空间，而非使用  <code>.global</code> 。请再次参考图 8.13，红色线是参考点，也就是偏移值为 0 的位置， 通过座标空间的定义，就可以达成滚动视图的规范。</p>
 <p>现在于模拟器中执行 App，带出细节视图，并完全展开它。当你拖曳视图时你便可以见到这个拖曳偏移量，如图 8.14 所示，当你拖曳距离顶部列越远时，偏移量会越大。</p>
 <figure id="fig18.14"><img src="images/bottom-sheet/swiftui-bottom-sheet-14.jpg" alt="图 8.14. 在不同方向拖曳滚动视图。"><figcaption>图 8.14. 在不同方向拖曳滚动视图。</figcaption></figure>
 <h3 id="preferencekey-%E7%9A%84%E4%BB%8B%E7%B4%B9">PreferenceKey 的介绍</h3>
@@ -1461,7 +1461,7 @@
 <figure id="fig18.15"><img src="images/bottom-sheet/swiftui-bottom-sheet-15.png" alt="图 8.15. 在完全展开状态下滚动视图"><figcaption>图 8.15. 在完全展开状态下滚动视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>本章的篇幅很多，但我希望你喜欢它。在本章中，我们将利用你到目前为止所学到的知识来建立展开式底部表。当建立底部表时，我尽力记录了我解决问题的思考过程，我真的希望这可以帮助你了解我的解决方案与代码。</p>
-<p>SwiftUI 的其中一项优势是，它鼓励你建立模组化的 UI 元件。这部分我们还没有做，但是你可能会发现透过使用我在上一章中所介绍的技术，可以很容易将这个餐厅细节视图转换为支持各种类型内容的通用底部表。</p>
+<p>SwiftUI 的其中一项优势是，它鼓励你建立模组化的 UI 元件。这部分我们还没有做，但是你可能会发现通过使用我在上一章中所介绍的技术，可以很容易将这个餐厅细节视图转换为支持各种类型内容的通用底部表。</p>
 <p>因此，请尝试自行建立通用的底部表，并将其作为你的项目中的共享元件。</p>
 <p>在本章所准备的示例档中，有完整的项目与作业解答可以下载： </p>
 <ul>

@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -1131,7 +1131,7 @@
 </code></pre>
 <p>该代码与我们刚才编写代码非常相似，除了在 <code>padding</code> 之前加入 <code>frame</code> 修饰器。这里我们为按钮定义了弹性宽度，并设定 <code>maxWidth</code> 参数为 <code>.infinity</code>，这表示该按钮将填满容器视图的宽度。在画布中，它现在应该显示了一个全宽度按钮，如图 6.20 所示。</p>
 <figure id="fig6.20"><img src="images/buttons/swiftui-buttons-20.png" alt="图 6.20.　全宽度按钮"><figcaption>图 6.20.　全宽度按钮</figcaption></figure>
-<p>透过将 <code>maxWidth</code> 定义为 <code>.infinity</code>，按钮宽度将根据装置的荧幕宽度来自动调整。若是你想要给此按钮更多的水平空间的话，则在 <code>.cornerRadius(40)</code> 后插入一个 <code>padding</code> 修饰器： </p>
+<p>通过将 <code>maxWidth</code> 定义为 <code>.infinity</code>，按钮宽度将根据装置的荧幕宽度来自动调整。若是你想要给此按钮更多的水平空间的话，则在 <code>.cornerRadius(40)</code> 后插入一个 <code>padding</code> 修饰器： </p>
 <pre><code class="lang-swift">.padding(.horizontal, <span class="hljs-number">20</span>)
 </code></pre>
 <h3 id="%E4%BD%BF%E7%94%A8-buttonstyle-%E8%A8%AD%E8%A8%88%E6%8C%89%E9%88%95">使用 ButtonStyle 设计按钮</h3>
@@ -1247,7 +1247,7 @@
 </code></pre>
 <p>很酷，是吧？代码现在已经被简化了，你只要一行代码，即可轻松应用按钮样式于任何按钮上。</p>
 <figure id="fig6.22"><img src="images/buttons/swiftui-buttons-22.png" alt="图 6.22. 使用.buttonStyle 修饰器来应用自订样式"><figcaption>图 6.22. 使用.buttonStyle 修饰器来应用自订样式</figcaption></figure>
-<p>你也可以透过 configuration 的 <code>isPressed 属性</code>，来判断按钮是否有被按下，这可以让你在使用者按下它时改变按钮的样式。举例而言，我们想要制作一个当使用者按下去时会变小一点的按钮，你可以加入一行程式，如图 6.23 所示。</p>
+<p>你也可以通过 configuration 的 <code>isPressed 属性</code>，来判断按钮是否有被按下，这可以让你在使用者按下它时改变按钮的样式。举例而言，我们想要制作一个当使用者按下去时会变小一点的按钮，你可以加入一行程式，如图 6.23 所示。</p>
 <figure id="fig6.23"><img src="images/buttons/swiftui-buttons-23.png" alt="图 6.23.　使用 .buttonStyle 修饰器来自订样式"><figcaption>图 6.23.　使用 .buttonStyle 修饰器来自订样式</figcaption></figure>
 <p><code>scaleEffect</code> 修饰器可以让你缩放按钮（或任何视图）。当要放大按钮时，则要传送大于 1.0 的值，而小于1.0 的值，会让按钮变小。</p>
 <pre><code class="lang-swift">.scaleEffect(configuration.isPressed ? <span class="hljs-number">0.9</span> : <span class="hljs-number">1.0</span>)
@@ -1312,7 +1312,7 @@
 <p>iOS 会自动以红色显示<em>删除</em> 按钮。 图 29 显示了不同角色和样式的按钮外观。</p>
 <figure id="fig6.29"><img src="images/buttons/swiftui-buttons-29.png" alt="图 6.29. 不同角色和样式的按钮外观"><figcaption>图 6.29. 不同角色和样式的按钮外观</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>在本章中，我们介绍了 SwiftUI 中建立按钮的基本观念。按钮在手机介面（或确切地说在任何应用程式 UI）中扮演着关键角色，良好设计的按钮不仅可以使你的 UI 更具吸引力，还可以提升你的 App 的使用者体验。如你所学，透过结合 SF Symbols、渐层与动画的应用，你可以轻松建立一个有吸引力且实用的按钮。</p>
+<p>在本章中，我们介绍了 SwiftUI 中建立按钮的基本观念。按钮在手机介面（或确切地说在任何应用程式 UI）中扮演着关键角色，良好设计的按钮不仅可以使你的 UI 更具吸引力，还可以提升你的 App 的使用者体验。如你所学，通过结合 SF Symbols、渐层与动画的应用，你可以轻松建立一个有吸引力且实用的按钮。</p>
 <p>在本章所准备的示例档中，有完整的项目可以下载： </p>
 <ul>
 <li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip</a>)</li>

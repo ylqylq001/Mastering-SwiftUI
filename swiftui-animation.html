@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -1151,11 +1151,11 @@
 </code></pre>
 <p>这里的状态变量不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在真实世界的应用程式中，你可以更新 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒更新一次。</p>
 <h3 id="%E5%BB%B6%E9%81%B2%E5%8B%95%E7%95%AB">延迟动画</h3>
-<p>SwiftUI 框架不只让你可以控制动画的持续时间，你可以透过 <code>delay</code> 函数来延迟动画， 如下所示： </p>
+<p>SwiftUI 框架不只让你可以控制动画的持续时间，你可以通过 <code>delay</code> 函数来延迟动画， 如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.<span class="hljs-keyword">default</span>.delay(<span class="hljs-number">1.0</span>)
 </code></pre>
 <p>这会将动画延迟1 秒后开始。<code>delay</code> 函数也适用其他动画。</p>
-<p>透过混合搭配持续时间值与延迟时间值，你可以实现出一些有趣的动画，如图 9.8 所示的圆点下载指示器。</p>
+<p>通过混合搭配持续时间值与延迟时间值，你可以实现出一些有趣的动画，如图 9.8 所示的圆点下载指示器。</p>
 <figure id="fig9.8"><img src="images/animation/swiftui-animation-8.gif" alt="图 9.8.　圆点下载指示器r"><figcaption>图 9.8.　圆点下载指示器r</figcaption></figure>
 <p>这个指示器由五个点组成，每个点皆有放大缩小动画，不过各有不同的延迟时间。我们来看代码该如何实现： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{

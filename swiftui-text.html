@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        透过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等资料
                     </a>
                 
             
@@ -900,7 +900,7 @@
 </code></pre>
 <p>你可以使用点语法（dot syntax）来存取修饰器。当你输入一个点符号时，Xcode 则出现你可能会用到的修饰器或值。举例来说，当你在 <code>fontWeight</code> 修饰器，输入一个点符号时，你会见到不同的字体粗细选项，你可以选取 <code>bold</code> 来使用粗体字。如果你想要更粗一点，则可以选取 <code>heavy</code> 或 <code>black</code> 。</p>
 <figure id="fig2.4"><img src="images/text/swiftui-text-4.png" alt="图 4. 挑选你喜爱的字体粗细"><figcaption>图 4. 挑选你喜爱的字体粗细</figcaption></figure>
-<p>透过 <code>fontWeight</code>  修饰器的调用，并选取  <code>.bold</code> 的值，它会回传一个加上粗体字的视图。 SwiftUI 有趣的是，你可以进一步串连其他修饰器。譬如说，你想要大一点的粗体字，程式可以修改如下：</p>
+<p>通过 <code>fontWeight</code>  修饰器的调用，并选取  <code>.bold</code> 的值，它会回传一个加上粗体字的视图。 SwiftUI 有趣的是，你可以进一步串连其他修饰器。譬如说，你想要大一点的粗体字，程式可以修改如下：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>).fontWeight(.bold).font(.title)
 </code></pre>
 <p>因为可能会串连多个修饰器，我们通常会将以上的程式写成如下的格式：</p>
