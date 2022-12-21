@@ -880,9 +880,9 @@
 <p>在 iOS 15 之前，SwiftUI 没有内置修饰器在List<code>视图中加入搜寻功能。开发者必须建立自己的解决方案。 在前面的章节中，我已经介绍了两个自建搜寻栏的方法。随着 iOS 15 推出，SwiftUI 框架为 List 视图带来了一个名为</code> <code>searchable</code> 的新修饰器，让你更轻易建立搜寻栏。</p>
 <p>在本章中，你将学习使用<code>searchable</code>，待会你就会受到这个修饰器有多方便。</p>
 <h3 id="searchable-%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">Searchable 的基本用法</h3>
-<p>为了讲解 <code>Searchable</code> 的用法，请从以下网址下载范例项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUISearchableStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUISearchableStarter.zip</a>. </p>
-<figure id="fig37.1"><img src="images/searchable/searchable-1.png" alt="图 37.1. 范例项目"><figcaption>图 37.1. 范例项目</figcaption></figure>
-<p>范例的初始项目已经准备好了一个列表视图来显示一组文章。 之后，我们会加入一个用于过滤文章的搜寻栏。 要将搜寻栏添加到列表视图，你需要做的就是声明一个状态变量（例如<code>searchText</code>）来存放搜寻文字并将<code>searchable</code>修饰器附加到<code>NavigationStack</code>，如下所示：</p>
+<p>为了讲解 <code>Searchable</code> 的用法，请从以下网址下载示例项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUISearchableStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUISearchableStarter.zip</a>. </p>
+<figure id="fig37.1"><img src="images/searchable/searchable-1.png" alt="图 37.1. 示例项目"><figcaption>图 37.1. 示例项目</figcaption></figure>
+<p>示例的初始项目已经准备好了一个列表视图来显示一组文章。 之后，我们会加入一个用于过滤文章的搜寻栏。 要将搜寻栏添加到列表视图，你需要做的就是声明一个状态变量（例如<code>searchText</code>）来存放搜寻文字并将<code>searchable</code>修饰器附加到<code>NavigationStack</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> articles = sampleArticles
@@ -909,7 +909,7 @@
 <pre><code class="lang-swift">.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
 </code></pre>
 <p>到目前为止，我们将 <code>.searchable</code> 修饰器附加到导航视图。 你实际上可以将它附加到 <code>List</code> 视图并在 iPhone 上实现相同的结果。</p>
-<p>话虽如此，在 iPadOS 上使用 split view 时，<code>.searchable</code> 修饰器的摆放位置会直接影响搜寻栏的显示位置。 再看一下范例代码：</p>
+<p>话虽如此，在 iPadOS 上使用 split view 时，<code>.searchable</code> 修饰器的摆放位置会直接影响搜寻栏的显示位置。 再看一下示例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationSplitView</span> {
     <span class="hljs-type">List</span> {
         <span class="hljs-type">ForEach</span>(articles) { article <span class="hljs-keyword">in</span>
@@ -927,7 +927,7 @@
 }
 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
 </code></pre>
-<p>像往常一样，我们将 <code>.searchable</code> 修饰器附加到导航视图。 如果你在 iPad 上运行范例App，搜寻栏会显示在拆分视图的侧边栏上。</p>
+<p>像往常一样，我们将 <code>.searchable</code> 修饰器附加到导航视图。 如果你在 iPad 上运行示例App，搜寻栏会显示在拆分视图的侧边栏上。</p>
 <figure id="fig37.3"><img src="images/searchable/searchable-3.png" alt="图 37.3. 在 iPad 上显示拆分视图的搜索栏"><figcaption>图 37.3. 在 iPad 上显示拆分视图的搜索栏</figcaption></figure>
 <p>如果你想将搜寻栏放在详细视图中，那应怎样做？ 你可以尝试在 <code>.navigationTitle</code> 修饰器的正上方加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Article details&quot;</span>)
@@ -985,7 +985,7 @@
 </code></pre>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p> <code>.searchable</code> 修饰器简化了搜寻栏的实现方法。在一般情况下，我们不再需要自己开发搜寻栏。 缺点是此功能仅适用于 iOS 15（或更高版本）。 如果你正在构建一个需要支持旧版本 iOS 的应用程序，你仍然需要建立自己的搜寻栏。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
+<p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUISearchable.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUISearchable.zip</a></p>
 
                     

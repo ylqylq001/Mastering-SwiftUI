@@ -979,7 +979,7 @@
 <figure id="fig43.8"><img src="images/gauge/swiftui-gauge-8.png" alt="图 43.8. 使用 accessoryCircularCapacity 样式"><figcaption>图 43.8. 使用 accessoryCircularCapacity 样式</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%AE%A2%E8%A3%BD%E5%8C%96%E7%9A%84-gauge-%E6%A8%A3%E5%BC%8F">建立一个客制化的 Gauge 样式</h3>
 <figure id="fig43.9"><img src="images/gauge/swiftui-gauge-9.png" alt="图 43.9. 客制化的 Gauge 视图"><figcaption>图 43.9. 客制化的 Gauge 视图</figcaption></figure>
-<p>内建的 Gauge 样式有限，但是我们可以利用 SwiftUI 来建立自己的 Gauge 样式。让我们看看一个简单的范例，来建立上图的 Gauge 样式吧！</p>
+<p>内建的 Gauge 样式有限，但是我们可以利用 SwiftUI 来建立自己的 Gauge 样式。让我们看看一个简单的示例，来建立上图的 Gauge 样式吧！</p>
 <p>要建立一个客制化的 Gauge 样式，我们需要采用 <code>GaugeStyle</code> 协定，并编写自己的实现。以下是我们的客制化样式的实现：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SpeedometerGaugeStyle</span>: <span class="hljs-title">GaugeStyle</span> </span>{
     private <span class="hljs-keyword">var</span> purpleGradient = <span class="hljs-type">LinearGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [ <span class="hljs-type">Color</span>(red: <span class="hljs-number">207</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">150</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">207</span>/<span class="hljs-number">255</span>), <span class="hljs-type">Color</span>(red: <span class="hljs-number">107</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">116</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">179</span>/<span class="hljs-number">255</span>) ]), startPoint: .trailing, endPoint: .leading)
@@ -1036,7 +1036,7 @@
     }
 }
 </code></pre>
-<p>我另外为这个范例建立了一个视图。要预览 <code>CustomGaugeView</code>，我们需要更新　<code>ContentView_Previews</code> 结构，并添加 <code>CustomGaugeView</code>：</p>
+<p>我另外为这个示例建立了一个视图。要预览 <code>CustomGaugeView</code>，我们需要更新　<code>ContentView_Previews</code> 结构，并添加 <code>CustomGaugeView</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">ContentView</span>()
@@ -1052,7 +1052,7 @@
 <figure id="fig43.10"><img src="images/gauge/swiftui-gauge-10.png" alt="图 43.10. 客制化的 Gauge"><figcaption>图 43.10. 客制化的 Gauge</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>在本章中，你学习了如何使用新的<code>Gauge</code>视图构建速度计。 除了速度计，你还可以使用 <code>Gauge</code> 来显示进度或任何其他测量值。 <code>Gauge</code> 视图是可灵活运用的。 你只需要采用 <code>GaugeStyle</code> 协议就可以创建自己的 <code>Gauge</code> 样式。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
+<p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGauge.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGauge.zip</a></li>
 </ul>

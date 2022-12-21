@@ -879,12 +879,12 @@
                         <h1 id="%E7%AC%AC-28-%E7%AB%A0-br-%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%B1%95%E9%96%8B%E5%BC%8F%E5%88%97%E8%A1%A8%E8%A6%96%E5%9C%96%E5%92%8C%E5%A4%A7%E7%B6%B1%E8%A6%96%E5%9C%96">第 28 章<br>如何建立展开式列表视图和大纲视图</h1>
 <p>SwiftUI 列表视图 (list view) 和 UIKit 的 UITableView 很类似。在 SwiftUI 最初的版本中，Apple 的工程师已经把建立列表视图的过程变得轻而易举，我们不需要创建 prototype cell，也不需要委派 (delegate) 或 data source 的协定。我们只需要用几行代码，就可以使用客制化单元格来建构一个列表视图。</p>
 <p>在 iOS 14 （和以上版本），Apple 继续改善列表视图，并添加了一些新功能。在本篇教学文章中，我们将会看看如何建构一个展开式列表视图 (expandable list view) 或大纲视图 (outline view)，并探索 inset grouped 的列表样式 (list style)。</p>
-<h3 id="%E7%AF%84%E4%BE%8B-app">范例 App</h3>
+<h3 id="%E7%AF%84%E4%BE%8B-app">示例 App</h3>
 <p>首先，让我们看看本篇教学的成品。我十分喜欢 <a href="https://international.lamarzocco.com/en/" target="_blank">La Marzocco</a>，所以我用了它网站的导览选单 (navigation menu) 为例子。以下的列表视图展示了选单的大纲，使用者可以点击显示按钮来展开列表。</p>
 <figure id="fig28.1"><img src="images/expandablelist/swiftui-expandablelist-1.jpg" alt="图 28.1. 展开式列表视图"><figcaption>图 28.1. 展开式列表视图</figcaption></figure>
 <p>当然，你也可以用自己的实现方法，来建构这个大纲视图。但在最新版本的 SwiftUI 中，Apple 让开发者可以更简单地建构这种大纲视图，并自动适应于 iOS、iPadOS、和 macOS 版本。</p>
 <h3 id="%E5%BB%BA%E6%A7%8B%E5%A4%A7%E7%B6%B1%E8%A6%96%E5%9C%96">建构大纲视图</h3>
-<p>要继续阅读本章的教学的话，请先从 <a href="https://www.appcoda.com/resources/swiftui/expandablelist-images.zip" target="_blank">https://www.appcoda.com/resources/swiftui/expandablelist-images.zip</a> 下载范例图片。 然后，在 Xcode 使用 <em>App</em> 模板创建一个新的 SwiftUI 项目。 我将项目命名为 <em>SwiftUIExpandableList</em>，但您可以随意将名称设置为任何名称。</p>
+<p>要继续阅读本章的教学的话，请先从 <a href="https://www.appcoda.com/resources/swiftui/expandablelist-images.zip" target="_blank">https://www.appcoda.com/resources/swiftui/expandablelist-images.zip</a> 下载示例图片。 然后，在 Xcode 使用 <em>App</em> 模板创建一个新的 SwiftUI 项目。 我将项目命名为 <em>SwiftUIExpandableList</em>，但您可以随意将名称设置为任何名称。</p>
 <p>建立项目后，解压缩图像存档并将图像添加到 Assets。在项目导航器中，右键单击 <em>SwiftUIExpandableList</em> 并选择创建一个新文件档。 选择 <em>Swift File</em> 模板并将其命名为 <em>MenuItem.swift</em>。</p>
 <h4 id="%E8%A8%AD%E7%BD%AE%E6%95%B8%E6%93%9A%E6%A8%A1%E5%9E%8B">设置数据模型</h4>
 <p>要让列表视图可以展开，你只需要如此建立一个数据模型 (data model)。请加入以下代码至 <code>MenuItem.swift</code>:</p>
@@ -942,7 +942,7 @@
     }
 }
 </code></pre>
-<p>在 <code>List</code> 视图闭包中，我们会描述每一行的外观。在范例代码中，我们使用了 <code>HStack</code> 布局图像和文本视图。如果你已经在 <code>ContentView</code> 中正确地添加了代码的话，SwiftUI 应该会如此呈现大纲视图：</p>
+<p>在 <code>List</code> 视图闭包中，我们会描述每一行的外观。在示例代码中，我们使用了 <code>HStack</code> 布局图像和文本视图。如果你已经在 <code>ContentView</code> 中正确地添加了代码的话，SwiftUI 应该会如此呈现大纲视图：</p>
 <figure id="fig28.2"><img src="images/expandablelist/swiftui-expandablelist-2.png" alt="图 28.2. 展开式列表视图"><figcaption>图 28.2. 展开式列表视图</figcaption></figure>
 <p>要测试App，请在模拟器或预览画布中运行它。 您可以点击披露指示器以显示子菜单。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%99%AE%E9%80%9A%E5%88%97%E8%A1%A8%E6%A8%A3%E5%BC%8F">使用普通列表样式</h3>
@@ -1060,7 +1060,7 @@
 <p>使用者可以点击披露指示器来显示或隐藏单个问题。 此外，App也提供了一个“Show all”按钮来展开所有问题并立即显示答案。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>在本章中，我介绍了 SwiftUI 的一些新功能。 正如您在演示中看到的那样，构建大纲视图或可扩展列表视图一点也不难。 您需要做的就是定义一个正确的数据模型。 List 视图处理其余部分并呈现大纲视图。 最重要的是，新的更新提供了 <code>OutlineGroup</code> 和 <code>DisclosureGroup</code> 供您进一步客制化大纲视图。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
+<p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIExpandableList.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIExpandableList.zip</a></p>
 <p>请注意，您可以参考 <code>FaqView.swift</code> 来获得练习的解决方案。</p>
 

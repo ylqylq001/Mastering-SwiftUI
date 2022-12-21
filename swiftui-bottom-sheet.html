@@ -881,12 +881,12 @@
 <p>最近“底部表”（bottom sheet ）越来越受欢迎，你可以在 Facebook 与 Uber 等知名 App 中找到这个功能，它更像是动作表（action sheet ）的加强版，底部表会从荧幕底部向上滑动，并覆盖在原始视图的上面，来提供上下文讯息（contextual information ）或者可供使用者选择的其他选项。举例而言，当你将照片储存在 Instagram 的照片集中，该 App 会显示一个底部表，以选择照片集。而在 Facebook App 中，当点选贴文的“⋯”（ellipsis ）按钮，它会显示带有其他的动作项目表。Uber App 也使用底部表来显示所选择的行程价格。</p>
 <p>底部表的大小取决于想要显示的上下文讯息。在某些情况下，底部表往往较大（也称为“背幕”（backdrop ）），占据了荧幕的 80~90%。通常，使用者可以使用拖曳手势与表互动。你可以向上滑动来展开它，或者向下滑动来最小化或解除表。</p>
 <figure id="fig18.1"><img src="images/bottom-sheet/swiftui-bottom-sheet-1.jpg" alt="图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表"><figcaption>图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表</figcaption></figure>
-<p>在本章中，我们将使用 SwiftUI 手势建立类似的展开式底部表（expandable bottom sheet ）。范例 App 在主视图中显示餐厅清单，当使用者点击其中一笔餐厅纪录时，该 App 会带出一个底部表来显示餐厅的详细资讯。你可以向上滑动来展开表，而要解除表则是向下滑动，如图 18.2 所示</p>
+<p>在本章中，我们将使用 SwiftUI 手势建立类似的展开式底部表（expandable bottom sheet ）。示例 App 在主视图中显示餐厅清单，当使用者点击其中一笔餐厅纪录时，该 App 会带出一个底部表来显示餐厅的详细资讯。你可以向上滑动来展开表，而要解除表则是向下滑动，如图 18.2 所示</p>
 <figure id="fig18.2"><img src="images/bottom-sheet/swiftui-bottom-sheet-2.png" alt="图 18.2.　建立一个展开式底部表"><figcaption>图 18.2.　建立一个展开式底部表</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">了解起始项目</h3>
-<p>为了节省你从头建立范例App 的时间，我已经为你准备好起始项目。你可以至</p>
+<p>为了节省你从头建立示例App 的时间，我已经为你准备好起始项目。你可以至</p>
 <p><a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip</a>  下载起始项目，并解压缩档案，并开启 <code>SwiftUIBottomSheet.xcodeproj</code> 来开始。</p>
-<p>起始项目已经提供一组餐厅图片及餐厅资料。如果你在项目导览器中查看“Model”资料夹，则应该会找到一个<code>Restaurant.swift</code> 档，此档案包含了 <code>Restaurant</code> 结构与一组范例餐厅资料。</p>
+<p>起始项目已经提供一组餐厅图片及餐厅资料。如果你在项目导览器中查看“Model”资料夹，则应该会找到一个<code>Restaurant.swift</code> 档，此档案包含了 <code>Restaurant</code> 结构与一组示例餐厅资料。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id: <span class="hljs-type">UUID</span> = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1056,7 +1056,7 @@
     }
 }
 </code></pre>
-<p>在代码中，我们传送一个范例餐厅（即 <code>restaurants[0]</code> ）进行测试。如果你正确实现， 则 Xcode 应该会在预览画布中显示相似的细节视图，如图 18.5 所示。.</p>
+<p>在代码中，我们传送一个示例餐厅（即 <code>restaurants[0]</code> ）进行测试。如果你正确实现， 则 Xcode 应该会在预览画布中显示相似的细节视图，如图 18.5 所示。.</p>
 <figure id="fig18.5"><img src="images/bottom-sheet/swiftui-bottom-sheet-5.png" alt="图 18.5.　餐厅细节视图"><figcaption>图 18.5.　餐厅细节视图</figcaption></figure>
 <h3 id="%E4%BD%BF%E8%A6%96%E5%9C%96%E5%8F%AF%E6%BB%BE%E5%8B%95">使视图可滚动</h3>
 <p>你是否注意到细节视图无法显示完整的内容呢？要解决这个问题，我们必须将内容嵌入在 <code>ScrollView</code>，以让细节视图可滚动，如下所示：</p>
@@ -1364,7 +1364,7 @@
     })
 )
 </code></pre>
-<p>我使用荧幕高度来计算界限值。举例而言，界限值 #2 设定为荧幕高度的三分之一，这只是一个范例值，你可以根据你的需要修改它。</p>
+<p>我使用荧幕高度来计算界限值。举例而言，界限值 #2 设定为荧幕高度的三分之一，这只是一个示例值，你可以根据你的需要修改它。</p>
 <p>如果你需要进一步了解代码的工作原理，请参考代码注释。</p>
 <p>由于我们在 <code>RestaurantDetailView</code> 中加入一个绑定变量，因此必须更新 <code>RestaurantDetailView_Previews</code> 的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
@@ -1463,9 +1463,9 @@
 <p>本章的篇幅很多，但我希望你喜欢它。在本章中，我们将利用你到目前为止所学到的知识来建立展开式底部表。当建立底部表时，我尽力记录了我解决问题的思考过程，我真的希望这可以帮助你了解我的解决方案与代码。</p>
 <p>SwiftUI 的其中一项优势是，它鼓励你建立模组化的 UI 元件。这部分我们还没有做，但是你可能会发现透过使用我在上一章中所介绍的技术，可以很容易将这个餐厅细节视图转换为支持各种类型内容的通用底部表。</p>
 <p>因此，请尝试自行建立通用的底部表，并将其作为你的项目中的共享元件。</p>
-<p>在本章所准备的范例档中，有完整的项目与作业解答可以下载： </p>
+<p>在本章所准备的示例档中，有完整的项目与作业解答可以下载： </p>
 <ul>
-<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheet.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheet.zip</a>)</li>
+<li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheet.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheet.zip</a>)</li>
 </ul>
 
                     

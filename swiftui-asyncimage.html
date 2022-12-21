@@ -905,7 +905,7 @@
 <p><code>AsyncImage</code> 也提供了另一个构造函数 (constructor)，让开发者可以进一步客制化图像：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>&lt;<span class="hljs-type">I</span>, <span class="hljs-type">P</span>&gt;(url: <span class="hljs-type">URL</span>?, scale: <span class="hljs-type">CGFloat</span>, content: (<span class="hljs-type">Image</span>) -&gt; <span class="hljs-type">I</span>, placeholder: () -&gt; <span class="hljs-type">P</span>)
 </code></pre>
-<p>我们可以使用上面的 <code>init</code> 初始化 <code>AsyncImage</code>，来调整及缩放下载好的图像。更重要的是，我们可以实现自己的占位符。看看以下的范例代码片段：</p>
+<p>我们可以使用上面的 <code>init</code> 初始化 <code>AsyncImage</code>，来调整及缩放下载好的图像。更重要的是，我们可以实现自己的占位符。看看以下的示例代码片段：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AsyncImage</span>(url: <span class="hljs-type">URL</span>(string: imageURL)) { image <span class="hljs-keyword">in</span>
     image
         .resizable()
@@ -917,14 +917,14 @@
 .cornerRadius(<span class="hljs-number">20</span>)
 </code></pre>
 <p>在上面的代码中，<code>AsyncImage</code> 提供了下载好的图像。然后，我们应用 <code>resizable()</code> 和 <code>scaledToFill()</code> 修饰符来调整图像尺寸，并把 <code>AsyncImage</code> 视图的尺寸限制为 300&#xD7;500 points。</p>
-<p><code>placeholder</code> 参数让我们可以创建自己的占位符，来取代预设的占位符。在以下范例中，我们把占位符设置为浅紫色。</p>
+<p><code>placeholder</code> 参数让我们可以创建自己的占位符，来取代预设的占位符。在以下示例中，我们把占位符设置为浅紫色。</p>
 <figure id="fig36.3"><img src="images/asyncimage/asyncimage-3.png" alt="图 36.3. 自订占位符"><figcaption>图 36.3. 自订占位符</figcaption></figure>
 <h3 id="%E8%99%95%E7%90%86%E9%9D%9E%E5%90%8C%E6%AD%A5%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%8D%E5%90%8C%E9%9A%8E%E6%AE%B5-phase">处理非同步操作的不同阶段 (Phase)</h3>
 <p>如果你需要更精准操作非同步下载，<code>AsyncImage</code> 视图提供了另一个<code>init</code>函数：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>(url: <span class="hljs-type">URL</span>?, scale: <span class="hljs-type">CGFloat</span>, transaction: <span class="hljs-type">Transaction</span>, content: (<span class="hljs-type">AsyncImagePhase</span>) -&gt; <span class="hljs-type">Content</span>
 </code></pre>
 <p><code>AsyncImagePhase</code> 是一个枚举 (enum)，用于跟踪下载操作的当前阶段。 你可以针对每个阶段提供详细的实现，包括<em>empty</em>、<em>failure</em> 和<em>success</em>。</p>
-<p>看看以下范例代码片段：</p>
+<p>看看以下示例代码片段：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AsyncImage</span>(url: <span class="hljs-type">URL</span>(string: imageURL)) { phase <span class="hljs-keyword">in</span>
     <span class="hljs-keyword">switch</span> phase {
     <span class="hljs-keyword">case</span> .empty:
@@ -981,7 +981,7 @@
 <p>这样在显示结果图像时，就会看到滑入 (slide-in) 动画。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>在本章中，我们介绍了一个非常好用的“AsyncImage”视图。有了这个新功能，下载和显示远程图像（Remote Image）时都变得非常容易。 你只需要指定图像的 URL，AsyncImage视图就会为你完成所有繁重的工作。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
+<p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAsyncImage.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAsyncImage.zip</a></p>
 
                     

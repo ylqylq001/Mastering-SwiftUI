@@ -888,7 +888,7 @@
 <p>虽然本章的重点是“与清单的互动”，但是我所介绍的技巧也可以应用于其他的UI 控制元件（例如：按钮）。</p>
 <h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
 <p>我们开始建立这个项目，而我们将以之前建立的清单 App 为基础，来建立一个互动式清单。你可以至</p>
-<p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip</a> 来下载项目，下载后开启项目，并检视预览，它应该会显示一个包含文字与图片的简单清单，如图 16.2 所示。稍后，我们将在这个范例 App 中加入滑动删除功能、一个动作表与一个内容选单。</p>
+<p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip</a> 来下载项目，下载后开启项目，并检视预览，它应该会显示一个包含文字与图片的简单清单，如图 16.2 所示。稍后，我们将在这个示例 App 中加入滑动删除功能、一个动作表与一个内容选单。</p>
 <figure id="fig16.2"><img src="images/actionsheet/swiftui-actionsheet-2.png" alt="图 16.2.　起始项目会显示一个简单的清单视图"><figcaption>图 16.2.　起始项目会显示一个简单的清单视图</figcaption></figure>
 <p>如果你的眼睛够敏锐的话，你可能会发现起始项目使用 <code>ForEach</code> 来实现该清单。为什么我将它变更回 <code>ForEach</code>，而不是传送资料集合至 <code>List</code> 呢？主要原因是我将介绍的 <code>onDelete</code>处理器只能使用 <code>ForEach</code>。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%BB%91%E5%8B%95%E5%88%AA%E9%99%A4">实现滑动删除</h3>
@@ -914,7 +914,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%A7%E5%AE%B9%E9%81%B8%E5%96%AE">建立内容选单</h3>
 <p>接下来，我们来讨论内容选单（Context Menu）。如前所述，内容选单类似于 3D Touch 的预览（peek ）及弹出（pop ），有个明显的差别在于，这个功能适用于所有执行 iOS 13 与之后版本的装置，即使该装置不支持 3D Touch 也可以。要带出内容选单，人们需要使用长按的手势，而若是装置使用 3D Touch，则使用压力触控。</p>
 <p>SwiftUI 使得内容选单的实现变得非常简单，你只需要将contextMenu 容器加到视图， 并设定它的选单项目即可。</p>
-<p>在我们的范例 App 中，我们想在人们长按任何一列时触发内容选单。而在选单中，它提供了“删除”（Delete ）与“最爱”（Favorite ）等两个动作按钮，供使用者选择。当选择后，“删除”（Delete ）按钮将从清单中删除该列，“最爱”（Favorite ）按钮将以星号标记所选的列。</p>
+<p>在我们的示例 App 中，我们想在人们长按任何一列时触发内容选单。而在选单中，它提供了“删除”（Delete ）与“最爱”（Favorite ）等两个动作按钮，供使用者选择。当选择后，“删除”（Delete ）按钮将从清单中删除该列，“最爱”（Favorite ）按钮将以星号标记所选的列。</p>
 <p>要在内容选单中显示这两个项目，我们可以将 <code>contextMenu</code> 加到清单中的每一列，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
@@ -1010,7 +1010,7 @@
 <p>SwiftUI 框架有一个 <code>ActionSheet</code> 视图，可以让你建立动作表。基本上，你可以建立动作列表如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ActionSheet</span>(title: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;What do you want to do&quot;</span>), message: <span class="hljs-built_in">nil</span>, buttons: [.<span class="hljs-keyword">default</span>(<span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Delete&quot;</span>))]
 </code></pre>
-<p>你使用标题及选项讯息初始化一个动作表，<code>buttons</code> 参数接受一个按钮的数组。在范例代码中，它提供标题为“Delete”的预设按钮。</p>
+<p>你使用标题及选项讯息初始化一个动作表，<code>buttons</code> 参数接受一个按钮的数组。在示例代码中，它提供标题为“Delete”的预设按钮。</p>
 <p>要启用动作表，可将 <code>actionSheet</code> 修饰器加到按钮或任何视图上来触发动作表。如果你研究 SwiftUI 的文件，则有两个带出动作表的方式。</p>
 <p>你可以使用 <code>isPresented</code> 参数来控制动作表的外观：  </p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">actionSheet</span><span class="hljs-params">(isPresented: Binding&lt;Bool&gt;, content: <span class="hljs-params">()</span> -&gt; ActionSheet)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span>
@@ -1071,7 +1071,7 @@
 <p>第二种方法是透过一个 Optional Identifiable 绑定来触发动作表： </p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">actionSheet</span><span class="hljs-generics">&lt;T&gt;</span><span class="hljs-params">(item: Binding&lt;T?&gt;, content: <span class="hljs-params">(T)</span> -&gt; ActionSheet)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> <span class="hljs-title">where</span> <span class="hljs-title">T</span> : <span class="hljs-title">Identifiable</span>
 </span></code></pre>
-<p>以白话来说，这表示当你传送的项目有值时，将会显示动作。对于我们的范例， <code>selectedRestaurant</code> 变量是一个 Optional，并遵循 <code>Identifiable</code> 协定。要使用第二种方法，你只需要将 <code>selectedRestaurant</code> 绑定传送至<code>actionSheet</code> 修饰器，如下所示： </p>
+<p>以白话来说，这表示当你传送的项目有值时，将会显示动作。对于我们的示例， <code>selectedRestaurant</code> 变量是一个 Optional，并遵循 <code>Identifiable</code> 协定。要使用第二种方法，你只需要将 <code>selectedRestaurant</code> 绑定传送至<code>actionSheet</code> 修饰器，如下所示： </p>
 <pre><code class="lang-swift">.actionSheet(item: <span class="hljs-keyword">self</span>.$selectedRestaurant) { restaurant <span class="hljs-keyword">in</span>
 
     <span class="hljs-type">ActionSheet</span>(title: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;What do you want to do&quot;</span>), message: <span class="hljs-built_in">nil</span>, buttons: [
@@ -1098,14 +1098,14 @@
 <div style="page-break-after: always;"></div>
 
 <h3 id="%E4%BD%9C%E6%A5%AD">作业</h3>
-<p>现在你应该对如何建立一个内容选单有了概念，我们来做一个作业，以测试你对内容的了解程度。你的任务是在内容选单中加入“打卡”（ Check-in ）项目。当使用者选择该选项时，App 将会在所选餐厅加入一个打卡符号，你可以参考图 16.7 的UI 范例。对于这个范例，我使用了名为 <code>checkmark.seal.fill</code> 的系统图片作为打卡符号，但你可以使用自己的图片。</p>
+<p>现在你应该对如何建立一个内容选单有了概念，我们来做一个作业，以测试你对内容的了解程度。你的任务是在内容选单中加入“打卡”（ Check-in ）项目。当使用者选择该选项时，App 将会在所选餐厅加入一个打卡符号，你可以参考图 16.7 的UI 示例。对于这个示例，我使用了名为 <code>checkmark.seal.fill</code> 的系统图片作为打卡符号，但你可以使用自己的图片。</p>
 <p>在参考解答之前，请花点时间来练习这个作业，祝你玩得愉快 ！ </p>
 <figure id="fig16.7"><img src="images/actionsheet/swiftui-actionsheet-7.png" alt="图 16.7.　加入“打卡”功能"><figcaption>图 16.7.　加入“打卡”功能</figcaption></figure>
 <div style="page-break-after: always;"></div>
 
-<p>在本章所准备的范例档中，有完整的项目与作业解答可以下载： </p>
+<p>在本章所准备的示例档中，有完整的项目与作业解答可以下载： </p>
 <ul>
-<li>范例项目与作业解答  (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheet.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheet.zip</a>)</li>
+<li>示例项目与作业解答  (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheet.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheet.zip</a>)</li>
 </ul>
 
                     

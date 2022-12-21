@@ -879,9 +879,9 @@
                         <h1 id="%E7%AC%AC-17-%E7%AB%A0-br-%E4%BA%86%E8%A7%A3%E6%89%8B%E5%8B%A2">第 17 章<br>了解手势</h1>
 <p>在前面的章节中，你已经对使用 SwiftUI 建立手势有所了解。我们使用 <code>onTapGesture</code> 修饰器来处理使用者的触控，并做出相对的回应。而在本章中，我们更深入了解如何在 SwiftUI 中处理各种类型的手势。</p>
 <p>这个框架提供一些内建手势， 例如： 我们之前使用过的点击手势。除此之外， “DragGesture”、“MagnificationGesture”与“LongPressGesture”等都是现成可用的手势。我们将研究其中几个手势，并看看如何在 SwiftUI 中使用。最重要的是，你将学习如何建立一个可以支持拖曳手势的通用视图。</p>
-<figure id="fig17.1"><img src="images/gestures/swiftui-gestures-1.gif" alt="图 17.1.　范例展示可拖曳视图"><figcaption>图 17.1.　范例展示可拖曳视图</figcaption></figure>
+<figure id="fig17.1"><img src="images/gestures/swiftui-gestures-1.gif" alt="图 17.1.　示例展示可拖曳视图"><figcaption>图 17.1.　示例展示可拖曳视图</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%89%8B%E5%8B%A2%E4%BF%AE%E9%A3%BE%E5%99%A8">使用手势修饰器</h3>
-<p>要使用  框架识别特定手势，你需要做的就是使用 <code>.gesture</code> 修饰器将手势识别器加到视图上。下面是使用 <code>.gesture</code> 修饰器加到 <code>TapGesture</code> 的范例代码片段： </p>
+<p>要使用  框架识别特定手势，你需要做的就是使用 <code>.gesture</code> 修饰器将手势识别器加到视图上。下面是使用 <code>.gesture</code> 修饰器加到 <code>TapGesture</code> 的示例代码片段： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
         .font(.system(size: <span class="hljs-number">200</span>))
@@ -959,7 +959,7 @@
 <li>“transaction” 参数储存了目前状态处理更新的内容。</li>
 </ul>
 <p>更改代码后，在预览画布中执行项目来进行测试。当你点击图片时，图片会立即变暗，而持续按住一秒后，图片会自己调整尺寸。</p>
-<p>当使用者放开手指时，图片的不透明度会自动重置为正常状态，你是否想知道为什么呢？这是 <code>@GestureState</code> 的优点，当手势结束时，它会自动将手势状态属性的值设定为初始值，而在我们的范例中为 <code>false</code>。</p>
+<p>当使用者放开手指时，图片的不透明度会自动重置为正常状态，你是否想知道为什么呢？这是 <code>@GestureState</code> 的优点，当手势结束时，它会自动将手势状态属性的值设定为初始值，而在我们的示例中为 <code>false</code>。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2">使用拖曳手势</h3>
 <p>现在你应该了解如何使用 <code>.gesture</code> 修饰器与 <code>@GestureState</code>，我们来看另一个常见的“拖曳”手势。我们要做的是，修改现有的代码来支持拖曳手势，让使用者拖曳星形图片来移动它。</p>
 <p>现在更换 <code>ContentView</code> 结构如下： </p>
@@ -982,7 +982,7 @@
     }
 }
 </code></pre>
-<p>要识别拖曳手势，你初始化一个 <code>DragGesture</code> 实例，并监听更新。在 <code>update</code> 函数中，我们传送一个手势状态属性来追踪拖曳事件。与长按手势类似，<code>update</code> 函数的闭包接收三个参数。在这个范例中，value 参数储存拖曳的目前资料（包含移动），这就是为什么我们将 <code>state</code> 变量（实际上是 <code>dragOffset</code> ）设定为<code>value.translation</code>的缘故。</p>
+<p>要识别拖曳手势，你初始化一个 <code>DragGesture</code> 实例，并监听更新。在 <code>update</code> 函数中，我们传送一个手势状态属性来追踪拖曳事件。与长按手势类似，<code>update</code> 函数的闭包接收三个参数。在这个示例中，value 参数储存拖曳的目前资料（包含移动），这就是为什么我们将 <code>state</code> 变量（实际上是 <code>dragOffset</code> ）设定为<code>value.translation</code>的缘故。</p>
 <p>在预览画布中执行项目，你可以拖曳图片，而当你放开图片时，它会返回原始位置。</p>
 <p>你知道为什么图片会回到它的起点吗？如前一节所述，使用 <code>@GestureState</code> 的优点是， 当手势结束时，它会重置属性值为原始值。因此，当你放开手指结束拖曳时，<code>dragOffset</code> 会重置为<code>.zero</code>，即原始位置。</p>
 <p>不过，如果你想让图片停留在拖曳的终点，该如何做呢？给自己几分钟的时间来思考如何实现。</p>
@@ -1224,7 +1224,7 @@
     }
 }
 </code></pre>
-<p>在代码中，我们初始化一个 <code>DraggableView</code>，并提供我们自己的内容（即星形图片）。在这个范例中，你应该完成支持长按与拖曳手势的相同星形图片。</p>
+<p>在代码中，我们初始化一个 <code>DraggableView</code>，并提供我们自己的内容（即星形图片）。在这个示例中，你应该完成支持长按与拖曳手势的相同星形图片。</p>
 <p>那么，如果我们要建立一个可拖曳的文字视图呢？你可以将代码片段替换为下列代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DraggableView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1252,16 +1252,16 @@
 </code></pre>
 <p>这便是建立通用的可拖曳的方式。试着以其他视图替换圆形，来建立你自己的可拖曳视图，并享受其中的乐趣。</p>
 <h3 id="%E4%BD%9C%E6%A5%AD">作业</h3>
-<p>在本章中，我们探索了三个内建手势，包括：点击、拖曳与长按，不过有一些手势我们还没试过。作为练习，请试着建立一个通用的可缩放视图，它可以识别 <code>MagnificationGesture</code>，并且可相应缩放任何给定的视图。图 17.7 显示了一个范例结果。</p>
+<p>在本章中，我们探索了三个内建手势，包括：点击、拖曳与长按，不过有一些手势我们还没试过。作为练习，请试着建立一个通用的可缩放视图，它可以识别 <code>MagnificationGesture</code>，并且可相应缩放任何给定的视图。图 17.7 显示了一个示例结果。</p>
 <figure id="fig17.7"><img src="images/gestures/swiftui-gestures-7.gif" alt="图 17.7.　可缩放的图片视图"><figcaption>图 17.7.　可缩放的图片视图</figcaption></figure>
 <div style="page-break-after: always;"></div>
 
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>SwiftUI 框架让手势处理变得非常容易。正如你在本章所学到的内容，这个框架提供几个可以立即使用的手势识别器。要使视图支持某个类型的手势，你需要做的是将其加上 <code>.gesture</code> 修饰器。组合多个手势从未如此简单。</p>
 <p>为行动应用程式建立手势驱动的使用者介面，是一种日益增长的趋势。藉由易于使用的 API，试着使用一些有用的手势来增强 App 的功能，以使你的使用者满意。</p>
-<p>在本章所准备的范例档中，有完整的项目可以下载： </p>
+<p>在本章所准备的示例档中，有完整的项目可以下载： </p>
 <ul>
-<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGesture.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGesture.zip</a>)</li>
+<li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGesture.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGesture.zip</a>)</li>
 </ul>
 
                     

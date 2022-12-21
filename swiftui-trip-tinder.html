@@ -884,7 +884,7 @@
 <h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">项目准备</h3>
 <p>如果你使用自己的图片，那就太棒了。不过，为了节省你准备旅游图片的时间，我已经为你建立了一个起始项目，你可以至下列网址下载：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTripStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTripStarter.zip</a>。这个项目已经具有一组旅游卡的照片，如图 19.2 所示。</p>
 <figure id="fig19.2"><img src="images/triptinder/swiftui-trip-tinder-2.png" alt="图 19.2.　预载了一组旅游照片"><figcaption>图 19.2.　预载了一组旅游照片</figcaption></figure>
-<p>除此之外，我已经为范例 App 准备测试资料，并建立了 Trip.swift 档来代表旅程： </p>
+<p>除此之外，我已经为示例 App 准备测试资料，并建立了 Trip.swift 档来代表旅程： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Trip</span> </span>{
     <span class="hljs-keyword">var</span> destination: <span class="hljs-type">String</span>
     <span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
@@ -1056,7 +1056,7 @@
 <figure id="fig19.6"><img src="images/triptinder/swiftui-trip-tinder-6.png" alt="图 19.6.　预览主 UI"><figcaption>图 19.6.　预览主 UI</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E5%BA%AB">实现卡片库</h3>
 <p>在做好所有的准备之后，终于可以实现如 Tinder 般的 UI。对于之前从未用过 Tinder App 的人，让我先解释一下如 Tinder 般 UI 的工作原理。</p>
-<p>你可以将 Tinder 般 UI 想像为一副成堆的卡片，每张卡片都显示一张照片。在我们的范例 App 中，照片是旅程的目的地。将最上面的卡片（即第一个旅程）轻微向左或向右滑动，即可揭示下一张卡片（即下一个旅程）。如果使用者放开卡片，App 就会将卡片带回原来的位置。不过，当使用者用力滑动时，他/ 她可以丢掉这张卡片，然后App 会将第二张卡片向前移动，成为最上面的卡片，如图 19.7 所示。</p>
+<p>你可以将 Tinder 般 UI 想像为一副成堆的卡片，每张卡片都显示一张照片。在我们的示例 App 中，照片是旅程的目的地。将最上面的卡片（即第一个旅程）轻微向左或向右滑动，即可揭示下一张卡片（即下一个旅程）。如果使用者放开卡片，App 就会将卡片带回原来的位置。不过，当使用者用力滑动时，他/ 她可以丢掉这张卡片，然后App 会将第二张卡片向前移动，成为最上面的卡片，如图 19.7 所示。</p>
 <figure id="fig19.7"><img src="images/triptinder/swiftui-trip-tinder-7.jpg" alt="图 19.7.　Tinder 般 UI 的工作原理"><figcaption>图 19.7.　Tinder 般 UI 的工作原理</figcaption></figure>
 <p>我们实现的主荧幕只包含一个卡片视图，那么我们如何实现一堆卡片视图呢？ </p>
 <p>最直截了当的方式是，使用 <code>ZStack</code> 将每个卡片视图互相堆叠，我们来试着做这个。更新 <code>ContentView</code> 结构如下： </p>
@@ -1307,7 +1307,7 @@
 }
 </code></pre>
 <p>这个函式先从 <code>cardViews</code> 数组中删除最上面的卡片，然后它使用后续旅程的图片来实例化一个新卡片视图。由于 <code>cardViews</code> 定义为状态属性，因此一旦数组的值更改时，SwiftUI 将再次渲染卡片视图，这就是我们如何删除最上面的卡片，并插入一张新卡片至卡片库的方式。</p>
-<p>针对这个范例，我想要卡片库继续显示一个旅程。在 <code>trips</code> 数组的最后一张图片显示后， App 将会回到第一个元素（注意，上列代码中的模数运算子%）。</p>
+<p>针对这个示例，我想要卡片库继续显示一个旅程。在 <code>trips</code> 数组的最后一张图片显示后， App 将会回到第一个元素（注意，上列代码中的模数运算子%）。</p>
 <p>接下来，更新 <code>.gesture</code>修饰器，并插入 <code>.onEnded</code> 函式： </p>
 <pre><code class="lang-swift">.gesture(<span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">0.01</span>)
     .sequenced(before: <span class="hljs-type">DragGesture</span>())
@@ -1411,7 +1411,7 @@
 <p>我希望你能真正了解本章所介绍的内容，如此你就可以修改代码，来配合自己的项目。这是非常重要的一章，我想要记录一下我的思考过程，而不仅仅是向你提供最终的解决方案。</p>
 <p>为了方便进一步参考，您可以至下列网址下载完整项目： </p>
 <ul>
-<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip</a>) 。</li>
+<li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip</a>) 。</li>
 </ul>
 
                     

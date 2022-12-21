@@ -879,8 +879,8 @@
                         <h1 id="%E7%AC%AC-21-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-json%E3%80%81%E6%BB%91%E6%A1%BF%E8%88%87%E8%B3%87%E6%96%99%E7%AF%A9%E9%81%B8">第 21 章<br>使用 JSON、滑杆与资料筛选</h1>
 <p>JSON 是 JavaScript Object Notation 的缩写，是用户端- 伺服器应用程式中用于资料交换的通用资料格式。即使我们是行动装置 App 的开发者，也不可避免地要使用 JSON，因为几乎所有的 Web API 或后端网页服务都使用 JSON 作为资料交换的格式。</p>
 <p>在本章中，我们将讨论当使用 SwiftUI 框架建立 App 时如何使用 JSON。如果你对于不了解 JSON 的话，我建议看一下在《iOS 程式设计进阶攻略》一书中的 <a href="https://www.appcoda.com/intermediate-swift-tips/json.html" target="_blank">免费试阅章节</a> ，这里会详细解释在 Swift 中处理 JSON 的两种不同方法。</p>
-<figure id="fig21.1"><img src="images/json/swiftui-json-1.png" alt="图 21.1.　范例App"><figcaption>图 21.1.　范例App</figcaption></figure>
-<p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是透过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的范例 App，我们将调用一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
+<figure id="fig21.1"><img src="images/json/swiftui-json-1.png" alt="图 21.1.　示例App"><figcaption>图 21.1.　示例App</figcaption></figure>
+<p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是透过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的示例 App，我们将调用一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
 <p>除此之外，我们将示范滑杆（Slider ）的用法，滑杆是SwiftUI 提供的众多内建 UI 控制元件之一。你将在 App 中实现一个资料筛选选项，以让使用者可以筛选清单中的贷款资料，如图 21.2 所示。</p>
 <figure id="fig21.2"><img src="images/json/swiftui-json-2.png" alt="图 21.2.　滑杆控制元件"><figcaption>图 21.2.　滑杆控制元件</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-json-%E8%88%87-codable">了解 JSON 与 Codable</h3>
@@ -948,10 +948,10 @@
 <p>这将格式化 JSON 回应，并将其储存到文字档中。</p>
 <p>现在你对 JSON 有一些了解了，我们如何在 Swift 中解析 JSON 资料呢？从 Swift 4 开始， Apple 导入一个编码及解码 JSON 资料的新方式，即采用了一个名为 <code>Codable</code>的协定。</p>
 <p><code>Codable</code> 为开发者提供一个不同的方式来解码（或编码）JSON，从而简化了整个过程。只要你的型别遵循<code>Codable</code> 协定以及新的 <code>JSONDecoder</code>，你就能够将 JSON 资料解码到你指定的实例（instance ）中。</p>
-<p>图 21.3 说明了使用 <code>JSONDecoder</code>，将范例借贷资料解码为一个 <code>Loan</code> 实例。</p>
+<p>图 21.3 说明了使用 <code>JSONDecoder</code>，将示例借贷资料解码为一个 <code>Loan</code> 实例。</p>
 <figure id="fig21.3"><img src="images/json/swiftui-json-3.png" alt="图 21.3.　JSONDecoder 解码 JSON 资料，并将其转换为一个 Loan 实例"><figcaption>图 21.3.　JSONDecoder 解码 JSON 资料，并将其转换为一个 Loan 实例</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-jsondecoder-%E8%88%87-codable">使用 JSONDecoder 与 Codable</h3>
-<p>在建立范例 App 之前，我们在 Playgrounds 上尝试 JSON 解码。启动 Xcode，并开启一个新的 Playgrounds 项目（在 Xcode 选单并选择 <em>File &gt; New &gt; Playground...</em>），当你建立你的 Playground 项目后，声明下列的 <code>json</code> 变量： </p>
+<p>在建立示例 App 之前，我们在 Playgrounds 上尝试 JSON 解码。启动 Xcode，并开启一个新的 Playgrounds 项目（在 Xcode 选单并选择 <em>File &gt; New &gt; Playground...</em>），当你建立你的 Playground 项目后，声明下列的 <code>json</code> 变量： </p>
 <pre><code class="lang-swift">let json = &quot;&quot;&quot;
 {
 
@@ -1104,7 +1104,7 @@
 }
 &quot;&quot;&quot;
 </code></pre>
-<p>在上面的范例中，<code>json</code> 变量中有两笔贷款资料，你如何将其解码为 <code>Loan</code> 的数组呢？ </p>
+<p>在上面的示例中，<code>json</code> 变量中有两笔贷款资料，你如何将其解码为 <code>Loan</code> 的数组呢？ </p>
 <p>为此，声明另一个名称为 <code>LoanStore</code>的结构，该结构也采用 <code>Codable</code> 协定： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Codable</span> </span>{
     <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>]
@@ -1122,7 +1122,7 @@
 <p>以上就是使用 Swift 解码 JSON 的方式。</p>
 <p><em>注意：作为参考，Playgrounds 项目包含在最终下载档内。 你可以在本章末端找到下载连结。</em></p>
 <h3 id="%E5%BB%BA%E7%AB%8B-kiva-%E8%B2%B8%E6%AC%BE-app">建立 Kiva 贷款 App</h3>
-<p>好的，你现在应该已经了解如何处理 JSON 解码，让我们开始建立一个范例 App，来看如何运用刚刚所学的技术。</p>
+<p>好的，你现在应该已经了解如何处理 JSON 解码，让我们开始建立一个示例 App，来看如何运用刚刚所学的技术。</p>
 <p>倘若你已经开启 Xcode，至选单并选择“File → New → Projects”来建立一个新项目。如往常一样，使用“App”模板，并将项目名称命名为“SwiftUIKivaLoan”或是你所喜爱的其他名称。</p>
 <p>我们将从建立模型类别来开始，该模型类别储存从 Kiva 取得的所有最新贷款资料。对于使用者介面的实现，我们将稍后处理。</p>
 <h4 id="%E5%8F%96%E5%BE%97-kiva-%E6%9C%80%E6%96%B0%E7%9A%84%E8%B2%B8%E6%AC%BE%E8%B3%87%E6%96%99">取得 Kiva 最新的贷款资料</h4>
@@ -1268,7 +1268,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <p>当调用 Web API 时， 该操作是在背景伫列中执行。在此，<code>loans</code> 变量标记为 <code>@Published</code>，这意味着对于变量的任何修改，SwiftUI 将触发使用者介面的更新。而且， UI 更新需要在主伫列中执行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
 <h4 id="%E5%AF%A6%E4%BD%9C%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">实现使用者介面</h4>
 <p>现在，我们已经建立了用于取得贷款资料的类别，让我们继续进行使用者介面的实现。我猜想你可能忘了UI 的外观，请参考图 21.7，这是我们将要建立的 UI。</p>
-<figure id="fig21.7"><img src="images/json/swiftui-json-7.png" alt="图 21.7.　范例 App 的使用者介面"><figcaption>图 21.7.　范例 App 的使用者介面</figcaption></figure>
+<figure id="fig21.7"><img src="images/json/swiftui-json-7.png" alt="图 21.7.　示例 App 的使用者介面"><figcaption>图 21.7.　示例 App 的使用者介面</figcaption></figure>
 <p>而且，我们将UI 分成三个视图，而不是在同一个档案中撰写UI 的代码： </p>
 <ul>
 <li><em>ContentView.swift</em> - 这是呈现贷款清单的主视图。</li>
@@ -1342,7 +1342,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <p>现在，在预览中或模拟器上执行这个 App，你应该能够看到如图 21.9 所示的贷款纪录。</p>
 <figure id="fig21.9"><img src="images/json/swiftui-json-9.png" alt="图 21.9.　在清单视图中呈现贷款资料"><figcaption>图 21.9.　在清单视图中呈现贷款资料</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8%E6%BB%91%E6%A1%BF%E5%BB%BA%E7%AB%8B%E7%AF%A9%E9%81%B8%E5%99%A8%E8%A6%96%E5%9C%96">使用滑杆建立筛选器视图</h4>
-<p>在完成本章之前，我想要介绍如何实现一个筛选功能。这个筛选功能可让使用者定义最大贷款金额，并只显示低于该金额的那些纪录。图 21.7 为筛选器视图的范例，使用者可以使用滑杆来设定最大数量。</p>
+<p>在完成本章之前，我想要介绍如何实现一个筛选功能。这个筛选功能可让使用者定义最大贷款金额，并只显示低于该金额的那些纪录。图 21.7 为筛选器视图的示例，使用者可以使用滑杆来设定最大数量。</p>
 <p>同样的，为了让程式更有组织性，因此为筛选器视图建立一个新档案，并将其命名为 <code>LoanFilterView.swift</code>。</p>
 <p>现在更新 <code>LoanFilterView</code> 结构如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView</span>: <span class="hljs-title">View</span> </span>{
@@ -1381,7 +1381,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     }
 }
 </code></pre>
-<p>我假设你完全了解堆叠视图，因此我将不讨论如何使用它们来实现布局，不过让我们再多谈一下滑杆控制元件，其是 SwiftUI 所提供的一个标准元件，你可以透过传送滑杆的绑定（Binding ）、范围与滑杆刻度（step ）来实例化滑杆。绑定保存滑杆的目前值。以下是用于建立滑杆的范例代码： </p>
+<p>我假设你完全了解堆叠视图，因此我将不讨论如何使用它们来实现布局，不过让我们再多谈一下滑杆控制元件，其是 SwiftUI 所提供的一个标准元件，你可以透过传送滑杆的绑定（Binding ）、范围与滑杆刻度（step ）来实例化滑杆。绑定保存滑杆的目前值。以下是用于建立滑杆的示例代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Slider</span>(value: $amount, <span class="hljs-keyword">in</span>: minAmount...maxAmount, step: <span class="hljs-number">100</span>)
 </code></pre>
 <p>刻度可控制使用者拖曳滑杆时的更改量。如果你让使用者拥有很好的控制元件，请将刻度设定更小一点。对于上列的代码，我们将其设定为“100”。</p>
@@ -1456,7 +1456,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <p>如果你之前使用 UIKit 开发过 App，你可能会对 SwiftUI 的简单性感到惊讶。再看一下 ContentView 的代码，只需要 40 行的代码就可以建立清单视图。最重要的是，你不需要手动处理 UI 更新及传送资料，一切都在背后运作。</p>
 <p>为了参考，你可以至下列的网址下载完整的项目： </p>
 <ul>
-<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip</a>)</li>
+<li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip</a>)</li>
 </ul>
 
                     

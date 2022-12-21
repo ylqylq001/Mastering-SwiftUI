@@ -1000,7 +1000,7 @@
     .border(<span class="hljs-type">Color</span>.purple, width: <span class="hljs-number">5</span>)
 </code></pre>
 <p>我们使用两个 <code>padding</code> 修饰器来设计按钮。第一个 <code>padding</code> 与 <code>background</code> 修饰器一起建立了具有间距及紫色背景的按钮，<code>padding(10)</code> 修饰器在按钮周围加入了额外的间距，而 <code>border</code> 修饰器则指定以紫色绘制边框。</p>
-<p>我们来看一个更复杂的范例。如果你想要设计如图 6.10 所示、具有圆角外框的按钮， 该如何做呢？ </p>
+<p>我们来看一个更复杂的示例。如果你想要设计如图 6.10 所示、具有圆角外框的按钮， 该如何做呢？ </p>
 <figure id="fig6.10"><img src="images/buttons/swiftui-buttons-10.png" alt="图 6.10.　具有圆角边框的按钮"><figcaption>图 6.10.　具有圆角边框的按钮</figcaption></figure>
 <p>SwiftUI 内建了一个名为 <code>cornerRadius</code> 修饰器，可以让你轻松建立圆角。要渲染圆角按钮的背景，你只需使用这个修饰器并指定圆角即可，如下所示： </p>
 <pre><code class="lang-swift">.cornerRadius(<span class="hljs-number">40</span>)
@@ -1032,7 +1032,7 @@
 </code></pre>
 <p>为了方便起见，我们使用 SF Symbols 内建图示库（即垃圾桶图示）来建立图片按钮。我们在 <code>font</code> 修饰器中指定使用 <code>.largeTitle</code>，以使图片大一点。你的按钮看起来应如图 6.11 所示。</p>
 <figure id="fig6.11"><img src="images/buttons/swiftui-buttons-11.png" alt="图 6.11　图片按钮"><figcaption>图 6.11　图片按钮</figcaption></figure>
-<p>同样的，如果你想要建立一个具有纯背景色的圆形图片按，则可以应用我们之前讨论过的修饰器图 6.12 显示了一个范例。</p>
+<p>同样的，如果你想要建立一个具有纯背景色的圆形图片按，则可以应用我们之前讨论过的修饰器图 6.12 显示了一个示例。</p>
 <figure id="fig6.12"><img src="images/buttons/swiftui-buttons-12.png" alt="图 6.12　圆形图片按钮"><figcaption>图 6.12　圆形图片按钮</figcaption></figure>
 <p>你可以同时使用文字与图片来建立一个按钮。例如：你想要将“Delete”文字放在图示旁边，则可将代码替换如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
@@ -1088,12 +1088,12 @@
 <pre><code class="lang-swift">.background(<span class="hljs-type">LinearGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [<span class="hljs-type">Color</span>.red, <span class="hljs-type">Color</span>.blue]), startPoint: .top, endPoint: .bottom))
 </code></pre>
 <p>你可以自由使用自己喜好的颜色来渲染渐层效果。例如：你的设计师告诉你使用了如图 6.15 所示的渐层。</p>
-<figure id="fig6.15"><img src="images/buttons/swiftui-buttons-15.png" alt="图 6.15.　uigradients.com 的渐层范例"><figcaption>图 6.15.　uigradients.com 的渐层范例</figcaption></figure>
+<figure id="fig6.15"><img src="images/buttons/swiftui-buttons-15.png" alt="图 6.15.　uigradients.com 的渐层示例"><figcaption>图 6.15.　uigradients.com 的渐层示例</figcaption></figure>
 <p>有多种方式可以将色码（ color code ）从十六进制（ hex ）转换为Swift 相容的格式。这里我将展示其中一种方式。在项目导览器中，选取素材目录（也就是 <code>Assets</code> ），然后在空白区域（ AppIcon 下方）按右键，并选择“New Color Set”，如图 6.16 所示。</p>
 <figure id="fig6.16"><img src="images/buttons/swiftui-buttons-16.png" alt="图 6.16.　在素材目录定义一个新颜色集"><figcaption>图 6.16.　在素材目录定义一个新颜色集</figcaption></figure>
 <p>接下来， 于 “Any Appearance”选择好颜色并点选“Show inspector”按钮， 然后点选属性检阅器（Attributes Inspector ）图示来显示颜色集的属性。在“Name”栏位中，将名称设定为“DarkGreen”，接着在“Color”区块中，更改“Input Method”（输入方法）栏位为“8-bit Hexadecimal”，如图 6.17 所示。</p>
 <figure id="fig6.17"><img src="images/buttons/swiftui-buttons-17.png" alt="图 6.17　编辑颜色集的属性"><figcaption>图 6.17　编辑颜色集的属性</figcaption></figure>
-<p>现在，你可以在“Hex”栏位设定色码。对于此范例，输入 <code>#11998e</code>来定义颜色并将颜色集命名为“LightGreen”。重复上述步骤，输入<code>#38ef7d</code>来定义另一个颜色集，你可以将颜色集命名为“DarkGreen”， 如图 6.18 所示。</p>
+<p>现在，你可以在“Hex”栏位设定色码。对于此示例，输入 <code>#11998e</code>来定义颜色并将颜色集命名为“LightGreen”。重复上述步骤，输入<code>#38ef7d</code>来定义另一个颜色集，你可以将颜色集命名为“DarkGreen”， 如图 6.18 所示。</p>
 <figure id="fig6.18"><img src="images/buttons/swiftui-buttons-18.png" alt="图 6.18.　定义两个颜色集"><figcaption>图 6.18.　定义两个颜色集</figcaption></figure>
 <p>现在你已经定义了两个颜色集，我们回到 <code>ContentView.swift</code> 并更新色码。要使用颜色集，你只需使指定颜色集的名称，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Color</span>(<span class="hljs-string">&quot;DarkGreen&quot;</span>)
@@ -1107,7 +1107,7 @@
 <p>在本小节中，我要介绍另一个修饰器。<code>shadow</code> 修饰器可以让你在按钮（或任何视图） 周围绘制阴影，只需在<code>cornerRadius</code> 修饰器之后加入下列这行代码，即可看到结果： </p>
 <pre><code class="lang-swift">.shadow(radius: <span class="hljs-number">5.0</span>)
 </code></pre>
-<p>此外，你可以控制阴影的颜色、半径与位置。以下为范例代码： </p>
+<p>此外，你可以控制阴影的颜色、半径与位置。以下为示例代码： </p>
 <pre><code class="lang-swift">.shadow(color: .gray, radius: <span class="hljs-number">20.0</span>, x: <span class="hljs-number">20</span>, y: <span class="hljs-number">10</span>)
 </code></pre>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%A8%E5%AF%AC%E5%BA%A6%E6%8C%89%E9%88%95">建立全宽度按钮</h3>
@@ -1313,9 +1313,9 @@
 <figure id="fig6.29"><img src="images/buttons/swiftui-buttons-29.png" alt="图 6.29. 不同角色和样式的按钮外观"><figcaption>图 6.29. 不同角色和样式的按钮外观</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>在本章中，我们介绍了 SwiftUI 中建立按钮的基本观念。按钮在手机介面（或确切地说在任何应用程式 UI）中扮演着关键角色，良好设计的按钮不仅可以使你的 UI 更具吸引力，还可以提升你的 App 的使用者体验。如你所学，透过结合 SF Symbols、渐层与动画的应用，你可以轻松建立一个有吸引力且实用的按钮。</p>
-<p>在本章所准备的范例档中，有完整的项目可以下载： </p>
+<p>在本章所准备的示例档中，有完整的项目可以下载： </p>
 <ul>
-<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip</a>)</li>
+<li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip</a>)</li>
 </ul>
 
                     

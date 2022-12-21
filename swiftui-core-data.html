@@ -878,14 +878,14 @@
                     
                         <h1 id="%E7%AC%AC-22-%E7%AB%A0-br-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-core-data-%E5%BB%BA%E7%AB%8B-todo-app">第 22 章<br>如何使用 Core Data 建立 ToDo App</h1>
 <p>iOS App 开发的一个常见问题是我们如何使用 Core Data 和 SwiftUI 将数据永久保存在内置数据库中。 在本章中，我们将通过构建一个 ToDo 应用程序来回答这个问题。</p>
-<p>由于 ToDo 这个范例程式使用 List 和 Combine 来处理数据展示和共享，我假设你已经阅读了以下章节：</p>
+<p>由于 ToDo 这个示例程式使用 List 和 Combine 来处理数据展示和共享，我假设你已经阅读了以下章节：</p>
 <ul>
 <li>第 7 章 - 状态(State)与绑定(Binding)</li>
 <li>第 10 章 - 动态列表、 ForEach 与 Identifiable 的使用方法</li>
 <li>第 14 章 - 使用 Combine 与 Environment 物件进行资料分享</li>
 </ul>
 <p>如果你还未阅读或忘记了Combine 和Environment Objects 是什么，请先阅读这些章节。</p>
-<p>究竟你会将会做什么以理解 Core Data？ 我已经构建了范例App的核心部分，你并不需要从头开始构建 ToDo App。 但是，它不能永久保存数据。 更具体地说，它只能将待办事项保存在记忆体当中。 每当用户关闭App并再次启动它时，所有数据都会消失。 我们将修改这个范例 App 并将其转换为使用 Core Data 将数据永久保存到本地数据库。 图 22.1 显示了 ToDo App 的一些示例屏幕截图。</p>
+<p>究竟你会将会做什么以理解 Core Data？ 我已经构建了示例App的核心部分，你并不需要从头开始构建 ToDo App。 但是，它不能永久保存数据。 更具体地说，它只能将待办事项保存在记忆体当中。 每当用户关闭App并再次启动它时，所有数据都会消失。 我们将修改这个示例 App 并将其转换为使用 Core Data 将数据永久保存到本地数据库。 图 22.1 显示了 ToDo App 的一些示例屏幕截图。</p>
 <figure id="fig22.1"><img src="images/core-data/swiftui-core-data-1.png" alt="图 22.1. ToDo app"><figcaption>图 22.1. ToDo app</figcaption></figure>
 <p>在我们开始修改之前，我会先介绍一下这个 Starter 项目，以便你完全理解当中的代码。</p>
 <p>除了 Core Data，你还将会学习如何自定义切换的样式。 看看上面的截图，该核取方块实际上是 SwiftUI 的切换视图。 我将向你展示如何透过自定义 Toggle 的样式来建立这些核取方块。</p>
@@ -931,11 +931,11 @@ task.isComplete = isComplete
 <p>此属性包装器使执行读取请求变得非常简单。 你只需要指定要检索的实体物件以及数据的排序方式， 然后框架将使用环境的托管物件内容来获取数据。 最重要的是，取得数据之后，SwiftUI 会自动更新所有相关的视图。</p>
 </li>
 </ol>
-<p>这就是你在 SwiftUI 项目中使用 Core Data 的方式。 我知道你可能对某些程序感到困惑， 本节只是一个非常初步的简介。 稍后，当你修改范例程式时，我们将更详细解释这些程序。</p>
-<h3 id="%E4%BA%86%E8%A7%A3-todo-app-%E7%AF%84%E4%BE%8B%E9%81%8B%E4%BD%9C">了解 ToDo App 范例运作</h3>
-<p>现在你对 Core Data 有了基本的了解，让我和你一起完成这个范例App。 稍后，我们将修改此 ToDo App，让它能永久保存待办事项。 现在，如前所述，所有数据都存储在记忆体当中，并且会在App重新启动时消失。</p>
+<p>这就是你在 SwiftUI 项目中使用 Core Data 的方式。 我知道你可能对某些程序感到困惑， 本节只是一个非常初步的简介。 稍后，当你修改示例程式时，我们将更详细解释这些程序。</p>
+<h3 id="%E4%BA%86%E8%A7%A3-todo-app-%E7%AF%84%E4%BE%8B%E9%81%8B%E4%BD%9C">了解 ToDo App 示例运作</h3>
+<p>现在你对 Core Data 有了基本的了解，让我和你一起完成这个示例App。 稍后，我们将修改此 ToDo App，让它能永久保存待办事项。 现在，如前所述，所有数据都存储在记忆体当中，并且会在App重新启动时消失。</p>
 <p>首先，请从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListStarter.zip</a> 下载启动项目。 解压档案并在 Xcode 中打开 <code>ToDoList.xcodeproj</code>。 选择 <code>ContentView.swift</code> 并预览 UI。 你应该会看到如图 22.5 所示的屏幕。</p>
-<figure id="fig22.5"><img src="images/core-data/swiftui-core-data-5.png" alt="图 22.5. 预览范例App"><figcaption>图 22.5. 预览范例App</figcaption></figure>
+<figure id="fig22.5"><img src="images/core-data/swiftui-core-data-5.png" alt="图 22.5. 预览示例App"><figcaption>图 22.5. 预览示例App</figcaption></figure>
 <p>在预览框或模拟器中运行App。 按 + 并添加待办事项。 之后，再重复添加更多项目。 然后App就会列出所有待办事项。 在待办事项的格子按一下，App就会划掉该项目。</p>
 <figure id="fig22.6"><img src="images/core-data/swiftui-core-data-6.png" alt="图 22.6. 添加新事项"><figcaption>图 22.6. 添加新事项</figcaption></figure>
 <h4 id="%E5%A6%82%E4%BD%95%E9%A1%AF%E7%A4%BA%E5%BE%85%E8%BE%A6%E4%BA%8B%E9%A0%85%E5%88%97%E8%A1%A8">如何显示待办事项列表</h4>
@@ -959,7 +959,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>这个范例App是一个普通 ToDo App的简化版本。 每个待办事项（或任务）具有三个属性：<em>name</em>、<em>priority</em> 和 <em>isComplete</em>（即事项的状态）。 这个类别采用了<code>ObservableObject</code> 协议。 这三个属性都用<code>@Published</code> 标记，当其中的值发生任何更改时就会自动通知订阅者。 稍后，在 ContentView 的实现中，SwiftUI 会不时观察数值的变化并相应地更新视图。 例如，当 <code>isComplete</code> 的值发生变化时，它会切换核取方块。</p>
+<p>这个示例App是一个普通 ToDo App的简化版本。 每个待办事项（或任务）具有三个属性：<em>name</em>、<em>priority</em> 和 <em>isComplete</em>（即事项的状态）。 这个类别采用了<code>ObservableObject</code> 协议。 这三个属性都用<code>@Published</code> 标记，当其中的值发生任何更改时就会自动通知订阅者。 稍后，在 ContentView 的实现中，SwiftUI 会不时观察数值的变化并相应地更新视图。 例如，当 <code>isComplete</code> 的值发生变化时，它会切换核取方块。</p>
 <p>这个类别也符合<code>Identifiable</code> 协议，这样<code>ToDoItem</code> 的每个实体（instance）都有一个独一无二的识别码。 稍后，我们将使用 <code>ForEach</code> 和 <code>List</code> 来显示待办事项。 这就是为什么我们需要采用协议并创建 <code>id</code> 属性。</p>
 <p>现在让我们转到视图并从<code>ContentView.swift</code> 开始。 假设你已经阅读了第 10 章，你应该理解大部分代码。 内容视图包含三个主要部分，它们嵌入在一个“ZStack”中：</p>
 <ol>
@@ -1288,7 +1288,7 @@ task.isComplete = isComplete
 <p>像这样更改代码行以修复错误：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NewToDoView</span>(isShow: $showNewTask, name: <span class="hljs-string">&quot;&quot;</span>, priority: .normal)
 </code></pre>
-<p>我们只需删除 <code>todoItems</code> 参数。 这就是我们将范例App从使用数组存储转换为持久存储的方式。</p>
+<p>我们只需删除 <code>todoItems</code> 参数。 这就是我们将示例App从使用数组存储转换为持久存储的方式。</p>
 <h4 id="%E6%9B%B4%E6%96%B0%E7%8F%BE%E6%9C%89%E9%A0%85%E7%9B%AE">更新现有项目</h4>
 <p>当你将项目标记为完成时，App应将这个更新储存在数据库中。 在 <code>ContentView.swift</code> ，找到 <code>ToDoListRow</code> 结构并加入以下变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.managedObjectContext) <span class="hljs-keyword">var</span> context
@@ -1384,8 +1384,8 @@ task.isComplete = isComplete
 </code></pre>
 <p>我们将数据暂存器的<code>context</code>注入到内容视图的环境中。 通过这样做，内容视图现在可以加载示例待办事项并将显示在预览画面中。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>在本章中，我们将 Todo 范例App加入永久储存数据功能。 我希望你现在了解如何在 SwiftUI 开发中使用 Core Data 并知道如何执行所有基本的 CRUD（建立、读取、更新和删除）操作。SwiftUI框架新加入的 <code>@FetchRequest</code> 属性包装器使得在数据库管理变得非常容易。</p>
-<p>本章所讲解的范例以及最后完整的Xcode 项目：</p>
+<p>在本章中，我们将 Todo 示例App加入永久储存数据功能。 我希望你现在了解如何在 SwiftUI 开发中使用 Core Data 并知道如何执行所有基本的 CRUD（建立、读取、更新和删除）操作。SwiftUI框架新加入的 <code>@FetchRequest</code> 属性包装器使得在数据库管理变得非常容易。</p>
+<p>本章所讲解的示例以及最后完整的Xcode 项目：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoList.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoList.zip</a></p>
 <p>请自行下载以供你参考。</p>
 

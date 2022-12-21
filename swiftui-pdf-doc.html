@@ -878,12 +878,12 @@
                     
                         <h1 id="%E7%AC%AC-42-%E7%AB%A0-br-%E5%A6%82%E4%BD%95%E6%8A%8A-swiftui-%E8%A6%96%E5%9C%96%E8%BD%89%E6%8F%9B%E7%82%BA-pdf-%E6%96%87%E4%BB%B6">第 42 章<br>如何把 SwiftUI 视图转换为 PDF 文件</h1>
 <p>在上一章，我们学习了如何使用 <code>ImageRenderer</code> 撷取 SwiftUI 视图，并储存为图像。这个在 iOS 16 推出的新类别还可以把视图转换为 PDF 文件。</p>
-<p>在这篇教学中，我们会以上次的范例为基础进行构建，并添加 <em>Save to PDF</em> 功能。</p>
-<h2 id="%E9%87%8D%E6%BA%AB%E4%B8%8A%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E7%9A%84%E7%AF%84%E4%BE%8B-app">重温上一篇文章的范例 App</h2>
-<p>如果你还没有读过上一章，我建议你先读过再看此章节。在上一篇文章中，我们已经说明过 <code>ImageRenderer</code> 的基本用法，并解释了范例 App 的实现过程。</p>
-<figure id="fig42.1"><img src="images/pdfdoc/swiftui-imagerenderer-pdf.png" alt="图 42.1. 范例 App"><figcaption>图 42.1. 范例 App</figcaption></figure>
+<p>在这篇教学中，我们会以上次的示例为基础进行构建，并添加 <em>Save to PDF</em> 功能。</p>
+<h2 id="%E9%87%8D%E6%BA%AB%E4%B8%8A%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E7%9A%84%E7%AF%84%E4%BE%8B-app">重温上一篇文章的示例 App</h2>
+<p>如果你还没有读过上一章，我建议你先读过再看此章节。在上一篇文章中，我们已经说明过 <code>ImageRenderer</code> 的基本用法，并解释了示例 App 的实现过程。</p>
+<figure id="fig42.1"><img src="images/pdfdoc/swiftui-imagerenderer-pdf.png" alt="图 42.1. 示例 App"><figcaption>图 42.1. 示例 App</figcaption></figure>
 <p>要跟着实现的话，可以先下载这个 Starter 项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererPDFStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererPDFStarter.zip</a>.</p>
-<p>我对上次的范例 App 做了一些改动，为折线图添加了 heading 和 caption。范例 App 现在还有一个 <em>PDF</em> 按钮，用来把 Chart 视图保存为 PDF 文件。以下是 <code>ChartView</code> 结构的代码：</p>
+<p>我对上次的示例 App 做了一些改动，为折线图添加了 heading 和 caption。示例 App 现在还有一个 <em>PDF</em> 按钮，用来把 Chart 视图保存为 PDF 文件。以下是 <code>ChartView</code> 结构的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ChartView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">let</span> chartData = [ (city: <span class="hljs-string">&quot;Hong Kong&quot;</span>, data: hkWeatherData),
                       (city: <span class="hljs-string">&quot;London&quot;</span>, data: londonWeatherData),
@@ -999,7 +999,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <figure id="fig42.4"><img src="images/pdfdoc/swiftui-imagerenderer-pdf-files-app.png" alt="图 42.4. 储存 PDF 档至 Files app"><figcaption>图 42.4. 储存 PDF 档至 Files app</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>你不仅可以从视图创建图像，<code>ImageRenderer</code> 还允许开发人员将视图转换为 PDF 文档。 借助 iOS 16 中的这个新 API，你可以轻松地在 iOS 应用程序中添加一些 PDF 相关的功能。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
+<p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererPDF.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererPDF.zip</a></li>
 </ul>

@@ -880,7 +880,7 @@
 <p>SwiftUI 的第一个版本（随 iOS 13 推出）没有提供用于支持多行文字输入的文本视图（Text View）。 如要使用的话，就需要从 UIKit 框架中借用 <code>UITextView</code> ，并通过采用 <code>UIViewRepresentable</code> 协议使其可用于你的 SwiftUI 项目。 自 iOS 14 开始，Apple 为 SwiftUI 框架引入了一个名为<code>TextEditor</code>的新组件。 这个 <code>TextEditor</code> 使开发者能够在App中显示和编辑多行文字。 在 iOS 16 中，Apple 进一步改进了内置的 <code>TextField</code> 以支持多行输入。</p>
 <p>在本章中，我们将详细讲解如何使用 <code>TextEditor</code> 以支持多行文字输入。</p>
 <h3 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-texteditor">如何使用 TextEditor</h3>
-<p><code>TextEditor</code> 的使用方法并不复杂，可以说是非常容易。 你只需要一个状态变量来存放输入文字。 然后，在视图的<code>body</code>中建立 <code>TextEditor</code> 就可以了。下面是范例代码：</p>
+<p><code>TextEditor</code> 的使用方法并不复杂，可以说是非常容易。 你只需要一个状态变量来存放输入文字。 然后，在视图的<code>body</code>中建立 <code>TextEditor</code> 就可以了。下面是示例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> inputText = <span class="hljs-string">&quot;&quot;</span>
 
@@ -931,7 +931,7 @@
 <figure id="fig32.2"><img src="images/texteditor/swiftui-texteditor-2.png" alt="图 32.2. 利用 onChange() 侦测文字输入并显示字数"><figcaption>图 32.2. 利用 onChange() 侦测文字输入并显示字数</figcaption></figure>
 <h3 id="%E6%94%AF%E6%8F%B4%E5%A4%9A%E8%A1%8C%E8%BC%B8%E5%85%A5%E3%80%81%E5%8F%AF%E6%93%B4%E5%B1%95%E7%9A%84%E6%96%87%E5%AD%97%E6%AC%84">支持多行输入、可扩展的文字栏</h3>
 <p>在 iOS 16 之前，内置的 <code>TextField</code> 只能支持单行文字输入。 现在，Apple 大大改进了 <code>TextField</code> 视图，允许使用者输入多行文字。 更好的是，你现在可以使用一个名为 <code>axis</code> 的新参数来告诉 iOS 是否应该扩展文字栏。</p>
-<p>例如，文字栏最初显示单行输入。 当使用者输入文字时，文字栏便会自动扩展以支持多行输入。 以下是范例代码：</p>
+<p>例如，文字栏最初显示单行输入。 当使用者输入文字时，文字栏便会自动扩展以支持多行输入。 以下是示例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TextFieldDemo</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> comment = <span class="hljs-string">&quot;&quot;</span>
 
@@ -958,7 +958,7 @@
 <p>在这种情况下，文字栏就不会扩展超过 5 行。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>自 SwiftUI 首次发布以来，<code>TextEditor</code> 一直是最受期待的 UI 组件之一。 你现在可以使用这个原生组件来处理多行输入。 随着 iOS 16 的发布，你还可以使用 <code>TextField</code> 来灵活控制文字输入的空间。 自动扩展功能使你可以轻松创建足够灵活的文本字段以接受单行或多行输入。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
+<p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUITextEditor.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITextEditor.zip</a></p>
 
                     

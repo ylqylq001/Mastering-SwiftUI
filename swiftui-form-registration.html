@@ -878,12 +878,12 @@
                     
                         <h1 id="%E7%AC%AC-15-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8combine%E8%88%87%E8%A6%96%E5%9C%96%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE">第 15 章<br>使用Combine与视图模型建立注册表单</h1>
 <p>现在你应该对于 Combine 有了基本的了解，我们将继续探索 Combine 如何使 SwiftUI 出类拔萃。当开发一个真实的 App 时，让使用者注册帐户是很常见的。在本章中，我将建立一个带有三个文字栏位的简单注册画面。我们的重点是表单验证，因此将不进行实际注册，你将学习如何利用Combine 的强大功能，来验证每个输入栏位，并在视图模型中编写代码。</p>
-<figure id="fig15.1"><img src="images/registration/swiftui-registration-1.png" alt="图 15.1.　使用者注册范例"><figcaption>图 15.1.　使用者注册范例</figcaption></figure>
+<figure id="fig15.1"><img src="images/registration/swiftui-registration-1.png" alt="图 15.1.　使用者注册示例"><figcaption>图 15.1.　使用者注册示例</figcaption></figure>
 <p>在深入研究代码之前，请先看一下图 15.1，这是我们将建立的使用者注册画面。在每个输入栏位下会列出要求，一旦使用者填入资讯后，App 就会即时验证所输入的资讯， 如果验证结果正确，则栏位要求文字就会划掉。而在满足所有的要求之前，将先禁用“注册”（Sign up ）按钮。</p>
 <p>如果你对 Swift 与 UIKit 有一些经验，你就会知道有各种类型的实现方式可处理表单验证。不过，在本章中，我们将探索如何利用 Combine 框架来执行表单验证。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-swiftui-%E4%BD%88%E5%B1%80%E8%A1%A8%E5%96%AE">使用 SwiftUI 布局表单</h3>
 <p>我们从一个练习来开始本章，使用至目前为止所学的内容，来布局如图 15.1 所示的表单 UI。要在 SwiftUI 中建立一个文字栏位，你可以使用 TextField 元件，而对于密码栏位， SwiftUI 提供了一个名为 <code>SecureField</code>安全文字栏位。</p>
-<p>要建立一个文字栏位，需要使用栏位名称与绑定（binding ）来初始化 TextField，这将渲染一个可编辑的文字栏位，而使用者输入会储存在给定的绑定中。和其他表单栏位类似，你可以透过使用相关的修饰器来修改它的外观。下面是范例代码片段： </p>
+<p>要建立一个文字栏位，需要使用栏位名称与绑定（binding ）来初始化 TextField，这将渲染一个可编辑的文字栏位，而使用者输入会储存在给定的绑定中。和其他表单栏位类似，你可以透过使用相关的修饰器来修改它的外观。下面是示例代码片段： </p>
 <pre><code class="lang-swift"><span class="hljs-type">TextField</span>(<span class="hljs-string">&quot;Username&quot;</span>, text: $username)
     .font(.system(size: <span class="hljs-number">20</span>, weight: .semibold, design: .rounded))
     .padding(.horizontal)
@@ -919,7 +919,7 @@
 }
 </code></pre>
 <p>首先，为什么我对栏位要求文字建立一个单独视图（如图 15.3 所示）？如果你检视任何一个栏位要求文字，它都有一个图示及一个叙述。我们无须从头开始建立每一个栏位要求文字，我们可以将代码一般化，并为其建立一个通用的代码。</p>
-<figure id="fig15.3"><img src="images/registration/swiftui-registration-3.png" alt="图 15.3　范例文字栏位及其要求文字"><figcaption>图 15.3　范例文字栏位及其要求文字</figcaption></figure>
+<figure id="fig15.3"><img src="images/registration/swiftui-registration-3.png" alt="图 15.3　示例文字栏位及其要求文字"><figcaption>图 15.3　示例文字栏位及其要求文字</figcaption></figure>
 <p><code>RequirementText</code> 视图有四个属性，包括 <code>iconName</code>、<code>iconColor</code>、<code>text</code>与  <code>isStrikeThrough</code>。它足以弹性支持栏位要求文字的不同样式，如果你接受预设的图示与颜色，则可建立如下的栏位要求文字： </p>
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>)
 </code></pre>
@@ -1223,7 +1223,7 @@ $password
 <p>代码与我们之前讨论的代码几乎相同，但你可能注意到一件事，即 <code>cancellableSet</code> 变量。对于每一个订阅者，我们在最后调用 <code>store</code> 函数。</p>
 <p>这些是什么呢？ </p>
 <p><code>assign</code> 函数建立订阅者，并回传一个可取消的实例。你可以使用该实例在适当的时间取消订阅。<code>store</code> 函数可让我们将可取消的的参照储存到一个集合中，以便稍后的清理。如果你不储存这个参照，则 App 可能出现记忆体泄漏的问题。</p>
-<p>那么，这个范例何时会进行清理呢？由于 <code>cancellableSet</code> 被定义为该类别的属性，因此当类别被取消初始化时，将会对订阅进行清理及取消。</p>
+<p>那么，这个示例何时会进行清理呢？由于 <code>cancellableSet</code> 被定义为该类别的属性，因此当类别被取消初始化时，将会对订阅进行清理及取消。</p>
 <p>现在切换回 <code>ContentView.swift</code>，并更新 UI 控制元件。首先，将下列的状态变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> username = <span class="hljs-string">&quot;&quot;</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> password = <span class="hljs-string">&quot;&quot;</span>
@@ -1257,9 +1257,9 @@ $password
 <p>我希望你现在已经掌握了一些 Combine 框架的基本认识。SwiftUI 与 Combine 的导入彻底改变了建立 App 的方式。函式响应式程式设计（Functional Reactive Programming，简称 FRP），近年来越来越流行，不过这是Apple 首次释出自己的函式响应式框架。在我看来，这是一个重要的典范转移（paradigm shift ）。Apple 公司最终对 FRP 做出定位，并推荐 Apple 开发者拥抱这个新的程式设计方法。 </p>
 <p>就像导入任何一个新技术的导入一样，会有一个学习曲线，即使你之前有 iOS 开发经验，也要花一些时间从委派的程式设计方法变成到发布者/ 订阅者的设计方法。</p>
 <p>不过，一旦你管理了 Combine 框架，你将会非常高兴，因为它可以帮你实现更可维护与模组化的代码，与SwiftUI 一起使用，如你所见，视图与视图模型之间的沟通变得轻而易举了。</p>
-<p>在本章所准备的范例档中，有完整的项目可供下载： </p>
+<p>在本章所准备的示例档中，有完整的项目可供下载： </p>
 <ul>
-<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip</a>)</li>
+<li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip</a>)</li>
 </ul>
 
                     

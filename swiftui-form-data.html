@@ -884,7 +884,7 @@
 <li>如何使用 UserDefaults 来永久储存使用者偏好。</li>
 <li>如何使用 Combine 与 @EnvironmentObject 来共享资料。</li>
 </ol>
-<p>如果你还没有完成第 13 章作业，我鼓励你花点时间练习。不过，如果你等不及要阅读本章内容，你可以至下列网址下载范例项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip</a> 。</p>
+<p>如果你还没有完成第 13 章作业，我鼓励你花点时间练习。不过，如果你等不及要阅读本章内容，你可以至下列网址下载示例项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip</a> 。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%88%89%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">使用枚举重构代码</h3>
 <p>我们目前使用一个数组来储存“Display Order”的三个选项，它虽然能够正常运作，不过还有一个更好的方式可以改善代码。</p>
 <blockquote>
@@ -1032,7 +1032,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8-environmentobject-%E5%9C%A8%E8%A6%96%E5%9C%96%E9%96%93%E5%85%B1%E4%BA%AB%E8%B3%87%E6%96%99">使用 @EnvironmentObject 在视图间共享资料</h3>
 <p>现在，使用者偏好已经储存在本地预设系统中，但是清单视图并没有依照使用者设定来变更。同样的，有多种方式可以解决这个问题。</p>
 <p>我们概括说明一下目前的情形，当使用者在设定画面中点击“Save”按钮，我们储存所选的选项至本地预设系统中，然后关闭设定画面，App 将带使用者回到清单视图。因此， 我们指示清单视图来重新载入设定，或者清单视图能够监控预设系统的变更，并触发清单的更新。</p>
-<p>随着 SwiftUI 的推出，Apple 还发布了一个名为“Combine”的新框架，根据Apple 的说法，这个框架提供一个声明式 API 来随着时间推移处理值。在此范例的内容中，Combine 让你轻松监控单一物件，并取得变更通知。与SwiftUI 一起使用时，我们甚至可不撰写一行代码，就触发视图更新，一切都由 SwiftUI 与 Combine 在幕后处理。</p>
+<p>随着 SwiftUI 的推出，Apple 还发布了一个名为“Combine”的新框架，根据Apple 的说法，这个框架提供一个声明式 API 来随着时间推移处理值。在此示例的内容中，Combine 让你轻松监控单一物件，并取得变更通知。与SwiftUI 一起使用时，我们甚至可不撰写一行代码，就触发视图更新，一切都由 SwiftUI 与 Combine 在幕后处理。</p>
 <p>那么，清单视图如何知道使用者偏好已被修改，并触发更新呢？ </p>
 <p>我来介绍三个关键字： </p>
 <ol>
@@ -1081,7 +1081,7 @@
 </code></pre>
 <p>这里，我们将 <code>SettingStore</code> 的实例注入至环境中，以进行预览。</p>
 <p>好的，发布方已经完成，那么订阅者呢？我们要如何监控 <code>defaults</code> 的变化，并相应更新UI 呢？ </p>
-<p>在这个范例项目中，清单视图是订阅方，它需要监控设定储存区的变化，并重新渲染清单视图，以反映使用者的设定。现在开启 <code>ContentView.swift</code> 来做一些变更。和我们刚才所做的操作类似，<code>settingStore</code> 现在应该声明为一个环境物件： </p>
+<p>在这个示例项目中，清单视图是订阅方，它需要监控设定储存区的变化，并重新渲染清单视图，以反映使用者的设定。现在开启 <code>ContentView.swift</code> 来做一些变更。和我们刚才所做的操作类似，<code>settingStore</code> 现在应该声明为一个环境物件： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">EnvironmentObject</span> <span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>
 <p>由于这个变更，因此应要修改 <code>sheet</code> 修饰器中的代码，以获取此环境物件： </p>
@@ -1171,9 +1171,9 @@ restaurants.sorted(by: { $<span class="hljs-number">0</span>.isCheckIn &amp;&amp
 <h3 id="%E4%B8%8B%E4%B8%80%E7%AB%A0%E7%9A%84%E4%B8%BB%E9%A1%8C">下一章的主题</h3>
 <p>你知道 SwiftUI 与 Combine 可帮助我们撰写出更好的代码吗？在本章最后两节中，我们并没有撰写很多的代码来实现筛选及排序选项。Combine 处理事件处理的繁重工作， 将它与 SwiftUI 搭配使用时，它的功能更加强大，并节省你开发实现来监控物件的状态变化与触发 UI 更新的时间。一切几乎是自动的，并由这两个新框架来负责。</p>
 <p>在下一章中，我们将会继续透过“建立注册画面”来探索 Combine 。你将进一步了解 Combine 如何帮助你写出更简洁与模组化的代码。</p>
-<p>在本章所准备的范例档中，有完整的项目可供下载： </p>
+<p>在本章所准备的示例档中，有完整的项目可供下载： </p>
 <ul>
-<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormData.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormData.zip</a>)</li>
+<li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormData.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormData.zip</a>)</li>
 </ul>
 
                     

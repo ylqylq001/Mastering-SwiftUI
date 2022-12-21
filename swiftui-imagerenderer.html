@@ -881,10 +881,10 @@
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> renderer = <span class="hljs-type">ImageRenderer</span>(content: theView)
 </code></pre>
 <p>然后，我们就可以存取 <code>cgImage</code> 或 <code>uiImage</code> 属性，来取得转换后的图像。</p>
-<p>一如以往，我喜欢利用范例来示范一个 API 的用法。在第38章中，我们用了新的 Charts 框架来构建折线图。这次，让我们来看看如何让使用者把折线图保存为 Photo Album 中的图像，并使用 <code>ShareLink</code> 进行分享。</p>
+<p>一如以往，我喜欢利用示例来示范一个 API 的用法。在第38章中，我们用了新的 Charts 框架来构建折线图。这次，让我们来看看如何让使用者把折线图保存为 Photo Album 中的图像，并使用 <code>ShareLink</code> 进行分享。</p>
 <h3 id="%E9%87%8D%E6%BA%AB-chart-%E8%A6%96%E5%9C%96">重温 Chart 视图</h3>
 <figure id="fig41.1"><img src="images/imagerenderer/swiftui-line-chart-symbol.png" alt="图 41.1. 折线图"><figcaption>图 41.1. 折线图</figcaption></figure>
-<p>首先，让我们来重温一下 <code>ChartView</code> 范例。我们使用了 <code>Charts</code> 框架的新 API 来构建一个有关气温的折线图。代码如下：</p>
+<p>首先，让我们来重温一下 <code>ChartView</code> 示例。我们使用了 <code>Charts</code> 框架的新 API 来构建一个有关气温的折线图。代码如下：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">VStack</span> {
         <span class="hljs-type">Chart</span> {
@@ -1017,7 +1017,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 </code></pre>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>有了 <code>ImageRenderer</code> 类别，我们就可以简单地把任何 SwiftUI 视图转换成图像。如果你的 App 支持 iOS 16 以上的版本，就可以用这个新 API 为使用者建立一些方便的功能。除了渲染图像外，我们还可以使用 <code>ImageRenderer</code> 来渲染 PDF 文件。详情可以参阅 <a href="https://developer.apple.com/documentation/swiftui/imagerenderer" target="_blank">Apple 的官方文件</a>。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
+<p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIImageRenderer.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIImageRenderer.zip</a></li>
 </ul>

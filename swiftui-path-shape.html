@@ -887,7 +887,7 @@
 <li>如何绘制环圈图（ donut chart）？ </li>
 </ul>
 <p>图8.1 列出了我们在后面的小节中所要建立的一些形状与图表。</p>
-<figure id="fig8.1"><img src="images/shape/swiftui-shape-1.png" alt="图 8.1.　范例形状与图形"><figcaption>图 8.1.　范例形状与图形</figcaption></figure>
+<figure id="fig8.1"><img src="images/shape/swiftui-shape-1.png" alt="图 8.1.　示例形状与图形"><figcaption>图 8.1.　示例形状与图形</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-path">了解 Path</h3>
 <p>在 SwiftUI 中，你可使用 Path 绘制线条与形状。如果你参考 Apple 的文件 (<a href="https://developer.apple.com/documentation/swiftui/path" target="_blank">https://developer.apple.com/documentation/swiftui/path</a>) ， <code>Path</code> 是一个包含 2D 形状轮廓的结构，基本上，线条与形状是以路径逐步描绘。以图 8.2 为例，这是我们要在荧幕上绘制的矩形。</p>
 <figure id="fig8.2"><img src="images/shape/swiftui-shape-2.png" alt="图 8.2　具有座标的矩形"><figcaption>图 8.2　具有座标的矩形</figcaption></figure>
@@ -967,7 +967,7 @@
 .fill(.green)
 </code></pre>
 <p>如果你将代码放入 body 中，则会在预览画布中看到一个填满绿色的圆弧，如图 8.8 所示。</p>
-<figure id="fig8.8"><img src="images/shape/swiftui-shape-8.png" alt="图 8.8.　圆弧范例"><figcaption>图 8.8.　圆弧范例</figcaption></figure>
+<figure id="fig8.8"><img src="images/shape/swiftui-shape-8.png" alt="图 8.8.　圆弧示例"><figcaption>图 8.8.　圆弧示例</figcaption></figure>
 <p>在上列的代码中，我们先至起点 (200, 200)，然后调用 <code>addArc</code> 来建立圆弧。<code>addArc</code> 方法接受几个参数： </p>
 <ul>
 <li><strong>center</strong> - 圆的中心点。</li>
@@ -1140,7 +1140,7 @@
         }
     }
 </code></pre>
-<p>建立一个开口圆环的技巧是加上一个 <code>trim</code> 修饰器。你可指定 <code>from</code> 值与 <code>to</code> 值，以指示要显示圆环的哪一个部分，在这个范例中，我们想要显示 85% 的进度，所以设定 <code>from</code> 的值为“0”、to 的值为“0.85”。</p>
+<p>建立一个开口圆环的技巧是加上一个 <code>trim</code> 修饰器。你可指定 <code>from</code> 值与 <code>to</code> 值，以指示要显示圆环的哪一个部分，在这个示例中，我们想要显示 85% 的进度，所以设定 <code>from</code> 的值为“0”、to 的值为“0.85”。</p>
 <p>为了显示完成百分比（ completion percentage），我们将一个文字视图叠在圆环的中间， 如图 8.16 所示。</p>
 <figure id="fig8.16"><img src="images/shape/swiftui-shape-16.png" alt="图 8.16.　绘制进度视图"><figcaption>图 8.16.　绘制进度视图</figcaption></figure>
 <h3 id="%E7%B9%AA%E8%A3%BD%E7%92%B0%E5%9C%88%E5%9C%96">绘制环圈图</h3>
@@ -1176,10 +1176,10 @@
 <p>对于最后一个圆弧，我故意把线宽设得大一点，以使该段圆弧突出，如图8.17 所示。如果你不喜欢这样的设计，则可以将 <code>linewidth</code> 值由“90”改为“80”。</p>
 <figure id="fig8.17"><img src="images/shape/swiftui-shape-17.png" alt="图 8.17　绘制环圈图"><figcaption>图 8.17　绘制环圈图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>我希望你喜欢本章内容，并爱上范例项目。藉由框架所提供的绘图 API，你可以轻松为应用程式建立自订形状。Path 与 Shape 的运用还有很多，我仅介绍本章中的一些技巧，但请试着运用所学来施展一些魔法吧 ！ </p>
-<p>在本章所准备的范例档中，有完整的项目可以下载： </p>
+<p>我希望你喜欢本章内容，并爱上示例项目。藉由框架所提供的绘图 API，你可以轻松为应用程式建立自订形状。Path 与 Shape 的运用还有很多，我仅介绍本章中的一些技巧，但请试着运用所学来施展一些魔法吧 ！ </p>
+<p>在本章所准备的示例档中，有完整的项目可以下载： </p>
 <ul>
-<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIShape.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIShape.zip</a>)</li>
+<li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIShape.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIShape.zip</a>)</li>
 </ul>
 
                     

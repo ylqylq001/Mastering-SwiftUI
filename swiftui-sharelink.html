@@ -919,7 +919,7 @@
 <p>我们可以使用 <code>subject</code> 参数和 <code>message</code> 参数，分别为 URL 或想分享的项目添加 title 和描述。iOS 会根据使用者想要分享的途径，去决定要显示 subject、message、或是两者都显示。比如说，如果我们想要把 URL 添加到 <em>Reminders</em>，Reminders App 就会显示预设的讯息。</p>
 <figure id="fig40.4"><img src="images/sharelink/swiftui-sharelink-reminders.png" alt="图 40.4. Reminders App 显示预设的讯息"><figcaption>图 40.4. Reminders App 显示预设的讯息</figcaption></figure>
 <h3 id="%E5%88%86%E4%BA%AB%E5%9C%96%E5%83%8F">分享图像</h3>
-<p>除了 URL 外，我们还可以利用 <code>ShareLink</code> 来分享图像。让我们看看以下的范例代码：</p>
+<p>除了 URL 外，我们还可以利用 <code>ShareLink</code> 来分享图像。让我们看看以下的示例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     private <span class="hljs-keyword">let</span> photo = <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;bigben&quot;</span>)
 
@@ -974,7 +974,7 @@
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>这章教了大家如何使用 <code>ShareLink</code> 分享文本、URL、和图像。事实上，只要型别遵从 <code>Transferable</code> 协定，我们都可以用这个新的视图分享任何型别的资料。</p>
 <p>要分享客制化型别，我们可以采用协定，并使用其中一个内建的 <code>TransferRepresentation</code> 型别，来提供 Transfer Representation。 我们简单讨论了 <code>ProxyRepresentation</code> 型别。如果我们想要在 App 之间分享一个文件，就可以使用 <code>FileRepresentation</code> 型别。我们会在之后的教学文章中，再深入探讨这个题目。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
+<p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUILiveText.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUILiveText.zip</a></li>
 </ul>
