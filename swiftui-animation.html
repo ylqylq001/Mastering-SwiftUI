@@ -980,7 +980,7 @@
     }
 }
 </code></pre>
-<p>我们不再使用 <code>animation</code> 修饰器，而是使用 <code>withAnimation</code> 包裹在 <code>onTapGesture</code> 中。<code>withAnimation</code> 呼叫带入一个动画参数，这里我们指定使用预设动画。</p>
+<p>我们不再使用 <code>animation</code> 修饰器，而是使用 <code>withAnimation</code> 包裹在 <code>onTapGesture</code> 中。<code>withAnimation</code> 调用带入一个动画参数，这里我们指定使用预设动画。</p>
 <p>当然，你可更新 <code>withAnimation</code>，以将动画变更为弹簧动画，如下所示： </p>
 <pre><code class="lang-swift">withAnimation(.spring(response: <span class="hljs-number">0.3</span>, dampingFraction: <span class="hljs-number">0.3</span>, blendDuration: <span class="hljs-number">0.3</span>)) {
     <span class="hljs-keyword">self</span>.circleColorChanged.toggle()
@@ -1052,7 +1052,7 @@
 <pre><code class="lang-swift">.animation(.linear(duration: <span class="hljs-number">5</span>).repeatForever(autoreverses: <span class="hljs-built_in">false</span>), value: isLoading)
 </code></pre>
 <p>持续时间越久，则动画越慢。</p>
-<p><code>onAppear</code> 修饰器对你而言可能比较陌生，如果你对 UIKit 有所了解的话，这个修饰器和 <code>viewDidAppear</code> 非常相似，当视图出现在画面上时会自动呼叫。在该代码中，我们将下载状态设定为true，以在视图载入时启动动画。</p>
+<p><code>onAppear</code> 修饰器对你而言可能比较陌生，如果你对 UIKit 有所了解的话，这个修饰器和 <code>viewDidAppear</code> 非常相似，当视图出现在画面上时会自动调用。在该代码中，我们将下载状态设定为true，以在视图载入时启动动画。</p>
 <p>当你使用此技术，就可以调整设计并开发各种版本的下载指示器。举例而言，你可以将圆弧叠在圆环上，以建立精美的下载指示器，如图 9.4 所示。</p>
 <figure id="fig9.4"><img src="images/animation/swiftui-animation-4.gif" alt="图 9.4.　下载指示器范例"><figcaption>图 9.4.　下载指示器范例</figcaption></figure>
 <p>代码片段如下所示： </p>
@@ -1181,8 +1181,8 @@
 <p>用于渲染动画的代码看起来有些复杂，我们来分拆它并逐步研究： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.linear(duration: <span class="hljs-number">0.6</span>).repeatForever().delay(<span class="hljs-number">0.2</span> * <span class="hljs-type">Double</span>(index))
 </code></pre>
-<p>第一个部分建立一个持续时间为 0.6 秒的线性动画，该动画会重复执行，因此我们呼叫 <code>repeatForever</code> 函数。</p>
-<p>如果你没有呼叫 <code>delay</code> 函数来执行这个动画，则所有的点会同时缩放。但是，这不是我们想要的结果，每个点应独立调整大小，而不是全部同时放大/ 缩小，这也是为何我们呼叫 <code>delay</code> 函数的原因，并对每个点使用不同的延迟时间值。</p>
+<p>第一个部分建立一个持续时间为 0.6 秒的线性动画，该动画会重复执行，因此我们调用 <code>repeatForever</code> 函数。</p>
+<p>如果你没有调用 <code>delay</code> 函数来执行这个动画，则所有的点会同时缩放。但是，这不是我们想要的结果，每个点应独立调整大小，而不是全部同时放大/ 缩小，这也是为何我们调用 <code>delay</code> 函数的原因，并对每个点使用不同的延迟时间值。</p>
 <p>你可以更改持续时间值与延迟时间值来调整动画。</p>
 <h3 id="%E5%B0%87%E7%9F%A9%E5%BD%A2%E8%AE%8A%E5%BD%A2%E7%82%BA%E5%9C%93%E5%BD%A2">将矩形变形为圆形</h3>
 <p>有时，你可能需要将一个形状（例如：矩形）流畅地变形为另一个形状（例如：圆形）。这该如何实作呢？使用内建的形状与动画，你可以轻松建立如图 9.9 所示的变形。</p>
@@ -1310,7 +1310,7 @@
 </code></pre>
 <p>如此，当紫色矩形插入 <code>VStack</code> 时，它会从左侧滑入。</p>
 <h4 id="%E6%B7%B7%E5%90%88%E5%BC%8F%E8%BD%89%E5%A0%B4">混合式转场</h4>
-<p>你可以呼叫 <code>combined(with:)</code> 方法来将两个或者更多个转场效果结合在一起，以建立更流畅的转场效果。举例而言，如果要结合位移与缩放动画，则可以撰写代码如下： </p>
+<p>你可以调用 <code>combined(with:)</code> 方法来将两个或者更多个转场效果结合在一起，以建立更流畅的转场效果。举例而言，如果要结合位移与缩放动画，则可以撰写代码如下： </p>
 <pre><code class="lang-swift">.transition(<span class="hljs-type">AnyTransition</span>.offset(x: -<span class="hljs-number">600</span>, y: <span class="hljs-number">0</span>).combined(with: .scale))
 </code></pre>
 <p>如果需要混合三个转场效果的话，则可以参考以下这行的范例代码： </p>
@@ -1330,7 +1330,7 @@
 <figure id="fig9.14"><img src="images/animation/swiftui-animation-14.png" alt="图 9.14.　结合缩放、位移与不透明度的转场效果"><figcaption>图 9.14.　结合缩放、位移与不透明度的转场效果</figcaption></figure>
 <h4 id="%E4%B8%8D%E5%B0%8D%E7%A8%B1%E8%BD%89%E5%A0%B4">不对称转场</h4>
 <p>我们刚才讨论的转场皆是对称性的，也就是视图的插入与移除是使用相同的转场效果。举例而言，如果将缩放转场运用于视图，则 SwiftUI 在它插入视图层次时会放大视图，而移除它时，该框架会将其缩回原来大小。</p>
-<p>那么，若你想在插入视图时使用缩放转场以及移除视图时使用位移转场呢？这在 SwiftUI 中，即所谓的“不对称转场”（ Assymetric Transitions ）。要使用这种转场效果非常简单，你只需要呼叫 <code>.assymetric</code> 方法，来指定插入（ insertion ）及移除（removal ）的转场即可。下列是范例代码： </p>
+<p>那么，若你想在插入视图时使用缩放转场以及移除视图时使用位移转场呢？这在 SwiftUI 中，即所谓的“不对称转场”（ Assymetric Transitions ）。要使用这种转场效果非常简单，你只需要调用 <code>.assymetric</code> 方法，来指定插入（ insertion ）及移除（removal ）的转场即可。下列是范例代码： </p>
 <pre><code class="lang-swift">.transition(.asymmetric(insertion: .scale(scale: <span class="hljs-number">0</span>, anchor: .bottom), removal: .offset(x: -<span class="hljs-number">600</span>, y: <span class="hljs-number">0</span>)))
 </code></pre>
 <p>另外，如果你需要重新使用这个转场，则可以在 <code>AnyTransition</code>定义一个扩展，如下所示： </p>

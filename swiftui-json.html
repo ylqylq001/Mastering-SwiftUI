@@ -880,7 +880,7 @@
 <p>JSON 是 JavaScript Object Notation 的缩写，是用户端- 伺服器应用程式中用于资料交换的通用资料格式。即使我们是行动装置 App 的开发者，也不可避免地要使用 JSON，因为几乎所有的 Web API 或后端网页服务都使用 JSON 作为资料交换的格式。</p>
 <p>在本章中，我们将讨论当使用 SwiftUI 框架建立 App 时如何使用 JSON。如果你对于不了解 JSON 的话，我建议看一下在《iOS 程式设计进阶攻略》一书中的 <a href="https://www.appcoda.com/intermediate-swift-tips/json.html" target="_blank">免费试阅章节</a> ，这里会详细解释在 Swift 中处理 JSON 的两种不同方法。</p>
 <figure id="fig21.1"><img src="images/json/swiftui-json-1.png" alt="图 21.1.　范例App"><figcaption>图 21.1.　范例App</figcaption></figure>
-<p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是透过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的范例 App，我们将呼叫一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
+<p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是透过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的范例 App，我们将调用一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
 <p>除此之外，我们将示范滑杆（Slider ）的用法，滑杆是SwiftUI 提供的众多内建 UI 控制元件之一。你将在 App 中实作一个资料筛选选项，以让使用者可以筛选清单中的贷款资料，如图 21.2 所示。</p>
 <figure id="fig21.2"><img src="images/json/swiftui-json-2.png" alt="图 21.2.　滑杆控制元件"><figcaption>图 21.2.　滑杆控制元件</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-json-%E8%88%87-codable">了解 JSON 与 Codable</h3>
@@ -993,7 +993,7 @@
 <p>让我们再次研究代码片段。我们实例化一个 <code>JSONDecoder</code> 实例，然后将 JSON 字串转换为 <code>Loan</code>。而魔法发生在下列这行代码中： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
 </code></pre>
-<p>你只需要呼叫解码器的 <code>decode</code> 方法来对 JSON 资料解码，并指定要解码的值的型别（即 <code>Loan.self</code> ）。解码器会自动解析 JSON 资料，并将其转换为一个 <code>Loan</code> 物件。</p>
+<p>你只需要调用解码器的 <code>decode</code> 方法来对 JSON 资料解码，并指定要解码的值的型别（即 <code>Loan.self</code> ）。解码器会自动解析 JSON 资料，并将其转换为一个 <code>Loan</code> 物件。</p>
 <p>很酷，是吧？ </p>
 <h3 id="%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1">使用自定义属性名称</h3>
 <p>现在，让我们进入更复杂的内容。如果属性名称与 JSON 的键不同的话，该怎么办？你如何定义映射（mapping ）呢？ </p>
@@ -1076,8 +1076,8 @@
 }
 </code></pre>
 <p>和我们之前所做的类似，我们必须定义一个枚举 <code>CodingKeys</code>。对于 <code>country</code> 这个 case， 我们指定要映射<code>location</code> 键。而要处理巢状的 JSON 物件，我们需要定义另一个枚举，在上面的代码中，我们将其命名为<code>LocationKeys</code>，并宣告与巢状物件的 <code>country</code> 键相符的 <code>country</code> 这个 case。</p>
-<p>因为它不是直接映射，我们需要实作 <code>Decodable</code>  协定的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 呼叫解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
-<p>要解码一个特定值，我们使用特定键（例如：.name ）和关联型别（例如：String.self ） 来呼叫 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 呼叫 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
+<p>因为它不是直接映射，我们需要实作 <code>Decodable</code>  协定的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 调用解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
+<p>要解码一个特定值，我们使用特定键（例如：.name ）和关联型别（例如：String.self ） 来调用 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 调用 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
 <p>以上为使用巢状物件来解码JSON 资料的方式。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E9%99%A3%E5%88%97">使用数组</h3>
 <p>从 Kiva API 所回传的 JSON 资料中，通常不只一笔贷款，多笔贷款以数组的形式建构， 现在我们来看如何使用Codable 解码 JSON 物件的数组。</p>
@@ -1213,7 +1213,7 @@
 </code></pre>
 <p>我们加上 <code>CodingKeys</code> 枚举来明确指定要解码的键，然后我们实作自订的初始器来处理解码。</p>
 <p>好的，错误现在已经修正了，那下一步呢？</p>
-<h3 id="%E5%91%BC%E5%8F%AB-web-api">呼叫 Web API</h3>
+<h3 id="%E5%91%BC%E5%8F%AB-web-api">调用 Web API</h3>
 <p>到目前为止，我们只设定了 JSON 解码的所有内容，但我们尚未使用 Web API。现在于 <code>LoanStore</code> 类别中宣告一个新变数，来储存 Kiva API 的URL： </p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> kivaLoanURL = <span class="hljs-string">&quot;https://api.kivaws.org/v1/loans/newest.json&quot;</span>
 </code></pre>
@@ -1265,7 +1265,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     <span class="hljs-keyword">self</span>.loans = <span class="hljs-keyword">self</span>.parseJsonData(data: data)
 }
 </code></pre>
-<p>当呼叫 Web API 时， 该操作是在背景伫列中执行。在此，<code>loans</code> 变数标记为 <code>@Published</code>，这意味着对于变数的任何修改，SwiftUI 将触发使用者介面的更新。而且， UI 更新需要在主伫列中执行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
+<p>当调用 Web API 时， 该操作是在背景伫列中执行。在此，<code>loans</code> 变数标记为 <code>@Published</code>，这意味着对于变数的任何修改，SwiftUI 将触发使用者介面的更新。而且， UI 更新需要在主伫列中执行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
 <h4 id="%E5%AF%A6%E4%BD%9C%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">实作使用者介面</h4>
 <p>现在，我们已经建立了用于取得贷款资料的类别，让我们继续进行使用者介面的实作。我猜想你可能忘了UI 的外观，请参考图 21.7，这是我们将要建立的 UI。</p>
 <figure id="fig21.7"><img src="images/json/swiftui-json-7.png" alt="图 21.7.　范例 App 的使用者介面"><figcaption>图 21.7.　范例 App 的使用者介面</figcaption></figure>
@@ -1337,7 +1337,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     }
 }
 </code></pre>
-<p>如果你已经阅读了第 10 章与第 11 章，则应该了解如何显示清单视图，并将其嵌入到导览视图中，这就是上面的代码所做的事情。在视图出现时将呼叫 <code>task</code> 函数，并且我们呼叫 <code>fetchLatestLoans()</code> 方法来从 Kiva 取得最新的贷款资料。</p>
+<p>如果你已经阅读了第 10 章与第 11 章，则应该了解如何显示清单视图，并将其嵌入到导览视图中，这就是上面的代码所做的事情。在视图出现时将调用 <code>task</code> 函数，并且我们调用 <code>fetchLatestLoans()</code> 方法来从 Kiva 取得最新的贷款资料。</p>
 <p>如果这是你第一次使用 .task ，它与 .onAppear 非常相似。 两者都允许你在视图出现时运行异步任务。 主要区别在于<code>.task</code>会在视图被销毁时自动取消任务。 在这种情况下更合适。</p>
 <p>现在，在预览中或模拟器上执行这个 App，你应该能够看到如图 21.9 所示的贷款纪录。</p>
 <figure id="fig21.9"><img src="images/json/swiftui-json-9.png" alt="图 21.9.　在清单视图中呈现贷款资料"><figcaption>图 21.9.　在清单视图中呈现贷款资料</figcaption></figure>
@@ -1448,7 +1448,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     }
 }
 </code></pre>
-<p>这将在右上角加入一个导览列按钮。当点击按钮后，我们切换 <code>filterEnabled</code> 的值来显示/ 隐藏筛选器视图。除此之外，我们呼叫 <code>filterLoans</code> 函数来筛选贷款项目。</p>
+<p>这将在右上角加入一个导览列按钮。当点击按钮后，我们切换 <code>filterEnabled</code> 的值来显示/ 隐藏筛选器视图。除此之外，我们调用 <code>filterLoans</code> 函数来筛选贷款项目。</p>
 <p>现在执行 App 来测试它，你应该会在导览列上看到一个筛选器按钮，点击它一次，将带出筛选器视图，然后你可以设定新的上限（例如：$500）。再次点击按钮，App 只会显示低于 $500的贷款纪录。</p>
 <figure id="fig21.11"><img src="images/json/swiftui-json-11.png" alt="图 21.11.　显示筛选器视图"><figcaption>图 21.11.　显示筛选器视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>

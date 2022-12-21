@@ -1092,7 +1092,7 @@ task.isComplete = isComplete
 </code></pre>
 <h4 id="%E4%BA%86%E8%A7%A3%E6%B7%BB%E5%8A%A0%E4%BA%8B%E9%A0%85%E8%A6%96%E5%9C%96">了解添加事项视图</h4>
 <p>现在让我和你讨论一下 <code>NewToDoView.swift</code> 中的代码，该代码用于让使用者添加新任务或待办事项。 你可以参考图 22.6 或简单地打开档案进行预览，看看该视图的外观。</p>
-<p><code>NewToDoView</code> 接受两个绑定：<em>isShow</em> 和 <em>todoItems</em>。 <code>isShow</code> 参数控制这个 <em>Add New Task</em> 视图是否应该出现在荧幕上。 <code>todoItems</code> 变数储存了对待办事项数组的参考。 我们需要方法呼叫者将绑定传递给 <code>todoItems</code>，以便我们可以将新事项加进数组。</p>
+<p><code>NewToDoView</code> 接受两个绑定：<em>isShow</em> 和 <em>todoItems</em>。 <code>isShow</code> 参数控制这个 <em>Add New Task</em> 视图是否应该出现在荧幕上。 <code>todoItems</code> 变数储存了对待办事项数组的参考。 我们需要方法调用者将绑定传递给 <code>todoItems</code>，以便我们可以将新事项加进数组。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> isShow: <span class="hljs-type">Bool</span>
 @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> todoItems: [<span class="hljs-type">ToDoItem</span>]
 
@@ -1112,7 +1112,7 @@ task.isComplete = isComplete
 
 .offset(y: isEditing ? -<span class="hljs-number">320</span> : <span class="hljs-number">0</span>)
 </code></pre>
-<p>点击 <em>Save</em> 按钮后，我们验证文字栏是否有输入文字。 如果使用者有输入文字，我们会建立一个新的 <code>ToDoItem</code> 并呼叫 <code>addTask</code> 方法将其附加到 <code>todoItems</code> 数组。相反，我们就什么都不做了。</p>
+<p>点击 <em>Save</em> 按钮后，我们验证文字栏是否有输入文字。 如果使用者有输入文字，我们会建立一个新的 <code>ToDoItem</code> 并调用 <code>addTask</code> 方法将其附加到 <code>todoItems</code> 数组。相反，我们就什么都不做了。</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
 
     <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.name.trimmingCharacters(<span class="hljs-keyword">in</span>: .whitespaces) == <span class="hljs-string">&quot;&quot;</span> {
@@ -1275,7 +1275,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>要将新记录加入数据库，你需要使用托管物件内容建立一个 <code>ToDoItem</code>，然后呼叫 <code>save()</code> 方法来储存更改。</p>
+<p>要将新记录加入数据库，你需要使用托管物件内容建立一个 <code>ToDoItem</code>，然后调用 <code>save()</code> 方法来储存更改。</p>
 <p>由于我们移除了 <code>todoItems</code> 绑定，我们需要更新预览代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">NewToDoView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1335,8 +1335,8 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>此函数接收一个索引集，该集储存要删除项目的索引。 要从数据库中删除项目，你可以呼叫<code>context</code>的<code>delete</code> 方法并指定要删除的项目。 最后，呼叫 <code>save()</code> 来执行更改。</p>
-<p>既然我们已经准备好了删除方法，那么我们应该在哪里呼叫它呢？ 将 <code>onDelete</code> 修饰器附加到列表视图的 <code>ForEach</code>，如下所示：</p>
+<p>此函数接收一个索引集，该集储存要删除项目的索引。 要从数据库中删除项目，你可以调用<code>context</code>的<code>delete</code> 方法并指定要删除的项目。 最后，调用 <code>save()</code> 来执行更改。</p>
+<p>既然我们已经准备好了删除方法，那么我们应该在哪里调用它呢？ 将 <code>onDelete</code> 修饰器附加到列表视图的 <code>ForEach</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
 
     <span class="hljs-type">ForEach</span>(todoItems) { todoItem <span class="hljs-keyword">in</span>

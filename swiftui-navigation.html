@@ -990,7 +990,7 @@
 <h4 id="%E3%80%8C%E8%BF%94%E5%9B%9E%E3%80%8D%E6%8C%89%E9%88%95%E7%9A%84%E5%9C%96%E7%89%87%E8%88%87%E9%A1%8F%E8%89%B2">“返回”按钮的图片与颜色</h4>
 <p>导览视图的“返回”（Back ）按钮预设为蓝色，其使用V 形图示（chevron icon ）来表示“返回”，如图 11.8 所示。透过使用 <code>UINavigationBarAppearance</code>  API，你可以自订颜色、甚至是“返回”按钮的指示器图片。</p>
 <figure id="fig11.8"><img src="images/navigation/swiftui-navigation-8.png" alt="图 11.8.　标准的“返回”按钮"><figcaption>图 11.8.　标准的“返回”按钮</figcaption></figure>
-<p>我们来看这个自定义是否如何工作的。要变更指示器的图片，你可以呼叫 <code>setBackIndicatorImage</code> 方法，并提供自己的 <code>UIImage</code>。这里，我设定系统图片为 <code>arrow.turn. up.left</code>。</p>
+<p>我们来看这个自定义是否如何工作的。要变更指示器的图片，你可以调用 <code>setBackIndicatorImage</code> 方法，并提供自己的 <code>UIImage</code>。这里，我设定系统图片为 <code>arrow.turn. up.left</code>。</p>
 <pre><code class="lang-swift">navBarAppearance.setBackIndicatorImage(<span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;arrow.turn.up.left&quot;</span>), transitionMaskImage: <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;arrow.turn.up.left&quot;</span>))
 </code></pre>
 <p>对于“返回”按钮的颜色，你可以透过设置 <code>accentColor</code> 属性来更改它，如下所示：</p>
@@ -1054,10 +1054,10 @@
     }
 }
 </code></pre>
-<p>SwiftUI 内建的环境值很广泛。要解除目前视图，并返回至前一个视图。我们取得  <code>.dismiss</code> 环境值，然后呼叫 <code>dismiss()</code> 函数。请注意 <code>.dismiss</code> 是 iOS 15（或以上）新加入的环境值，如果你的 App 要支援比较旧的iOS 版本，你可以使用另一个环境值（即 <code>.presentationMode</code>）：</p>
+<p>SwiftUI 内建的环境值很广泛。要解除目前视图，并返回至前一个视图。我们取得  <code>.dismiss</code> 环境值，然后调用 <code>dismiss()</code> 函数。请注意 <code>.dismiss</code> 是 iOS 15（或以上）新加入的环境值，如果你的 App 要支援比较旧的iOS 版本，你可以使用另一个环境值（即 <code>.presentationMode</code>）：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.presentationMode) <span class="hljs-keyword">var</span> presentationMode
 </code></pre>
-<p>之后，你可以利用以下代码呼叫<code>presentationMode</code> 的 <code>dismiss()</code> 函数：</p>
+<p>之后，你可以利用以下代码调用<code>presentationMode</code> 的 <code>dismiss()</code> 函数：</p>
 <pre><code class="lang-swift">presentationMode.wrappedValue.dismiss()
 </code></pre>
 <p>你在预览画布再测试 App，并选取其中一家餐厅，你会见到一个带有餐厅名的返回按钮。点击返回按钮，视图将导览回主画面。</p>
@@ -1070,7 +1070,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">建立细节视图</h3>
 <p>你完成作业了吗？细节视图比我们之前建立的视图更复杂，我们来看看如何建立它。</p>
 <p>为了让代码更易编写，我们将为它建立一个单独的档案，而不是在 ContentView.swift 档中建立细节视图。在专案导览器中，右键点击 <code>SwiftUINavigation</code> 资料夹，选择“New File...”，接着选取“SwiftUI View”模板，并将档案命名为“ArticleDetailView.swift”。</p>
-<p>由于细节视图将显示文章的详细资讯，我们需要这个属性来让呼叫者传送文章。因此，在 <code>ArticleDetailView</code> 中宣告一个 <code>article</code> 属性： </p>
+<p>由于细节视图将显示文章的详细资讯，我们需要这个属性来让调用者传送文章。因此，在 <code>ArticleDetailView</code> 中宣告一个 <code>article</code> 属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> article: <span class="hljs-type">Article</span>
 </code></pre>
 <p>接着，更新 <code>body</code> 如下，以布局细节视图： </p>
@@ -1225,7 +1225,7 @@
 <p>接下来，在我们的客制化“返回”按钮的 <code>action</code> 中，插入下列这行代码： </p>
 <pre><code class="lang-swift">dismiss()
 </code></pre>
-<p>这里，我们呼叫 <code>dismiss</code> 方法，以在点击“返回”按钮时解除细节视图。现在，你可以执行 App 并再次测试它，你应该能够在内容视图与细节视图之间进行导览。</p>
+<p>这里，我们调用 <code>dismiss</code> 方法，以在点击“返回”按钮时解除细节视图。现在，你可以执行 App 并再次测试它，你应该能够在内容视图与细节视图之间进行导览。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>导览 UI 在行动 App 中非常常见，理解我在本章所介绍的内容非常重要。如果你完全理解了内容，即使资料是静态的，你也可以建立一个基于内容的简单 App。</p>
 <p>在本章所准备的范例档中，有完整的专案可供下载： </p>

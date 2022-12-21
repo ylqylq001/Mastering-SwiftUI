@@ -895,12 +895,12 @@
 <p>如此，预览画布即会在荧幕上显示  <em>Stay Hungry. Stay Foolish.</em> 。这是建立一个文字视图的基本语法。你可以任意变更文字内容，画布会即时显示变更的结果。</p>
 <figure id="fig2.3"><img src="images/text/swiftui-text-3.png" alt="图 3. 变更文字"><figcaption>图 3. 变更文字</figcaption></figure>
 <h3 id="%E8%AE%8A%E6%9B%B4%E5%AD%97%E9%AB%94%E8%88%87%E9%A1%8F%E8%89%B2">变更字体与颜色</h3>
-<p>在 SwiftUI，你可以呼叫一些方法，也就是所谓的修饰器（<em>Modifiers</em> ）来变更属性（例如颜色）。譬如说，你想要粗体字。你可以使用名为 <code>fontWeight</code> 的修饰器，并指定你想要的字体粗细（例如 <code>.bold</code> ）：</p>
+<p>在 SwiftUI，你可以调用一些方法，也就是所谓的修饰器（<em>Modifiers</em> ）来变更属性（例如颜色）。譬如说，你想要粗体字。你可以使用名为 <code>fontWeight</code> 的修饰器，并指定你想要的字体粗细（例如 <code>.bold</code> ）：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>).fontWeight(.bold)
 </code></pre>
 <p>你可以使用点语法（dot syntax）来存取修饰器。当你输入一个点符号时，Xcode 则出现你可能会用到的修饰器或值。举例来说，当你在 <code>fontWeight</code> 修饰器，输入一个点符号时，你会见到不同的字体粗细选项，你可以选取 <code>bold</code> 来使用粗体字。如果你想要更粗一点，则可以选取 <code>heavy</code> 或 <code>black</code> 。</p>
 <figure id="fig2.4"><img src="images/text/swiftui-text-4.png" alt="图 4. 挑选你喜爱的字体粗细"><figcaption>图 4. 挑选你喜爱的字体粗细</figcaption></figure>
-<p>透过 <code>fontWeight</code>  修饰器的呼叫，并选取  <code>.bold</code> 的值，它会回传一个加上粗体字的视图。 SwiftUI 有趣的是，你可以进一步串连其他修饰器。譬如说，你想要大一点的粗体字，程式可以修改如下：</p>
+<p>透过 <code>fontWeight</code>  修饰器的调用，并选取  <code>.bold</code> 的值，它会回传一个加上粗体字的视图。 SwiftUI 有趣的是，你可以进一步串连其他修饰器。譬如说，你想要大一点的粗体字，程式可以修改如下：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>).fontWeight(.bold).font(.title)
 </code></pre>
 <p>因为可能会串连多个修饰器，我们通常会将以上的程式写成如下的格式：</p>

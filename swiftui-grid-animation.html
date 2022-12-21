@@ -992,7 +992,7 @@
 <figure id="fig34.5"><img src="images/gridanimation/swiftui-gridanimation-5.png" alt="图 34.5. 所选照片将添加到Dock中"><figcaption>图 34.5. 所选照片将添加到Dock中</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-scrollviewreader-%E7%A7%BB%E5%8B%95%E6%BB%BE%E5%8B%95%E8%A6%96%E5%9C%96">使用 ScrollViewReader 移动滚动视图</h3>
 <p>动画效果应该不错吧？ 但是你是否注意到App还有一个小问题？ 当你不断将照片加入至Dock，你会发现Dock是不会自动滚动至最近选择的照片。 如果你选择的照片超过 4 张，则需要自己滚动Dock以显示其他选定的照片。</p>
-<p>我们如何修复这个错误？ 在 iOS 14 中，Apple 引入了一个名为 <code>ScrollViewReader</code> 的新组件。 顾名思义，此阅读器要与 <code>ScrollView</code> 一起使用。 它允许开发者以编程方式将滚动视图（ScrollView）移动到特定位置。 要使用 <code>ScrollViewReader</code>，请将它包裹 <code>ScrollView</code> 。 每个子视图都应该有自己的ID。 之后，你就可以使用指定 ID 并呼叫 <code>ScrollViewProxy</code> 的 <code>scrollTo</code> 函数来将滚动视图移动到该特定位置。</p>
+<p>我们如何修复这个错误？ 在 iOS 14 中，Apple 引入了一个名为 <code>ScrollViewReader</code> 的新组件。 顾名思义，此阅读器要与 <code>ScrollView</code> 一起使用。 它允许开发者以编程方式将滚动视图（ScrollView）移动到特定位置。 要使用 <code>ScrollViewReader</code>，请将它包裹 <code>ScrollView</code> 。 每个子视图都应该有自己的ID。 之后，你就可以使用指定 ID 并调用 <code>ScrollViewProxy</code> 的 <code>scrollTo</code> 函数来将滚动视图移动到该特定位置。</p>
 <figure id="fig34.6"><img src="images/gridanimation/swiftui-gridanimation-6.png" alt="图 34.6. 了解 ScrollViewReader"><figcaption>图 34.6. 了解 ScrollViewReader</figcaption></figure>
 <p>现在让我们回到范例App。 要以编程方式滚动Dock的<code>ScrollView</code>，我们首先要给每张照片指定一个ID。就是透过这个 ID，我们才可以指定滚动位置。 <code>scrollTo</code> 函数内的参数就是指这个ID。 由于每张照片本身都已经有一个ID，我们就直接使用它吧。</p>
 <p>要在 Dock 中设置 <code>Image</code> 视图的ID，请附加 <code>.id</code> 修饰器：</p>
@@ -1033,7 +1033,7 @@
     scrollProxy.scrollTo(id)
 })
 </code></pre>
-<p>我们使用<code>.onChange</code>来侦测<code>selectedPhotoId</code>的变动。 每当使用者选择照片时，我们就使用该照片 ID 并呼叫<code>scrollTo</code>，这样滚动视图就会滚动到该相片位置。而最重要的是，确保 Dock 永远都显示最近选择的照片。 你可以再次运行App进行试一试。</p>
+<p>我们使用<code>.onChange</code>来侦测<code>selectedPhotoId</code>的变动。 每当使用者选择照片时，我们就使用该照片 ID 并调用<code>scrollTo</code>，这样滚动视图就会滚动到该相片位置。而最重要的是，确保 Dock 永远都显示最近选择的照片。 你可以再次运行App进行试一试。</p>
 <figure id="fig34.7"><img src="images/gridanimation/swiftui-gridanimation-7.gif" alt="图 33.7. 自动滚动Dock"><figcaption>图 33.7. 自动滚动Dock</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>在本章中，我们继续探讨 <code>matchedGeometryEffect</code> 的用法，并使用这个修饰器创建另一种视图转换效果。 只要活用 <code>matchedGeometryEffect</code> ，你可以轻易加入过场动画并改善App的使用者体验。 我们还试验了 <code>ScrollViewReader</code> 以编程方式移动滚动视图。</p>

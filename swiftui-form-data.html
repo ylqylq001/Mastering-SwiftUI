@@ -995,7 +995,7 @@
     <span class="hljs-keyword">self</span>.maxPriceLevel = <span class="hljs-keyword">self</span>.settingStore.maxPriceLevel
 }
 </code></pre>
-<p>当视图出现时，<code>onAppear</code> 修饰器会被呼叫，因此我们在它的闭包中从预设系统载入使用者设定。</p>
+<p>当视图出现时，<code>onAppear</code> 修饰器会被调用，因此我们在它的闭包中从预设系统载入使用者设定。</p>
 <p>在测试其变化之前，你必须更新 <code>SettingView_Previews</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SettingView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1108,7 +1108,7 @@
     }
 }
 </code></pre>
-<p>这里，我们呼叫 <code>environmentObject</code> 方法，将设定储存区注入至环境。现在，设定储存区的实例可用于 App 内的所有视图。换句话说，设定与清单视图皆可自动存取它了。</p>
+<p>这里，我们调用 <code>environmentObject</code> 方法，将设定储存区注入至环境。现在，设定储存区的实例可用于 App 内的所有视图。换句话说，设定与清单视图皆可自动存取它了。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E7%AF%A9%E9%81%B8%E9%81%B8%E9%A0%85">实作筛选选项</h3>
 <p>现在，我们已经实作了一个可以让所有视图存取的通用设定储存区。最棒的是，只要设定储存区中有任何更改，它会自动通知监控更新的视图。尽管你看不出任何的视觉差异，但是当你更新设定画面的选项时，设定储存区会将变更通知至清单视图。</p>
 <p>我们最终任务是实作筛选与排序选项，以只显示和使用者偏好相配的餐厅。我们从实作下列两个筛选选项来开始： </p>
@@ -1121,7 +1121,7 @@
     <span class="hljs-keyword">return</span> (!<span class="hljs-keyword">self</span>.settingStore.showCheckInOnly || restaurant.isCheckIn) &amp;&amp; (restaurant.priceLevel &lt;= <span class="hljs-keyword">self</span>.settingStore.maxPriceLevel)
 }
 </code></pre>
-<p>该函数带入一个餐厅物件，并告诉呼叫者是否应该显示餐厅。在上列的代码中，我们检查“Show Check-in Only”选项是否被选取，并检验指定餐厅的价位级别。</p>
+<p>该函数带入一个餐厅物件，并告诉调用者是否应该显示餐厅。在上列的代码中，我们检查“Show Check-in Only”选项是否被选取，并检验指定餐厅的价位级别。</p>
 <p>接下来，使用 <code>if</code> 语句包裹 <code>BasicImageRow</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.shouldShowItem(restaurant: restaurant) {
         <span class="hljs-type">BasicImageRow</span>(restaurant: restaurant)
@@ -1132,7 +1132,7 @@
             }
 }
 </code></pre>
-<p>这里，我们首先呼叫刚才实作的 <code>shouldShowItem</code> 函数，来检查是否应该显示餐厅。</p>
+<p>这里，我们首先调用刚才实作的 <code>shouldShowItem</code> 函数，来检查是否应该显示餐厅。</p>
 <p>现在按 Play 在模拟器执行 App 并快速测试。在设定画面中，设定“Show Check-in Only”选项为“ON”， 并配置价位级别选项，以显示价位级别为 3（即$$$ ）或以下的餐厅，如图 14.4 所示。当你点击“Save”按钮后，清单视图应会自动更新（使用动画），并显示筛选后的纪录。</p>
 <figure id="fig14.4"><img src="images/formdata/swiftui-formdata-4.png" alt="图 14.4.　当你更改筛选偏好时，清单视图现在会更新其项目"><figcaption>图 14.4.　当你更改筛选偏好时，清单视图现在会更新其项目</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%8E%92%E5%BA%8F%E9%81%B8%E9%A0%85">实作排序选项</h3>

@@ -952,7 +952,7 @@
     )
 </code></pre>
 <p>我们只在上列的代码中做了一些修改。首先，加入了 <code>.opacity</code>修饰器。当侦测到点击事件后，我们将不透明度值设定为 <code>0.4</code>，以使图片变暗。</p>
-<p>其次是 <code>LongPressGesture</code> 的 <code>updating</code> 方法。执行长按手势的期间，将呼叫此方法，并接收 value、state 与transaction 等三个参数： </p>
+<p>其次是 <code>LongPressGesture</code> 的 <code>updating</code> 方法。执行长按手势的期间，将调用此方法，并接收 value、state 与transaction 等三个参数： </p>
 <ul>
 <li>“value” 参数是手势的目前状态。这个值会依照手势而有所不同，但对于长按手势，<code>true</code> 值表示侦测到点击事件。</li>
 <li>“state”参数实际上是一个 in-out参数，可以让你更新 <code>longPressTap</code> 属性的值。在上列的代码中，我们设定 <code>state</code> 的值为 <code>currentState</code>。换句话说，<code>longPressTap</code> 属性始终追踪长按手势的最新状态。</li>
@@ -1011,7 +1011,7 @@
 </code></pre>
 <p>我们在代码中做了一些更改： </p>
 <ol>
-<li>除了 <code>update</code> 函数之外，我们还实作了 <code>onEnded</code> 函数，其在拖曳手势结束时呼叫。在闭包中，我们加入拖曳偏移来计算图片的新位置。</li>
+<li>除了 <code>update</code> 函数之外，我们还实作了 <code>onEnded</code> 函数，其在拖曳手势结束时调用。在闭包中，我们加入拖曳偏移来计算图片的新位置。</li>
 <li><code>.offset</code> 修饰器也已更新，如此我们将目前的位置列入计算。</li>
 </ol>
 <p>现在，当你执行专案并拖曳图片时，拖曳结束后，图片会停留在最后的位置，如图 17.4 所示。</p>
@@ -1072,7 +1072,7 @@
 <p><code>sequenced</code> 关键字可将长按与拖曳手势连结在一起。我们告诉 SwiftUI，<code>LongPressGesture</code> 应该在<code>DragGesture</code> 之前发生。</p>
 <p><code>updating</code> 与 <code>onEnded</code> 函数中的代码看起来非常相似，不过 <code>value</code> 参数现在实际上包含了两个手势（即长按与拖曳），这就是为何我们使用 <code>switch</code> 叙述来区分手势。你可以使用 <code>.first</code> 与 <code>.second</code> case 来找出要处理的手势。由于我们应该要在拖曳手势之前识别长按手势，因此这里的第一个手势是长按手势。在代码中，我们只印出“点击”（Tapping ）讯息供你参考。</p>
 <p>当长按手势确认之后，我们会进到 <code>.second</code>  case。在这里，我们取出拖曳资料，并以对应的位移来更新<code>dragOffset</code>。</p>
-<p>当拖曳结束后，将呼叫 <code>onEnded</code> 函数。同样的，我们透过计算拖曳资料（也就是 <code>.second</code> case ）来更新最终的位置。</p>
+<p>当拖曳结束后，将调用 <code>onEnded</code> 函数。同样的，我们透过计算拖曳资料（也就是 <code>.second</code> case ）来更新最终的位置。</p>
 <p>现在，你可以测试手势组合了。在预览画布中，使用 debug 来执行 App，如此你可以在主控台中看到讯息。你必须按住星形图片至少一秒钟，才能拖曳它。</p>
 <figure id="fig17.5"><img src="images/gestures/swiftui-gestures-5.gif" alt="图 17.5.　只有当使用者长按图片至少一秒时，才能开始拖曳"><figcaption>图 17.5.　只有当使用者长按图片至少一秒时，才能开始拖曳</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%88%89%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">使用枚举重构代码</h3>

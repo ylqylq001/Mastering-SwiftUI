@@ -1337,7 +1337,7 @@
 <pre><code class="lang-swift">.disabled(<span class="hljs-keyword">self</span>.viewState == .half)
 </code></pre>
 <p>当细节视图在半开状态，我们关闭滚动视图的使用者互动行为。</p>
-<p>现在，我们来实作刚才讨论的界限值。正如你之前所学到的，当拖曳结束时，SwiftUI 会自动呼叫 <code>onEnded</code> 函数。因此，我们将处理此函数中的界限值，现在更新 <code>.gesture</code> 修饰器如下： </p>
+<p>现在，我们来实作刚才讨论的界限值。正如你之前所学到的，当拖曳结束时，SwiftUI 会自动调用 <code>onEnded</code> 函数。因此，我们将处理此函数中的界限值，现在更新 <code>.gesture</code> 修饰器如下： </p>
 <pre><code class="lang-swift">.gesture(<span class="hljs-type">DragGesture</span>()
     .updating(<span class="hljs-keyword">self</span>.$dragState, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
         state = .dragging(translation: value.translation)
@@ -1400,7 +1400,7 @@
 }
 .frame(height: <span class="hljs-number">0</span>)
 </code></pre>
-<p>这不是最后的代码，我只是想要告诉你如何使用 <code>GeometryReader</code> 来读取滚动偏移量。<code>GeometryReader</code> 的闭包中，我们可以使用 <code>scrollViewProxy</code>，呼叫 <code>frame</code> 函数并取得 <code>minY</code>的值来计算偏移量。在呼叫 <code>frame</code> 函数时，必须传递你期望的座标空间。这里我们自己定义规范滚动视图的座标空间。</p>
+<p>这不是最后的代码，我只是想要告诉你如何使用 <code>GeometryReader</code> 来读取滚动偏移量。<code>GeometryReader</code> 的闭包中，我们可以使用 <code>scrollViewProxy</code>，调用 <code>frame</code> 函数并取得 <code>minY</code>的值来计算偏移量。在调用 <code>frame</code> 函数时，必须传递你期望的座标空间。这里我们自己定义规范滚动视图的座标空间。</p>
 <p>为了定义自己的座标空间，如下，加上 <code>.coordinateSpace</code> 修饰器至 <code>ScrollView</code>：</p>
 <pre><code class="lang-swift">.coordinateSpace(name: <span class="hljs-string">&quot;scrollview&quot;</span>)
 </code></pre>

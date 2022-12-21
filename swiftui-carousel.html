@@ -1024,7 +1024,7 @@
     : <span class="hljs-built_in">nil</span>
 )
 </code></pre>
-<p>当你拖动水平堆栈时，App会自动呼叫<code>updating</code>函数。 我们将水平拖动距离存放到 <code>dragOffset</code> 变数中。 当拖动结束时，就检查拖动距离是否超过荧幕宽度的 65%，并计算新的索引（index）。 当计算了 <code>newIndex</code>，我们会先确定它是否在 <code>sampleTrips</code> 数组的范围内。 最后，我们将 <code>newIndex</code> 的值指定至 <code>currentTripIndex</code>。 然后， SwiftUI 会自动更新 UI 并显示相应的卡片视图。</p>
+<p>当你拖动水平堆栈时，App会自动调用<code>updating</code>函数。 我们将水平拖动距离存放到 <code>dragOffset</code> 变数中。 当拖动结束时，就检查拖动距离是否超过荧幕宽度的 65%，并计算新的索引（index）。 当计算了 <code>newIndex</code>，我们会先确定它是否在 <code>sampleTrips</code> 数组的范围内。 最后，我们将 <code>newIndex</code> 的值指定至 <code>currentTripIndex</code>。 然后， SwiftUI 会自动更新 UI 并显示相应的卡片视图。</p>
 <p>请注意，我们有一个启用拖动手势的条件。 点击卡片视图时，没有手势识别器。</p>
 <p>要在拖动过程中移动堆栈视图，我们必须再进行一项更改。 附加一个额外的 <code>.offset</code> 修饰器到 <code>HStack</code>（紧跟在前一个 .offset 之后），如下所示：</p>
 <pre><code class="lang-swift">.offset(x: <span class="hljs-keyword">self</span>.dragOffset)

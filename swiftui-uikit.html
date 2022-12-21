@@ -953,7 +953,7 @@
 <p>该代码与上一节中显示的代码类似，但有以下区别：</p>
 <ol>
 <li>当建立<code>UISearchBar</code>时，我们并没有使用预设外观，而是使用最简单（<code>.minimal</code>）的样式，并停用自动大写和更新其占位符的文字。</li>
-<li>我们添加了一个绑定来存放使用者于搜寻栏位中的搜寻文字。 <code>makeUIView</code> 方法负责建立和初始化视图，而 <code>updateUIView</code> 方法则负责更新 UIKit 视图的状态。 每当 SwiftUI 中的状态发生变化时，框架都会自动呼叫 <code>updateUIView</code> 方法来更新视图的配置。 在这种情况下，每当你在 SwiftUI 中更新搜索文字时，都会呼叫该方法并更新<code>UISearchBar</code>的<code>text</code>。</li>
+<li>我们添加了一个绑定来存放使用者于搜寻栏位中的搜寻文字。 <code>makeUIView</code> 方法负责建立和初始化视图，而 <code>updateUIView</code> 方法则负责更新 UIKit 视图的状态。 每当 SwiftUI 中的状态发生变化时，框架都会自动调用 <code>updateUIView</code> 方法来更新视图的配置。 在这种情况下，每当你在 SwiftUI 中更新搜索文字时，都会调用该方法并更新<code>UISearchBar</code>的<code>text</code>。</li>
 </ol>
 <p>现在切换到<code>ContentView.swift</code>。 宣告一个状态变数来存放搜索文字：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> searchText = <span class="hljs-string">&quot;&quot;</span>
@@ -967,7 +967,7 @@
 <h3 id="%E8%99%95%E7%90%86%E6%90%9C%E7%B4%A2%E6%96%87%E5%AD%97">处理搜索文字</h3>
 <p>如你所见，在 SwiftUI App中显示 UIKit 视图并不是一件很复杂的事。 虽然这样说，要样搜索栏运作就是另一回事。 目前，你可以在搜索字段中输入，但App尚未能执行查询。 这个App应该在使用者输入搜索文字时即时搜索待办事项。</p>
 <p>那么，我们如何知道用户正在输入搜索文字呢？</p>
-<p>搜索栏有一个名为<code>UISearchBarDelegate</code>的配套协议。 该协议提供了多种管理搜索文字的方法。 特别是，每当用户更改搜索文字时，都会呼叫以下方法：</p>
+<p>搜索栏有一个名为<code>UISearchBarDelegate</code>的配套协议。 该协议提供了多种管理搜索文字的方法。 特别是，每当用户更改搜索文字时，都会调用以下方法：</p>
 <pre><code class="lang-swift">optional <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">searchBar</span><span class="hljs-params">(<span class="hljs-number">_</span> searchBar: UISearchBar, textDidChange searchText: String)</span>
 </span></code></pre>
 <p>为了使搜索栏运作，我们必须采用<code>UISearchBarDelegate</code> 协议。如你没有任何UIKit开发经验， 这就是复杂的地方。</p>
@@ -993,7 +993,7 @@
     }
 }
 </code></pre>
-<p><code>makeCoordinator</code> 方法只回一个 <code>Coordinator</code> 的实体。 <code>Coordinator</code>采用<code>UISearchBarDelegate</code> 协议并实现<code>searchBar(_:textDidChange:)</code> 方法。 如前所述，每次用户更改搜寻文字时都会呼叫此方法。 因此，当有更新时，我们透过更新 <code>text</code> 绑定将其传回 SwiftUI。 我特意在方法里加了一个<code>print</code>语句，方便以后我们测试app的时候可以看到变化。</p>
+<p><code>makeCoordinator</code> 方法只回一个 <code>Coordinator</code> 的实体。 <code>Coordinator</code>采用<code>UISearchBarDelegate</code> 协议并实现<code>searchBar(_:textDidChange:)</code> 方法。 如前所述，每次用户更改搜寻文字时都会调用此方法。 因此，当有更新时，我们透过更新 <code>text</code> 绑定将其传回 SwiftUI。 我特意在方法里加了一个<code>print</code>语句，方便以后我们测试app的时候可以看到变化。</p>
 <p>现在我们有一个采用了 <code>UISearchBarDelegate</code> 协议的 Coordinator，我们需要再做一个修改。 在 <code>makeUIView</code> 方法中，加入以下一行代码，将协调器指定给搜索栏：</p>
 <pre><code class="lang-swift">searchBar.delegate = context.coordinator
 </code></pre>
@@ -1014,7 +1014,7 @@
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">true</span>
 }
 </code></pre>
-<p>单击取消按钮时触发第一种方法。 在代码中，我们呼叫 <code>resignFirstResponder()</code> 来关闭键盘并告诉搜索栏结束编辑。 第二种方法确保在使用者点击搜寻文字时出现 <em>Cancel</em> 按钮。</p>
+<p>单击取消按钮时触发第一种方法。 在代码中，我们调用 <code>resignFirstResponder()</code> 来关闭键盘并告诉搜索栏结束编辑。 第二种方法确保在使用者点击搜寻文字时出现 <em>Cancel</em> 按钮。</p>
 <p>你可以在模拟器中运行App来试试这个修改。 在编辑时，点击 <em>Cancel</em> 按钮应该会自动关闭软体键盘。</p>
 <h3 id="%E6%90%9C%E5%B0%8B%E6%96%87%E5%AD%97">搜寻文字</h3>
 <p>我们现在可以检索搜寻文字并处理了取消按钮。 可惜，搜索栏仍然无法正常使用。 这就是我们将在本节中讲解的内容。 对于这个App，有几种方法可以执行搜索：</p>
@@ -1027,7 +1027,7 @@
 <p>在 Swift 中，你可以使用 <code>filter</code> 函数以回圈来重复查询一个集合，然后回传一个内含符合搜寻条件项目的新数组。 以下是一个例子：</p>
 <pre><code class="lang-swift">todoItems.<span class="hljs-built_in">filter</span>({ $<span class="hljs-number">0</span>.name.<span class="hljs-built_in">contains</span>(<span class="hljs-string">&quot;Buy&quot;</span>) })
 </code></pre>
-<p><code>filter</code> 函数内的其中一个参数是给呼叫者以闭包形式指定过滤条件。 举例，以上的代码就会搜出所有包含“Buy”字名称的项目。</p>
+<p><code>filter</code> 函数内的其中一个参数是给调用者以闭包形式指定过滤条件。 举例，以上的代码就会搜出所有包含“Buy”字名称的项目。</p>
 <p>To implement the search, we can replace the <code>ForEach</code> loop of the <code>List</code> like this:为了实作搜寻功能，我们可以像这样更改 <code>List</code> 的 <code>ForEach</code> 回圈：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ForEach</span>(todoItems.<span class="hljs-built_in">filter</span>({ searchText.isEmpty ? <span class="hljs-built_in">true</span> : $<span class="hljs-number">0</span>.name.<span class="hljs-built_in">contains</span>(searchText) })) { todoItem <span class="hljs-keyword">in</span>
     <span class="hljs-type">ToDoListRow</span>(todoItem: todoItem)

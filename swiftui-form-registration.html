@@ -1111,7 +1111,7 @@
     .assign(to: \.isUsernameLengthValid, on: <span class="hljs-keyword">self</span>)
 </code></pre>
 <p>Combine 框架提供两个内建的订阅者：“sink”与“assign”。 <code>sink</code> 建立一个通用订阅者来接收值，<code>assign</code> 则让你建立另一种类型的订阅者，用于更新物件的特定属性。举例而言，它将验证结果（true/false ）指定给 <code>isUsernameLengthValid</code>。</p>
-<p>我将深入说明并逐行检视上列的代码。<code>$username</code> 是我们想要监听的变更值的来源。由于我们订阅 UI 事件的变化，因此呼叫 <code>receive(on:)</code> 函数来确保订阅者在主执行绪（即 <code>RunLoop.main</code> ）上接收到值。</p>
+<p>我将深入说明并逐行检视上列的代码。<code>$username</code> 是我们想要监听的变更值的来源。由于我们订阅 UI 事件的变化，因此调用 <code>receive(on:)</code> 函数来确保订阅者在主执行绪（即 <code>RunLoop.main</code> ）上接收到值。</p>
 <p>发布者传送的值是使用者所输入的使用者名称，不过订阅者感兴趣的是使用者名称的长度是否能够满足最低要求。这里，<code>map</code> 函数被认为是Combine 中的运算子，它接受输入、处理输入，并将输入转换为订阅者所期望的内容，因此我们在上列的代码中做了下列事情：</p>
 <ol>
 <li>我们将使用者名称作为输入。</li>
@@ -1220,7 +1220,7 @@ $password
 }
 </code></pre>
 <p>以上的代码几乎与前面章节的代码相同。要使用 Combine，你需要先汇入 Combine 框架。在 <code>init()</code> 方法中，我们初始化所有的订阅者来监听文字栏位的值的变更，并执行相应的验证。</p>
-<p>代码与我们之前讨论的代码几乎相同，但你可能注意到一件事，即 <code>cancellableSet</code> 变数。对于每一个订阅者，我们在最后呼叫 <code>store</code> 函数。</p>
+<p>代码与我们之前讨论的代码几乎相同，但你可能注意到一件事，即 <code>cancellableSet</code> 变数。对于每一个订阅者，我们在最后调用 <code>store</code> 函数。</p>
 <p>这些是什么呢？ </p>
 <p><code>assign</code> 函数建立订阅者，并回传一个可取消的实例。你可以使用该实例在适当的时间取消订阅。<code>store</code> 函数可让我们将可取消的的参照储存到一个集合中，以便稍后的清理。如果你不储存这个参照，则 App 可能出现记忆体泄漏的问题。</p>
 <p>那么，这个范例何时会进行清理呢？由于 <code>cancellableSet</code> 被定义为该类别的属性，因此当类别被取消初始化时，将会对订阅进行清理及取消。</p>

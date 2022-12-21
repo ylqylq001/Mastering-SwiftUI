@@ -921,7 +921,7 @@
 </code></pre>
 <p>当我们宣告属性为一个状态变数时，SwiftUI 就会管理isPlaying 的储存区，并监听其值的变化。当 <code>isPlaying</code> 的值更改时，SwiftUI 会参照 <code>isPlaying</code>状态，来自动重新计算视图。这里的视图指的是 <code>Button</code>。</p>
 <blockquote>
-<p>只能从视图的 body（或者从被它呼叫的函数）内部存取一个状态属性。由于这个缘故，你应该宣告你的状态属性为 private，以防止你的视图的用户端存取它。</p>
+<p>只能从视图的 body（或者从被它调用的函数）内部存取一个状态属性。由于这个缘故，你应该宣告你的状态属性为 private，以防止你的视图的用户端存取它。</p>
 <p>- Apple 的官方文件 (<a href="https://developer.apple.com/documentation/swiftui/state" target="_blank">https://developer.apple.com/documentation/swiftui/state</a>)</p>
 </blockquote>
 <p>我们还没有实作按钮的动作。因此，修改代码如下： </p>
@@ -934,7 +934,7 @@
     .foregroundColor(isPlaying ? .red : .green)
 }
 </code></pre>
-<p>在 <code>action</code> 闭包（closure ）中，我们呼叫 <code>toggle()</code> 方法来将布林值从 <code>false</code> 切换为 <code>true</code>，或者从 <code>true</code> 切换为 <code>false</code>。在预览画布中，试着在“播放”与“停止”按钮之间切换，如图 7.4 所示。</p>
+<p>在 <code>action</code> 闭包（closure ）中，我们调用 <code>toggle()</code> 方法来将布林值从 <code>false</code> 切换为 <code>true</code>，或者从 <code>true</code> 切换为 <code>false</code>。在预览画布中，试着在“播放”与“停止”按钮之间切换，如图 7.4 所示。</p>
 <figure id="fig7.4"><img src="images/state/swiftui-state-4.png" alt="图 7.4　在“播放”与“停止”按钮之间切换"><figcaption>图 7.4　在“播放”与“停止”按钮之间切换</figcaption></figure>
 <p>你是否注意到，当你在按钮之间切换时，SwiftUI 会渲染一个淡入淡出动画？这个动画是内建且自动为你产生的。我们将在后续的章节中讨论更多有关动画的内容。不过，如你所见，SwiftUI 让所有的开发者对UI 动画可立即上手。</p>
 <h3 id="%E4%BD%9C%E6%A5%AD-1">作业 #1</h3>
@@ -973,7 +973,7 @@
 <p>你应该会注意到 <code>counter</code> 变数以 <code>@Binding</code> 来做标注。当你建立一个 <code>CounterButton</code> 实例时，counter 会加上一个 $ 符号作为前缀。</p>
 <p>这是什么意思呢？ </p>
 <p>我们取出按钮至独立的视图后，<code>CounterButton</code> 变成 <code>ContentView</code> 的子视图。现在，计数器递增是在<code>CounterButton</code> 视图中完成的，而不是在 <code>ContentView</code> 中。<code>CounterButton</code> 必须在 <code>ContentView</code> 中有一个管理状态变数的方式。</p>
-<p>这个 <code>@Binding</code> 关键字指示呼叫者必须提供状态变数的绑定。这样做就如同建立了 <code>ContentView</code> 中的 <code>counter</code> 以及 <code>CounterButton</code> 中的 <code>counter</code> 之间的双向连接。更新 <code>CounterButton</code> 视图中的 <code>counter</code>，会将其值传送回 <code>ContentView</code> 中的 <code>counter</code> 状态。</p>
+<p>这个 <code>@Binding</code> 关键字指示调用者必须提供状态变数的绑定。这样做就如同建立了 <code>ContentView</code> 中的 <code>counter</code> 以及 <code>CounterButton</code> 中的 <code>counter</code> 之间的双向连接。更新 <code>CounterButton</code> 视图中的 <code>counter</code>，会将其值传送回 <code>ContentView</code> 中的 <code>counter</code> 状态。</p>
 <figure id="fig7.8"><img src="images/state/swiftui-state-8.png" alt="图 7.8　了解绑定"><figcaption>图 7.8　了解绑定</figcaption></figure>
 <p>那么 <code>$</code>  符号是什么呢?  在 SwiftUI 中， 你使用 $ 前缀运算子从状态变数取得绑定。</p>
 <p>如果你了解绑定的原理，则可以继续建立其他两个按钮，并使用 <code>VStack</code> 来垂直对齐， 如下所示： </p>

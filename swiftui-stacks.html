@@ -1087,7 +1087,7 @@
 <p>这里我们为售价区块的标题、售价、文字与背景颜色加入变数。另外，我们在代码中使用这些变数来更新标题、售价、文字与背景颜色。</p>
 <p>当变更完成后，你会见到一个错误，如图 4.20 所示，指出 <code>PricingView</code> 少了一些参数。</p>
 <figure id="fig4.20"><img src="images/stacks/swiftui-stacks-20.png" alt="图 4.20.　Xcode 指出 PricingView 中的错误"><figcaption>图 4.20.　Xcode 指出 PricingView 中的错误</figcaption></figure>
-<p>之前，我们在视图中导入了四个变数。呼叫 <code>PricingView</code> 时，我们现在应该能提供这些参数的值，因此将<code>PricingView()</code> 更改如下： </p>
+<p>之前，我们在视图中导入了四个变数。调用 <code>PricingView</code> 时，我们现在应该能提供这些参数的值，因此将<code>PricingView()</code> 更改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Basic&quot;</span>, price: <span class="hljs-string">&quot;$9&quot;</span>, textColor: .white, bgColor: .purple)
 </code></pre>
 <p>另外，你也可以 <code>PricingView</code> 取代“Pro”方案的 <code>VStack</code>，如下所示： </p>
@@ -1130,7 +1130,7 @@
 <p>我们可以重新使用 <code>PricingView</code> 来建立“Team”方案。不过， 你可能会发现这个“Team”方案，有个图示位于标题上方。为了布局这个图示，我们需要修改 <code>PricingView</code> 来相容这个需求。因为这个图示并非售价方案强制性需要的，在 <code>PricingView</code> 中宣告一个 Optional： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> icon: <span class="hljs-type">String</span>?
 </code></pre>
-<p>如果你对Swift 感到陌生的话，所谓的 Optional 是表示变数可能有值或没有值。这里我们定义一个名为<code>icon</code>的变数，其型别为 <code>String</code>。如果售价方案需要显示图示时，则预计会有呼叫者传递图片名称，否则此变数预设为<code>nil</code>（空值）。</p>
+<p>如果你对Swift 感到陌生的话，所谓的 Optional 是表示变数可能有值或没有值。这里我们定义一个名为<code>icon</code>的变数，其型别为 <code>String</code>。如果售价方案需要显示图示时，则预计会有调用者传递图片名称，否则此变数预设为<code>nil</code>（空值）。</p>
 <p>那么，如何在SwiftUI 中处理Optional 呢？在Swift 中，我们有两个方法处理 Optional。其中一种方式是检查 Optional 是否具有一个非空值。例如：我们要在显示图片之前检查 <code>icon</code> 是否有一个值，我们可以将代码撰写如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> icon != <span class="hljs-built_in">nil</span> {
 

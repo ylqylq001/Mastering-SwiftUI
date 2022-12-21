@@ -1142,7 +1142,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 .padding()
 .disabled(!paymentFormViewModel.isFormInputValid)
 </code></pre>
-<p>当点击按钮时，App会呼叫<code>save()</code>方法将交易永久存放到数据库中。 然后，就呼叫 <code>dismiss()</code> 方法来关闭视图。 如果您不熟悉环境值 <code>presentationMode</code>，请阅读第 12 章。</p>
+<p>当点击按钮时，App会调用<code>save()</code>方法将交易永久存放到数据库中。 然后，就调用 <code>dismiss()</code> 方法来关闭视图。 如果您不熟悉环境值 <code>presentationMode</code>，请阅读第 12 章。</p>
 <h4 id="%E8%A1%A8%E6%A0%BC%E9%A9%97%E8%AD%89">表格验证</h4>
 <p>这就是布局表格 UI 的技巧，现在让我们来谈谈表格验证。 基本上，我是按照第 15 章中讨论的内容，使用 Combine 执行表格验证：</p>
 <ol>
@@ -1567,7 +1567,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 <span class="hljs-keyword">var</span> paymentActivities: <span class="hljs-type">FetchedResults</span>&lt;<span class="hljs-type">PaymentActivity</span>&gt;
 </code></pre>
 <p>这个属性包装器让执行读取请求变得非常容易。 我们只需指定实体，即<code>PaymentActivity</code>，以及描述数据应如何排序。 然后，Core Data 框架会使用环境的托管物件内容（managed object context）来读取资料。 最重要的是，SwiftUI 会自动更新列表视图和相关视图。</p>
-<p>从数据库中删除交易记录也是非常简单。 我们呼叫<code>context</code>的 <code>delete</code> 函数并指定要删除的交易就可以了：</p>
+<p>从数据库中删除交易记录也是非常简单。 我们调用<code>context</code>的 <code>delete</code> 函数并指定要删除的交易就可以了：</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">delete</span><span class="hljs-params">(payment: PaymentActivity)</span> </span>{
     <span class="hljs-keyword">self</span>.context.delete(payment)
 
@@ -1598,7 +1598,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     }
 }
 </code></pre>
-<p>代码的第一行检查一下<code>payment</code> 是不是 nil。 如果是 nil 的话，我们就建立一个全新的<code>PaymentActivity</code>物件。 然后我们将<code>newPayment</code>填入所需值，最后就是呼叫 <code>context</code> 的<code>save()</code> 来添加/更新数据库中的记录。</p>
+<p>代码的第一行检查一下<code>payment</code> 是不是 nil。 如果是 nil 的话，我们就建立一个全新的<code>PaymentActivity</code>物件。 然后我们将<code>newPayment</code>填入所需值，最后就是调用 <code>context</code> 的<code>save()</code> 来添加/更新数据库中的记录。</p>
 <h3 id="%E6%87%89%E7%94%A8%E6%93%B4%E5%B1%95%EF%BC%88extensions%EF%BC%89">应用扩展（Extensions）</h3>
 <p>为方便起见，我们构建了两个扩展来格式化日期和数字。 在项目导航器中，您应该在 <em>Extension</em> 文件夹下找到两个档案。 先看一下<code>Date+Ext.swift</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Date</span> </span>{
