@@ -974,7 +974,7 @@
 </code></pre>
 <p>如你所见，该结构采用了 <code>Codable</code>协议。而且，结构中定义的变量与 JSON 回应的键值相符，这是让解码器知道如何解码数据的方法。</p>
 <p>现在，让我们来看看它的魔力 ！ </p>
-<p>继续在Playground 档案中插入下列的代码： </p>
+<p>继续在Playground 文件中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> decoder = <span class="hljs-type">JSONDecoder</span>()
 
 <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> jsonData = json.data(using: .utf8) {
@@ -1126,8 +1126,8 @@
 <p>倘若你已经开启 Xcode，至选单并选择“File → New → Projects”来建立一个新项目。如往常一样，使用“App”模板，并将项目名称命名为“SwiftUIKivaLoan”或是你所喜爱的其他名称。</p>
 <p>我们将从建立模型类别来开始，该模型类别储存从 Kiva 取得的所有最新贷款数据。对于使用者介面的实现，我们将稍后处理。</p>
 <h4 id="%E5%8F%96%E5%BE%97-kiva-%E6%9C%80%E6%96%B0%E7%9A%84%E8%B2%B8%E6%AC%BE%E8%B3%87%E6%96%99">取得 Kiva 最新的贷款数据</h4>
-<p>首先，使用“Swift File”模板来建立一个新档案，并将其命名为 <code>Loan.swift</code>。这个档案储存了采用 Codable 协议来进行 JSON 解码的 <code>Loan</code> 结构。</p>
-<p>在档案中插入下列的代码： </p>
+<p>首先，使用“Swift File”模板来建立一个新文件，并将其命名为 <code>Loan.swift</code>。这个文件储存了采用 Codable 协议来进行 JSON 解码的 <code>Loan</code> 结构。</p>
+<p>在文件中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1171,7 +1171,7 @@
 }
 </code></pre>
 <p>代码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协议，除了<code>Codable</code> 协议之外，这个结构也采用了 <code>Identifiable</code> 协议，并具有默认为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制组件来呈现这些贷款数据， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协议的原因。</p>
-<p>接下来， 使用“Swift File”模板来建立另一个档案， 并将其命名为“LoanStore. swift”。这个类别是负责连接到 Kiva 的 Web API、解码  JSON 数据，并将数据储存在本地端。</p>
+<p>接下来， 使用“Swift File”模板来建立另一个文件， 并将其命名为“LoanStore. swift”。这个类别是负责连接到 Kiva 的 Web API、解码  JSON 数据，并将数据储存在本地端。</p>
 <p>我们来逐步撰写 <code>LoanStore</code> 类别， 如此你就可以更加了解我是如何实现的。在 <code>LoanStore.swift</code> 中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span> </span>{
     <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
@@ -1269,13 +1269,13 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <h4 id="%E5%AF%A6%E4%BD%9C%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">实现使用者介面</h4>
 <p>现在，我们已经建立了用于取得贷款数据的类别，让我们继续进行使用者介面的实现。我猜想你可能忘了UI 的外观，请参考图 21.7，这是我们将要建立的 UI。</p>
 <figure id="fig21.7"><img src="images/json/swiftui-json-7.png" alt="图 21.7.　示例 App 的使用者介面"><figcaption>图 21.7.　示例 App 的使用者介面</figcaption></figure>
-<p>而且，我们将UI 分成三个视图，而不是在同一个档案中撰写UI 的代码： </p>
+<p>而且，我们将UI 分成三个视图，而不是在同一个文件中撰写UI 的代码： </p>
 <ul>
 <li><em>ContentView.swift</em> - 这是呈现贷款清单的主视图。</li>
 <li><em>LoanCellView.swift</em> - 这是单元格视图。</li>
 <li><em>LoanFilterView.swift</em> - 这是显示筛选选项的视图。</li>
 </ul>
-<p>我们从单元格视图开始。在项目导航器中，在 <code>SwiftUIKivaLoan</code>  按右键，选择“New file...”，然后选取“SwiftUI View”模板，并将档案命名为 <code>LoanCellView.swift</code>。</p>
+<p>我们从单元格视图开始。在项目导航器中，在 <code>SwiftUIKivaLoan</code>  按右键，选择“New file...”，然后选取“SwiftUI View”模板，并将文件命名为 <code>LoanCellView.swift</code>。</p>
 <p>更新 <code>LoanCellView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanCellView</span>: <span class="hljs-title">View</span> </span>{
 
@@ -1343,7 +1343,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <figure id="fig21.9"><img src="images/json/swiftui-json-9.png" alt="图 21.9.　在清单视图中呈现贷款数据"><figcaption>图 21.9.　在清单视图中呈现贷款数据</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8%E6%BB%91%E6%A1%BF%E5%BB%BA%E7%AB%8B%E7%AF%A9%E9%81%B8%E5%99%A8%E8%A6%96%E5%9C%96">使用滑杆建立筛选器视图</h4>
 <p>在完成本章之前，我想要介绍如何实现一个筛选功能。这个筛选功能可让使用者定义最大贷款金额，并只显示低于该金额的那些纪录。图 21.7 为筛选器视图的示例，使用者可以使用滑杆来设定最大数量。</p>
-<p>同样的，为了让程式更有组织性，因此为筛选器视图建立一个新档案，并将其命名为 <code>LoanFilterView.swift</code>。</p>
+<p>同样的，为了让程式更有组织性，因此为筛选器视图建立一个新文件，并将其命名为 <code>LoanFilterView.swift</code>。</p>
 <p>现在更新 <code>LoanFilterView</code> 结构如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView</span>: <span class="hljs-title">View</span> </span>{
 

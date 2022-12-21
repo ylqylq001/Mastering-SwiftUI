@@ -888,7 +888,7 @@
 <p>现在，<code>Restaurant</code> 结构具有三个属性：“type”、“phone”与“priceLevel”。我觉得“type”与“phone”的意思本身很清楚了，不必另外说明，而“priceLevel”则是储存了范围为 1 至 5 的整数，以反映该餐厅的平均价位。restaurants 数组已预填一些范本数据，为了之后的测试，将一些范本餐厅的 <code>isFavorite</code> 与 <code>isCheckIn</code>设定为“true”，这就是为何你会在预览中看到一些打卡与最爱符号的原因。</p>
 <h3 id="-%E5%BB%BA%E7%AB%8B%E8%A1%A8%E5%96%AE-ui"><strong>建立表单</strong>UI</h3>
 <p>如前所述，SwiftUI 提供一个名为“Form”的 UI 组件来建立表单 UI。输入数据时，它是一个用于存放及分组控制组件的容器（例如：切换）。与其向你解释用法，不如我们直接进入实现，在此过程中，你将了解如何使用该组件。</p>
-<p>由于我们将建立一个单独的设定画面，因此为表单建立一个新档案。在项目导航器中，在“SwiftUIList”数据夹按右键，并选取“New File....”，如图 13.3 所示。接下来，选择使用“SwiftUI View”作为模板，并将档案命名为“SettingView.swift”。</p>
+<p>由于我们将建立一个单独的设定画面，因此为表单建立一个新文件。在项目导航器中，在“SwiftUIList”数据夹按右键，并选取“New File....”，如图 13.3 所示。接下来，选择使用“SwiftUI View”作为模板，并将文件命名为“SettingView.swift”。</p>
 <figure id="fig13.3"><img src="images/form/swiftui-form-3.png" alt="图 13.3.　建立一个新 SwiftUI 档"><figcaption>图 13.3.　建立一个新 SwiftUI 档</figcaption></figure>
 <p>现在，我们来开始建立表单。以下列代码替代 <code>SettingView</code>： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SettingView</span>: <span class="hljs-title">View</span> </span>{

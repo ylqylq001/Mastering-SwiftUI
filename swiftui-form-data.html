@@ -915,9 +915,9 @@
     }
 }
 </code></pre>
-<p>使用枚举的优点是我们可在代码中以型别安全的方式使用这些值。最重要的是， Swift 中的 <code>Enum</code> 本身就是一级型别，这表示你可以建立实例方法来提供与值相关的附加功能。稍后，我们将会加入一个处理筛选的功能。同时，我们建立一个名为 <code>SettingStore. swift</code> 的新 Swift 档来储存 Enum，如图 14.1 所示，你可以在项目导航处的 <code>SwiftUIForm</code> 数据夹点击右键，并选取 “ New File... ”来建立这个档案。</p>
+<p>使用枚举的优点是我们可在代码中以型别安全的方式使用这些值。最重要的是， Swift 中的 <code>Enum</code> 本身就是一级型别，这表示你可以建立实例方法来提供与值相关的附加功能。稍后，我们将会加入一个处理筛选的功能。同时，我们建立一个名为 <code>SettingStore. swift</code> 的新 Swift 档来储存 Enum，如图 14.1 所示，你可以在项目导航处的 <code>SwiftUIForm</code> 数据夹点击右键，并选取 “ New File... ”来建立这个文件。</p>
 <figure id="fig14.1"><img src="images/formdata/swiftui-formdata-1.png" alt="图 14.1　建立一个新的 Swift 档"><figcaption>图 14.1　建立一个新的 Swift 档</figcaption></figure>
-<p>建立 <code>SettingStore.swift</code> 之后，将上列的代码片段插入档案中。接下来，回到 <code>Setting View.swift</code>，我们将更新代码来使用 <code>DisplayOrder</code> 枚举，而不是使用 <code>displayOrders</code> 数组。</p>
+<p>建立 <code>SettingStore.swift</code> 之后，将上列的代码片段插入文件中。接下来，回到 <code>Setting View.swift</code>，我们将更新代码来使用 <code>DisplayOrder</code> 枚举，而不是使用 <code>displayOrders</code> 数组。</p>
 <p>首先，从 <code>SettingView</code> 删除下列这行代码： </p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> displayOrders = [ <span class="hljs-string">&quot;Alphabetical&quot;</span>, <span class="hljs-string">&quot;Show Favorite First&quot;</span>, <span class="hljs-string">&quot;Show Check-in First&quot;</span>]
 </code></pre>

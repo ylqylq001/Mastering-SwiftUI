@@ -893,7 +893,7 @@
 <h3 id="core-data-%E4%BB%8B%E7%B4%B9">Core Data 介绍</h3>
 <p>在我们查看 ToDo App的Starter项目之前，让我向你简单介绍一下 Core Data 以及你将如何在 SwiftUI 项目中使用它。 </p>
 <h4 id="%E4%BB%80%E9%BA%BC%E6%98%AF-core-data">什么是 Core Data?</h4>
-<p>首先，不要将 Core Data 框架与数据库混淆。 Core Data 不是数据库。 它只是一个供开发人员管理持久存储上的数据并与之交互的框架。 尽管 SQLite 数据库是 iOS 上 Core Data 的默认持久性储存器（ Persistent Storage ），但持久性储存器不限于数据库。 例如，你还可以利用 Core Data 来管理档案库文件（例如 XML）中的数据。</p>
+<p>首先，不要将 Core Data 框架与数据库混淆。 Core Data 不是数据库。 它只是一个供开发人员管理持久存储上的数据并与之交互的框架。 尽管 SQLite 数据库是 iOS 上 Core Data 的默认持久性储存器（ Persistent Storage ），但持久性储存器不限于数据库。 例如，你还可以利用 Core Data 来管理文件库文件（例如 XML）中的数据。</p>
 <p>Core Data 框架只是将开发人员与永久存储的内部细节屏蔽开来。 以 SQLite 数据库为例， 你不需要知道如何连接到数据库，也不需要了解 SQL 来检索数据记录。 你只需要弄清楚如何使用Core Data API，例如 <code>NSManagedObjectContext</code> 和托管物件模型（Managed Object Model）。</p>
 <p>这看起来有点复杂，是吧？不用担心。 在我们将 ToDo App从数组转换为 Core Data 之后，你就会明白我的意思。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-core-data-%E6%A8%A1%E6%9D%BF">使用 Core Data 模板</h3>
@@ -934,7 +934,7 @@ task.isComplete = isComplete
 <p>这就是你在 SwiftUI 项目中使用 Core Data 的方式。 我知道你可能对某些程序感到困惑， 本节只是一个非常初步的简介。 稍后，当你修改示例程式时，我们将更详细解释这些程序。</p>
 <h3 id="%E4%BA%86%E8%A7%A3-todo-app-%E7%AF%84%E4%BE%8B%E9%81%8B%E4%BD%9C">了解 ToDo App 示例运作</h3>
 <p>现在你对 Core Data 有了基本的了解，让我和你一起完成这个示例App。 稍后，我们将修改此 ToDo App，让它能永久保存待办事项。 现在，如前所述，所有数据都存储在记忆体当中，并且会在App重新启动时消失。</p>
-<p>首先，请从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListStarter.zip</a> 下载启动项目。 解压档案并在 Xcode 中打开 <code>ToDoList.xcodeproj</code>。 选择 <code>ContentView.swift</code> 并预览 UI。 你应该会看到如图 22.5 所示的屏幕。</p>
+<p>首先，请从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListStarter.zip</a> 下载启动项目。 解压文件并在 Xcode 中打开 <code>ToDoList.xcodeproj</code>。 选择 <code>ContentView.swift</code> 并预览 UI。 你应该会看到如图 22.5 所示的屏幕。</p>
 <figure id="fig22.5"><img src="images/core-data/swiftui-core-data-5.png" alt="图 22.5. 预览示例App"><figcaption>图 22.5. 预览示例App</figcaption></figure>
 <p>在预览框或模拟器中运行App。 按 + 并添加待办事项。 之后，再重复添加更多项目。 然后App就会列出所有待办事项。 在待办事项的格子按一下，App就会划掉该项目。</p>
 <figure id="fig22.6"><img src="images/core-data/swiftui-core-data-6.png" alt="图 22.6. 添加新事项"><figcaption>图 22.6. 添加新事项</figcaption></figure>
@@ -1091,7 +1091,7 @@ task.isComplete = isComplete
 }
 </code></pre>
 <h4 id="%E4%BA%86%E8%A7%A3%E6%B7%BB%E5%8A%A0%E4%BA%8B%E9%A0%85%E8%A6%96%E5%9C%96">了解添加事项视图</h4>
-<p>现在让我和你讨论一下 <code>NewToDoView.swift</code> 中的代码，该代码用于让使用者添加新任务或待办事项。 你可以参考图 22.6 或简单地打开档案进行预览，看看该视图的外观。</p>
+<p>现在让我和你讨论一下 <code>NewToDoView.swift</code> 中的代码，该代码用于让使用者添加新任务或待办事项。 你可以参考图 22.6 或简单地打开文件进行预览，看看该视图的外观。</p>
 <p><code>NewToDoView</code> 接受两个绑定：<em>isShow</em> 和 <em>todoItems</em>。 <code>isShow</code> 参数控制这个 <em>Add New Task</em> 视图是否应该出现在荧幕上。 <code>todoItems</code> 变量储存了对待办事项数组的参考。 我们需要方法调用者将绑定传递给 <code>todoItems</code>，以便我们可以将新事项加进数组。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> isShow: <span class="hljs-type">Bool</span>
 @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> todoItems: [<span class="hljs-type">ToDoItem</span>]
@@ -1137,7 +1137,7 @@ task.isComplete = isComplete
 <h3 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-core-data">如何使用 Core Data</h3>
 <p>现在我已经为你介绍了这个ToDo项目，是时候将App转换为使用 Core Data 将待办事项存储在数据库中了。 一开始，我们曾建立了一个启用了 <em>Core Data</em> 的空白项目。 通过选中 Core Data 选框，Xcode 会自动生成 Core Data 项目的基本框架。 这一次，我将向你展示如何手动转换Xcode项目以使用 Core Data。</p>
 <h4 id="%E5%BB%BA%E7%AB%8B%E6%8C%81%E4%B9%85%E6%8E%A7%E5%88%B6%E5%99%A8-persistent-controller">建立持久控制器 Persistent Controller</h4>
-<p>让我们首先建立一个名为<code>Persistence.swift</code>的新档案。 在项目导航器中，右键单击<em>Model</em>并使用 <em>Swift file</em> 模板。 将文件命名为<code>Persistence.swift</code>并在文件中插入以下代码：</p>
+<p>让我们首先建立一个名为<code>Persistence.swift</code>的新文件。 在项目导航器中，右键单击<em>Model</em>并使用 <em>Swift file</em> 模板。 将文件命名为<code>Persistence.swift</code>并在文件中插入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">CoreData</span>
 
 <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PersistenceController</span> </span>{
@@ -1174,7 +1174,7 @@ task.isComplete = isComplete
 <p>现在打开<code>ToDoListApp.swift</code> 并将托管物件内容注入到环境中。 在 <code>ToDoListApp</code> 中，建立以下变量以保存 <code>PersistenceController</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> persistenceController = <span class="hljs-type">PersistenceController</span>.shared
 </code></pre>
-<p>接下来，在同一个档案中，将 <code>environment</code> 修饰器附加到 <code>ContentView()</code>，如下所示：</p>
+<p>接下来，在同一个文件中，将 <code>environment</code> 修饰器附加到 <code>ContentView()</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ContentView</span>()
     .environment(\.managedObjectContext, persistenceController.container.viewContext)
 </code></pre>

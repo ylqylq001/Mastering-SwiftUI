@@ -1000,7 +1000,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 }
 </code></pre>
 <p>我们在 App 启动时就开始启用数据扫描器，但在此之前，我们需要调用 <code>DataScannerViewController.isSupported</code> 和 <code>DataScannerViewController.isAvailable</code>，来确保设备支持 Live Text。</p>
-<p>这个示例 App 差不多完成了。因为 Live Text 需要相机的访问权限，所以我们要到项目配置，在 <code>Info.plist</code> 档案中添加 <em>Privacy – Camera Usage Description</em>Key，并说明 App 需要访问相机的原因。</p>
+<p>这个示例 App 差不多完成了。因为 Live Text 需要相机的访问权限，所以我们要到项目配置，在 <code>Info.plist</code> 文件中添加 <em>Privacy – Camera Usage Description</em>Key，并说明 App 需要访问相机的原因。</p>
 <figure id="fig39.3"><img src="images/livetext/swiftui-live-text-camera-access.png" alt="图 39.3. 添加 key 以启用相机访问"><figcaption>图 39.3. 添加 key 以启用相机访问</figcaption></figure>
 <p>完成后，我们可以在真实的 iOS 设备上测试 App 的 Live Text 功能。</p>
 <p>Live Text 除了支持英语外，还支持法语、意大利语、德语、西班牙语、中文、葡萄牙语、日语、和韩语。</p>

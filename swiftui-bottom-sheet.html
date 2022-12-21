@@ -885,8 +885,8 @@
 <figure id="fig18.2"><img src="images/bottom-sheet/swiftui-bottom-sheet-2.png" alt="图 18.2.　建立一个展开式底部表"><figcaption>图 18.2.　建立一个展开式底部表</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">了解起始项目</h3>
 <p>为了节省你从头建立示例App 的时间，我已经为你准备好起始项目。你可以至</p>
-<p><a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip</a>  下载起始项目，并解压缩档案，并开启 <code>SwiftUIBottomSheet.xcodeproj</code> 来开始。</p>
-<p>起始项目已经提供一组餐厅图片及餐厅数据。如果你在项目导航器中查看“Model”数据夹，则应该会找到一个<code>Restaurant.swift</code> 档，此档案包含了 <code>Restaurant</code> 结构与一组示例餐厅数据。</p>
+<p><a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip</a>  下载起始项目，并解压缩文件，并开启 <code>SwiftUIBottomSheet.xcodeproj</code> 来开始。</p>
+<p>起始项目已经提供一组餐厅图片及餐厅数据。如果你在项目导航器中查看“Model”数据夹，则应该会找到一个<code>Restaurant.swift</code> 档，此文件包含了 <code>Restaurant</code> 结构与一组示例餐厅数据。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id: <span class="hljs-type">UUID</span> = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -926,7 +926,7 @@
 <li>头部视图包含餐厅特色图片、餐厅名称与餐厅类型。</li>
 <li>细节资讯视图包含餐厅数据，其中有地址、电话与描述。</li>
 </ul>
-<p>我们将使用单独的 结构（struct ）来实现上述每个部分，以让代码更易编写。现在使用“SwiftUI View”模板建立一个新档案，并命名为<code>RestaurantDetailView.swift</code>。下面讨论的所有代码都将放到这个新档案中。</p>
+<p>我们将使用单独的 结构（struct ）来实现上述每个部分，以让代码更易编写。现在使用“SwiftUI View”模板建立一个新文件，并命名为<code>RestaurantDetailView.swift</code>。下面讨论的所有代码都将放到这个新文件中。</p>
 <h4 id="%E6%A9%AB%E5%88%97">横列</h4>
 <p>首先是“横列”（handlebar ），它实际上是一个小圆角矩形。要建立它，我们需要做的是建立一个 <code>Rectangle</code>，并使其变成圆角。 在 <code>RestaurantDetailView.swift</code> 档中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">HandleBar</span>: <span class="hljs-title">View</span> </span>{

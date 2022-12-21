@@ -1064,12 +1064,12 @@
 <h2 id="%E4%BD%9C%E6%A5%AD">作业</h2>
 <p>为了确认你理解如何建立导航UI，这里有一个作业。首先，至下列网址下载起始项目： </p>
 <p> <a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationStarter.zip</a>。开启项目后，你将看到一个显示文章清单的示例App。</p>
-<p>这个项目与你之前建立的项目非常类似，主要的差异是 <code>Article.swift</code> 的导入。这个档案储存了 <code>articles</code> 数组，而该数组附有一些示例数据。如果你仔细检视 <code>Article</code> 结构，它现在有一个用于储存完整文章的 <code>content</code> 属性。</p>
+<p>这个项目与你之前建立的项目非常类似，主要的差异是 <code>Article.swift</code> 的导入。这个文件储存了 <code>articles</code> 数组，而该数组附有一些示例数据。如果你仔细检视 <code>Article</code> 结构，它现在有一个用于储存完整文章的 <code>content</code> 属性。</p>
 <p>你的任务是将清单嵌入导航视图，并建立细节视图。当使用者点击内容视图中其中一篇文章时，它将导航至显示完整文章的细节视图，如图 11.10 所示。我将在下一节中与你讨论解决方案，但请你尽力找出自己的解决方案。</p>
 <figure id="fig11.10"><img src="images/navigation/swiftui-navigation-10.jpg" alt="图11.10.　为阅读 App 建立导航 UI"><figcaption>图11.10.　为阅读 App 建立导航 UI</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">建立细节视图</h3>
 <p>你完成作业了吗？细节视图比我们之前建立的视图更复杂，我们来看看如何建立它。</p>
-<p>为了让代码更易编写，我们将为它建立一个单独的档案，而不是在 ContentView.swift 档中建立细节视图。在项目导航器中，右键点击 <code>SwiftUINavigation</code> 数据夹，选择“New File...”，接着选取“SwiftUI View”模板，并将档案命名为“ArticleDetailView.swift”。</p>
+<p>为了让代码更易编写，我们将为它建立一个单独的文件，而不是在 ContentView.swift 档中建立细节视图。在项目导航器中，右键点击 <code>SwiftUINavigation</code> 数据夹，选择“New File...”，接着选取“SwiftUI View”模板，并将文件命名为“ArticleDetailView.swift”。</p>
 <p>由于细节视图将显示文章的详细资讯，我们需要这个属性来让调用者传送文章。因此，在 <code>ArticleDetailView</code> 中声明一个 <code>article</code> 属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> article: <span class="hljs-type">Article</span>
 </code></pre>
