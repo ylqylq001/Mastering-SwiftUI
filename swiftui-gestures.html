@@ -962,7 +962,7 @@
 <p>当使用者放开手指时，图片的不透明度会自动重置为正常状态，你是否想知道为什么呢？这是 <code>@GestureState</code> 的优点，当手势结束时，它会自动将手势状态属性的值设定为初始值，而在我们的示例中为 <code>false</code>。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2">使用拖曳手势</h3>
 <p>现在你应该了解如何使用 <code>.gesture</code> 修饰器与 <code>@GestureState</code>，我们来看另一个常见的“拖曳”手势。我们要做的是，修改现有的代码来支持拖曳手势，让使用者拖曳星形图片来移动它。</p>
-<p>现在更换 <code>ContentView</code> 结构如下： </p>
+<p>现在替换 <code>ContentView</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragOffset = <span class="hljs-type">CGSize</span>.zero
 
