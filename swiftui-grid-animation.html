@@ -887,7 +887,7 @@
 <p>首先，让我们建立照片网格。 在 <code>ContentView</code> 结构体中，声明一个状态变量，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> photoSet = samplePhotos
 </code></pre>
-<p><code>在Starter项目中，我已经预先准备好 samplePhotos</code> 常数用于存放示范照片。而 <code>photoSet</code> 被定义为状态变量，主要原因是，随着使用者的选择，我们会更新它存放的照片。</p>
+<p><code>在Starter项目中，我已经预先准备好 samplePhotos</code> 常数用于存放示范照片。而 <code>photoSet</code> 被定义为状态变量，主要原因是，随着使用者的选择，我们会修改它存放的照片。</p>
 <p>为了用网格形式布局照片，我们会使用<code>LazyVGrid</code>组件。 在 <code>body</code> 中加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">ScrollView</span> {
@@ -952,8 +952,8 @@
         }
     }
 </code></pre>
-<p>在 <code>onTapGesture</code> 中，我们将所选照片添加到 <code>selectedPhotos</code> 数组并更新 <code>selectedPhotoId</code>。 此外，我们从 <code>photoSet</code> 中删除所选择的照片。 由于 <code>photoSet</code> 是一个状态变量，一旦从数组中删除选定的照片，它就会自动从网格中删除。</p>
-<p>App 会将所选的照片添加到Dock中。 因此，像这样更新 Dock 的 <code>ScrollView</code>：</p>
+<p>在 <code>onTapGesture</code> 中，我们将所选照片添加到 <code>selectedPhotos</code> 数组并修改 <code>selectedPhotoId</code>。 此外，我们从 <code>photoSet</code> 中删除所选择的照片。 由于 <code>photoSet</code> 是一个状态变量，一旦从数组中删除选定的照片，它就会自动从网格中删除。</p>
+<p>App 会将所选的照片添加到Dock中。 因此，像这样修改 Dock 的 <code>ScrollView</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal, showsIndicators: <span class="hljs-built_in">false</span>) {
     <span class="hljs-type">LazyHGrid</span>(rows: [ <span class="hljs-type">GridItem</span>() ]) {
         <span class="hljs-type">ForEach</span>(selectedPhotos) { photo <span class="hljs-keyword">in</span>

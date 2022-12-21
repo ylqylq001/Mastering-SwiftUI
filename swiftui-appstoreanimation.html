@@ -906,7 +906,7 @@
 <figure id="fig26.6"><img src="images/appstore/swiftui-appstore-6.png" alt="图 26.6. 在完整内容模式下的外观"><figcaption>图 26.6. 在完整内容模式下的外观</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">实现卡片视图</h3>
 <p>现在你了解了此卡片视图的要求，让我们看看如何建立它。 我们将使用一个新文档来建立卡片视图。 在项目导航器中，右点 <em>View</em> 文件夹并选择 <em>New file...</em>。 选择 <em>SwiftUI View</em> 模板并将文件命名为 <code>ArticleCardView.swift</code>。</p>
-<p>首先，让我们从节录视图开始，它是覆盖在图像顶部的视图（图 26.5）。 将代码更新如下：</p>
+<p>首先，让我们从节录视图开始，它是覆盖在图像顶部的视图（图 26.5）。 将代码修改如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleExcerptView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">let</span> category: <span class="hljs-type">String</span>
@@ -972,7 +972,7 @@
 <p>因为想预览两种模式，我们建立两个节录视图。一个将<code>isShowContent</code>绑定设定为<code>false</code>，另一个则为<code>true</code>。 <code>sampleArticles</code> 数组是Starter项目附带的测试数据。</p>
 <p>我们不使用装置预览，而是在固定大小的矩形中预览 UI。 如果一切正常，你应该会在预览画面中看到节录视图。请确保你更改为 <em>Selectable</em> 模式以预览固定布局。</p>
 <figure id="fig26.7"><img src="images/appstore/swiftui-appstore-7.png" alt="图 26.7. 预览节录视图"><figcaption>图 26.7. 预览节录视图</figcaption></figure>
-<p>准备好节录视图后，让我们实现文章卡片视图。 像这样更新 <code>ArticleCardView</code> 结构：</p>
+<p>准备好节录视图后，让我们实现文章卡片视图。 像这样修改 <code>ArticleCardView</code> 结构：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleCardView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">let</span> category: <span class="hljs-type">String</span>
@@ -1135,7 +1135,7 @@
     }
 }
 </code></pre>
-<p>接下来，像这样更新 <code>ContentView</code> 的代码：</p>
+<p>接下来，像这样修改 <code>ContentView</code> 的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {

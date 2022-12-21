@@ -949,7 +949,7 @@
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Press me for details&quot;</span>)
 }
 </code></pre>
-<p>你可在 <code>destination</code> 参数中指定目标视图，并在闭包中实现其外观。对于示例 App， 应该在点击任何一间餐厅时，导航至细节视图。在这个示例中，我们对每一列应用 <code>NavigationLink</code>。更新 <code>List</code> 视图如下： </p>
+<p>你可在 <code>destination</code> 参数中指定目标视图，并在闭包中实现其外观。对于示例 App， 应该在点击任何一间餐厅时，导航至细节视图。在这个示例中，我们对每一列应用 <code>NavigationLink</code>。修改 <code>List</code> 视图如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
         <span class="hljs-type">NavigationLink</span>(destination: <span class="hljs-type">RestaurantDetailView</span>(restaurant: restaurant)) {
@@ -1020,7 +1020,7 @@
 }
 </code></pre>
 <p>在 <code>toolbar</code> 的闭包中，我们创建了一个 <code>ToolbarItem</code> 对象，其位置设置为 <code>.navigationBarLeading</code>。 这告诉 iOS 将按钮放在导航栏的前沿。</p>
-<p>要让程序产生有效果，更新 <code>RestaurantDetailView</code> 如下：</p>
+<p>要让程序产生有效果，修改 <code>RestaurantDetailView</code> 如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">Environment</span>(\.dismiss) <span class="hljs-keyword">var</span> dismiss
 
@@ -1073,7 +1073,7 @@
 <p>由于细节视图将显示文章的详细资讯，我们需要这个属性来让调用者传送文章。因此，在 <code>ArticleDetailView</code> 中声明一个 <code>article</code> 属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> article: <span class="hljs-type">Article</span>
 </code></pre>
-<p>接着，更新 <code>body</code> 如下，以布局细节视图： </p>
+<p>接着，修改 <code>body</code> 如下，以布局细节视图： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">ScrollView</span> {
         <span class="hljs-type">VStack</span>(alignment: .leading) {
@@ -1104,7 +1104,7 @@
 }
 </code></pre>
 <p>我们使用一个 <code>ScrollView</code> 来包裹所有的视图，以启用可滚动的内容。我不会逐行说明代码，我相信你应该了解 <code>Text</code>、<code>Image</code> 与 <code>VStack</code> 的运作方式，不过我想强调的修饰器是 <code>Group</code>，这个修饰器可以让你将多个视图群组在一起，并使用某个设定。在上列的代码中，我们需要对两个 <code>Text</code> 视图使用特定的间距设定。为了避免代码重复，我们将两个视图群组在一起，并使用间距。</p>
-<p>现在，我们已经完成了细节视图的布局，但是你应该会在 Xcode 内看到一个错误，指出有<code>ArticleDetailView_Previews</code> 的问题。而预览无法正常运作，是因为我们在 <code>ArticleDetailView</code> 中加入了article 属性，因此你需要在预览中传送一个示例文章。更新 <code>ArticleDetail View_Previews</code>来修正错误，如下所示： </p>
+<p>现在，我们已经完成了细节视图的布局，但是你应该会在 Xcode 内看到一个错误，指出有<code>ArticleDetailView_Previews</code> 的问题。而预览无法正常运作，是因为我们在 <code>ArticleDetailView</code> 中加入了article 属性，因此你需要在预览中传送一个示例文章。修改 <code>ArticleDetail View_Previews</code>来修正错误，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">ArticleDetailView</span>(article: articles[<span class="hljs-number">0</span>])
@@ -1124,8 +1124,8 @@
     }
 }
 </code></pre>
-<p>通过更新程序后，你应该在预览画布中看到一个空白的导航列。</p>
-<p>现在我们已经完成了细节视图的布局，是时候该回到 <code>ContentView.swift</code> 来实现导航， 更新 <code>ContentView</code> 结构如下： </p>
+<p>通过修改程序后，你应该在预览画布中看到一个空白的导航列。</p>
+<p>现在我们已经完成了细节视图的布局，是时候该回到 <code>ContentView.swift</code> 来实现导航， 修改 <code>ContentView</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
@@ -1150,7 +1150,7 @@
 <h3 id="%E7%A7%BB%E9%99%A4%E6%8F%AD%E7%A4%BA%E6%8C%87%E7%A4%BA%E5%99%A8">移除揭示指示器</h3>
 <p>这个 App 运作得很完美，但是有两个问题你可能想要微调。首先是内容视图中的揭示指示器（disclosure indicator ），这里显示揭示指示器有点奇怪，我们可以禁用它吗？第二个问题是，在细节视图中精选图片的上方出现空白区域。我们来逐一讨论这些问题。</p>
 <figure id="fig11.12"><img src="images/navigation/swiftui-navigation-12.jpg" alt="图 11.12.　目前设计中的两个问题"><figcaption>图 11.12.　目前设计中的两个问题</figcaption></figure>
-<p>SwiftUI 并没有为开发者提供禁用或隐藏揭示指示器的选项。为了解决这个问题，我们不直接将 <code>NavigationLink</code> 应用于文章列，而是建立一个具有两层的 <code>ZStack</code>。现在更新 <code>ContentView</code> 的 <code>NavigationView</code> 如下： </p>
+<p>SwiftUI 并没有为开发者提供禁用或隐藏揭示指示器的选项。为了解决这个问题，我们不直接将 <code>NavigationLink</code> 应用于文章列，而是建立一个具有两层的 <code>ZStack</code>。现在修改 <code>ContentView</code> 的 <code>NavigationView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span>(articles) { article <span class="hljs-keyword">in</span>
         <span class="hljs-type">ZStack</span> {

@@ -967,7 +967,7 @@
 <p>Xcode 取出代码区块， 并建立一个名为 <code>ExtractedView</code> 的默认结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
 <figure id="fig4.11"><img src="images/stacks/swiftui-stacks-11.png" alt="图 4.11　取出子视图"><figcaption>图 4.11　取出子视图</figcaption></figure>
 <p>UI 现在仍然相同，不过请查看 <code>ContentView</code> 中的代码区块，现在它变得更为简洁且易于阅读。</p>
-<p>我们继续实现售价方案的UI。首先，建立“Basic”方案的UI，然后如下所示更新 <code>ContentView</code>： </p>
+<p>我们继续实现售价方案的UI。首先，建立“Basic”方案的UI，然后如下所示修改 <code>ContentView</code>： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">VStack</span> {
@@ -1056,7 +1056,7 @@
 <p>我们来看看如何做到这件事。</p>
 <p>回到代码编辑器，按住 command 键不放，并点选“Basic”方案的 <code>VStack</code>。当 Xcode 取出代码后，将这个子视图重新命名，名称从 <code>ExtractedView</code>改成 <code>PricingView</code>。</p>
 <figure id="fig4.19"><img src="images/stacks/swiftui-stacks-19.png" alt="图 4.19.　取出子视图"><figcaption>图 4.19.　取出子视图</figcaption></figure>
-<p>如前所述，<code>PricingView</code> 应该可弹性显示不同的售价方案，我们将会在 <code>PricingView</code> 结构中加入四个变量，现在更新 <code>PricingView</code> 如下： </p>
+<p>如前所述，<code>PricingView</code> 应该可弹性显示不同的售价方案，我们将会在 <code>PricingView</code> 结构中加入四个变量，现在修改 <code>PricingView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PricingView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> title: <span class="hljs-type">String</span>
@@ -1084,7 +1084,7 @@
     }
 }
 </code></pre>
-<p>这里我们为售价区块的标题、售价、文字与背景颜色加入变量。另外，我们在代码中使用这些变量来更新标题、售价、文字与背景颜色。</p>
+<p>这里我们为售价区块的标题、售价、文字与背景颜色加入变量。另外，我们在代码中使用这些变量来修改标题、售价、文字与背景颜色。</p>
 <p>当变更完成后，你会见到一个错误，如图 4.20 所示，指出 <code>PricingView</code> 少了一些参数。</p>
 <figure id="fig4.20"><img src="images/stacks/swiftui-stacks-20.png" alt="图 4.20.　Xcode 指出 PricingView 中的错误"><figcaption>图 4.20.　Xcode 指出 PricingView 中的错误</figcaption></figure>
 <p>之前，我们在视图中导入了四个变量。调用 <code>PricingView</code> 时，我们现在应该能提供这些参数的值，因此将<code>PricingView()</code> 更改如下： </p>
@@ -1149,7 +1149,7 @@
 
 }
 </code></pre>
-<p>要支持图示的渲染，<code>PricingView</code> 的最后代码应更新如下： </p>
+<p>要支持图示的渲染，<code>PricingView</code> 的最后代码应修改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PricingView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> title: <span class="hljs-type">String</span>
@@ -1212,7 +1212,7 @@
 <p>弹性空间（flexible space ）沿着堆叠布局内的长轴（major axis ）来扩展，或者如果不在堆叠中，则沿着两轴扩展。</p>
 <p>- SwiftUI 文件 (<a href="https://developer.apple.com/documentation/swiftui/spacer" target="_blank">https://developer.apple.com/documentation/swiftui/spacer</a>)</p>
 </blockquote>
-<p>要修复第一个项目，让我们更新 <code>HeaderView</code> 如下： </p>
+<p>要修复第一个项目，让我们修改 <code>HeaderView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">HeaderView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">HStack</span> {

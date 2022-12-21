@@ -892,7 +892,7 @@
 <figure id="fig16.2"><img src="images/actionsheet/swiftui-actionsheet-2.png" alt="图 16.2.　起始项目会显示一个简单的清单视图"><figcaption>图 16.2.　起始项目会显示一个简单的清单视图</figcaption></figure>
 <p>如果你的眼睛够敏锐的话，你可能会发现起始项目使用 <code>ForEach</code> 来实现该清单。为什么我将它变更回 <code>ForEach</code>，而不是传送数据集合至 <code>List</code> 呢？主要原因是我将介绍的 <code>onDelete</code>处理器只能使用 <code>ForEach</code>。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%BB%91%E5%8B%95%E5%88%AA%E9%99%A4">实现滑动删除</h3>
-<p>假设你已经准备好起始项目了，我们开始实现“滑动删除”（swipe to delete ）功能，我已经简要提过 <code>onDelete</code> 处理器。要对清单中的所有列启用“滑动删除”功能，你只需要将这个处理器加到所有列的数据即可。因此，更新 <code>List</code> 如下： </p>
+<p>假设你已经准备好起始项目了，我们开始实现“滑动删除”（swipe to delete ）功能，我已经简要提过 <code>onDelete</code> 处理器。要对清单中的所有列启用“滑动删除”功能，你只需要将这个处理器加到所有列的数据即可。因此，修改 <code>List</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
         <span class="hljs-type">BasicImageRow</span>(restaurant: restaurant)
@@ -904,7 +904,7 @@
 .listStyle(.plain)
 </code></pre>
 <p>在 <code>onDelete</code> 的闭包中，它将传送一个 <code>indexSet</code>，其储存要删除的列的索引，然后我们使用 <code>indexSet</code> 调用<code>remove</code> 方法，以删除在 <code>restaurants</code> 数组中的特定项目。</p>
-<p>在“滑动删除”功能可以运作之前，还一件事要做。每当使用者从清单中删除一列时， UI 应该相应更新。正如前面章节所讨论的，SwiftUI 有一个非常强大的功能来管理应用程序的状态。在我们的代码中，当使用者选择删除一笔纪录时，<code>restaurants</code> 数组的值将更考，我们必须要求 SwiftUI 监控属性，并在属性值更改时更新UI。</p>
+<p>在“滑动删除”功能可以运作之前，还一件事要做。每当使用者从清单中删除一列时， UI 应该相应修改。正如前面章节所讨论的，SwiftUI 有一个非常强大的功能来管理应用程序的状态。在我们的代码中，当使用者选择删除一笔纪录时，<code>restaurants</code> 数组的值将更考，我们必须要求 SwiftUI 监控属性，并在属性值更改时修改UI。</p>
 <p>为此，插入 <code>@State</code> 关键字至 <code>restaurants</code> 变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> restaurants = [ ... ]
 </code></pre>
@@ -977,7 +977,7 @@
 }
 </code></pre>
 <p>这段代码与 <code>delete</code> 函式的代码很相似。我们首先找出给定餐厅的索引，当我们有了索引后，我们变更它的<code>isFavorite</code> 属性值。这里，我们调用 <code>toggle</code> 函数来切换这个值，例如：若 <code>isFavorite</code> 的原始值设定为<code>false</code>，则在调用 <code>toggle()</code> 后将变为 <code>true</code>。</p>
-<p>接下来，我们必须处理列的 UI。当餐厅的 isFavorite 属性设定为 <code>true</code>时，列应该显示一个星号。更新<code>BasicImageRow</code> 结构如下： </p>
+<p>接下来，我们必须处理列的 UI。当餐厅的 isFavorite 属性设定为 <code>true</code>时，列应该显示一个星号。修改<code>BasicImageRow</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BasicImageRow</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> restaurant: <span class="hljs-type">Restaurant</span>
 
@@ -1024,7 +1024,7 @@
 
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedRestaurant: <span class="hljs-type">Restaurant</span>?
 </code></pre>
-<p>默认上，<code>showActionSheet</code> 变量设定为 <code>false</code>，这表示动作表不显示。当使用者选取一列时，我们会将这个变量切换为 <code>true</code>。顾名思义，<code>selectedRestaurant</code> 变量是设计用来存放所选的餐厅。这两个变量都有 <code>@State</code> 关键字，因为我们想要 SwiftUI 监控它们的变化，并相应更新UI。</p>
+<p>默认上，<code>showActionSheet</code> 变量设定为 <code>false</code>，这表示动作表不显示。当使用者选取一列时，我们会将这个变量切换为 <code>true</code>。顾名思义，<code>selectedRestaurant</code> 变量是设计用来存放所选的餐厅。这两个变量都有 <code>@State</code> 关键字，因为我们想要 SwiftUI 监控它们的变化，并相应修改UI。</p>
 <p>接下来，加入 <code>onTapGesture</code> 与 <code>actionSheet</code> 修饰器至 <code>List</code> 视图，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>

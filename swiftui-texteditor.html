@@ -926,7 +926,7 @@
     }
 }
 </code></pre>
-<p>在上面的代码中，我们声明了一个 state 属性来储存字数。 另外，我们在 <code>onChange()</code> 修饰器中指定监测 <code>inputText</code> 的变化。 每当使用者输入文字时， <code>onChange()</code> 修饰符内的代码就会被执行。 在闭包中，我们计算 <code>inputText</code> 中的单词总数并相应地更新 <code>wordCount</code> 变量。</p>
+<p>在上面的代码中，我们声明了一个 state 属性来储存字数。 另外，我们在 <code>onChange()</code> 修饰器中指定监测 <code>inputText</code> 的变化。 每当使用者输入文字时， <code>onChange()</code> 修饰符内的代码就会被执行。 在闭包中，我们计算 <code>inputText</code> 中的单词总数并相应地修改 <code>wordCount</code> 变量。</p>
 <p>如果你在模拟器中运行App，应该会看到一个纯文字编辑器。试试输入几字，编辑器就会实时显示字数。</p>
 <figure id="fig32.2"><img src="images/texteditor/swiftui-texteditor-2.png" alt="图 32.2. 利用 onChange() 侦测文字输入并显示字数"><figcaption>图 32.2. 利用 onChange() 侦测文字输入并显示字数</figcaption></figure>
 <h3 id="%E6%94%AF%E6%8F%B4%E5%A4%9A%E8%A1%8C%E8%BC%B8%E5%85%A5%E3%80%81%E5%8F%AF%E6%93%B4%E5%B1%95%E7%9A%84%E6%96%87%E5%AD%97%E6%AC%84">支持多行输入、可扩展的文字栏</h3>

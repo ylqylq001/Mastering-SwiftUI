@@ -1011,7 +1011,7 @@
 </code></pre>
 <p>如你所见，<code>amount</code> 这个键现在改为 <code>loan_amount</code>。为了解码 JSON 数据，你可以将属性名称从 <code>amount</code> 改为<code>loan_amount</code>。不过，我们真的想要保留名称 <code>amount</code>，在这种的情况下，我们如何定义映射呢？ </p>
 <p>要定义键与属性名称之间的映射，你需要声明一个名为“CodingKeys”的枚举， <code>CodingKeys</code> 枚举具有一个    <code>String</code> 型别的原始值，并遵循 <code>CodingKey</code> 协议。</p>
-<p>现在，更新 <code>Loan</code> 结构如下： </p>
+<p>现在，修改 <code>Loan</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Codable</span> </span>{
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
     <span class="hljs-keyword">var</span> country: <span class="hljs-type">String</span>
@@ -1028,7 +1028,7 @@
 </code></pre>
 <p>在枚举中，你定义了模型的所有属性名称，以及其在 JSON 数据中的对应键。例如：<code>amount</code> 定义为映射<code>loan_amount</code> 这个键，如果属性名称与 JSON 数据的键相同，则可以省略这个指定。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%B7%A2%E7%8B%80-json-%E7%89%A9%E4%BB%B6">使用巢状 JSON 物件</h3>
-<p>现在，你应该了解基础知识了，让我们深入研究并解码一个更切合实际的 JSON 回应。首先，更新 <code>json</code> 变量如下： </p>
+<p>现在，你应该了解基础知识了，让我们深入研究并解码一个更切合实际的 JSON 回应。首先，修改 <code>json</code> 变量如下： </p>
 <pre><code class="lang-swift">let json = &quot;&quot;&quot;
 {
 
@@ -1187,13 +1187,13 @@
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
 }
 </code></pre>
-<p>如此，当 <code>loans</code> 变量有任何变动时，SwiftUI 将自动管理 UI 的更新。如果你已经忘记什么是 <code>ObservableObject</code>，则请再次阅读第 14 章。</p>
+<p>如此，当 <code>loans</code> 变量有任何变动时，SwiftUI 将自动管理 UI 的修改。如果你已经忘记什么是 <code>ObservableObject</code>，则请再次阅读第 14 章。</p>
 <p>不过，当你加上 <code>@Published</code> 属性包裹器后，Xcode 就会显示一个错误讯息，如图 21.6 所示。<code>Decodable</code>（或Codable ）协议在 <code>@Published</code>上不好发挥作用。</p>
 <figure id="fig21.6"><img src="images/json/swiftui-json-6.png" alt="图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协议的错误讯息"><figcaption>图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协议的错误讯息</figcaption></figure>
 <p>要修正这个错误，需要做一些额外的工作。当使用 <code>@Published</code> 属性包裹器时，我们需要手动实现 <code>Decodable</code>所需的方法。如果你研究文件（<a href="https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：" target="_blank">https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：</a> </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>(from decoder: <span class="hljs-type">Decoder</span>) throws
 </code></pre>
-<p>实际上，在解码巢状的 JSON 物件时，我们已经实现这个方法，现在更新类别如下： </p>
+<p>实际上，在解码巢状的 JSON 物件时，我们已经实现这个方法，现在修改类别如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span>, <span class="hljs-title">ObservableObject</span> </span>{
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
 
@@ -1265,7 +1265,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     <span class="hljs-keyword">self</span>.loans = <span class="hljs-keyword">self</span>.parseJsonData(data: data)
 }
 </code></pre>
-<p>当调用 Web API 时， 该操作是在背景伫列中执行。在此，<code>loans</code> 变量标记为 <code>@Published</code>，这意味着对于变量的任何修改，SwiftUI 将触发使用者介面的更新。而且， UI 更新需要在主伫列中执行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
+<p>当调用 Web API 时， 该操作是在背景伫列中执行。在此，<code>loans</code> 变量标记为 <code>@Published</code>，这意味着对于变量的任何修改，SwiftUI 将触发使用者介面的修改。而且， UI 修改需要在主伫列中执行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
 <h4 id="%E5%AF%A6%E4%BD%9C%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">实现使用者介面</h4>
 <p>现在，我们已经建立了用于取得贷款数据的类别，让我们继续进行使用者介面的实现。我猜想你可能忘了UI 的外观，请参考图 21.7，这是我们将要建立的 UI。</p>
 <figure id="fig21.7"><img src="images/json/swiftui-json-7.png" alt="图 21.7.　示例 App 的使用者介面"><figcaption>图 21.7.　示例 App 的使用者介面</figcaption></figure>
@@ -1276,7 +1276,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <li><em>LoanFilterView.swift</em> - 这是显示筛选选项的视图。</li>
 </ul>
 <p>我们从单元格视图开始。在项目导航器中，在 <code>SwiftUIKivaLoan</code>  按右键，选择“New file...”，然后选取“SwiftUI View”模板，并将文件命名为 <code>LoanCellView.swift</code>。</p>
-<p>更新 <code>LoanCellView</code> 如下： </p>
+<p>修改 <code>LoanCellView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanCellView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> loan: <span class="hljs-type">Loan</span>
@@ -1318,8 +1318,8 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <p>现在回到 <code>ContentView.swift</code> 来实现清单视图，首先，声明一个名为 <code>loanStore</code> 的变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">ObservedObject</span> <span class="hljs-keyword">var</span> loanStore = <span class="hljs-type">LoanStore</span>()
 </code></pre>
-<p>由于我们要观察贷款商店的变化并更新UI，因此将 <code>loanStore</code> 标记为 <code>@ObservedObject</code> 属性包裹器。</p>
-<p>接着，更新 <code>body</code>变量如下： </p>
+<p>由于我们要观察贷款商店的变化并修改UI，因此将 <code>loanStore</code> 标记为 <code>@ObservedObject</code> 属性包裹器。</p>
+<p>接着，修改 <code>body</code>变量如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">NavigationStack</span> {
 
@@ -1344,7 +1344,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <h4 id="%E4%BD%BF%E7%94%A8%E6%BB%91%E6%A1%BF%E5%BB%BA%E7%AB%8B%E7%AF%A9%E9%81%B8%E5%99%A8%E8%A6%96%E5%9C%96">使用滑杆建立筛选器视图</h4>
 <p>在完成本章之前，我想要介绍如何实现一个筛选功能。这个筛选功能可让使用者定义最大贷款金额，并只显示低于该金额的那些纪录。图 21.7 为筛选器视图的示例，使用者可以使用滑杆来设定最大数量。</p>
 <p>同样的，为了让程序更有组织性，因此为筛选器视图建立一个新文件，并将其命名为 <code>LoanFilterView.swift</code>。</p>
-<p>现在更新 <code>LoanFilterView</code> 结构如下：</p>
+<p>现在修改 <code>LoanFilterView</code> 结构如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> amount: <span class="hljs-type">Double</span>
@@ -1385,7 +1385,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <pre><code class="lang-swift"><span class="hljs-type">Slider</span>(value: $amount, <span class="hljs-keyword">in</span>: minAmount...maxAmount, step: <span class="hljs-number">100</span>)
 </code></pre>
 <p>刻度可控制使用者拖曳滑杆时的更改量。如果你让使用者拥有很好的控制组件，请将刻度设定更小一点。对于上列的代码，我们将其设定为“100”。</p>
-<p>为了预览筛选器视图，更新 LoanFilterView_Previews 如下：</p>
+<p>为了预览筛选器视图，修改 LoanFilterView_Previews 如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">LoanFilterView</span>(amount: .constant(<span class="hljs-number">10000</span>))
@@ -1414,7 +1414,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> maximumLoanAmount = <span class="hljs-number">10000.0</span>
 </code></pre>
 <p><code>filterEnabled</code> 变量储存筛选器视图的目前状态。默认是设定为“false”，表示没有显示筛选器视 图。<code>maximumLoanAmount</code> 储存用于显示的最大贷款金额，任何大于该限额的贷款纪录都将被隐藏。</p>
-<p>接下来，将 <code>NavigationView</code> 的代码更新如下： </p>
+<p>接下来，将 <code>NavigationView</code> 的代码修改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">VStack</span> {
         <span class="hljs-keyword">if</span> filterEnabled {
@@ -1453,7 +1453,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <figure id="fig21.11"><img src="images/json/swiftui-json-11.png" alt="图 21.11.　显示筛选器视图"><figcaption>图 21.11.　显示筛选器视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>本章介绍了很多的内容，你应该知道如何使用 Web API、解析 JSON 内容，以及在清单视图中显示数据，我们还简要介绍了滑杆控制组件的用法。</p>
-<p>如果你之前使用 UIKit 开发过 App，你可能会对 SwiftUI 的简单性感到惊讶。再看一下 ContentView 的代码，只需要 40 行的代码就可以建立清单视图。最重要的是，你不需要手动处理 UI 更新及传送数据，一切都在背后运作。</p>
+<p>如果你之前使用 UIKit 开发过 App，你可能会对 SwiftUI 的简单性感到惊讶。再看一下 ContentView 的代码，只需要 40 行的代码就可以建立清单视图。最重要的是，你不需要手动处理 UI 修改及传送数据，一切都在背后运作。</p>
 <p>为了参考，你可以至下列的网址下载完整的项目： </p>
 <ul>
 <li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip</a>)</li>

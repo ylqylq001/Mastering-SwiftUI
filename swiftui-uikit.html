@@ -952,8 +952,8 @@
 </code></pre>
 <p>该代码与上一节中显示的代码类似，但有以下区别：</p>
 <ol>
-<li>当建立<code>UISearchBar</code>时，我们并没有使用默认外观，而是使用最简单（<code>.minimal</code>）的样式，并停用自动大写和更新其占位符的文字。</li>
-<li>我们添加了一个绑定来存放使用者于搜寻栏位中的搜寻文字。 <code>makeUIView</code> 方法负责建立和初始化视图，而 <code>updateUIView</code> 方法则负责更新 UIKit 视图的状态。 每当 SwiftUI 中的状态发生变化时，框架都会自动调用 <code>updateUIView</code> 方法来更新视图的配置。 在这种情况下，每当你在 SwiftUI 中更新搜索文字时，都会调用该方法并更新<code>UISearchBar</code>的<code>text</code>。</li>
+<li>当建立<code>UISearchBar</code>时，我们并没有使用默认外观，而是使用最简单（<code>.minimal</code>）的样式，并停用自动大写和修改其占位符的文字。</li>
+<li>我们添加了一个绑定来存放使用者于搜寻栏位中的搜寻文字。 <code>makeUIView</code> 方法负责建立和初始化视图，而 <code>updateUIView</code> 方法则负责修改 UIKit 视图的状态。 每当 SwiftUI 中的状态发生变化时，框架都会自动调用 <code>updateUIView</code> 方法来修改视图的配置。 在这种情况下，每当你在 SwiftUI 中修改搜索文字时，都会调用该方法并修改<code>UISearchBar</code>的<code>text</code>。</li>
 </ol>
 <p>现在切换到<code>ContentView.swift</code>。 声明一个状态变量来存放搜索文字：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> searchText = <span class="hljs-string">&quot;&quot;</span>
@@ -993,7 +993,7 @@
     }
 }
 </code></pre>
-<p><code>makeCoordinator</code> 方法只回一个 <code>Coordinator</code> 的实体。 <code>Coordinator</code>采用<code>UISearchBarDelegate</code> 协议并实现<code>searchBar(_:textDidChange:)</code> 方法。 如前所述，每次用户更改搜寻文字时都会调用此方法。 因此，当有更新时，我们通过更新 <code>text</code> 绑定将其传回 SwiftUI。 我特意在方法里加了一个<code>print</code>语句，方便以后我们测试app的时候可以看到变化。</p>
+<p><code>makeCoordinator</code> 方法只回一个 <code>Coordinator</code> 的实体。 <code>Coordinator</code>采用<code>UISearchBarDelegate</code> 协议并实现<code>searchBar(_:textDidChange:)</code> 方法。 如前所述，每次用户更改搜寻文字时都会调用此方法。 因此，当有修改时，我们通过修改 <code>text</code> 绑定将其传回 SwiftUI。 我特意在方法里加了一个<code>print</code>语句，方便以后我们测试app的时候可以看到变化。</p>
 <p>现在我们有一个采用了 <code>UISearchBarDelegate</code> 协议的 Coordinator，我们需要再做一个修改。 在 <code>makeUIView</code> 方法中，加入以下一行代码，将协调器指定给搜索栏：</p>
 <pre><code class="lang-swift">searchBar.delegate = context.coordinator
 </code></pre>
@@ -1151,7 +1151,7 @@
 <p>改为:</p>
 <pre><code class="lang-swift"><span class="hljs-type">FilteredList</span>($searchText)
 </code></pre>
-<p>这里我们使用<code>FilteredList</code> 来渲染列表视图。 我们传递<code>searchText</code> 的绑定来执行搜寻。 由于<code>searchText</code> 是一个状态变量，任何有关搜寻文字的更改都会触发<code>FilteredList</code> 的更新。 实际上，当使用者输入搜寻文字时，App会建立一个不同的述词以取得一组新的待办事项。</p>
+<p>这里我们使用<code>FilteredList</code> 来渲染列表视图。 我们传递<code>searchText</code> 的绑定来执行搜寻。 由于<code>searchText</code> 是一个状态变量，任何有关搜寻文字的更改都会触发<code>FilteredList</code> 的修改。 实际上，当使用者输入搜寻文字时，App会建立一个不同的述词以取得一组新的待办事项。</p>
 <p>接下来，删除以下代码，因为它已在<code>FilteredList</code>中：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// If there is no data, show an empty view</span>
 <span class="hljs-keyword">if</span> todoItems.<span class="hljs-built_in">count</span> == <span class="hljs-number">0</span> {

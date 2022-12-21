@@ -1147,7 +1147,7 @@
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedRestaurant: <span class="hljs-type">Restaurant</span>?
 </code></pre>
 <p><code>showDetail</code>变量指示是否显示细节视图，而 <code>selectedRestaurant</code> 变量储存使用者选择的餐厅。</p>
-<p>如前面章节所学到的，你可以加上 <code>onTapGesture</code> 修饰器来侦测点击手势。因此，当识别到点击，我们可以切换<code>showDetail</code>的值，并更新 <code>selectedRestaurant</code> 的值如下： </p>
+<p>如前面章节所学到的，你可以加上 <code>onTapGesture</code> 修饰器来侦测点击手势。因此，当识别到点击，我们可以切换<code>showDetail</code>的值，并修改 <code>selectedRestaurant</code> 的值如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
         <span class="hljs-type">BasicImageRow</span>(restaurant: restaurant)
@@ -1203,7 +1203,7 @@
     }
 }
 </code></pre>
-<p>接下来，更新 <code>if</code> 语句如下： </p>
+<p>接下来，修改 <code>if</code> 语句如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> showDetail {
 
     <span class="hljs-type">BlankView</span>(bgColor: .black)
@@ -1285,7 +1285,7 @@
         })
 )
 </code></pre>
-<p>在updating 函数中，我们只使用最新的拖曳数据来更新 <code>dragState</code> 属性。</p>
+<p>在updating 函数中，我们只使用最新的拖曳数据来修改 <code>dragState</code> 属性。</p>
 <p>最后，像这样修改 <code>VStack</code> 的 <code>.offset</code> 修饰器来移动细节视图： </p>
 <pre><code class="lang-swift">.offset(y: geometry.size.height/<span class="hljs-number">2</span> + <span class="hljs-keyword">self</span>.dragState.translation.height + <span class="hljs-keyword">self</span>.positionOffset)
 </code></pre>
@@ -1337,7 +1337,7 @@
 <pre><code class="lang-swift">.disabled(<span class="hljs-keyword">self</span>.viewState == .half)
 </code></pre>
 <p>当细节视图在半开状态，我们关闭滚动视图的使用者互动行为。</p>
-<p>现在，我们来实现刚才讨论的界限值。正如你之前所学到的，当拖曳结束时，SwiftUI 会自动调用 <code>onEnded</code> 函数。因此，我们将处理此函数中的界限值，现在更新 <code>.gesture</code> 修饰器如下： </p>
+<p>现在，我们来实现刚才讨论的界限值。正如你之前所学到的，当拖曳结束时，SwiftUI 会自动调用 <code>onEnded</code> 函数。因此，我们将处理此函数中的界限值，现在修改 <code>.gesture</code> 修饰器如下： </p>
 <pre><code class="lang-swift">.gesture(<span class="hljs-type">DragGesture</span>()
     .updating(<span class="hljs-keyword">self</span>.$dragState, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
         state = .dragging(translation: value.translation)
@@ -1347,7 +1347,7 @@
         <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.viewState == .half {
             <span class="hljs-comment">// 界限值 #1</span>
             <span class="hljs-comment">// 向上滑动，当它超过界限值时</span>
-            <span class="hljs-comment">// 通过更新位置偏移量来变更视图状态为全部开启</span>
+            <span class="hljs-comment">// 通过修改位置偏移量来变更视图状态为全部开启</span>
             <span class="hljs-keyword">if</span> value.translation.height &lt; -geometry.size.height * <span class="hljs-number">0.25</span> {
                 <span class="hljs-keyword">self</span>.positionOffset = -geometry.size.height/<span class="hljs-number">2</span> + <span class="hljs-number">50</span>
                 <span class="hljs-keyword">self</span>.viewState = .full
@@ -1366,7 +1366,7 @@
 </code></pre>
 <p>我使用荧幕高度来计算界限值。举例而言，界限值 #2 设定为荧幕高度的三分之一，这只是一个示例值，你可以根据你的需要修改它。</p>
 <p>如果你需要进一步了解代码的工作原理，请参考代码注释。</p>
-<p>由于我们在 <code>RestaurantDetailView</code> 中加入一个绑定变量，因此必须更新 <code>RestaurantDetailView_Previews</code> 的代码： </p>
+<p>由于我们在 <code>RestaurantDetailView</code> 中加入一个绑定变量，因此必须修改 <code>RestaurantDetailView_Previews</code> 的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">RestaurantDetailView</span>(restaurant: restaurants[<span class="hljs-number">0</span>], isShow: .constant(<span class="hljs-built_in">true</span>))
@@ -1385,7 +1385,7 @@
 <figure id="fig18.12"><img src="images/bottom-sheet/swiftui-bottom-sheet-12.png" alt="图 18.12. 向上拖曳来完全打开细节视图"><figcaption>图 18.12. 向上拖曳来完全打开细节视图</figcaption></figure>
 <h3 id="18-9-%E5%85%A8%E9%96%8B%E7%8B%80%E6%85%8B%E6%99%82%E7%9A%84%E8%99%95%E7%90%86">18.9 全开状态时的处理</h3>
 <p>现在你应该能够向下拖曳细节视图来关闭它，或将视图向上拖曳来展开。目前的功能运作正常，不过主要问题在于视图完全展开时，滚动视图会挡住到我们的拖曳手势，换句话说，你可以滚动内容，但是却无法将视图退回半开状态。</p>
-<p>在修正这个滚动问题之前，我们先修正几个细节视图的小问题。你可能会注意到即使细节视图在完全展开的状态下，却不能滚动至描述内容的最尾端处，要解决这个问题，开启 <code>RestaurantDetailView.swift</code>，然后更新 <code>DetailInfoView</code> 来呈现餐厅的描述，如下所示：</p>
+<p>在修正这个滚动问题之前，我们先修正几个细节视图的小问题。你可能会注意到即使细节视图在完全展开的状态下，却不能滚动至描述内容的最尾端处，要解决这个问题，开启 <code>RestaurantDetailView.swift</code>，然后修改 <code>DetailInfoView</code> 来呈现餐厅的描述，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">DetailInfoView</span>(icon: <span class="hljs-built_in">nil</span>, info: <span class="hljs-keyword">self</span>.restaurant.description)
     .padding(.top)
     .padding(.bottom, <span class="hljs-number">100</span>)
@@ -1439,7 +1439,7 @@
 <p>声明一个新状态变量来持续追踪滚动偏移量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> scrollOffset: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0.0</span>
 </code></pre>
-<p>接着，更新  <code>.onPreferenceChange</code> 修饰器如下：</p>
+<p>接着，修改  <code>.onPreferenceChange</code> 修饰器如下：</p>
 <pre><code class="lang-swift">.onPreferenceChange(<span class="hljs-type">ScrollOffsetKey</span>.<span class="hljs-keyword">self</span>) { value <span class="hljs-keyword">in</span>
     <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.viewState == .full {
         <span class="hljs-keyword">self</span>.scrollOffset = value &gt; <span class="hljs-number">0</span> ? value : <span class="hljs-number">0</span>

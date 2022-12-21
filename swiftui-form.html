@@ -881,7 +881,7 @@
 <p>在 SwiftUI 框架中，有一个名为“Form”的特别UI 控制组件。使用这个新控制组件， 你可以轻松建立表单。我将教你如何使用 Form 组件来建立表单。在建立表单时，你也将学习如何使用常见的控制组件，例如：选择器（picker ）、切换（toggle ）与步进器（stepper ）。</p>
 <figure id="fig13.1"><img src="images/form/swiftui-form-1.png" alt="图 13.1.　建立一个设定画面"><figcaption>图 13.1.　建立一个设定画面</figcaption></figure>
 <p>那么，我们准备要做什么项目呢？以图 13.1 为例，我们将为前面章节所制作的餐厅 App 来建立其设定画面，该画面提供使用者设定“排序”与“筛选”的偏好选项。这种类型的画面在真实的项目中很常见，当你了解其如何运作，你将可在你的 App 项目中建立你自己的表单。</p>
-<p>在本章中，我将着重在实现表单布局，你将了解如何使用“Form”组件来布局设定画面，我们也将实现选择器来选择“排序”的偏好，并建立一个切换与一个步进器，以表示“筛选”的偏好。当你了解如何布局表单后，在下一章中，我将教你如何依照使用者的偏好来更新清单，以使 App 的功能完善。你将学会如何储存使用者的偏好、分享视图间的数据，并以 <code>@EnvironmentObject</code> 来监控数据的更新。</p>
+<p>在本章中，我将着重在实现表单布局，你将了解如何使用“Form”组件来布局设定画面，我们也将实现选择器来选择“排序”的偏好，并建立一个切换与一个步进器，以表示“筛选”的偏好。当你了解如何布局表单后，在下一章中，我将教你如何依照使用者的偏好来修改清单，以使 App 的功能完善。你将学会如何储存使用者的偏好、分享视图间的数据，并以 <code>@EnvironmentObject</code> 来监控数据的修改。</p>
 <h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
 <p>为了节省你从头再建一次餐厅清单的时间，我已经建好一个起始项目。首先，至 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormStarter.zip</a>下载起始项目，下载之后，以 Xcode 开启 <code>SwiftUIForm.xcodeproj</code>  档，在画布上预览 <code>ContentView.swift</code>，你将看到熟悉的 UI，除此之外，还加入更多的餐厅细节资讯，如图 13.2 所示。</p>
 <figure id="fig13.2"><img src="images/form/swiftui-form-2.png" alt="图 13.2.　餐厅清单视图"><figcaption>图 13.2.　餐厅清单视图</figcaption></figure>
@@ -942,7 +942,7 @@
 <p>使用 SwiftUI 建立一个切换开关非常简单，与 <code>Picker</code> 类似，我们必须声明一个状态变量来储存“切换”的目前设定。因此，在 <code>SettingView</code> 声明下列的变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showCheckInOnly = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>接着，更新“FILTER PREFERENCE”区块如下： </p>
+<p>接着，修改“FILTER PREFERENCE”区块如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Section</span>(header: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;FILTER PREFERENCE&quot;</span>)) {
     <span class="hljs-type">Toggle</span>(isOn: $showCheckInOnly) {
         <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Show Check-in Only&quot;</span>)
@@ -958,7 +958,7 @@
 <p>要在 SwiftUI 中实现步进器，我们首先需要一个状态变量来存放步进器的目前值。在本例中，这个变量储存使用者选择的价位级别。在 <code>SettingView</code> 中声明状态变量，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> maxPriceLevel = <span class="hljs-number">5</span>
 </code></pre>
-<p>我们默认 <code>maxPriceLevel</code> 为“5”，现在 FILTER PREFERENCE 的区块更新如下： </p>
+<p>我们默认 <code>maxPriceLevel</code> 为“5”，现在 FILTER PREFERENCE 的区块修改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Section</span>(header: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;FILTER PREFERENCE&quot;</span>)) {
     <span class="hljs-type">Toggle</span>(isOn: $showCheckInOnly) {
         <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Show Check-in Only&quot;</span>)
@@ -1014,7 +1014,7 @@
 <div style="page-break-after: always;"></div>
 
 <h3 id="%E6%8E%A5%E4%B8%8B%E4%BE%86%E7%9A%84%E4%BB%BB%E5%8B%99">接下来的任务</h3>
-<p>我希望你了解 Form 组件，并知道如何使用选择器与步进器等组件来建立一个表单 UI。至目前为止，这个 App 无法永久储存使用者偏好。每次启动 App 后，设定都会重置回原始设定。在下一章中，我将教你如何在本地储存器中储存这些设定。更重要的是，我们将会依照使用者偏好来更新清单视图。</p>
+<p>我希望你了解 Form 组件，并知道如何使用选择器与步进器等组件来建立一个表单 UI。至目前为止，这个 App 无法永久储存使用者偏好。每次启动 App 后，设定都会重置回原始设定。在下一章中，我将教你如何在本地储存器中储存这些设定。更重要的是，我们将会依照使用者偏好来修改清单视图。</p>
 <p>在本章所准备的示例档中，有完整的项目可供下载： </p>
 <ul>
 <li>示例项目  (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip</a>)</li>

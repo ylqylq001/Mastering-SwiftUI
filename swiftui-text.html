@@ -888,8 +888,8 @@
 <figure id="fig2.2"><img src="images/text/swiftui-text-2.png" alt="图 2. 程序编辑器与画布"><figcaption>图 2. 程序编辑器与画布</figcaption></figure>
 <h3 id="%E7%B0%A1%E5%96%AE%E6%96%87%E5%AD%97%E7%9A%84%E5%91%88%E7%8F%BE">简单文字的呈现</h3>
 <p>在 <code>ContentView</code>  所产生的简单程序已经告诉你如何显示一行文字和简单图像。它使用一个 <code>VStack</code> 包装内里的 <code>Text</code> 和 <code>Image</code>。我们将在后面的章节中讨论图像和堆栈视图。 现在让我们首先关注 <code>Text</code> 的用法。</p>
-<p>要在荧幕上显示文字，你需要初始化一个 <code>Text</code> 并将要显示的文字（例如 <em>Hello World</em>）作为参数来传递。 像这样更新 <code>body</code> 的代码：</p>
-<p>程序初始化一个  <code>Text</code>  并将要放的文字（例如 <em>Hello World</em> ）作为参数来传传递。现在将 <code>body</code> 内的代码如下更新：</p>
+<p>要在荧幕上显示文字，你需要初始化一个 <code>Text</code> 并将要显示的文字（例如 <em>Hello World</em>）作为参数来传递。 像这样修改 <code>body</code> 的代码：</p>
+<p>程序初始化一个  <code>Text</code>  并将要放的文字（例如 <em>Hello World</em> ）作为参数来传传递。现在将 <code>body</code> 内的代码如下修改：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>)
 </code></pre>
 <p>如此，预览画布即会在荧幕上显示  <em>Stay Hungry. Stay Foolish.</em> 。这是建立一个文字视图的基本语法。你可以任意变更文字内容，画布会即时显示变更的结果。</p>
@@ -928,7 +928,7 @@
 <p><code>foregroundColor</code> 修饰器接收 <code>颜色</code> 的值。这里我们指定使用  <code>.green</code>，这个值是内建颜色，你也可以使用其他像是 <code>.red</code> 、<code>.purple</code> 等内建颜色值。</p>
 <figure id="fig2.7"><img src="images/text/swiftui-text-7.png" alt="图 7. 变更字体颜色"><figcaption>图 7. 变更字体颜色</figcaption></figure>
 <p>虽然我们比较喜欢使用代码自订一个控制组件的属性，你也可以使用设计划布来编辑。在默认情况下，预览在 <em>Live</em> 模式下运行。 要编辑视图的属性，你必须首先切换到 <em>Selectable</em> 模式。</p>
-<p>按住 command 键不放，并点选文字来带出弹出选单， 选取 <em>Show SwiftUI Inspector</em> ，然后你可以编辑 text/font 属性。 最棒的是，当你更改字体属性时，代码也会自动更新。</p>
+<p>按住 command 键不放，并点选文字来带出弹出选单， 选取 <em>Show SwiftUI Inspector</em> ，然后你可以编辑 text/font 属性。 最棒的是，当你更改字体属性时，代码也会自动修改。</p>
 <figure id="fig2.8"><img src="images/text/swiftui-text-8.png" alt="图 8. 使用 Inspect 功能来编辑文字属性"><figcaption>图 8. 使用 Inspect 功能来编辑文字属性</figcaption></figure>
 <h3 id="%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E8%99%95%E7%90%86">多行文字的处理</h3>
 <p><code>Text</code> 默认支持多行文字，所以它可以显示一段文字，而不需要使用任何其他修饰器，将程序以下面这段替换：</p>

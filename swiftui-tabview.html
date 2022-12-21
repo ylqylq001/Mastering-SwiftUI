@@ -953,7 +953,7 @@
 <p>举例，在 ContentView 中声明以下状态变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selection = <span class="hljs-number">0</span>
 </code></pre>
-<p>这里我们将 <code>selection</code> 变量的原始值设定为<code>0</code>，这是第一个选项的标签值。 我们还没有为每个选项定义标签值。 因此，像这样更新代码并为每个选项附加 <code>tag</code> 修饰器：</p>
+<p>这里我们将 <code>selection</code> 变量的原始值设定为<code>0</code>，这是第一个选项的标签值。 我们还没有为每个选项定义标签值。 因此，像这样修改代码并为每个选项附加 <code>tag</code> 修饰器：</p>
 <pre><code class="lang-swift"><span class="hljs-type">TabView</span>(selection: $selection) {
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Home Tab&quot;</span>)
         .font(.system(size: <span class="hljs-number">30</span>, weight: .bold, design: .rounded))
@@ -988,7 +988,7 @@
         .tag(<span class="hljs-number">3</span>)
 }
 </code></pre>
-<p>我们通过附加 <code>tag</code> 修饰器为每个选项提供唯一索引。 <code>TabView</code> 也绑定到 <code>selection</code> 值。 要以编程方式切换到指定选项，就只需要更新 <code>selection</code> 变量的值。</p>
+<p>我们通过附加 <code>tag</code> 修饰器为每个选项提供唯一索引。 <code>TabView</code> 也绑定到 <code>selection</code> 值。 要以编程方式切换到指定选项，就只需要修改 <code>selection</code> 变量的值。</p>
 <p>您可以建立一个 <em>Next</em> 按钮来切换至下一个选项，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span>(alignment: .topTrailing) {
     <span class="hljs-type">TabView</span>(selection: $selection) {

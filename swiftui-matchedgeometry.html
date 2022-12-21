@@ -883,7 +883,7 @@
 <h3 id="%E9%87%8D%E6%BA%AB-swiftui-%E5%8B%95%E7%95%AB">重温 SwiftUI 动画</h3>
 <p>在我们开始介绍 <code>matchedGeometryEffect</code> 之前，让我们先来看一下如何使用 SwiftUI 来实现动画。下面的图片显示了一个视图开始和结束的状态。当你点击左边的圆形视图，它应该会变大且往上移动；相反地，当你点击右边的视图时，它就会回到原本的大小和位置。</p>
 <figure id="fig33.1"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-1.png" alt="图 33.1. 圆形视图开始状态 (左), 圆形视图结束状态 (右)"><figcaption>图 33.1. 圆形视图开始状态 (左), 圆形视图结束状态 (右)</figcaption></figure>
-<p>要实现这个可点击的圆形视图非常简单。开启一个新的 SwiftUI 项目后，如此更新 <code>ContentView</code> 结构：</p>
+<p>要实现这个可点击的圆形视图非常简单。开启一个新的 SwiftUI 项目后，如此修改 <code>ContentView</code> 结构：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> expand = <span class="hljs-built_in">false</span>
@@ -1079,7 +1079,7 @@
 <p>当 <code>showDetail</code> 设定为 false 时，App就会显示具有较小图像的文章视图。 如果为 true，则将显示整个画面的文章视图。 要使用 <code>matchedGeometryEffect</code> 修饰器，我们必须声明一个<code>namespace</code>变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> articleTransition
 </code></pre>
-<p>接下来，像这样更新 <code>body</code> 变量：</p>
+<p>接下来，像这样修改 <code>body</code> 变量：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// Display an article view with smaller image</span>
 <span class="hljs-keyword">if</span> !showDetail {
     <span class="hljs-type">VStack</span> {
@@ -1167,7 +1167,7 @@
 
 <span class="hljs-keyword">var</span> articleTransition: <span class="hljs-type">Namespace</span>.<span class="hljs-type">ID</span>
 </code></pre>
-<p>你还要像这样更新 <code>ArticleDetailView()</code> ：</p>
+<p>你还要像这样修改 <code>ArticleDetailView()</code> ：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ArticleDetailView</span>(showDetail: $showDetail, articleTransition: articleTransition)
 </code></pre>
 <p>在所有更改之后，<code>ContentView</code> 结构现在被简化如下：</p>

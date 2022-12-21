@@ -894,7 +894,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">建立卡片视图</h3>
 <p>如上一节所述，所有的卡片图片皆不包含任何个人资讯与卡号。再次开启素材目录， 并看一下图片，每张卡片图片只具有卡片标志。我们将很快建立一个卡片视图，来布局个人资讯与卡号，如图 20.4 所示。</p>
 <figure id="fig20.4"><img src="images/wallet/swiftui-wallet-4.png" alt="图 20.4.　示例卡片"><figcaption>图 20.4.　示例卡片</figcaption></figure>
-<p>要建立卡片视图，则在项目导航器中，右键点选 <code>View</code> 群组，然后建立一个新文件。选取“SwiftUI View”模板，文件名称命名为 <code>CardView.swift</code>。接下来，更新代码如下：</p>
+<p>要建立卡片视图，则在项目导航器中，右键点选 <code>View</code> 群组，然后建立一个新文件。选取“SwiftUI View”模板，文件名称命名为 <code>CardView.swift</code>。接下来，修改代码如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> card: <span class="hljs-type">Card</span>
 
@@ -927,7 +927,7 @@
 }
 </code></pre>
 <p>我们声明一个 <code>card</code> 属性来带入卡片数据。为了在卡片图片上显示个人数据与卡号，我们使用 <code>overlay</code> 修饰器，并以垂直堆叠视图与水平堆叠视图来布局文字组件。</p>
-<p>要预览卡片，则更新 <code>CardView_Previews</code>结构如下： </p>
+<p>要预览卡片，则修改 <code>CardView_Previews</code>结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">ForEach</span>(testCards) { card <span class="hljs-keyword">in</span>
@@ -971,7 +971,7 @@
 <p>接下来，是针对卡片库。首先，在 <code>WalletView</code> 结构中，为信用卡数组声明一个属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> cards: [<span class="hljs-type">Card</span>] = testCards
 </code></pre>
-<p>为了示范，我们只将默认值设定为 <code>Card.swift</code> 档中定义的 <code>testCards</code>。要布局电子钱包视图，我们同时使用<code>VStack</code> 与 <code>ZStack</code>，更新 <code>body</code> 变量如下： </p>
+<p>为了示范，我们只将默认值设定为 <code>Card.swift</code> 档中定义的 <code>testCards</code>。要布局电子钱包视图，我们同时使用<code>VStack</code> 与 <code>ZStack</code>，修改 <code>body</code> 变量如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
    <span class="hljs-type">VStack</span> {
 
@@ -1109,7 +1109,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 )
 </code></pre>
 <p>要处理点击手势，我们可以将上述的 <code>gesture</code> 修饰器加到 <code>CardView</code>，并使用内建的 <code>TapGesture</code> 来捕捉点击事件。在代码区块中，我们只需切换<code>isCardPressed</code>的状态，并将目前的卡片设定为 <code>selectedCard</code> 变量。</p>
-<p>要将所选的卡片（及其下方的卡片）向上移动，并让其余的卡片移出荧幕的话，则更新 <code>offset(for:)</code> 函数如下：</p>
+<p>要将所选的卡片（及其下方的卡片）向上移动，并让其余的卡片移出荧幕的话，则修改 <code>offset(for:)</code> 函数如下：</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">offset</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">CGSize</span> </span>{
 
     guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
@@ -1151,7 +1151,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <li>要开始拖曳动作，使用者必须长按卡片。简单的点击将只会带出交易历史纪录。</li>
 <li>当使用者成功按住卡片后，App会将卡片向上移动一点。这是我们想要给使用者的一种回馈，告诉使用者已经准备好可任意拖曳卡片了。</li>
 <li>当使用者拖曳卡片时，使用者应该能在卡片库中移动它。</li>
-<li>使用者在某个位置放开卡片后，App会更新卡片库中的所有卡片位置。</li>
+<li>使用者在某个位置放开卡片后，App会修改卡片库中的所有卡片位置。</li>
 </ol>
 <figure id="fig20.12"><img src="images/wallet/swiftui-wallet-12.png" alt="图 20.12.　使用拖曳手势在卡片库上移动卡片"><figcaption>图 20.12.　使用拖曳手势在卡片库上移动卡片</figcaption></figure>
 <h4 id="%E8%99%95%E7%90%86%E9%95%B7%E6%8C%89%E8%88%87%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2">处理长按与拖曳手势</h4>
@@ -1202,7 +1202,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragState = <span class="hljs-type">DragState</span>.inactive
 </code></pre>
 <p>如果你之前阅读过第 17 章，那么你应该已经知道如何侦测长按与拖曳手势。然而，这次有点不同，我们需要同时处理点击手势、拖曳与长按手势。而且，如果侦测到长按手势，则 App 应该忽略点击手势。</p>
-<p>现在更新 <code>CardView</code> 的 <code>gesture</code> 修饰器如下： </p>
+<p>现在修改 <code>CardView</code> 的 <code>gesture</code> 修饰器如下： </p>
 <pre><code class="lang-swift">.gesture(
     <span class="hljs-type">TapGesture</span>()
         .onEnded({ <span class="hljs-number">_</span> <span class="hljs-keyword">in</span>
@@ -1238,7 +1238,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 </code></pre>
 <p>SwiftUI 让你可专门组合多种手势。在上列的代码中，我们告诉 SwiftUI 捕捉点击手势或长按手势，换句话说，当侦测到点击手势时，SwiftUI 将忽略长按手势。</p>
 <p>点击手势的代码与我们之前编写的代码完全相同，而拖曳手势是排列在长按手势之后。在 <code>updating</code> 函数中，我们将拖曳的状态、转场与卡片的索引值设定为之前定义的 <code>dragState</code> 变量。我将不会像第 17 章那样详细解释代码。</p>
-<p>在拖曳卡片之前，你必须更新 <code>offset(for:)</code> 函数如下： </p>
+<p>在拖曳卡片之前，你必须修改 <code>offset(for:)</code> 函数如下： </p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">offset</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">CGSize</span> </span>{
 
     guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
@@ -1285,7 +1285,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>对于拖曳的卡片，我们在水平与垂直方向上都加入了额外的偏移量。</p>
 <p>现在，你可以执行App 来进行测试，长按卡片并任意拖曳，如图20.13 所示。</p>
 <figure id="fig20.13"><img src="images/wallet/swiftui-wallet-13.png" alt="图 20.13.　拖曳卡片"><figcaption>图 20.13.　拖曳卡片</figcaption></figure>
-<p>现在，你应该可以拖曳卡片，不过卡片的 z-index 并没有相应做更改，例如：如果你拖曳Visa 卡，它总是停留在卡片库的最上层，我们通过更新 <code>zIndex(for:)</code> 函数来修正它： </p>
+<p>现在，你应该可以拖曳卡片，不过卡片的 z-index 并没有相应做更改，例如：如果你拖曳Visa 卡，它总是停留在卡片库的最上层，我们通过修改 <code>zIndex(for:)</code> 函数来修正它： </p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">zIndex</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Double</span> </span>{
     guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
         <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span>
@@ -1306,12 +1306,12 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
     <span class="hljs-keyword">return</span> defaultZIndex
 }
 </code></pre>
-<p>默认的 z-index 仍设定为卡片索引值的负值。对于拖曳的卡片，当使用者在卡片库上拖曳时，我们需要计算一个新的 z-index。更新后的 z-index 是根据位移的高度与卡片的默认偏移量（即 50 点）来计算。</p>
-<p>执行 App 并尝试再次拖曳 Visa 卡片。现在，当你拖曳卡片时，z-index 会不断更新。</p>
+<p>默认的 z-index 仍设定为卡片索引值的负值。对于拖曳的卡片，当使用者在卡片库上拖曳时，我们需要计算一个新的 z-index。修改后的 z-index 是根据位移的高度与卡片的默认偏移量（即 50 点）来计算。</p>
+<p>执行 App 并尝试再次拖曳 Visa 卡片。现在，当你拖曳卡片时，z-index 会不断修改。</p>
 <figure id="fig20.14"><img src="images/wallet/swiftui-wallet-14.png" alt="图 20.14.　将 Visa 卡移到后面"><figcaption>图 20.14.　将 Visa 卡移到后面</figcaption></figure>
-<h4 id="%E6%9B%B4%E6%96%B0%E5%8D%A1%E7%89%87%E5%BA%AB">更新卡片库</h4>
+<h4 id="%E6%9B%B4%E6%96%B0%E5%8D%A1%E7%89%87%E5%BA%AB">修改卡片库</h4>
 <p>当你放开卡片时，它现在会回到原来的位置，那么我们如何在拖曳之后重新排序卡片的位置呢？</p>
-<p>这里的技巧是更新 <code>cards</code>数组的项目，以触发 UI 更新。首先，我们需要将 <code>cards</code> 变量标记为状态变量，如下所示： </p>
+<p>这里的技巧是修改 <code>cards</code>数组的项目，以触发 UI 修改。首先，我们需要将 <code>cards</code> 变量标记为状态变量，如下所示： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> cards: [<span class="hljs-type">Card</span>] = testCards
 </code></pre>
 <p>接下来，我们建立另一个新函数来重新排列卡片：</p>
@@ -1329,12 +1329,12 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 
 }
 </code></pre>
-<p>当你将卡片拖曳到相邻的卡片上时，一旦拖曳的位移量大于默认的偏移量，我们便需要更新 z-index。图 20.15 显示了拖曳的预期行为。</p>
+<p>当你将卡片拖曳到相邻的卡片上时，一旦拖曳的位移量大于默认的偏移量，我们便需要修改 z-index。图 20.15 显示了拖曳的预期行为。</p>
 <figure id="fig20.15"><img src="images/wallet/swiftui-wallet-15.png" alt="图 20.15.　在相邻卡片之间拖曳万事达卡"><figcaption>图 20.15.　在相邻卡片之间拖曳万事达卡</figcaption></figure>
-<p>这是我们计算更新后的 z-index 的公式： </p>
+<p>这是我们计算修改后的 z-index 的公式： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> newIndex = draggingCardIndex + <span class="hljs-type">Int</span>(-dragOffset.height / <span class="hljs-type">Self</span>.cardOffset)
 </code></pre>
-<p>一旦我们有了更新后的索引值，最后一步就是通过移除拖曳的卡片，并将其插入新位置，以更新在 <code>cards</code> 数组中的项目。由于 <code>cards</code> 数组现在是一个状态变量，因此 SwiftUI 更新卡片库且自动渲染动画。</p>
+<p>一旦我们有了修改后的索引值，最后一步就是通过移除拖曳的卡片，并将其插入新位置，以修改在 <code>cards</code> 数组中的项目。由于 <code>cards</code> 数组现在是一个状态变量，因此 SwiftUI 修改卡片库且自动渲染动画。</p>
 <p>最后，在“// 重新排列卡片”的下面插入下列这行代码来调用函数： </p>
 <pre><code class="lang-swift">withAnimation(.spring()) {
     <span class="hljs-keyword">self</span>.rearrangeCards(with: card, dragOffset: drag.translation)
@@ -1342,7 +1342,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 </code></pre>
 <p>之后，你可以执行 App 来测试它。你已经建立了如电子钱包般的动画。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>阅读完本章后，我希望你对于 SwiftUI 动画与视图转场有更深入的了解。如果你将 SwiftUI 与原来的UIKit 框架进行比较，你会发现 SwiftUI 让“使用动画”变得非常容易。你还记得如何为使用者放开拖曳的卡片来渲染卡片动画吗？你需要做的是更新状态变量， 而 SwiftUI 就会处理这些繁重的工作，这就是 SwiftUI 的力量。</p>
+<p>阅读完本章后，我希望你对于 SwiftUI 动画与视图转场有更深入的了解。如果你将 SwiftUI 与原来的UIKit 框架进行比较，你会发现 SwiftUI 让“使用动画”变得非常容易。你还记得如何为使用者放开拖曳的卡片来渲染卡片动画吗？你需要做的是修改状态变量， 而 SwiftUI 就会处理这些繁重的工作，这就是 SwiftUI 的力量。</p>
 <p>为了方便进一步参考，您可以至下列网址下载完整项目： </p>
 <ul>
 <li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWallet.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWallet.zip</a>)</li>

@@ -967,7 +967,7 @@
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> text: <span class="hljs-type">String</span>
 </code></pre>
 <p>它非常适合我们当前程序的运作。 但是让我来问问你， 如果我们在读取或写入此绑定时需要添加额外的逻辑，那可以怎么办？ 例如，如何将使用者输入的文字自动变成大写？</p>
-<p>Swift 有一个内置的功能可以将字串变为大写。 你可以使用字串的 <code>capitalized</code> 属性取得大写文字串。但 问题是我们如何更新<code>text</code>的绑定？</p>
+<p>Swift 有一个内置的功能可以将字串变为大写。 你可以使用字串的 <code>capitalized</code> 属性取得大写文字串。但 问题是我们如何修改<code>text</code>的绑定？</p>
 <p>在这种情况下，你需要在<code>SearchBar.swift</code>中建立一个自定义绑定，如下所示：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> searchText: <span class="hljs-type">Binding</span>&lt;<span class="hljs-type">String</span>&gt; {
 

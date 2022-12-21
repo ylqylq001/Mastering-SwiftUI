@@ -971,7 +971,7 @@
 </code></pre>
 <p>我们通过采用<code>Shape</code>协议创建了一个<code>RingShape</code>结构， 在结构中声明了两个属性。 <code>progress</code> 属性允许用户指定进度百分比，手 <code>thickness</code> 属性，类似于 <code>ProgressRingView</code> 中的属性，可让你控制环的宽度。</p>
 <p>要绘制圆环，我们使用 <code>addArc</code> 方法，然后使用 <code>strokedPath</code>。 弧的半径可以通过将框架的宽度（或高度）除以 2 来计算。起始角度当前设定为零度。 而结束角度（ending angle），我们就将 360 乘以进度值来计算。 例如，如果我们将 <code>progress</code> 设定为 0.5，就会绘制一个半环（从 0 到 180 度）。</p>
-<p>要使用 <code>RingShape</code>，你可以像这样更新 <code>body</code> 变量：</p>
+<p>要使用 <code>RingShape</code>，你可以像这样修改 <code>body</code> 变量：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">Circle</span>()
         .stroke(<span class="hljs-type">Color</span>(.systemGray6), lineWidth: thickness)
@@ -986,7 +986,7 @@
 <p>在 <code>RingShape</code> 中声明以下属性：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> startAngle: <span class="hljs-type">Double</span> = -<span class="hljs-number">90.0</span>
 </code></pre>
-<p>然后像这样更新 <code>addArc</code> 方法：</p>
+<p>然后像这样修改 <code>addArc</code> 方法：</p>
 <pre><code class="lang-swift">path.addArc(center: <span class="hljs-type">CGPoint</span>(x: rect.width / <span class="hljs-number">2.0</span>, y: rect.height / <span class="hljs-number">2.0</span>),
             radius: <span class="hljs-built_in">min</span>(rect.width, rect.height) / <span class="hljs-number">2.0</span>,
             startAngle: .degrees(startAngle),
@@ -1019,11 +1019,11 @@
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> progress: <span class="hljs-type">Double</span>
 </code></pre>
 <p>我们开发的 <code>ProgressRingView</code> 是能够让使用者控制进度百分比。 因此，进度是应该由使用者提供。 这就是为什么 <code>progress</code> 被标记为绑定变量的原因。</p>
-<p>要使用该变量，我们可以相应地更新以下代码：</p>
+<p>要使用该变量，我们可以相应地修改以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">RingShape</span>(progress: progress, thickness: thickness)
     .fill(<span class="hljs-type">AngularGradient</span>(gradient: gradient, center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(<span class="hljs-number">360</span> * progress + startAngle)))
 </code></pre>
-<p>Xcode 现在应该在 <code>ProgressRingView_Previews</code> 中显示错误，因为我们必须将 <code>ProgressRingView</code> 传给 <code>progress</code> 参数。 因此，像这样更新<code>ProgressRingView_Previews</code>：</p>
+<p>Xcode 现在应该在 <code>ProgressRingView_Previews</code> 中显示错误，因为我们必须将 <code>ProgressRingView</code> 传给 <code>progress</code> 参数。 因此，像这样修改<code>ProgressRingView_Previews</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressRingView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">0.5</span>))

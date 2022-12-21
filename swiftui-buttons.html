@@ -909,7 +909,7 @@
 <li><strong>所需执行的内容</strong> - 使用者点击或选择按钮后执行的代码。</li>
 <li><strong>按钮的外观设定</strong> - 描述外观的代码区块。</li>
 </ol>
-<p>举例而言，如果你只想要将“Hello World”标签变成一个按钮，则可以将代码更新如下： </p>
+<p>举例而言，如果你只想要将“Hello World”标签变成一个按钮，则可以将代码修改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">Button</span> {
@@ -957,7 +957,7 @@
     .foregroundColor(.white)
     .font(.title)
 </code></pre>
-<p>变更完成后，画布会据此更新按钮。现在按钮看起来好看多了，如图 6.6 所示。</p>
+<p>变更完成后，画布会据此修改按钮。现在按钮看起来好看多了，如图 6.6 所示。</p>
 <figure id="fig6.6"><img src="images/buttons/swiftui-buttons-6.png" alt="图 6.6　在按钮加入间距"><figcaption>图 6.6　在按钮加入间距</figcaption></figure>
 <h4 id="%E4%BF%AE%E9%A3%BE%E5%99%A8%E9%A0%86%E5%BA%8F%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7">修饰器顺序的重要性</h4>
 <p>这里要强调的一件事，即“padding 修饰器要放置于 background 之后”。如果你将代码撰写如下，则最终结果将会完全不同。</p>
@@ -1095,11 +1095,11 @@
 <figure id="fig6.17"><img src="images/buttons/swiftui-buttons-17.png" alt="图 6.17　编辑颜色集的属性"><figcaption>图 6.17　编辑颜色集的属性</figcaption></figure>
 <p>现在，你可以在“Hex”栏位设定色码。对于此示例，输入 <code>#11998e</code>来定义颜色并将颜色集命名为“LightGreen”。重复上述步骤，输入<code>#38ef7d</code>来定义另一个颜色集，你可以将颜色集命名为“DarkGreen”， 如图 6.18 所示。</p>
 <figure id="fig6.18"><img src="images/buttons/swiftui-buttons-18.png" alt="图 6.18.　定义两个颜色集"><figcaption>图 6.18.　定义两个颜色集</figcaption></figure>
-<p>现在你已经定义了两个颜色集，我们回到 <code>ContentView.swift</code> 并更新色码。要使用颜色集，你只需使指定颜色集的名称，如下所示： </p>
+<p>现在你已经定义了两个颜色集，我们回到 <code>ContentView.swift</code> 并修改色码。要使用颜色集，你只需使指定颜色集的名称，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Color</span>(<span class="hljs-string">&quot;DarkGreen&quot;</span>)
 <span class="hljs-type">Color</span>(<span class="hljs-string">&quot;LightGreen&quot;</span>)
 </code></pre>
-<p>因此， 要使用“DarkGreen”与“LightGreen”颜色集来渲染渐层， 你只需要更新 <code>background</code> 修饰器，如下所示： </p>
+<p>因此， 要使用“DarkGreen”与“LightGreen”颜色集来渲染渐层， 你只需要修改 <code>background</code> 修饰器，如下所示： </p>
 <pre><code class="lang-swift">.background(<span class="hljs-type">LinearGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [<span class="hljs-type">Color</span>(<span class="hljs-string">&quot;DarkGreen&quot;</span>), <span class="hljs-type">Color</span>(<span class="hljs-string">&quot;LightGreen&quot;</span>)]), startPoint: .leading, endPoint: .trailing))
 </code></pre>
 <p>若是你已正确修改的话，则你的按钮应该有很棒的渐层背景，如图 6.19 所示。</p>

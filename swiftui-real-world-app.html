@@ -882,7 +882,7 @@
 <p>这个App构建起来并不太复杂，但你会学到很多关于 SwiftUI 的知识，并了解如何应用你所学的技术。 简而言之，以下是我们会建立的功能和将会讲解的内容：</p>
 <ol>
 <li>如何构建表格并验证使用者输入</li>
-<li>如何过滤记录和更新列表视图</li>
+<li>如何过滤记录和修改列表视图</li>
 <li>如何使用底页（Bottom Sheet）显示记录详情</li>
 <li>如何在 SwiftUI 中使用 MVVM（Model- View-ViewModel 的缩写）</li>
 <li>如何利用 Core Data 储存和管理数据库的数据</li>
@@ -1216,12 +1216,12 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre>
 <p>这个类别遵守<code>ObservableObject</code>。 所有属性都以<code>@Published</code>标注，因为我们想在数值发生变化时通知订阅者并相应地执行验证。</p>
-<p>每当使用者输入表格栏时，此视图模型就会执行验证代码并更新结果，以及通知订阅者。</p>
+<p>每当使用者输入表格栏时，此视图模型就会执行验证代码并修改结果，以及通知订阅者。</p>
 <p>那么，谁是订阅者？</p>
 <p>如果你回到 <code>PaymentFormView.swift</code>，你应该注意到我们已经用 <code>@ObservedObject</code> 标注了一个名为 <code>paymentFormViewModel</code> 的变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">ObservedObject</span> private <span class="hljs-keyword">var</span> paymentFormViewModel: <span class="hljs-type">PaymentFormViewModel</span>
 </code></pre>
-<p><code>PaymentFormView</code> 会侦测视图模型的变化。 当任何验证变量（例如 <code>isNameValid</code>）更新时，<code>PaymentFormView</code> 就会收到通知，视图相应地显示验证错误。</p>
+<p><code>PaymentFormView</code> 会侦测视图模型的变化。 当任何验证变量（例如 <code>isNameValid</code>）修改时，<code>PaymentFormView</code> 就会收到通知，视图相应地显示验证错误。</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> !paymentFormViewModel.isNameValid {
     <span class="hljs-type">ValidationErrorText</span>(text: <span class="hljs-string">&quot;Please enter the payment name&quot;</span>)
 }
@@ -1566,7 +1566,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     sortDescriptors: [ <span class="hljs-type">NSSortDescriptor</span>(keyPath: \<span class="hljs-type">PaymentActivity</span>.date, ascending: <span class="hljs-built_in">false</span>) ])
 <span class="hljs-keyword">var</span> paymentActivities: <span class="hljs-type">FetchedResults</span>&lt;<span class="hljs-type">PaymentActivity</span>&gt;
 </code></pre>
-<p>这个属性包装器让执行读取请求变得非常容易。 我们只需指定实体，即<code>PaymentActivity</code>，以及描述数据应如何排序。 然后，Core Data 框架会使用环境的托管物件内容（managed object context）来读取数据。 最重要的是，SwiftUI 会自动更新列表视图和相关视图。</p>
+<p>这个属性包装器让执行读取请求变得非常容易。 我们只需指定实体，即<code>PaymentActivity</code>，以及描述数据应如何排序。 然后，Core Data 框架会使用环境的托管物件内容（managed object context）来读取数据。 最重要的是，SwiftUI 会自动修改列表视图和相关视图。</p>
 <p>从数据库中删除交易记录也是非常简单。 我们调用<code>context</code>的 <code>delete</code> 函数并指定要删除的交易就可以了：</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">delete</span><span class="hljs-params">(payment: PaymentActivity)</span> </span>{
     <span class="hljs-keyword">self</span>.context.delete(payment)
@@ -1578,7 +1578,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     }
 }
 </code></pre>
-<p>要了解如何添加新交易或更新现有交易记录，就要打开<code>PaymentFormView</code>。 如果你再次查看 <code>PaymentFormView.swift</code> ，你会发现 <code>save()</code> 函数：</p>
+<p>要了解如何添加新交易或修改现有交易记录，就要打开<code>PaymentFormView</code>。 如果你再次查看 <code>PaymentFormView.swift</code> ，你会发现 <code>save()</code> 函数：</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">save</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">let</span> newPayment = payment ?? <span class="hljs-type">PaymentActivity</span>(context: context)
 
@@ -1598,7 +1598,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     }
 }
 </code></pre>
-<p>代码的第一行检查一下<code>payment</code> 是不是 nil。 如果是 nil 的话，我们就建立一个全新的<code>PaymentActivity</code>物件。 然后我们将<code>newPayment</code>填入所需值，最后就是调用 <code>context</code> 的<code>save()</code> 来添加/更新数据库中的记录。</p>
+<p>代码的第一行检查一下<code>payment</code> 是不是 nil。 如果是 nil 的话，我们就建立一个全新的<code>PaymentActivity</code>物件。 然后我们将<code>newPayment</code>填入所需值，最后就是调用 <code>context</code> 的<code>save()</code> 来添加/修改数据库中的记录。</p>
 <h3 id="%E6%87%89%E7%94%A8%E6%93%B4%E5%B1%95%EF%BC%88extensions%EF%BC%89">应用扩展（Extensions）</h3>
 <p>为方便起见，我们构建了两个扩展来格式化日期和数字。 在项目导航器中，您应该在 <em>Extension</em> 文件夹下找到两个文件。 先看一下<code>Date+Ext.swift</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Date</span> </span>{

@@ -981,7 +981,7 @@
 }
 </code></pre>
 <p>我们不再使用 <code>animation</code> 修饰器，而是使用 <code>withAnimation</code> 包裹在 <code>onTapGesture</code> 中。<code>withAnimation</code> 调用带入一个动画参数，这里我们指定使用默认动画。</p>
-<p>当然，你可更新 <code>withAnimation</code>，以将动画变更为弹簧动画，如下所示： </p>
+<p>当然，你可修改 <code>withAnimation</code>，以将动画变更为弹簧动画，如下所示： </p>
 <pre><code class="lang-swift">withAnimation(.spring(response: <span class="hljs-number">0.3</span>, dampingFraction: <span class="hljs-number">0.3</span>, blendDuration: <span class="hljs-number">0.3</span>)) {
     <span class="hljs-keyword">self</span>.circleColorChanged.toggle()
     <span class="hljs-keyword">self</span>.heartColorChanged.toggle()
@@ -1082,7 +1082,7 @@
 </code></pre>
 <p>下载指示器不需要为圆形，你也可以使用 <code>Rectangle</code> 或 <code>RoundedRectangle</code> 来建立该指示器。不过，无需更改旋转角度，你可以修改位移值（offset value）来建立如图 9.5 所示的动画。</p>
 <figure id="fig9.5"><img src="images/animation/swiftui-animation-5.gif" alt="图 9.5.　下载指示器的另一个示例"><figcaption>图 9.5.　下载指示器的另一个示例</figcaption></figure>
-<p>为了建立动画，我们将两个圆角矩形重叠在一起。上面的矩形比下面的矩形短得多， 当开始载入时，我们将位移值从“-110”更新为“110”。</p>
+<p>为了建立动画，我们将两个圆角矩形重叠在一起。上面的矩形比下面的矩形短得多， 当开始载入时，我们将位移值从“-110”修改为“110”。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isLoading = <span class="hljs-built_in">false</span>
@@ -1149,7 +1149,7 @@
     }
 }
 </code></pre>
-<p>这里的状态变量不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在真实世界的应用程序中，你可以更新 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒更新一次。</p>
+<p>这里的状态变量不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在真实世界的应用程序中，你可以修改 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒修改一次。</p>
 <h3 id="%E5%BB%B6%E9%81%B2%E5%8B%95%E7%95%AB">延迟动画</h3>
 <p>SwiftUI 框架不只让你可以控制动画的持续时间，你可以通过 <code>delay</code> 函数来延迟动画， 如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.<span class="hljs-keyword">default</span>.delay(<span class="hljs-number">1.0</span>)
@@ -1177,7 +1177,7 @@
     }
 }
 </code></pre>
-<p>我们先使用一个 <code>HStack</code> 来水平布局这些圆形，由于这五个圆形（也就是点）皆有相同的大小与颜色，因此我们使用 <code>ForEach</code> 来建立这些圆形。<code>scaleEffect</code> 修饰器是用来缩放圆形的大小，默认是设定为“1”，也就是原来的大小。当开始载入时，该值会更新为“0”， 这将会缩小此点。</p>
+<p>我们先使用一个 <code>HStack</code> 来水平布局这些圆形，由于这五个圆形（也就是点）皆有相同的大小与颜色，因此我们使用 <code>ForEach</code> 来建立这些圆形。<code>scaleEffect</code> 修饰器是用来缩放圆形的大小，默认是设定为“1”，也就是原来的大小。当开始载入时，该值会修改为“0”， 这将会缩小此点。</p>
 <p>用于渲染动画的代码看起来有些复杂，我们来分拆它并逐步研究： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.linear(duration: <span class="hljs-number">0.6</span>).repeatForever().delay(<span class="hljs-number">0.2</span> * <span class="hljs-type">Double</span>(index))
 </code></pre>
@@ -1233,7 +1233,7 @@
 <p>SwiftUI 让开发者不只是做出前述的动画，你可以定义如何从视图层次中插入或移除视图，而在 SwiftUI 中，这就是所谓的“转场”（ transition ）。框架默认是使用淡入（ fade in ）与淡出（ fade out ）转场。不过它内建了几个现成的转场效果，如滑动（ slide ）、移动（ move）、不透明度（opacity ）等。当然，你可以开发自己的转场效果，也可以简单的混合搭配各种类型的转场，以建立所需的转场效果。</p>
 <figure id="fig9.10"><img src="images/animation/swiftui-animation-10.gif" alt="图 9.10.　使用 SwiftUI 建立的转场示例"><figcaption>图 9.10.　使用 SwiftUI 建立的转场示例</figcaption></figure>
 <h4 id="%E5%BB%BA%E7%AB%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E8%BD%89%E5%A0%B4">建立简单的转场</h4>
-<p>我们来看一个简单的示例，以更加了解转场的含义以及动画如何运作。建立一个名为 <code>SwiftUITransition</code> 的新项目，并更新 <code>ContentView</code> 如下： </p>
+<p>我们来看一个简单的示例，以更加了解转场的含义以及动画如何运作。建立一个名为 <code>SwiftUITransition</code> 的新项目，并修改 <code>ContentView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
@@ -1351,7 +1351,7 @@
 <p>这个按钮有三种状态： </p>
 <ul>
 <li><strong>原始状态</strong>：以绿色显示“Submit”按钮。</li>
-<li><strong>处理状态</strong>：显示一个旋转的圆环，并更新其标签为“Processing”。</li>
+<li><strong>处理状态</strong>：显示一个旋转的圆环，并修改其标签为“Processing”。</li>
 <li><strong>完成状态</strong>：以红色显示“Done”按钮。</li>
 </ul>
 <p>这是一个非常具挑战性的项目，它将测试你对 SwiftUI 动画与转场的了解。你将需要结合到目前为止所学的知识来制定解决方案。</p>

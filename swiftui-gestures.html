@@ -895,7 +895,7 @@
 }
 </code></pre>
 <p>如果你想要测试代码，则使用 “App”模板来建立一个新项目， 并确认你有选取 “Interface ”选项中的“SwiftUI”，然后在ContentView.swift 中贴上代码。</p>
-<p>通过修改上列的代码，并导入一个状态变量，我们可以在星形图片被点击时，建立一个简单的缩放动画。下列为更新后的代码： </p>
+<p>通过修改上列的代码，并导入一个状态变量，我们可以在星形图片被点击时，建立一个简单的缩放动画。下列为修改后的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isPressed = <span class="hljs-built_in">false</span>
 
@@ -955,8 +955,8 @@
 <p>其次是 <code>LongPressGesture</code> 的 <code>updating</code> 方法。执行长按手势的期间，将调用此方法，并接收 value、state 与transaction 等三个参数： </p>
 <ul>
 <li>“value” 参数是手势的目前状态。这个值会依照手势而有所不同，但对于长按手势，<code>true</code> 值表示侦测到点击事件。</li>
-<li>“state”参数实际上是一个 in-out参数，可以让你更新 <code>longPressTap</code> 属性的值。在上列的代码中，我们设定 <code>state</code> 的值为 <code>currentState</code>。换句话说，<code>longPressTap</code> 属性始终追踪长按手势的最新状态。</li>
-<li>“transaction” 参数储存了目前状态处理更新的内容。</li>
+<li>“state”参数实际上是一个 in-out参数，可以让你修改 <code>longPressTap</code> 属性的值。在上列的代码中，我们设定 <code>state</code> 的值为 <code>currentState</code>。换句话说，<code>longPressTap</code> 属性始终追踪长按手势的最新状态。</li>
+<li>“transaction” 参数储存了目前状态处理修改的内容。</li>
 </ul>
 <p>更改代码后，在预览画布中执行项目来进行测试。当你点击图片时，图片会立即变暗，而持续按住一秒后，图片会自己调整尺寸。</p>
 <p>当使用者放开手指时，图片的不透明度会自动重置为正常状态，你是否想知道为什么呢？这是 <code>@GestureState</code> 的优点，当手势结束时，它会自动将手势状态属性的值设定为初始值，而在我们的示例中为 <code>false</code>。</p>
@@ -982,14 +982,14 @@
     }
 }
 </code></pre>
-<p>要识别拖曳手势，你初始化一个 <code>DragGesture</code> 实例，并监听更新。在 <code>update</code> 函数中，我们传送一个手势状态属性来追踪拖曳事件。与长按手势类似，<code>update</code> 函数的闭包接收三个参数。在这个示例中，value 参数储存拖曳的目前数据（包含移动），这就是为什么我们将 <code>state</code> 变量（实际上是 <code>dragOffset</code> ）设定为<code>value.translation</code>的缘故。</p>
+<p>要识别拖曳手势，你初始化一个 <code>DragGesture</code> 实例，并监听修改。在 <code>update</code> 函数中，我们传送一个手势状态属性来追踪拖曳事件。与长按手势类似，<code>update</code> 函数的闭包接收三个参数。在这个示例中，value 参数储存拖曳的目前数据（包含移动），这就是为什么我们将 <code>state</code> 变量（实际上是 <code>dragOffset</code> ）设定为<code>value.translation</code>的缘故。</p>
 <p>在预览画布中执行项目，你可以拖曳图片，而当你放开图片时，它会返回原始位置。</p>
 <p>你知道为什么图片会回到它的起点吗？如前一节所述，使用 <code>@GestureState</code> 的优点是， 当手势结束时，它会重置属性值为原始值。因此，当你放开手指结束拖曳时，<code>dragOffset</code> 会重置为<code>.zero</code>，即原始位置。</p>
 <p>不过，如果你想让图片停留在拖曳的终点，该如何做呢？给自己几分钟的时间来思考如何实现。</p>
 <p>由于 <code>@GestureState</code> 属性包裹器将重置属性为原始值，我们需要另一个状态属性来储存最终的位置。因此，我们声明一个新的状态属性如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> position = <span class="hljs-type">CGSize</span>.zero
 </code></pre>
-<p>接下来，更新 <code>body</code> 变量如下： </p>
+<p>接下来，修改 <code>body</code> 变量如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
         .font(.system(size: <span class="hljs-number">100</span>))
@@ -1012,7 +1012,7 @@
 <p>我们在代码中做了一些更改： </p>
 <ol>
 <li>除了 <code>update</code> 函数之外，我们还实现了 <code>onEnded</code> 函数，其在拖曳手势结束时调用。在闭包中，我们加入拖曳偏移来计算图片的新位置。</li>
-<li><code>.offset</code> 修饰器也已更新，如此我们将目前的位置列入计算。</li>
+<li><code>.offset</code> 修饰器也已修改，如此我们将目前的位置列入计算。</li>
 </ol>
 <p>现在，当你执行项目并拖曳图片时，拖曳结束后，图片会停留在最后的位置，如图 17.4 所示。</p>
 <figure id="fig17.4"><img src="images/gestures/swiftui-gestures-4.gif" alt="图 17.4.　拖曳图片"><figcaption>图 17.4.　拖曳图片</figcaption></figure>
@@ -1020,7 +1020,7 @@
 <p>在某些情况下，你需要在同一个视图中使用多个手势识别器。举例而言，我们想让使用者在开始拖曳之前按住图片，则必须结合长按与拖曳手势。SwiftUI 可以让你轻松组合手势，来执行一些复杂的互动。它提供三种手势组合类型，包括：“同时”（simultaneous ）、“依序”（sequenced ）与“专门”（exclusive ）。</p>
 <p>当你需要同时侦测多个手势时，可以使用“同时”（simultaneous ）组合类型。而当你专门组合多个手势为一个手势时，SwiftUI 会识别你指定的所有手势，但当侦测到其中一个手势后，它会忽略其他手势。</p>
 <p>顾名思义，如果你使用“依序”（sequenced ）组合类型来组合多个手势，SwiftUI 会以特定顺序来识别手势，这正是我们将用来对长按与拖曳手势进行排序的组合类型。</p>
-<p>要使用多个手势，代码可以更新如下： </p>
+<p>要使用多个手势，代码可以修改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-comment">// 长按手势</span>
     @<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> isPressed = <span class="hljs-built_in">false</span>
@@ -1071,8 +1071,8 @@
 <p>我来逐行解释一下 <code>.gesture</code> 修饰器。我们要求使用者在开始拖曳之前，至少长按图片一秒钟，因此我们从建立<code>LongPressGesture</code> 来开始，与我们之前所实现的内容类似，我们有一个 <code>isPressed</code> 手势状态属性，当某人点击图片时，我们将变更图片的不透明度。</p>
 <p><code>sequenced</code> 关键字可将长按与拖曳手势连结在一起。我们告诉 SwiftUI，<code>LongPressGesture</code> 应该在<code>DragGesture</code> 之前发生。</p>
 <p><code>updating</code> 与 <code>onEnded</code> 函数中的代码看起来非常相似，不过 <code>value</code> 参数现在实际上包含了两个手势（即长按与拖曳），这就是为何我们使用 <code>switch</code> 叙述来区分手势。你可以使用 <code>.first</code> 与 <code>.second</code> case 来找出要处理的手势。由于我们应该要在拖曳手势之前识别长按手势，因此这里的第一个手势是长按手势。在代码中，我们只印出“点击”（Tapping ）讯息供你参考。</p>
-<p>当长按手势确认之后，我们会进到 <code>.second</code>  case。在这里，我们取出拖曳数据，并以对应的位移来更新<code>dragOffset</code>。</p>
-<p>当拖曳结束后，将调用 <code>onEnded</code> 函数。同样的，我们通过计算拖曳数据（也就是 <code>.second</code> case ）来更新最终的位置。</p>
+<p>当长按手势确认之后，我们会进到 <code>.second</code>  case。在这里，我们取出拖曳数据，并以对应的位移来修改<code>dragOffset</code>。</p>
+<p>当拖曳结束后，将调用 <code>onEnded</code> 函数。同样的，我们通过计算拖曳数据（也就是 <code>.second</code> case ）来修改最终的位置。</p>
 <p>现在，你可以测试手势组合了。在预览画布中，使用 debug 来执行 App，如此你可以在主控台中看到讯息。你必须按住星形图片至少一秒钟，才能拖曳它。</p>
 <figure id="fig17.5"><img src="images/gestures/swiftui-gestures-5.gif" alt="图 17.5.　只有当使用者长按图片至少一秒时，才能开始拖曳"><figcaption>图 17.5.　只有当使用者长按图片至少一秒时，才能开始拖曳</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%88%89%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">使用枚举重构代码</h3>
@@ -1148,7 +1148,7 @@
 <p>到目前为止，我们已建立了一个可拖曳的图片视图，若是我们想要建立可拖曳的文字视图呢？或者我们想要建立可拖曳的圆形呢？是否应复制并贴上所有的代码，来建立文字视图或圆形呢？ </p>
 <p>总是会有更好的方式来实现它，我们来看如何建立通用的可拖曳视图。</p>
 <p>在项目导航器中，右键点击 <code>SwiftUIGesture</code> 数据夹，选择“New File”，接着选取“SwiftUI View”模板，然后将文件命名为 <code>DraggableView</code>。</p>
-<p>声明 <code>DragState</code> 枚举，并更新 <code>DraggableView</code>结构如下： </p>
+<p>声明 <code>DragState</code> 枚举，并修改 <code>DraggableView</code>结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DraggableState</span> </span>{
     <span class="hljs-keyword">case</span> inactive
     <span class="hljs-keyword">case</span> pressing

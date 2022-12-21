@@ -982,7 +982,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> startScanning = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> scanText = <span class="hljs-string">&quot;&quot;</span>
 </code></pre>
-<p>在 <code>body</code> 的部分，让我们这样更新代码：</p>
+<p>在 <code>body</code> 的部分，让我们这样修改代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span>(spacing: <span class="hljs-number">0</span>) {
     <span class="hljs-type">DataScanner</span>(startScanning: $startScanning, scanText: $scanText)
         .frame(height: <span class="hljs-number">400</span>)
@@ -1006,7 +1006,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 <p>Live Text 除了支持英语外，还支持法语、意大利语、德语、西班牙语、中文、葡萄牙语、日语、和韩语。</p>
 <figure id="fig39.4"><img src="images/livetext/swiftui-live-text-demo-chinese.png" alt="图 39.4. App 示范"><figcaption>图 39.4. App 示范</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>很高兴看到 Apple 向 iOS 开发人员开放实时文本功能。 虽然新的<code>DataScannerViewController</code>不是专门为 SwiftUI 设计的，但我们可以轻松地将其移植到我们的 Swift 项目中，并将实时文本功能整合到我们自己的应用程序中。 如果你打算发布下一个App更新，请考虑加入这一个功能，它肯定能提升用户体验。</p>
+<p>很高兴看到 Apple 向 iOS 开发人员开放实时文本功能。 虽然新的<code>DataScannerViewController</code>不是专门为 SwiftUI 设计的，但我们可以轻松地将其移植到我们的 Swift 项目中，并将实时文本功能整合到我们自己的应用程序中。 如果你打算发布下一个App修改，请考虑加入这一个功能，它肯定能提升用户体验。</p>
 <p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUILiveText.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUILiveText.zip</a></li>

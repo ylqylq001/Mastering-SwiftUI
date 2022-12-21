@@ -1036,7 +1036,7 @@
     }
 }
 </code></pre>
-<p>我另外为这个示例建立了一个视图。要预览 <code>CustomGaugeView</code>，我们需要更新　<code>ContentView_Previews</code> 结构，并添加 <code>CustomGaugeView</code>：</p>
+<p>我另外为这个示例建立了一个视图。要预览 <code>CustomGaugeView</code>，我们需要修改　<code>ContentView_Previews</code> 结构，并添加 <code>CustomGaugeView</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">ContentView</span>()
@@ -1048,7 +1048,7 @@
     }
 }
 </code></pre>
-<p>就是这样！更新好之后，预览就会显示客制化的 Gauge。</p>
+<p>就是这样！修改好之后，预览就会显示客制化的 Gauge。</p>
 <figure id="fig43.10"><img src="images/gauge/swiftui-gauge-10.png" alt="图 43.10. 客制化的 Gauge"><figcaption>图 43.10. 客制化的 Gauge</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>在本章中，你学习了如何使用新的<code>Gauge</code>视图构建速度计。 除了速度计，你还可以使用 <code>Gauge</code> 来显示进度或任何其他测量值。 <code>Gauge</code> 视图是可灵活运用的。 你只需要采用 <code>GaugeStyle</code> 协议就可以创建自己的 <code>Gauge</code> 样式。</p>
