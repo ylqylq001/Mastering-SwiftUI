@@ -941,7 +941,7 @@
 <figure id="fig4.7"><img src="images/stacks/swiftui-stacks-7.png" alt="图 4.7.　布局售价方案"><figcaption>图 4.7.　布局售价方案</figcaption></figure>
 <p>“Basic”与“Pro”组件是并排排列。使用 <code>HStack</code>，你可以水平布局视图。堆叠可以使用巢状结构，以致于你能够在堆叠视图之中放入另一个堆叠视图。由于售价方案区块位于标题视图的下方，因此我们会使用另外一个VStack 来嵌入一个垂直堆叠（即 Choose Your Plan ）与一个水平堆叠（即售价方案区块），如图 4.8 所示。</p>
 <figure id="fig4.8"><img src="images/stacks/swiftui-stacks-8.png" alt="图 4.8.　使用VStack 来嵌入其他堆叠视图"><figcaption>图 4.8.　使用VStack 来嵌入其他堆叠视图</figcaption></figure>
-<p>现在，你应该对如何使用 <code>VStack</code> 与 <code>HStack</code> 来实现 UI 有了一些基本观念，让我们进入代码部分。</p>
+<p>现在，你应该对如何使用 <code>VStack</code> 与 <code>HStack</code> 来实现 UI 有了一些基本概念，让我们进入代码部分。</p>
 <p>要将目前的 <code>VStack</code> 嵌入另外一个 <code>VStack</code>，你可以按住 command  键，并点选 <code>VStack</code> 关键字，这会弹出一个显示所有可用选项的内容选单（content menu ），选择“Embed in VStack”来嵌入 <code>VStack</code>，如图 4.9 所示。</p>
 <figure id="fig4.9"><img src="images/stacks/swiftui-stacks-9.png" alt="图 4.9.　在VStack 嵌入"><figcaption>图 4.9.　在VStack 嵌入</figcaption></figure>
 <p>Xcode 将会产生嵌入到此堆叠的所需代码，你的代码应如下所示： </p>

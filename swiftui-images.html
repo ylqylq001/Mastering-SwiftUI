@@ -948,7 +948,7 @@
 </code></pre>
 <p>默认上，图片大小调整是使用“延伸”（stretch ）模式。这表示原始图片将会被放大到填满整个屏幕画面（除了顶部与底部区域之外），如图 3.7 所示。</p>
 <figure id="fig3.7"><img src="images/images/swiftui-images-7.png" alt="图 3.7. 以resizable 修饰器调整图片大小"><figcaption>图 3.7. 以resizable 修饰器调整图片大小</figcaption></figure>
-<p>技术上而言，这个图片填满了整个 iOS 所定义的安全区域（Safe Area ）。安全区域的观念已经存在一段颇长的时间了，定义为安全布局UI 组件的视图区域。举例而言，如图 3.7 所示，这个安全区域不包含顶部列（Top Bar ）（也就是状态列）与底部列（Bottom Bar ） 的区域。安全区域可以避免你不小心隐藏了系统 UI 组件，例如：状态列（Status Bar ）、导航列（Navigation Bar ）与标签列（Tab Bar ）。</p>
+<p>技术上而言，这个图片填满了整个 iOS 所定义的安全区域（Safe Area ）。安全区域的概念已经存在一段颇长的时间了，定义为安全布局UI 组件的视图区域。举例而言，如图 3.7 所示，这个安全区域不包含顶部列（Top Bar ）（也就是状态列）与底部列（Bottom Bar ） 的区域。安全区域可以避免你不小心隐藏了系统 UI 组件，例如：状态列（Status Bar ）、导航列（Navigation Bar ）与标签列（Tab Bar ）。</p>
 <p>既然我们正好说到这件事， 若是你想要显示全屏幕图片， 你可以设定 <code>ignoringSafeArea</code> 修饰器来忽略安全区域，如图 3.8 所示。 </p>
 <figure id="fig3.8"><img src="images/images/swiftui-images-8.png" alt="图 3.8　忽略安全区域"><figcaption>图 3.8　忽略安全区域</figcaption></figure>
 <p>你可以针对特定的边缘来忽略安全区域，例如：要忽略底部边缘的安全区域，你只要传送 <code>.bottom</code> 作为参数即可:</p>

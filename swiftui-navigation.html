@@ -1187,7 +1187,7 @@
 <li>如何将滚动视图延伸到画面顶部？ </li>
 <li>如何建立一个客制化“返回”按钮，并编写代码来触发导航？ </li>
 </ol>
-<p>iOS 有一个“安全区域”（safe area ）的观念，用于辅助视图的布局。安全区域可帮你将视图放置于介面的可见部分，例如：安全区域防止视图隐藏了状态列。若是你的 UI 导入了导航列，则会遮挡导航列。</p>
+<p>iOS 有一个“安全区域”（safe area ）的概念，用于辅助视图的布局。安全区域可帮你将视图放置于介面的可见部分，例如：安全区域防止视图隐藏了状态列。若是你的 UI 导入了导航列，则会遮挡导航列。</p>
 <figure id="fig11.15"><img src="images/navigation/swiftui-navigation-15.jpg" alt="![图 11.15　安全区域](images/navigation/swiftui-navigation-15.jpg)"><figcaption>![图 11.15　安全区域](images/navigation/swiftui-navigation-15.jpg)</figcaption></figure>
 <p>要放置超出安全区域的内容，你可以使用名为 <code>ignoresSafeArea</code> 修饰器。对于我们的项目，由于我们想要滚动视图超出安全区域的顶部边缘，则可编写修饰器如下： </p>
 <pre><code class="lang-swift">.ignoresSafeArea(.all, edges: .top)

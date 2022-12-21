@@ -1055,7 +1055,7 @@
 <p>每次变更 <code>isReadySubmit</code> 的值时，它都会向订阅者发布一个事件。订阅者接收修改后的值，并继续处理，例如：订阅者可以使用该值来判断是否应启用“送出”按钮。</p>
 <p>你可能会觉得在 SwiftUI 中 <code>@Published</code> 和 <code>@State</code> 的运作方式非常相似。虽然在这个例子，它的工作原理几乎相同，不过 <code>@State</code> 只能应用在属于特定SwiftUI 视图的属性。如果你想要建立不属于特定视图或可以用于多个视图的自订类型的话，则你需要建立一个遵守 <code>ObservableObject</code> 的类别，并以 <code>@Published</code> 标注来标记这些属性。</p>
 <h3 id="combine-%E8%88%87-mvvm">Combine 与 MVVM</h3>
-<p>现在你应该具备 Combine 的一些基本观念，我们来开始使用框架实现表单验证，下列是我们将要做的事情： </p>
+<p>现在你应该具备 Combine 的一些基本概念，我们来开始使用框架实现表单验证，下列是我们将要做的事情： </p>
 <ol>
 <li>建立一个视图模型来表示使用者注册表单。</li>
 <li>在视图模型中实现表单验证。</li>
@@ -1122,7 +1122,7 @@
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(iconColor: userRegistrationViewModel.isUsernameLengthValid ? <span class="hljs-type">Color</span>.secondary : <span class="hljs-type">Color</span>(red: <span class="hljs-number">251</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>), text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>, isStrikeThrough: userRegistrationViewModel.isUsernameLengthValid)
 </code></pre>
 <p>图示的颜色与删除线的状态都取决于验证结果而定（也就是 <code>isUsernameLengthValid</code> ）。</p>
-<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码变更放入我们的项目中，不过我希望让你了解发布者/ 订阅者的观念，以及我们如何使用这个方法运行验证。在后面的小节中，我们将应用所学的知识，并对代码进行修改。</p>
+<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码变更放入我们的项目中，不过我希望让你了解发布者/ 订阅者的概念，以及我们如何使用这个方法运行验证。在后面的小节中，我们将应用所学的知识，并对代码进行修改。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-combine-%E9%A9%97%E8%AD%89%E5%AF%86%E7%A2%BC">使用 Combine 验证密码</h4>
 <p>如果你了解使用者名称栏位的验证是如何完成的，我们将对密码与密码确认验证应用类似的实现。</p>
 <p>对于密码栏位，有两个要求： </p>
