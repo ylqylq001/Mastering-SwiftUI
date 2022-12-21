@@ -919,13 +919,13 @@
 </ol>
 <figure id="fig19.3"><img src="images/triptinder/swiftui-trip-tinder-3.png" alt="图 19.3.　主屏幕"><figcaption>图 19.3.　主屏幕</figcaption></figure>
 <h4 id="%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">卡片视图</h4>
-<p>首先，我们建立一个卡片视图。若是你想挑战自我，我强烈建议你在这里停下来并实现它，而无须遵循本节内容，否则请继续阅读。</p>
+<p>首先，我们建立一个卡片视图。若是你想挑战自我，我强烈建议你在这里停下来并实现它，而无须遵守本节内容，否则请继续阅读。</p>
 <p>为了让代码更易编写，我们将在一个单独的文件中实现卡片视图。在项目导航器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
 <p><code>CardView</code> 是设计用来显示不同的照片与标题，因此声明两个变量来储存这些数据：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
 </code></pre>
-<p>主屏幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一运行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协议，并导入一个 <code>id</code> 变量，如下所示： </p>
+<p>主屏幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一运行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵守<code>Identifiable</code> 协议，并导入一个 <code>id</code> 变量，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span>, <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">let</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>

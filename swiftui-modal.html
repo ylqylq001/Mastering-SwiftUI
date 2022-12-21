@@ -984,7 +984,7 @@
 <p>强制回应视图具有向下滑动手势的内建支持。现在，你可以向下滑动视图来关闭它，我想这对于 iPhone 长期使用者而言很自然，因为如 Facebook 之类的 App 已使用这个手势来解除视图，但是新的使用者可能对此一无所知，我们最好开发一个“关闭”按钮作为解除强制回应视图的替代方式。</p>
 <figure id="fig12.5"><img src="images/modal/swiftui-modal-7.png" alt="图 12.5. 浮动按钮"><figcaption>图 12.5. 浮动按钮</figcaption></figure>
 <p>现在切换到 <code>ArticleDetailView.swift</code>， 我们将“关闭”按钮加入至视图中，如图 12.5  所示。</p>
-<p>你知道如何将按钮放在右上角吗？试着不直接遵循我的代码，而是提出自己的实现。</p>
+<p>你知道如何将按钮放在右上角吗？试着不直接遵守我的代码，而是提出自己的实现。</p>
 <p>好的，回到实现部分。</p>
 <p>和 <code>NavigationStack</code> 类似，我们可以使用 <code>dismiss</code> 环境值来解除模式。因此，首先在<code>ArticleDetailView</code> 中声明下列的变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.dismiss) <span class="hljs-keyword">var</span> dismiss

@@ -1212,7 +1212,7 @@
 }
 </code></pre>
 <p>从上列的代码中可以见到，你需要为每个按钮复制所有的修饰器。当你或你的设计师想要修改按钮样式时，你将需要修改所有的修饰器，这会是一个非常繁锁的工作，并非是程序设计的最佳实践，那么你如何归纳样式并重复使用呢？</p>
-<p>SwiftUI 提供了一个名为 <code>ButtonStyle</code>的协议，可以让你建立自己的按钮样式。要为我们的按钮建立一个可以重复使用的样式， 则我们建立一个名为 <code>Gradient BackgroundStyle</code> 的新结构，该结构遵循 ButtonStyle 协议。在 <code>struct ContentPreview_Previews</code>上方，插入下列这段代码： </p>
+<p>SwiftUI 提供了一个名为 <code>ButtonStyle</code>的协议，可以让你建立自己的按钮样式。要为我们的按钮建立一个可以重复使用的样式， 则我们建立一个名为 <code>Gradient BackgroundStyle</code> 的新结构，该结构遵守 ButtonStyle 协议。在 <code>struct ContentPreview_Previews</code>上方，插入下列这段代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">GradientBackgroundStyle</span>: <span class="hljs-title">ButtonStyle</span> </span>{
 
     <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">makeBody</span><span class="hljs-params">(configuration: <span class="hljs-keyword">Self</span>.Configuration)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> </span>{

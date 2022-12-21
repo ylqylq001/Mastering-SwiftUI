@@ -1028,7 +1028,7 @@
 <p>看一下我们传入 <code>List</code> 的参数，我们没有传送范围，而是传送 <code>restaurants</code> 数组，并告诉 <code>List</code> 使用其 <code>name</code> 属性作为识别码。<code>List</code>  将逐一运行数组，并让我们知道它在闭包中正在处理的目前餐厅。因此，在闭包中，我们指示清单如何显示餐厅列，这里我们只在 <code>HStack</code> 中同时显示餐厅图片与餐厅名称。</p>
 <p>一切都没有改变，UI 仍然相同，不过底层代码已经修改为利用 <code>List</code> 与数据集合了。</p>
 <figure id="fig10.7"><img src="images/list/swiftui-list-7.png" alt="图 10.7.　与图 10.6 的 UI 相同"><figcaption>图 10.7.　与图 10.6 的 UI 相同</figcaption></figure>
-<h4 id="%E9%81%B5%E5%BE%AA-identifiable-%E5%8D%94%E5%AE%9A">遵循 Identifiable 协议</h4>
+<h4 id="%E9%81%B5%E5%BE%AA-identifiable-%E5%8D%94%E5%AE%9A">遵守 Identifiable 协议</h4>
 <p>为了让你更了解 <code>List</code> 内 <code>id</code> 参数的用途，我们对 <code>restaurants</code> 数组做一个小变更。由于我们使用餐厅名称作为识别码，因此我们来看当有两笔数据具有相同的餐厅名称时会发生什么事？现在将 <code>restaurants</code> 数组中的“Upstate”修改为“Homei”，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Homei&quot;</span>, image: <span class="hljs-string">&quot;upstate&quot;</span>)
 </code></pre>
@@ -1049,7 +1049,7 @@
 </code></pre>
 <p>这告诉 <code>List</code> 视图使用餐厅的 <code>id</code> 属性作为唯一的识别码。再看一遍预览，第二笔的“Homei”纪录应该显示它自己的图片了，如图 10.9 所示。</p>
 <figure id="fig10.9"><img src="images/list/swiftui-list-9.png" alt="图 10.9.　错误已被修正而可显示正确的图片"><figcaption>图 10.9.　错误已被修正而可显示正确的图片</figcaption></figure>
-<p>通过让 <code>Restaurant</code>  结构遵循 <code>Identifiable</code> 协议，我们可进一步简化代码。这个协议只有一个要求，就是实现协议的型别应该具备某种 <code>id</code> 作为唯一识别码。现在修改 <code>Restauran</code>t 来实现 <code>Identifiable</code> 协议，如下所示：</p>
+<p>通过让 <code>Restaurant</code>  结构遵守 <code>Identifiable</code> 协议，我们可进一步简化代码。这个协议只有一个要求，就是实现协议的型别应该具备某种 <code>id</code> 作为唯一识别码。现在修改 <code>Restauran</code>t 来实现 <code>Identifiable</code> 协议，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1057,7 +1057,7 @@
 }
 </code></pre>
 <p>由于 <code>Restaurant</code> 已经提供了唯一的 <code>id</code> 属性，因此符合协议的要求。</p>
-<p>那么，这里实现 <code>Identifiable</code> 协议的目的是什么呢？它可以进一步节省一些代码，当 <code>Restaurant</code> 结构遵循 <code>Identifiable</code> 协议时，你可不使用 <code>id</code> 参数来初始化这个 <code>List</code>，修改后的清单视图代码，如下所示： </p>
+<p>那么，这里实现 <code>Identifiable</code> 协议的目的是什么呢？它可以进一步节省一些代码，当 <code>Restaurant</code> 结构遵守 <code>Identifiable</code> 协议时，你可不使用 <code>id</code> 参数来初始化这个 <code>List</code>，修改后的清单视图代码，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
     <span class="hljs-type">HStack</span> {
         <span class="hljs-type">Image</span>(restaurant.image)

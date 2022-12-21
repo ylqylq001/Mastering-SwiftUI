@@ -1409,7 +1409,7 @@
 <figure id="fig18.14"><img src="images/bottom-sheet/swiftui-bottom-sheet-14.jpg" alt="图 8.14. 在不同方向拖曳滚动视图。"><figcaption>图 8.14. 在不同方向拖曳滚动视图。</figcaption></figure>
 <h3 id="preferencekey-%E7%9A%84%E4%BB%8B%E7%B4%B9">PreferenceKey 的介绍</h3>
 <p>现在我们已经找到滚动偏移量取得方式，接下的问题是如何让它的父视图知道偏移量，以利进一步处理。 SwiftUI 框架提供了一个  <code>PreferenceKey</code> 协议，可以让你很容易地从子视图传递数据至它的父视图。</p>
-<p>为了使用布局偏好（preference）来传递滚动偏移量，我们必须建立一个结构来遵循 <code>PreferenceKey</code>协议，如下所示，在 <code>RestaurantDetailView.swift</code> 插入以下这段程序：</p>
+<p>为了使用布局偏好（preference）来传递滚动偏移量，我们必须建立一个结构来遵守 <code>PreferenceKey</code>协议，如下所示，在 <code>RestaurantDetailView.swift</code> 插入以下这段程序：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ScrollOffsetKey</span>: <span class="hljs-title">PreferenceKey</span> </span>{
     <span class="hljs-keyword">typealias</span> <span class="hljs-type">Value</span> = <span class="hljs-type">CGFloat</span>
 

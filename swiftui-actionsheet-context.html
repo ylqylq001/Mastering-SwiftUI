@@ -1071,7 +1071,7 @@
 <p>第二种方法是通过一个 Optional Identifiable 绑定来触发动作表： </p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">actionSheet</span><span class="hljs-generics">&lt;T&gt;</span><span class="hljs-params">(item: Binding&lt;T?&gt;, content: <span class="hljs-params">(T)</span> -&gt; ActionSheet)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> <span class="hljs-title">where</span> <span class="hljs-title">T</span> : <span class="hljs-title">Identifiable</span>
 </span></code></pre>
-<p>以白话来说，这表示当你传送的项目有值时，将会显示动作。对于我们的示例， <code>selectedRestaurant</code> 变量是一个 Optional，并遵循 <code>Identifiable</code> 协议。要使用第二种方法，你只需要将 <code>selectedRestaurant</code> 绑定传送至<code>actionSheet</code> 修饰器，如下所示： </p>
+<p>以白话来说，这表示当你传送的项目有值时，将会显示动作。对于我们的示例， <code>selectedRestaurant</code> 变量是一个 Optional，并遵守 <code>Identifiable</code> 协议。要使用第二种方法，你只需要将 <code>selectedRestaurant</code> 绑定传送至<code>actionSheet</code> 修饰器，如下所示： </p>
 <pre><code class="lang-swift">.actionSheet(item: <span class="hljs-keyword">self</span>.$selectedRestaurant) { restaurant <span class="hljs-keyword">in</span>
 
     <span class="hljs-type">ActionSheet</span>(title: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;What do you want to do&quot;</span>), message: <span class="hljs-built_in">nil</span>, buttons: [
