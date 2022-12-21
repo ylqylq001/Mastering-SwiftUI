@@ -883,7 +883,7 @@
 <p>如果你还没有读过上一章，我建议你先读过再看此章节。在上一篇文章中，我们已经说明过 <code>ImageRenderer</code> 的基本用法，并解释了范例 App 的实作过程。</p>
 <figure id="fig42.1"><img src="images/pdfdoc/swiftui-imagerenderer-pdf.png" alt="图 42.1. 范例 App"><figcaption>图 42.1. 范例 App</figcaption></figure>
 <p>要跟着实作的话，可以先下载这个 Starter 项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererPDFStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererPDFStarter.zip</a>.</p>
-<p>我对上次的范例 App 做了一些改动，为折线图添加了 heading 和 caption。范例 App 现在还有一个 <em>PDF</em> 按钮，用来把 Chart 视图保存为 PDF 文件。以下是 <code>ChartView</code> 结构的程式码：</p>
+<p>我对上次的范例 App 做了一些改动，为折线图添加了 heading 和 caption。范例 App 现在还有一个 <em>PDF</em> 按钮，用来把 Chart 视图保存为 PDF 文件。以下是 <code>ChartView</code> 结构的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ChartView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">let</span> chartData = [ (city: <span class="hljs-string">&quot;Hong Kong&quot;</span>, data: hkWeatherData),
                       (city: <span class="hljs-string">&quot;London&quot;</span>, data: londonWeatherData),
@@ -936,14 +936,14 @@
 }
 </code></pre>
 <h3 id="%E6%8A%8A-chart-%E8%A6%96%E5%9C%96%E5%84%B2%E5%AD%98%E7%82%BA-pdf-%E6%96%87%E4%BB%B6">把 Chart 视图储存为 PDF 文件</h3>
-<p>现在，我们想要做的就是使用 <code>ImageRenderer</code>，把 <code>ChartView</code> 储存为 PDF 文件。虽然，我们只需要几行程式码就可以把 SwiftUI 视图转换为图像，PDF rendering 就需要多一点步骤。</p>
+<p>现在，我们想要做的就是使用 <code>ImageRenderer</code>，把 <code>ChartView</code> 储存为 PDF 文件。虽然，我们只需要几行代码就可以把 SwiftUI 视图转换为图像，PDF rendering 就需要多一点步骤。</p>
 <p>如果我们是想把 Chart 转换为图像，我们可以存取 <code>uiImage</code> 属性，来取得渲染图像 ( rendered image)。而如果我们想把 Chart 转换成 PDF，就会使用 <code>ImageRenderer</code> 的 <code>render</code> 方法。我们将会实作：</p>
 <ul>
 <li>寻找文档目录，并为 PDF 文件准备渲染路径 (rendered path)（例如 linechart.pdf）。</li>
 <li>准备一个用于绘图的 <code>CGContext</code> 实例。</li>
 <li>调用渲染器 (renderer) 的 <code>render</code> 方法来渲染 PDF 文件。</li>
 </ul>
-<p>在实作中，我们会建立一个新方法 <code>exportPDF</code>。以下是这个方法的程式码：</p>
+<p>在实作中，我们会建立一个新方法 <code>exportPDF</code>。以下是这个方法的代码：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">MainActor</span>
 private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">exportPDF</span><span class="hljs-params">()</span> </span>{
     guard <span class="hljs-keyword">let</span> documentDirectory = <span class="hljs-type">FileManager</span>.<span class="hljs-keyword">default</span>.urls(<span class="hljs-keyword">for</span>: .documentDirectory, <span class="hljs-keyword">in</span>: .userDomainMask).first <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
@@ -970,7 +970,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Saving PDF to <span class="hljs-subst">\(renderedUrl.path()</span>)&quot;</span>)
 }
 </code></pre>
-<p>在程式码的前两行，我们检索了使用者的文档目录，并设置 PDF 文件的文件路径（即 <code>line chart.pdf</code>）。然后，我们创建了 <code>CGContext</code> 的实例，并把 <code>mediaBox</code>参数设置为 nil。在这种情况下，Core Graphics 会使用预设页面大小 8.5 x 11 inches（612 x 792 points）。</p>
+<p>在代码的前两行，我们检索了使用者的文档目录，并设置 PDF 文件的文件路径（即 <code>line chart.pdf</code>）。然后，我们创建了 <code>CGContext</code> 的实例，并把 <code>mediaBox</code>参数设置为 nil。在这种情况下，Core Graphics 会使用预设页面大小 8.5 x 11 inches（612 x 792 points）。</p>
 <p><code>renderer</code> 闭包会接收两个参数：视图当前的大小、和将视图渲染到 <code>CGContext</code> 的函数。让我们调用上下文的 <code>beginPDFPage</code> 方法，来打开 PDF 页面。<code>renderer</code> 方法会绘制 Chart 视图。请记住，我们需要关闭 PDF 文件才能完成整个操作。</p>
 <p>让我们要创建一个 <code>PDF</code> 按钮，来调用这个 <code>exportPDF</code> 方法：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
@@ -984,7 +984,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <pre><code>Saving PDF to /Users/simon/Library/Developer/CoreSimulator/Devices/CA9B849B-36C5-4608-9D72-B04C468DA87E/data/Containers/Data/Application/04415B8A-7485-48F0-8DA2-59B97C2B529D/Documents/linechart.pdf
 </code></pre><p>如果你在 Finder 打开文件，应该会看到以下的 PDF 文件：</p>
 <figure id="fig42.2"><img src="images/pdfdoc/swiftui-imagerenderer-pdf-sample.png" alt="图 42.2. PDF 文件"><figcaption>图 42.2. PDF 文件</figcaption></figure>
-<p>如果想调整图表的位置，我们可以在调用 <code>renderer</code> 前插入这行程式码：</p>
+<p>如果想调整图表的位置，我们可以在调用 <code>renderer</code> 前插入这行代码：</p>
 <pre><code class="lang-swift">pdfContext.translateBy(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">200</span>)
 </code></pre>
 <p>如此一来，图表就会出现在文件上面的部分。</p>

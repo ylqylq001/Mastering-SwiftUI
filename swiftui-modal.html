@@ -881,7 +881,7 @@
 <p>对于 iPhone 的使用者，你应该非常熟悉强制回应视图了。强制回应视图的一种常见用途是显示输入表单，例如：行事历 App 为使用者显示一个强制回应视图来建立一个新事件。系统内建的提醒事项与联络人 App 也使用强制回应视图来要求使用者输入。</p>
 <figure id="fig12.1"><img src="images/modal/swiftui-modal-1.png" alt="图 12.1.　行事历、提醒事项与联络人 App 的强制回应视图范例"><figcaption>图 12.1.　行事历、提醒事项与联络人 App 的强制回应视图范例</figcaption></figure>
 <p>从使用者体验的角度来看，这个强制回应视图通常是透过点击按钮来触发。同样的， 强制回应视图的转场动画是由 iOS 所处理。当显示全荧幕的强制回应视图时，它会流畅地从画面底部向上滑动。</p>
-<p>如果你是 iOS 的长期使用者，你可能会发现如图 12.1 所示的强制回应视图的外观及感觉和平常不太一样。在 iOS 13 之前，显示强制回应视图时会覆盖整个画面，自 iOS 13 起，强制回应视图预设是以卡片式的形式显示，其不会覆盖全画面，而是部分覆盖了底层内容视图，你仍然可看到内容 / 父视图的顶部边缘。除了视觉变动之外，现在可从画面的任意位置向下滑动来解除强制回应视图。你不需要撰写任何一行程式码，即可启动这个手势。它完全是内建且由 iOS 产生。当然，若是你想透过按钮来解除强制回应视图，则依然可以这样做。</p>
+<p>如果你是 iOS 的长期使用者，你可能会发现如图 12.1 所示的强制回应视图的外观及感觉和平常不太一样。在 iOS 13 之前，显示强制回应视图时会覆盖整个画面，自 iOS 13 起，强制回应视图预设是以卡片式的形式显示，其不会覆盖全画面，而是部分覆盖了底层内容视图，你仍然可看到内容 / 父视图的顶部边缘。除了视觉变动之外，现在可从画面的任意位置向下滑动来解除强制回应视图。你不需要撰写任何一行代码，即可启动这个手势。它完全是内建且由 iOS 产生。当然，若是你想透过按钮来解除强制回应视图，则依然可以这样做。</p>
 <p>那么，我们将在本章中要实作什么呢？ </p>
 <p>我教你如何使用强制回应视图显示和在前一章中我们实作过的相同细节视图，虽然强制回应视图通常用于显示表单，这并不表示你不能使用它们来显示其他资讯。除了强制回应视图之外，你还将学习如何在细节视图中建立浮动按钮。虽然可透过滑动手势来解除强制回应视图，但我想提供一个“Close”按钮来供使用者解除细节视图。另外，我们也将研究警告提示视窗（Alert ），这是另一种强制回应视图。</p>
 <figure id="fig12.2"><img src="images/modal/swiftui-modal-2.jpg" alt="图 12.2.　使用强制回应视图来显示细节画面"><figcaption>图 12.2.　使用强制回应视图来显示细节画面</figcaption></figure>
@@ -898,7 +898,7 @@
 }
 </code></pre>
 <p>它采用布林值来指示是否显示强制回应视图，如果 <code>isPresented</code> 设定为 <code>true</code>，则强制回应视图将自动以卡片形式显示。</p>
-<p>显示强制回应视图的另一种方式，可以写成如下程式码： </p>
+<p>显示强制回应视图的另一种方式，可以写成如下代码： </p>
 <pre><code class="lang-swift">.sheet(item: $itemToDisplay) {
     <span class="hljs-type">DetailView</span>()
 }
@@ -912,7 +912,7 @@
 <p>如前所述，<code>sheet</code> 修饰器提供我们两种显示模式的方式。我将展示这两种方法如何工作，我们从 <code>isPresented</code> 方法开始，对于这个方法，我们需要一个Bool 型别的状态变数来追踪强制回应视图的状态。在 <code>ContentView</code>中宣告这个变数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showDetailView = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>预设情况下，它设定为 <code>false</code>。当点击其中一列时，该变数的值将会设定为 <code>true</code>。稍后， 我们会在程式码中做这个变更。</p>
+<p>预设情况下，它设定为 <code>false</code>。当点击其中一列时，该变数的值将会设定为 <code>true</code>。稍后， 我们会在代码中做这个变更。</p>
 <p>当显示细节视图时，该视图需要我们传送所选的文章，因此我们也需要宣告一个状态来储存使用者的选择。在<code>ContentView</code> 中，为此宣告另一个状态变数如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> selectedArticle: <span class="hljs-type">Article</span>?
 </code></pre>
@@ -963,14 +963,14 @@
 <figure id="fig12.4"><img src="images/modal/swiftui-modal-4.png" alt="图 12.4. 以强制回应模式来显示细节视图"><figcaption>图 12.4. 以强制回应模式来显示细节视图</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-optional-%E7%B6%81%E5%AE%9A%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 Optional 绑定实作强制回应视图</h3>
 <p><code>sheet</code> 修饰器还提供另一种显示强制回应视图的方式。这里不使用布林值来控制强制回应视图的外观，这个修饰器让你使用一个 Optional 绑定来实现相同的目标。</p>
-<p>你可以将 <code>sheet</code> 修饰器替换为下列程式码： </p>
+<p>你可以将 <code>sheet</code> 修饰器替换为下列代码： </p>
 <pre><code class="lang-swift">.sheet(item: $selectedArticle) { article <span class="hljs-keyword">in</span>
     <span class="hljs-type">ArticleDetailView</span>(article: article)
 }
 </code></pre>
-<p>在这种情况下，<code>sheet</code> 修饰器需要你传送一个 Optional 绑定。这里我们指定为 <code>selectedArticle</code> 绑定，这表示只有当所选的文章有值，iOS 才会带出强制回应视图。闭包中的程式码指定强制回应视图的外观，但它和我们之前所撰写的有些不同。</p>
+<p>在这种情况下，<code>sheet</code> 修饰器需要你传送一个 Optional 绑定。这里我们指定为 <code>selectedArticle</code> 绑定，这表示只有当所选的文章有值，iOS 才会带出强制回应视图。闭包中的代码指定强制回应视图的外观，但它和我们之前所撰写的有些不同。</p>
 <p>对于这个方法，<code>sheet</code> 修饰器将闭包中所选的文章传送给我们。article 参数包含了所选的文章，且该文章确保有一个值，这就是为何我们可以使用它来初始化 <code>ArticleDetailView</code>。</p>
-<p>由于我们不再使用 <code>showDetailView</code> 变数，因此你可以删除下列这行程式码： </p>
+<p>由于我们不再使用 <code>showDetailView</code> 变数，因此你可以删除下列这行代码： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showDetailView = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>另外，从 <code>.onTapGesture</code> 闭包中删除 <code>self.showDetailView = true</code>:</p>
@@ -979,12 +979,12 @@
     ...
 }
 </code></pre>
-<p>更改程式码，你可以再次测试这个App。运作一如往常，但底层比原来更简洁。</p>
+<p>更改代码，你可以再次测试这个App。运作一如往常，但底层比原来更简洁。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E6%B5%AE%E5%8B%95%E6%8C%89%E9%88%95%E4%BE%86%E8%A7%A3%E9%99%A4%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">建立浮动按钮来解除强制回应视图</h3>
 <p>强制回应视图具有向下滑动手势的内建支援。现在，你可以向下滑动视图来关闭它，我想这对于 iPhone 长期使用者而言很自然，因为如 Facebook 之类的 App 已使用这个手势来解除视图，但是新的使用者可能对此一无所知，我们最好开发一个“关闭”按钮作为解除强制回应视图的替代方式。</p>
 <figure id="fig12.5"><img src="images/modal/swiftui-modal-7.png" alt="图 12.5. 浮动按钮"><figcaption>图 12.5. 浮动按钮</figcaption></figure>
 <p>现在切换到 <code>ArticleDetailView.swift</code>， 我们将“关闭”按钮加入至视图中，如图 12.5  所示。</p>
-<p>你知道如何将按钮放在右上角吗？试着不直接遵循我的程式码，而是提出自己的实作。</p>
+<p>你知道如何将按钮放在右上角吗？试着不直接遵循我的代码，而是提出自己的实作。</p>
 <p>好的，回到实作部分。</p>
 <p>和 <code>NavigationStack</code> 类似，我们可以使用 <code>dismiss</code> 环境值来解除模式。因此，首先在<code>ArticleDetailView</code> 中宣告下列的变数： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.dismiss) <span class="hljs-keyword">var</span> dismiss
@@ -1033,8 +1033,8 @@
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Are you sure you want to leave?&quot;</span>)
 })
 </code></pre>
-<p>范例程式码初始化一个标题为“警告”的警告提示视图，警告提示视窗还向使用者显示“你确定要离开吗”。在警告提示视图中有两个按钮：“确认”（Confirm ）与“取消”（Cancel ）。</p>
-<p>要建立如图 12.7 的警告提示视窗，程式码如下所示： </p>
+<p>范例代码初始化一个标题为“警告”的警告提示视图，警告提示视窗还向使用者显示“你确定要离开吗”。在警告提示视图中有两个按钮：“确认”（Confirm ）与“取消”（Cancel ）。</p>
+<p>要建立如图 12.7 的警告提示视窗，代码如下所示： </p>
 <pre><code class="lang-swift">.alert(<span class="hljs-string">&quot;Reminder&quot;</span>, isPresented: $showAlert, actions: {
     <span class="hljs-type">Button</span> {
         dismiss()
@@ -1050,13 +1050,13 @@
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Are you sure you are finished reading the article?&quot;</span>)
 })
 </code></pre>
-<p>除了主按钮具有 <code>action</code> 参数之外，它和先前的程式码类似。这个警告提示视窗询问使用者是否已阅读完文章，若是使用者选择“是”（ Yes ），它会继续关掉强制回应视图，否则强制回应视图将保持开启。</p>
-<p>现在，我们已有了建立警告提示视窗的程式码，问题是如何触发警告提示视窗的显示呢？ SwiftUI 提供一个可加到任何视图的 <code>alert</code> 修饰器。同样的，你使用一个布林变数来控制警告提示视窗的显示，因此在 <code>ArticleDetailView</code>中宣告一个状态变数： </p>
+<p>除了主按钮具有 <code>action</code> 参数之外，它和先前的代码类似。这个警告提示视窗询问使用者是否已阅读完文章，若是使用者选择“是”（ Yes ），它会继续关掉强制回应视图，否则强制回应视图将保持开启。</p>
+<p>现在，我们已有了建立警告提示视窗的代码，问题是如何触发警告提示视窗的显示呢？ SwiftUI 提供一个可加到任何视图的 <code>alert</code> 修饰器。同样的，你使用一个布林变数来控制警告提示视窗的显示，因此在 <code>ArticleDetailView</code>中宣告一个状态变数： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showAlert = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>接下来，将以上的 <code>alert</code> 修饰器加到 <code>ScrollView</code> 上。 </p>
 <p>还剩下一件事，我们应该何时触发警告提示视窗呢？换句话说，我们何时要将 <code>showAlert</code> 设定为 <code>true</code> ？ </p>
-<p>显然的，当某人点击“关闭”按钮时，App 应该显示警告提示视窗。因此，替换按钮动作的程式码如下： </p>
+<p>显然的，当某人点击“关闭”按钮时，App 应该显示警告提示视窗。因此，替换按钮动作的代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     <span class="hljs-keyword">self</span>.showAlert = <span class="hljs-built_in">true</span>
 } label: {
@@ -1074,7 +1074,7 @@
 }
 </code></pre>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>你已经学习了如何显示强制回应视图、实作浮动按钮以及显示警告提示视窗。iOS 持续鼓励使用者利用手势来与装置互动，并为常见手势提供内建支援。不需要撰写一行程式码，即可让使用者在画面上向下滑动，以解除强制回应视图。</p>
+<p>你已经学习了如何显示强制回应视图、实作浮动按钮以及显示警告提示视窗。iOS 持续鼓励使用者利用手势来与装置互动，并为常见手势提供内建支援。不需要撰写一行代码，即可让使用者在画面上向下滑动，以解除强制回应视图。</p>
 <p>强制回应视图与警告提示视窗的 API 设计非常相似，它监控状态变数，以确认是否触发强制回应视图（或警告提示视窗）。一旦你了解这个技术后，实作对你而言应该不困难了。</p>
 <p>在本章所准备的范例档中，有完整的专案可供下载： </p>
 <ul>

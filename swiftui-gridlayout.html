@@ -887,11 +887,11 @@
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> symbols = [<span class="hljs-string">&quot;keyboard&quot;</span>, <span class="hljs-string">&quot;hifispeaker.fill&quot;</span>, <span class="hljs-string">&quot;printer.fill&quot;</span>, <span class="hljs-string">&quot;tv.fill&quot;</span>, <span class="hljs-string">&quot;desktopcomputer&quot;</span>, <span class="hljs-string">&quot;headphones&quot;</span>, <span class="hljs-string">&quot;tv.music.note&quot;</span>, <span class="hljs-string">&quot;mic&quot;</span>, <span class="hljs-string">&quot;plus.bubble&quot;</span>, <span class="hljs-string">&quot;video&quot;</span>]
 </code></pre>
 </li>
-<li><p>创建一个 <code>GridItem</code> 阵列，来描述 Grid 的外观。比方说，Grid 需要有多少列？以下是描述一个 3 列 (column) 网格的范例程式码：</p>
+<li><p>创建一个 <code>GridItem</code> 阵列，来描述 Grid 的外观。比方说，Grid 需要有多少列？以下是描述一个 3 列 (column) 网格的范例代码：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> threeColumnGrid = [<span class="hljs-type">GridItem</span>(.flexible()), <span class="hljs-type">GridItem</span>(.flexible()), <span class="hljs-type">GridItem</span>(.flexible())]
 </code></pre>
 </li>
-<li><p>使用 <code>LazyVGrid</code> 和 <code>ScrollView</code> 布局 Grid。可以参考以下这是范例程式码：</p>
+<li><p>使用 <code>LazyVGrid</code> 和 <code>ScrollView</code> 布局 Grid。可以参考以下这是范例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span> {
     <span class="hljs-type">LazyVGrid</span>(columns: threeColumnGrid) {
         <span class="hljs-comment">// Display the item</span>
@@ -909,7 +909,7 @@
 </li>
 </ol>
 <h3 id="%E4%BD%BF%E7%94%A8-lazyvgrid-%E4%BE%86%E5%89%B5%E5%BB%BA%E5%9E%82%E7%9B%B4-grid">使用 LazyVGrid 来创建垂直 Grid</h3>
-<p>对 Grid 布局有一些基本了解之后，让我们开始编写程式码吧！我们将从构建一个 3 列的网格(Grid)开始。打开 Xcode 并使用 <em>App</em> 模板创建一个新项目。 请确保选择 <em>SwiftUI</em> 作为界面选项。 将项目命名为 <em>SwiftUIGridLayout</em> 或你喜欢的名称。</p>
+<p>对 Grid 布局有一些基本了解之后，让我们开始编写代码吧！我们将从构建一个 3 列的网格(Grid)开始。打开 Xcode 并使用 <em>App</em> 模板创建一个新项目。 请确保选择 <em>SwiftUI</em> 作为界面选项。 将项目命名为 <em>SwiftUIGridLayout</em> 或你喜欢的名称。</p>
 <figure id="fig29.2"><img src="images/gridlayout/swiftui-gridlayout-2.png" alt="图 29.2. 使用 App 模板创建一个新项目"><figcaption>图 29.2. 使用 App 模板创建一个新项目</figcaption></figure>
 <p>之后，在 <code>ContentView.swift</code> 内，宣告以下变数 (variable)：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> symbols = [<span class="hljs-string">&quot;keyboard&quot;</span>, <span class="hljs-string">&quot;hifispeaker.fill&quot;</span>, <span class="hljs-string">&quot;printer.fill&quot;</span>, <span class="hljs-string">&quot;tv.fill&quot;</span>, <span class="hljs-string">&quot;desktopcomputer&quot;</span>, <span class="hljs-string">&quot;headphones&quot;</span>, <span class="hljs-string">&quot;tv.music.note&quot;</span>, <span class="hljs-string">&quot;mic&quot;</span>, <span class="hljs-string">&quot;plus.bubble&quot;</span>, <span class="hljs-string">&quot;video&quot;</span>]
@@ -933,7 +933,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
     }
 }
 </code></pre>
-<p>我们使用 <code>LazyVGrid</code>，并告诉垂直 Grid 使用 3 列布局。我们还指定行与行之间有 20 point 的间距。在程式码中，我们有一个 <code>ForEach</code> 回圈 (loop)，来显示总共 10,000 个图像视图。如果有正确地跟随步骤，你就会在预览中看到一个三列 Grid。</p>
+<p>我们使用 <code>LazyVGrid</code>，并告诉垂直 Grid 使用 3 列布局。我们还指定行与行之间有 20 point 的间距。在代码中，我们有一个 <code>ForEach</code> 回圈 (loop)，来显示总共 10,000 个图像视图。如果有正确地跟随步骤，你就会在预览中看到一个三列 Grid。</p>
 <figure id="fig29.3"><img src="images/gridlayout/swiftui-gridlayout-3.png" alt="图 29.3. 一个三列 Grid"><figcaption>图 29.3. 一个三列 Grid</figcaption></figure>
 <p>我们成功创建了一个三列的垂直 Grid 了！现在，图像框架 (frame) 的大小固定为 50 x 50 point。你可以如此更改框架修饰符 (modifier)：</p>
 <pre><code class="lang-swift">.frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">50</span>)
@@ -944,10 +944,10 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <p>网格项之间的间距由在 <code>gridItemLayout</code> 中的 <code>GridItem</code> 来控制。 你可以通过将值传给 <code>spacing</code> 参数来设置项目之间的间距。 因此，要删除行之间的空白地方，你可以像这样初始化 <code>gridLayout</code> 变数：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.flexible(), spacing: <span class="hljs-number">0</span>), <span class="hljs-type">GridItem</span>(.flexible(), spacing: <span class="hljs-number">0</span>), <span class="hljs-type">GridItem</span>(.flexible(), spacing: <span class="hljs-number">0</span>)]
 </code></pre>
-<p>对于每个“GridItem”，我们指定为零间距。 为简单起见，上面的程式码可以改写成这样：</p>
+<p>对于每个“GridItem”，我们指定为零间距。 为简单起见，上面的代码可以改写成这样：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = <span class="hljs-type">Array</span>(repeating: <span class="hljs-type">GridItem</span>(.flexible(), spacing: <span class="hljs-number">0</span>), <span class="hljs-built_in">count</span>: <span class="hljs-number">3</span>)
 </code></pre>
-<p>如果你已更新相关程式码，你的预览画布应该会显示一个没有任何间距的网格视图。</p>
+<p>如果你已更新相关代码，你的预览画布应该会显示一个没有任何间距的网格视图。</p>
 <figure id="fig29.5"><img src="images/gridlayout/swiftui-gridlayout-5.png" alt="Figure 5. Removing the spacing between columns and rows"><figcaption>Figure 5. Removing the spacing between columns and rows</figcaption></figure>
 <h2 id="%E5%88%A9%E7%94%A8-griditem-%E6%9B%B4%E6%94%B9-grid-%E4%BD%88%E5%B1%80-flexible-fixed-adaptive">利用 GridItem 更改 Grid 布局 (Flexible/ Fixed/ Adaptive)</h2>
 <p>让我们进一步看看 <code>GridItem</code>。你可以使用 <code>GridItem</code> 实例在 <code>LazyHGrid</code> 和 <code>LazyVGrid</code> 视图中配置项目的布局。在前文中，我们定义了一个有三个 <code>GridItem</code> 实例的阵列，而每个实例都使用尺寸型别 (Size Type) <code>.flexible()</code>。Flexible 尺寸型别让我们可以创建三个大小相等的列。如果想要一个 6 列的 Grid，则可以如此创建 <code>GridItem</code> 阵列：</p>
@@ -956,11 +956,11 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <p><code>.flexible()</code> 只是其中一个用于控制 Grid 布局的尺寸型别。如果要在一行中放置尽可能多的项目，你可以使用如下的 <em>adaptive</em> 尺寸型别：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">50</span>))]
 </code></pre>
-<p><em>Adaptive</em> 尺寸型别要求你指定项目的最小尺寸 (minimum size)。在上面的程式码中，我们设定了每个 Grid 项目的最小尺寸为 50。如果你像这样修改 <code>gridItemLayout</code> 变数，就可以达到以下的 Grid 布局。</p>
+<p><em>Adaptive</em> 尺寸型别要求你指定项目的最小尺寸 (minimum size)。在上面的代码中，我们设定了每个 Grid 项目的最小尺寸为 50。如果你像这样修改 <code>gridItemLayout</code> 变数，就可以达到以下的 Grid 布局。</p>
 <figure id="fig29.6"><img src="images/gridlayout/swiftui-gridlayout-6.png" alt="图 29.6. 使用 adaptive 尺寸型别"><figcaption>图 29.6. 使用 adaptive 尺寸型别</figcaption></figure>
 <p>我们使用了 <code>.adaptive(minimum: 50)</code>，指示 <code>LazyVGrid</code> 在一行中填满尽可能多的图像，而每个项目的最小尺寸为 50 point。</p>
 <p><em>注意：我使用 iPhone 13 Pro 作为模拟器。 如果你使用其他屏幕尺寸不同的 iOS 模拟器，你可能会获得不同的结果。</em></p>
-<p>除了 <code>.flexible</code> 和 <code>.adaptive</code> 之外，如果想创建固定宽度的列，我们可以使用 <code>.fixed</code>。例如，我们想将图像分为两列，第一列的宽度为 100 point，第二列的宽度为 150 point，我们可以这样编写程式码：</p>
+<p>除了 <code>.flexible</code> 和 <code>.adaptive</code> 之外，如果想创建固定宽度的列，我们可以使用 <code>.fixed</code>。例如，我们想将图像分为两列，第一列的宽度为 100 point，第二列的宽度为 150 point，我们可以这样编写代码：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.fixed(<span class="hljs-number">100</span>)), <span class="hljs-type">GridItem</span>(.fixed(<span class="hljs-number">150</span>))]
 </code></pre>
 <p>同样地，如果你像这样更新 <code>gridItemLayout</code> 变数，就会出现尺寸不同的两列 Grid。</p>
@@ -972,7 +972,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <figure id="fig29.8"><img src="images/gridlayout/swiftui-gridlayout-8.png" alt="图 29.8. 混合使用不同的尺寸型别"><figcaption>图 29.8. 混合使用不同的尺寸型别</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8-lazyhgrid-%E4%BE%86%E5%89%B5%E5%BB%BA%E6%B0%B4%E5%B9%B3-grid">使用 LazyHGrid 来创建水平 Grid</h4>
 <p>现在，你已经创建了垂直 Grid，<code>LazyHGrid</code> 可以很容易地将垂直 Grid 转换为水平 Grid。水平 Grid 的用法与 <code>LazyVGrid</code> 几乎完全相同，只是我们会将其嵌入到水平滚动视图中。此外，<code>LazyHGrid</code>的参数是 <code>rows</code> 而不是 <code>columns</code>。</p>
-<p>因此，我们只需要重写几行程式码，就可以将 Grid 视图从垂直方向转换为水平方向：</p>
+<p>因此，我们只需要重写几行代码，就可以将 Grid 视图从垂直方向转换为水平方向：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal) {
     <span class="hljs-type">LazyHGrid</span>(rows: gridItemLayout, spacing: <span class="hljs-number">20</span>) {
         <span class="hljs-type">ForEach</span>((<span class="hljs-number">0</span>...<span class="hljs-number">9999</span>), id: \.<span class="hljs-keyword">self</span>) {
@@ -992,7 +992,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <figure id="fig29.10"><img src="images/gridlayout/swiftui-gridlayout-10.jpg" alt="图 29.10. 改变 Grid 的列数"><figcaption>图 29.10. 改变 Grid 的列数</figcaption></figure>
 <p>要开发这个范例App，请先创建一个新的 Xcode 项目。 今次也是选择 <em>App</em> 模板并将项目命名为 <em>SwiftUIPhotoGrid</em>。 接下来，在 <a href="https://www.appcoda.com/resources/swiftui/coffeeimages.zip" target="_blank">https://www.appcoda.com/resources/swiftui/coffeeimages.zip</a> 下载图像包。 解压缩图像并将它们添加到<code>Assets</code>。</p>
 <p>在建立网格视图之前，我们将为照片集合创建数据模型。 在项目导航器中，右键单击 <em>SwiftUIGridView</em> 并选择 <em>New file...</em> 以加入新文件。 选择 <em>Swift File</em> 模板并将文件命名为 <em>Photo.swift</em>。</p>
-<p>在 <code>Photo.swift</code> 文件中插入以下程式码以建立 <code>Photo</code> 结构：</p>
+<p>在 <code>Photo.swift</code> 文件中插入以下代码以建立 <code>Photo</code> 结构：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Photo</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1004,7 +1004,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <p>首先，宣告一个 <code>gridLayout</code> 变数来定义我们首选的网格布局：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout: [<span class="hljs-type">GridItem</span>] = [ <span class="hljs-type">GridItem</span>() ]
 </code></pre>
-<p>在预设情况下，我们希望显示一个列表视图。 除了使用 <code>List</code>，你实际上还可以使用 <code>LazyVGrid</code> 来构建列表视图。 我们通过使用一个网格项定义 <code>gridLayout</code> 来做到这一点。 通过告诉 <code>LazyVGrid</code> 使用单列网格布局，它将像列表视图一样排列项目。 在 <code>body</code> 中插入以下程式码以创建网格视图：</p>
+<p>在预设情况下，我们希望显示一个列表视图。 除了使用 <code>List</code>，你实际上还可以使用 <code>LazyVGrid</code> 来构建列表视图。 我们通过使用一个网格项定义 <code>gridLayout</code> 来做到这一点。 通过告诉 <code>LazyVGrid</code> 使用单列网格布局，它将像列表视图一样排列项目。 在 <code>body</code> 中插入以下代码以创建网格视图：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">ScrollView</span> {
         <span class="hljs-type">LazyVGrid</span>(columns: gridLayout, alignment: .center, spacing: <span class="hljs-number">10</span>) {
@@ -1027,9 +1027,9 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
     .navigationTitle(<span class="hljs-string">&quot;Coffee Feed&quot;</span>)
 }
 </code></pre>
-<p>我们使用 <code>LazyVGrid</code> 创建一个垂直网格，行间距为 10 点。 Grid用于显示咖啡照片，因此我们使用 <code>ForEach</code> 取得所有 <code>samplePhotos</code> 项目。 我们将网格嵌入到滚动视图中，使其可滚动并用导航视图包装。 更改程式码后，你应该会在预览画布中看到照片列表。</p>
+<p>我们使用 <code>LazyVGrid</code> 创建一个垂直网格，行间距为 10 点。 Grid用于显示咖啡照片，因此我们使用 <code>ForEach</code> 取得所有 <code>samplePhotos</code> 项目。 我们将网格嵌入到滚动视图中，使其可滚动并用导航视图包装。 更改代码后，你应该会在预览画布中看到照片列表。</p>
 <figure id="fig29.11"><img src="images/gridlayout/swiftui-gridlayout-11.png" alt="图 29.11. 使用 LazyVGrid 创建列表视图"><figcaption>图 29.11. 使用 LazyVGrid 创建列表视图</figcaption></figure>
-<p>现在我们需要一个按钮让用户在不同的布局之间切换。 我们将按钮添加到导航栏。自 iOS 14 ，Apple 加入了一个名为<code>.toolbar</code>的新修饰器，用于填充导航栏中的项目。 在 <code>.navigationTitle</code> 之后，插入以下程式码：</p>
+<p>现在我们需要一个按钮让用户在不同的布局之间切换。 我们将按钮添加到导航栏。自 iOS 14 ，Apple 加入了一个名为<code>.toolbar</code>的新修饰器，用于填充导航栏中的项目。 在 <code>.navigationTitle</code> 之后，插入以下代码：</p>
 <pre><code class="lang-swift">.toolbar {
     <span class="hljs-type">ToolbarItem</span>(placement: .navigationBarTrailing) {
         <span class="hljs-type">Button</span> {
@@ -1042,13 +1042,13 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
     }
 }
 </code></pre>
-<p>在上面的程式码中，我们更新了<code>gridLayout</code>变数并初始化了<code>GridItem</code>的阵列。 假设当前项目数为 1，我们将创建一个包含两个 <code>GridItem</code> 的数组以更改为 2 列网格。 由于我们将 <code>gridLayout</code> 标记为状态变数，因此每次更改变数时，SwiftUI 都会更新网格视图。</p>
+<p>在上面的代码中，我们更新了<code>gridLayout</code>变数并初始化了<code>GridItem</code>的阵列。 假设当前项目数为 1，我们将创建一个包含两个 <code>GridItem</code> 的数组以更改为 2 列网格。 由于我们将 <code>gridLayout</code> 标记为状态变数，因此每次更改变数时，SwiftUI 都会更新网格视图。</p>
 <figure id="fig29.12"><img src="images/gridlayout/swiftui-gridlayout-12.png" alt="图 29.12. 添加用于切换网格布局的按钮"><figcaption>图 29.12. 添加用于切换网格布局的按钮</figcaption></figure>
 <p>你可以执行该App进行快速测试。 点击网格按钮将切换到另一个网格布局。</p>
 <p>我们有几件事需要改进。 首先，对于具有两列或更多列的网格，应将网格项的高度调整为 100 点。 使用 <code>height</code> 参数更新 <code>.frame</code> 修饰器，如下所示：</p>
 <pre><code class="lang-swift">.frame(height: gridLayout.<span class="hljs-built_in">count</span> == <span class="hljs-number">1</span> ? <span class="hljs-number">200</span> : <span class="hljs-number">100</span>)
 </code></pre>
-<p>其次，当你从一种网格布局切换到另一种时，SwiftUI 只会简单地重绘网格视图。 如果我们在布局更改之间添加一个漂亮的过场动画是不是会更好呢？ 为此，你只需添加一行程式码。 在 <code>.padding(.all, 10)</code> 之后插入以下程式码：</p>
+<p>其次，当你从一种网格布局切换到另一种时，SwiftUI 只会简单地重绘网格视图。 如果我们在布局更改之间添加一个漂亮的过场动画是不是会更好呢？ 为此，你只需添加一行代码。 在 <code>.padding(.all, 10)</code> 之后插入以下代码：</p>
 <pre><code class="lang-swift">.animation(.interactiveSpring(), value: gridLayout.<span class="hljs-built_in">count</span>)
 </code></pre>
 <p>这就是 SwiftUI 的强大之处。 通过告诉 SwiftUI 你想要动画变化，框架会处理剩下的事情，而使用者就会看到漂亮的过场动画。</p>
@@ -1056,7 +1056,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <h3 id="%E4%BD%BF%E7%94%A8%E5%A4%9A%E5%80%8B%E7%B6%B2%E6%A0%BC%E6%A7%8B%E5%BB%BA%E7%B6%B2%E6%A0%BC%E4%BD%88%E5%B1%80">使用多个网格构建网格布局</h3>
 <p>你不仅限于在你的App中使用单个 <code>LazyVGrid</code> 或 <code>LazyHGrid</code>。 通过组合多个<code>LazyVGrid</code>，你可以构建一些有趣的布局。 看一下图 29.14。我们将创建这种网格布局， 网格显示咖啡馆照片列表。 在每张咖啡馆照片下，它显示了一份咖啡照片列表。 当设备处于横向时，咖啡厅照片和咖啡照片列表将并排排列。</p>
 <figure id="fig29.14"><img src="images/gridlayout/swiftui-gridlayout-14.jpg" alt="图 29.14. 使用两个网格构建复杂的网格布局"><figcaption>图 29.14. 使用两个网格构建复杂的网格布局</figcaption></figure>
-<p>让我们回到 Xcode 项目，首先创建数据模型。 你之前下载的图像包带有一组咖啡馆照片。 因此，创建一个新的 Swift 文件并将其命名为 <em>Cafe.swift</em>。 在文件中，加入以下程式码：</p>
+<p>让我们回到 Xcode 项目，首先创建数据模型。 你之前下载的图像包带有一组咖啡馆照片。 因此，创建一个新的 Swift 文件并将其命名为 <em>Cafe.swift</em>。 在文件中，加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Cafe</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
@@ -1075,12 +1075,12 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
     <span class="hljs-keyword">return</span> cafes
 }()
 </code></pre>
-<p><code>Cafe</code> 结构是不言自明的。 它有一个用于存储咖啡照片的<code>image</code> 属性和用于存储咖啡照片列表的<code>coffeePhotos</code> 属性。 在上面的程式码中，我们还创建了一个<code>Cafe</code> 阵列。 对于每个咖啡馆，我们随机挑选一些咖啡照片。 如果你有其他喜欢的图像，请随时修改程式码。</p>
+<p><code>Cafe</code> 结构是不言自明的。 它有一个用于存储咖啡照片的<code>image</code> 属性和用于存储咖啡照片列表的<code>coffeePhotos</code> 属性。 在上面的代码中，我们还创建了一个<code>Cafe</code> 阵列。 对于每个咖啡馆，我们随机挑选一些咖啡照片。 如果你有其他喜欢的图像，请随时修改代码。</p>
 <p>让我们创建一个新档案来实现这个网格视图。 右键单击 <em>SwiftUIPhotoGrid</em> 并选择 <em>New File...</em>。 选择 <em>SwiftUI View</em> 模板并将文件命名为 <em>MultiGridView</em>。</p>
 <p>与前面的实现类似，让我们宣告了一个 <code>gridLayout</code> 变数来储存当前的网格布局：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout = [ <span class="hljs-type">GridItem</span>() ]
 </code></pre>
-<p>在预设的情况下，我们的网格使用一个 <code>GridItem</code> 进行初始化。 接下来，在 <code>body</code> 中加入以下程式码以创建具有单列的垂直网格：</p>
+<p>在预设的情况下，我们的网格使用一个 <code>GridItem</code> 进行初始化。 接下来，在 <code>body</code> 中加入以下代码以创建具有单列的垂直网格：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationView</span> {
     <span class="hljs-type">ScrollView</span> {
         <span class="hljs-type">LazyVGrid</span>(columns: gridLayout, alignment: .center, spacing: <span class="hljs-number">10</span>) {
@@ -1102,10 +1102,10 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
     .navigationTitle(<span class="hljs-string">&quot;Coffee Feed&quot;</span>)
 }
 </code></pre>
-<p>相信我不需要再次重复讲解这个程式码，因为它与我们之前编写的程式码几乎相同。 如果跟着做，你应该会看到一个列表视图，其中显示了咖啡馆照片的集合。</p>
+<p>相信我不需要再次重复讲解这个代码，因为它与我们之前编写的代码几乎相同。 如果跟着做，你应该会看到一个列表视图，其中显示了咖啡馆照片的集合。</p>
 <figure id="fig29.15"><img src="images/gridlayout/swiftui-gridlayout-15.png" alt="图 29.15. 咖啡馆照片列表"><figcaption>图 29.15. 咖啡馆照片列表</figcaption></figure>
 <h4 id="%E6%B7%BB%E5%8A%A0%E9%A1%8D%E5%A4%96%E7%9A%84%E7%B6%B2%E6%A0%BC%EF%BC%88grid%EF%BC%89">添加额外的网格（Grid）</h4>
-<p>要如何在每张照片下显示另一个网格？ 你需要做的就是在 <code>ForEach</code> 循环中添加另一个 <code>LazyVGrid</code>。 在 <code>Image</code> 视图之后加入以下程式码：</p>
+<p>要如何在每张照片下显示另一个网格？ 你需要做的就是在 <code>ForEach</code> 循环中添加另一个 <code>LazyVGrid</code>。 在 <code>Image</code> 视图之后加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">LazyVGrid</span>(columns: [<span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">50</span>))]) {
     <span class="hljs-type">ForEach</span>(cafe.coffeePhotos) { photo <span class="hljs-keyword">in</span>
         <span class="hljs-type">Image</span>(photo.name)
@@ -1119,7 +1119,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 .frame(minHeight: <span class="hljs-number">0</span>, maxHeight: .infinity, alignment: .top)
 .animation(.easeIn, value: gridLayout.<span class="hljs-built_in">count</span>)
 </code></pre>
-<p>我们为照片创建另一个垂直网格（Grid）。 通过使用 <em>adaptive</em> 尺寸类型，此网格将在一行中尽量填满最多的照片。 更改程式码后，App UI 就会如图 29.16 所示。</p>
+<p>我们为照片创建另一个垂直网格（Grid）。 通过使用 <em>adaptive</em> 尺寸类型，此网格将在一行中尽量填满最多的照片。 更改代码后，App UI 就会如图 29.16 所示。</p>
 <figure id="fig29.16"><img src="images/gridlayout/swiftui-gridlayout-16.png" alt="图 29.16. 添加额外的网格显示图片"><figcaption>图 29.16. 添加额外的网格显示图片</figcaption></figure>
 <p>如果你喜欢并排排列咖啡馆和咖啡的照片，你可以像这样修改 <code>gridLayout</code> 变数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout = [ <span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">100</span>)), <span class="hljs-type">GridItem</span>(.flexible()) ]
@@ -1145,9 +1145,9 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.horizontalSizeClass) <span class="hljs-keyword">var</span> horizontalSizeClass: <span class="hljs-type">UserInterfaceSizeClass</span>?
 @<span class="hljs-type">Environment</span>(\.verticalSizeClass) <span class="hljs-keyword">var</span> verticalSizeClass: <span class="hljs-type">UserInterfaceSizeClass</span>?
 </code></pre>
-<p><code>@Environment</code> 属性包装器允许你读取环境值。 在上面的程式码中，我们告诉 SwiftUI 要同时读取水平和垂直尺寸类别，并侦测它们的变化。 换句话说，只要iPhone的营幕方向改变，App就会收到通知。</p>
-<p>如果你还没有这样做，请确保将上面的程式码插入到 <code>SwiftUIPhotoGrid</code> 中。</p>
-<p>下一个问题是我们如何取得通知并作出相对应的行动？ SwiftUI 提供了一个名为 <code>.onChange()</code> 的修饰器。 你可以将此修饰器附加到任何视图以侦视任何状态更改。 在这种情况下，我们可以像以程式码将修饰器附加到 <code>NavigationView</code>：</p>
+<p><code>@Environment</code> 属性包装器允许你读取环境值。 在上面的代码中，我们告诉 SwiftUI 要同时读取水平和垂直尺寸类别，并侦测它们的变化。 换句话说，只要iPhone的营幕方向改变，App就会收到通知。</p>
+<p>如果你还没有这样做，请确保将上面的代码插入到 <code>SwiftUIPhotoGrid</code> 中。</p>
+<p>下一个问题是我们如何取得通知并作出相对应的行动？ SwiftUI 提供了一个名为 <code>.onChange()</code> 的修饰器。 你可以将此修饰器附加到任何视图以侦视任何状态更改。 在这种情况下，我们可以像以代码将修饰器附加到 <code>NavigationView</code>：</p>
 <pre><code class="lang-swift">.onChange(of: verticalSizeClass) { value <span class="hljs-keyword">in</span>
     <span class="hljs-keyword">self</span>.gridLayout = [ <span class="hljs-type">GridItem</span>(.adaptive(minimum:  verticalSizeClass == .compact  ? <span class="hljs-number">100</span> : <span class="hljs-number">250</span>)), <span class="hljs-type">GridItem</span>(.flexible()) ]
 }
@@ -1156,7 +1156,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <p>现在再次在 iPhone 模拟器上运行App。 当你将iPhone向横转动时，它就会并排显示咖啡馆照片和咖啡照片。</p>
 <figure id="fig29.19"><img src="images/gridlayout/swiftui-gridlayout-19.png" alt="图 29.19. 横向形式的 App UI"><figcaption>图 29.19. 横向形式的 App UI</figcaption></figure>
 <h3 id="%E7%B7%B4%E7%BF%92">练习</h3>
-<p>我有几个简单练习给你。 首先，App UI 在 iPad 上看起来不是太好。 请修改一下程式码并解决下图的问题，使其仅显示两列：一列用于咖啡馆照片，另一列用于咖啡照片。</p>
+<p>我有几个简单练习给你。 首先，App UI 在 iPad 上看起来不是太好。 请修改一下代码并解决下图的问题，使其仅显示两列：一列用于咖啡馆照片，另一列用于咖啡照片。</p>
 <figure id="fig29.20"><img src="images/gridlayout/swiftui-gridlayout-21.jpg" alt="图 29.21. 在iPad上的UI"><figcaption>图 29.21. 在iPad上的UI</figcaption></figure>
 <p>下一个练习会稍为复杂一点，以下是你要做的事项：</p>
 <ol>
@@ -1167,7 +1167,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <figure id="fig29.21"><img src="images/gridlayout/swiftui-gridlayout-22.jpg" alt="图 29.22. 加强 App 在 iPhone 和 iPad 上的功能"><figcaption>图 29.22. 加强 App 在 iPhone 和 iPad 上的功能</figcaption></figure>
 <p>为了帮助你更理解这个练习，请去 <a href="https://link.appcoda.com/multigrid-demo" target="_blank">https://link.appcoda.com/multigrid-demo</a> 观看此动画示范。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>第一个版本的 SwiftUI 框架缺少了的集合视图，新版本终于解决了这个问题。 苹果公司加入了 <code>LazyVGrid</code> 和 <code>LazyHGrid</code> 让开发者可以用几行程式码就能建立不同类型的网格布局。 本章只是简略示范了这两个新 UI 组件的运作， 我鼓励你尝试不同的 <code>GridItem</code> 配置，看看可以实现哪些网格布局。</p>
+<p>第一个版本的 SwiftUI 框架缺少了的集合视图，新版本终于解决了这个问题。 苹果公司加入了 <code>LazyVGrid</code> 和 <code>LazyHGrid</code> 让开发者可以用几行代码就能建立不同类型的网格布局。 本章只是简略示范了这两个新 UI 组件的运作， 我鼓励你尝试不同的 <code>GridItem</code> 配置，看看可以实现哪些网格布局。</p>
 <p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGridLayout.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGridLayout.zip</a></li>

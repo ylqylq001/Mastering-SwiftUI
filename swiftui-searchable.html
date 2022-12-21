@@ -909,7 +909,7 @@
 <pre><code class="lang-swift">.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
 </code></pre>
 <p>到目前为止，我们将 <code>.searchable</code> 修饰器附加到导航视图。 你实际上可以将它附加到 <code>List</code> 视图并在 iPhone 上实现相同的结果。</p>
-<p>话虽如此，在 iPadOS 上使用 split view 时，<code>.searchable</code> 修饰器的摆放位置会直接影响搜寻栏的显示位置。 再看一下范例程式码：</p>
+<p>话虽如此，在 iPadOS 上使用 split view 时，<code>.searchable</code> 修饰器的摆放位置会直接影响搜寻栏的显示位置。 再看一下范例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationSplitView</span> {
     <span class="hljs-type">List</span> {
         <span class="hljs-type">ForEach</span>(articles) { article <span class="hljs-keyword">in</span>
@@ -929,7 +929,7 @@
 </code></pre>
 <p>像往常一样，我们将 <code>.searchable</code> 修饰器附加到导航视图。 如果你在 iPad 上运行范例App，搜寻栏会显示在拆分视图的侧边栏上。</p>
 <figure id="fig37.3"><img src="images/searchable/searchable-3.png" alt="图 37.3. 在 iPad 上显示拆分视图的搜索栏"><figcaption>图 37.3. 在 iPad 上显示拆分视图的搜索栏</figcaption></figure>
-<p>如果你想将搜寻栏放在详细视图中，那应怎样做？ 你可以尝试在 <code>.navigationTitle</code> 修饰器的正上方加入以下程式码：</p>
+<p>如果你想将搜寻栏放在详细视图中，那应怎样做？ 你可以尝试在 <code>.navigationTitle</code> 修饰器的正上方加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Article details&quot;</span>)
     .searchable(text: $searchText)
 </code></pre>
@@ -941,7 +941,7 @@
 <p>通过将 <code>placement</code> 参数设置为 <code>.navigationBarDrawer</code>，iPadOS 就会将搜寻栏置于导航栏标题下方。</p>
 <figure id="fig37.5"><img src="images/searchable/searchable-5.png" alt="图 37.5. 利用 .navigationBarDrawer 改变搜寻栏位置"><figcaption>图 37.5. 利用 .navigationBarDrawer 改变搜寻栏位置</figcaption></figure>
 <h3 id="%E5%A6%82%E4%BD%95%E5%9F%B7%E8%A1%8C%E6%90%9C%E5%B0%8B%E4%B8%A6%E9%A1%AF%E7%A4%BA%E6%90%9C%E7%B4%A2%E7%B5%90%E6%9E%9C">如何执行搜寻并显示搜索结果</h3>
-<p>搜寻数据的方法有很多种。 你可以建立一个计算属性（computed property）来实时过滤数据。 又或者，你可以附加 <code>.onChange</code> 修饰器以监测使用者输入的搜寻文字，如有更改就立刻启动搜寻。 试试更新 <code>NavigationStack</code> 的程式码，如下所示：</p>
+<p>搜寻数据的方法有很多种。 你可以建立一个计算属性（computed property）来实时过滤数据。 又或者，你可以附加 <code>.onChange</code> 修饰器以监测使用者输入的搜寻文字，如有更改就立刻启动搜寻。 试试更新 <code>NavigationStack</code> 的代码，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span> {
         <span class="hljs-type">ForEach</span>(articles) { article <span class="hljs-keyword">in</span>
@@ -976,7 +976,7 @@
 </code></pre>
 <p>当使用者进行搜索时，搜寻栏就会显示两个常用的搜寻建议。 使用者可以键入搜寻关键字或点击搜寻建议来执行搜索。</p>
 <figure id="fig37.7"><img src="images/searchable/searchable-7.png" alt="图 37.7. 显示搜寻建议"><figcaption>图 37.7. 显示搜寻建议</figcaption></figure>
-<p>在 iOS 16 上，Apple 引入了一个名为 <code>.searchSuggestions</code> 的修饰符，用于添加搜索建议。 以上同一段程式码可以写成这样：</p>
+<p>在 iOS 16 上，Apple 引入了一个名为 <code>.searchSuggestions</code> 的修饰符，用于添加搜索建议。 以上同一段代码可以写成这样：</p>
 <pre><code class="lang-swift">.searchable(text: $searchText)
 .searchSuggestions {
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;SwiftUI&quot;</span>).searchCompletion(<span class="hljs-string">&quot;SwiftUI&quot;</span>)

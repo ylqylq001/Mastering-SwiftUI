@@ -877,13 +877,13 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-15-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8combine%E8%88%87%E8%A6%96%E5%9C%96%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE">第 15 章<br>使用Combine与视图模型建立注册表单</h1>
-<p>现在你应该对于 Combine 有了基本的了解，我们将继续探索 Combine 如何使 SwiftUI 出类拔萃。当开发一个真实的 App 时，让使用者注册帐户是很常见的。在本章中，我将建立一个带有三个文字栏位的简单注册画面。我们的重点是表单验证，因此将不进行实际注册，你将学习如何利用Combine 的强大功能，来验证每个输入栏位，并在视图模型中编写程式码。</p>
+<p>现在你应该对于 Combine 有了基本的了解，我们将继续探索 Combine 如何使 SwiftUI 出类拔萃。当开发一个真实的 App 时，让使用者注册帐户是很常见的。在本章中，我将建立一个带有三个文字栏位的简单注册画面。我们的重点是表单验证，因此将不进行实际注册，你将学习如何利用Combine 的强大功能，来验证每个输入栏位，并在视图模型中编写代码。</p>
 <figure id="fig15.1"><img src="images/registration/swiftui-registration-1.png" alt="图 15.1.　使用者注册范例"><figcaption>图 15.1.　使用者注册范例</figcaption></figure>
-<p>在深入研究程式码之前，请先看一下图 15.1，这是我们将建立的使用者注册画面。在每个输入栏位下会列出要求，一旦使用者填入资讯后，App 就会即时验证所输入的资讯， 如果验证结果正确，则栏位要求文字就会划掉。而在满足所有的要求之前，将先禁用“注册”（Sign up ）按钮。</p>
+<p>在深入研究代码之前，请先看一下图 15.1，这是我们将建立的使用者注册画面。在每个输入栏位下会列出要求，一旦使用者填入资讯后，App 就会即时验证所输入的资讯， 如果验证结果正确，则栏位要求文字就会划掉。而在满足所有的要求之前，将先禁用“注册”（Sign up ）按钮。</p>
 <p>如果你对 Swift 与 UIKit 有一些经验，你就会知道有各种类型的实作方式可处理表单验证。不过，在本章中，我们将探索如何利用 Combine 框架来执行表单验证。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-swiftui-%E4%BD%88%E5%B1%80%E8%A1%A8%E5%96%AE">使用 SwiftUI 布局表单</h3>
 <p>我们从一个练习来开始本章，使用至目前为止所学的内容，来布局如图 15.1 所示的表单 UI。要在 SwiftUI 中建立一个文字栏位，你可以使用 TextField 元件，而对于密码栏位， SwiftUI 提供了一个名为 <code>SecureField</code>安全文字栏位。</p>
-<p>要建立一个文字栏位，需要使用栏位名称与绑定（binding ）来初始化 TextField，这将渲染一个可编辑的文字栏位，而使用者输入会储存在给定的绑定中。和其他表单栏位类似，你可以透过使用相关的修饰器来修改它的外观。下面是范例程式码片段： </p>
+<p>要建立一个文字栏位，需要使用栏位名称与绑定（binding ）来初始化 TextField，这将渲染一个可编辑的文字栏位，而使用者输入会储存在给定的绑定中。和其他表单栏位类似，你可以透过使用相关的修饰器来修改它的外观。下面是范例代码片段： </p>
 <pre><code class="lang-swift"><span class="hljs-type">TextField</span>(<span class="hljs-string">&quot;Username&quot;</span>, text: $username)
     .font(.system(size: <span class="hljs-number">20</span>, weight: .semibold, design: .rounded))
     .padding(.horizontal)
@@ -896,7 +896,7 @@
 <p>我知道这两个元件对你而言比较陌生，不过在观看解答之前，试着尽力建立表单。</p>
 <p>那么，你能建立表单吗？即使你无法完成这个练习，也没有关系，现在至 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistrationUI.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistrationUI.zip</a> 。来下载这个专案。我将会介绍我的作法让你参考。</p>
 <figure id="fig15.2"><img src="images/registration/swiftui-registration-2.png" alt="图 15.2　起始专案"><figcaption>图 15.2　起始专案</figcaption></figure>
-<p>开启 <code>ContentView.swift</code> 档，并预览画布中的布局，你渲染的视图应该如图 15.2 所示。现在，我们简要检视一下程式码，并从 <code>RequirementText</code> 视图开始。</p>
+<p>开启 <code>ContentView.swift</code> 档，并预览画布中的布局，你渲染的视图应该如图 15.2 所示。现在，我们简要检视一下代码，并从 <code>RequirementText</code> 视图开始。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RequirementText</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> iconName = <span class="hljs-string">&quot;xmark.square&quot;</span>
@@ -918,17 +918,17 @@
     }
 }
 </code></pre>
-<p>首先，为什么我对栏位要求文字建立一个单独视图（如图 15.3 所示）？如果你检视任何一个栏位要求文字，它都有一个图示及一个叙述。我们无须从头开始建立每一个栏位要求文字，我们可以将程式码一般化，并为其建立一个通用的程式码。</p>
+<p>首先，为什么我对栏位要求文字建立一个单独视图（如图 15.3 所示）？如果你检视任何一个栏位要求文字，它都有一个图示及一个叙述。我们无须从头开始建立每一个栏位要求文字，我们可以将代码一般化，并为其建立一个通用的代码。</p>
 <figure id="fig15.3"><img src="images/registration/swiftui-registration-3.png" alt="图 15.3　范例文字栏位及其要求文字"><figcaption>图 15.3　范例文字栏位及其要求文字</figcaption></figure>
 <p><code>RequirementText</code> 视图有四个属性，包括 <code>iconName</code>、<code>iconColor</code>、<code>text</code>与  <code>isStrikeThrough</code>。它足以弹性支援栏位要求文字的不同样式，如果你接受预设的图示与颜色，则可建立如下的栏位要求文字： </p>
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>)
 </code></pre>
-<p>这将渲染如图 15.3 所示的栏位要求文字。在某些情况下，应要划掉栏位要求文字，并显示不同的图示或颜色。程式码可撰写如下： </p>
+<p>这将渲染如图 15.3 所示的栏位要求文字。在某些情况下，应要划掉栏位要求文字，并显示不同的图示或颜色。代码可撰写如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(iconName: <span class="hljs-string">&quot;lock.open&quot;</span>, iconColor: <span class="hljs-type">Color</span>.secondary, text: <span class="hljs-string">&quot;A minimum of 8 characters&quot;</span>, isStrikeThrough: <span class="hljs-built_in">true</span>)
 </code></pre>
 <p>你可指定一个不同的系统图示名称、颜色，并将 <code>isStrikeThrough</code> 选项设定为 <code>true</code>，这可让你建立如图 15.4 所示的栏位要求文字。</p>
 <figure id="fig15.4"><img src="images/registration/swiftui-registration-4.png" alt="图 15.4.　栏位要求文字被划掉"><figcaption>图 15.4.　栏位要求文字被划掉</figcaption></figure>
-<p>现在，你应该了解 <code>RequirementText</code> 视图的工作原理，以及为何建立它。我们来看一下FormField 视图。同样的，如果你检视所有的文字栏位，它们都有一个共同的样式，即圆体字型样式的文字栏位，这就是为何我取出一些通用程式码，并建立 <code>FormField</code> 视图的原因。</p>
+<p>现在，你应该了解 <code>RequirementText</code> 视图的工作原理，以及为何建立它。我们来看一下FormField 视图。同样的，如果你检视所有的文字栏位，它们都有一个共同的样式，即圆体字型样式的文字栏位，这就是为何我取出一些通用代码，并建立 <code>FormField</code> 视图的原因。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">FormField</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> fieldName = <span class="hljs-string">&quot;&quot;</span>
     @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> fieldValue: <span class="hljs-type">String</span>
@@ -958,11 +958,11 @@
     }
 }
 </code></pre>
-<p>由于这个通用的 <code>FormField</code> 需要同时负责文字栏位与安全栏位，因此它有一个名为 <code>isSecure</code>的属性。如果设定为 <code>true</code>，表单栏位将建立为安全栏位。在 SwiftUI 中，你可以使用 <code>Divider</code> 元件来建立一条线。在程式码中，我们使用 <code>frame</code> 修饰器来变更高度为“1 点”。</p>
-<p>要建立使用者名称栏位，你可以将程式码撰写如下： </p>
+<p>由于这个通用的 <code>FormField</code> 需要同时负责文字栏位与安全栏位，因此它有一个名为 <code>isSecure</code>的属性。如果设定为 <code>true</code>，表单栏位将建立为安全栏位。在 SwiftUI 中，你可以使用 <code>Divider</code> 元件来建立一条线。在代码中，我们使用 <code>frame</code> 修饰器来变更高度为“1 点”。</p>
+<p>要建立使用者名称栏位，你可以将代码撰写如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">FormField</span>(fieldName: <span class="hljs-string">&quot;Username&quot;</span>, fieldValue: $username)
 </code></pre>
-<p>对于密码栏位，除了 <code>isSecure</code> 参数设定为 true 之外，程式码也非常相似： </p>
+<p>对于密码栏位，除了 <code>isSecure</code> 参数设定为 true 之外，代码也非常相似： </p>
 <pre><code class="lang-swift"><span class="hljs-type">FormField</span>(fieldName: <span class="hljs-string">&quot;Password&quot;</span>, fieldValue: $password, isSecure: <span class="hljs-built_in">true</span>)
 </code></pre>
 <p>那么，我们回到 <code>ContentView</code> 结构，来看表单是如何布局。</p>
@@ -1037,7 +1037,7 @@
 <p>最后，是“已经有帐号”的叙述文字，这个文字与“登入”按钮并不一定需要，我只是想模仿常见的注册表单。</p>
 <p>以上是我布局使用者注册画面的方式。如果你已试着做这个练习，或许可提出其他的解决方案，这完全没问题。我只是告诉你建立表单的其中一种方法，你可以使用它作为参考，并提出更好的实作方式。</p>
 <h3 id="%E4%BA%86%E8%A7%A3-combine">了解 Combine</h3>
-<p>在深入研究表单验证程式码之前，我们先来了解更多关于 Combine 框架的背景资讯。如前一章所述，这个新框架提供了一个宣告式API，用于随着时间处理值。</p>
+<p>在深入研究表单验证代码之前，我们先来了解更多关于 Combine 框架的背景资讯。如前一章所述，这个新框架提供了一个宣告式API，用于随着时间处理值。</p>
 <p>“随着时间处理值”是什么意思？这些值又是什么？ </p>
 <p>我们以注册表单为例。App 与使用者互动时，持续产生 UI 事件，假设使用者在文字栏位中输入的每个按键，都会触发一个事件，而这可以成为值的串流，如图 15.5 所示。</p>
 <figure id="fig15.5"><img src="images/registration/swiftui-registration-5.png" alt="图 15.5.　输入资料串流"><figcaption>图 15.5.　输入资料串流</figcaption></figure>
@@ -1102,7 +1102,7 @@
 <li>验证使用者名称与回传验证结果（true/false）。</li>
 <li>指定结果至 <code>isUsernameLengthValid</code>。</li>
 </ul>
-<p>如果你将以上的需求转换成程式码，下面是程式码片段： </p>
+<p>如果你将以上的需求转换成代码，下面是代码片段： </p>
 <pre><code class="lang-swift">$username
     .receive(on: <span class="hljs-type">RunLoop</span>.main)
     .<span class="hljs-built_in">map</span> { username <span class="hljs-keyword">in</span>
@@ -1111,8 +1111,8 @@
     .assign(to: \.isUsernameLengthValid, on: <span class="hljs-keyword">self</span>)
 </code></pre>
 <p>Combine 框架提供两个内建的订阅者：“sink”与“assign”。 <code>sink</code> 建立一个通用订阅者来接收值，<code>assign</code> 则让你建立另一种类型的订阅者，用于更新物件的特定属性。举例而言，它将验证结果（true/false ）指定给 <code>isUsernameLengthValid</code>。</p>
-<p>我将深入说明并逐行检视上列的程式码。<code>$username</code> 是我们想要监听的变更值的来源。由于我们订阅 UI 事件的变化，因此呼叫 <code>receive(on:)</code> 函数来确保订阅者在主执行绪（即 <code>RunLoop.main</code> ）上接收到值。</p>
-<p>发布者传送的值是使用者所输入的使用者名称，不过订阅者感兴趣的是使用者名称的长度是否能够满足最低要求。这里，<code>map</code> 函数被认为是Combine 中的运算子，它接受输入、处理输入，并将输入转换为订阅者所期望的内容，因此我们在上列的程式码中做了下列事情：</p>
+<p>我将深入说明并逐行检视上列的代码。<code>$username</code> 是我们想要监听的变更值的来源。由于我们订阅 UI 事件的变化，因此呼叫 <code>receive(on:)</code> 函数来确保订阅者在主执行绪（即 <code>RunLoop.main</code> ）上接收到值。</p>
+<p>发布者传送的值是使用者所输入的使用者名称，不过订阅者感兴趣的是使用者名称的长度是否能够满足最低要求。这里，<code>map</code> 函数被认为是Combine 中的运算子，它接受输入、处理输入，并将输入转换为订阅者所期望的内容，因此我们在上列的代码中做了下列事情：</p>
 <ol>
 <li>我们将使用者名称作为输入。</li>
 <li>然后，我们验证使用者名称并确认至少有4个字元，并验证其是否至少包含4个字元。</li>
@@ -1122,7 +1122,7 @@
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(iconColor: userRegistrationViewModel.isUsernameLengthValid ? <span class="hljs-type">Color</span>.secondary : <span class="hljs-type">Color</span>(red: <span class="hljs-number">251</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>), text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>, isStrikeThrough: userRegistrationViewModel.isUsernameLengthValid)
 </code></pre>
 <p>图示的颜色与删除线的状态都取决于验证结果而定（也就是 <code>isUsernameLengthValid</code> ）。</p>
-<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将程式码变更放入我们的专案中，不过我希望让你了解发布者/ 订阅者的观念，以及我们如何使用这个方法执行验证。在后面的小节中，我们将应用所学的知识，并对程式码进行更改。</p>
+<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码变更放入我们的专案中，不过我希望让你了解发布者/ 订阅者的观念，以及我们如何使用这个方法执行验证。在后面的小节中，我们将应用所学的知识，并对代码进行更改。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-combine-%E9%A9%97%E8%AD%89%E5%AF%86%E7%A2%BC">使用 Combine 验证密码</h4>
 <p>如果你了解使用者名称栏位的验证是如何完成的，我们将对密码与密码确认验证应用类似的实作。</p>
 <p>对于密码栏位，有两个要求： </p>
@@ -1151,7 +1151,7 @@ $password
     .assign(to: \.isPasswordCapitalLetter, on: <span class="hljs-keyword">self</span>)
 </code></pre>
 <p>第一个订阅者订阅了密码长度的验证结果，并指定给 <code>isPasswordLengthValid</code> 属性。第二个是处理大写字母的验证。我们使用 <code>range</code> 方法来测试密码是否至少包含一个大写字母。同样的，订阅者将验证结果直接指定给属性。</p>
-<p>好的，剩下的是密码确认栏位的验证。对于这个栏位，输入要求是密码确认应与密码栏位的密码相同。<code>password</code> 与 <code>passwordConfirm</code> 都是发布者，为了验证两个发布者是否具有相同的值，我们使用 <code>Publisher.combineLatest</code>来接收与结合来自发布者的最新值，然后我们可以验证两个值是否相同。下列为程式码片段： </p>
+<p>好的，剩下的是密码确认栏位的验证。对于这个栏位，输入要求是密码确认应与密码栏位的密码相同。<code>password</code> 与 <code>passwordConfirm</code> 都是发布者，为了验证两个发布者是否具有相同的值，我们使用 <code>Publisher.combineLatest</code>来接收与结合来自发布者的最新值，然后我们可以验证两个值是否相同。下列为代码片段： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Publishers</span>.<span class="hljs-type">CombineLatest</span>($password, $passwordConfirm)
     .receive(on: <span class="hljs-type">RunLoop</span>.main)
     .<span class="hljs-built_in">map</span> { (password, passwordConfirm) <span class="hljs-keyword">in</span>
@@ -1161,7 +1161,7 @@ $password
 </code></pre>
 <p>同样的，我们指定验证结果给 <code>isPasswordConfirmValid</code> 属性。</p>
 <h4 id="%E5%AF%A6%E4%BD%9C-userregistrationviewmodel">实作 UserRegistrationViewModel</h4>
-<p>现在我已经解释了实作的方法，我们将所有内容放至专案中。首先，使用 “Swift File” 模板建立一个新 Swift 档，命名为 <code>UserRegistrationViewModel.swift</code>，然后使用下列程式码替换整个档案内容： </p>
+<p>现在我已经解释了实作的方法，我们将所有内容放至专案中。首先，使用 “Swift File” 模板建立一个新 Swift 档，命名为 <code>UserRegistrationViewModel.swift</code>，然后使用下列代码替换整个档案内容： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">Foundation</span>
 <span class="hljs-keyword">import</span> <span class="hljs-type">Combine</span>
 
@@ -1219,8 +1219,8 @@ $password
     }
 }
 </code></pre>
-<p>以上的程式码几乎与前面章节的程式码相同。要使用 Combine，你需要先汇入 Combine 框架。在 <code>init()</code> 方法中，我们初始化所有的订阅者来监听文字栏位的值的变更，并执行相应的验证。</p>
-<p>程式码与我们之前讨论的程式码几乎相同，但你可能注意到一件事，即 <code>cancellableSet</code> 变数。对于每一个订阅者，我们在最后呼叫 <code>store</code> 函数。</p>
+<p>以上的代码几乎与前面章节的代码相同。要使用 Combine，你需要先汇入 Combine 框架。在 <code>init()</code> 方法中，我们初始化所有的订阅者来监听文字栏位的值的变更，并执行相应的验证。</p>
+<p>代码与我们之前讨论的代码几乎相同，但你可能注意到一件事，即 <code>cancellableSet</code> 变数。对于每一个订阅者，我们在最后呼叫 <code>store</code> 函数。</p>
 <p>这些是什么呢？ </p>
 <p><code>assign</code> 函数建立订阅者，并回传一个可取消的实例。你可以使用该实例在适当的时间取消订阅。<code>store</code> 函数可让我们将可取消的的参照储存到一个集合中，以便稍后的清理。如果你不储存这个参照，则 App 可能出现记忆体泄漏的问题。</p>
 <p>那么，这个范例何时会进行清理呢？由于 <code>cancellableSet</code> 被定义为该类别的属性，因此当类别被取消初始化时，将会对订阅进行清理及取消。</p>
@@ -1238,7 +1238,7 @@ $password
     .padding()
 </code></pre>
 <p>现在，<code>fieldValue</code> 参数已经变更为 <code>$userRegistrationViewModel.username</code>。对于栏位要求文字，SwiftUI 监控 <code>userRegistrationViewModel.isUsernameLengthValid</code> 属性，并相应更新栏位要求文字。</p>
-<p>同样的，更新密码与密码确认栏位的UI 程式码如下所示： </p>
+<p>同样的，更新密码与密码确认栏位的UI 代码如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">FormField</span>(fieldName: <span class="hljs-string">&quot;Password&quot;</span>, fieldValue: $userRegistrationViewModel.password, isSecure: <span class="hljs-built_in">true</span>)
 <span class="hljs-type">VStack</span> {
     <span class="hljs-type">RequirementText</span>(iconName: <span class="hljs-string">&quot;lock.open&quot;</span>, iconColor: userRegistrationViewModel.isPasswordLengthValid ? <span class="hljs-type">Color</span>.secondary : <span class="hljs-type">Color</span>(red: <span class="hljs-number">251</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>), text: <span class="hljs-string">&quot;A minimum of 8 characters&quot;</span>, isStrikeThrough: userRegistrationViewModel.isPasswordLengthValid)
@@ -1256,7 +1256,7 @@ $password
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>我希望你现在已经掌握了一些 Combine 框架的基本认识。SwiftUI 与 Combine 的导入彻底改变了建立 App 的方式。函式响应式程式设计（Functional Reactive Programming，简称 FRP），近年来越来越流行，不过这是Apple 首次释出自己的函式响应式框架。在我看来，这是一个重要的典范转移（paradigm shift ）。Apple 公司最终对 FRP 做出定位，并推荐 Apple 开发者拥抱这个新的程式设计方法。 </p>
 <p>就像导入任何一个新技术的导入一样，会有一个学习曲线，即使你之前有 iOS 开发经验，也要花一些时间从委派的程式设计方法变成到发布者/ 订阅者的设计方法。</p>
-<p>不过，一旦你管理了 Combine 框架，你将会非常高兴，因为它可以帮你实现更可维护与模组化的程式码，与SwiftUI 一起使用，如你所见，视图与视图模型之间的沟通变得轻而易举了。</p>
+<p>不过，一旦你管理了 Combine 框架，你将会非常高兴，因为它可以帮你实现更可维护与模组化的代码，与SwiftUI 一起使用，如你所见，视图与视图模型之间的沟通变得轻而易举了。</p>
 <p>在本章所准备的范例档中，有完整的专案可供下载： </p>
 <ul>
 <li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip</a>)</li>

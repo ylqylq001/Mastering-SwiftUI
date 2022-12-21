@@ -884,18 +884,18 @@
 <figure id="fig5.2"><img src="images/scrollview/swiftui-scrollview-2.jpg" alt="图 5.2.　使用 ScrollView 建立一个滚动式UI"><figcaption>图 5.2.　使用 ScrollView 建立一个滚动式UI</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%8D%A1%E7%89%87%E5%BC%8F-ui">建立一个卡片式 UI</h3>
 <p>如果你还没有开启 Xcode，请开启它并使用 App  模板 （于 iOS 下）。来建立一个新专案。在下一个荧幕画面中，设定专案名称为“SwiftUIScrollView”（或是任何你喜欢的名称），并填入所需要的值。请确认已选取“Interface”选项中的“SwiftUI”。</p>
-<p>到目前为止，我们在 <code>ContentView.swift</code> 档中撰写使用者介面的程式码，程式码撰写在这里完全没有任何问题，不过我要介绍一个整理程式码的较佳方式。为了实作卡片视图， 我们另外为它建立一个单独档案，在专案导览器中，于 <code>SwiftUIScrollView</code> 按右键，并选择“New File...”，如图 5.3 所示。</p>
+<p>到目前为止，我们在 <code>ContentView.swift</code> 档中撰写使用者介面的代码，代码撰写在这里完全没有任何问题，不过我要介绍一个整理代码的较佳方式。为了实作卡片视图， 我们另外为它建立一个单独档案，在专案导览器中，于 <code>SwiftUIScrollView</code> 按右键，并选择“New File...”，如图 5.3 所示。</p>
 <figure id="fig5.3"><img src="images/scrollview/swiftui-scrollview-3.png" alt="图 5.3. 建立一个新档案"><figcaption>图 5.3. 建立一个新档案</figcaption></figure>
 <p>如图 5.4 所示，在“User Interface”区块，选取“SwiftUI View”模板，然后点选“Next”来建立档案。将档案名称命名为 <code>CardView</code>，并将其储存在专案资料夹中。</p>
 <figure id="fig5.4"><img src="images/scrollview/swiftui-scrollview-4.png" alt="图 5.4　选取 SwiftUI View 模板"><figcaption>图 5.4　选取 SwiftUI View 模板</figcaption></figure>
-<p><code>CardView.swift</code> 中的程式码与 <code>ContentView.swift</code> 中的程式码很相似。同样的，你可以在画布中预览 UI，如图5.5 所示。</p>
+<p><code>CardView.swift</code> 中的代码与 <code>ContentView.swift</code> 中的代码很相似。同样的，你可以在画布中预览 UI，如图5.5 所示。</p>
 <figure id="fig5.5"><img src="images/scrollview/swiftui-scrollview-5.png" alt="图 5.5. 就像ContentView.swift 一样，你可以在画布中预览CardView.swift"><figcaption>图 5.5. 就像ContentView.swift 一样，你可以在画布中预览CardView.swift</figcaption></figure>
 <h4 id="%E6%BA%96%E5%82%99%E5%9C%96%E7%89%87%E6%AA%94">准备图片档</h4>
-<p>现在，我们准备要撰写卡片视图的程式码。但是，首先你需要准备图档，并将其汇入素材目录。如果你不想要准备自己的图片，则可以至 <a href="https://www.appcoda.com/resources/swiftui/SwiftUIScrollViewImages.zip" target="_blank">https://www.appcoda.com/resources/swiftui/SwiftUIScrollViewImages.zip</a> 下载范例图片档，将图片档解压缩后，选取 <code>Assets</code>，并所有图片其拖曳至素材目录。</p>
+<p>现在，我们准备要撰写卡片视图的代码。但是，首先你需要准备图档，并将其汇入素材目录。如果你不想要准备自己的图片，则可以至 <a href="https://www.appcoda.com/resources/swiftui/SwiftUIScrollViewImages.zip" target="_blank">https://www.appcoda.com/resources/swiftui/SwiftUIScrollViewImages.zip</a> 下载范例图片档，将图片档解压缩后，选取 <code>Assets</code>，并所有图片其拖曳至素材目录。</p>
 <figure id="fig5.6"><img src="images/scrollview/swiftui-scrollview-6.png" alt="图 5.6　将图片档加入素材目录"><figcaption>图 5.6　将图片档加入素材目录</figcaption></figure>
 <h4 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">实作卡片视图</h4>
 <p>现在切回 <code>CardView.swift</code> 档。若你再看一下图 5.1，这个卡片视图是由两个部分组成， 视图上部是图片，而视图下部是文字叙述。</p>
-<p>让我们从图片开始。我将使图片可调整大小，以缩放来填满荧幕，同时保持长宽比。你可以撰写程式码如下： </p>
+<p>让我们从图片开始。我将使图片可调整大小，以缩放来填满荧幕，同时保持长宽比。你可以撰写代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;swiftui-button&quot;</span>)
@@ -904,7 +904,7 @@
     }
 }
 </code></pre>
-<p>如果你忘记了这两个修饰器是什么，请返回并阅读有关 <code>Image</code> 物件的章节。接下来，我们来实作文字叙述部分，你可以撰写程式码如下： </p>
+<p>如果你忘记了这两个修饰器是什么，请返回并阅读有关 <code>Image</code> 物件的章节。接下来，我们来实作文字叙述部分，你可以撰写代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span>(alignment: .leading) {
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;SwiftUI&quot;</span>)
         .font(.headline)
@@ -921,16 +921,16 @@
 </code></pre>
 <p>显然的，你需要使用 <code>Text</code> 来建立文字视图。由于我们在叙述中实际上有三个垂直排列的文字视图，因此我们使用一个 <code>VStack</code> 来嵌入它们。对于 <code>VStack</code>，我们指定对齐方式为 <code>.leading</code>，这会将文字视图对齐堆叠视图的左侧。</p>
 <p>这些文字的修饰器皆在有关 <code>Text</code> 物件的章节讨论过。如果你对任何修饰器有疑问的话，可以回去参考。但是，这里会特别提到有关 <code>.primary</code> 与 <code>.secondary</code> 颜色。</p>
-<p>虽然你可在 <code>foregroundColor</code> 修饰器指定标准颜色，像是 <code>.black</code> 与 <code>.purple</code>，但 iOS 提供一套系统颜色，其中包含主色（ primary color ）、辅色（ secondary color ）、第三级色（ tertiary color ）等变化，透过使用此颜色变化，你的 App 可以轻松支援浅色模式与深色模式。举例而言，文字视图的主色预设设定为浅色模式的黑色。当 App 切换到深色模式， 主色将被调整为白色，这是由 iOS 自动调整，因此你无须另外编写写支援深色模式的程式码，我们将在后面的章节中深入探讨深色模式。</p>
+<p>虽然你可在 <code>foregroundColor</code> 修饰器指定标准颜色，像是 <code>.black</code> 与 <code>.purple</code>，但 iOS 提供一套系统颜色，其中包含主色（ primary color ）、辅色（ secondary color ）、第三级色（ tertiary color ）等变化，透过使用此颜色变化，你的 App 可以轻松支援浅色模式与深色模式。举例而言，文字视图的主色预设设定为浅色模式的黑色。当 App 切换到深色模式， 主色将被调整为白色，这是由 iOS 自动调整，因此你无须另外编写写支援深色模式的代码，我们将在后面的章节中深入探讨深色模式。</p>
 <p>为了将图片与这些文字视图垂直排列，我们使用 <code>VStack</code> 来嵌入它们，目前的布局如图 5.7 所示。</p>
 <figure id="fig5.7"><img src="images/scrollview/swiftui-scrollview-7.png" alt="图 5.7.　将图片与文字视图嵌入到 VStack 中"><figcaption>图 5.7.　将图片与文字视图嵌入到 VStack 中</figcaption></figure>
 <p>还没有完成，尚有几件事情需要实作。首先，如果文字叙述区块要与图片的边缘对齐，该如何做呢？ </p>
 <p>依照我们所学，我们可以在一个 <code>HStack</code> 嵌入文字视图的 <code>VStack</code>，然后我们将使用一个留白（ <code>Spacer</code> ）来将<code>VStack</code> 往左推，我们来看看是否可行。</p>
-<p>如果你已经变更程式码，如图 5.8 所示，这个文字视图的VStack 会对齐荧幕的左侧。</p>
+<p>如果你已经变更代码，如图 5.8 所示，这个文字视图的VStack 会对齐荧幕的左侧。</p>
 <figure id="fig5.8"><img src="images/scrollview/swiftui-scrollview-8.png" alt="图 5.8.　文字叙述的对齐"><figcaption>图 5.8.　文字叙述的对齐</figcaption></figure>
 <p>最好是在 <code>HStack</code> 周围加入一些间距（ padding ）。插入 <code>padding</code> 修饰器如下，如图 5.9 所示 ：</p>
 <figure id="fig5.9"><img src="images/scrollview/swiftui-scrollview-9.png" alt="图 5.9. 加入一些文字叙述的间距"><figcaption>图 5.9. 加入一些文字叙述的间距</figcaption></figure>
-<p>最后是边框部分。我们在前面的章节中讨论过如何绘制圆角边框。我们可以使用 <code>overlay</code> 修饰器，并使用<code>RoundedRectangle</code> 来画出边框。以下是完整的程式码： </p>
+<p>最后是边框部分。我们在前面的章节中讨论过如何绘制圆角边框。我们可以使用 <code>overlay</code> 修饰器，并使用<code>RoundedRectangle</code> 来画出边框。以下是完整的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">VStack</span> {
@@ -970,7 +970,7 @@
 <p>除了边框之外，我们也在顶部、左侧、右侧分别加入了一些间距。现在，你应该已经建立好卡片视图的布局，如图 5.10 所示。</p>
 <figure id="fig5.10"><img src="images/scrollview/swiftui-scrollview-10.png" alt="图 5.10. 加入边框与圆角"><figcaption>图 5.10. 加入边框与圆角</figcaption></figure>
 <h4 id="%E8%AE%93%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E6%9B%B4%E5%85%B7%E5%BD%88%E6%80%A7">让卡片视图更具弹性</h4>
-<p>虽然目前卡片视图看起来没问题，但我们将图片与文字写死（ Hard Code）在程式中， 为了让它更具弹性，我们要重构程式码。首先，在 <code>CardView</code> 宣告 image、category、heading 与author 这些变数： </p>
+<p>虽然目前卡片视图看起来没问题，但我们将图片与文字写死（ Hard Code）在程式中， 为了让它更具弹性，我们要重构代码。首先，在 <code>CardView</code> 宣告 image、category、heading 与author 这些变数： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">var</span> category: <span class="hljs-type">String</span>
 <span class="hljs-keyword">var</span> heading: <span class="hljs-type">String</span>
@@ -1004,7 +1004,7 @@
 </code></pre>
 <p>更改完成后，你将在 <code>CardView_Previews</code> 结构中看到一个错误，如图 5.11 所示。这是因为我们在 <code>CardView</code> 导入了一些变数，当使用它时，必须指定参数给它。</p>
 <figure id="fig5.11"><img src="images/scrollview/swiftui-scrollview-11.png" alt="图 5.11. 呼叫 CardView 时缺少参数"><figcaption>图 5.11. 呼叫 CardView 时缺少参数</figcaption></figure>
-<p>因此，以下列程式码来取代： </p>
+<p>因此，以下列代码来取代： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">CardView</span>(image: <span class="hljs-string">&quot;swiftui-button&quot;</span>, category: <span class="hljs-string">&quot;SwiftUI&quot;</span>, heading: <span class="hljs-string">&quot;Drawing a Border with Rounded Corners&quot;</span>, author: <span class="hljs-string">&quot;Simon Ng&quot;</span>)
@@ -1036,7 +1036,7 @@
 
         <span class="hljs-type">ScrollView</span>(.horizontal) {
 
-            <span class="hljs-comment">// 作业#1的程式码</span>
+            <span class="hljs-comment">// 作业#1的代码</span>
 
             <span class="hljs-type">HStack</span> {
                 <span class="hljs-type">CardView</span>(image: <span class="hljs-string">&quot;swiftui-button&quot;</span>, category: <span class="hljs-string">&quot;SwiftUI&quot;</span>, heading: <span class="hljs-string">&quot;Drawing a Border with Rounded Corners&quot;</span>, author: <span class="hljs-string">&quot;Simon Ng&quot;</span>)
@@ -1053,21 +1053,21 @@
     }
 }
 </code></pre>
-<p>我们在上列的程式码中做了三个变更： </p>
+<p>我们在上列的代码中做了三个变更： </p>
 <ol>
 <li>我们传送一个 <code>.horizontal</code> 值，以在 <code>ScrollView</code> 中使用一个水平滚动视图。</li>
 <li>由于我们使用一个水平滚动视图，因此我们还需要将堆叠视图从 <code>VStack</code> 变更为 <code>HStack</code>。</li>
 <li>对于每个卡片视图，我们将框架的宽度设定为“300点”。这是必要的，因为要显示的图片太宽</li>
 </ol>
-<p>变更程式码之后，你将看到卡片视图以水平排列且可以滚动，如图 5.15 所示。</p>
+<p>变更代码之后，你将看到卡片视图以水平排列且可以滚动，如图 5.15 所示。</p>
 <figure id="fig5.15"><img src="images/scrollview/swiftui-scrollview-15.png" alt="图 5.15 轮播 UI"><figcaption>图 5.15 轮播 UI</figcaption></figure>
 <h3 id="%E9%9A%B1%E8%97%8F%E6%BB%BE%E5%8B%95%E6%8C%87%E7%A4%BA%E5%99%A8">隐藏滚动指示器</h3>
-<p>在滚动视图时，荧幕底部附近有一个滚动指示器。这个指示器预设是显示的。如果你想要隐藏它，你可以将 <code>ScrollView</code> 的程式码变更如下： </p>
+<p>在滚动视图时，荧幕底部附近有一个滚动指示器。这个指示器预设是显示的。如果你想要隐藏它，你可以将 <code>ScrollView</code> 的代码变更如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal, showsIndicators: <span class="hljs-built_in">false</span>)
 </code></pre>
 <p>透过指定 <code>showIndicators</code> 为 <code>false</code>，iOS 将不再显示该指示器。</p>
 <h3 id="%E7%BE%A4%E7%B5%84%E8%A6%96%E5%9C%96%E5%85%A7%E5%AE%B9">群组视图内容</h3>
-<p>如果你再次阅读一下程式码，所有的  <code>CardViews</code> 是以 <code>.frame</code> 修饰器来限制其宽度为 300 点，是否有其他简化的方式，并移除重复的程式码呢？SwiftUI 框架提供了开发者群组视图（<code>Group</code> view）的功能，可以将相关内容群组起来。更重要的是，你可以将修饰器加至群组，所有嵌入群组内的视图皆能够同步做产生效果。 </p>
+<p>如果你再次阅读一下代码，所有的  <code>CardViews</code> 是以 <code>.frame</code> 修饰器来限制其宽度为 300 点，是否有其他简化的方式，并移除重复的代码呢？SwiftUI 框架提供了开发者群组视图（<code>Group</code> view）的功能，可以将相关内容群组起来。更重要的是，你可以将修饰器加至群组，所有嵌入群组内的视图皆能够同步做产生效果。 </p>
 <p>举例而言，你可以将 <code>HStack</code> 内的程式重写如下来完成同样的结果：</p>
 <pre><code class="lang-swift"><span class="hljs-type">HStack</span> {
     <span class="hljs-type">Group</span> {
@@ -1085,7 +1085,7 @@
 </code></pre>
 <p>SwiftUI 会自动缩小文字来相容可用的空间。这边的值设定了视图所允许的最小缩放量。以这个例子来看，SwiftUI 能够将文字尽量缩至原来大小的 50%。</p>
 <h3 id="%E4%BD%9C%E6%A5%AD-2">作业 #2</h3>
-<p>最后有一个作业，修改目前的程式码，并如图 5.16 所示来重新排列。请注意，当使用者滚动卡片视图时，用户应该可以看到标题和日期。</p>
+<p>最后有一个作业，修改目前的代码，并如图 5.16 所示来重新排列。请注意，当使用者滚动卡片视图时，用户应该可以看到标题和日期。</p>
 <figure id="fig5.16"><img src="images/scrollview/swiftui-scrollview-16.png" alt="图 5.16.　视图靠上对齐"><figcaption>图 5.16.　视图靠上对齐</figcaption></figure>
 <p>在本章所准备的范例档中，有完整的专案与作业解答可以下载： </p>
 <ul>

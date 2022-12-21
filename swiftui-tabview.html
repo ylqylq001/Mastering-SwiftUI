@@ -902,7 +902,7 @@
     }
 }
 </code></pre>
-<p>这就建立了一个带有选项的标签列。 在范例程式码中，选项同时具有图像和文字，但您可以随意删除其中之一。</p>
+<p>这就建立了一个带有选项的标签列。 在范例代码中，选项同时具有图像和文字，但您可以随意删除其中之一。</p>
 <figure id="fig35.1"><img src="images/tabview/swiftui-tabview-1.png" alt="图 35.1. 范例标签列"><figcaption>图 35.1. 范例标签列</figcaption></figure>
 <p>要显示更多选项，您只需在 <code>TabView</code> 中添加子视图，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">TabView</span> {
@@ -944,7 +944,7 @@
 }
 .accentColor(.red)
 </code></pre>
-<p>如果您将以上程式码加到<code>TabView</code>，标签列的颜色就会更改为白色。</p>
+<p>如果您将以上代码加到<code>TabView</code>，标签列的颜色就会更改为白色。</p>
 <figure id="fig35.3"><img src="images/tabview/swiftui-tabview-3.png" alt="图 35.3. 更改标签列的颜色"><figcaption>图 35.3. 更改标签列的颜色</figcaption></figure>
 <h3 id="%E4%BB%A5%E7%B7%A8%E7%A8%8B%E6%96%B9%E5%BC%8F%E5%88%87%E6%8F%9B%E4%B8%8D%E5%90%8C%E9%81%B8%E9%A0%85">以编程方式切换不同选项</h3>
 <p>标签视图会自动处理使用者的选择，当使用者点击其中一个项目标签视图就会切换至相关项目视图。 在某些情况，您可能希望以写程式方式切换到特定选项。 <code>TabView</code> 有另一个用于此目的的 <code>init</code> 方法。 该方法需要一个包含选项卡标签值的状态变数：</p>
@@ -953,7 +953,7 @@
 <p>举例，在 ContentView 中宣告以下状态变数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selection = <span class="hljs-number">0</span>
 </code></pre>
-<p>这里我们将 <code>selection</code> 变数的原始值设定为<code>0</code>，这是第一个选项的标签值。 我们还没有为每个选项定义标签值。 因此，像这样更新程式码并为每个选项附加 <code>tag</code> 修饰器：</p>
+<p>这里我们将 <code>selection</code> 变数的原始值设定为<code>0</code>，这是第一个选项的标签值。 我们还没有为每个选项定义标签值。 因此，像这样更新代码并为每个选项附加 <code>tag</code> 修饰器：</p>
 <pre><code class="lang-swift"><span class="hljs-type">TabView</span>(selection: $selection) {
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Home Tab&quot;</span>)
         .font(.system(size: <span class="hljs-number">30</span>, weight: .bold, design: .rounded))
@@ -1014,7 +1014,7 @@
 <p>进行修改后，在预览中运行App，您可以点击 <em>Next</em> 按钮跳至不同选项。</p>
 <figure id="fig35.4"><img src="images/tabview/swiftui-tabview-4.png" alt="图 35.4. 点击 Next 按钮跳至不同选项"><figcaption>图 35.4. 点击 Next 按钮跳至不同选项</figcaption></figure>
 <h3 id="%E5%9C%A8%E5%B0%8E%E8%88%AA%E8%A6%96%E5%9C%96%E4%B8%AD%E9%9A%B1%E8%97%8F%E6%A8%99%E7%B1%A4%E6%AC%84">在导航视图中隐藏标签栏</h3>
-<p>你可以通过以下程式码利用 <code>NavigationStack</code> 包裹 <code>TabView</code> 组件将标签视图嵌入导航视图中：</p>
+<p>你可以通过以下代码利用 <code>NavigationStack</code> 包裹 <code>TabView</code> 组件将标签视图嵌入导航视图中：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">TabView</span>(selection: $selection) {
         .
@@ -1025,7 +1025,7 @@
     .navigationTitle(<span class="hljs-string">&quot;TabView Demo&quot;</span>)
 }
 </code></pre>
-<p>在 UIKit 中，还有一个名为 <code>hidesBottomBarWhenPushed</code> 的选项，它允许您在使用导航界时自动隐藏标签栏。 SwiftUI 也内置了此功能。 您可以像这样修改程式码：</p>
+<p>在 UIKit 中，还有一个名为 <code>hidesBottomBarWhenPushed</code> 的选项，它允许您在使用导航界时自动隐藏标签栏。 SwiftUI 也内置了此功能。 您可以像这样修改代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">TabView</span>(selection: $selection) {
         <span class="hljs-type">List</span>(<span class="hljs-number">1</span>...<span class="hljs-number">10</span>, id: \.<span class="hljs-keyword">self</span>) { index <span class="hljs-keyword">in</span>
@@ -1073,7 +1073,7 @@
     .navigationTitle(<span class="hljs-string">&quot;TabView Demo&quot;</span>)
 }
 </code></pre>
-<p>我们只是更改了 <em>Home</em> 选项卡的程式码以显示项目列表。 我们用<code>NavigationLink</code>包装每个列表项目，以便在选择该项时导航至详细信息视图。 如果您使用模拟器或在预览中运行App，当导航到详细信息视图时，标签栏就会自动隐藏。</p>
+<p>我们只是更改了 <em>Home</em> 选项卡的代码以显示项目列表。 我们用<code>NavigationLink</code>包装每个列表项目，以便在选择该项时导航至详细信息视图。 如果您使用模拟器或在预览中运行App，当导航到详细信息视图时，标签栏就会自动隐藏。</p>
 <figure id="fig35.5"><img src="images/tabview/swiftui-tabview-5.gif" alt="图 35.5. 隐藏标签栏"><figcaption>图 35.5. 隐藏标签栏</figcaption></figure>
 <p>就某些情况，您可能不希望隐藏选标签栏。 如果是这个样的话，您可以反过来建立导航界面。 不是将标签视图包装在导航视图中，而是将导航视图嵌入到标签视图中，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">TabView</span>(selection: $selection) {

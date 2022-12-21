@@ -912,7 +912,7 @@
     }
 }
 </code></pre>
-<p>此外，我已经为你建立了主视图，它显示了一个餐厅清单。你可以开启 <code>ContentView. swift</code> 档来看一下程式码，我将不会详细解释程式码，因为我们已经在第 10 章实作过清单。</p>
+<p>此外，我已经为你建立了主视图，它显示了一个餐厅清单。你可以开启 <code>ContentView. swift</code> 档来看一下代码，我将不会详细解释代码，因为我们已经在第 10 章实作过清单。</p>
 <figure id="fig18.3"><img src="images/bottom-sheet/swiftui-bottom-sheet-3.png" alt="图 18.3.　清单视图"><figcaption>图 18.3.　清单视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%A4%90%E5%BB%B3%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">建立餐厅细节视图</h3>
 <p>底部表实际上包含餐厅细节与一个小横列（handlebar ），因此我们要做的第一件事是建立如图 18.4 所示的餐厅细节视图。</p>
@@ -926,9 +926,9 @@
 <li>头部视图包含餐厅特色图片、餐厅名称与餐厅类型。</li>
 <li>细节资讯视图包含餐厅资料，其中有地址、电话与描述。</li>
 </ul>
-<p>我们将使用单独的 结构（struct ）来实作上述每个部分，以让程式码更易编写。现在使用“SwiftUI View”模板建立一个新档案，并命名为<code>RestaurantDetailView.swift</code>。下面讨论的所有程式码都将放到这个新档案中。</p>
+<p>我们将使用单独的 结构（struct ）来实作上述每个部分，以让代码更易编写。现在使用“SwiftUI View”模板建立一个新档案，并命名为<code>RestaurantDetailView.swift</code>。下面讨论的所有代码都将放到这个新档案中。</p>
 <h4 id="%E6%A9%AB%E5%88%97">横列</h4>
-<p>首先是“横列”（handlebar ），它实际上是一个小圆角矩形。要建立它，我们需要做的是建立一个 <code>Rectangle</code>，并使其变成圆角。 在 <code>RestaurantDetailView.swift</code> 档中插入下列的程式码： </p>
+<p>首先是“横列”（handlebar ），它实际上是一个小圆角矩形。要建立它，我们需要做的是建立一个 <code>Rectangle</code>，并使其变成圆角。 在 <code>RestaurantDetailView.swift</code> 档中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">HandleBar</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
@@ -995,7 +995,7 @@
 <p>对于这两个标签，我们使用 <code>.overlay</code> 修饰器来叠加两个文字视图。</p>
 <h4 id="%E7%B4%B0%E7%AF%80%E8%B3%87%E8%A8%8A%E8%A6%96%E5%9C%96">细节资讯视图</h4>
 <p>最后是资讯视图（information view ）。如果你仔细看一下地址、电话与描述栏位，你会发现它们非常相似。地址与电话栏位在文字资讯旁都有一个图示，而描述栏位则只包含文字。</p>
-<p>因此，建立一个能灵活处理两种栏位类型的视图不是很好吗？下列是程式码片段： </p>
+<p>因此，建立一个能灵活处理两种栏位类型的视图不是很好吗？下列是代码片段： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DetailInfoView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">let</span> icon: <span class="hljs-type">String</span>?
     <span class="hljs-keyword">let</span> info: <span class="hljs-type">String</span>
@@ -1021,7 +1021,7 @@
 <p>另外，如果你只需要显示一个文字栏位（如描述栏位），则可以像这样使用 <code>DetailInfoView</code> : </p>
 <pre><code class="lang-swift"><span class="hljs-type">DetailInfoView</span>(icon: <span class="hljs-built_in">nil</span>, info: <span class="hljs-keyword">self</span>.restaurant.description)
 </code></pre>
-<p>如你所见，透过建立一个通用视图来处理相似的布局，可以使程式码更具模组化及可重用性。</p>
+<p>如你所见，透过建立一个通用视图来处理相似的布局，可以使代码更具模组化及可重用性。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-vstack-%E7%B5%84%E5%90%88%E5%85%83%E4%BB%B6">使用 VStack 组合元件</h4>
 <p>现在，我们已经建立了所有的元件，我们可以使用 <code>VStack</code> 组合它们，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView</span>: <span class="hljs-title">View</span> </span>{
@@ -1048,15 +1048,15 @@
     }
 }
 </code></pre>
-<p>上列的程式码很容易理解，我们只使用前面章节中建立过的元件，并将它们嵌入到一个垂直堆叠中。原本 <code>VStack</code> 有一个透明背景，要确保细节视图具有白色背景，我们加入 <code>background</code>修饰器并进行更改。</p>
-<p>在测试细节视图之前，必须修改 <code>RestaurantDetailView_Previews</code> 的程式码如下： </p>
+<p>上列的代码很容易理解，我们只使用前面章节中建立过的元件，并将它们嵌入到一个垂直堆叠中。原本 <code>VStack</code> 有一个透明背景，要确保细节视图具有白色背景，我们加入 <code>background</code>修饰器并进行更改。</p>
+<p>在测试细节视图之前，必须修改 <code>RestaurantDetailView_Previews</code> 的代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">RestaurantDetailView</span>(restaurant: restaurants[<span class="hljs-number">0</span>])
     }
 }
 </code></pre>
-<p>在程式码中，我们传送一个范例餐厅（即 <code>restaurants[0]</code> ）进行测试。如果你正确实作， 则 Xcode 应该会在预览画布中显示相似的细节视图，如图 18.5 所示。.</p>
+<p>在代码中，我们传送一个范例餐厅（即 <code>restaurants[0]</code> ）进行测试。如果你正确实作， 则 Xcode 应该会在预览画布中显示相似的细节视图，如图 18.5 所示。.</p>
 <figure id="fig18.5"><img src="images/bottom-sheet/swiftui-bottom-sheet-5.png" alt="图 18.5.　餐厅细节视图"><figcaption>图 18.5.　餐厅细节视图</figcaption></figure>
 <h3 id="%E4%BD%BF%E8%A6%96%E5%9C%96%E5%8F%AF%E6%BB%BE%E5%8B%95">使视图可滚动</h3>
 <p>你是否注意到细节视图无法显示完整的内容呢？要解决这个问题，我们必须将内容嵌入在 <code>ScrollView</code>，以让细节视图可滚动，如下所示：</p>
@@ -1091,7 +1091,7 @@
 <p>底部表目前叠在原本内容的上方，不过通常只覆盖部分内容，因此我们必须调整细节视图的偏移量，使它只覆盖荧幕的一部分。为此，我们可以像这样将 <code>offset</code>修饰器加到 <code>VStack</code> 上，如下所示： </p>
 <pre><code class="lang-swift">.offset(y: <span class="hljs-number">300</span>)
 </code></pre>
-<p>这会将细节视图向下移动  300 点，如果你在预览画布中测试程式码，则细节视图应该会移到荧幕的下半部，如图18.6 所示。</p>
+<p>这会将细节视图向下移动  300 点，如果你在预览画布中测试代码，则细节视图应该会移到荧幕的下半部，如图18.6 所示。</p>
 <figure id="fig18.6"><img src="images/bottom-sheet/swiftui-bottom-sheet-6.png" alt="图 18.6.　调整细节视图的偏移量"><figcaption>图 18.6.　调整细节视图的偏移量</figcaption></figure>
 <p>要使它看起来更像最终结果，你可以变更 <code>RestaurantDetailView_Previews</code> 的背景颜色如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
@@ -1188,7 +1188,7 @@
 <p>我们还加入 <code>transition</code> 修饰器至细节视图，如此就可使用 <code>move</code> 转场类型。<code>selectedRestaurant</code> 属性被定义为可选属性，这表示它可以有值或是 nil。在存取属性值之前，需要检查 <code>selectedRestaurant</code> 是否有值，因此，我们使用 <code>if let</code> 来进行确认，同时提醒一下，此  <code>if let</code> 运算符只支援 iOS 14 （或以上的）版本。</p>
 <p>现在，如果在预览画布中执行这个 App，当你选择一间餐厅时，它已经可以带出细节视图。尽管如此，底部表的实作还尚未完成。</p>
 <p>首先，当底部表启用时，不会阻止清单视图与使用者互动，实际上清单视图应该变暗，以表示它位于下面一层。</p>
-<p>为了实作它，我们可以建立一个空视图，并将它放在清单视图与细节视图之间。在 <code>ContentView.swift</code> 档中插入下列的程式码来建立空视图： </p>
+<p>为了实作它，我们可以建立一个空视图，并将它放在清单视图与细节视图之间。在 <code>ContentView.swift</code> 档中插入下列的代码来建立空视图： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BlankView</span> : <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> bgColor: <span class="hljs-type">Color</span>
@@ -1231,7 +1231,7 @@
 .animation(.interpolatingSpring(stiffness: <span class="hljs-number">200.0</span>, damping: <span class="hljs-number">25.0</span>, initialVelocity: <span class="hljs-number">10.0</span>))
 .edgesIgnoringSafeArea(.all)
 </code></pre>
-<p>在程式码中，我们使用 <code>interpolatingSpring</code>  动画，刚性（stiffness ）、阻尼（damping ） 与初速度（initial velocity ）的值是可以更改的。你可以使用这些值来找到适合你的App 的最佳动画。</p>
+<p>在代码中，我们使用 <code>interpolatingSpring</code>  动画，刚性（stiffness ）、阻尼（damping ） 与初速度（initial velocity ）的值是可以更改的。你可以使用这些值来找到适合你的App 的最佳动画。</p>
 <p>此外，我还想在细节视图中加入一个精巧的动画，如此当我们带出细节视图时，它会稍微向上移动。回到<code>ContentView.swift</code>，在导览视图中加入 <code>.offset</code> 与 <code>.animation</code>修饰器： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationView</span> {
     <span class="hljs-type">List</span> {
@@ -1318,7 +1318,7 @@
 <li><strong>界限值 #1</strong> - 当拖曳超过界限值，细节视图就会完全开启。</li>
 <li><strong>界限值 #2</strong> - 当拖曳移动低于界限值，细节视图将会关闭。</li>
 </ul>
-<p>现在，你应该知道了半开状态与全开状态的工作原理，让我们进入程式码部分。首先，我们在<code>RestaurantDetailView.swift</code> 宣告另一个列举来表示这两种视图状态： </p>
+<p>现在，你应该知道了半开状态与全开状态的工作原理，让我们进入代码部分。首先，我们在<code>RestaurantDetailView.swift</code> 宣告另一个列举来表示这两种视图状态： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">ViewState</span> </span>{
     <span class="hljs-keyword">case</span> full
     <span class="hljs-keyword">case</span> half
@@ -1365,8 +1365,8 @@
 )
 </code></pre>
 <p>我使用荧幕高度来计算界限值。举例而言，界限值 #2 设定为荧幕高度的三分之一，这只是一个范例值，你可以根据你的需要修改它。</p>
-<p>如果你需要进一步了解程式码的工作原理，请参考程式码注释。</p>
-<p>由于我们在 <code>RestaurantDetailView</code> 中加入一个绑定变数，因此必须更新 <code>RestaurantDetailView_Previews</code> 的程式码： </p>
+<p>如果你需要进一步了解代码的工作原理，请参考代码注释。</p>
+<p>由于我们在 <code>RestaurantDetailView</code> 中加入一个绑定变数，因此必须更新 <code>RestaurantDetailView_Previews</code> 的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">RestaurantDetailView</span>(restaurant: restaurants[<span class="hljs-number">0</span>], isShow: .constant(<span class="hljs-built_in">true</span>))
@@ -1400,7 +1400,7 @@
 }
 .frame(height: <span class="hljs-number">0</span>)
 </code></pre>
-<p>这不是最后的程式码，我只是想要告诉你如何使用 <code>GeometryReader</code> 来读取滚动偏移量。<code>GeometryReader</code> 的闭包中，我们可以使用 <code>scrollViewProxy</code>，呼叫 <code>frame</code> 函数并取得 <code>minY</code>的值来计算偏移量。在呼叫 <code>frame</code> 函数时，必须传递你期望的座标空间。这里我们自己定义规范滚动视图的座标空间。</p>
+<p>这不是最后的代码，我只是想要告诉你如何使用 <code>GeometryReader</code> 来读取滚动偏移量。<code>GeometryReader</code> 的闭包中，我们可以使用 <code>scrollViewProxy</code>，呼叫 <code>frame</code> 函数并取得 <code>minY</code>的值来计算偏移量。在呼叫 <code>frame</code> 函数时，必须传递你期望的座标空间。这里我们自己定义规范滚动视图的座标空间。</p>
 <p>为了定义自己的座标空间，如下，加上 <code>.coordinateSpace</code> 修饰器至 <code>ScrollView</code>：</p>
 <pre><code class="lang-swift">.coordinateSpace(name: <span class="hljs-string">&quot;scrollview&quot;</span>)
 </code></pre>
@@ -1460,7 +1460,7 @@
 <p>另外加上这个 <code>.offset</code> 修饰器的目的是将细节视图向下移动。如果你在模拟器执行这个 App，你应该可以将展开后的视图退回至半开状态。</p>
 <figure id="fig18.15"><img src="images/bottom-sheet/swiftui-bottom-sheet-15.png" alt="图 8.15. 在完全展开状态下滚动视图"><figcaption>图 8.15. 在完全展开状态下滚动视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>本章的篇幅很多，但我希望你喜欢它。在本章中，我们将利用你到目前为止所学到的知识来建立展开式底部表。当建立底部表时，我尽力记录了我解决问题的思考过程，我真的希望这可以帮助你了解我的解决方案与程式码。</p>
+<p>本章的篇幅很多，但我希望你喜欢它。在本章中，我们将利用你到目前为止所学到的知识来建立展开式底部表。当建立底部表时，我尽力记录了我解决问题的思考过程，我真的希望这可以帮助你了解我的解决方案与代码。</p>
 <p>SwiftUI 的其中一项优势是，它鼓励你建立模组化的 UI 元件。这部分我们还没有做，但是你可能会发现透过使用我在上一章中所介绍的技术，可以很容易将这个餐厅细节视图转换为支援各种类型内容的通用底部表。</p>
 <p>因此，请尝试自行建立通用的底部表，并将其作为你的专案中的共享元件。</p>
 <p>在本章所准备的范例档中，有完整的专案与作业解答可以下载： </p>

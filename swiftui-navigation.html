@@ -896,7 +896,7 @@
 }
 </code></pre>
 <p>在 iOS 16 中，Apple 将 <code>NavigationView</code> 替换为 <code>NavigationStack</code>。 你仍然可以使用 <code>NavigationView</code> 来创建导航视图， 但建议使用 <code>NavigationStack</code>，因为 <code>NavigationView</code> 最终会从 SDK 中移除。</p>
-<p>要使用 <code>NavigationStack</code> 创建导航视图，你可以将以上的程式码写成这样：</p>
+<p>要使用 <code>NavigationStack</code> 创建导航视图，你可以将以上的代码写成这样：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span> {
         <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
@@ -923,7 +923,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8-navigationlink-%E5%82%B3%E9%80%81%E8%B3%87%E6%96%99%E8%87%B3%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">使用 NavigationLink 传送资料至细节视图</h3>
 <p>至目前为止，我们只是在清单视图中加入一个导览列。我们通常使用导览介面来让使用者导览至细节视图，以显示所选项目的细节。对于此范例，我们将建立一个简单的细节视图，以显示餐厅的大图，如图 11.4 所示。</p>
 <figure id="fig11.4"><img src="images/navigation/swiftui-navigation-4.png" alt="图 11.4.　内容视图与细节视图"><figcaption>图 11.4.　内容视图与细节视图</figcaption></figure>
-<p>让我们从细节视图开始。在 <code>ContentView.swift</code> 档的结尾处，插入下列的程式码，以建立细节视图： </p>
+<p>让我们从细节视图开始。在 <code>ContentView.swift</code> 档的结尾处，插入下列的代码，以建立细节视图： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> restaurant: <span class="hljs-type">Restaurant</span>
 
@@ -959,7 +959,7 @@
 }
 .listStyle(.plain)
 </code></pre>
-<p>在上列的程式码中， 我们告诉 <code>NavigationLink</code> 在使用者选择餐厅时， 导览至 <code>RestaurantDetailView</code>。我们也将所选的餐厅传送至细节视图，以进行显示。这就是建立导览介面与执行资料传送所需的全部内容。</p>
+<p>在上列的代码中， 我们告诉 <code>NavigationLink</code> 在使用者选择餐厅时， 导览至 <code>RestaurantDetailView</code>。我们也将所选的餐厅传送至细节视图，以进行显示。这就是建立导览介面与执行资料传送所需的全部内容。</p>
 <figure id="fig11.5"><img src="images/navigation/swiftui-navigation-5.png" alt="图 11.5.　执行 App 来测试导览"><figcaption>图 11.5.　执行 App 来测试导览</figcaption></figure>
 <p>在画布中，你应该注意到每列资料皆已加入了一个揭露图示。如图 11.5 所示，你应该能够在选择其中一间餐厅后，导览至细节视图。另外，你可以点击“返回”（Back ）按钮来导览回内容视图。整个导览由 <code>NavigationStack</code> 自动渲染。</p>
 <h3 id="%E8%87%AA%E8%A8%82%E5%B0%8E%E8%A6%BD%E5%88%97">自订导览列</h3>
@@ -967,7 +967,7 @@
 <p>如果你想要使导览列更小型，并禁用大标题，你可以在 <code>navigationBarTitle</code> 修饰器之下加入<code>navigationBarTitleDisplayMode</code> 修饰器： </p>
 <pre><code class="lang-swift">.navigationBarTitleDisplayMode(.inline)
 </code></pre>
-<p>这个参数控制导览列的外观，不论它应显示大标题导览列还是小型导览列，而预设是设定为 <code>.automatic</code>，即表示是使用大标题。在上列的程式码中，我们将其设定为 <code>.inline</code>，即表示 iOS 使用小型导览列，如图 11.6 所示。</p>
+<p>这个参数控制导览列的外观，不论它应显示大标题导览列还是小型导览列，而预设是设定为 <code>.automatic</code>，即表示是使用大标题。在上列的代码中，我们将其设定为 <code>.inline</code>，即表示 iOS 使用小型导览列，如图 11.6 所示。</p>
 <figure id="fig11.6"><img src="images/navigation/swiftui-navigation-6.png" alt="图 11.6.　设定显示模式为“.inline”来使用小型导览列"><figcaption>图 11.6.　设定显示模式为“.inline”来使用小型导览列</figcaption></figure>
 <p>现在，我们将显示模式改为  <code>.automatic</code>，看看会得到什么，导览列应该会再次变成大标题导览列。</p>
 <pre><code class="lang-swift">.navigationBarTitleDisplayMode(.automatic)
@@ -1057,7 +1057,7 @@
 <p>SwiftUI 内建的环境值很广泛。要解除目前视图，并返回至前一个视图。我们取得  <code>.dismiss</code> 环境值，然后呼叫 <code>dismiss()</code> 函数。请注意 <code>.dismiss</code> 是 iOS 15（或以上）新加入的环境值，如果你的 App 要支援比较旧的iOS 版本，你可以使用另一个环境值（即 <code>.presentationMode</code>）：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.presentationMode) <span class="hljs-keyword">var</span> presentationMode
 </code></pre>
-<p>之后，你可以利用以下程式码呼叫<code>presentationMode</code> 的 <code>dismiss()</code> 函数：</p>
+<p>之后，你可以利用以下代码呼叫<code>presentationMode</code> 的 <code>dismiss()</code> 函数：</p>
 <pre><code class="lang-swift">presentationMode.wrappedValue.dismiss()
 </code></pre>
 <p>你在预览画布再测试 App，并选取其中一家餐厅，你会见到一个带有餐厅名的返回按钮。点击返回按钮，视图将导览回主画面。</p>
@@ -1069,7 +1069,7 @@
 <figure id="fig11.10"><img src="images/navigation/swiftui-navigation-10.jpg" alt="图11.10.　为阅读 App 建立导览 UI"><figcaption>图11.10.　为阅读 App 建立导览 UI</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">建立细节视图</h3>
 <p>你完成作业了吗？细节视图比我们之前建立的视图更复杂，我们来看看如何建立它。</p>
-<p>为了让程式码更易编写，我们将为它建立一个单独的档案，而不是在 ContentView.swift 档中建立细节视图。在专案导览器中，右键点击 <code>SwiftUINavigation</code> 资料夹，选择“New File...”，接着选取“SwiftUI View”模板，并将档案命名为“ArticleDetailView.swift”。</p>
+<p>为了让代码更易编写，我们将为它建立一个单独的档案，而不是在 ContentView.swift 档中建立细节视图。在专案导览器中，右键点击 <code>SwiftUINavigation</code> 资料夹，选择“New File...”，接着选取“SwiftUI View”模板，并将档案命名为“ArticleDetailView.swift”。</p>
 <p>由于细节视图将显示文章的详细资讯，我们需要这个属性来让呼叫者传送文章。因此，在 <code>ArticleDetailView</code> 中宣告一个 <code>article</code> 属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> article: <span class="hljs-type">Article</span>
 </code></pre>
@@ -1103,7 +1103,7 @@
     }
 }
 </code></pre>
-<p>我们使用一个 <code>ScrollView</code> 来包裹所有的视图，以启用可滚动的内容。我不会逐行说明程式码，我相信你应该了解 <code>Text</code>、<code>Image</code> 与 <code>VStack</code> 的运作方式，不过我想强调的修饰器是 <code>Group</code>，这个修饰器可以让你将多个视图群组在一起，并使用某个设定。在上列的程式码中，我们需要对两个 <code>Text</code> 视图使用特定的间距设定。为了避免程式码重复，我们将两个视图群组在一起，并使用间距。</p>
+<p>我们使用一个 <code>ScrollView</code> 来包裹所有的视图，以启用可滚动的内容。我不会逐行说明代码，我相信你应该了解 <code>Text</code>、<code>Image</code> 与 <code>VStack</code> 的运作方式，不过我想强调的修饰器是 <code>Group</code>，这个修饰器可以让你将多个视图群组在一起，并使用某个设定。在上列的代码中，我们需要对两个 <code>Text</code> 视图使用特定的间距设定。为了避免代码重复，我们将两个视图群组在一起，并使用间距。</p>
 <p>现在，我们已经完成了细节视图的布局，但是你应该会在 Xcode 内看到一个错误，指出有<code>ArticleDetailView_Previews</code> 的问题。而预览无法正常运作，是因为我们在 <code>ArticleDetailView</code> 中加入了article 属性，因此你需要在预览中传送一个范例文章。更新 <code>ArticleDetail View_Previews</code>来修正错误，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1113,7 +1113,7 @@
 </code></pre>
 <p>这里，我们只选择 <code>articles</code> 阵列中的第一篇文章来预览。如果想要预览其他文章，你可以将其更改为其他值。当你变更后，预览画布应会正确渲染细节视图，如图 11.11 所示。</p>
 <figure id="fig11.11"><img src="images/navigation/swiftui-navigation-11.png" alt="图 11.11.　用于显示文章的细节视图"><figcaption>图 11.11.　用于显示文章的细节视图</figcaption></figure>
-<p>我们再多尝试一件事。由于这个视图将嵌入至 <code>NavigationView</code>中，因此你可以修改预览程式码，来预览它在预览介面的外观： </p>
+<p>我们再多尝试一件事。由于这个视图将嵌入至 <code>NavigationView</code>中，因此你可以修改预览代码，来预览它在预览介面的外观： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">NavigationStack</span> {
@@ -1146,7 +1146,7 @@
     }
 }
 </code></pre>
-<p>在上列的程式码中，我们将 <code>List</code> 视图嵌入至 <code>NavigationStack</code> 中， 并对每一列应用 <code>NavigationLink</code>。导览连结的目的地设定为我们刚才建立的细节视图。在预览中，你应该可透过点击“播放”（Play ）按钮来测试 App，并在选择文章后，导览至细节视图。</p>
+<p>在上列的代码中，我们将 <code>List</code> 视图嵌入至 <code>NavigationStack</code> 中， 并对每一列应用 <code>NavigationLink</code>。导览连结的目的地设定为我们刚才建立的细节视图。在预览中，你应该可透过点击“播放”（Play ）按钮来测试 App，并在选择文章后，导览至细节视图。</p>
 <h3 id="%E7%A7%BB%E9%99%A4%E6%8F%AD%E7%A4%BA%E6%8C%87%E7%A4%BA%E5%99%A8">移除揭示指示器</h3>
 <p>这个 App 运作得很完美，但是有两个问题你可能想要微调。首先是内容视图中的揭示指示器（disclosure indicator ），这里显示揭示指示器有点奇怪，我们可以禁用它吗？第二个问题是，在细节视图中精选图片的上方出现空白区域。我们来逐一讨论这些问题。</p>
 <figure id="fig11.12"><img src="images/navigation/swiftui-navigation-12.jpg" alt="图 11.12.　目前设计中的两个问题"><figcaption>图 11.12.　目前设计中的两个问题</figcaption></figure>
@@ -1174,18 +1174,18 @@
 <p>切换到 <code>ArticleDetailView.swift</code>，在设计细节视图时，我没有提到这个问题，但实际上从预览中，你应该会发现这个问题，如图 11.13 所示。</p>
 <figure id="fig11.13"><img src="images/navigation/swiftui-navigation-13.png" alt="图 11.13　标头中的空白区域"><figcaption>图 11.13　标头中的空白区域</figcaption></figure>
 <p>图片上方会出现空白区域的原因是导览列的缘故。这个空白区域实际上是一个带有空白标题的大尺寸导览列，当App 从内容视图导览至细节视图时，导览列会变成标准尺寸列。因此，要修复这个问题，我们需要做的是明确指定使用标准尺寸导览列。</p>
-<p>在 <code>ScrollView</code> 的括号后，插入下列这行程式码： </p>
+<p>在 <code>ScrollView</code> 的括号后，插入下列这行代码： </p>
 <pre><code class="lang-swift">.navigationBarTitleDisplayMode(.inline)
 </code></pre>
 <p>透过将导览列设定为 <code>inline</code> 模式后，空白区域将被最小化，现在你可回到 <code>ContentView.swift</code> 来再次测试App，细节视图现在看起来好多了。</p>
 <h3 id="%E5%B8%B6%E6%9C%89%E5%AE%A2%E8%A3%BD%E5%8C%96%E3%80%8C%E8%BF%94%E5%9B%9E%E3%80%8D%E6%8C%89%E9%88%95%E7%9A%84%E7%B2%BE%E7%B7%BB-ui">带有客制化“返回”按钮的精致 UI</h3>
-<p>虽然你可使用内建的属性来自订“返回”按钮指示器图片，有时你可能想要建立一个客制化“返回”按钮来导览回内容视图。问题是如何透过编写程式码来完成呢？ </p>
+<p>虽然你可使用内建的属性来自订“返回”按钮指示器图片，有时你可能想要建立一个客制化“返回”按钮来导览回内容视图。问题是如何透过编写代码来完成呢？ </p>
 <p>在最后一个小节中，我要介绍如何透过隐藏导览列及建立自己的“返回”按钮，来建立一个更精致的细节视图。首先，我们看一下如图 11.14 所示的最终设计，看起来不错吧？ </p>
 <figure id="fig11.14"><img src="images/navigation/swiftui-navigation-14.png" alt="图 11.14.　经修订的细节视图"><figcaption>图 11.14.　经修订的细节视图</figcaption></figure>
 <p>要布局这个画面，我们必须要解决两个问题： </p>
 <ol>
 <li>如何将滚动视图延伸到画面顶部？ </li>
-<li>如何建立一个客制化“返回”按钮，并编写程式码来触发导览？ </li>
+<li>如何建立一个客制化“返回”按钮，并编写代码来触发导览？ </li>
 </ol>
 <p>iOS 有一个“安全区域”（safe area ）的观念，用于辅助视图的布局。安全区域可帮你将视图放置于介面的可见部分，例如：安全区域防止视图隐藏了状态列。若是你的 UI 导入了导览列，则会遮挡导览列。</p>
 <figure id="fig11.15"><img src="images/navigation/swiftui-navigation-15.jpg" alt="![图 11.15　安全区域](images/navigation/swiftui-navigation-15.jpg)"><figcaption>![图 11.15　安全区域](images/navigation/swiftui-navigation-15.jpg)</figcaption></figure>
@@ -1202,7 +1202,7 @@
 <p>为了隐藏“返回”按钮，SwiftUI 提供一个名为 <code>navigationBarBackButtonHidden</code> 的修饰器。你只需将其值设定为 <code>true</code>，即可隐藏“返回”按钮： </p>
 <pre><code class="lang-swift">.navigationBarBackButtonHidden(<span class="hljs-built_in">true</span>)
 </code></pre>
-<p>当隐藏“返回”按钮后，你可以使用自己的按钮来替代它。<code>toolbar</code> 修饰器允许你配置导航栏项目。 在闭包中，我们使用<code>ToolbarItem</code>自订后退按钮，并将该按钮指定为导航栏的左按钮。 以下是相关程式码：</p>
+<p>当隐藏“返回”按钮后，你可以使用自己的按钮来替代它。<code>toolbar</code> 修饰器允许你配置导航栏项目。 在闭包中，我们使用<code>ToolbarItem</code>自订后退按钮，并将该按钮指定为导航栏的左按钮。 以下是相关代码：</p>
 <pre><code class="lang-swift">.toolbar {
     <span class="hljs-type">ToolbarItem</span>(placement: .navigationBarLeading) {
         <span class="hljs-type">Button</span>(action: {
@@ -1218,11 +1218,11 @@
 <p>你可以将上述的修饰器加到 <code>ScrollView</code>。当修改生效后，你应该会在预览画布中看到我们自己的客制化“返回”按钮，如图 11.17 所示。</p>
 <figure id="fig11.17"><img src="images/navigation/swiftui-navigation-17.png" alt="图 11.17.　建立我们自己的“返回”按钮"><figcaption>图 11.17.　建立我们自己的“返回”按钮</figcaption></figure>
 <p>你可能发现按钮的 <code>action</code> 闭包被留空。“返回”按钮已经布局得不错了，但问题是它不能运作。</p>
-<p>原来的“返回”按钮是由 <code>NavigationView</code> 渲染，可以自动导览回前一个画面。问题来了，我们该如何编写程式码来触发这个操作呢？感谢 SwiftUI 框架所内建的环境值（environment value ），你可以引用一个名为<code>dismiss</code> 环境绑定（environment binding ），来导览至前一个画面。</p>
+<p>原来的“返回”按钮是由 <code>NavigationView</code> 渲染，可以自动导览回前一个画面。问题来了，我们该如何编写代码来触发这个操作呢？感谢 SwiftUI 框架所内建的环境值（environment value ），你可以引用一个名为<code>dismiss</code> 环境绑定（environment binding ），来导览至前一个画面。</p>
 <p>现在，在 <code>ArticleDetailView</code> 宣告一个 <code>dismiss</code> 变数来取得环境值： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.dismiss) <span class="hljs-keyword">var</span> dismiss
 </code></pre>
-<p>接下来，在我们的客制化“返回”按钮的 <code>action</code> 中，插入下列这行程式码： </p>
+<p>接下来，在我们的客制化“返回”按钮的 <code>action</code> 中，插入下列这行代码： </p>
 <pre><code class="lang-swift">dismiss()
 </code></pre>
 <p>这里，我们呼叫 <code>dismiss</code> 方法，以在点击“返回”按钮时解除细节视图。现在，你可以执行 App 并再次测试它，你应该能够在内容视图与细节视图之间进行导览。</p>

@@ -886,7 +886,7 @@
     }
 }
 </code></pre>
-<p>以上程式码会构建出一个基本的导览介面，当中有一个 <em>Tap me</em> 按钮。当我们点击按钮，App 就会导览到下一级，来显示目标视图。</p>
+<p>以上代码会构建出一个基本的导览介面，当中有一个 <em>Tap me</em> 按钮。当我们点击按钮，App 就会导览到下一级，来显示目标视图。</p>
 <figure id="fig46.1"><img src="images/navigationstack/swiftui-navigationstack-1.png" alt="图 46.1. 基本的导览介面"><figcaption>图 46.1. 基本的导览介面</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-navigationstack">使用 NavigationStack</h3>
 <p>从 iOS 16 开始，我们可以用新的 <code>NavigationStack</code> 来取代 <code>NavigationView</code>。我们可以完全保留 <code>NavigationLink</code>，都会得到相同的结果。</p>
@@ -898,7 +898,7 @@
     }
 }
 </code></pre>
-<p>我们也可以这样编写程式码：</p>
+<p>我们也可以这样编写代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">NavigationLink</span>(<span class="hljs-string">&quot;Tap me&quot;</span>) {
         <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Destination&quot;</span>)
@@ -929,10 +929,10 @@
     }
 }
 </code></pre>
-<p>以上的程式码会建立一个导览视图，来显示构建一个 master-detail 流程。当使用者选择了一个项目，App 就会导览到 detail 视图，并显示 color 视图。</p>
+<p>以上的代码会建立一个导览视图，来显示构建一个 master-detail 流程。当使用者选择了一个项目，App 就会导览到 detail 视图，并显示 color 视图。</p>
 <figure id="fig46.2"><img src="images/navigationstack/swiftui-navigationstack-2.png" alt="图 46.2. 一个 master-detail 导览视图"><figcaption>图 46.2. 一个 master-detail 导览视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E5%9F%BA%E6%96%BC%E6%95%B8%E5%80%BC%E7%9A%84-navigation-links">建基于数值的 Navigation Links</h3>
-<p><code>NavigationStack</code> 引入了一个新修饰符 <code>navigationDestination</code>，用来把目标视图与呈现的资料型别连系。我们可以这样重新编写上一节的程式码：</p>
+<p><code>NavigationStack</code> 引入了一个新修饰符 <code>navigationDestination</code>，用来把目标视图与呈现的资料型别连系。我们可以这样重新编写上一节的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span>(bgColors, id: \.<span class="hljs-keyword">self</span>) { bgColor <span class="hljs-keyword">in</span>
 
@@ -982,7 +982,7 @@
     root: () -&gt; <span class="hljs-type">Root</span>
 ) <span class="hljs-keyword">where</span> <span class="hljs-type">Data</span> : <span class="hljs-type">MutableCollection</span>, <span class="hljs-type">Data</span> : <span class="hljs-type">RandomAccessCollection</span>, <span class="hljs-type">Data</span> : <span class="hljs-type">RangeReplaceableCollection</span>, <span class="hljs-type">Data</span>.<span class="hljs-type">Element</span> : <span class="hljs-type">Hashable</span>
 </code></pre>
-<p>如果我们想储存或管理导览状态，可以创建一个状态变数。以下是范例程式码：</p>
+<p>如果我们想储存或管理导览状态，可以创建一个状态变数。以下是范例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     private <span class="hljs-keyword">var</span> bgColors: [<span class="hljs-type">Color</span>] = [ .indigo, .yellow, .green, .orange, .brown ]
 
@@ -1032,14 +1032,14 @@
     }
 }
 </code></pre>
-<p>这段程式码与之前的范例有点相似，我们添加了一个 <code>path</code> 状态变数，它是 <code>Color</code> 的阵列，用来储存导览状态。在 <code>NavigationStack</code> 进行 initialization 时，我们会传递它的 binding 来管理堆叠。当导览堆叠的状态发生变化时，<code>path</code> 变数的数值就会被自动更新。</p>
+<p>这段代码与之前的范例有点相似，我们添加了一个 <code>path</code> 状态变数，它是 <code>Color</code> 的阵列，用来储存导览状态。在 <code>NavigationStack</code> 进行 initialization 时，我们会传递它的 binding 来管理堆叠。当导览堆叠的状态发生变化时，<code>path</code> 变数的数值就会被自动更新。</p>
 <p>我更改了导览目的地，它会显示使用者选择的颜色，和另一个颜色列表以供使用者选择。</p>
 <figure id="fig46.4"><img src="images/navigationstack/swiftui-navigationstack-4.png" alt="图 46.4. 使用 path 变数"><figcaption>图 46.4. 使用 path 变数</figcaption></figure>
-<p>在上面的程式码中，我们有一行程式码来显示 path 的内容：</p>
+<p>在上面的代码中，我们有一行代码来显示 path 的内容：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;<span class="hljs-subst">\(path.<span class="hljs-built_in">count</span>)</span>, <span class="hljs-subst">\(path.description)</span>&quot;</span>)
 </code></pre>
 <p><code>count</code> 属性 (property) 是指堆叠的 level，而 description 就是当前的颜色。举个例子，我们首先选择颜色 <em>indigo</em>，然后选择 <em>yellow</em>。在这个情况下，<code>count</code> 的数值就应该是 2<em>，</em>代表导览堆叠有 2 个 level。</p>
-<p>我们可以利用这个 <code>path</code> 变数，来以编程方式控制堆叠的导览。举个例子，我们可以添加一个按钮，让使用者直接跳转到堆叠的 root level，以下是范例程式码：</p>
+<p>我们可以利用这个 <code>path</code> 变数，来以编程方式控制堆叠的导览。举个例子，我们可以添加一个按钮，让使用者直接跳转到堆叠的 root level，以下是范例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     path = .<span class="hljs-keyword">init</span>()
 } label: {

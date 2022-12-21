@@ -910,7 +910,7 @@
 }
 </code></pre>
 <p>由于 <code>progress</code> 变数是一个状态变数，所以每当 <code>progress</code> 的值发生变化时，<code>progressText</code> 都会自动更新。 但是，解决方案存在一个问题，就是文字的动画效果不太好。</p>
-<p>如果你在 <code>ProgressRingView.swift</code> 中更改了程式码，则可以返回 <code>ContentView.swift</code> 查看结果。 此App确实显示了进度标签，但是当你将进度从一个值改为另一个值时，进度标签会立即使用淡出的动画效果来显示新值。</p>
+<p>如果你在 <code>ProgressRingView.swift</code> 中更改了代码，则可以返回 <code>ContentView.swift</code> 查看结果。 此App确实显示了进度标签，但是当你将进度从一个值改为另一个值时，进度标签会立即使用淡出的动画效果来显示新值。</p>
 <p>这不是我们所寄望的结果。 进度标签不应直接从一个值（例如 100%）跳转到另一个值（例如 50%）。 我们期望进度标签跟随进度条的动画并逐步更新其值，如下所示：</p>
 <p>100 -&gt; 99 -&gt; 98 -&gt; 97 -&gt; 96 ... ... ... ... ... ... ... ... ... ... 53 -&gt; 52 -&gt; 51 -&gt; 50</p>
 <p>当前的做法不允许你为文字的变化设置动画， 这就是为什么我必须向你介绍 <code>AnimatableModifier</code> 协议的原因。</p>
@@ -945,15 +945,15 @@
     }
 }
 </code></pre>
-<p>对你来说，这些程式码是不是很熟悉？ 如前所述，<code>AnimatableModifier</code> 协议同时符合 <code>Animatable</code> 和 <code>ViewModifier</code>。 因此，我们在 <code>animatableData</code> 属性中指定动画的值。 这里是<code>progress</code>。 为了符合 <code>ViewModifier</code> 的要求，我们实现了 <code>body</code> 函数并添加了 <code>Text</code> 视图。</p>
-<p>就是这样使用 <code>AnimatableModifier</code> 为文字加置动画。 为方便起见，在 <code>ProgressRingView</code> 的末尾插入以下程式码，以创建用于 <code>ProgressTextModifier</code> 的扩展：</p>
+<p>对你来说，这些代码是不是很熟悉？ 如前所述，<code>AnimatableModifier</code> 协议同时符合 <code>Animatable</code> 和 <code>ViewModifier</code>。 因此，我们在 <code>animatableData</code> 属性中指定动画的值。 这里是<code>progress</code>。 为了符合 <code>ViewModifier</code> 的要求，我们实现了 <code>body</code> 函数并添加了 <code>Text</code> 视图。</p>
+<p>就是这样使用 <code>AnimatableModifier</code> 为文字加置动画。 为方便起见，在 <code>ProgressRingView</code> 的末尾插入以下代码，以创建用于 <code>ProgressTextModifier</code> 的扩展：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">View</span> </span>{
     <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">animatableProgressText</span><span class="hljs-params">(progress: Double, textColor: Color = Color.primary)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> </span>{
         <span class="hljs-keyword">self</span>.modifier(<span class="hljs-type">ProgressTextModifier</span>(progress: progress, textColor: textColor))
     }
 }
 </code></pre>
-<p>现在你可以像以下程式码将 <code>animatableProgressText</code> 修饰器附加到 <code>RingShape</code> 上：</p>
+<p>现在你可以像以下代码将 <code>animatableProgressText</code> 修饰器附加到 <code>RingShape</code> 上：</p>
 <pre><code class="lang-swift"><span class="hljs-type">RingShape</span>(progress: progress, thickness: thickness)
     .fill(<span class="hljs-type">AngularGradient</span>(gradient: gradient, center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(<span class="hljs-number">360</span> * progress + startAngle)))
     .animatableProgressText(progress: progress)
@@ -971,8 +971,8 @@
     }
 }
 </code></pre>
-<p>你建立一个符合 <code>LibraryContentProvider</code> 的结构并覆载 <code>views</code> 属性以回一个客制化视图阵列。 在上面的程式码，我们回了带有一些预设值的进度环视图，将其命名为<code>Progress Ring</code>，并将其放入元件类别中。</p>
-<p>或者，如果你想添加多个库项目，你可以编写如下程式码：</p>
+<p>你建立一个符合 <code>LibraryContentProvider</code> 的结构并覆载 <code>views</code> 属性以回一个客制化视图阵列。 在上面的代码，我们回了带有一些预设值的进度环视图，将其命名为<code>Progress Ring</code>，并将其放入元件类别中。</p>
+<p>或者，如果你想添加多个库项目，你可以编写如下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressBar_Library</span>: <span class="hljs-title">LibraryContentProvider</span> </span>{
     @<span class="hljs-type">LibraryContentBuilder</span> <span class="hljs-keyword">var</span> views: [<span class="hljs-type">LibraryItem</span>] {
         <span class="hljs-type">LibraryItem</span>(<span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">1.0</span>), thickness: <span class="hljs-number">12.0</span>, width: <span class="hljs-number">130.0</span>, gradient: <span class="hljs-type">Gradient</span>(colors: [.darkYellow, .lightYellow])), title: <span class="hljs-string">&quot;Progress Ring&quot;</span>, category: .control)
@@ -988,7 +988,7 @@
 <li><code>layout</code></li>
 <li><code>other</code></li>
 </ul>
-<p>你可能还未知道 <code>@LibraryContentBuilder</code> 属性包装器是什么？ 它只是使你免于编写用于创建<code>LibraryItem</code>阵列的程式码。 上面的程式码其实可以改写成这样：</p>
+<p>你可能还未知道 <code>@LibraryContentBuilder</code> 属性包装器是什么？ 它只是使你免于编写用于创建<code>LibraryItem</code>阵列的代码。 上面的代码其实可以改写成这样：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressBar_Library</span>: <span class="hljs-title">LibraryContentProvider</span> </span>{
     <span class="hljs-keyword">var</span> views: [<span class="hljs-type">LibraryItem</span>] {
         <span class="hljs-keyword">return</span> [<span class="hljs-type">LibraryItem</span>(<span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">1.0</span>), thickness: <span class="hljs-number">12.0</span>, width: <span class="hljs-number">130.0</span>, gradient: <span class="hljs-type">Gradient</span>(colors: [.darkYellow, .lightYellow])), title: <span class="hljs-string">&quot;Progress Ring&quot;</span>, category: .control),
@@ -997,7 +997,7 @@
     }
 }
 </code></pre>
-<p>当你加入程式码后，Xcode 会自动发现项目中新加入的<code>LibraryContentProvider</code>协议，并将进度环视图添加到视图库中。 你现在可以轻易将进度环视图添加到App UI。</p>
+<p>当你加入代码后，Xcode 会自动发现项目中新加入的<code>LibraryContentProvider</code>协议，并将进度环视图添加到视图库中。 你现在可以轻易将进度环视图添加到App UI。</p>
 <figure id="fig31.5"><img src="images/librarycontentprovider/swiftui-library-5.png" alt="图 31.5. 将进度环视图添加到视图库"><figcaption>图 31.5. 将进度环视图添加到视图库</figcaption></figure>
 <p>你不仅可以将客制化视图加至 Xcode 的视图库，还可以通过实现 <code>modifiers</code> 方法添加自己制的修饰器。 你可以通过如下方法将 <code>animatableProgressText</code> 修饰器添加到视图库：</p>
 <pre><code class="lang-swift">struct ProgressBar_Library: LibraryContentProvider {
@@ -1011,14 +1011,14 @@
     }
 }
 </code></pre>
-<p><code>base</code> 参数允许你指定可以由修饰器修改的元件类型。 在上面的程式码，那个元件就是 <code>Circle</code> 视图。 同样地，一旦你将程式码加入<code>ProgressBar_Library</code>，Xcode 就会自动扫描相关项目并将其添加到修改器库中。</p>
+<p><code>base</code> 参数允许你指定可以由修饰器修改的元件类型。 在上面的代码，那个元件就是 <code>Circle</code> 视图。 同样地，一旦你将代码加入<code>ProgressBar_Library</code>，Xcode 就会自动扫描相关项目并将其添加到修改器库中。</p>
 <figure id="fig31.6"><img src="images/librarycontentprovider/swiftui-library-6.png" alt="图 31.6. 将 Progress Indicator 加至 Modifier 库"><figcaption>图 31.6. 将 Progress Indicator 加至 Modifier 库</figcaption></figure>
 <h3 id="%E7%B7%B4%E7%BF%92">练习</h3>
 <p>进度环现在已合并到视图库中， 尝试使用它并构建一个如下图所示的App。 该App有 4 个 sliders，用于调整不同任务的进度。 除此之外，它也会计算并显示总体进度。</p>
 <figure id="fig31.7"><img src="images/librarycontentprovider/swiftui-library-7.gif" alt="图 7. Daily Task 练习 App"><figcaption>图 7. Daily Task 练习 App</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p><code>AnimatableModifier</code> 协议是一个非常强大的协议，可为任何视图的变化建立动画。 在本章中，我们向你介绍了如何为标签的文字设置动画。 你可以应用此技巧为其他值设置动画，例如颜色和大小。</p>
-<p><code>LibraryContentProvider</code> 使开发者非常轻松地共享客制化视图并鼓励重用程式码。 想像一下，你可以构建一个客制化组件库并将它们放入 View/Modifier 库中，团队中的每个成员都可以轻松取得并使用元件。 在这一章，你只学习如何在同一个 Xcode 项目中使用这些元件。 往后，我们将讨论如何使用 Swift <em>Package</em> 来让你将元件分享至不同Xcode项目。</p>
+<p><code>LibraryContentProvider</code> 使开发者非常轻松地共享客制化视图并鼓励重用代码。 想像一下，你可以构建一个客制化组件库并将它们放入 View/Modifier 库中，团队中的每个成员都可以轻松取得并使用元件。 在这一章，你只学习如何在同一个 Xcode 项目中使用这些元件。 往后，我们将讨论如何使用 Swift <em>Package</em> 来让你将元件分享至不同Xcode项目。</p>
 <p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUITextAnimation.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITextAnimation.zip</a></p>
 <p>该练习的解决方案也包含在Xcode 专案中。 请参考 <code>TaskGridView.swift</code> 档。</p>

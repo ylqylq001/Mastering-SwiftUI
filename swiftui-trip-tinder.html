@@ -920,7 +920,7 @@
 <figure id="fig19.3"><img src="images/triptinder/swiftui-trip-tinder-3.png" alt="图 19.3.　主荧幕"><figcaption>图 19.3.　主荧幕</figcaption></figure>
 <h4 id="%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">卡片视图</h4>
 <p>首先，我们建立一个卡片视图。若是你想挑战自我，我强烈建议你在这里停下来并实作它，而无须遵循本节内容，否则请继续阅读。</p>
-<p>为了让程式码更易编写，我们将在一个单独的档案中实作卡片视图。在专案导览器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
+<p>为了让代码更易编写，我们将在一个单独的档案中实作卡片视图。在专案导览器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
 <p><code>CardView</code> 是设计用来显示不同的照片与标题，因此宣告两个变数来储存这些资料：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
@@ -961,7 +961,7 @@
 }
 </code></pre>
 <p>卡片视图是由一张图片及一个叠在图片上方的文字元件所组成。我们设定图片为 <code>scaleToFill</code> 模式，并使用 <code>cornerRadius</code> 修饰器来为图片加上圆角。文字元件是用来显示旅程的目的地。</p>
-<p>我们在第 5 章中深入讨论过卡片视图的类似实作。如果你不能完全了解程式码，则请再次阅读该章。</p>
+<p>我们在第 5 章中深入讨论过卡片视图的类似实作。如果你不能完全了解代码，则请再次阅读该章。</p>
 <p>你还无法预览卡片视图，因为你必须在 <code>CardView_Previews</code> 中同时提供 <code>image</code> 与 <code>title</code> 的值，因此更新<code>CardView_Previews</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -990,7 +990,7 @@
     }
 }
 </code></pre>
-<p>这三个图示使用等距的水平堆叠来排列。对于底部选单列，实作几乎相同。在 <code>Content View.swift</code>  中插入下列的程式码，以建立选单列： </p>
+<p>这三个图示使用等距的水平堆叠来排列。对于底部选单列，实作几乎相同。在 <code>Content View.swift</code>  中插入下列的代码，以建立选单列： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BottomBarMenu</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">HStack</span> {
@@ -1020,7 +1020,7 @@
     }
 }
 </code></pre>
-<p>我们不打算实作“Book Trip”功能，因此将动作区块留空。假设你了解堆叠与图片的工作原理，则其余的程式码应该无需解释。</p>
+<p>我们不打算实作“Book Trip”功能，因此将动作区块留空。假设你了解堆叠与图片的工作原理，则其余的代码应该无需解释。</p>
 <p>在建立主UI 之前，让我教你一个预览这两个选单列的技巧。而在 <code>ContentView</code> 中放置这些列，来预览它们的外观及感觉，并不是强制的。</p>
 <p>现在更新 <code>ContentView_Previews</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
@@ -1052,7 +1052,7 @@
     }
 }
 </code></pre>
-<p>在程式码中，我们只安排了使用 <code>VStack</code> 建立的 UI 元件。你的预览现在应该显示主荧幕了，如图 19.6 所示。</p>
+<p>在代码中，我们只安排了使用 <code>VStack</code> 建立的 UI 元件。你的预览现在应该显示主荧幕了，如图 19.6 所示。</p>
 <figure id="fig19.6"><img src="images/triptinder/swiftui-trip-tinder-6.png" alt="图 19.6.　预览主 UI"><figcaption>图 19.6.　预览主 UI</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E5%BA%AB">实作卡片库</h3>
 <p>在做好所有的准备之后，终于可以实作如 Tinder 般的 UI。对于之前从未用过 Tinder App 的人，让我先解释一下如 Tinder 般 UI 的工作原理。</p>
@@ -1090,7 +1090,7 @@
     }
 }
 </code></pre>
-<p>在上面的程式码中，我们初始化一个包含所有旅程的 <code>cardViews</code> 阵列（其在 <code>Trip.swift</code> 档中定义）。在body 变数中，我们逐一执行所有的卡片视图，并将它们包裹在 <code>ZStack</code> 中来相互重叠。</p>
+<p>在上面的代码中，我们初始化一个包含所有旅程的 <code>cardViews</code> 阵列（其在 <code>Trip.swift</code> 档中定义）。在body 变数中，我们逐一执行所有的卡片视图，并将它们包裹在 <code>ZStack</code> 中来相互重叠。</p>
 <p>预览画布应该会显示相同的UI，但使用另一张图片，如图19.8 所示。</p>
 <figure id="fig19.8"><img src="images/triptinder/swiftui-trip-tinder-8.png" alt="图 19.8.　建立卡片视图库"><figcaption>图 19.8.　建立卡片视图库</figcaption></figure>
 <p>为什么它会显示另一张图片呢？如果你引用在 <code>Trip.swift</code> 中定义的 <code>trips</code> 阵列，图片是阵列的最后一个元素。在<code>ForEach</code> 区块中，第一个旅程是放在卡片库的最下面，如此最后一个旅程便成为卡片库的最上面照片。</p>
@@ -1111,7 +1111,7 @@
 }
 </code></pre>
 <p>在逐一执行卡片视图时，我们必须找到一种识别最上面卡片的方式。上面的函式带入一个卡片视图，找出其索引，并告诉你卡片视图是否位于最上面。</p>
-<p>接下来，更新 <code>ZStack</code> 的程式码区块如下： </p>
+<p>接下来，更新 <code>ZStack</code> 的代码区块如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">ForEach</span>(cardViews) { cardView <span class="hljs-keyword">in</span>
         cardView
@@ -1137,9 +1137,9 @@
     <span class="hljs-keyword">return</span> views
 }()
 </code></pre>
-<p>更改程式码之后，UI 看起来应该完全相同。但在底层架构中，你应该在卡片库中只看到两个卡片视图。</p>
+<p>更改代码之后，UI 看起来应该完全相同。但在底层架构中，你应该在卡片库中只看到两个卡片视图。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%BB%91%E5%8B%95%E5%8B%95%E4%BD%9C">实作滑动动作</h3>
-<p>在动态建立新的卡片视图之前，我们必须先实作滑动功能。如果你忘记湍如何处理手势，请再阅读第17 章及第18 章。我们将会重新使用前面讨论的一些程式码。</p>
+<p>在动态建立新的卡片视图之前，我们必须先实作滑动功能。如果你忘记湍如何处理手势，请再阅读第17 章及第18 章。我们将会重新使用前面讨论的一些代码。</p>
 <p>首先，在 <code>ContentView</code> 中定义 <code>DragState</code>列举，它表示可能的拖曳状态： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
     <span class="hljs-keyword">case</span> inactive
@@ -1219,11 +1219,11 @@
 </code></pre>
 <p>基本上，我们将应用在手势章节中所学的知识来实作拖曳。<code>.gesture</code> 修饰器有两个手势识别器：长按与拖曳。当侦测到拖曳手势时，我们更新 <code>dragState</code> 变数，并储存拖曳的位移量。</p>
 <p><code>offset</code>、<code>scaleEffect</code>、<code>rotationEffect</code> 与 <code>animation</code> 修饰器的结合， 可建立拖曳效果。拖曳是透过更新卡片视图的 <code>offset</code>来实现。当卡片视图处于拖曳状态时，我们会使用 <code>scaleEffect</code> 将它缩小一点，并应用<code>rotationEffect</code> 修饰器将它旋转特定角度。动画设定为 <code>interpolatingSpring</code>，但你可以自由尝试其他动画。</p>
-<p>我们还对 <code>BottomBarMenu</code> 做一些程式码更改。当使用者拖曳卡片视图时，我想要隐藏底部列，因此我们应用 <code>.opacity</code> 修饰器，并且当它在拖曳状态时，设定它的值为“0”。</p>
+<p>我们还对 <code>BottomBarMenu</code> 做一些代码更改。当使用者拖曳卡片视图时，我想要隐藏底部列，因此我们应用 <code>.opacity</code> 修饰器，并且当它在拖曳状态时，设定它的值为“0”。</p>
 <p>进行更改后，在预览画布中执行专案来测试它。你应该能够拖曳卡片并四处移动。而当你释放卡片时，卡片会回到原来的位置，如图 19.10 所示。</p>
 <figure id="fig19.10"><img src="images/triptinder/swiftui-trip-tinder-13.png" alt="图 19.10.　拖曳卡片视图"><figcaption>图 19.10.　拖曳卡片视图</figcaption></figure>
 <p>你注意到问题了吗？当拖曳开始时，你实际上是在拖曳整个卡片库 ！假设使用者只能拖曳最上面的卡片，下面的卡片应该保持不变。而且，缩放效果应只应用于最上面的卡片。</p>
-<p>要解决这些问题，我们需要修改 <code>offset</code>、<code>scaleEffect</code> 与 <code>rotationEffect</code> 修饰器的程式码， 如此拖曳只发生在最上面的卡片视图。</p>
+<p>要解决这些问题，我们需要修改 <code>offset</code>、<code>scaleEffect</code> 与 <code>rotationEffect</code> 修饰器的代码， 如此拖曳只发生在最上面的卡片视图。</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">ForEach</span>(cardViews) { cardView <span class="hljs-keyword">in</span>
         cardView
@@ -1250,7 +1250,7 @@
     }
 }
 </code></pre>
-<p>只需要对 <code>offse</code>、<code>scaleEffect</code> 与 <code>rotationEffect</code> 修饰器进行修改，其余的程式码保持不变。对于那些修饰器，我们进行额外的检查，以使效果只应用在最上面的卡片。</p>
+<p>只需要对 <code>offse</code>、<code>scaleEffect</code> 与 <code>rotationEffect</code> 修饰器进行修改，其余的代码保持不变。对于那些修饰器，我们进行额外的检查，以使效果只应用在最上面的卡片。</p>
 <p>现在，如果你再次执 行 App，则应该看到其下方的卡片，并只能拖曳最上面的卡片。</p>
 <figure id="fig19.11"><img src="images/triptinder/swiftui-trip-tinder-14.png" alt="图 19.11.　拖曳效果只应用在最上面的卡片"><figcaption>图 19.11.　拖曳效果只应用在最上面的卡片</figcaption></figure>
 <h3 id="%E9%A1%AF%E7%A4%BA%E5%BF%83%E5%BD%A2%E8%88%87-%C3%97-%E5%BD%A2%E5%9C%96%E7%A4%BA">显示心形与 &#xD7; 形图示</h3>
@@ -1259,7 +1259,7 @@
 <pre><code class="lang-swift">private <span class="hljs-keyword">let</span> dragThreshold: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">80.0</span>
 </code></pre>
 <p>当拖曳的位移超过界限值时，我们将在卡片上重叠一个图示（心形或&#xD7; 形）。另外， 如果使用者释放卡片，App 会从卡片库中删除这张卡片，并建立一张新卡片，将其放置于卡片库的末尾。</p>
-<p>要重叠图示，加入一个 <code>overlay</code> 修饰器至 <code>cardViews</code>。你可以在 <code>.zIndex</code> 修饰器下插入下列的程式码： </p>
+<p>要重叠图示，加入一个 <code>overlay</code> 修饰器至 <code>cardViews</code>。你可以在 <code>.zIndex</code> 修饰器下插入下列的代码： </p>
 <pre><code class="lang-swift">.overlay {
     <span class="hljs-type">ZStack</span> {
         <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;x.circle&quot;</span>)
@@ -1307,7 +1307,7 @@
 }
 </code></pre>
 <p>这个函式先从 <code>cardViews</code> 阵列中删除最上面的卡片，然后它使用后续旅程的图片来实例化一个新卡片视图。由于 <code>cardViews</code> 定义为状态属性，因此一旦阵列的值更改时，SwiftUI 将再次渲染卡片视图，这就是我们如何删除最上面的卡片，并插入一张新卡片至卡片库的方式。</p>
-<p>针对这个范例，我想要卡片库继续显示一个旅程。在 <code>trips</code> 阵列的最后一张图片显示后， App 将会回到第一个元素（注意，上列程式码中的模数运算子%）。</p>
+<p>针对这个范例，我想要卡片库继续显示一个旅程。在 <code>trips</code> 阵列的最后一张图片显示后， App 将会回到第一个元素（注意，上列代码中的模数运算子%）。</p>
 <p>接下来，更新 <code>.gesture</code>修饰器，并插入 <code>.onEnded</code> 函式： </p>
 <pre><code class="lang-swift">.gesture(<span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">0.01</span>)
     .sequenced(before: <span class="hljs-type">DragGesture</span>())
@@ -1362,7 +1362,7 @@
 <p>现在，将 <code>.transition</code> 修饰器加到卡片视图。你可以将它放在 <code>.animation</code> 修饰器之后： </p>
 <pre><code class="lang-swift">.transition(<span class="hljs-keyword">self</span>.removalTransition)
 </code></pre>
-<p>最后，使用 <code>onChanged</code> 函式更新 <code>.gesture</code> 修饰器的程式码，如下所示： </p>
+<p>最后，使用 <code>onChanged</code> 函式更新 <code>.gesture</code> 修饰器的代码，如下所示： </p>
 <pre><code class="lang-swift">.gesture(<span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">0.01</span>)
     .sequenced(before: <span class="hljs-type">DragGesture</span>())
     .updating(<span class="hljs-keyword">self</span>.$dragState, body: { (value, state, transaction) <span class="hljs-keyword">in</span>
@@ -1405,10 +1405,10 @@
 
 )
 </code></pre>
-<p>上列程式码的作用是设定 <code>removalTransition</code>，转场类型是根据滑动方向来更新。现在，你可以再次执行 App 了，当丢弃卡片时，你应该会看到动画效果已改善。</p>
+<p>上列代码的作用是设定 <code>removalTransition</code>，转场类型是根据滑动方向来更新。现在，你可以再次执行 App 了，当丢弃卡片时，你应该会看到动画效果已改善。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>使用 SwiftUI，你可以轻松建立一些很酷的动画与行动装置 UI 模式，这个如 Tinder 般的 UI 就是一个例子。</p>
-<p>我希望你能真正了解本章所介绍的内容，如此你就可以修改程式码，来配合自己的专案。这是非常重要的一章，我想要记录一下我的思考过程，而不仅仅是向你提供最终的解决方案。</p>
+<p>我希望你能真正了解本章所介绍的内容，如此你就可以修改代码，来配合自己的专案。这是非常重要的一章，我想要记录一下我的思考过程，而不仅仅是向你提供最终的解决方案。</p>
 <p>为了方便进一步参考，您可以至下列网址下载完整专案： </p>
 <ul>
 <li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip</a>) 。</li>

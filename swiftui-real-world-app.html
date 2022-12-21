@@ -891,9 +891,9 @@
 </ol>
 <p>让我再次强调这一点。 这个App是你将所学应用出来的成果。 因此，我假设你已经阅读了第 1 章到第 24 章。你应该了解如何构建Bottom Sheet（第 18 章）、使用 Combine 验证表单（第 14 章和第 15 章）以及如何使用 Core Data（第 22 章）。 如果您还没有阅读这些章节，我建议您先阅读它们。 在本章中，我将集中讲解以前没有讨论过的技术。</p>
 <h3 id="%E4%B8%8B%E8%BC%89%E5%AE%8C%E6%95%B4%E5%B0%88%E6%A1%88">下载完整专案</h3>
-<p>一般来说，我们是从头开始构建一个范例App。 这一次有点不同。 我已经写好了这个个人理财App。 您可以从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIPFinance.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIPFinance.zip</a> 下载完整程式码。 解压档案并在模拟器上试试运行App。 当App第一次启动时，它看起来与图 25.1 所示的有点不同，因为没有记录。 您可以点击 + 按钮添加新记录。 返回主视图后，您可在 <em>Recent Transactions</em> 部分看到新记录。 并且，App 会自动计算总余额。</p>
+<p>一般来说，我们是从头开始构建一个范例App。 这一次有点不同。 我已经写好了这个个人理财App。 您可以从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIPFinance.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIPFinance.zip</a> 下载完整代码。 解压档案并在模拟器上试试运行App。 当App第一次启动时，它看起来与图 25.1 所示的有点不同，因为没有记录。 您可以点击 + 按钮添加新记录。 返回主视图后，您可在 <em>Recent Transactions</em> 部分看到新记录。 并且，App 会自动计算总余额。</p>
 <p>此App 使用 Core Data 执行数据管理。 收入和支出记录存放在内置数据库中，因此即使在重新启动App后，您也会看到记录。</p>
-<p>在本章的其余部分，我将详细解释内里的程式码是如何运作的。 但我鼓励你试试自己先看一下程式码，看看你能了解多少。</p>
+<p>在本章的其余部分，我将详细解释内里的代码是如何运作的。 但我鼓励你试试自己先看一下代码，看看你能了解多少。</p>
 <h3 id="%E4%BA%86%E8%A7%A3%E6%A8%A1%E5%9E%8B">了解模型</h3>
 <p>正如您在项目导航器中看到的，App分为三个主要部分：模型（Model）、视图模型（ViewModel）和视图（View）。 让我们从模型层和Core Data模型开始。 打开 <code>PaymentActivity.swift</code> 看一下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">PaymentCategory</span>: <span class="hljs-title">Int</span> </span>{
@@ -924,7 +924,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     }
 }
 </code></pre>
-<p><code>PaymentActivity</code> 类别代表支出或收入的付款记录。 在上面的程式码，我们使用 Enum 来区分支付类型。 每笔付款都具有以下属性：</p>
+<p><code>PaymentActivity</code> 类别代表支出或收入的付款记录。 在上面的代码，我们使用 Enum 来区分支付类型。 每笔付款都具有以下属性：</p>
 <ul>
 <li><strong>paymentId</strong> - 交易记录的 ID</li>
 <li><strong>date</strong> -交易日期</li>
@@ -941,7 +941,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <p>现在，打开<code>PFinanceStore</code>查看托管数据模型（managed data model）。 在模型中，我们只有一个实体 <em>PaymentActivity</em>。</p>
 <figure id="fig25.2"><img src="images/real-world-app/real-world-app-2.png" alt="图 25.2. PaymentActivity 实体"><figcaption>图 25.2. PaymentActivity 实体</figcaption></figure>
 <p>正如我们之前讨论的，<code>PaymentActivity</code>类别就是用来配数据模型里这个<em>PaymentActivity</em>实体。 您可以单击数据模型检查器以显示设置。 如前所述，我更喜欢手动自订类别（而不是 codegen），所以 Class 里的 Codegen 选项是设为“Manual/None”。 这使我可以更灵活地自订类别。</p>
-<p>接下来，让我们前往 <code>Persistence.swift</code>（在 <em>Model</em> 组内）看看这个数据模型是如何加载的。 在 <code>PersistenceController</code> 结构中，您应该看到以下程式码：</p>
+<p>接下来，让我们前往 <code>Persistence.swift</code>（在 <em>Model</em> 组内）看看这个数据模型是如何加载的。 在 <code>PersistenceController</code> 结构中，您应该看到以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PersistenceController</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> shared = <span class="hljs-type">PersistenceController</span>()
 
@@ -964,7 +964,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     }
 }
 </code></pre>
-<p>当App启动时，我们使用 <code>NSPersistentContainer</code> 加载 <code>PFinanceStore.xcdatamodeld</code>。 现在，切换到 <code>PFinanceApp.swift</code> 并看看程式码：</p>
+<p>当App启动时，我们使用 <code>NSPersistentContainer</code> 加载 <code>PFinanceStore.xcdatamodeld</code>。 现在，切换到 <code>PFinanceApp.swift</code> 并看看代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PFinanceApp</span>: <span class="hljs-title">App</span> </span>{
 
     <span class="hljs-keyword">let</span> persistenceController = <span class="hljs-type">PersistenceController</span>.shared
@@ -1149,7 +1149,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <li>建立一个视图模型（view model）来代表交易活动表格（payment activity form）。</li>
 <li>在视图模型中验证表格输入并使用 Combine 发布验证结果。</li>
 </ol>
-<p>我们创建了一个视图模型类别（view model class）来储存表格栏的值。 你可以切换到<code>PaymentFormViewModel.swift</code>查看程式码：</p>
+<p>我们创建了一个视图模型类别（view model class）来储存表格栏的值。 你可以切换到<code>PaymentFormViewModel.swift</code>查看代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PaymentFormViewModel</span>: <span class="hljs-title">ObservableObject</span> </span>{
 
     <span class="hljs-comment">// Input</span>
@@ -1216,7 +1216,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre>
 <p>这个类别遵从<code>ObservableObject</code>。 所有属性都以<code>@Published</code>标注，因为我们想在数值发生变化时通知订阅者并相应地执行验证。</p>
-<p>每当使用者输入表格栏时，此视图模型就会执行验证程式码并更新结果，以及通知订阅者。</p>
+<p>每当使用者输入表格栏时，此视图模型就会执行验证代码并更新结果，以及通知订阅者。</p>
 <p>那么，谁是订阅者？</p>
 <p>如果你回到 <code>PaymentFormView.swift</code>，你应该注意到我们已经用 <code>@ObservedObject</code> 标注了一个名为 <code>paymentFormViewModel</code> 的变数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">ObservedObject</span> private <span class="hljs-keyword">var</span> paymentFormViewModel: <span class="hljs-type">PaymentFormViewModel</span>
@@ -1237,7 +1237,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 </code></pre>
 <p><code>PaymentFormView</code> 允许使用者建立新的交易并编辑现有交易记录。 这就是为什么 init 方法需要接受一个可选择性的支付物件。 如果物件是 <code>nil</code>，我们将显示一个空表格。 否则，我们用 <code>PaymentActivity</code> 物件填充表格栏的值。</p>
 <h4 id="%E9%A0%90%E8%A6%BD%E8%A1%A8%E6%A0%BC">预览表格</h4>
-<p>即时预览功能是 SwiftUI 其中一个最受欢迎的功能。 但是，如果要与 Core Data 整合，则需要一些额外的程式码才能使预览成功运作。 这是预览的程式码：</p>
+<p>即时预览功能是 SwiftUI 其中一个最受欢迎的功能。 但是，如果要与 Core Data 整合，则需要一些额外的代码才能使预览成功运作。 这是预览的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PaymentFormView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
 
@@ -1271,7 +1271,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <p>现在让我们讨论下一个视图并看看交易活动详细视图是如何实现的。 当使用者在 <em>Recent Transactions</em> 中选择一项交易活动时，此视图就会弹出来。 它显示交易的详细信息，例如数额和消费地点。 您可以打开 <code>PaymentDetailView.swift</code> 来查看 UI 的外观， 这样您会更了解详细视图。</p>
 <figure id="fig25.5"><img src="images/real-world-app/real-world-app-5.png" alt="图 25.5. 交易活动详细视图"><figcaption>图 25.5. 交易活动详细视图</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">使用者介面</h4>
-<p>详细视图非常简单。 相信你都知道如何布局组件，我就不逐行解释程式码了。 要留意是以下的程式码：</p>
+<p>详细视图非常简单。 相信你都知道如何布局组件，我就不逐行解释代码了。 要留意是以下的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> payment: <span class="hljs-type">PaymentActivity</span>
 
 private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type">PaymentDetailViewModel</span>
@@ -1292,7 +1292,7 @@ private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type"
 <pre><code class="lang-swift">private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type">PaymentDetailViewModel</span>
 </code></pre>
 <p>为什么我们需要创建一个额外的视图模型来存放视图的数据？ 看看标题 <em>Payment Details</em> 旁边的图标。 这是一个动态图标，会随着支付/交易类型而变化。 另外，你注意到金额的格式吗？ App的一项要求是金额仅可显示两个小数位。当然， 我们可以在视图中处理这个格式问题，但是如果您不断在视图中加入这些逻辑处理，视图将变得过于复杂变得越来越难维护。</p>
-<p>计算机程式设计有一个原则叫做“单一职责”原则（single responsibility principle）。它指出程式中的每个类别或模块都应该只负责一个功能。 SRP （single responsibility principle的缩写）是编写好程式码的关键之一，让您的程式码更易于维护和阅读。</p>
+<p>计算机程式设计有一个原则叫做“单一职责”原则（single responsibility principle）。它指出程式中的每个类别或模块都应该只负责一个功能。 SRP （single responsibility principle的缩写）是编写好代码的关键之一，让您的代码更易于维护和阅读。</p>
 <p>这就是我们将视图分为两个组件的原因：</p>
 <ol>
 <li><code>PaymentDetailView</code> 只负责UI布局。</li>
@@ -1351,7 +1351,7 @@ private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type"
 
 }
 </code></pre>
-<p>如您所见，我们在此视图模型（view model）中加入所有转换逻辑。 我们可以把这些逻辑放回视图（view）中吗？ 当然可以。 但是，我相信将视图分成两部分（view 和 view model）会使程式码更清楚。</p>
+<p>如您所见，我们在此视图模型（view model）中加入所有转换逻辑。 我们可以把这些逻辑放回视图（view）中吗？ 当然可以。 但是，我相信将视图分成两部分（view 和 view model）会使代码更清楚。</p>
 <h3 id="%E5%84%80%E8%A1%A8%E6%9D%BF%E8%A6%96%E5%9C%96">仪表板视图</h3>
 <p>现在是时候和你讲解仪表板视图了。 在个人理财App的所有视图中，这个视图是最复杂的。</p>
 <figure id="fig25.6"><img src="images/real-world-app/real-world-app-6.png" alt="图 25.6. 仪表板视图"><figcaption>图 25.6. 仪表板视图</figcaption></figure>
@@ -1399,7 +1399,7 @@ private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type"
 </code></pre>
 <p>菜单栏的布局很简单。 它显示App的标题、今天的日期和＋按钮。 此菜单栏视图能够接受任何强制回应视图（即<code>modalContent</code>）。 点击 + 按钮时，将显示模态视图。 如果你不知道如何在 SwiftUI 中创建通用视图，可以参考第 17 章。</p>
 <h4 id="%E6%94%B6%E5%85%A5%E3%80%81%E6%94%AF%E5%87%BA%E5%92%8C%E7%B8%BD%E9%A4%98%E9%A1%8D">收入、支出和总余额</h4>
-<p>接下来，我们利用三个卡片视图来显示总余额、收入和支出。 这是收入卡视图的程式码：</p>
+<p>接下来，我们利用三个卡片视图来显示总余额、收入和支出。 这是收入卡视图的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">IncomeCard</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> income = <span class="hljs-number">0.0</span>
 
@@ -1550,7 +1550,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     }
 }
 </code></pre>
-<p><code>paymentDataForView</code> 是另一个计算属性，它传回一个交易活动集合。 在程式码中，我们使用<code>filter</code>函数来过滤交易活动，并使用<code>sort</code>函数将交易活动排序。</p>
+<p><code>paymentDataForView</code> 是另一个计算属性，它传回一个交易活动集合。 在代码中，我们使用<code>filter</code>函数来过滤交易活动，并使用<code>sort</code>函数将交易活动排序。</p>
 <h4 id="%E5%BA%95%E9%A0%81%EF%BC%88the-bottom-sheet%EF%BC%89">底页（The Bottom Sheet）</h4>
 <p>交易详细信息视图是以<code>BottomSheet</code>形式显示。 当使用者点击交易记录时，bottom sheet 会从荧幕底部弹出来并显示支付详情。 另外，bottom sheet 是可以扩展至全荧幕的，使用者可以向上拖动详细视图就可以展开它。 相反地，使用者可以向下拖动视图将其关闭。</p>
 <pre><code class="lang-swift">.sheet(isPresented: $showPaymentDetails) {
@@ -1558,9 +1558,9 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
         .presentationDetents([.medium, .large])       
 }
 </code></pre>
-<p>我们在第 18 章中使用了<code>.presentationDetents</code> 修饰器来实现了一个类似的Bottom Sheet。因此，我们重用了该章中大部分的程式码。 如果你想了解更多关于 <code>BottomSheet</code> 的构建原理，你可以重读那一章。 在这里，我们将工作表定义为可扩展的底部工作表。 它以 <em>medium</em> 大小开始。 但是使用者可以向上拖动工作表以将其扩展为<em>large</em>尺寸。</p>
+<p>我们在第 18 章中使用了<code>.presentationDetents</code> 修饰器来实现了一个类似的Bottom Sheet。因此，我们重用了该章中大部分的代码。 如果你想了解更多关于 <code>BottomSheet</code> 的构建原理，你可以重读那一章。 在这里，我们将工作表定义为可扩展的底部工作表。 它以 <em>medium</em> 大小开始。 但是使用者可以向上拖动工作表以将其扩展为<em>large</em>尺寸。</p>
 <h3 id="%E4%BD%BF%E7%94%A8core-data%E8%99%95%E7%90%86%E4%BA%A4%E6%98%93%E6%B4%BB%E5%8B%95">使用Core Data处理交易活动</h3>
-<p>如前所述，所有交易活动都存放在数据库中，并透过 Core Data 进行管理。 在程式码中，我们使用 <code>@FetchRequest</code> 属性包装器来读取交易活动，如下所示：</p>
+<p>如前所述，所有交易活动都存放在数据库中，并透过 Core Data 进行管理。 在代码中，我们使用 <code>@FetchRequest</code> 属性包装器来读取交易活动，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">FetchRequest</span>(
     entity: <span class="hljs-type">PaymentActivity</span>.entity(),
     sortDescriptors: [ <span class="hljs-type">NSSortDescriptor</span>(keyPath: \<span class="hljs-type">PaymentActivity</span>.date, ascending: <span class="hljs-built_in">false</span>) ])
@@ -1598,7 +1598,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     }
 }
 </code></pre>
-<p>程式码的第一行检查一下<code>payment</code> 是不是 nil。 如果是 nil 的话，我们就建立一个全新的<code>PaymentActivity</code>物件。 然后我们将<code>newPayment</code>填入所需值，最后就是呼叫 <code>context</code> 的<code>save()</code> 来添加/更新数据库中的记录。</p>
+<p>代码的第一行检查一下<code>payment</code> 是不是 nil。 如果是 nil 的话，我们就建立一个全新的<code>PaymentActivity</code>物件。 然后我们将<code>newPayment</code>填入所需值，最后就是呼叫 <code>context</code> 的<code>save()</code> 来添加/更新数据库中的记录。</p>
 <h3 id="%E6%87%89%E7%94%A8%E6%93%B4%E5%B1%95%EF%BC%88extensions%EF%BC%89">应用扩展（Extensions）</h3>
 <p>为方便起见，我们构建了两个扩展来格式化日期和数字。 在项目导航器中，您应该在 <em>Extension</em> 文件夹下找到两个档案。 先看一下<code>Date+Ext.swift</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Date</span> </span>{
@@ -1631,7 +1631,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     }
 }
 </code></pre>
-<p>在上面的程式码，我们建立了 <code>Date</code> 的扩展以提供额外的功能，包括：</p>
+<p>在上面的代码，我们建立了 <code>Date</code> 的扩展以提供额外的功能，包括：</p>
 <ul>
 <li>读取今天的日期</li>
 <li>读取明天的日期</li>
@@ -1659,7 +1659,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 <p>这是一个自订的视图修饰器，为处理软体键盘而开发。 在 iOS 14以上版本，是不再需要此修饰器，但我特意添加了它，因为如果你的App要支援 iOS 13，就可能需要它。</p>
 <p>在 iOS 13 上，软体键盘在未应用修饰器的情况下会遮掩部分表格。 举例，如果您尝试点击备忘录栏，它会完全隐藏在键盘后面。 相反，如果将修饰器附加到滚动视图，当键盘出现时，表格会自动向上移动。 在 iOS 14 上，系统本身会自动处理软体键盘的位置，防止它遮掩文字栏。</p>
 <figure id="fig25.8"><img src="images/real-world-app/real-world-app-8.png" alt="图 25.8. 没使用 keyboardAdaptive (left), 使用了 keyboardAdaptive"><figcaption>图 25.8. 没使用 keyboardAdaptive (left), 使用了 keyboardAdaptive</figcaption></figure>
-<p>现在让我们看看程式码（<code>KeyboardAdaptive.swift</code>），以了解如何处理键盘事件：</p>
+<p>现在让我们看看代码（<code>KeyboardAdaptive.swift</code>），以了解如何处理键盘事件：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">KeyboardAdaptive</span>: <span class="hljs-title">ViewModifier</span> </span>{
 
     @<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> currentHeight: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0</span>
@@ -1699,12 +1699,12 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 <li><em>keyboardWillHideNotification</em> - 当键盘即将消失时发送此通知</li>
 </ul>
 <p>那么，我们如何利用这些通知来向上滚动表格呢？ 当App收到 <em>keyboardWillShowNotification</em> 时，它会向表格添加 padding 使其向上移动。 相反，当收到 <em>keyboardWillHideNotification</em> 时，我们就将padding设定为零。</p>
-<p>在上面的程式码，我们有一个状态变数来存放键盘的高度。 通过使用 Combine 框架，我们有一个发布者，当侦测到 <em>keyboardWillShowNotification</em> 就会立即发布键盘的当前高度。 此外，我们还有另一个发布者聆听 <em>keyboardWillHideNotification</em> 并发出<code>0</code>值。 对于这两个发布者，我们使用内置的 <code>assign</code> 将这些发布者发出的值传给 <code>currentHeight</code> 变数。</p>
+<p>在上面的代码，我们有一个状态变数来存放键盘的高度。 通过使用 Combine 框架，我们有一个发布者，当侦测到 <em>keyboardWillShowNotification</em> 就会立即发布键盘的当前高度。 此外，我们还有另一个发布者聆听 <em>keyboardWillHideNotification</em> 并发出<code>0</code>值。 对于这两个发布者，我们使用内置的 <code>assign</code> 将这些发布者发出的值传给 <code>currentHeight</code> 变数。</p>
 <p>这就是移动键盘的方式和原理。 但是为什么我们需要有 <code>View</code> 扩展呢？</p>
-<p>该程式码无需扩展也可运作。 您可以将程式码写成这样来处理键盘事件：</p>
+<p>该代码无需扩展也可运作。 您可以将代码写成这样来处理键盘事件：</p>
 <pre><code class="lang-swift">.modifier(<span class="hljs-type">KeyboardAdaptive</span>())
 </code></pre>
-<p>为了使程式码更简洁，我们创建了扩展并添加了 <code>keyboardAdaptive()</code> 函数。 之后，就可以直接将修饰哭附加到任何视图，如下所示：</p>
+<p>为了使代码更简洁，我们创建了扩展并添加了 <code>keyboardAdaptive()</code> 函数。 之后，就可以直接将修饰哭附加到任何视图，如下所示：</p>
 <pre><code class="lang-swift">.keyboardAdaptive()
 </code></pre>
 <p>由于此视图修饰器仅适用于 iOS 13，因此我们在 <code>keyboardAdaptive()</code> 函数中使用 <code>#available</code> 来检查 OS 版本：</p>
@@ -1720,7 +1720,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 </code></pre>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>这就是我们从零开始构建个人理财App的方式。 此章使用的大多数技术对您来说都不是新的，我们只是将所学应用出来。</p>
-<p>SwiftUI 是一个非常强大且好用的框架，它允许您使用比 UIKit 更少的程式码构建相同的App。 如果您对 UIKit 有一定的开发经验，您就会知道如使用UIKit创建个人理财App，将会花费您更多的时间和需要写更多程式码。 我真的希望你喜欢学习 SwiftUI 并使用这个新框架构建 UI。 </p>
+<p>SwiftUI 是一个非常强大且好用的框架，它允许您使用比 UIKit 更少的代码构建相同的App。 如果您对 UIKit 有一定的开发经验，您就会知道如使用UIKit创建个人理财App，将会花费您更多的时间和需要写更多代码。 我真的希望你喜欢学习 SwiftUI 并使用这个新框架构建 UI。 </p>
 
                     
                     </section>

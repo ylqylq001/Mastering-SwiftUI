@@ -924,7 +924,7 @@
     }
 }
 </code></pre>
-<p>在以上的程式码中，我们设置范围为 <code>0...200</code>，也在预览结构中添加了 <code>SpeedometerView</code>。现在，如果我们把当前速度设置为 100 公里每小时，预览应该会填满进度条的一半。</p>
+<p>在以上的代码中，我们设置范围为 <code>0...200</code>，也在预览结构中添加了 <code>SpeedometerView</code>。现在，如果我们把当前速度设置为 100 公里每小时，预览应该会填满进度条的一半。</p>
 <figure id="fig43.2"><img src="images/gauge/swiftui-gauge-2.png" alt="图 43.2. 使用自定义范围的Gauge"><figcaption>图 43.2. 使用自定义范围的Gauge</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-image-labels">使用 Image Labels</h3>
 <p>我们也可以使用 text label 来显示范围和当前数值。让我们看看以下例子：</p>
@@ -1017,7 +1017,7 @@
 
 }
 </code></pre>
-<p>为了遵从 <code>GaugeStyle</code> 协定，我们需要实作 <code>makeBody</code> 方法，来显示我们自己的 Gauge 样式。<code>configuration</code> 捆绑了 Gauge 的当前数值和数值的 label。在上面的程式码中，我们使用了这两个数值，来显示当前速率，并计算弧形的长度。</p>
+<p>为了遵从 <code>GaugeStyle</code> 协定，我们需要实作 <code>makeBody</code> 方法，来显示我们自己的 Gauge 样式。<code>configuration</code> 捆绑了 Gauge 的当前数值和数值的 label。在上面的代码中，我们使用了这两个数值，来显示当前速率，并计算弧形的长度。</p>
 <p>我们实作好客制化的 Gauge 样式后，就可以附加到 <code>gaugeStyle</code> 修饰器上来应用它。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CustomGaugeView</span>: <span class="hljs-title">View</span> </span>{
 

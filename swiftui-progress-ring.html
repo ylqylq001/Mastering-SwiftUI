@@ -884,7 +884,7 @@
 <h3 id="%E5%89%B5%E5%BB%BA%E6%96%B0%E9%A0%85%E7%9B%AE">创建新项目</h3>
 <p>让我们创建一个新项目来构建这个环形进度指示器。 像往常一样，请使用 <em>App</em> 模板， 将其命名为 <em>SwiftUIProgressRing</em> 或你喜欢的任何名称。</p>
 <figure id="fig30.3"><img src="images/progressring/swiftui-progressring-3.png" alt="图 30.3. 使用 App 模板创建新项目"><figcaption>图 30.3. 使用 App 模板创建新项目</figcaption></figure>
-<p>为了更好地整理我们的程式码，使用 SwiftUI 视图模板建立一个新档案并将其命名为<code>ProgressRingView.swift</code>。 完成后，Xcode 应该使用自动加入以下程式码：</p>
+<p>为了更好地整理我们的代码，使用 SwiftUI 视图模板建立一个新档案并将其命名为<code>ProgressRingView.swift</code>。 完成后，Xcode 应该使用自动加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">SwiftUI</span>
 
 <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressRingView</span>: <span class="hljs-title">View</span> </span>{
@@ -907,7 +907,7 @@
 <figure id="fig30.5"><img src="images/progressring/swiftui-progressring-5.png" alt="图 5. 活动环示范"><figcaption>图 5. 活动环示范</figcaption></figure>
 <p>这就是我们将如何构建活动环的方式。 现在让我们正式开始开发圆形进度条！</p>
 <h3 id="%E6%BA%96%E5%82%99%E9%A1%8F%E8%89%B2%E6%93%B4%E5%B1%95">准备颜色扩展</h3>
-<p>如前所述，我们将要实作的圆形进度条，而这进度条可以灵活地支持多种颜色和渐变。 为了这个示范，我们将使用 <code>Color</code> 扩展来准备一组预定颜色。 在项目导航器中，右键单击 <em>SwiftUIProgressRing</em> 并选择 <em>New file...</em>， 选择 <em>Swift 文件</em> 模板并将文件命名为 <code>Color+Ext.swift</code>。 将文件内容更换为以下程式码：</p>
+<p>如前所述，我们将要实作的圆形进度条，而这进度条可以灵活地支持多种颜色和渐变。 为了这个示范，我们将使用 <code>Color</code> 扩展来准备一组预定颜色。 在项目导航器中，右键单击 <em>SwiftUIProgressRing</em> 并选择 <em>New file...</em>， 选择 <em>Swift 文件</em> 模板并将文件命名为 <code>Color+Ext.swift</code>。 将文件内容更换为以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">SwiftUI</span>
 
 <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Color</span> </span>{
@@ -935,7 +935,7 @@
     public <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> purpleBg = <span class="hljs-type">Color</span>(red: <span class="hljs-number">69</span>, green: <span class="hljs-number">51</span>, blue: <span class="hljs-number">201</span>)
 }
 </code></pre>
-<p>在上面的程式码中，我们建立了一个 <code>init</code> 方法，它提供 <code>red</code>、<code>green</code> 和 <code>blue</code> 的参数。 这使得使用 RGB 颜色代码初始化 Color 实体变得更加容易。 所有颜色均来自平面调色板 (<a href="https://flatuicolors.com/palette/defo)，" target="_blank">https://flatuicolors.com/palette/defo)，</a> 如果你喜欢使用其他颜色，你可以简单地修改颜色值。</p>
+<p>在上面的代码中，我们建立了一个 <code>init</code> 方法，它提供 <code>red</code>、<code>green</code> 和 <code>blue</code> 的参数。 这使得使用 RGB 颜色代码初始化 Color 实体变得更加容易。 所有颜色均来自平面调色板 (<a href="https://flatuicolors.com/palette/defo)，" target="_blank">https://flatuicolors.com/palette/defo)，</a> 如果你喜欢使用其他颜色，你可以简单地修改颜色值。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E5%9C%93%E5%BD%A2%E9%80%B2%E5%BA%A6%E6%A2%9D">实作圆形进度条</h3>
 <p>参考图 30.4，圆形进度条实际上由两个圆圈组成：下方为灰色的完整圆圈，上方为渐变色的另一个部分（或完整）圆圈。 因此，为了实作进度条，我们需要一个<code>ZStack</code>来覆盖两个视图：</p>
 <ol>
@@ -951,7 +951,7 @@
 <figure id="fig30.6"><img src="images/progressring/swiftui-progressring-6.png" alt="图 30.6. 绘制圆形视图"><figcaption>图 30.6. 绘制圆形视图</figcaption></figure>
 <p>我们使用 <code>stroke</code> 修饰器来绘制灰色圆圈的轮廓。 如图所示，<code>thickness</code> 属性用于控制轮廓的宽度， <code>width</code> 属性是圆的直径。 我故意突出框架，以便你可以看到厚度和宽度。</p>
 <p>接下来，我们将实作环形。 创建这种环形的一种方法是使用<code>Circle</code>。 我们已经在第 8 章讨论过画圆。这一次，让我向你展示另一种实现方式。 我们将使用<code>Shape</code>协议来创建一个客制化的环形。</p>
-<p>在同一文件中，插入以下程式码：</p>
+<p>在同一文件中，插入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RingShape</span>: <span class="hljs-title">Shape</span> </span>{
     <span class="hljs-keyword">var</span> progress: <span class="hljs-type">Double</span> = <span class="hljs-number">0.0</span>
     <span class="hljs-keyword">var</span> thickness: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">30.0</span>
@@ -982,7 +982,7 @@
 </code></pre>
 <p>进行修改后，你应该会在灰色圆圈的顶部看到部分环形覆盖。 请注意，由于我们将 <code>strokedPath</code> 的 <code>lineCap</code> 参数设为 <code>.round</code>，所以它的两端都是圆帽形。</p>
 <figure id="fig30.7"><img src="images/progressring/swiftui-progressring-7.png" alt="图 30.7. 显示 RingShape"><figcaption>图 30.7. 显示 RingShape</figcaption></figure>
-<p>除了环的颜色，你可能还会注意到我们需要调整的一些程式码。 圆弧的起点与图 30.4 是不同的。要解决此问题，你需要将 <code>startAngle</code> 从0更改为 -90。</p>
+<p>除了环的颜色，你可能还会注意到我们需要调整的一些代码。 圆弧的起点与图 30.4 是不同的。要解决此问题，你需要将 <code>startAngle</code> 从0更改为 -90。</p>
 <p>在 <code>RingShape</code> 中宣告以下属性：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> startAngle: <span class="hljs-type">Double</span> = -<span class="hljs-number">90.0</span>
 </code></pre>
@@ -999,12 +999,12 @@
 <p>这是一个使用 <code>AngularGradient</code> 的示例：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AngularGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [.darkPurple, .lightYellow]), center: .center, startAngle: .degrees(<span class="hljs-number">0</span>), endAngle: .degrees(<span class="hljs-number">180</span>))
 </code></pre>
-<p>角度渐变是随着角度的变化做出不同的渐变颜色。 在上面的程式码中，我们将渐变从 0 度渲染到 180 度。 图 30.9 显示了两种不同角度的结果。</p>
+<p>角度渐变是随着角度的变化做出不同的渐变颜色。 在上面的代码中，我们将渐变从 0 度渲染到 180 度。 图 30.9 显示了两种不同角度的结果。</p>
 <figure id="fig30.9"><img src="images/progressring/swiftui-progressring-9.png" alt="图 30.9. 具有不同开始和结束角度的渐变效果"><figcaption>图 30.9. 具有不同开始和结束角度的渐变效果</figcaption></figure>
 <p>由于环形的起始角度设定为 -90 度，我们将像这样应用角度渐变（假设进度设置为 0.5）：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AngularGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [.darkPurple, .lightYellow]), center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(<span class="hljs-number">360</span> * <span class="hljs-number">0.5</span> + startAngle))
 </code></pre>
-<p>现在让我们修改程式码为<code>RingShape</code>加入渐变效果。 首先，在 <code>ProgressRingView</code> 中宣告以下属性：</p>
+<p>现在让我们修改代码为<code>RingShape</code>加入渐变效果。 首先，在 <code>ProgressRingView</code> 中宣告以下属性：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> gradient = <span class="hljs-type">Gradient</span>(colors: [.darkPurple, .lightYellow])
 <span class="hljs-keyword">var</span> startAngle = -<span class="hljs-number">90.0</span>
 </code></pre>
@@ -1019,7 +1019,7 @@
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> progress: <span class="hljs-type">Double</span>
 </code></pre>
 <p>我们开发的 <code>ProgressRingView</code> 是能够让使用者控制进度百分比。 因此，进度是应该由使用者提供。 这就是为什么 <code>progress</code> 被标记为绑定变数的原因。</p>
-<p>要使用该变数，我们可以相应地更新以下程式码：</p>
+<p>要使用该变数，我们可以相应地更新以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">RingShape</span>(progress: progress, thickness: thickness)
     .fill(<span class="hljs-type">AngularGradient</span>(gradient: gradient, center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(<span class="hljs-number">360</span> * progress + startAngle)))
 </code></pre>
@@ -1041,7 +1041,7 @@
 <p>现在让我们切换到 <code>ContentView.swift</code> 来创建这个示范App。 首先，宣告一个状态变数来存放进度，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> progress = <span class="hljs-number">0.0</span>
 </code></pre>
-<p>然后在 <code>body</code> 变数中插入以下程式码来建立 UI：</p>
+<p>然后在 <code>body</code> 变数中插入以下代码来建立 UI：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">ProgressRingView</span>(progress: $progress)
 
@@ -1078,7 +1078,7 @@
 <p>Does it work up to your expections? I think not. When you tap the 50% button, the progress bar instantly fills half of the ring without any animation. This isn&apos;t what we expect.</p>
 <p>App 的运作是否符合你的期望？ 我想不是。 当你点击 50% 按钮时，进度条会立即填满圆的一半，而没有带任何动画。 这当然不是我们所期望的效果。</p>
 <figure id="fig30.14"><img src="images/progressring/swiftui-progressring-14.gif" alt="图 30.14. 进度条没有带任何动画"><figcaption>图 30.14. 进度条没有带任何动画</figcaption></figure>
-<p>我想你可能知道为什么视图没有动画， 因为我们还没有将 <code>.animation</code> 修饰器附加到环形。 切换至 <code>ProgressRingView.swift</code> 并将 <code>.animation</code> 修饰器附加到 <code>ProgressRingView</code> 的 <code>ZStack</code>。 你可以在 <code>.frame</code> 修饰器之后插入程式码：</p>
+<p>我想你可能知道为什么视图没有动画， 因为我们还没有将 <code>.animation</code> 修饰器附加到环形。 切换至 <code>ProgressRingView.swift</code> 并将 <code>.animation</code> 修饰器附加到 <code>ProgressRingView</code> 的 <code>ZStack</code>。 你可以在 <code>.frame</code> 修饰器之后插入代码：</p>
 <pre><code class="lang-swift">.animation(.easeInOut(duration: <span class="hljs-number">1.0</span>), value: progress)
 </code></pre>
 <p>好的，看来我们已经找到了解决方案。 让我们回到 <code>ContentView.swift</code> 并再次测试App。 试试再按任何按钮看看效果。</p>
@@ -1090,13 +1090,13 @@
 <p>在第 9 章中，我介绍了 SwiftUI 动画的基础知识。 你可以使用 <code>.scaleEffect</code> 轻松为视图的大小变化或使用 <code>.offset</code> 动画位置变化加入动画。 可能对于你来说，所有这些动画都是自动运行的。 但在这些动画背后，Apple 的工程师实际上采用了<code>Animatablew</code>协议，并为<code>CGSize</code>和<code>CGPoint</code>提供了动画数据。</p>
 <p>那么，为什么 <code>RingShape</code> 不能将进度动画化呢？</p>
 <p><code>RingShape</code> 结构符合 <code>Shape</code> 协议。 如果你查看它的API文件，<code>Shape</code> 采用了 <code>Animatable</code> 协议并提供了预设实现（default implementation）。 然而，<code>animatableData</code> 属性的预设实现是返回 <code>EmptyAnimatableData</code> 的实体（instance），这意味着没有动画数据。 这就是为什么 <code>ProgressRingView</code> 的进度变化没有带动画。</p>
-<p>要解决此问题并使进度可动画化，你需要做的就是覆载（override）原本的实现并提供可动画化的值。 回到 <code>RingShape</code> 结构，在 <code>path</code> 函数之前加入以下程式码：</p>
+<p>要解决此问题并使进度可动画化，你需要做的就是覆载（override）原本的实现并提供可动画化的值。 回到 <code>RingShape</code> 结构，在 <code>path</code> 函数之前加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> animatableData: <span class="hljs-type">Double</span> {
     <span class="hljs-keyword">get</span> { progress }
     <span class="hljs-keyword">set</span> { progress = newValue }
 }
 </code></pre>
-<p>程式码非常简单， 我们只是告诉 SwiftUI 为 <code>progress</code> 值设置动画。就是这样！</p>
+<p>代码非常简单， 我们只是告诉 SwiftUI 为 <code>progress</code> 值设置动画。就是这样！</p>
 <p>现在回到 <code>ContentView.swift</code> 再进行另一个测试， 这次变更进度就可以见到动画。</p>
 <figure id="fig30.15"><img src="images/progressring/swiftui-progressring-15.gif" alt="图 30.15. 进度条的变化带有动画"><figcaption>图 30.15. 进度条的变化带有动画</figcaption></figure>
 <h3 id="%E9%80%B2%E5%BA%A6%E6%A2%9D%E7%9A%84-100-%E5%95%8F%E9%A1%8C">进度条的 100% 问题</h3>
@@ -1144,7 +1144,7 @@
     <span class="hljs-type">Double</span>(width / <span class="hljs-number">2</span>)
 }
 </code></pre>
-<p>接下来，在 <code>ZStack</code> 中的 <code>RingShape</code> 之后插入以下程式码来创建 <code>RingTip</code>：</p>
+<p>接下来，在 <code>ZStack</code> 中的 <code>RingShape</code> 之后插入以下代码来创建 <code>RingTip</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-type">RingTip</span>(progress: progress, startAngle: startAngle, ringRadius: radius)
     .frame(width: thickness, height: thickness)
     .foregroundColor(progress &gt; <span class="hljs-number">0.96</span> ? gradient.stops[<span class="hljs-number">1</span>].color : <span class="hljs-type">Color</span>.clear)
@@ -1174,7 +1174,7 @@
 <p>我们可以将 <code>.shadow</code> 修饰器附加到 <code>RingTip</code>：</p>
 <pre><code class="lang-swift">.shadow(color: progress &gt; <span class="hljs-number">0.96</span> ? <span class="hljs-type">Color</span>.black.opacity(<span class="hljs-number">0.15</span>) : <span class="hljs-type">Color</span>.clear, radius: <span class="hljs-number">2</span>, x: ringTipShadowOffset.x, y: ringTipShadowOffset.y)
 </code></pre>
-<p>我只是想添加一个浅色的阴影，所以将<code>opacity</code>设定为0.15。 如果你喜欢较暗色的阴影，请增加<code>opacity</code>值（例如 1.0）。 更改程式码后，当进度大于 0.96，你应该会在环的末尾看到一个阴影。 你也可以尝试将进度值设置为大于 1.0 的值，然后看看进度条的外观。</p>
+<p>我只是想添加一个浅色的阴影，所以将<code>opacity</code>设定为0.15。 如果你喜欢较暗色的阴影，请增加<code>opacity</code>值（例如 1.0）。 更改代码后，当进度大于 0.96，你应该会在环的末尾看到一个阴影。 你也可以尝试将进度值设置为大于 1.0 的值，然后看看进度条的外观。</p>
 <figure id="fig30.20"><img src="images/progressring/swiftui-progressring-20.png" alt="图 30.20. 环形末端现在有一个阴影"><figcaption>图 30.20. 环形末端现在有一个阴影</figcaption></figure>
 <h3 id="%E7%B7%B4%E7%BF%92">练习</h3>
 <p>现在你已经创建了一个圆形进度条，是时候进行练习了。 你的任务是利用你已构建的内容并创建一个活动环。 另外，还需要提供四个按钮来调整活动环，如图 30.21 所示。</p>

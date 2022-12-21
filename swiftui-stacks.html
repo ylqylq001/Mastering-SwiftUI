@@ -896,7 +896,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8-vstack">使用 VStack</h3>
 <p>我们将建立如图 4.1 所示的UI，不过我们把UI 分成几个小部分来制作。我们将先进行标题部分，如图 4.4 所示。</p>
 <figure id="fig4.4"><img src="images/stacks/swiftui-stacks-4.png" alt="图 4.4　标题"><figcaption>图 4.4　标题</figcaption></figure>
-<p>目前，Xcode 应该已经产生了下列程式码来显示“Hello World”标签：</p>
+<p>目前，Xcode 应该已经产生了下列代码来显示“Hello World”标签：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">VStack</span> {
@@ -934,17 +934,17 @@
         .fontWeight(.black)
 }
 </code></pre>
-<p>此外，你可以使用 <code>space</code> 参数来调整嵌入视图的间距。图 4.6 为调整后的视图。上面的程式码将参数<code>spacing</code>添加到VStack并将其值设置为<code>2</code>。</p>
+<p>此外，你可以使用 <code>space</code> 参数来调整嵌入视图的间距。图 4.6 为调整后的视图。上面的代码将参数<code>spacing</code>添加到VStack并将其值设置为<code>2</code>。</p>
 <figure id="fig4.6"><img src="images/stacks/swiftui-stacks-6.png" alt="图4.6.　变更 VStack 的对齐方式"><figcaption>图4.6.　变更 VStack 的对齐方式</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-hstack">使用 HStack</h3>
 <p>接下来，我们布局两个售价方案。如果你比较“Basic”与“Pro”方案，这两个元件的外观非常相似。以“Basic”方案为例，要实现这样的布局，你可以使用 <code>VStack</code> 结合三个文字视图，如图 4.7 所示。</p>
 <figure id="fig4.7"><img src="images/stacks/swiftui-stacks-7.png" alt="图 4.7.　布局售价方案"><figcaption>图 4.7.　布局售价方案</figcaption></figure>
 <p>“Basic”与“Pro”元件是并排排列。使用 <code>HStack</code>，你可以水平布局视图。堆叠可以使用巢状结构，以致于你能够在堆叠视图之中放入另一个堆叠视图。由于售价方案区块位于标题视图的下方，因此我们会使用另外一个VStack 来嵌入一个垂直堆叠（即 Choose Your Plan ）与一个水平堆叠（即售价方案区块），如图 4.8 所示。</p>
 <figure id="fig4.8"><img src="images/stacks/swiftui-stacks-8.png" alt="图 4.8.　使用VStack 来嵌入其他堆叠视图"><figcaption>图 4.8.　使用VStack 来嵌入其他堆叠视图</figcaption></figure>
-<p>现在，你应该对如何使用 <code>VStack</code> 与 <code>HStack</code> 来实作 UI 有了一些基本观念，让我们进入程式码部分。</p>
+<p>现在，你应该对如何使用 <code>VStack</code> 与 <code>HStack</code> 来实作 UI 有了一些基本观念，让我们进入代码部分。</p>
 <p>要将目前的 <code>VStack</code> 嵌入另外一个 <code>VStack</code>，你可以按住 command  键，并点选 <code>VStack</code> 关键字，这会带出一个显示所有可用选项的内容选单（content menu ），选择“Embed in VStack”来嵌入 <code>VStack</code>，如图 4.9 所示。</p>
 <figure id="fig4.9"><img src="images/stacks/swiftui-stacks-9.png" alt="图 4.9.　在VStack 嵌入"><figcaption>图 4.9.　在VStack 嵌入</figcaption></figure>
-<p>Xcode 将会产生嵌入到此堆叠的所需程式码，你的程式码应如下所示： </p>
+<p>Xcode 将会产生嵌入到此堆叠的所需代码，你的代码应如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">VStack</span> {
@@ -961,12 +961,12 @@
 }
 </code></pre>
 <h4 id="%E5%8F%96%E5%87%BA%E8%A6%96%E5%9C%96">取出视图</h4>
-<p>在我们继续布局这个 UI 之前，让我教你一些整理程式码的技巧。当你要建立一个包含好几个元件的复杂 UI 时，在 <code>ContentView</code> 内的程式码最后会变成一个大而冗长的程式码区块，而难以检视与除错，因此较佳的作法是将程式码分拆成小块，如此程式码才能更易阅读与维护。</p>
-<p>Xcode 内建了重构 SwiftUI 程式码的功能。现在按住 command 键不放，并点选包含文字视图的 VStack（即是第 13 行），然后选择“Extract Subview”来取出程式码，如图 4.10 所示。</p>
+<p>在我们继续布局这个 UI 之前，让我教你一些整理代码的技巧。当你要建立一个包含好几个元件的复杂 UI 时，在 <code>ContentView</code> 内的代码最后会变成一个大而冗长的代码区块，而难以检视与除错，因此较佳的作法是将代码分拆成小块，如此代码才能更易阅读与维护。</p>
+<p>Xcode 内建了重构 SwiftUI 代码的功能。现在按住 command 键不放，并点选包含文字视图的 VStack（即是第 13 行），然后选择“Extract Subview”来取出代码，如图 4.10 所示。</p>
 <figure id="fig4.10"><img src="images/stacks/swiftui-stacks-10.png" alt="图 4.10.　取出子视图"><figcaption>图 4.10.　取出子视图</figcaption></figure>
-<p>Xcode 取出程式码区块， 并建立一个名为 <code>ExtractedView</code> 的预设结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
+<p>Xcode 取出代码区块， 并建立一个名为 <code>ExtractedView</code> 的预设结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
 <figure id="fig4.11"><img src="images/stacks/swiftui-stacks-11.png" alt="图 4.11　取出子视图"><figcaption>图 4.11　取出子视图</figcaption></figure>
-<p>UI 现在仍然相同，不过请查看 <code>ContentView</code> 中的程式码区块，现在它变得更为简洁且易于阅读。</p>
+<p>UI 现在仍然相同，不过请查看 <code>ContentView</code> 中的代码区块，现在它变得更为简洁且易于阅读。</p>
 <p>我们继续实作售价方案的UI。首先，建立“Basic”方案的UI，然后如下所示更新 <code>ContentView</code>： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
@@ -996,7 +996,7 @@
 <figure id="fig4.12"><img src="images/stacks/swiftui-stacks-12.png" alt="图 4.12　Basic 方案"><figcaption>图 4.12　Basic 方案</figcaption></figure>
 <p>接下来，我们将实作“Pro”方案的UI。这个“Pro”方案应该要放在“Basic”方案的旁边，因此你需要将“Basic”方案的 <code>VStack</code> 嵌入在 <code>HStack</code> 中。现在，按住 command 键不放，并点选 <code>VStack</code> 关键字，选择“Embed in HStack”，如图 4.13 所示。</p>
 <figure id="fig4.13"><img src="images/stacks/swiftui-stacks-13.png" alt="图 4.13. Embed in HStack"><figcaption>图 4.13. Embed in HStack</figcaption></figure>
-<p>Xcode 应该建立 <code>HStack</code> 的程式码，并在水平堆叠中嵌入所选的 <code>VStack</code>，如下所示： </p>
+<p>Xcode 应该建立 <code>HStack</code> 的代码，并在水平堆叠中嵌入所选的 <code>VStack</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">HStack</span> {
     <span class="hljs-type">VStack</span> {
         <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Basic&quot;</span>)
@@ -1015,7 +1015,7 @@
     .cornerRadius(<span class="hljs-number">10</span>)
 }
 </code></pre>
-<p>现在，我们准备建立“Pro”方案的 UI。除了背景颜色与文字颜色之外，这个程式码和“Basic”方案很相似。在<code>cornerRadius(10)</code> 的下方插入下列的程式码： </p>
+<p>现在，我们准备建立“Pro”方案的 UI。除了背景颜色与文字颜色之外，这个代码和“Basic”方案很相似。在<code>cornerRadius(10)</code> 的下方插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Pro&quot;</span>)
         .font(.system(.title, design: .rounded))
@@ -1030,31 +1030,31 @@
 .background(<span class="hljs-type">Color</span>(red: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>))
 .cornerRadius(<span class="hljs-number">10</span>)
 </code></pre>
-<p>当你插入程式码后，你应该会在画布中见到如图4.14 所示的布局。</p>
+<p>当你插入代码后，你应该会在画布中见到如图4.14 所示的布局。</p>
 <figure id="fig4.14"><img src="images/stacks/swiftui-stacks-14.png" alt="图 4.14.　使用HStack 水平布局两个视图"><figcaption>图 4.14.　使用HStack 水平布局两个视图</figcaption></figure>
 <p>售价区块的目前尺寸大小看起来很相似，不过实际上它们会根据文字的长度而变化。例如：如果将“Pro”这个字改成“Professional”，灰色区域将会扩展开来，以对应这个变更。简单而言，这个视图定义它自己的尺寸大小，并且该尺寸大小刚好足够容纳其内容。 </p>
 <figure id="fig4.15"><img src="images/stacks/swiftui-stacks-15.png" alt="图 4.15　Pro 区块的尺寸大小变宽"><figcaption>图 4.15　Pro 区块的尺寸大小变宽</figcaption></figure>
 <p>如果你再次参考图 4.1，两个售价方案都具有相同的大小。要将这两个区块调整为相同的大小，你可以使用 <code>.frame</code> 修饰器来将 <code>maxWidth</code> 设定为“.infinity”，如下所示： </p>
 <pre><code class="lang-swift">.frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">100</span>)
 </code></pre>
-<p><code>.frame</code> 修饰器可让你定义框架的尺寸。你可以指定尺寸大小为固定值。举例而言，在上列的程式码中，我们将<code>minHeight</code> 设定为“100 点”，当你设定 <code>maxWidth</code> 为 <code>.infinity</code>时， 此视图将会调整自己来填满最大宽度，例如：如果只有一个售价区块，则它会占满整个荧幕宽度，如图 4.16 所示。</p>
+<p><code>.frame</code> 修饰器可让你定义框架的尺寸。你可以指定尺寸大小为固定值。举例而言，在上列的代码中，我们将<code>minHeight</code> 设定为“100 点”，当你设定 <code>maxWidth</code> 为 <code>.infinity</code>时， 此视图将会调整自己来填满最大宽度，例如：如果只有一个售价区块，则它会占满整个荧幕宽度，如图 4.16 所示。</p>
 <figure id="fig4.16"><img src="images/stacks/swiftui-stacks-16.png" alt="图4.16　设定 maxWidth 为“.infinity”"><figcaption>图4.16　设定 maxWidth 为“.infinity”</figcaption></figure>
-<p>对于这两个售价区块，当 <code>maxWidth</code> 设定为<code>.infinity</code>时，iOS 将平均填满填满区块。现在将上列程式码插入至每一个售价区块中，则你应该可完成如图 4.17 所示的荧幕画面。</p>
+<p>对于这两个售价区块，当 <code>maxWidth</code> 设定为<code>.infinity</code>时，iOS 将平均填满填满区块。现在将上列代码插入至每一个售价区块中，则你应该可完成如图 4.17 所示的荧幕画面。</p>
 <figure id="fig4.17"><img src="images/stacks/swiftui-stacks-17.png" alt="图 4.17. 以等宽来排列两个售价区块"><figcaption>图 4.17. 以等宽来排列两个售价区块</figcaption></figure>
 <p>要让水平堆叠一些间距，则你可以加入一个 <code>.padding</code> 修饰器，如图4.18 所示。</p>
 <figure id="fig4.18"><img src="images/stacks/swiftui-stacks-18.png" alt="图 4.18　为堆叠视图加入一些间距"><figcaption>图 4.18　为堆叠视图加入一些间距</figcaption></figure>
 <p><code>.horizontal</code> 参数表示我们只为 <code>HStack</code> 的前缘（leading）及后缘（trailing）加入一些间距。</p>
-<h3 id="%E6%95%B4%E7%90%86%E7%A8%8B%E5%BC%8F%E7%A2%BC">整理程式码</h3>
-<p>同样的，在我们布局其余的UI 元件之前，让我们先重构目前的程式码，以使其更有条理。如果你同时查看用来布局“Basic”与“Pro”售价方案的这两个堆叠，其程式码除了下列的项目之外，其他都很相似。</p>
+<h3 id="%E6%95%B4%E7%90%86%E7%A8%8B%E5%BC%8F%E7%A2%BC">整理代码</h3>
+<p>同样的，在我们布局其余的UI 元件之前，让我们先重构目前的代码，以使其更有条理。如果你同时查看用来布局“Basic”与“Pro”售价方案的这两个堆叠，其代码除了下列的项目之外，其他都很相似。</p>
 <ul>
 <li>售价方案的名称。</li>
 <li>售价。</li>
 <li>文字颜色。</li>
 <li>售价区块的背景颜色</li>
 </ul>
-<p>要简化这个程式码，并改善可重用性（reusability），我们可以取出 <code>VStack</code> 程式码区块， 并让它能适应不同售价方案的值。</p>
+<p>要简化这个代码，并改善可重用性（reusability），我们可以取出 <code>VStack</code> 代码区块， 并让它能适应不同售价方案的值。</p>
 <p>我们来看看如何做到这件事。</p>
-<p>回到程式码编辑器，按住 command 键不放，并点选“Basic”方案的 <code>VStack</code>。当 Xcode 取出程式码后，将这个子视图重新命名，名称从 <code>ExtractedView</code>改成 <code>PricingView</code>。</p>
+<p>回到代码编辑器，按住 command 键不放，并点选“Basic”方案的 <code>VStack</code>。当 Xcode 取出代码后，将这个子视图重新命名，名称从 <code>ExtractedView</code>改成 <code>PricingView</code>。</p>
 <figure id="fig4.19"><img src="images/stacks/swiftui-stacks-19.png" alt="图 4.19.　取出子视图"><figcaption>图 4.19.　取出子视图</figcaption></figure>
 <p>如前所述，<code>PricingView</code> 应该可弹性显示不同的售价方案，我们将会在 <code>PricingView</code> 结构中加入四个变数，现在更新 <code>PricingView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PricingView</span>: <span class="hljs-title">View</span> </span>{
@@ -1084,7 +1084,7 @@
     }
 }
 </code></pre>
-<p>这里我们为售价区块的标题、售价、文字与背景颜色加入变数。另外，我们在程式码中使用这些变数来更新标题、售价、文字与背景颜色。</p>
+<p>这里我们为售价区块的标题、售价、文字与背景颜色加入变数。另外，我们在代码中使用这些变数来更新标题、售价、文字与背景颜色。</p>
 <p>当变更完成后，你会见到一个错误，如图 4.20 所示，指出 <code>PricingView</code> 少了一些参数。</p>
 <figure id="fig4.20"><img src="images/stacks/swiftui-stacks-20.png" alt="图 4.20.　Xcode 指出 PricingView 中的错误"><figcaption>图 4.20.　Xcode 指出 PricingView 中的错误</figcaption></figure>
 <p>之前，我们在视图中导入了四个变数。呼叫 <code>PricingView</code> 时，我们现在应该能提供这些参数的值，因此将<code>PricingView()</code> 更改如下： </p>
@@ -1093,10 +1093,10 @@
 <p>另外，你也可以 <code>PricingView</code> 取代“Pro”方案的 <code>VStack</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Pro&quot;</span>, price: <span class="hljs-string">&quot;$19&quot;</span>, textColor: .black, bgColor: <span class="hljs-type">Color</span>(red: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>))
 </code></pre>
-<p>售价区块的布局虽相同，但是底层程式码（underlying code ）已经变得更简洁且易于阅读了，如图 4.21 所示。</p>
-<figure id="fig4.21"><img src="images/stacks/swiftui-stacks-21.png" alt="图 4.21.　重构程式码后的 ContentView"><figcaption>图 4.21.　重构程式码后的 ContentView</figcaption></figure>
+<p>售价区块的布局虽相同，但是底层代码（underlying code ）已经变得更简洁且易于阅读了，如图 4.21 所示。</p>
+<figure id="fig4.21"><img src="images/stacks/swiftui-stacks-21.png" alt="图 4.21.　重构代码后的 ContentView"><figcaption>图 4.21.　重构代码后的 ContentView</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8zstack">使用ZStack</h3>
-<p>现在，你已经布局了售价区块，并且重构了程式码，不过对于“Pro”售价仍有一件事情漏掉了，在此设计中，我们要以黄色色块在售价区块重叠一个讯息。为此，我们可以使用 <code>ZStack</code>，这让你可叠一个视图在目前的视图之上。</p>
+<p>现在，你已经布局了售价区块，并且重构了代码，不过对于“Pro”售价仍有一件事情漏掉了，在此设计中，我们要以黄色色块在售价区块重叠一个讯息。为此，我们可以使用 <code>ZStack</code>，这让你可叠一个视图在目前的视图之上。</p>
 <p>现在以 <code>ZStack</code> 嵌入“Pro”方案的 <code>PricingView</code>，并加入<code>Text</code> 视图，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Pro&quot;</span>, price: <span class="hljs-string">&quot;$19&quot;</span>, textColor: .black, bgColor: <span class="hljs-type">Color</span>(red: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>))
@@ -1109,7 +1109,7 @@
         .background(<span class="hljs-type">Color</span>(red: <span class="hljs-number">255</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">183</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">37</span>/<span class="hljs-number">255</span>))
 }
 </code></pre>
-<p>嵌入在 <code>ZStack</code> 的视图顺序，决定了视图之间的重叠方式。对于上列的程式码，<code>Text</code> 视图会叠在售价视图之上。在画布中，你应该会见到如图 4.22 所示的售价布局。</p>
+<p>嵌入在 <code>ZStack</code> 的视图顺序，决定了视图之间的重叠方式。对于上列的代码，<code>Text</code> 视图会叠在售价视图之上。在画布中，你应该会见到如图 4.22 所示的售价布局。</p>
 <figure id="fig4.22"><img src="images/stacks/swiftui-stacks-22.png" alt="图 4.22.　使用Zstack 重叠视图"><figcaption>图 4.22.　使用Zstack 重叠视图</figcaption></figure>
 <p>要调整文字的位置，你可以使用 <code>.offset</code> 修饰器，在 <code>Text</code> 视图的结尾处插入下列这行程式： </p>
 <pre><code class="lang-swift">.offset(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">87</span>)
@@ -1131,7 +1131,7 @@
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> icon: <span class="hljs-type">String</span>?
 </code></pre>
 <p>如果你对Swift 感到陌生的话，所谓的 Optional 是表示变数可能有值或没有值。这里我们定义一个名为<code>icon</code>的变数，其型别为 <code>String</code>。如果售价方案需要显示图示时，则预计会有呼叫者传递图片名称，否则此变数预设为<code>nil</code>（空值）。</p>
-<p>那么，如何在SwiftUI 中处理Optional 呢？在Swift 中，我们有两个方法处理 Optional。其中一种方式是检查 Optional 是否具有一个非空值。例如：我们要在显示图片之前检查 <code>icon</code> 是否有一个值，我们可以将程式码撰写如下： </p>
+<p>那么，如何在SwiftUI 中处理Optional 呢？在Swift 中，我们有两个方法处理 Optional。其中一种方式是检查 Optional 是否具有一个非空值。例如：我们要在显示图片之前检查 <code>icon</code> 是否有一个值，我们可以将代码撰写如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> icon != <span class="hljs-built_in">nil</span> {
 
     <span class="hljs-type">Image</span>(systemName: icon!)
@@ -1140,7 +1140,7 @@
 
 }
 </code></pre>
-<p>另一个方法是使用 <code>if let</code> 来检查一个Optional 是否有值并解开（unwrap ）它。SwiftUI 框架已经支援 <code>if let</code> 的用法，这个写法比较常用亦更加清晰。程式码可以重新撰写如下：</p>
+<p>另一个方法是使用 <code>if let</code> 来检查一个Optional 是否有值并解开（unwrap ）它。SwiftUI 框架已经支援 <code>if let</code> 的用法，这个写法比较常用亦更加清晰。代码可以重新撰写如下：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> icon = icon {
 
     <span class="hljs-type">Image</span>(systemName: icon)
@@ -1149,7 +1149,7 @@
 
 }
 </code></pre>
-<p>要支援图示的渲染，<code>PricingView</code> 的最后程式码应更新如下： </p>
+<p>要支援图示的渲染，<code>PricingView</code> 的最后代码应更新如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PricingView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> title: <span class="hljs-type">String</span>

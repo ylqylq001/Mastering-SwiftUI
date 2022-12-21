@@ -890,7 +890,7 @@
 <p>如前所述，SwiftUI 提供一个名为“Form”的 UI 元件来建立表单 UI。输入资料时，它是一个用于存放及分组控制元件的容器（例如：切换）。与其向你解释用法，不如我们直接进入实作，在此过程中，你将了解如何使用该元件。</p>
 <p>由于我们将建立一个单独的设定画面，因此为表单建立一个新档案。在专案导览器中，在“SwiftUIList”资料夹按右键，并选取“New File....”，如图 13.3 所示。接下来，选择使用“SwiftUI View”作为模板，并将档案命名为“SettingView.swift”。</p>
 <figure id="fig13.3"><img src="images/form/swiftui-form-3.png" alt="图 13.3.　建立一个新 SwiftUI 档"><figcaption>图 13.3.　建立一个新 SwiftUI 档</figcaption></figure>
-<p>现在，我们来开始建立表单。以下列程式码替代 <code>SettingView</code>： </p>
+<p>现在，我们来开始建立表单。以下列代码替代 <code>SettingView</code>： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SettingView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">NavigationStack</span> {
@@ -909,7 +909,7 @@
     }
 }
 </code></pre>
-<p>要布局表单，你只需要使用 Form 容器，在其中建立所需要的 UI 元件。在上列的程式码中，我们建立两个区块：“Sort Preference”与“Filter Preference”。每个区块都有一个文字视图，你的画布应会显示如图 13.4 所示的预览。</p>
+<p>要布局表单，你只需要使用 Form 容器，在其中建立所需要的 UI 元件。在上列的代码中，我们建立两个区块：“Sort Preference”与“Filter Preference”。每个区块都有一个文字视图，你的画布应会显示如图 13.4 所示的预览。</p>
 <figure id="fig13.4"><img src="images/form/swiftui-form-4.png" alt="图 13.4.　建立一个包含两个区块的简易表单"><figcaption>图 13.4.　建立一个包含两个区块的简易表单</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%81%B8%E6%93%87%E5%99%A8%E8%A6%96%E5%9C%96">建立选择器视图</h3>
 <p>在显示表单时，你一定希望保护某些资讯。如果只显示一个文字元件是无用的。在实际的表单中，我们使用三种类型的 UI 控制元件来进行使用者输入，包括选择器视图、切换与步进器。先从“排序”偏好来开始，我们将实作一个选择器视图。</p>
@@ -919,13 +919,13 @@
 <li>Show Favorite First（最爱优先）。</li>
 <li>Show Check-in First（打卡优先）。</li>
 </ol>
-<p><code>Picker</code> 控制元件非常适合处理此类输入。首先，你如何在程式码中表示上述的选项呢？ 你可能考虑使用一个阵列来存放这些选项。好的，我们在 <code>SettingView</code> 中宣告一个名为 <code>displayOrders</code> 的阵列： </p>
+<p><code>Picker</code> 控制元件非常适合处理此类输入。首先，你如何在代码中表示上述的选项呢？ 你可能考虑使用一个阵列来存放这些选项。好的，我们在 <code>SettingView</code> 中宣告一个名为 <code>displayOrders</code> 的阵列： </p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> displayOrders = [ <span class="hljs-string">&quot;Alphabetical&quot;</span>, <span class="hljs-string">&quot;Show Favorite First&quot;</span>, <span class="hljs-string">&quot;Show Check-in First&quot;</span>]
 </code></pre>
 <p>要使用选择器，你还需要宣告一个状态变数来储存使用者所选的选项。在 <code>SettingView</code> 中宣告变数如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedOrder = <span class="hljs-number">0</span>
 </code></pre>
-<p>这里的“0”表示 <code>displayOrders</code> 的第一个项目。现在以下列程式码替代“SORT PREFERENCE”区块： </p>
+<p>这里的“0”表示 <code>displayOrders</code> 的第一个项目。现在以下列代码替代“SORT PREFERENCE”区块： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Section</span>(header: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;SORT PREFERENCE&quot;</span>)) {
     <span class="hljs-type">Picker</span>(selection: $selectedOrder, label: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Display order&quot;</span>)) {
         <span class="hljs-type">ForEach</span>(<span class="hljs-number">0</span> ..&lt; displayOrders.<span class="hljs-built_in">count</span>, id: \.<span class="hljs-keyword">self</span>) {
@@ -950,7 +950,7 @@
 }
 </code></pre>
 <p>你使用 <code>Toggle</code> 建立一个切换开关，并传送“切换”的目前状态。在闭包中，你显示切换的描述，这里我们只使用一个 <code>Text</code> 视图。</p>
-<p>上面是实作切换所需的程式码，画布应该会在“Filter Preference”区块下显示一个切换开关，如图13.6 所示。如果你执行这个 App，你可以在 ON 与 OFF 状态之间切换。同样的，这个状态变数 <code>showCheckInOnly</code> 将会持续追踪使用者的选择。</p>
+<p>上面是实作切换所需的代码，画布应该会在“Filter Preference”区块下显示一个切换开关，如图13.6 所示。如果你执行这个 App，你可以在 ON 与 OFF 状态之间切换。同样的，这个状态变数 <code>showCheckInOnly</code> 将会持续追踪使用者的选择。</p>
 <figure id="fig13.6"><img src="images/form/swiftui-form-6.png" alt="图 13.6.　显示一个切换开关"><figcaption>图 13.6.　显示一个切换开关</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%80%B2%E5%99%A8">使用步进器</h3>
 <p>设定表单中最后一个 UI 控制元件是“步进器”。再次参考图 13.1，使用者可以透过设定价位级别来筛选餐厅， 每间餐厅都有一个价位指示器，范围在1 至 5 之间。使用者可调整价位级别，以缩小清单视图中显示的餐厅数量。</p>
@@ -981,13 +981,13 @@
     }
 }
 </code></pre>
-<p>你可透过初始化一个 <code>Stepper</code>元件来建立一个步进器。对于 <code>onIncrement</code> 参数，你指定点选“+”按钮时要执行的动作。在程式码中，我们只将 <code>maxPriceLevel</code> 增加“1”。反之， 点选“-”按钮时将执行 <code>onDecrement</code> 参数中指定的程式码。</p>
+<p>你可透过初始化一个 <code>Stepper</code>元件来建立一个步进器。对于 <code>onIncrement</code> 参数，你指定点选“+”按钮时要执行的动作。在代码中，我们只将 <code>maxPriceLevel</code> 增加“1”。反之， 点选“-”按钮时将执行 <code>onDecrement</code> 参数中指定的代码。</p>
 <p>由于价位级别在 1 至 5 的范围之间，我们执行检查来确保 <code>maxPriceLevel</code>的值介于 1 至 5 之间。在闭包中，我们显示筛选偏好的文字描述。这里的最高价位是以美元符号表示， 如图 13.7 所示。</p>
 <figure id="fig13.7"><img src="images/form/swiftui-form-7.png" alt="图 13.7.　实作一个步进器"><figcaption>图 13.7.　实作一个步进器</figcaption></figure>
 <p>要测试步进器，则点选“Play”按钮来执行 App。当你点选  <code>+</code>/ <code>-</code> 按钮时，将会调整 $ 符号的数量。</p>
 <h3 id="%E9%A1%AF%E7%A4%BA%E8%A1%A8%E5%96%AE">显示表单</h3>
 <p>现在你已经完成了表单UI，下一步是显示表单给使用者。以本范例来说，我们将以强制回应视图的形式来显示此表单。在内容视图中，我们将会在导览列加入一个“Setting”按钮，以触发设定视图。</p>
-<p>切换至 <code>ContentView.swift</code>，我假设你已经阅读过强制回应视图一章，因此我将不再深入解释程式码。首先，我们需要一个变数来追踪强制回应视图状态（即显示或不显示）。插入下列这行程式码来宣告状态变数： </p>
+<p>切换至 <code>ContentView.swift</code>，我假设你已经阅读过强制回应视图一章，因此我将不再深入解释代码。首先，我们需要一个变数来追踪强制回应视图状态（即显示或不显示）。插入下列这行代码来宣告状态变数： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showSettings: <span class="hljs-type">Bool</span> = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>接下来，将下列的修饰器插入至 <code>NavigationStack</code> 中（加在<code>navigationTitle</code>之后）：</p>

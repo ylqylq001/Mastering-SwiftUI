@@ -883,7 +883,7 @@
 <figure id="fig24.1"><img src="images/searchbar/swiftui-searchbar-1.png" alt="图 24.1. 利用 SwiftUI 自己建立搜寻栏"><figcaption>图 24.1. 利用 SwiftUI 自己建立搜寻栏</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%90%9C%E5%B0%8B%E6%AC%84-ui">实作搜寻栏 UI</h3>
 <p>我们将会修改之前的项目转为我们自己建立的搜寻栏。 因此，请首先从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListUISearchBar.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListUISearchBar.zip</a> 下载启动项目。 编译一次以确保它有效。 该App应该向你显示一个搜索栏，但是，该栏来自 UIKit。 我们将把它转换成一个完全使用 SwiftUI 构建的搜寻栏视图。</p>
-<p>打开<code>SearchBar.swift</code>，这是我们关注的文件。 我们将重写整段程式码，但保持其名称不变。 我们仍然称它为“SearchBar”，它仍然接受搜寻文字的绑定作为参数。 对于呼叫者（即 ContentView），没有什么需要变更， 用法还是这样：</p>
+<p>打开<code>SearchBar.swift</code>，这是我们关注的文件。 我们将重写整段代码，但保持其名称不变。 我们仍然称它为“SearchBar”，它仍然接受搜寻文字的绑定作为参数。 对于呼叫者（即 ContentView），没有什么需要变更， 用法还是这样：</p>
 <pre><code class="lang-swift"><span class="hljs-type">SearchBar</span>(text: $searchText)
 </code></pre>
 <p>现在，让我们从 UI 开始做起。 如果你想挑战自己，请停止阅读并尝试自己实作搜寻栏 UI。 这个使用者介界非常简单。 它由一个文字栏、几个图标和取消按钮组成。</p>
@@ -944,14 +944,14 @@
 </code></pre>
 <p>首先，我们宣告了两个变数：一个是搜寻文字的绑定，另一个则用于存放搜寻状态（正在编辑与否）的变数。</p>
 <p>我们使用 <code>HStack</code> 来布局文字栏和 <em>Cancel</em> 按钮。 对于文字栏，我们覆盖了一个放大镜图案和交叉图案（即<code>multiply.circle.fill</code>），它仅在搜寻栏处于编辑模式时显示。 <em>Cancel</em> 按钮也是如此，当使用者点击搜寻栏时才会出现。</p>
-<p>为了预览搜寻栏，还请加入以下程式码：</p>
+<p>为了预览搜寻栏，还请加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SearchBar_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">SearchBar</span>(text: .constant(<span class="hljs-string">&quot;&quot;</span>))
     }
 }
 </code></pre>
-<p>当加入程式码后，你应该能够预览搜寻栏。 现在按<em>播放</em> 钮进行测试。 当你选择搜寻栏时，<em>取消</em> 按钮就会出现。</p>
+<p>当加入代码后，你应该能够预览搜寻栏。 现在按<em>播放</em> 钮进行测试。 当你选择搜寻栏时，<em>取消</em> 按钮就会出现。</p>
 <figure id="fig24.2"><img src="images/searchbar/swiftui-searchbar-2.png" alt="图 24.2. 预览搜寻栏"><figcaption>图 24.2. 预览搜寻栏</figcaption></figure>
 <p>更重要的是，搜寻栏已经可以使用了！ 在模拟器上运行App并输入搜寻字，它就会根据显示相关的搜索结果。</p>
 <figure id="fig24.3"><img src="images/searchbar/swiftui-searchbar-3.png" alt="图 24.3. 搜寻栏已正式运作"><figcaption>图 24.3. 搜寻栏已正式运作</figcaption></figure>
@@ -961,7 +961,7 @@
 <pre><code class="lang-swift"><span class="hljs-comment">// 关闭键盘</span>
 <span class="hljs-type">UIApplication</span>.shared.sendAction(#selector(<span class="hljs-type">UIResponder</span>.resignFirstResponder), to: <span class="hljs-built_in">nil</span>, from: <span class="hljs-built_in">nil</span>, <span class="hljs-keyword">for</span>: <span class="hljs-built_in">nil</span>)
 </code></pre>
-<p>在程式码中，我们呼叫了 <code>sendAction</code> 方法来关闭键盘。 你现在可以使用模拟器运行App。 当你点击取消按钮时，它就会清除搜寻文字并关闭软体键盘。</p>
+<p>在代码中，我们呼叫了 <code>sendAction</code> 方法来关闭键盘。 你现在可以使用模拟器运行App。 当你点击取消按钮时，它就会清除搜寻文字并关闭软体键盘。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82%E7%B6%81%E5%AE%9A%EF%BC%88custom-binding%EF%BC%89">使用自订绑定（Custom Binding）</h3>
 <p>SwiftUI 版本的搜寻栏已经可以正常使用了，不过我想藉此机会与你讨论自订绑定。 在 <code>SearchBar.swift</code> ，我们像这样宣告搜寻文字的绑定：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> text: <span class="hljs-type">String</span>
@@ -981,7 +981,7 @@
     )
 }
 </code></pre>
-<p>在上面的程式码中，我们建立了一个名为<code>searchText</code>的自定义绑定，其中包含读取和写入绑定值的闭包。 对于<code>get</code> 部分，我们通过<code>capitalized</code> 属性来自定义<code>text</code> 的绑定值。 这就是我们如何将使用者的搜寻字转成大写。 至于<code>set</code> 部分，我们不做任何更改，只将其设置为原始值。 但是，如果在设置绑定时需要添加额外的逻辑，就需要修改<code>set</code>中的程码。</p>
+<p>在上面的代码中，我们建立了一个名为<code>searchText</code>的自定义绑定，其中包含读取和写入绑定值的闭包。 对于<code>get</code> 部分，我们通过<code>capitalized</code> 属性来自定义<code>text</code> 的绑定值。 这就是我们如何将使用者的搜寻字转成大写。 至于<code>set</code> 部分，我们不做任何更改，只将其设置为原始值。 但是，如果在设置绑定时需要添加额外的逻辑，就需要修改<code>set</code>中的程码。</p>
 <p>题外话，你可以省略 <code>return</code> 关键字，像这样写就可以：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> searchText: <span class="hljs-type">Binding</span>&lt;<span class="hljs-type">String</span>&gt; {
 

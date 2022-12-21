@@ -935,7 +935,7 @@
     .animation(.<span class="hljs-keyword">default</span>, value: heartSizeChanged)
 </code></pre>
 <p>SwiftUI 会自动计算与渲染动画，使视图可以从一个状态流畅转换到另一个状态。再次点击心形，你会见到一个平滑动画。</p>
-<p>你不仅可以将 <code>animation</code> 修饰器应用到单一视图中，还可应用于一组视图。举例而言， 你可以将 <code>animation</code> 修饰器加到 <code>ZStack</code>，将上列的程式码重新撰写如下：</p>
+<p>你不仅可以将 <code>animation</code> 修饰器应用到单一视图中，还可应用于一组视图。举例而言， 你可以将 <code>animation</code> 修饰器加到 <code>ZStack</code>，将上列的代码重新撰写如下：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">Circle</span>()
         .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)
@@ -961,7 +961,7 @@
 </code></pre>
 <p>这会渲染一个基于弹簧特性的动画，使得心形产生心跳的效果。你可以调整阻尼（damping ）值与混合（blend ）值，来达到不同的效果。</p>
 <h4 id="%E9%A1%AF%E5%BC%8F%E5%8B%95%E7%95%AB">显式动画</h4>
-<p>以上是对视图使用隐式动画的方法。我们来看如何使用显式动画来达到相同的结果。如前所述，你需要将状态变化包裹在 <code>withAnimation</code> 区块内。要建立相同的动画效果，你可撰写下列程式码：</p>
+<p>以上是对视图使用隐式动画的方法。我们来看如何使用显式动画来达到相同的结果。如前所述，你需要将状态变化包裹在 <code>withAnimation</code> 区块内。要建立相同的动画效果，你可撰写下列代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">Circle</span>()
         .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)
@@ -988,7 +988,7 @@
     <span class="hljs-keyword">self</span>.heartSizeChanged.toggle()
 }
 </code></pre>
-<p>使用显式动画，你可以轻松控制想加上动画的状态。举例而言，如果你不想为心形图示的大小变化设定动画时，则可以从 <code>withAnimation</code> 排除该行程式码，如下所示： </p>
+<p>使用显式动画，你可以轻松控制想加上动画的状态。举例而言，如果你不想为心形图示的大小变化设定动画时，则可以从 <code>withAnimation</code> 排除该行代码，如下所示： </p>
 <pre><code class="lang-swift">.onTapGesture {
     withAnimation(.spring(response: <span class="hljs-number">0.3</span>, dampingFraction: <span class="hljs-number">0.3</span>, blendDuration: <span class="hljs-number">0.3</span>)) {
         <span class="hljs-keyword">self</span>.circleColorChanged.toggle()
@@ -1029,7 +1029,7 @@
     .stroke(<span class="hljs-type">Color</span>.green, lineWidth: <span class="hljs-number">5</span>)
     .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)
 </code></pre>
-<p>那么，我们如何使圆环连续旋转呢？我们可以利用 <code>rotationEffect</code> 与 <code>animation</code> 修饰器。诀窍就是使圆环 360 度连续旋转。以下为程式码： </p>
+<p>那么，我们如何使圆环连续旋转呢？我们可以利用 <code>rotationEffect</code> 与 <code>animation</code> 修饰器。诀窍就是使圆环 360 度连续旋转。以下为代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isLoading = <span class="hljs-built_in">false</span>
 
@@ -1046,16 +1046,16 @@
     }
 }
 </code></pre>
-<p><code>rotationEffect</code> 修饰器带入旋转角度，在上列的程式码中，我们有一个状态变数来控制下载状态。当它设定为true 时，这个旋转角度设定为 360 度以旋转圆环。在 <code>animation</code> 修饰器中，我们指定使用预设动画，不过还有些不同，我们告诉 SwiftUI 要一次又一次重复相同的动画，这就是建立下载动画的诀窍。</p>
+<p><code>rotationEffect</code> 修饰器带入旋转角度，在上列的代码中，我们有一个状态变数来控制下载状态。当它设定为true 时，这个旋转角度设定为 360 度以旋转圆环。在 <code>animation</code> 修饰器中，我们指定使用预设动画，不过还有些不同，我们告诉 SwiftUI 要一次又一次重复相同的动画，这就是建立下载动画的诀窍。</p>
 <p><strong>*备注</strong>: 如果在预览画布中看不到动画，请在模拟器中运行App再试一试。*</p>
 <p>如果你想要更改动画的速度，则可以使用线性动画，并指定持续时间，如下所示：</p>
 <pre><code class="lang-swift">.animation(.linear(duration: <span class="hljs-number">5</span>).repeatForever(autoreverses: <span class="hljs-built_in">false</span>), value: isLoading)
 </code></pre>
 <p>持续时间越久，则动画越慢。</p>
-<p><code>onAppear</code> 修饰器对你而言可能比较陌生，如果你对 UIKit 有所了解的话，这个修饰器和 <code>viewDidAppear</code> 非常相似，当视图出现在画面上时会自动呼叫。在该程式码中，我们将下载状态设定为true，以在视图载入时启动动画。</p>
+<p><code>onAppear</code> 修饰器对你而言可能比较陌生，如果你对 UIKit 有所了解的话，这个修饰器和 <code>viewDidAppear</code> 非常相似，当视图出现在画面上时会自动呼叫。在该代码中，我们将下载状态设定为true，以在视图载入时启动动画。</p>
 <p>当你使用此技术，就可以调整设计并开发各种版本的下载指示器。举例而言，你可以将圆弧叠在圆环上，以建立精美的下载指示器，如图 9.4 所示。</p>
 <figure id="fig9.4"><img src="images/animation/swiftui-animation-4.gif" alt="图 9.4.　下载指示器范例"><figcaption>图 9.4.　下载指示器范例</figcaption></figure>
-<p>程式码片段如下所示： </p>
+<p>代码片段如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isLoading = <span class="hljs-built_in">false</span>
@@ -1116,7 +1116,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%80%B2%E5%BA%A6%E6%8C%87%E7%A4%BA%E5%99%A8">建立进度指示器</h3>
 <p>下载指示器向使用者提供一些回馈，其表示 App 正在处理某些事情。不过，它并没有显示实际进度，如果你需要为使用者提供关于任务进度的更多资讯，则可能需要建立一个如图 9.7 所示的进度指示器。</p>
 <figure id="fig9.7"><img src="images/animation/swiftui-animation-7.gif" alt="图 9.7.　进度指示器"><figcaption>图 9.7.　进度指示器</figcaption></figure>
-<p>建立进度指示器的方式与下载指示器非常相似。不过，你需要使用状态变数来追踪进度。以下是建立进度指示器的程式码片段： </p>
+<p>建立进度指示器的方式与下载指示器非常相似。不过，你需要使用状态变数来追踪进度。以下是建立进度指示器的代码片段： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> progress: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0.0</span>
 
@@ -1157,7 +1157,7 @@
 <p>这会将动画延迟1 秒后开始。<code>delay</code> 函数也适用其他动画。</p>
 <p>透过混合搭配持续时间值与延迟时间值，你可以实作出一些有趣的动画，如图 9.8 所示的圆点下载指示器。</p>
 <figure id="fig9.8"><img src="images/animation/swiftui-animation-8.gif" alt="图 9.8.　圆点下载指示器r"><figcaption>图 9.8.　圆点下载指示器r</figcaption></figure>
-<p>这个指示器由五个点组成，每个点皆有放大缩小动画，不过各有不同的延迟时间。我们来看程式码该如何实作： </p>
+<p>这个指示器由五个点组成，每个点皆有放大缩小动画，不过各有不同的延迟时间。我们来看代码该如何实作： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isLoading = <span class="hljs-built_in">false</span>
 
@@ -1178,7 +1178,7 @@
 }
 </code></pre>
 <p>我们先使用一个 <code>HStack</code> 来水平布局这些圆形，由于这五个圆形（也就是点）皆有相同的大小与颜色，因此我们使用 <code>ForEach</code> 来建立这些圆形。<code>scaleEffect</code> 修饰器是用来缩放圆形的大小，预设是设定为“1”，也就是原来的大小。当开始载入时，该值会更新为“0”， 这将会缩小此点。</p>
-<p>用于渲染动画的程式码看起来有些复杂，我们来分拆它并逐步研究： </p>
+<p>用于渲染动画的代码看起来有些复杂，我们来分拆它并逐步研究： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.linear(duration: <span class="hljs-number">0.6</span>).repeatForever().delay(<span class="hljs-number">0.2</span> * <span class="hljs-type">Double</span>(index))
 </code></pre>
 <p>第一个部分建立一个持续时间为 0.6 秒的线性动画，该动画会重复执行，因此我们呼叫 <code>repeatForever</code> 函数。</p>
@@ -1227,7 +1227,7 @@
 <p>这里有两个状态变数：<code>recordBegin</code> 与 <code>recording</code>，其是控制两个单独的动画。第一个变数控制按钮的变形，如前所述，我们使用圆角半径来实现这个变形。矩形的宽度原先是设定为“250 点”，当使用者点击矩形来触发变形时，这个框架的宽度会变为“60 点”。随着改变，圆角半径变成“30 点”，也就是宽度的一半。</p>
 <p>这就是我们将矩形变形为圆形的方法，而且SwiftUI 会自动渲染此变形的动画。</p>
 <p>另一方面，<code>recording</code> 状态变数处理了麦克风图片的缩放。当它为录音状态时，我们将缩放比例从“1”更改为“0.7”，藉由重复执行相同的动画，即可建立放大及缩小的动画。</p>
-<p>请注意，以上的程式码使用显式方法来对视图设定动画。这不是强制性的，依照自己的喜好，你也可以使用隐式动画方法来获得相同的结果。</p>
+<p>请注意，以上的代码使用显式方法来对视图设定动画。这不是强制性的，依照自己的喜好，你也可以使用隐式动画方法来获得相同的结果。</p>
 <h3 id="%E4%BA%86%E8%A7%A3%E8%BD%89%E5%A0%B4">了解转场</h3>
 <p>到目前为止，我们已经讨论了对视图层次（view hierarchy ）中已存在的视图设定动画。我们建立动画来放大和缩小视图，或者对视图大小设定动画。</p>
 <p>SwiftUI 让开发者不只是做出前述的动画，你可以定义如何从视图层次中插入或移除视图，而在 SwiftUI 中，这就是所谓的“转场”（ transition ）。框架预设是使用淡入（ fade in ）与淡出（ fade out ）转场。不过它内建了几个现成的转场效果，如滑动（ slide ）、移动（ move）、不透明度（opacity ）等。当然，你可以开发自己的转场效果，也可以简单的混合搭配各种类型的转场，以建立所需的转场效果。</p>
@@ -1262,9 +1262,9 @@
     }
 }
 </code></pre>
-<p>在上列的程式码中，我们使用 <code>VStack</code> 垂直布局两个矩形。而我要做的是让这个堆叠可以点击。首先，要隐藏紫色矩形，只有当使用者点击绿色矩形（也就是Show details ）时才会显示。</p>
+<p>在上列的代码中，我们使用 <code>VStack</code> 垂直布局两个矩形。而我要做的是让这个堆叠可以点击。首先，要隐藏紫色矩形，只有当使用者点击绿色矩形（也就是Show details ）时才会显示。</p>
 <figure id="fig9.11"><img src="images/animation/swiftui-animation-11.png" alt="图 9.11.　垂直布局两个矩形"><figcaption>图 9.11.　垂直布局两个矩形</figcaption></figure>
-<p>为此，我们需要宣告一个状态变数来决定是否显示紫色矩形。将下列这行程式码插入 <code>ContentView</code> 中： </p>
+<p>为此，我们需要宣告一个状态变数来决定是否显示紫色矩形。将下列这行代码插入 <code>ContentView</code> 中： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> show = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>接下来，我们将紫色矩形包裹在 <code>if</code> 叙述中，如下所示：</p>
@@ -1310,10 +1310,10 @@
 </code></pre>
 <p>如此，当紫色矩形插入 <code>VStack</code> 时，它会从左侧滑入。</p>
 <h4 id="%E6%B7%B7%E5%90%88%E5%BC%8F%E8%BD%89%E5%A0%B4">混合式转场</h4>
-<p>你可以呼叫 <code>combined(with:)</code> 方法来将两个或者更多个转场效果结合在一起，以建立更流畅的转场效果。举例而言，如果要结合位移与缩放动画，则可以撰写程式码如下： </p>
+<p>你可以呼叫 <code>combined(with:)</code> 方法来将两个或者更多个转场效果结合在一起，以建立更流畅的转场效果。举例而言，如果要结合位移与缩放动画，则可以撰写代码如下： </p>
 <pre><code class="lang-swift">.transition(<span class="hljs-type">AnyTransition</span>.offset(x: -<span class="hljs-number">600</span>, y: <span class="hljs-number">0</span>).combined(with: .scale))
 </code></pre>
-<p>如果需要混合三个转场效果的话，则可以参考以下这行的范例程式码： </p>
+<p>如果需要混合三个转场效果的话，则可以参考以下这行的范例代码： </p>
 <pre><code class="lang-swift">.transition(<span class="hljs-type">AnyTransition</span>.offset(x: -<span class="hljs-number">600</span>, y: <span class="hljs-number">0</span>).combined(with: .scale).combined(with: .opacity))
 </code></pre>
 <p>在某些情况下，如果你需要定义一个可以重复利用的动画，你可以在 <code>AnyTransition</code> 定义一个扩展（extension ），如下所示： </p>
@@ -1330,7 +1330,7 @@
 <figure id="fig9.14"><img src="images/animation/swiftui-animation-14.png" alt="图 9.14.　结合缩放、位移与不透明度的转场效果"><figcaption>图 9.14.　结合缩放、位移与不透明度的转场效果</figcaption></figure>
 <h4 id="%E4%B8%8D%E5%B0%8D%E7%A8%B1%E8%BD%89%E5%A0%B4">不对称转场</h4>
 <p>我们刚才讨论的转场皆是对称性的，也就是视图的插入与移除是使用相同的转场效果。举例而言，如果将缩放转场运用于视图，则 SwiftUI 在它插入视图层次时会放大视图，而移除它时，该框架会将其缩回原来大小。</p>
-<p>那么，若你想在插入视图时使用缩放转场以及移除视图时使用位移转场呢？这在 SwiftUI 中，即所谓的“不对称转场”（ Assymetric Transitions ）。要使用这种转场效果非常简单，你只需要呼叫 <code>.assymetric</code> 方法，来指定插入（ insertion ）及移除（removal ）的转场即可。下列是范例程式码： </p>
+<p>那么，若你想在插入视图时使用缩放转场以及移除视图时使用位移转场呢？这在 SwiftUI 中，即所谓的“不对称转场”（ Assymetric Transitions ）。要使用这种转场效果非常简单，你只需要呼叫 <code>.assymetric</code> 方法，来指定插入（ insertion ）及移除（removal ）的转场即可。下列是范例代码： </p>
 <pre><code class="lang-swift">.transition(.asymmetric(insertion: .scale(scale: <span class="hljs-number">0</span>, anchor: .bottom), removal: .offset(x: -<span class="hljs-number">600</span>, y: <span class="hljs-number">0</span>)))
 </code></pre>
 <p>另外，如果你需要重新使用这个转场，则可以在 <code>AnyTransition</code>定义一个扩展，如下所示： </p>
@@ -1343,7 +1343,7 @@
     }
 }
 </code></pre>
-<p>更改程式码后，请使用内建模拟器来执行这个 App。当紫色矩形出现于荧幕上时，你应该会看到缩放转场，而当你点击矩形时，紫色矩形会滑出荧幕画面。</p>
+<p>更改代码后，请使用内建模拟器来执行这个 App。当紫色矩形出现于荧幕上时，你应该会看到缩放转场，而当你点击矩形时，紫色矩形会滑出荧幕画面。</p>
 <figure id="fig9.15"><img src="images/animation/swiftui-animation-15.png" alt="图 9.15.　不对称转场范例"><figcaption>图 9.15.　不对称转场范例</figcaption></figure>
 <h3 id="%E4%BD%9C%E6%A5%AD-1-%E4%BD%BF%E7%94%A8%E5%8B%95%E7%95%AB%E8%88%87%E8%BD%89%E5%A0%B4%E5%BB%BA%E7%AB%8B%E7%B2%BE%E7%BE%8E%E6%8C%89%E9%88%95">作业 #1: 使用动画与转场建立精美按钮</h3>
 <p>现在，你应该具备了转场与动画的概念，我们来挑战建立一个精美的按钮，以显示目前操作状态。请输入下列网址：<a href="https://www.appcoda.com/wp-content/uploads/2019/10/swiftui-animation-16.gif" target="_blank">https://www.appcoda.com/wp-content/uploads/2019/10/swiftui-animation-16.gif</a>，来看一下效果。</p>
@@ -1355,7 +1355,7 @@
 <li><strong>完成状态</strong>：以红色显示“Done”按钮。</li>
 </ul>
 <p>这是一个非常具挑战性的专案，它将测试你对 SwiftUI 动画与转场的了解。你将需要结合到目前为止所学的知识来制定解决方案。</p>
-<p>如图 9.16 所示的范例按钮，这个处理状态大约是 4 秒处理状态约需要 4 秒，你不需要执行实际操作。作为提示，我使用下列的程式码来模拟该操作。</p>
+<p>如图 9.16 所示的范例按钮，这个处理状态大约是 4 秒处理状态约需要 4 秒，你不需要执行实际操作。作为提示，我使用下列的代码来模拟该操作。</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">startProcessing</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">self</span>.loading = <span class="hljs-built_in">true</span>
 
@@ -1374,7 +1374,7 @@
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>动画在行动 UI 设计中扮演着一个特殊的角色，精心设计的动画可改善使用者体验，并让 UI 的互动具有意义。两个视图之间流畅轻快的转场，将让使用者满意且印象深刻。在 App Store 上有超过 200 万支 App，要使你的 App 脱颖而出，并不容易，不过精心设计的 UI 与动画肯定会产生根本的差别。</p>
 <p>话虽如此，但是对于有经验的开发者而言，撰写平滑动画动画也不是一件容易的事。幸运的是，SwiftUI 框架简化了 UI 动画与转场的开发，你只须告诉框架：视图在开始及结束时的状态为何，SwiftUI 会计算出其余的状态，为你渲染出一个流畅且漂亮的动画。</p>
-<p>在本章中，我已介绍了基本的原理，不过如你所见，你已经建立了一些令人愉悦的动画与转场效果，最重要的是，只需要几行程式码即能办到。</p>
+<p>在本章中，我已介绍了基本的原理，不过如你所见，你已经建立了一些令人愉悦的动画与转场效果，最重要的是，只需要几行代码即能办到。</p>
 <p>我期望你喜欢本章的内容，并发掘出有用的技巧。在本章所准备的范例档中，有完整的专案与作业解答可以下载： </p>
 <ul>
 <li><p>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAnimation.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAnimation.zip</a>)</p>

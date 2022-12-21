@@ -884,7 +884,7 @@
 <p>一如以往，我喜欢利用范例来示范一个 API 的用法。在第38章中，我们用了新的 Charts 框架来构建折线图。这次，让我们来看看如何让使用者把折线图保存为 Photo Album 中的图像，并使用 <code>ShareLink</code> 进行分享。</p>
 <h3 id="%E9%87%8D%E6%BA%AB-chart-%E8%A6%96%E5%9C%96">重温 Chart 视图</h3>
 <figure id="fig41.1"><img src="images/imagerenderer/swiftui-line-chart-symbol.png" alt="图 41.1. 折线图"><figcaption>图 41.1. 折线图</figcaption></figure>
-<p>首先，让我们来重温一下 <code>ChartView</code> 范例。我们使用了 <code>Charts</code> 框架的新 API 来构建一个有关气温的折线图。程式码如下：</p>
+<p>首先，让我们来重温一下 <code>ChartView</code> 范例。我们使用了 <code>Charts</code> 框架的新 API 来构建一个有关气温的折线图。代码如下：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">VStack</span> {
         <span class="hljs-type">Chart</span> {
@@ -919,7 +919,7 @@
     }
 }
 </code></pre>
-<p>要跟着本教程学习，我建议你先从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererStarter.zip</a> 下载 Xcode 项目。 在使用 ImageRenderer 之前，让我们将上面在 ContentView.swift 中的程式码重构为一个单独的视图，如下所示：</p>
+<p>要跟着本教程学习，我建议你先从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIImageRendererStarter.zip</a> 下载 Xcode 项目。 在使用 ImageRenderer 之前，让我们将上面在 ContentView.swift 中的代码重构为一个单独的视图，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ChartView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">let</span> chartData = [ (city: <span class="hljs-string">&quot;Hong Kong&quot;</span>, data: hkWeatherData),
                       (city: <span class="hljs-string">&quot;London&quot;</span>, data: londonWeatherData),
@@ -995,7 +995,7 @@
 <h3 id="%E6%B7%BB%E5%8A%A0-share-%E6%8C%89%E9%88%95">添加 Share 按钮</h3>
 <figure id="fig41.2"><img src="images/imagerenderer/swiftui-imagerenderer-sharelink.png" alt="图 41.2. 加入 Share 按钮"><figcaption>图 41.2. 加入 Share 按钮</figcaption></figure>
 <p>在之前的章节，我们学了如何使用 <code>ShareLink</code> 来显示一个 Share Sheet。我们可以搭配 <code>ImageRanderer</code> 使用，轻松地建立让使用者分享 Chart 视图的功能。</p>
-<p>为方便起见，让我们将渲染图像 (rendered image) 的程式码重构为一个独立的方法：</p>
+<p>为方便起见，让我们将渲染图像 (rendered image) 的代码重构为一个独立的方法：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">MainActor</span>
 private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">generateSnapshot</span><span class="hljs-params">()</span> -&gt; <span class="hljs-title">UIImage</span> </span>{
     <span class="hljs-keyword">let</span> renderer = <span class="hljs-type">ImageRenderer</span>(content: chartView)

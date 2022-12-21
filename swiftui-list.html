@@ -879,13 +879,13 @@
                         <h1 id="%E7%AC%AC-10-%E7%AB%A0-br-%E5%8B%95%E6%85%8B%E6%B8%85%E5%96%AE%E3%80%81foreach-%E8%88%87%E8%AD%98%E5%88%A5">第 10 章<br>动态清单、ForEach 与识别</h1>
 <p>在 UIKit 中，表格视图是 iOS 中最常见的 UI 控制元件之一。如果你之前使用过 UIKit 开发 App，则你应该知道可使用表格视图显示资料清单。这个 UI 控制元件在以内容为主的App 很常见，例如：报纸 App。图 10.1 展示了一些清单 / 表格视图，你可在诸如 Instagram、Twitter、Airbnb 与 Apple News 等流行应用程式中找到这些视图。</p>
 <figure id="fig10.1"><img src="images/list/swiftui-list-1.jpg" alt="图 10.1.　清单视图范例"><figcaption>图 10.1.　清单视图范例</figcaption></figure>
-<p>在 SwiftUI 中，我们使用 <code>List</code> 代替表格视图来显示资料列。如果你之前使用过 <code>UIKit</code> 建立表格视图，你应该知道实作一个简单的表格视图，就需要花一点工夫。而若是要建立自订 Cell 布局的表格视图，则要做的工作更多。SwiftUI 简化了整个过程，只需几行程式码，你就能以表格形式来陈列资料。即使你需要自订列的布局，也只需要极少的工夫即可办到。</p>
+<p>在 SwiftUI 中，我们使用 <code>List</code> 代替表格视图来显示资料列。如果你之前使用过 <code>UIKit</code> 建立表格视图，你应该知道实作一个简单的表格视图，就需要花一点工夫。而若是要建立自订 Cell 布局的表格视图，则要做的工作更多。SwiftUI 简化了整个过程，只需几行代码，你就能以表格形式来陈列资料。即使你需要自订列的布局，也只需要极少的工夫即可办到。</p>
 <p>仍是觉得困惑吗？待会你就能明白我的意思。</p>
 <p>在本章中，我们将从一个简单的清单来开始。当你了解这些基础知识，我将教你如何以更复杂的布局来陈列资料清单，如图 10.2 所示。</p>
 <figure id="fig10.2"><img src="images/list/swiftui-list-2.jpg" alt="图 10.2.　建立一个简单且多样化的清单"><figcaption>图 10.2.　建立一个简单且多样化的清单</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%B8%85%E5%96%AE">建立一个简单的清单</h3>
 <p>我们从简单的清单来开始。首先，开启 Xcode，并使用“App”模板建立一个新专案。在下一个画面中，设定专案名称为“SwiftUIList”（或你喜欢的任何名称），并填入所有必填的值，只需确保在“Interface”选项中选取“SwiftUI”。</p>
-<p>Xcode 应会在 <code>ContentView.swift</code> 档中产生一些程式码。现在更新程式码如下： </p>
+<p>Xcode 应会在 <code>ContentView.swift</code> 档中产生一些代码。现在更新代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">List</span> {
@@ -897,9 +897,9 @@
     }
 }
 </code></pre>
-<p>以上是建立一个简单的清单或表格所需要的程式码。当你将文字视图嵌入 <code>List</code> 中时，清单视图会以列显示资料。这里，每一列显示具不同叙述的文字视图。</p>
+<p>以上是建立一个简单的清单或表格所需要的代码。当你将文字视图嵌入 <code>List</code> 中时，清单视图会以列显示资料。这里，每一列显示具不同叙述的文字视图。</p>
 <figure id="fig10.3"><img src="images/list/swiftui-list-3.png" alt="图 10.3.　建立一个简单的清单"><figcaption>图 10.3.　建立一个简单的清单</figcaption></figure>
-<p>相同的程式码片段可以使用 <code>ForEach</code> 来编写，如下所示： </p>
+<p>相同的代码片段可以使用 <code>ForEach</code> 来编写，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">List</span> {
@@ -916,9 +916,9 @@
 <p>-  Apple 官方文件 (<a href="https://developer.apple.com/documentation/swiftui/foreach" target="_blank">https://developer.apple.com/documentation/swiftui/foreach</a>)</p>
 </blockquote>
 <p>你可以提供 <code>ForEach</code> 一组资料集合或一个范围。不过，你必须要注意的是，你需要告诉 <code>ForEach</code> 如何识别集合中的每个项目，参数 <code>id</code> 的目的在于此，为什么 <code>ForEach</code> 需要识别项目的唯一性呢？ SwiftUI 功能强大，可在部分或全部集合内的项目更改时自动更新 UI， 因此当更新或删除项目时，需要一个识别码来识别该项目。</p>
-<p>在上面的程式码中，我们传送给 <code>ForEach</code> 一个范围的值来逐一执行。该识别码设定为其值（即 1、2、3、4），<code>index</code> 参数储存回圈的目前值，例如：它从“1”这个值开始， <code>index</code> 参数的值则为“1”。</p>
-<p>在闭包中，即是渲染视图所需的程式码，这里也是我们需要建立的文字视图，其叙述将依据回圈中的 <code>index</code> 值而变化。如此，你就可以在清单中建立四个不同标题的项目。</p>
-<p>我再教你一种技巧，相同的程式码片段也可以进一步重写如下： </p>
+<p>在上面的代码中，我们传送给 <code>ForEach</code> 一个范围的值来逐一执行。该识别码设定为其值（即 1、2、3、4），<code>index</code> 参数储存回圈的目前值，例如：它从“1”这个值开始， <code>index</code> 参数的值则为“1”。</p>
+<p>在闭包中，即是渲染视图所需的代码，这里也是我们需要建立的文字视图，其叙述将依据回圈中的 <code>index</code> 值而变化。如此，你就可以在清单中建立四个不同标题的项目。</p>
+<p>我再教你一种技巧，相同的代码片段也可以进一步重写如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">List</span> {
@@ -930,7 +930,7 @@
 }
 </code></pre>
 <p>你可以省略 <code>index</code> 参数，并使用参数名称缩写 <code>$0</code>，它表示闭包的第一个参数。</p>
-<p>我们进一步将程式码重写得更简单些，你可将资料集合直接传送到 <code>List</code> 视图，程式码如下： </p>
+<p>我们进一步将代码重写得更简单些，你可将资料集合直接传送到 <code>List</code> 视图，代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">List</span>(<span class="hljs-number">1</span>...<span class="hljs-number">4</span>, id: \.<span class="hljs-keyword">self</span>) {
@@ -939,15 +939,15 @@
     }
 }
 </code></pre>
-<p>如你所见，只需两行程式码，即可建立一个简单的清单 / 表格。</p>
+<p>如你所见，只需两行代码，即可建立一个简单的清单 / 表格。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%B7%E6%96%87%E5%AD%97%E5%8F%8A%E5%9C%96%E7%89%87%E7%9A%84%E6%B8%85%E5%96%AE%E8%A6%96%E5%9C%96">建立具文字及图片的清单视图</h3>
 <p>现在你已经知道如何建立一个简单的清单，接着我们来看如何使用更多样化的布局。在大多数的情况下，清单视图的项目皆会包含文字与图片，而你该如何实作呢？如果你知道 <code>Image</code>、<code>Text</code>、<code>VStack</code> 与 <code>HStack</code> 的用法的话，你应该对如何建立它有概念了。</p>
 <p>如果你阅读过《<a href="https://www.appcoda.com.tw/swift" target="_blank">iOS App 程式开发实务心法</a>》一书，你应该非常熟悉这个范例。我们以此为例来看使用 SwiftUI 建立相同的表格有多么容易，如图 10.4 所示。</p>
 <figure id="fig10.4"><img src="images/list/swiftui-list-4.png" alt="图 10.4　显示餐厅列的简单表格视图"><figcaption>图 10.4　显示餐厅列的简单表格视图</figcaption></figure>
-<p>要使用 UIKit 建立表格，你需要建立一个表格视图或表格视图控制器，然后自订 Prototype Cell。另外，你还必须编写表格视图资料来源的程式码，以提供资料。建立一个表格UI 需要很多的步骤，现在我们来看如何在 SwiftUI 中实作相同的表格视图。</p>
+<p>要使用 UIKit 建立表格，你需要建立一个表格视图或表格视图控制器，然后自订 Prototype Cell。另外，你还必须编写表格视图资料来源的代码，以提供资料。建立一个表格UI 需要很多的步骤，现在我们来看如何在 SwiftUI 中实作相同的表格视图。</p>
 <p>首先，我们至下列网址来下载图片素材：<a href="https://www.appcoda.com/resources/swiftui/SwiftUISimpleTableImages.zip" target="_blank">https://www.appcoda.com/resources/swiftui/SwiftUISimpleTableImages.zip</a> 然后将 zip 档解压缩，并把所有图片汇入素材目录，如图 10.5 所示。</p>
 <figure id="fig10.5"><img src="images/list/swiftui-list-5.png" alt="图 10.5.　汇入图片至素材目录"><figcaption>图 10.5.　汇入图片至素材目录</figcaption></figure>
-<p>现在，切换到 <code>ContentView.swift</code> 来编写 UI 的程式码。首先，我们在 <code>ContentView</code> 中宣告两个阵列，这些阵列是用来储存餐厅名称与图片。下列是完整的程式码： </p>
+<p>现在，切换到 <code>ContentView.swift</code> 来编写 UI 的代码。首先，我们在 <code>ContentView</code> 中宣告两个阵列，这些阵列是用来储存餐厅名称与图片。下列是完整的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> restaurantNames = [<span class="hljs-string">&quot;Cafe Deadend&quot;</span>, <span class="hljs-string">&quot;Homei&quot;</span>, <span class="hljs-string">&quot;Teakha&quot;</span>, <span class="hljs-string">&quot;Cafe Loisl&quot;</span>, <span class="hljs-string">&quot;Petite Oyster&quot;</span>, <span class="hljs-string">&quot;For Kee Restaurant&quot;</span>, <span class="hljs-string">&quot;Po&apos;s Atelier&quot;</span>, <span class="hljs-string">&quot;Bourke Street Bakery&quot;</span>, <span class="hljs-string">&quot;Haigh&apos;s Chocolate&quot;</span>, <span class="hljs-string">&quot;Palomino Espresso&quot;</span>, <span class="hljs-string">&quot;Upstate&quot;</span>, <span class="hljs-string">&quot;Traif&quot;</span>, <span class="hljs-string">&quot;Graham Avenue Meats And Deli&quot;</span>, <span class="hljs-string">&quot;Waffle &amp; Wolf&quot;</span>, <span class="hljs-string">&quot;Five Leaves&quot;</span>, <span class="hljs-string">&quot;Cafe Lore&quot;</span>, <span class="hljs-string">&quot;Confessional&quot;</span>, <span class="hljs-string">&quot;Barrafina&quot;</span>, <span class="hljs-string">&quot;Donostia&quot;</span>, <span class="hljs-string">&quot;Royal Oak&quot;</span>, <span class="hljs-string">&quot;CASK Pub and Kitchen&quot;</span>]
@@ -975,12 +975,12 @@
 }
 </code></pre>
 <p>我们做了一些修改，首先是 <code>List</code> 视图，我们传送餐厅名称的范围（即 <code>restaurantNames. indices</code> ），而不是一个固定的范围。例如：<code>restaurantNames</code> 阵列有 21 个项目，范围是从 0 至 20。</p>
-<p>在闭包中，程式码会更新，以建立列的布局，我将不会深入探讨细节，因为如果你对堆叠视图已经完全了解，那么程式码一看便明白了。为了更改<code>List</code> 视图的样式，我们附加了<code>listStyle</code> 修饰器并将样式设置为<code>plain</code>。</p>
-<p>就是这样，使用不到 10 行的程式码，我们已经建立了一个自订布局的清单（或表格）。</p>
+<p>在闭包中，代码会更新，以建立列的布局，我将不会深入探讨细节，因为如果你对堆叠视图已经完全了解，那么代码一看便明白了。为了更改<code>List</code> 视图的样式，我们附加了<code>listStyle</code> 修饰器并将样式设置为<code>plain</code>。</p>
+<p>就是这样，使用不到 10 行的代码，我们已经建立了一个自订布局的清单（或表格）。</p>
 <figure id="fig10.6"><img src="images/list/swiftui-list-6.png" alt="图 10.6.　自订列布局的清单视图"><figcaption>图 10.6.　自订列布局的清单视图</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8%E8%B3%87%E6%96%99%E9%9B%86%E5%90%88">使用资料集合</h4>
 <p>如前所述，<code>List</code> 可以带入一个范围或一个资料集合。你已经学过如何处理范围，我们来看如何将 <code>List</code> 与餐厅资料的阵列一起使用。</p>
-<p>我们将建立一个 <code>Restaurant</code> 结构来加以组织资料，而不是将餐厅资料储存在两个单独的阵列中。这个结构有两个属性：“name”与“image”。在 <code>ContentView.swift</code> 档的最后面， 插入下列程式码： </p>
+<p>我们将建立一个 <code>Restaurant</code> 结构来加以组织资料，而不是将餐厅资料储存在两个单独的阵列中。这个结构有两个属性：“name”与“image”。在 <code>ContentView.swift</code> 档的最后面， 插入下列代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span> </span>{
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
     <span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
@@ -1026,7 +1026,7 @@
 }
 </code></pre>
 <p>看一下我们传入 <code>List</code> 的参数，我们没有传送范围，而是传送 <code>restaurants</code> 阵列，并告诉 <code>List</code> 使用其 <code>name</code> 属性作为识别码。<code>List</code>  将逐一执行阵列，并让我们知道它在闭包中正在处理的目前餐厅。因此，在闭包中，我们指示清单如何显示餐厅列，这里我们只在 <code>HStack</code> 中同时显示餐厅图片与餐厅名称。</p>
-<p>一切都没有改变，UI 仍然相同，不过底层程式码已经修改为利用 <code>List</code> 与资料集合了。</p>
+<p>一切都没有改变，UI 仍然相同，不过底层代码已经修改为利用 <code>List</code> 与资料集合了。</p>
 <figure id="fig10.7"><img src="images/list/swiftui-list-7.png" alt="图 10.7.　与图 10.6 的 UI 相同"><figcaption>图 10.7.　与图 10.6 的 UI 相同</figcaption></figure>
 <h4 id="%E9%81%B5%E5%BE%AA-identifiable-%E5%8D%94%E5%AE%9A">遵循 Identifiable 协定</h4>
 <p>为了让你更了解 <code>List</code> 内 <code>id</code> 参数的用途，我们对 <code>restaurants</code> 阵列做一个小变更。由于我们使用餐厅名称作为识别码，因此我们来看当有两笔资料具有相同的餐厅名称时会发生什么事？现在将 <code>restaurants</code> 阵列中的“Upstate”更新为“Homei”，如下所示： </p>
@@ -1034,7 +1034,7 @@
 </code></pre>
 <p>请注意，我们只更改“name”属性值，图片仍保持为 <code>upstate</code>，如图 10.8 所示。再次检查预览画布，看看你得到了什么。</p>
 <figure id="fig10.8"><img src="images/list/swiftui-list-8.png" alt="图 10.8.　两间餐厅的名称相同"><figcaption>图 10.8.　两间餐厅的名称相同</figcaption></figure>
-<p>你有看到图 10.8 中的问题吗？我们现在有两笔名称是“Homei”的纪录。你可能希望第二笔“Homei”纪录会显示 upstate 图片，但实际上，iOS 会以相同的文字与图片来渲染这两笔纪录。在程式码中，我们告诉 <code>List</code>使用餐厅名称作为唯一的识别码，当两间餐厅的名称相同时，iOS 会将这两间餐厅视为同一餐厅，因此它重用相同的视图，并渲染相同的图片。</p>
+<p>你有看到图 10.8 中的问题吗？我们现在有两笔名称是“Homei”的纪录。你可能希望第二笔“Homei”纪录会显示 upstate 图片，但实际上，iOS 会以相同的文字与图片来渲染这两笔纪录。在代码中，我们告诉 <code>List</code>使用餐厅名称作为唯一的识别码，当两间餐厅的名称相同时，iOS 会将这两间餐厅视为同一餐厅，因此它重用相同的视图，并渲染相同的图片。</p>
 <p>那么，你该如何修正这个问题呢？ </p>
 <p>其实非常简单，你应该给每间餐厅一个唯一的识别码，而不是使用名称作为 ID。现在更新 <code>Restaurant</code> 结构如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span> </span>{
@@ -1043,13 +1043,13 @@
     <span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
 }
 </code></pre>
-<p>在上列的程式码中，我们加入了 <code>id</code> 属性，并以唯一识别码来初始化它。这个 <code>UUID()</code>函数的作用是产生通用唯一的随机识别码，UUID 是由128 位元数所组成，因此理论上要同时产生两个相同识别码的机率几乎为零。</p>
+<p>在上列的代码中，我们加入了 <code>id</code> 属性，并以唯一识别码来初始化它。这个 <code>UUID()</code>函数的作用是产生通用唯一的随机识别码，UUID 是由128 位元数所组成，因此理论上要同时产生两个相同识别码的机率几乎为零。</p>
 <p>现在，每间餐厅应该皆有一个唯一的 ID，但是在修正这个错误之前，我们还需要再做一个修改。对于 <code>List</code>，将 <code>id</code> 参数的值从 <code>\.name</code>改为 <code>\.id</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(restaurants, id: \.id)
 </code></pre>
 <p>这告诉 <code>List</code> 视图使用餐厅的 <code>id</code> 属性作为唯一的识别码。再看一遍预览，第二笔的“Homei”纪录应该显示它自己的图片了，如图 10.9 所示。</p>
 <figure id="fig10.9"><img src="images/list/swiftui-list-9.png" alt="图 10.9.　错误已被修正而可显示正确的图片"><figcaption>图 10.9.　错误已被修正而可显示正确的图片</figcaption></figure>
-<p>透过让 <code>Restaurant</code>  结构遵循 <code>Identifiable</code> 协定，我们可进一步简化程式码。这个协定只有一个要求，就是实作协定的型别应该具备某种 <code>id</code> 作为唯一识别码。现在更新 <code>Restauran</code>t 来实作 <code>Identifiable</code> 协定，如下所示：</p>
+<p>透过让 <code>Restaurant</code>  结构遵循 <code>Identifiable</code> 协定，我们可进一步简化代码。这个协定只有一个要求，就是实作协定的型别应该具备某种 <code>id</code> 作为唯一识别码。现在更新 <code>Restauran</code>t 来实作 <code>Identifiable</code> 协定，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1057,7 +1057,7 @@
 }
 </code></pre>
 <p>由于 <code>Restaurant</code> 已经提供了唯一的 <code>id</code> 属性，因此符合协定的要求。</p>
-<p>那么，这里实作 <code>Identifiable</code> 协定的目的是什么呢？它可以进一步节省一些程式码，当 <code>Restaurant</code> 结构遵循 <code>Identifiable</code> 协定时，你可不使用 <code>id</code> 参数来初始化这个 <code>List</code>，更新后的清单视图程式码，如下所示： </p>
+<p>那么，这里实作 <code>Identifiable</code> 协定的目的是什么呢？它可以进一步节省一些代码，当 <code>Restaurant</code> 结构遵循 <code>Identifiable</code> 协定时，你可不使用 <code>id</code> 参数来初始化这个 <code>List</code>，更新后的清单视图代码，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
     <span class="hljs-type">HStack</span> {
         <span class="hljs-type">Image</span>(restaurant.image)
@@ -1070,8 +1070,8 @@
 }
 </code></pre>
 <p>这就是使用 <code>List</code> 显示资料集合的方式。</p>
-<h3 id="%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">重构程式码</h3>
-<p>程式码运作正常，不过将程式码重构，让它变得更好，始终是一件好事。你已经学过如何取出视图，现在我们将取出 <code>HStack</code> 至一个单独的结构中。按住键不放， 并点击 <code>HStack</code>， 选择“Extract subview”来取出程式码， 并将结构重新命名为 <code>BasicImageRow</code>。</p>
+<h3 id="%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">重构代码</h3>
+<p>代码运作正常，不过将代码重构，让它变得更好，始终是一件好事。你已经学过如何取出视图，现在我们将取出 <code>HStack</code> 至一个单独的结构中。按住键不放， 并点击 <code>HStack</code>， 选择“Extract subview”来取出代码， 并将结构重新命名为 <code>BasicImageRow</code>。</p>
 <figure id="fig10.10"><img src="images/list/swiftui-list-10.png" alt="图 10.10.　取出子视图"><figcaption>图 10.10.　取出子视图</figcaption></figure>
 <p>当你更改后，Xcode 会立即显示一个错误。由于取出的子视图没有 <code>restaurant</code> 属性，因此像这样更新<code>BasicImageRow</code> 结构，以宣告 <code>restaurant</code> 属性： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BasicImageRow</span>: <span class="hljs-title">View</span> </span>{
@@ -1093,7 +1093,7 @@
     <span class="hljs-type">BasicImageRow</span>(restaurant: restaurant)
 }
 </code></pre>
-<p>现在一切都应该正常运作。这个清单视图渲染后看起来仍然相同，不过底层的程式码更具易读性与组织性，而且更容易修改程式码。例如：你将列建立为其他布局，如下所示： </p>
+<p>现在一切都应该正常运作。这个清单视图渲染后看起来仍然相同，不过底层的代码更具易读性与组织性，而且更容易修改代码。例如：你将列建立为其他布局，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">FullImageRow</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> restaurant: <span class="hljs-type">Restaurant</span>
 
@@ -1119,12 +1119,12 @@
     }
 }
 </code></pre>
-<p>这个列布局是用于显示更大的餐厅图片，并将餐厅名称叠在上面。由于我们已经重构程式码，因此非常容易变更 App，来使用新的布局，你只需要在 <code>List</code> 闭包中，将 <code>BasicImageRow</code> 改成 <code>FullImageRow</code> 即可： </p>
+<p>这个列布局是用于显示更大的餐厅图片，并将餐厅名称叠在上面。由于我们已经重构代码，因此非常容易变更 App，来使用新的布局，你只需要在 <code>List</code> 闭包中，将 <code>BasicImageRow</code> 改成 <code>FullImageRow</code> 即可： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
     <span class="hljs-type">FullImageRow</span>(restaurant: restaurant)
 }
 </code></pre>
-<p>更改一行程式码后，这个 App 会立即切换至另一个布局，如图 10.11 所示。</p>
+<p>更改一行代码后，这个 App 会立即切换至另一个布局，如图 10.11 所示。</p>
 <figure id="fig10.11"><img src="images/list/swiftui-list-11.png" alt="图 10.11.　变更列布局"><figcaption>图 10.11.　变更列布局</figcaption></figure>
 <p>你可以进一步混合列布局， 以建立更有趣的 UI。举例而言， 新的设计是使用 <code>FullImageRow</code> 来显示前两列的资料，其余的列则利用 <code>BasicImageRow</code>，如图 10.12 所示。你可以更新 <code>List</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
@@ -1154,7 +1154,7 @@
 }
 .listStyle(.plain)
 </code></pre>
-<p>在以上的程式码中，我们将行分隔符的颜色更改为绿色。</p>
+<p>在以上的代码中，我们将行分隔符的颜色更改为绿色。</p>
 <h3 id="%E9%9A%B1%E8%97%8F%E5%88%97%E8%A1%A8%E5%88%86%E9%9A%94%E7%B7%9A">隐藏列表分隔线</h3>
 <p>iOS 15 引入了其中一个最受期待的 List 功能。 你终于可以使用 <code>listRowSeparator</code> 修饰器并将其值设置为 <code>.hidden</code> 以隐藏分隔线。以下是一个范例：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
@@ -1171,7 +1171,7 @@
 .listStyle(.plain)
 </code></pre>
 <p><code>listRowSeparator</code> 修饰器应该嵌入在 <code>List</code> 视图中。 要使列表分隔线再次出现，你可以将修饰器的值设置为<code>.visible</code>。 又或者你可以简单地删除 <code>listRowSeparator</code> 修饰器。</p>
-<p>如果你想对列表分隔线进行更精细的控制，可以使用<code>.listRowSeparator</code>修饰器内的 <code>edges</code>参数。 比如说，如果你想让分隔线保持在列表视图的顶部，你可以这样写程式码：</p>
+<p>如果你想对列表分隔线进行更精细的控制，可以使用<code>.listRowSeparator</code>修饰器内的 <code>edges</code>参数。 比如说，如果你想让分隔线保持在列表视图的顶部，你可以这样写代码：</p>
 <pre><code class="lang-swift">.listRowSeparator(.hidden, edges: .bottom)
 </code></pre>
 <h3 id="%E8%87%AA%E5%AE%9A%E7%BE%A9%E6%BB%BE%E5%8B%95%E5%8D%80%E5%9F%9F%E7%9A%84%E8%83%8C%E6%99%AF">自定义滚动区域的背景</h3>
@@ -1184,7 +1184,7 @@
 }
 .scrollContentBackground(<span class="hljs-type">Color</span>.yellow)
 </code></pre>
-<p>除了使用纯色之外，你还可以使用图像作为背景。 更新这样的程式码试试：</p>
+<p>除了使用纯色之外，你还可以使用图像作为背景。 更新这样的代码试试：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
     .
     .

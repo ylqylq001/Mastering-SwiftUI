@@ -891,7 +891,7 @@
 <p>Live Text API 只支援 2018 年后推出、有 Neural Engine 的设备。另外，我们也要检查 availability，来确保使用者批准 App 使用资料扫描器：</p>
 <pre><code class="lang-swift"><span class="hljs-type">DataScannerViewController</span>.isAvailable
 </code></pre>
-<p>通过两项检查后，我们就可以开始扫描了。让我们看看以下范例程式码，来启用有 Live Text 功能的相机：</p>
+<p>通过两项检查后，我们就可以开始扫描了。让我们看看以下范例代码，来启用有 Live Text 功能的相机：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> dataScanner = <span class="hljs-type">DataScannerViewController</span>(
                      recognizedDataTypes: [.text()],
                      qualityLevel: .balanced,
@@ -968,7 +968,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
     <span class="hljs-type">Coordinator</span>(<span class="hljs-keyword">self</span>)
 }
 </code></pre>
-<p>我们会检查辨别到的物件，如果辨别到任何文本，就会把它储存。最后，在 <code>makeUIViewController</code> 方法中插入这行程式码来配置 delegate：</p>
+<p>我们会检查辨别到的物件，如果辨别到任何文本，就会把它储存。最后，在 <code>makeUIViewController</code> 方法中插入这行代码来配置 delegate：</p>
 <pre><code class="lang-swift">controller.delegate = context.coordinator
 </code></pre>
 <p>现在，控制器已经可以在 SwiftUI 视图中使用了。</p>
@@ -982,7 +982,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> startScanning = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> scanText = <span class="hljs-string">&quot;&quot;</span>
 </code></pre>
-<p>在 <code>body</code> 的部分，让我们这样更新程式码：</p>
+<p>在 <code>body</code> 的部分，让我们这样更新代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span>(spacing: <span class="hljs-number">0</span>) {
     <span class="hljs-type">DataScanner</span>(startScanning: $startScanning, scanText: $scanText)
         .frame(height: <span class="hljs-number">400</span>)

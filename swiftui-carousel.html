@@ -894,7 +894,7 @@
 <li><code>TripCardView.swift</code> 已建立了卡片视图的 UI。 每个卡片视图都旨在显示目的地的图像。 <code>isShowDetails</code> 绑定控制文字标签的外观。 当 <code>isShowDetails</code> 设定为 true 时，标签将被隐藏。</li>
 </ol>
 <h3 id="%E6%BB%BE%E5%8B%95%E8%A6%96%E5%9C%96%E7%9A%84%E5%95%8F%E9%A1%8C">滚动视图的问题</h3>
-<p>那么，你将如何在 SwiftUI 中实作轮播呢？ 你或会想到使用滚动视图来创建轮播。 可能你会像这样在 <code>ContentView.swift</code> 中加入以下程式码：</p>
+<p>那么，你将如何在 SwiftUI 中实作轮播呢？ 你或会想到使用滚动视图来创建轮播。 可能你会像这样在 <code>ContentView.swift</code> 中加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isCardTapped = <span class="hljs-built_in">false</span>
@@ -917,8 +917,8 @@
     }
 }
 </code></pre>
-<p>在上面的程式码中，我们嵌入了一个带有水平 ScrollView 的 HStack 来创建图像滑块。 在 <code>HStack</code> 中，我们为每个行程创建一个 <code>TripCardView</code>。 为了更好地控制卡片大小，我们有两个 GeometryReader：<em>outerView</em> 和 <em>innerView</em>，其中<em>outerView</em>存放装置荧幕的大小，<em>innerView</em>包裹着卡片视图以控制其大小。 如果你不明白什么是<code>GeometryReader</code>，请先读第26章。</p>
-<p>这看起来很简单，对吧？ 如果你在预览画面中运行程式码，它应该会产生一个水平滚动视图。 你可以滑动荧幕浏览所有卡片视图。</p>
+<p>在上面的代码中，我们嵌入了一个带有水平 ScrollView 的 HStack 来创建图像滑块。 在 <code>HStack</code> 中，我们为每个行程创建一个 <code>TripCardView</code>。 为了更好地控制卡片大小，我们有两个 GeometryReader：<em>outerView</em> 和 <em>innerView</em>，其中<em>outerView</em>存放装置荧幕的大小，<em>innerView</em>包裹着卡片视图以控制其大小。 如果你不明白什么是<code>GeometryReader</code>，请先读第26章。</p>
+<p>这看起来很简单，对吧？ 如果你在预览画面中运行代码，它应该会产生一个水平滚动视图。 你可以滑动荧幕浏览所有卡片视图。</p>
 <figure id="fig27.4"><img src="images/carousel/swiftui-carousel-4.png" alt="图 27.4. 滑动荧幕浏览图片"><figcaption>图 27.4. 滑动荧幕浏览图片</figcaption></figure>
 <p>这是否意味着我们已经实作了轮播？ 还未。 有两个主要问题：</p>
 <ol>
@@ -931,7 +931,7 @@
 <p>想法是将所有卡片视图（即行程）布局在水平堆栈（<code>HStack</code>）中。 <code>HStack</code> 要有足够长度以容纳所有卡片视图，但在任何时候只显示一个卡片视图。 在预设情况下，水平堆栈是不支援滚动的。 因此，我们需要将拖动手势识别器附加到堆栈视图并自行处理拖动。 图 27.5 以图解方式说明了如何实作水平滚动视图。</p>
 <figure id="fig27.5"><img src="images/carousel/swiftui-carousel-5.png" alt="图 27.5. 了解如何使用 HStack 和 DragGesture 创建水平滚动视图"><figcaption>图 27.5. 了解如何使用 HStack 和 DragGesture 创建水平滚动视图</figcaption></figure>
 <h4 id="%E8%87%AA%E5%BB%BAscrollview">自建ScrollView</h4>
-<p>现在让我们看看如何将这个想法转化为程式码。 请容忍一下，因为你需要多次更改程式码。 我想将每一个步骤都展现出来。 打开 <code>Content.swift</code> 并像这样更新 <code>body</code>：</p>
+<p>现在让我们看看如何将这个想法转化为代码。 请容忍一下，因为你需要多次更改代码。 我想将每一个步骤都展现出来。 打开 <code>Content.swift</code> 并像这样更新 <code>body</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">HStack</span> {
         <span class="hljs-type">ForEach</span>(sampleTrips.<span class="hljs-built_in">indices</span>) { index <span class="hljs-keyword">in</span>
@@ -940,9 +940,9 @@
     }
 }
 </code></pre>
-<p>在上面的程式码，我们首先在 <code>HStack</code> 中布置所有卡片视图。 水平堆栈会尽力在可用的荧幕空间容纳所有卡片视图。 你应该在预览画面中看到类似于图 27.6 的画面。</p>
+<p>在上面的代码，我们首先在 <code>HStack</code> 中布置所有卡片视图。 水平堆栈会尽力在可用的荧幕空间容纳所有卡片视图。 你应该在预览画面中看到类似于图 27.6 的画面。</p>
 <figure id="fig27.6"><img src="images/carousel/swiftui-carousel-6.png" alt="图 27.6. 挤压所有卡片视图以填满整个荧幕"><figcaption>图 27.6. 挤压所有卡片视图以填满整个荧幕</figcaption></figure>
-<p>这显然不是我们想要构建的水平堆栈。 我们希望每个卡片视图都占据荧幕的宽度。 为此，我们必须将 HStack 嵌入在 GeometryReader 中以读取荧幕尺寸。 像这样更新 <code>body</code> 中的程式码：</p>
+<p>这显然不是我们想要构建的水平堆栈。 我们希望每个卡片视图都占据荧幕的宽度。 为此，我们必须将 HStack 嵌入在 GeometryReader 中以读取荧幕尺寸。 像这样更新 <code>body</code> 中的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">GeometryReader</span> { outerView <span class="hljs-keyword">in</span>
         <span class="hljs-type">HStack</span> {
@@ -974,7 +974,7 @@
 <pre><code class="lang-swift"><span class="hljs-type">HStack</span>(spacing: <span class="hljs-number">0</span>)
 </code></pre>
 <h4 id="%E5%8A%A0%E5%85%A5-padding">加入 padding</h4>
-<p>想做得好一点，你可以为图像添加padding， 我认为这会使卡片视图看起来更好。 加入以下程式码并将它附加到包裹卡片视图的<code>GeometryReader</code>（在<code>.frame（width：outerView.size.width，height：500）</code>之前）：</p>
+<p>想做得好一点，你可以为图像添加padding， 我认为这会使卡片视图看起来更好。 加入以下代码并将它附加到包裹卡片视图的<code>GeometryReader</code>（在<code>.frame（width：outerView.size.width，height：500）</code>之前）：</p>
 <pre><code class="lang-swift">.padding(.horizontal, <span class="hljs-keyword">self</span>.isCardTapped ? <span class="hljs-number">0</span> : <span class="hljs-number">20</span>)
 </code></pre>
 <p>虽然现在谈论详细视图的实作还是有点过早，但我们为<code>padding</code>添加了一个条件。 当使用者点击卡片视图时，水平填充将被删除。</p>
@@ -983,7 +983,7 @@
 <p>现在我们已经建立了一个能显示第一个卡片视图的水平堆栈，下一个问题是我们如何移动堆栈以显示特定卡片图？</p>
 <p>这只是简单的数学！ 卡片视图的宽度等于荧幕的宽度。 假设荧幕宽度为 300 点，我们要显示第三个卡片视图，我们可以将堆栈向左移动 600 点（300 x 2）。 图 27.12 显示了结果。</p>
 <figure id="fig27.12"><img src="images/carousel/swiftui-carousel-12.png" alt="图 27.12. 将堆栈向左移动"><figcaption>图 27.12. 将堆栈向左移动</figcaption></figure>
-<p>要将上面的描述翻译成程式码，我们首先宣告一个状态变数来存放显示于荧幕卡片视图的索引：</p>
+<p>要将上面的描述翻译成代码，我们首先宣告一个状态变数来存放显示于荧幕卡片视图的索引：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> currentTripIndex = <span class="hljs-number">2</span>
 </code></pre>
 <p>在预设情况下，我想显示第三张卡片视图。 这就是我将 <code>currentTripIndex</code> 变数设定为 2 的原因。你可以更改它为其他值。</p>
@@ -1002,7 +1002,7 @@
 <li>当拖动距离超过一定数值时，堆栈会根据拖动方向移动到下一个或上一个卡片视图。</li>
 <li>否则，堆栈视图返回原本的位置并显示当前卡片视图。</li>
 </ol>
-<p>要将上面的描述翻译成程式码，我们首先宣告一个变数来保存拖动的偏移值：</p>
+<p>要将上面的描述翻译成代码，我们首先宣告一个变数来保存拖动的偏移值：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragOffset: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0</span>
 </code></pre>
 <p>接下来，我们将<code>.gesture</code>修饰器附加到<code>HStack</code>并像这样初始化<code>DragGesture</code>：</p>
@@ -1032,7 +1032,7 @@
 <p>在这里，我们将堆栈视图的水平偏移值更新为拖动偏移值。 现在你可以准备测试App。 在模拟器或预览画面中运行App，你应该能够拖动堆栈视图。 当你的拖动超过一定距离时，堆栈视图会显示下一个行程。</p>
 <figure id="fig27.14"><img src="images/carousel/swiftui-carousel-14.png" alt="图 27.14. 拖动堆栈视图"><figcaption>图 27.14. 拖动堆栈视图</figcaption></figure>
 <h3 id="%E5%8A%A0%E5%85%A5%E5%8B%95%E7%95%AB">加入动画</h3>
-<p>为了提升使用者体验，我想在App从一个卡片视图移动到另一个卡片视图时添加一个漂亮的动画。 首先，修改以下这行程式码：</p>
+<p>为了提升使用者体验，我想在App从一个卡片视图移动到另一个卡片视图时添加一个漂亮的动画。 首先，修改以下这行代码：</p>
 <pre><code class="lang-swift">.frame(width: outerView.size.width, height: <span class="hljs-number">500</span>)
 </code></pre>
 <p>将它改写成：</p>
@@ -1041,7 +1041,7 @@
 <p>我们将荧幕显示的卡片视图稍为放大一点。 另外，将 <code>.opacity</code> 修饰器附加到卡片视图，如下所示：</p>
 <pre><code class="lang-swift">.opacity(<span class="hljs-keyword">self</span>.currentTripIndex == index ? <span class="hljs-number">1.0</span> : <span class="hljs-number">0.7</span>)
 </code></pre>
-<p>除了卡片视图的高度，我们还想为可见和隐藏的卡片视图设置不同的<code>opacity</code>值。 以上这些变化还没有动画化， 现在将以下程式码加入到外部视图的 GeometryReader 中：</p>
+<p>除了卡片视图的高度，我们还想为可见和隐藏的卡片视图设置不同的<code>opacity</code>值。 以上这些变化还没有动画化， 现在将以下代码加入到外部视图的 GeometryReader 中：</p>
 <pre><code class="lang-swift">.animation(.interpolatingSpring(mass: <span class="hljs-number">0.6</span>, stiffness: <span class="hljs-number">100</span>, damping: <span class="hljs-number">10</span>, initialVelocity: <span class="hljs-number">0.3</span>), value: dragOffset)
 </code></pre>
 <p>就是这样， SwiftUI 会自动为卡片视图的移动加入动画。 在预览画布中运行App以测试更改。 </p>
@@ -1050,7 +1050,7 @@
 <p>既然我们已经构建了图像轮播，现在就再为这 App 实作详细视图， 让我们由添加标题开始。</p>
 <p>按Command键再点击外部视图（outerView）的<code>GeometryReader</code>并选择<em>embed in ZStack</em>。</p>
 <figure id="fig27.16"><img src="images/carousel/swiftui-carousel-16.png" alt="图 27.16. 选择 Embed in Stack"><figcaption>图 27.16. 选择 Embed in Stack</figcaption></figure>
-<p>接下来，在 <code>ZStack</code> 的开头插入以下程式码：</p>
+<p>接下来，在 <code>ZStack</code> 的开头插入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span>(alignment: .leading) {
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Discover&quot;</span>)
         .font(.system(.largeTitle, design: .rounded))
@@ -1065,10 +1065,10 @@
 .opacity(<span class="hljs-keyword">self</span>.isCardTapped ? <span class="hljs-number">0.1</span> : <span class="hljs-number">1.0</span>)
 .offset(y: <span class="hljs-keyword">self</span>.isCardTapped ? -<span class="hljs-number">100</span> : <span class="hljs-number">0</span>)
 </code></pre>
-<p>上面的程式码应该不用解释吧，但我想特别指出两行程式码。 <code>.opacity</code> 和 <code>.offset</code> 都是可有可无的。 <code>.opacity</code> 修饰器的目的是在点击卡片视图时隐藏标题，而<code>.offset</code>会进一步提升使用者体验。</p>
+<p>上面的代码应该不用解释吧，但我想特别指出两行代码。 <code>.opacity</code> 和 <code>.offset</code> 都是可有可无的。 <code>.opacity</code> 修饰器的目的是在点击卡片视图时隐藏标题，而<code>.offset</code>会进一步提升使用者体验。</p>
 <figure id="fig27.17"><img src="images/carousel/swiftui-carousel-17.png" alt="图 27.17. 加入标题"><figcaption>图 27.17. 加入标题</figcaption></figure>
 <h3 id="%E7%B7%B4%E7%BF%92%EF%BC%9A%E8%99%95%E7%90%86%E8%A9%B3%E7%B4%B0%E8%A6%96%E5%9C%96">练习：处理详细视图</h3>
-<p>让我们通过一个练习来开始详细视图的实作。 我假设你对 SwiftUI 有一定的经验，并且应该能够建立图 27.18 的详细视图。你可以建立一个名为<code>TripDetailView.swift</code>的文件并在那里编写程式码。</p>
+<p>让我们通过一个练习来开始详细视图的实作。 我假设你对 SwiftUI 有一定的经验，并且应该能够建立图 27.18 的详细视图。你可以建立一个名为<code>TripDetailView.swift</code>的文件并在那里编写代码。</p>
 <figure id="fig27.18"><img src="images/carousel/swiftui-carousel-18.png" alt="图 27.18. 行程详细视图"><figcaption>图 27.18. 行程详细视图</figcaption></figure>
 <p>为简单起见，评级和描述都只是一些 hardcode 的资料。 <em>Book Now</em> 按钮也是如此，它不能运作的。 这个详细视图的框架大概就是这样：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TripDetailView</span>: <span class="hljs-title">View</span> </span>{
@@ -1153,7 +1153,7 @@
     }
 }
 </code></pre>
-<p>基本上，我们将整个内容嵌入到滚动视图中。 在滚动视图中，我们使用 ZStack 来布局内容和书签图像。 由于 <code>TripDetailView</code> 需要提供<code>destination</code> 参数才能正常运作，因此你需要像这样更新预览程式码：</p>
+<p>基本上，我们将整个内容嵌入到滚动视图中。 在滚动视图中，我们使用 ZStack 来布局内容和书签图像。 由于 <code>TripDetailView</code> 需要提供<code>destination</code> 参数才能正常运作，因此你需要像这样更新预览代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TripDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">TripDetailView</span>(destination: <span class="hljs-string">&quot;London&quot;</span>).background(<span class="hljs-type">Color</span>.black)
@@ -1164,7 +1164,7 @@
 <figure id="fig27.19"><img src="images/carousel/swiftui-carousel-19.png" alt="图 27.19. 预览图"><figcaption>图 27.19. 预览图</figcaption></figure>
 <h3 id="%E5%BD%88%E5%87%BA%E8%A9%B3%E7%B4%B0%E8%A6%96%E5%9C%96">弹出详细视图</h3>
 <p>现在让我们回到 <code>ContentView.swift</code> ，我们要作少少修改。 当使用者点击卡片视图时，我们将显示带有动画过渡的详细视图。 由于<code>ContentView</code>有一个 ZStack，因此我们很容易与详细视图整合。</p>
-<p>在 <code>ZStack</code> 中插入以下程式码：</p>
+<p>在 <code>ZStack</code> 中插入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.isCardTapped {
     <span class="hljs-type">TripDetailView</span>(destination: sampleTrips[currentTripIndex].destination)
         .offset(y: <span class="hljs-number">200</span>)
@@ -1185,16 +1185,16 @@
 
 }
 </code></pre>
-<p><code>TripDetailView</code> 只有在卡片视图被点击时才会出现， 而详细视图将从荧幕底部出现并以动画方式向上移动。 这就是我们将 <code>.transition</code> 和 <code>.animation</code> 修饰器附加到详细视图的原因。 为了让使用者能关闭详细视图，我们还添加了一个关闭按钮。该按钮显示在荧幕的右上角。 如果你不确定在那里加入上面的程式码，请参考图 27.20。</p>
-<figure id="fig27.20"><img src="images/carousel/swiftui-carousel-20.png" alt="图 27.20. 就在这里加入程式码"><figcaption>图 27.20. 就在这里加入程式码</figcaption></figure>
-<p>还未完成喔！因为我们还没有加入程式码侦测点击手势。 将 <code>.onTapGesture</code> 函数附加到卡片视图，如下所示：</p>
+<p><code>TripDetailView</code> 只有在卡片视图被点击时才会出现， 而详细视图将从荧幕底部出现并以动画方式向上移动。 这就是我们将 <code>.transition</code> 和 <code>.animation</code> 修饰器附加到详细视图的原因。 为了让使用者能关闭详细视图，我们还添加了一个关闭按钮。该按钮显示在荧幕的右上角。 如果你不确定在那里加入上面的代码，请参考图 27.20。</p>
+<figure id="fig27.20"><img src="images/carousel/swiftui-carousel-20.png" alt="图 27.20. 就在这里加入代码"><figcaption>图 27.20. 就在这里加入代码</figcaption></figure>
+<p>还未完成喔！因为我们还没有加入代码侦测点击手势。 将 <code>.onTapGesture</code> 函数附加到卡片视图，如下所示：</p>
 <pre><code class="lang-swift">.onTapGesture {
     <span class="hljs-keyword">self</span>.isCardTapped = <span class="hljs-built_in">true</span>
 }
 </code></pre>
 <p>当使用者点击卡片视图时，我们只需将 <code>isCardTapped</code> 状态变数更改为 <code>true</code>。 运行App并点击任何卡片视图，它应显示详细视图。</p>
 <figure id="fig27.21"><img src="images/carousel/swiftui-carousel-21.png" alt="图 27.21. 加入 onTapGesture"><figcaption>图 27.21. 加入 onTapGesture</figcaption></figure>
-<p>成功了！ 但是，动画效果并不太好。 当详细视图弹出时，卡片视图会变大一点，这是下面程式码做成的：</p>
+<p>成功了！ 但是，动画效果并不太好。 当详细视图弹出时，卡片视图会变大一点，这是下面代码做成的：</p>
 <pre><code class="lang-swift">.frame(width: outerView.size.width, height: <span class="hljs-keyword">self</span>.currentTripIndex == index ? (<span class="hljs-keyword">self</span>.isCardTapped ? outerView.size.height : <span class="hljs-number">450</span>) : <span class="hljs-number">400</span>)
 </code></pre>
 <p>为了让动画看起来更流畅，让我们在详细视图出现时将图像向上移动。 将 <code>.offset</code> 修饰器附加到 <code>TripCardView</code>：</p>
@@ -1203,7 +1203,7 @@
 <p>我将垂直 offset 设定为卡片视图高度的 30%， 你可以自由更改该值。 现在再次执行App，你应该会看到更流畅的动画。</p>
 <figure id="fig27.22"><img src="images/carousel/swiftui-carousel-22.png" alt="图 27.22. 在 TripCardView 添加offset修饰器"><figcaption>图 27.22. 在 TripCardView 添加offset修饰器</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>酷！ 你已经构建了一个支援分页的客制化滚动视图，并学习了如何加入过场动画。 该技术不限于图像轮播。 实际上，你可以修改程式码以建立一组onboarding screens。 我希望你喜欢本章所介绍的东西，并将它应用到你的下一个App。</p>
+<p>酷！ 你已经构建了一个支援分页的客制化滚动视图，并学习了如何加入过场动画。 该技术不限于图像轮播。 实际上，你可以修改代码以建立一组onboarding screens。 我希望你喜欢本章所介绍的东西，并将它应用到你的下一个App。</p>
 <p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUICarousel.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUICarousel.zip</a></p>
 

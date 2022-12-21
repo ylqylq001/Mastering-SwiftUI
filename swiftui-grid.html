@@ -879,7 +879,7 @@
                         <h1 id="%E7%AC%AC-44-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8grid-api-%E5%89%B5%E5%BB%BA%E7%B6%B2%E6%A0%BC%E4%BD%88%E5%B1%80">第 44 章<br>使用Grid API 创建网格布局</h1>
 <p>SwiftUI 4.0 引入了一个新的 <code>Grid</code> API 来组成基于网格的布局。 你可以使用 <code>VStack</code> 和 <code>HStack</code> 安排相同的布局。 然而，<code>Grid</code> 视图使其变得容易得多。 <code>Grid</code> 视图是一种容器视图，它以二维布局排列其他视图。</p>
 <h3 id="%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">基本用法</h3>
-<p>让我们从一个简单的网格开始。 要创建一个 2x2 网格，你可以编写如下程式码：</p>
+<p>让我们从一个简单的网格开始。 要创建一个 2x2 网格，你可以编写如下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">Grid</span> {
@@ -902,7 +902,7 @@
 <figure id="fig44.2"><img src="images/grid/swiftui-grid-2.png" alt="图 44.2. 一个 3x3 的网格"><figcaption>图 44.2. 一个 3x3 的网格</figcaption></figure>
 <h3 id="%E6%AF%94%E8%BC%83%E7%B6%B2%E6%A0%BC%E8%A6%96%E5%9C%96%E5%92%8C%E5%A0%86%E6%A3%A7%E8%A6%96%E5%9C%96">比较网格视图和堆栈视图</h3>
 <p>你可能想知道为什么我们需要使用 <code>Grid</code> API。 我们其实可以使用 <code>HStack</code> 和 <code>VStack</code>创建相同的网格 UI。 那么，苹果为什么要引入这个新的 API？ 对！你可以使用堆栈视图构建相同的网格。 然而，有一个主要的区别使得 <code>Grid</code> 视图在构建网格布局时更受欢迎。</p>
-<p>让我们使用下面的程式码创建另一个 2x2 网格：</p>
+<p>让我们使用下面的代码创建另一个 2x2 网格：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">Grid</span> {
@@ -923,7 +923,7 @@
 </code></pre>
 <p>这次，第一行显示两个系统图像，第二行显示彩色视图。 您的预览应显示如下所示的网格。</p>
 <figure id="fig44.3"><img src="images/grid/swiftui-grid-3.png" alt="图 44.3. 2x2 网格以显示图像和颜色视图"><figcaption>图 44.3. 2x2 网格以显示图像和颜色视图</figcaption></figure>
-<p>要使用嵌套的<code>VStack</code>和<code>HStack</code>构建相同的网格布局，我们可以编写如下程式码：</p>
+<p>要使用嵌套的<code>VStack</code>和<code>HStack</code>构建相同的网格布局，我们可以编写如下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">HStack</span> {
         <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;trash&quot;</span>)
@@ -1005,11 +1005,11 @@
     }
 }
 </code></pre>
-<p>如果我们想为网格中心的单元格显示一个空白视图怎么办？ 为此，你可以使用以下程式码添加一个空白单元格：</p>
+<p>如果我们想为网格中心的单元格显示一个空白视图怎么办？ 为此，你可以使用以下代码添加一个空白单元格：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Color</span>.clear
     .gridCellUnsizedAxes([.horizontal, .vertical])
 </code></pre>
-<p>如果用上面的程式码替换中心单元格，你将在网格中心看到一个空白单元格。</p>
+<p>如果用上面的代码替换中心单元格，你将在网格中心看到一个空白单元格。</p>
 <figure id="fig44.6"><img src="images/grid/swiftui-grid-6.png" alt="图 44.6. 加入空白格"><figcaption>图 44.6. 加入空白格</figcaption></figure>
 <p><code>gridCellUnsizedAxes</code> 修饰器可防止空白单元格占用的空间超过行或列中其他单元格所需的空间。 如果省略修饰器，就会出现如图 7 所示的网格布局。</p>
 <figure id="fig44.7"><img src="images/grid/swiftui-grid-7.png" alt="图 44.7. 省略 gridCellUnsizedAxes 修饰器"><figcaption>图 44.7. 省略 gridCellUnsizedAxes 修饰器</figcaption></figure>
@@ -1031,12 +1031,12 @@
   .
 }
 </code></pre>
-<p>如果你更改了程式码，黑框应与单元格底部就会对齐。</p>
+<p>如果你更改了代码，黑框应与单元格底部就会对齐。</p>
 <figure id="fig44.9"><img src="images/grid/swiftui-grid-9.png" alt="图 44.9. 设置对齐方式"><figcaption>图 44.9. 设置对齐方式</figcaption></figure>
 <p>要更改预设对齐设置，单元格本身可以附加 <code>gridCellAnchor</code> 修饰器来更改对齐方式。 图 44.10 显示了一个示例。</p>
 <figure id="fig44.10"><img src="images/grid/swiftui-grid-10.png" alt="图 44.10. 更改预设对齐设置"><figcaption>图 44.10. 更改预设对齐设置</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p><code>Grid</code> API 为开发人员提供了构建基于网格的布局的更多选项。 你可以使用<code>HStack</code>和<code>VStack</code>来构建类似的布局。 但是 <code>Grid</code> 视图可以为你节省大量代码并使你的程式码更具可读性。 如果你的App只需要支持最新版本的 iOS，可以尝试使用 <code>Grid</code> API 来构建一些有趣的布局。</p>
+<p><code>Grid</code> API 为开发人员提供了构建基于网格的布局的更多选项。 你可以使用<code>HStack</code>和<code>VStack</code>来构建类似的布局。 但是 <code>Grid</code> 视图可以为你节省大量代码并使你的代码更具可读性。 如果你的App只需要支持最新版本的 iOS，可以尝试使用 <code>Grid</code> API 来构建一些有趣的布局。</p>
 <p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGrid.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGrid.zip</a></li>

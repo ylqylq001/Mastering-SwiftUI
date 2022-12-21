@@ -880,7 +880,7 @@
 <p>在 iOS 16 中，SwiftUI 带来了一个新的视图 <code>ShareLink</code>。使用者点击 Share Link 时，视图就会显示一个 Share Sheet，让使用者可以分享内容到其他 App 或复制资料。</p>
 <p><code>ShareLink</code> 视图可以分享任何型别的资料。此章我们会一起看看如何使用 <code>ShareLink</code> 让使用者分享文本、URL 和图像。</p>
 <h3 id="sharelink-%E7%9A%84%E5%9F%BA%E7%A4%8E%E4%BD%BF%E7%94%A8">ShareLink 的基础使用</h3>
-<p>让我们先看看以下例子。如果想建立一个 Share Link 来分享一个 URL，我们可以如此编写程式码：</p>
+<p>让我们先看看以下例子。如果想建立一个 Share Link 来分享一个 URL，我们可以如此编写代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     private <span class="hljs-keyword">let</span> url = <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://www.appcoda.com&quot;</span>)!
 
@@ -919,7 +919,7 @@
 <p>我们可以使用 <code>subject</code> 参数和 <code>message</code> 参数，分别为 URL 或想分享的项目添加 title 和描述。iOS 会根据使用者想要分享的途径，去决定要显示 subject、message、或是两者都显示。比如说，如果我们想要把 URL 添加到 <em>Reminders</em>，Reminders App 就会显示预设的讯息。</p>
 <figure id="fig40.4"><img src="images/sharelink/swiftui-sharelink-reminders.png" alt="图 40.4. Reminders App 显示预设的讯息"><figcaption>图 40.4. Reminders App 显示预设的讯息</figcaption></figure>
 <h3 id="%E5%88%86%E4%BA%AB%E5%9C%96%E5%83%8F">分享图像</h3>
-<p>除了 URL 外，我们还可以利用 <code>ShareLink</code> 来分享图像。让我们看看以下的范例程式码：</p>
+<p>除了 URL 外，我们还可以利用 <code>ShareLink</code> 来分享图像。让我们看看以下的范例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     private <span class="hljs-keyword">let</span> photo = <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;bigben&quot;</span>)
 
@@ -965,7 +965,7 @@
     }
 }
 </code></pre>
-<p>我们有不同的 Transfer Representation，包括：<code>ProxyRepresentation</code>、<code>CodableRepresentation</code>、<code>DataRepresentation</code>、和 <code>FileRepresentation</code>。在以上的程式码中，我们使用了 <code>ProxyRepresentation</code>，它会使用另一种型别的 Transfer Representation 作为自己的 Representation。 在这里，我们使用了 <code>Image</code> 内建的 <code>Transferable</code> 协定。</p>
+<p>我们有不同的 Transfer Representation，包括：<code>ProxyRepresentation</code>、<code>CodableRepresentation</code>、<code>DataRepresentation</code>、和 <code>FileRepresentation</code>。在以上的代码中，我们使用了 <code>ProxyRepresentation</code>，它会使用另一种型别的 Transfer Representation 作为自己的 Representation。 在这里，我们使用了 <code>Image</code> 内建的 <code>Transferable</code> 协定。</p>
 <figure id="fig40.6"><img src="images/sharelink/swiftui-sharelink-photo-transferable.png" alt="图 40.6. 使用了 Image 内建的 Transferable 协定"><figcaption>图 40.6. 使用了 Image 内建的 Transferable 协定</figcaption></figure>
 <p>因为 <code>Photo</code> 现在遵从 <code>Transferable</code> 协定，我们就可以把 <code>Photo</code> 实例传递给 <code>ShareLink</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ShareLink</span>(item: photo, preview: <span class="hljs-type">SharePreview</span>(photo.caption, image: photo.image))
