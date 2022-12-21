@@ -247,7 +247,7 @@
                         
                             <b>11.</b>
                         
-                        导览UI与导览列客制化运用
+                        导航UI与导航列客制化运用
                     </a>
                 
             
@@ -1275,7 +1275,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <li><em>LoanCellView.swift</em> - 这是单元格视图。</li>
 <li><em>LoanFilterView.swift</em> - 这是显示筛选选项的视图。</li>
 </ul>
-<p>我们从单元格视图开始。在项目导览器中，在 <code>SwiftUIKivaLoan</code>  按右键，选择“New file...”，然后选取“SwiftUI View”模板，并将档案命名为 <code>LoanCellView.swift</code>。</p>
+<p>我们从单元格视图开始。在项目导航器中，在 <code>SwiftUIKivaLoan</code>  按右键，选择“New file...”，然后选取“SwiftUI View”模板，并将档案命名为 <code>LoanCellView.swift</code>。</p>
 <p>更新 <code>LoanCellView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanCellView</span>: <span class="hljs-title">View</span> </span>{
 
@@ -1337,7 +1337,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     }
 }
 </code></pre>
-<p>如果你已经阅读了第 10 章与第 11 章，则应该了解如何显示清单视图，并将其嵌入到导览视图中，这就是上面的代码所做的事情。在视图出现时将调用 <code>task</code> 函数，并且我们调用 <code>fetchLatestLoans()</code> 方法来从 Kiva 取得最新的贷款资料。</p>
+<p>如果你已经阅读了第 10 章与第 11 章，则应该了解如何显示清单视图，并将其嵌入到导航视图中，这就是上面的代码所做的事情。在视图出现时将调用 <code>task</code> 函数，并且我们调用 <code>fetchLatestLoans()</code> 方法来从 Kiva 取得最新的贷款资料。</p>
 <p>如果这是你第一次使用 .task ，它与 .onAppear 非常相似。 两者都允许你在视图出现时运行异步任务。 主要区别在于<code>.task</code>会在视图被销毁时自动取消任务。 在这种情况下更合适。</p>
 <p>现在，在预览中或模拟器上执行这个 App，你应该能够看到如图 21.9 所示的贷款纪录。</p>
 <figure id="fig21.9"><img src="images/json/swiftui-json-9.png" alt="图 21.9.　在清单视图中呈现贷款资料"><figcaption>图 21.9.　在清单视图中呈现贷款资料</figcaption></figure>
@@ -1408,7 +1408,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 </code></pre>
 <p>这个函数带入最大金额的值，并筛选低于该限额的那些贷款项目。</p>
 <p>酷 ！我们快完成了。</p>
-<p>让我们回到 <code>ContentView.swift</code> 来显示筛选器视图，我们要做的是在右上角加上一个导览列按钮。当使用者点击按钮时，App 会显示筛选器视图。</p>
+<p>让我们回到 <code>ContentView.swift</code> 来显示筛选器视图，我们要做的是在右上角加上一个导航列按钮。当使用者点击按钮时，App 会显示筛选器视图。</p>
 <p>我们首先声明两个状态变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> filterEnabled = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> maximumLoanAmount = <span class="hljs-number">10000.0</span>
@@ -1432,7 +1432,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     .navigationTitle(<span class="hljs-string">&quot;Kiva Loan&quot;</span>)
 }
 </code></pre>
-<p>我们添加了<code>LoanFilterView</code>并将其嵌入到 <code>VStack</code> 中。 <code>LoanFilterView</code> 的外观由 <code>filterEnabled</code> 控制。 当 <code>filterEnabled</code> 设置为 <code>true</code> 时，App将在列表视图的顶部插入贷款过滤器视图。 剩下的部分是导览列按钮，插入下列的代码，并将其放在 <code>.navigationBarTitle(&quot;Kiva Loan&quot;)</code> 的后面： </p>
+<p>我们添加了<code>LoanFilterView</code>并将其嵌入到 <code>VStack</code> 中。 <code>LoanFilterView</code> 的外观由 <code>filterEnabled</code> 控制。 当 <code>filterEnabled</code> 设置为 <code>true</code> 时，App将在列表视图的顶部插入贷款过滤器视图。 剩下的部分是导航列按钮，插入下列的代码，并将其放在 <code>.navigationBarTitle(&quot;Kiva Loan&quot;)</code> 的后面： </p>
 <pre><code class="lang-swift">.toolbar {
     <span class="hljs-type">ToolbarItem</span>(placement: .navigationBarTrailing) {
         <span class="hljs-type">Button</span> {
@@ -1448,8 +1448,8 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     }
 }
 </code></pre>
-<p>这将在右上角加入一个导览列按钮。当点击按钮后，我们切换 <code>filterEnabled</code> 的值来显示/ 隐藏筛选器视图。除此之外，我们调用 <code>filterLoans</code> 函数来筛选贷款项目。</p>
-<p>现在执行 App 来测试它，你应该会在导览列上看到一个筛选器按钮，点击它一次，将带出筛选器视图，然后你可以设定新的上限（例如：$500）。再次点击按钮，App 只会显示低于 $500的贷款纪录。</p>
+<p>这将在右上角加入一个导航列按钮。当点击按钮后，我们切换 <code>filterEnabled</code> 的值来显示/ 隐藏筛选器视图。除此之外，我们调用 <code>filterLoans</code> 函数来筛选贷款项目。</p>
+<p>现在执行 App 来测试它，你应该会在导航列上看到一个筛选器按钮，点击它一次，将带出筛选器视图，然后你可以设定新的上限（例如：$500）。再次点击按钮，App 只会显示低于 $500的贷款纪录。</p>
 <figure id="fig21.11"><img src="images/json/swiftui-json-11.png" alt="图 21.11.　显示筛选器视图"><figcaption>图 21.11.　显示筛选器视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>本章介绍了很多的内容，你应该知道如何使用 Web API、解析 JSON 内容，以及在清单视图中显示资料，我们还简要介绍了滑杆控制组件的用法。</p>

@@ -247,7 +247,7 @@
                         
                             <b>11.</b>
                         
-                        导览UI与导览列客制化运用
+                        导航UI与导航列客制化运用
                     </a>
                 
             
@@ -880,7 +880,7 @@
 <p>SwiftUI 列表视图 (list view) 和 UIKit 的 UITableView 很类似。在 SwiftUI 最初的版本中，Apple 的工程师已经把建立列表视图的过程变得轻而易举，我们不需要创建 prototype cell，也不需要委派 (delegate) 或 data source 的协议。我们只需要用几行代码，就可以使用客制化单元格来建构一个列表视图。</p>
 <p>在 iOS 14 （和以上版本），Apple 继续改善列表视图，并添加了一些新功能。在本篇教学文章中，我们将会看看如何建构一个展开式列表视图 (expandable list view) 或大纲视图 (outline view)，并探索 inset grouped 的列表样式 (list style)。</p>
 <h3 id="%E7%AF%84%E4%BE%8B-app">示例 App</h3>
-<p>首先，让我们看看本篇教学的成品。我十分喜欢 <a href="https://international.lamarzocco.com/en/" target="_blank">La Marzocco</a>，所以我用了它网站的导览选单 (navigation menu) 为例子。以下的列表视图展示了选单的大纲，使用者可以点击显示按钮来展开列表。</p>
+<p>首先，让我们看看本篇教学的成品。我十分喜欢 <a href="https://international.lamarzocco.com/en/" target="_blank">La Marzocco</a>，所以我用了它网站的导航选单 (navigation menu) 为例子。以下的列表视图展示了选单的大纲，使用者可以点击显示按钮来展开列表。</p>
 <figure id="fig28.1"><img src="images/expandablelist/swiftui-expandablelist-1.jpg" alt="图 28.1. 展开式列表视图"><figcaption>图 28.1. 展开式列表视图</figcaption></figure>
 <p>当然，你也可以用自己的实现方法，来建构这个大纲视图。但在最新版本的 SwiftUI 中，Apple 让开发者可以更简单地建构这种大纲视图，并自动适应于 iOS、iPadOS、和 macOS 版本。</p>
 <h3 id="%E5%BB%BA%E6%A7%8B%E5%A4%A7%E7%B6%B1%E8%A6%96%E5%9C%96">建构大纲视图</h3>

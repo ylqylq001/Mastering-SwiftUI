@@ -245,7 +245,7 @@
                         
                             <b>11.</b>
                         
-                        导览UI与导览列客制化运用
+                        导航UI与导航列客制化运用
                     </a>
                 
             
@@ -875,9 +875,9 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-46-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8%E6%96%B0%E7%9A%84-navigationstack-%E8%A6%96%E5%9C%96%E6%A7%8B%E5%BB%BA%E8%B3%87%E6%96%99%E5%B0%8E%E5%90%91%E7%9A%84%E5%B0%8E%E8%88%AA">第 46 章<br>使用新的 NavigationStack 视图构建资料导向的导航</h1>
-<p>在 iOS 开发中，导览视图 (Navigation View) 绝对是我们最常用的组件。在 SwiftUI 刚推出的时侯，就已经有一个 <code>NavigationView</code> 视图，让开发者可以构建基于导览的使用者界面。随着 iOS 16 的发布，Apple 弃用了旧的导览视图，并引入了一个新视图 <code>NavigationStack</code> 来呈现堆叠视图。更重要的是，开发者现在可以利用这个新视图来构建资料导向 (data driven) 的导航。</p>
+<p>在 iOS 开发中，导航视图 (Navigation View) 绝对是我们最常用的组件。在 SwiftUI 刚推出的时侯，就已经有一个 <code>NavigationView</code> 视图，让开发者可以构建基于导航的使用者界面。随着 iOS 16 的发布，Apple 弃用了旧的导航视图，并引入了一个新视图 <code>NavigationStack</code> 来呈现堆叠视图。更重要的是，开发者现在可以利用这个新视图来构建资料导向 (data driven) 的导航。</p>
 <h3 id="%E8%88%8A%E7%9A%84-navigation-views-%E7%9A%84%E6%93%8D%E4%BD%9C">旧的 Navigation Views 的操作</h3>
-<p>在 iOS 16 之前，我们会用 <code>NavigationView</code> 和 <code>NavigationLink</code> 如此构建导览介面：</p>
+<p>在 iOS 16 之前，我们会用 <code>NavigationView</code> 和 <code>NavigationLink</code> 如此构建导航介面：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationView</span> {
     <span class="hljs-type">NavigationLink</span> {
         <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Destination&quot;</span>)
@@ -886,8 +886,8 @@
     }
 }
 </code></pre>
-<p>以上代码会构建出一个基本的导览介面，当中有一个 <em>Tap me</em> 按钮。当我们点击按钮，App 就会导览到下一级，来显示目标视图。</p>
-<figure id="fig46.1"><img src="images/navigationstack/swiftui-navigationstack-1.png" alt="图 46.1. 基本的导览介面"><figcaption>图 46.1. 基本的导览介面</figcaption></figure>
+<p>以上代码会构建出一个基本的导航介面，当中有一个 <em>Tap me</em> 按钮。当我们点击按钮，App 就会导航到下一级，来显示目标视图。</p>
+<figure id="fig46.1"><img src="images/navigationstack/swiftui-navigationstack-1.png" alt="图 46.1. 基本的导航介面"><figcaption>图 46.1. 基本的导航介面</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-navigationstack">使用 NavigationStack</h3>
 <p>从 iOS 16 开始，我们可以用新的 <code>NavigationStack</code> 来取代 <code>NavigationView</code>。我们可以完全保留 <code>NavigationLink</code>，都会得到相同的结果。</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
@@ -905,7 +905,7 @@
     }
 }
 </code></pre>
-<p>要显示一个资料项目的列表，通常我们会使用导览视图来构建一个 master-detail flow。来看看以下的示例：</p>
+<p>要显示一个资料项目的列表，通常我们会使用导航视图来构建一个 master-detail flow。来看看以下的示例：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     private <span class="hljs-keyword">var</span> bgColors: [<span class="hljs-type">Color</span>] = [ .indigo, .yellow, .green, .orange, .brown ]
 
@@ -929,8 +929,8 @@
     }
 }
 </code></pre>
-<p>以上的代码会建立一个导览视图，来显示构建一个 master-detail 流程。当使用者选择了一个项目，App 就会导览到 detail 视图，并显示 color 视图。</p>
-<figure id="fig46.2"><img src="images/navigationstack/swiftui-navigationstack-2.png" alt="图 46.2. 一个 master-detail 导览视图"><figcaption>图 46.2. 一个 master-detail 导览视图</figcaption></figure>
+<p>以上的代码会建立一个导航视图，来显示构建一个 master-detail 流程。当使用者选择了一个项目，App 就会导航到 detail 视图，并显示 color 视图。</p>
+<figure id="fig46.2"><img src="images/navigationstack/swiftui-navigationstack-2.png" alt="图 46.2. 一个 master-detail 导航视图"><figcaption>图 46.2. 一个 master-detail 导航视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E5%9F%BA%E6%96%BC%E6%95%B8%E5%80%BC%E7%9A%84-navigation-links">建基于数值的 Navigation Links</h3>
 <p><code>NavigationStack</code> 引入了一个新修饰符 <code>navigationDestination</code>，用来把目标视图与呈现的资料型别连系。我们可以这样重新编写上一节的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
@@ -951,7 +951,7 @@
     .navigationTitle(<span class="hljs-string">&quot;Color&quot;</span>)
 }
 </code></pre>
-<p>我们还是会使用 <code>NavigationLinks</code> 来显示资料列表，并实现导览功能；不同之处是每个 <code>NavigationLink</code> 都连系着一个数值。更重要的是，我们添加了新的 <code>navigationDestination</code> 修饰符来捕捉数值的变化。当使用者选择特定的 link 时，<code>navigationDestination</code> 修饰符就会显示相应带有 <code>Color</code> 型别资料的目标视图。</p>
+<p>我们还是会使用 <code>NavigationLinks</code> 来显示资料列表，并实现导航功能；不同之处是每个 <code>NavigationLink</code> 都连系着一个数值。更重要的是，我们添加了新的 <code>navigationDestination</code> 修饰符来捕捉数值的变化。当使用者选择特定的 link 时，<code>navigationDestination</code> 修饰符就会显示相应带有 <code>Color</code> 型别资料的目标视图。</p>
 <p>如果我们在预览中测试这个 App，你会发现它的操作方式与之前完全相同。但是，内部的实现已经使用了新的 <code>navigationDestination</code> 修饰符。</p>
 <h3 id="%E5%A4%9A%E5%80%8B-navigation-destination-%E4%BF%AE%E9%A3%BE%E5%99%A8">多个 Navigation Destination 修饰器</h3>
 <p>我们可以定义多于一个 <code>navigationDestination</code> 修饰符，来处理不同型别的 Navigation Link。在之前的示例中，我们只有一个 <code>navigationDestination</code> 修饰符来处理 <code>Color</code> 型别。现在，让我们为 <code>String</code> 型别设置另一组 Navigation Link：</p>
@@ -967,22 +967,22 @@
 <p><code>systemImages</code> 变量会储存系统图像名称的数组 (array)。</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> systemImages: [<span class="hljs-type">String</span>] = [ <span class="hljs-string">&quot;trash&quot;</span>, <span class="hljs-string">&quot;cloud&quot;</span>, <span class="hljs-string">&quot;bolt&quot;</span> ]
 </code></pre>
-<p>在这个示例中，我们有两个型别的 Navigation Link，一个是 <code>Color</code>，另一个是 <code>String</code> 型别。让我们把另一个 <code>navigationDestination</code> 修饰器嵌入到堆叠中，来处理 <code>String</code> 型别的导览：</p>
+<p>在这个示例中，我们有两个型别的 Navigation Link，一个是 <code>Color</code>，另一个是 <code>String</code> 型别。让我们把另一个 <code>navigationDestination</code> 修饰器嵌入到堆叠中，来处理 <code>String</code> 型别的导航：</p>
 <pre><code class="lang-swift">.navigationDestination(<span class="hljs-keyword">for</span>: <span class="hljs-type">String</span>.<span class="hljs-keyword">self</span>) { systemImage <span class="hljs-keyword">in</span>
     <span class="hljs-type">Image</span>(systemName: systemImage)
         .font(.system(size: <span class="hljs-number">100.0</span>))
 }
 </code></pre>
-<p>现在，如果使用者点击其中一个系统图像名称，就会导览到另一个视图，来显示系统图像。</p>
+<p>现在，如果使用者点击其中一个系统图像名称，就会导航到另一个视图，来显示系统图像。</p>
 <figure id="fig46.3"><img src="images/navigationstack/swiftui-navigationstack-3.png" alt="图 46.3. Navigation Destination 修饰器"><figcaption>图 46.3. Navigation Destination 修饰器</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-navigation-%E7%8B%80%E6%85%8B">了解 Navigation 状态</h3>
-<p>与旧的 <code>NavigationView</code> 不同，新的 <code>NavigationStack</code> 让我们可以轻松地追踪导览的状态。<code>NavigationStack</code> 视图有另一个 initialization 方法，它有一个 <code>path</code> 参数 (parameter)，就是堆叠导览状态的 binding：</p>
+<p>与旧的 <code>NavigationView</code> 不同，新的 <code>NavigationStack</code> 让我们可以轻松地追踪导航的状态。<code>NavigationStack</code> 视图有另一个 initialization 方法，它有一个 <code>path</code> 参数 (parameter)，就是堆叠导航状态的 binding：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>(
     path: <span class="hljs-type">Binding</span>&lt;<span class="hljs-type">Data</span>&gt;,
     root: () -&gt; <span class="hljs-type">Root</span>
 ) <span class="hljs-keyword">where</span> <span class="hljs-type">Data</span> : <span class="hljs-type">MutableCollection</span>, <span class="hljs-type">Data</span> : <span class="hljs-type">RandomAccessCollection</span>, <span class="hljs-type">Data</span> : <span class="hljs-type">RangeReplaceableCollection</span>, <span class="hljs-type">Data</span>.<span class="hljs-type">Element</span> : <span class="hljs-type">Hashable</span>
 </code></pre>
-<p>如果我们想储存或管理导览状态，可以创建一个状态变量。以下是示例代码：</p>
+<p>如果我们想储存或管理导航状态，可以创建一个状态变量。以下是示例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     private <span class="hljs-keyword">var</span> bgColors: [<span class="hljs-type">Color</span>] = [ .indigo, .yellow, .green, .orange, .brown ]
 
@@ -1032,14 +1032,14 @@
     }
 }
 </code></pre>
-<p>这段代码与之前的示例有点相似，我们添加了一个 <code>path</code> 状态变量，它是 <code>Color</code> 的数组，用来储存导览状态。在 <code>NavigationStack</code> 进行 initialization 时，我们会传递它的 binding 来管理堆叠。当导览堆叠的状态发生变化时，<code>path</code> 变量的数值就会被自动更新。</p>
-<p>我更改了导览目的地，它会显示使用者选择的颜色，和另一个颜色列表以供使用者选择。</p>
+<p>这段代码与之前的示例有点相似，我们添加了一个 <code>path</code> 状态变量，它是 <code>Color</code> 的数组，用来储存导航状态。在 <code>NavigationStack</code> 进行 initialization 时，我们会传递它的 binding 来管理堆叠。当导航堆叠的状态发生变化时，<code>path</code> 变量的数值就会被自动更新。</p>
+<p>我更改了导航目的地，它会显示使用者选择的颜色，和另一个颜色列表以供使用者选择。</p>
 <figure id="fig46.4"><img src="images/navigationstack/swiftui-navigationstack-4.png" alt="图 46.4. 使用 path 变量"><figcaption>图 46.4. 使用 path 变量</figcaption></figure>
 <p>在上面的代码中，我们有一行代码来显示 path 的内容：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;<span class="hljs-subst">\(path.<span class="hljs-built_in">count</span>)</span>, <span class="hljs-subst">\(path.description)</span>&quot;</span>)
 </code></pre>
-<p><code>count</code> 属性 (property) 是指堆叠的 level，而 description 就是当前的颜色。举个例子，我们首先选择颜色 <em>indigo</em>，然后选择 <em>yellow</em>。在这个情况下，<code>count</code> 的数值就应该是 2<em>，</em>代表导览堆叠有 2 个 level。</p>
-<p>我们可以利用这个 <code>path</code> 变量，来以编程方式控制堆叠的导览。举个例子，我们可以添加一个按钮，让使用者直接跳转到堆叠的 root level，以下是示例代码：</p>
+<p><code>count</code> 属性 (property) 是指堆叠的 level，而 description 就是当前的颜色。举个例子，我们首先选择颜色 <em>indigo</em>，然后选择 <em>yellow</em>。在这个情况下，<code>count</code> 的数值就应该是 2<em>，</em>代表导航堆叠有 2 个 level。</p>
+<p>我们可以利用这个 <code>path</code> 变量，来以编程方式控制堆叠的导航。举个例子，我们可以添加一个按钮，让使用者直接跳转到堆叠的 root level，以下是示例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     path = .<span class="hljs-keyword">init</span>()
 } label: {
@@ -1048,8 +1048,8 @@
 .buttonStyle(.borderedProminent)
 .controlSize(.large)
 </code></pre>
-<p>我们可以重置 <code>path</code> 变量的数值，来指示导览堆叠返回 root level。</p>
-<p>大家可能已经知道，我们可以操纵 <code>path</code> 变量的数值，来控制导览堆叠的状态。举个例子，我们可以向 <code>path</code> 变量添加三种颜色，如此一来，当 <code>ContentView</code> 出现时，App 就会自动导览 3 个 level：</p>
+<p>我们可以重置 <code>path</code> 变量的数值，来指示导航堆叠返回 root level。</p>
+<p>大家可能已经知道，我们可以操纵 <code>path</code> 变量的数值，来控制导航堆叠的状态。举个例子，我们可以向 <code>path</code> 变量添加三种颜色，如此一来，当 <code>ContentView</code> 出现时，App 就会自动导航 3 个 level：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span>(path: $path) {
   .
   .
@@ -1061,8 +1061,8 @@
     path.append(.green)
 }
 </code></pre>
-<p>你可以试着执行 App，就会看到 App 自动导览了 3 层。如此一来，我们就可以以编程方式控制导览状态，并处理 deep linking。</p>
-<figure id="fig46.5"><img src="images/navigationstack/swiftui-navigationstack-5.png" alt="图 46.5. App 自动导览了 3 层"><figcaption>图 46.5. App 自动导览了 3 层</figcaption></figure>
+<p>你可以试着执行 App，就会看到 App 自动导航了 3 层。如此一来，我们就可以以编程方式控制导航状态，并处理 deep linking。</p>
+<figure id="fig46.5"><img src="images/navigationstack/swiftui-navigationstack-5.png" alt="图 46.5. App 自动导航了 3 层"><figcaption>图 46.5. App 自动导航了 3 层</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>iOS 16 推出的新 <code>NavigationStack</code>，可以让开发者轻松地构建资料导向的导航 UI。如果你的 App 不需要支持旧版本的 iOS，就可以利用这个新组件，来处理 deep linking 和复杂的 user flow。</p>
 

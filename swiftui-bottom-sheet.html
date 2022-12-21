@@ -247,7 +247,7 @@
                         
                             <b>11.</b>
                         
-                        导览UI与导览列客制化运用
+                        导航UI与导航列客制化运用
                     </a>
                 
             
@@ -886,7 +886,7 @@
 <h3 id="%E4%BA%86%E8%A7%A3%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">了解起始项目</h3>
 <p>为了节省你从头建立示例App 的时间，我已经为你准备好起始项目。你可以至</p>
 <p><a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip</a>  下载起始项目，并解压缩档案，并开启 <code>SwiftUIBottomSheet.xcodeproj</code> 来开始。</p>
-<p>起始项目已经提供一组餐厅图片及餐厅资料。如果你在项目导览器中查看“Model”资料夹，则应该会找到一个<code>Restaurant.swift</code> 档，此档案包含了 <code>Restaurant</code> 结构与一组示例餐厅资料。</p>
+<p>起始项目已经提供一组餐厅图片及餐厅资料。如果你在项目导航器中查看“Model”资料夹，则应该会找到一个<code>Restaurant.swift</code> 档，此档案包含了 <code>Restaurant</code> 结构与一组示例餐厅资料。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id: <span class="hljs-type">UUID</span> = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1158,7 +1158,7 @@
     }
 }
 </code></pre>
-<p>希望细节视图（即底部表）叠在清单视图的上方。为此，要使用 <code>ZStack</code> 嵌入导览视图。而在导览视图的正下方，我们将检查细节视图是否已启用，并将其初始化，如下所示： </p>
+<p>希望细节视图（即底部表）叠在清单视图的上方。为此，要使用 <code>ZStack</code> 嵌入导航视图。而在导航视图的正下方，我们将检查细节视图是否已启用，并将其初始化，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">ZStack</span> {
         <span class="hljs-type">NavigationView</span> {
@@ -1232,7 +1232,7 @@
 .edgesIgnoringSafeArea(.all)
 </code></pre>
 <p>在代码中，我们使用 <code>interpolatingSpring</code>  动画，刚性（stiffness ）、阻尼（damping ） 与初速度（initial velocity ）的值是可以更改的。你可以使用这些值来找到适合你的App 的最佳动画。</p>
-<p>此外，我还想在细节视图中加入一个精巧的动画，如此当我们带出细节视图时，它会稍微向上移动。回到<code>ContentView.swift</code>，在导览视图中加入 <code>.offset</code> 与 <code>.animation</code>修饰器： </p>
+<p>此外，我还想在细节视图中加入一个精巧的动画，如此当我们带出细节视图时，它会稍微向上移动。回到<code>ContentView.swift</code>，在导航视图中加入 <code>.offset</code> 与 <code>.animation</code>修饰器： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationView</span> {
     <span class="hljs-type">List</span> {
         ...
