@@ -926,7 +926,7 @@
 <figure id="fig5.7"><img src="images/scrollview/swiftui-scrollview-7.png" alt="图 5.7.　将图片与文字视图嵌入到 VStack 中"><figcaption>图 5.7.　将图片与文字视图嵌入到 VStack 中</figcaption></figure>
 <p>还没有完成，尚有几件事情需要实现。首先，如果文字叙述区块要与图片的边缘对齐，该如何做呢？ </p>
 <p>依照我们所学，我们可以在一个 <code>HStack</code> 嵌入文字视图的 <code>VStack</code>，然后我们将使用一个留白（ <code>Spacer</code> ）来将<code>VStack</code> 往左推，我们来看看是否可行。</p>
-<p>如果你已经变更代码，如图 5.8 所示，这个文字视图的VStack 会对齐屏幕的左侧。</p>
+<p>如果你已经修改代码，如图 5.8 所示，这个文字视图的VStack 会对齐屏幕的左侧。</p>
 <figure id="fig5.8"><img src="images/scrollview/swiftui-scrollview-8.png" alt="图 5.8.　文字叙述的对齐"><figcaption>图 5.8.　文字叙述的对齐</figcaption></figure>
 <p>最好是在 <code>HStack</code> 周围加入一些间距（ padding ）。插入 <code>padding</code> 修饰器如下，如图 5.9 所示 ：</p>
 <figure id="fig5.9"><img src="images/scrollview/swiftui-scrollview-9.png" alt="图 5.9. 加入一些文字叙述的间距"><figcaption>图 5.9. 加入一些文字叙述的间距</figcaption></figure>
@@ -1053,16 +1053,16 @@
     }
 }
 </code></pre>
-<p>我们在上列的代码中做了三个变更： </p>
+<p>我们在上列的代码中做了三个修改： </p>
 <ol>
 <li>我们传送一个 <code>.horizontal</code> 值，以在 <code>ScrollView</code> 中使用一个水平滚动视图。</li>
-<li>由于我们使用一个水平滚动视图，因此我们还需要将堆叠视图从 <code>VStack</code> 变更为 <code>HStack</code>。</li>
+<li>由于我们使用一个水平滚动视图，因此我们还需要将堆叠视图从 <code>VStack</code> 修改为 <code>HStack</code>。</li>
 <li>对于每个卡片视图，我们将框架的宽度设定为“300点”。这是必要的，因为要显示的图片太宽</li>
 </ol>
-<p>变更代码之后，你将看到卡片视图以水平排列且可以滚动，如图 5.15 所示。</p>
+<p>修改代码之后，你将看到卡片视图以水平排列且可以滚动，如图 5.15 所示。</p>
 <figure id="fig5.15"><img src="images/scrollview/swiftui-scrollview-15.png" alt="图 5.15 轮播 UI"><figcaption>图 5.15 轮播 UI</figcaption></figure>
 <h3 id="%E9%9A%B1%E8%97%8F%E6%BB%BE%E5%8B%95%E6%8C%87%E7%A4%BA%E5%99%A8">隐藏滚动指示器</h3>
-<p>在滚动视图时，屏幕底部附近有一个滚动指示器。这个指示器默认是显示的。如果你想要隐藏它，你可以将 <code>ScrollView</code> 的代码变更如下： </p>
+<p>在滚动视图时，屏幕底部附近有一个滚动指示器。这个指示器默认是显示的。如果你想要隐藏它，你可以将 <code>ScrollView</code> 的代码修改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal, showsIndicators: <span class="hljs-built_in">false</span>)
 </code></pre>
 <p>通过指定 <code>showIndicators</code> 为 <code>false</code>，iOS 将不再显示该指示器。</p>

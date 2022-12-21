@@ -1093,7 +1093,7 @@
 </code></pre>
 <p>这会将细节视图向下移动  300 点，如果你在预览画布中测试代码，则细节视图应该会移到屏幕的下半部，如图18.6 所示。</p>
 <figure id="fig18.6"><img src="images/bottom-sheet/swiftui-bottom-sheet-6.png" alt="图 18.6.　调整细节视图的偏移量"><figcaption>图 18.6.　调整细节视图的偏移量</figcaption></figure>
-<p>要使它看起来更像最终结果，你可以变更 <code>RestaurantDetailView_Previews</code> 的背景颜色如下： </p>
+<p>要使它看起来更像最终结果，你可以修改 <code>RestaurantDetailView_Previews</code> 的背景颜色如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">RestaurantDetailView</span>(restaurant: restaurants[<span class="hljs-number">0</span>])
@@ -1347,7 +1347,7 @@
         <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.viewState == .half {
             <span class="hljs-comment">// 界限值 #1</span>
             <span class="hljs-comment">// 向上滑动，当它超过界限值时</span>
-            <span class="hljs-comment">// 通过修改位置偏移量来变更视图状态为全部开启</span>
+            <span class="hljs-comment">// 通过修改位置偏移量来修改视图状态为全部开启</span>
             <span class="hljs-keyword">if</span> value.translation.height &lt; -geometry.size.height * <span class="hljs-number">0.25</span> {
                 <span class="hljs-keyword">self</span>.positionOffset = -geometry.size.height/<span class="hljs-number">2</span> + <span class="hljs-number">50</span>
                 <span class="hljs-keyword">self</span>.viewState = .full
@@ -1375,7 +1375,7 @@
     }
 }
 </code></pre>
-<p>同样的，你需要回到 <code>ContentView.swift</code>，来依照下列的内容进行变更：</p>
+<p>同样的，你需要回到 <code>ContentView.swift</code>，来依照下列的内容进行修改：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> selectedRestaurant = selectedRestaurant {
     <span class="hljs-type">RestaurantDetailView</span>(restaurant: selectedRestaurant, isShow: $showDetail)
         .transition(.move(edge: .bottom))
@@ -1429,7 +1429,7 @@
 </code></pre>
 <p>程序中，我们取得滚动的偏移量，并将至储存至偏好键（preference key）。我们使用 <code>Color.clear</code> 视图来隐藏视图。</p>
 <p>接下来的问题是如何从布局偏好取得滚动视图呢？</p>
-<p>一个简单的方式是使用  <code>.onPreferenceChange</code> 修饰器来观察值的变更。你可以加上修饰器至  <code>VStack</code>，并置于  <code>.gesture</code> 下方，如下所示：</p>
+<p>一个简单的方式是使用  <code>.onPreferenceChange</code> 修饰器来观察值的修改。你可以加上修饰器至  <code>VStack</code>，并置于  <code>.gesture</code> 下方，如下所示：</p>
 <pre><code class="lang-swift">.onPreferenceChange(<span class="hljs-type">ScrollOffsetKey</span>.<span class="hljs-keyword">self</span>) { value <span class="hljs-keyword">in</span>
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;<span class="hljs-subst">\(value)</span>&quot;</span>)
 }

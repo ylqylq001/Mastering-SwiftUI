@@ -1030,18 +1030,18 @@
 <p>现在，你应该能够运行 App，并进行设定了。当你储存设定之后，它将永久储存在本地默认系统中。你可尝试停止 App，然后再次启动它，储存的设定应已载入至设定画面中，如图 14.3 所示。</p>
 <figure id="fig14.3"><img src="images/formdata/swiftui-formdata-3.png" alt="图 14.3.　设定画面应该已载入你的使用者偏好"><figcaption>图 14.3.　设定画面应该已载入你的使用者偏好</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-environmentobject-%E5%9C%A8%E8%A6%96%E5%9C%96%E9%96%93%E5%85%B1%E4%BA%AB%E8%B3%87%E6%96%99">使用 @EnvironmentObject 在视图间共享数据</h3>
-<p>现在，使用者偏好已经储存在本地默认系统中，但是清单视图并没有依照使用者设定来变更。同样的，有多种方式可以解决这个问题。</p>
-<p>我们概括说明一下目前的情形，当使用者在设定画面中点击“Save”按钮，我们储存所选的选项至本地默认系统中，然后关闭设定画面，App 将带使用者回到清单视图。因此， 我们指示清单视图来重新载入设定，或者清单视图能够监控默认系统的变更，并触发清单的修改。</p>
-<p>随着 SwiftUI 的推出，Apple 还发布了一个名为“Combine”的新框架，根据Apple 的说法，这个框架提供一个声明式 API 来随着时间推移处理值。在此示例的内容中，Combine 让你轻松监控单一物件，并取得变更通知。与SwiftUI 一起使用时，我们甚至可不撰写一行代码，就触发视图修改，一切都由 SwiftUI 与 Combine 在幕后处理。</p>
+<p>现在，使用者偏好已经储存在本地默认系统中，但是清单视图并没有依照使用者设定来修改。同样的，有多种方式可以解决这个问题。</p>
+<p>我们概括说明一下目前的情形，当使用者在设定画面中点击“Save”按钮，我们储存所选的选项至本地默认系统中，然后关闭设定画面，App 将带使用者回到清单视图。因此， 我们指示清单视图来重新载入设定，或者清单视图能够监控默认系统的修改，并触发清单的修改。</p>
+<p>随着 SwiftUI 的推出，Apple 还发布了一个名为“Combine”的新框架，根据Apple 的说法，这个框架提供一个声明式 API 来随着时间推移处理值。在此示例的内容中，Combine 让你轻松监控单一物件，并取得修改通知。与SwiftUI 一起使用时，我们甚至可不撰写一行代码，就触发视图修改，一切都由 SwiftUI 与 Combine 在幕后处理。</p>
 <p>那么，清单视图如何知道使用者偏好已被修改，并触发修改呢？ </p>
 <p>我来介绍三个关键字： </p>
 <ol>
 <li><strong>@EnvironmentObject</strong> - 以技术而言，这就是一个属性包裹器（ property wrapper ），不过，你可将此关键字视为一个特殊的标记，当你声明一个属性为环境物件时，SwiftUI 会监控该属性的值，并在有任何改变时，使对应的视图无效。@EnvironmentObject 的运作方式与 @State 几乎相同，不过属性被声明为环境物件时， 整个 App 中的所有视图皆可存取它。举例而言，如果你的App 有很多共享相同数据（例如：使用者设定）的视图，则环境物件在这种情况下可运作得很好，你不需要在视图间传送属性，就可以自动存取它。</li>
-<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协议。当你声明一个属性为环境物件时， 该属性的型别必须实现此协议。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？通过实现此协议，这个物件可以作为一个发布者，发出修改后的值。而那些监控值的订阅者将会收到通知。</li>
+<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协议。当你声明一个属性为环境物件时， 该属性的型别必须实现此协议。回到我们的问题：我们如何让清单视图知道使用者偏好已经修改？通过实现此协议，这个物件可以作为一个发布者，发出修改后的值。而那些监控值的订阅者将会收到通知。</li>
 <li><strong>@Published</strong> - 这是一个与  <code>ObservableObject</code> 一起使用的属性包裹器。当一个属性以 <code>@Publisher</code> 为前缀时，这表示发布者应该在值发生修改时通知所有订阅者。</li>
 </ol>
 <p>我知道这有点令人困惑。不过，当我们看完代码后，你将会更加了解。</p>
-<p>我们从 <code>SettingStore.swift</code> 开始。设定视图与清单视图需要监控使用者偏好的变化，因此 <code>SettingStore</code> 应该实现 <code>ObservableObject</code> 协议，并宣布 <code>defaults</code> 属性的变更。在 <code>Setting Store.swift</code> 档的开始处，我们必须先汇入 Combine 框架： </p>
+<p>我们从 <code>SettingStore.swift</code> 开始。设定视图与清单视图需要监控使用者偏好的变化，因此 <code>SettingStore</code> 应该实现 <code>ObservableObject</code> 协议，并宣布 <code>defaults</code> 属性的修改。在 <code>Setting Store.swift</code> 档的开始处，我们必须先汇入 Combine 框架： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">Combine</span>
 </code></pre>
 <p><code>SettingStore</code> 类别应该采用 <code>ObservableObject</code> 协议。修改类别声明，如下所示： </p>
@@ -1067,12 +1067,12 @@
 }
 </code></pre>
 <p>藉由使用 <code>@Published</code> 属性包裹器，发布者将在属性的值发生变化时通知订阅者（例如：<code>displayOrder</code> 的修改）。</p>
-<p>如你所见，使用 Combine 通知变更的值非常容易。实际上，我们还没有编写任何新代码，只有采用所需的协议，并插入一个标记。</p>
+<p>如你所见，使用 Combine 通知修改的值非常容易。实际上，我们还没有编写任何新代码，只有采用所需的协议，并插入一个标记。</p>
 <p>现在，我们切换至 <code>SettingView.swift</code>。<code>settingStore</code> 现在应该声明为环境物件，以让我们可以与其他视图共享数据。修改 <code>settingStore</code> 变量，如下所示： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">EnvironmentObject</span> <span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>
 <p>你不需要修改和“Save”按钮有关的代码。不过，当你设定一个新值至设定储存区时（例如：修改<code>showCheckInOnly</code>，从 true 改为 false ），此修改将会发布，并让所有订阅者知道。</p>
-<p>由于此变更，我们需要修改 <code>SettingView_Previews</code> 为下列内容： </p>
+<p>由于此修改，我们需要修改 <code>SettingView_Previews</code> 为下列内容： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SettingView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
         <span class="hljs-type">SettingView</span>().environmentObject(<span class="hljs-type">SettingStore</span>())
@@ -1081,10 +1081,10 @@
 </code></pre>
 <p>这里，我们将 <code>SettingStore</code> 的实例注入至环境中，以进行预览。</p>
 <p>好的，发布方已经完成，那么订阅者呢？我们要如何监控 <code>defaults</code> 的变化，并相应修改UI 呢？ </p>
-<p>在这个示例项目中，清单视图是订阅方，它需要监控设定储存区的变化，并重新渲染清单视图，以反映使用者的设定。现在开启 <code>ContentView.swift</code> 来做一些变更。和我们刚才所做的操作类似，<code>settingStore</code> 现在应该声明为一个环境物件： </p>
+<p>在这个示例项目中，清单视图是订阅方，它需要监控设定储存区的变化，并重新渲染清单视图，以反映使用者的设定。现在开启 <code>ContentView.swift</code> 来做一些修改。和我们刚才所做的操作类似，<code>settingStore</code> 现在应该声明为一个环境物件： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">EnvironmentObject</span> <span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>
-<p>由于这个变更，因此应要修改 <code>sheet</code> 修饰器中的代码，以获取此环境物件： </p>
+<p>由于这个修改，因此应要修改 <code>sheet</code> 修饰器中的代码，以获取此环境物件： </p>
 <pre><code class="lang-swift">.sheet(isPresented: $showSettings) {
     <span class="hljs-type">SettingView</span>().environmentObject(<span class="hljs-keyword">self</span>.settingStore)
 }
@@ -1110,7 +1110,7 @@
 </code></pre>
 <p>这里，我们调用 <code>environmentObject</code> 方法，将设定储存区注入至环境。现在，设定储存区的实例可用于 App 内的所有视图。换句话说，设定与清单视图皆可自动存取它了。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E7%AF%A9%E9%81%B8%E9%81%B8%E9%A0%85">实现筛选选项</h3>
-<p>现在，我们已经实现了一个可以让所有视图存取的通用设定储存区。最棒的是，只要设定储存区中有任何修改，它会自动通知监控修改的视图。尽管你看不出任何的视觉差异，但是当你修改设定画面的选项时，设定储存区会将变更通知至清单视图。</p>
+<p>现在，我们已经实现了一个可以让所有视图存取的通用设定储存区。最棒的是，只要设定储存区中有任何修改，它会自动通知监控修改的视图。尽管你看不出任何的视觉差异，但是当你修改设定画面的选项时，设定储存区会将修改通知至清单视图。</p>
 <p>我们最终任务是实现筛选与排序选项，以只显示和使用者偏好相配的餐厅。我们从实现下列两个筛选选项来开始： </p>
 <ul>
 <li>只显示打卡过的餐厅（Show Check-in Only）。</li>
@@ -1157,17 +1157,17 @@ restaurants.sorted(by: { $<span class="hljs-number">0</span>.isCheckIn &amp;&amp
     }
 }
 </code></pre>
-<p>此函数仅回传对应显示顺序的述词（即一个闭包）。现在，我们准备进行最后的变更。回到 <code>ContentView.swift</code>，并将 <code>ForEach</code> 叙述从： </p>
+<p>此函数仅回传对应显示顺序的述词（即一个闭包）。现在，我们准备进行最后的修改。回到 <code>ContentView.swift</code>，并将 <code>ForEach</code> 叙述从： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ForEach</span>(restaurants) {
   ...
 }
 </code></pre>
-<p>变更为： </p>
+<p>修改为： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ForEach</span>(restaurants.sorted(by: <span class="hljs-keyword">self</span>.settingStore.displayOrder.predicate())) {
   ...
 }
 </code></pre>
-<p>如此，你可以测试 App，并变更排序偏好。当你修改排序选项时，这个清单视图将得到通知，并相应地重新排序餐厅。</p>
+<p>如此，你可以测试 App，并修改排序偏好。当你修改排序选项时，这个清单视图将得到通知，并相应地重新排序餐厅。</p>
 <h3 id="%E4%B8%8B%E4%B8%80%E7%AB%A0%E7%9A%84%E4%B8%BB%E9%A1%8C">下一章的主题</h3>
 <p>你知道 SwiftUI 与 Combine 可帮助我们撰写出更好的代码吗？在本章最后两节中，我们并没有撰写很多的代码来实现筛选及排序选项。Combine 处理事件处理的繁重工作， 将它与 SwiftUI 搭配使用时，它的功能更加强大，并节省你开发实现来监控物件的状态变化与触发 UI 修改的时间。一切几乎是自动的，并由这两个新框架来负责。</p>
 <p>在下一章中，我们将会继续通过“建立注册画面”来探索 Combine 。你将进一步了解 Combine 如何帮助你写出更简洁与模组化的代码。</p>

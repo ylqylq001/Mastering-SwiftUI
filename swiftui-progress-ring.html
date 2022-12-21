@@ -1097,7 +1097,7 @@
 }
 </code></pre>
 <p>代码非常简单， 我们只是告诉 SwiftUI 为 <code>progress</code> 值设置动画。就是这样！</p>
-<p>现在回到 <code>ContentView.swift</code> 再进行另一个测试， 这次变更进度就可以见到动画。</p>
+<p>现在回到 <code>ContentView.swift</code> 再进行另一个测试， 这次修改进度就可以见到动画。</p>
 <figure id="fig30.15"><img src="images/progressring/swiftui-progressring-15.gif" alt="图 30.15. 进度条的变化带有动画"><figcaption>图 30.15. 进度条的变化带有动画</figcaption></figure>
 <h3 id="%E9%80%B2%E5%BA%A6%E6%A2%9D%E7%9A%84-100-%E5%95%8F%E9%A1%8C">进度条的 100% 问题</h3>
 <p>有了动画后，这个圆形进度条的用户体验变得更好了。 但是，你可能会注意到一个小问题。 当百分比设定为 100% 时，圆弧变成一个完整的圆，遮盖圆帽（round cap）。 为了突出圆弧的结束位置，最好添加带有阴影的圆帽，如图 30.1 中的活动环。</p>

@@ -912,7 +912,7 @@
 <p>如前所述，<code>sheet</code> 修饰器提供我们两种显示模式的方式。我将展示这两种方法如何工作，我们从 <code>isPresented</code> 方法开始，对于这个方法，我们需要一个Bool 型别的状态变量来追踪强制回应视图的状态。在 <code>ContentView</code>中声明这个变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showDetailView = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>默认情况下，它设定为 <code>false</code>。当点击其中一列时，该变量的值将会设定为 <code>true</code>。稍后， 我们会在代码中做这个变更。</p>
+<p>默认情况下，它设定为 <code>false</code>。当点击其中一列时，该变量的值将会设定为 <code>true</code>。稍后， 我们会在代码中做这个修改。</p>
 <p>当显示细节视图时，该视图需要我们传送所选的文章，因此我们也需要声明一个状态来储存使用者的选择。在<code>ContentView</code> 中，为此声明另一个状态变量如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> selectedArticle: <span class="hljs-type">Article</span>?
 </code></pre>

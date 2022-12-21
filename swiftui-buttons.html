@@ -942,13 +942,13 @@
     .background(<span class="hljs-type">Color</span>.purple)
     .foregroundColor(.white)
 </code></pre>
-<p>如果你要变更字型，则可进一步使用 <code>font</code> 修饰器，并指定字型样式（例如：<code>.title</code> ）： </p>
+<p>如果你要修改字型，则可进一步使用 <code>font</code> 修饰器，并指定字型样式（例如：<code>.title</code> ）： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
     .background(<span class="hljs-type">Color</span>.purple)
     .foregroundColor(.white)
     .font(.title)
 </code></pre>
-<p>变更完成后，你的按钮应该看起来如图 6.5 所示。</p>
+<p>修改完成后，你的按钮应该看起来如图 6.5 所示。</p>
 <figure id="fig6.5"><img src="images/buttons/swiftui-buttons-5.png" alt="图 6.5　自订按钮的背景色与前景色"><figcaption>图 6.5　自订按钮的背景色与前景色</figcaption></figure>
 <p>如你所见，这个按钮看起来不怎么好看，如果能在文字周围加入一些间距不是会更好吗？为此，你可以使用padding 修饰器，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
@@ -957,7 +957,7 @@
     .foregroundColor(.white)
     .font(.title)
 </code></pre>
-<p>变更完成后，画布会据此修改按钮。现在按钮看起来好看多了，如图 6.6 所示。</p>
+<p>修改完成后，画布会据此修改按钮。现在按钮看起来好看多了，如图 6.6 所示。</p>
 <figure id="fig6.6"><img src="images/buttons/swiftui-buttons-6.png" alt="图 6.6　在按钮加入间距"><figcaption>图 6.6　在按钮加入间距</figcaption></figure>
 <h4 id="%E4%BF%AE%E9%A3%BE%E5%99%A8%E9%A0%86%E5%BA%8F%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7">修饰器顺序的重要性</h4>
 <p>这里要强调的一件事，即“padding 修饰器要放置于 background 之后”。如果你将代码撰写如下，则最终结果将会完全不同。</p>
@@ -966,7 +966,7 @@
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
     .background(<span class="hljs-type">Color</span>.purple) <span class="hljs-comment">// 1. 将背景色修改为紫色</span>
     .foregroundColor(.white)  <span class="hljs-comment">// 2. 将前景色 / 字型颜色设定为白色</span>
-    .font(.title)             <span class="hljs-comment">// 3. 变更字型样式</span>
+    .font(.title)             <span class="hljs-comment">// 3. 修改字型样式</span>
     .padding()                <span class="hljs-comment">// 4. 使用主色来加入间距（ 即白色）</span>
 </code></pre>
 <p>反之，如果 <code>padding</code> 修饰器放置于 <code>background</code> 修饰器之前，则修饰器会像这样工作： </p>
@@ -974,7 +974,7 @@
     .padding()                <span class="hljs-comment">// 1. 加入间距    </span>
     .background(<span class="hljs-type">Color</span>.purple) <span class="hljs-comment">// 2. 将背景色修改为紫色（ 包含间距）</span>
     .foregroundColor(.white)  <span class="hljs-comment">// 3. 将前景色/ 字型颜色设定为白色</span>
-    .font(.title)             <span class="hljs-comment">// 4. 变更字型样式</span>
+    .font(.title)             <span class="hljs-comment">// 4. 修改字型样式</span>
 </code></pre>
 <h3 id="%E6%8C%89%E9%88%95%E5%8A%A0%E4%B8%8A%E9%82%8A%E6%A1%86">按钮加上边框</h3>
 <p><code>padding</code> 修饰器并非一定要始终放在最前面，而是取决于你的按钮设计，例如：你要建立一个具有图 6.8 所示的边框的按钮。</p>
@@ -1111,7 +1111,7 @@
 <pre><code class="lang-swift">.shadow(color: .gray, radius: <span class="hljs-number">20.0</span>, x: <span class="hljs-number">20</span>, y: <span class="hljs-number">10</span>)
 </code></pre>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%A8%E5%AF%AC%E5%BA%A6%E6%8C%89%E9%88%95">建立全宽度按钮</h3>
-<p>大一点的按钮通常可以吸引使用者的注意。有时，你可能需要建立一个占满屏幕宽度的全宽度按钮。<code>frame</code> 修饰器是设计用来让你控制视图的尺寸，不论你是想要建立一个固定大小的按钮，还是可变化宽度的按钮，都可以使用这个修饰器。要建立全宽度按钮，你可以变更 <code>Button</code> 代码，如下所示： </p>
+<p>大一点的按钮通常可以吸引使用者的注意。有时，你可能需要建立一个占满屏幕宽度的全宽度按钮。<code>frame</code> 修饰器是设计用来让你控制视图的尺寸，不论你是想要建立一个固定大小的按钮，还是可变化宽度的按钮，都可以使用这个修饰器。要建立全宽度按钮，你可以修改 <code>Button</code> 代码，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Delete tapped!&quot;</span>)
 }) {
@@ -1226,7 +1226,7 @@
     }
 }
 </code></pre>
-<p>该协议要求我们提供接受 <code>configuration</code> 参数的 <code>makeBody</code> 函数的实现，configuration 参数包含一个 <code>label</code> 属性，你可以应用修饰器来变更按钮的样式。在上列的代码中，我们只应用了之前所使用的同一个修饰器。</p>
+<p>该协议要求我们提供接受 <code>configuration</code> 参数的 <code>makeBody</code> 函数的实现，configuration 参数包含一个 <code>label</code> 属性，你可以应用修饰器来修改按钮的样式。在上列的代码中，我们只应用了之前所使用的同一个修饰器。</p>
 <p>因此，你如何将自订样式应用于按钮上呢？ SwiftUI 提供了一个名为 <code>.buttonStyle</code>的修饰器，让你可以应用按钮样式，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Delete button tapped&quot;</span>)

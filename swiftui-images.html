@@ -916,10 +916,10 @@
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;cloud.heavyrain&quot;</span>)
     .font(.system(size: <span class="hljs-number">100</span>))
 </code></pre>
-<p>你可以变更字型大小来观察图片的反应，如图 3.4 所示。</p>
+<p>你可以修改字型大小来观察图片的反应，如图 3.4 所示。</p>
 <figure id="fig3.4"><img src="images/images/swiftui-images-4.png" alt="图 3.4.　显示系统图片"><figcaption>图 3.4.　显示系统图片</figcaption></figure>
-<p>同样的，因为系统图片实际上是一个字型，你可以应用其他的修饰器如之前所学过的 <code>foregroundColor</code>，来变更它的外观。</p>
-<p>例如：要变更颜色为蓝色，你可以撰写程序如下： </p>
+<p>同样的，因为系统图片实际上是一个字型，你可以应用其他的修饰器如之前所学过的 <code>foregroundColor</code>，来修改它的外观。</p>
+<p>例如：要修改颜色为蓝色，你可以撰写程序如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;cloud.heavyrain&quot;</span>)
     .font(.system(size: <span class="hljs-number">100</span>))
     .foregroundColor(.blue)
@@ -979,7 +979,7 @@
     .aspectRatio(contentMode: .fill)
     .frame(width: <span class="hljs-number">300</span>)
 </code></pre>
-<p>这张图片会被缩小，但是仍保持原始长宽比。如果你变更内容模式为 <code>.fill</code>，图片看起来与图 3.7 几乎相同，然而当你使用<em>selectable</em> 模式并仔细看图 3.11，长宽比是维持不变的。</p>
+<p>这张图片会被缩小，但是仍保持原始长宽比。如果你修改内容模式为 <code>.fill</code>，图片看起来与图 3.7 几乎相同，然而当你使用<em>selectable</em> 模式并仔细看图 3.11，长宽比是维持不变的。</p>
 <figure id="fig3.11"><img src="images/images/swiftui-images-11.png" alt="图 3.11.　使用.fill 内容模式"><figcaption>图 3.11.　使用.fill 内容模式</figcaption></figure>
 <p>你可能会注意到图片的宽度不是我们想要的，它依然占满整个屏幕宽度。要正确运作的话，你必须使用 <code>clipped</code> 修饰器来消除视图额外的部分，如图 3.12 所示。</p>
 <figure id="fig3.12"><img src="images/images/swiftui-images-12.png" alt="图 3.12.　使用.clipped 来裁切视图"><figcaption>图 3.12.　使用.clipped 来裁切视图</figcaption></figure>
@@ -1033,7 +1033,7 @@
 
     )
 </code></pre>
-<p>在 <code>overlay</code> 修饰器，你只需要建立一个 <code>Text</code> 视图，而这个文字视图将会作为图片上的重叠物件。我相信你已经熟悉了 <code>Text</code> 视图的修饰器，我们在前面的章节已经有介绍过。我们只是变更字型与颜色，除此之外，我们加入了间距与背景颜色。另外，要特别说明的是 <code>alignment</code> 参数，对于 <code>overlay</code> 修饰器，你可以提供一个可选值（Optional Value ）来调整视图的对齐。默认是置中对齐，这里我们想要将文字重叠于图片之上，如图 3.16 所示。你可以自己将值变更为“.center”或者“.bottom”，来看看结果为何。</p>
+<p>在 <code>overlay</code> 修饰器，你只需要建立一个 <code>Text</code> 视图，而这个文字视图将会作为图片上的重叠物件。我相信你已经熟悉了 <code>Text</code> 视图的修饰器，我们在前面的章节已经有介绍过。我们只是修改字型与颜色，除此之外，我们加入了间距与背景颜色。另外，要特别说明的是 <code>alignment</code> 参数，对于 <code>overlay</code> 修饰器，你可以提供一个可选值（Optional Value ）来调整视图的对齐。默认是置中对齐，这里我们想要将文字重叠于图片之上，如图 3.16 所示。你可以自己将值修改为“.center”或者“.bottom”，来看看结果为何。</p>
 <figure id="fig3.16"><img src="images/images/swiftui-images-16.png" alt="图3.16　在目前的图片上应用重叠"><figcaption>图3.16　在目前的图片上应用重叠</figcaption></figure>
 <h3 id="%E4%BB%A5%E9%87%8D%E7%96%8A%E4%BE%86%E4%BD%BF%E5%9C%96%E7%89%87%E8%AE%8A%E6%9A%97">以重叠来使图片变暗</h3>
 <p>你不止可以重叠图片或文字在另一张图片上，你也可以应用重叠来使图片变暗。将 <code>Image</code> 程序以下列程序替代，并看一下效果： </p>

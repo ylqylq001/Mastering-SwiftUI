@@ -892,10 +892,10 @@
 <p>程序初始化一个  <code>Text</code>  并将要放的文字（例如 <em>Hello World</em> ）作为参数来传传递。现在将 <code>body</code> 内的代码如下修改：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>)
 </code></pre>
-<p>如此，预览画布即会在屏幕上显示  <em>Stay Hungry. Stay Foolish.</em> 。这是建立一个文字视图的基本语法。你可以任意变更文字内容，画布会即时显示变更的结果。</p>
-<figure id="fig2.3"><img src="images/text/swiftui-text-3.png" alt="图 3. 变更文字"><figcaption>图 3. 变更文字</figcaption></figure>
-<h3 id="%E8%AE%8A%E6%9B%B4%E5%AD%97%E9%AB%94%E8%88%87%E9%A1%8F%E8%89%B2">变更字体与颜色</h3>
-<p>在 SwiftUI，你可以调用一些方法，也就是所谓的修饰器（<em>Modifiers</em> ）来变更属性（例如颜色）。譬如说，你想要粗体字。你可以使用名为 <code>fontWeight</code> 的修饰器，并指定你想要的字体粗细（例如 <code>.bold</code> ）：</p>
+<p>如此，预览画布即会在屏幕上显示  <em>Stay Hungry. Stay Foolish.</em> 。这是建立一个文字视图的基本语法。你可以任意修改文字内容，画布会即时显示修改的结果。</p>
+<figure id="fig2.3"><img src="images/text/swiftui-text-3.png" alt="图 3. 修改文字"><figcaption>图 3. 修改文字</figcaption></figure>
+<h3 id="%E8%AE%8A%E6%9B%B4%E5%AD%97%E9%AB%94%E8%88%87%E9%A1%8F%E8%89%B2">修改字体与颜色</h3>
+<p>在 SwiftUI，你可以调用一些方法，也就是所谓的修饰器（<em>Modifiers</em> ）来修改属性（例如颜色）。譬如说，你想要粗体字。你可以使用名为 <code>fontWeight</code> 的修饰器，并指定你想要的字体粗细（例如 <code>.bold</code> ）：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>).fontWeight(.bold)
 </code></pre>
 <p>你可以使用点语法（dot syntax）来存取修饰器。当你输入一个点符号时，Xcode 则出现你可能会用到的修饰器或值。举例来说，当你在 <code>fontWeight</code> 修饰器，输入一个点符号时，你会见到不同的字体粗细选项，你可以选取 <code>bold</code> 来使用粗体字。如果你想要更粗一点，则可以选取 <code>heavy</code> 或 <code>black</code> 。</p>
@@ -909,24 +909,24 @@
     .font(.title)
 </code></pre>
 <p>这个功能是一样的，不过我相信你会发现到以上的程序更容易阅读。我们将继续在本书中使用这样的程序写法。</p>
-<p> <code>font</code> 修饰器可以让你变更字体属性。在上面的程序中，我们指定使用 <em>title</em> 字体以放大文字。SwiftUI 内有几个内建的字体样式，包括 <em>title</em> 、 <em>largeTitle</em> 、<em>body</em> 等等。如果你想要加大字体大小，则可以将 <code>.title</code> 改成 <code>.largeTitle</code> 。</p>
+<p> <code>font</code> 修饰器可以让你修改字体属性。在上面的程序中，我们指定使用 <em>title</em> 字体以放大文字。SwiftUI 内有几个内建的字体样式，包括 <em>title</em> 、 <em>largeTitle</em> 、<em>body</em> 等等。如果你想要加大字体大小，则可以将 <code>.title</code> 改成 <code>.largeTitle</code> 。</p>
 <p><em>提示：你可以参考这份文件（<a href="https://developer.apple.com/documentation/swiftui/font）来找出所有" target="_blank">https://developer.apple.com/documentation/swiftui/font）来找出所有</a> <code>font</code> 修饰器所支持的值。</em></p>
-<figure id="fig2.5"><img src="images/text/swiftui-text-5.png" alt="图 5. 变更字体样式"><figcaption>图 5. 变更字体样式</figcaption></figure>
+<figure id="fig2.5"><img src="images/text/swiftui-text-5.png" alt="图 5. 修改字体样式"><figcaption>图 5. 修改字体样式</figcaption></figure>
 <p>你也可以使用  <code>font</code> 修饰器来指定字体设计，譬如说，你想要字体圆润。你可以将修饰器撰写如下：</p>
 <pre><code class="lang-swift">.font(.system(.largeTitle, design: .rounded))
 </code></pre>
-<p>这里你指定使用系统字体，文字样式为 <code>largeTitle</code>  ，以及  <code>rounded</code>  设计。预览画布应该会立即对变更做出反应，并显示圆润的文字。</p>
+<p>这里你指定使用系统字体，文字样式为 <code>largeTitle</code>  ，以及  <code>rounded</code>  设计。预览画布应该会立即对修改做出反应，并显示圆润的文字。</p>
 <figure id="fig2.6"><img src="images/text/swiftui-text-6.png" alt="图 6.使用圆字体设计"><figcaption>图 6.使用圆字体设计</figcaption></figure>
 <p>动态型态（ Dynamic Type ）是 iOS 依照使用者设定（设定 &gt; 屏幕显示与亮度 &gt; 文字大小）而自动调整字体大小的功能。换句话说，当你使用文字样式（例如 <code>.title</code> ），这个字体大小将会改变，你的 App 会依照使用者的偏好来自动缩放文字。</p>
 <p>如果你想要使用一个固定大小的字体，你可以将程序修改如下：</p>
 <pre><code class="lang-swift">.font(.system(size: <span class="hljs-number">20</span>))
 </code></pre>
 <p>这是告诉系统使用一个 20 点大小的固定字体。</p>
-<p>如所述，你可以继续串连其他修饰器来客制化文字。现在我们来变更字体颜色。你可以使用 <code>foregroundColor</code>  修饰器来完成，如下所示：</p>
+<p>如所述，你可以继续串连其他修饰器来客制化文字。现在我们来修改字体颜色。你可以使用 <code>foregroundColor</code>  修饰器来完成，如下所示：</p>
 <pre><code class="lang-swift">.foregroundColor(.green)
 </code></pre>
 <p><code>foregroundColor</code> 修饰器接收 <code>颜色</code> 的值。这里我们指定使用  <code>.green</code>，这个值是内建颜色，你也可以使用其他像是 <code>.red</code> 、<code>.purple</code> 等内建颜色值。</p>
-<figure id="fig2.7"><img src="images/text/swiftui-text-7.png" alt="图 7. 变更字体颜色"><figcaption>图 7. 变更字体颜色</figcaption></figure>
+<figure id="fig2.7"><img src="images/text/swiftui-text-7.png" alt="图 7. 修改字体颜色"><figcaption>图 7. 修改字体颜色</figcaption></figure>
 <p>虽然我们比较喜欢使用代码自订一个控制组件的属性，你也可以使用设计划布来编辑。在默认情况下，预览在 <em>Live</em> 模式下运行。 要编辑视图的属性，你必须首先切换到 <em>Selectable</em> 模式。</p>
 <p>按住 command 键不放，并点选文字来弹出弹出选单， 选取 <em>Show SwiftUI Inspector</em> ，然后你可以编辑 text/font 属性。 最棒的是，当你修改字体属性时，代码也会自动修改。</p>
 <figure id="fig2.8"><img src="images/text/swiftui-text-8.png" alt="图 8. 使用 Inspect 功能来编辑文字属性"><figcaption>图 8. 使用 Inspect 功能来编辑文字属性</figcaption></figure>
@@ -937,7 +937,7 @@
     .font(.title)
     .foregroundColor(.gray)
 </code></pre>
-<p>你可以将这段文字换成你自己的内容。只要确认内容长度够长即可。做完变更后，设计划布应该会渲染一个多行文字标签。</p>
+<p>你可以将这段文字换成你自己的内容。只要确认内容长度够长即可。做完修改后，设计划布应该会渲染一个多行文字标签。</p>
 <figure id="fig2.9"><img src="images/text/swiftui-text-9.png" alt="图 9. 显示多行文字"><figcaption>图 9. 显示多行文字</figcaption></figure>
 <p>要将文字置中对齐，插入  <code>multilineTextAlignment</code> 修饰器，并设定值为  <code>.center</code> 如下：</p>
 <pre><code class="lang-swift">.multilineTextAlignment(.center)
@@ -948,7 +948,7 @@
 <p>系统默认设定是截断字尾。要修改文字的截断模式，你可以使用<code>truncationMode</code> 修饰器，并设定它的值为  <code>.head</code> 或  <code>.middle</code> ，如下所示：</p>
 <pre><code class="lang-swift">.truncationMode(.head)
 </code></pre>
-<p>变更完成之后，你的文字会如下图所示。</p>
+<p>修改完成之后，你的文字会如下图所示。</p>
 <figure id="fig2.10"><img src="images/text/swiftui-text-10.png" alt="图 10. 使用 .head 截断模式"><figcaption>图 10. 使用 .head 截断模式</figcaption></figure>
 <p>先前我提到  <code>Text</code> 控制默认是显示多行文字。理由是  SwiftUI  框架默认  <code>lineLimit</code> 修饰器 为  <code>nil</code> 的值，你可以将 <code>.lineLimit</code>  设定为 <code>nil</code> 来看一下结果：</p>
 <pre><code class="lang-swift">.lineLimit(<span class="hljs-built_in">nil</span>)

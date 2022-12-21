@@ -935,7 +935,7 @@
 }
 </code></pre>
 <p>此外，你可以使用 <code>space</code> 参数来调整嵌入视图的间距。图 4.6 为调整后的视图。上面的代码将参数<code>spacing</code>添加到VStack并将其值设置为<code>2</code>。</p>
-<figure id="fig4.6"><img src="images/stacks/swiftui-stacks-6.png" alt="图4.6.　变更 VStack 的对齐方式"><figcaption>图4.6.　变更 VStack 的对齐方式</figcaption></figure>
+<figure id="fig4.6"><img src="images/stacks/swiftui-stacks-6.png" alt="图4.6.　修改 VStack 的对齐方式"><figcaption>图4.6.　修改 VStack 的对齐方式</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-hstack">使用 HStack</h3>
 <p>接下来，我们布局两个售价方案。如果你比较“Basic”与“Pro”方案，这两个组件的外观非常相似。以“Basic”方案为例，要实现这样的布局，你可以使用 <code>VStack</code> 结合三个文字视图，如图 4.7 所示。</p>
 <figure id="fig4.7"><img src="images/stacks/swiftui-stacks-7.png" alt="图 4.7.　布局售价方案"><figcaption>图 4.7.　布局售价方案</figcaption></figure>
@@ -1032,7 +1032,7 @@
 </code></pre>
 <p>当你插入代码后，你应该会在画布中见到如图4.14 所示的布局。</p>
 <figure id="fig4.14"><img src="images/stacks/swiftui-stacks-14.png" alt="图 4.14.　使用HStack 水平布局两个视图"><figcaption>图 4.14.　使用HStack 水平布局两个视图</figcaption></figure>
-<p>售价区块的目前尺寸大小看起来很相似，不过实际上它们会根据文字的长度而变化。例如：如果将“Pro”这个字改成“Professional”，灰色区域将会扩展开来，以对应这个变更。简单而言，这个视图定义它自己的尺寸大小，并且该尺寸大小刚好足够容纳其内容。 </p>
+<p>售价区块的目前尺寸大小看起来很相似，不过实际上它们会根据文字的长度而变化。例如：如果将“Pro”这个字改成“Professional”，灰色区域将会扩展开来，以对应这个修改。简单而言，这个视图定义它自己的尺寸大小，并且该尺寸大小刚好足够容纳其内容。 </p>
 <figure id="fig4.15"><img src="images/stacks/swiftui-stacks-15.png" alt="图 4.15　Pro 区块的尺寸大小变宽"><figcaption>图 4.15　Pro 区块的尺寸大小变宽</figcaption></figure>
 <p>如果你再次参考图 4.1，两个售价方案都具有相同的大小。要将这两个区块调整为相同的大小，你可以使用 <code>.frame</code> 修饰器来将 <code>maxWidth</code> 设定为“.infinity”，如下所示： </p>
 <pre><code class="lang-swift">.frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">100</span>)
@@ -1085,7 +1085,7 @@
 }
 </code></pre>
 <p>这里我们为售价区块的标题、售价、文字与背景颜色加入变量。另外，我们在代码中使用这些变量来修改标题、售价、文字与背景颜色。</p>
-<p>当变更完成后，你会见到一个错误，如图 4.20 所示，指出 <code>PricingView</code> 少了一些参数。</p>
+<p>当修改完成后，你会见到一个错误，如图 4.20 所示，指出 <code>PricingView</code> 少了一些参数。</p>
 <figure id="fig4.20"><img src="images/stacks/swiftui-stacks-20.png" alt="图 4.20.　Xcode 指出 PricingView 中的错误"><figcaption>图 4.20.　Xcode 指出 PricingView 中的错误</figcaption></figure>
 <p>之前，我们在视图中导入了四个变量。调用 <code>PricingView</code> 时，我们现在应该能提供这些参数的值，因此将<code>PricingView()</code> 修改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Basic&quot;</span>, price: <span class="hljs-string">&quot;$9&quot;</span>, textColor: .white, bgColor: .purple)

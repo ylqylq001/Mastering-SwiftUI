@@ -958,7 +958,7 @@
     }
 }
 </code></pre>
-<p>由于这个通用的 <code>FormField</code> 需要同时负责文字栏位与安全栏位，因此它有一个名为 <code>isSecure</code>的属性。如果设定为 <code>true</code>，表单栏位将建立为安全栏位。在 SwiftUI 中，你可以使用 <code>Divider</code> 组件来建立一条线。在代码中，我们使用 <code>frame</code> 修饰器来变更高度为“1 点”。</p>
+<p>由于这个通用的 <code>FormField</code> 需要同时负责文字栏位与安全栏位，因此它有一个名为 <code>isSecure</code>的属性。如果设定为 <code>true</code>，表单栏位将建立为安全栏位。在 SwiftUI 中，你可以使用 <code>Divider</code> 组件来建立一条线。在代码中，我们使用 <code>frame</code> 修饰器来修改高度为“1 点”。</p>
 <p>要建立使用者名称栏位，你可以将代码撰写如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">FormField</span>(fieldName: <span class="hljs-string">&quot;Username&quot;</span>, fieldValue: $username)
 </code></pre>
@@ -1052,7 +1052,7 @@
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> isReadySubmit: <span class="hljs-type">Bool</span> = <span class="hljs-built_in">false</span>
 }
 </code></pre>
-<p>每次变更 <code>isReadySubmit</code> 的值时，它都会向订阅者发布一个事件。订阅者接收修改后的值，并继续处理，例如：订阅者可以使用该值来判断是否应启用“送出”按钮。</p>
+<p>每次修改 <code>isReadySubmit</code> 的值时，它都会向订阅者发布一个事件。订阅者接收修改后的值，并继续处理，例如：订阅者可以使用该值来判断是否应启用“送出”按钮。</p>
 <p>你可能会觉得在 SwiftUI 中 <code>@Published</code> 和 <code>@State</code> 的运作方式非常相似。虽然在这个例子，它的工作原理几乎相同，不过 <code>@State</code> 只能应用在属于特定SwiftUI 视图的属性。如果你想要建立不属于特定视图或可以用于多个视图的自订类型的话，则你需要建立一个遵守 <code>ObservableObject</code> 的类别，并以 <code>@Published</code> 标注来标记这些属性。</p>
 <h3 id="combine-%E8%88%87-mvvm">Combine 与 MVVM</h3>
 <p>现在你应该具备 Combine 的一些基本概念，我们来开始使用框架实现表单验证，下列是我们将要做的事情： </p>
@@ -1077,7 +1077,7 @@
 <li>一个大写字母（密码）。</li>
 <li>你的确认密码应与密码相同（密码确认）。</li>
 </ul>
-<p>因此，视图模型将具有七个属性，并且每一个属性将其值的变更发布给那些有兴趣接收值的人。视图模型的基本架构可以定义如下： </p>
+<p>因此，视图模型将具有七个属性，并且每一个属性将其值的修改发布给那些有兴趣接收值的人。视图模型的基本架构可以定义如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserRegistrationViewModel</span>: <span class="hljs-title">ObservableObject</span> </span>{
     <span class="hljs-comment">// Input</span>
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> username = <span class="hljs-string">&quot;&quot;</span>
@@ -1091,10 +1091,10 @@
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> isPasswordConfirmValid = <span class="hljs-built_in">false</span>
 }
 </code></pre>
-<p>这就是表单视图的数据模型。<code>username</code>、<code>password</code> 与 <code>passwordConfirm</code> 属性分别存放使用者名称、密码与密码确认的文字栏位的值。这个类别应该遵守 <code>ObservableObject</code>。所有这些属性都使用 <code>@Published</code> 来做标注，因为我们想要在值发生变更时通知订阅者，并相应运行验证。</p>
+<p>这就是表单视图的数据模型。<code>username</code>、<code>password</code> 与 <code>passwordConfirm</code> 属性分别存放使用者名称、密码与密码确认的文字栏位的值。这个类别应该遵守 <code>ObservableObject</code>。所有这些属性都使用 <code>@Published</code> 来做标注，因为我们想要在值发生修改时通知订阅者，并相应运行验证。</p>
 <h4 id="%E4%BD%BF%E7%94%A8combine-%E9%A9%97%E8%AD%89%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1">使用Combine 验证使用者名称</h4>
 <p>好的，以上为数据模型，不过我们还没有处理表单验证。我们要如何依照要求来验证使用者名称、密码与密码确认呢？ </p>
-<p>使用 Combine，你就必须培养发布者/ 订阅者思维模式来解决问题。考虑到使用者名称， 我们这里其实有两个发布者：<code>username</code> 与<code>isUsernameLengthValid</code>。每当使用者在使用者名称栏位上敲击键盘输入时，<code>username</code> 发布者就会发布值的变更，而 <code>isUsernameLengthValid</code> 发布者将使用者输入的验证状态通知订阅者。几乎所有SwiftUI 中的控制组件都是订阅者，因此栏位要求文字视图将监听验证结果的变化，并相应修改其样式（即是否有删除线）。图15.6 说明了我们如何使用 Combine 来验证使用者名称的输入。</p>
+<p>使用 Combine，你就必须培养发布者/ 订阅者思维模式来解决问题。考虑到使用者名称， 我们这里其实有两个发布者：<code>username</code> 与<code>isUsernameLengthValid</code>。每当使用者在使用者名称栏位上敲击键盘输入时，<code>username</code> 发布者就会发布值的修改，而 <code>isUsernameLengthValid</code> 发布者将使用者输入的验证状态通知订阅者。几乎所有SwiftUI 中的控制组件都是订阅者，因此栏位要求文字视图将监听验证结果的变化，并相应修改其样式（即是否有删除线）。图15.6 说明了我们如何使用 Combine 来验证使用者名称的输入。</p>
 <figure id="fig15.6"><img src="images/registration/swiftui-registration-6.png" alt="图 15.6.　username 与 isUsernameValid 发布者"><figcaption>图 15.6.　username 与 isUsernameValid 发布者</figcaption></figure>
 <p>这里缺少的是连接两个发布者之间的东西，并且这个“东西”要处理下列的任务： </p>
 <ul>
@@ -1111,18 +1111,18 @@
     .assign(to: \.isUsernameLengthValid, on: <span class="hljs-keyword">self</span>)
 </code></pre>
 <p>Combine 框架提供两个内建的订阅者：“sink”与“assign”。 <code>sink</code> 建立一个通用订阅者来接收值，<code>assign</code> 则让你建立另一种类型的订阅者，用于修改物件的特定属性。举例而言，它将验证结果（true/false ）指定给 <code>isUsernameLengthValid</code>。</p>
-<p>我将深入说明并逐行检查上列的代码。<code>$username</code> 是我们想要监听的变更值的来源。由于我们订阅 UI 事件的变化，因此调用 <code>receive(on:)</code> 函数来确保订阅者在主运行绪（即 <code>RunLoop.main</code> ）上接收到值。</p>
+<p>我将深入说明并逐行检查上列的代码。<code>$username</code> 是我们想要监听的修改值的来源。由于我们订阅 UI 事件的变化，因此调用 <code>receive(on:)</code> 函数来确保订阅者在主运行绪（即 <code>RunLoop.main</code> ）上接收到值。</p>
 <p>发布者传送的值是使用者所输入的使用者名称，不过订阅者感兴趣的是使用者名称的长度是否能够满足最低要求。这里，<code>map</code> 函数被认为是Combine 中的运算子，它接受输入、处理输入，并将输入转换为订阅者所期望的内容，因此我们在上列的代码中做了下列事情：</p>
 <ol>
 <li>我们将使用者名称作为输入。</li>
 <li>然后，我们验证使用者名称并确认至少有4个字元，并验证其是否至少包含4个字元。</li>
 <li>最后，我们将验证结果以布林值回传给订阅者。</li>
 </ol>
-<p>对于验证结果， 订阅者只需将结果设定给 <code>isUsernameLengthValid</code> 属性。请记得 <code>isUsernameLengthValid</code> 也是一个发布者，我们可以修改 <code>RequirementText</code> 控制组件来订阅变更，并相应修改 UI，如下所示： </p>
+<p>对于验证结果， 订阅者只需将结果设定给 <code>isUsernameLengthValid</code> 属性。请记得 <code>isUsernameLengthValid</code> 也是一个发布者，我们可以修改 <code>RequirementText</code> 控制组件来订阅修改，并相应修改 UI，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(iconColor: userRegistrationViewModel.isUsernameLengthValid ? <span class="hljs-type">Color</span>.secondary : <span class="hljs-type">Color</span>(red: <span class="hljs-number">251</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>), text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>, isStrikeThrough: userRegistrationViewModel.isUsernameLengthValid)
 </code></pre>
 <p>图示的颜色与删除线的状态都取决于验证结果而定（也就是 <code>isUsernameLengthValid</code> ）。</p>
-<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码变更放入我们的项目中，不过我希望让你了解发布者/ 订阅者的概念，以及我们如何使用这个方法运行验证。在后面的小节中，我们将应用所学的知识，并对代码进行修改。</p>
+<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码修改放入我们的项目中，不过我希望让你了解发布者/ 订阅者的概念，以及我们如何使用这个方法运行验证。在后面的小节中，我们将应用所学的知识，并对代码进行修改。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-combine-%E9%A9%97%E8%AD%89%E5%AF%86%E7%A2%BC">使用 Combine 验证密码</h4>
 <p>如果你了解使用者名称栏位的验证是如何完成的，我们将对密码与密码确认验证应用类似的实现。</p>
 <p>对于密码栏位，有两个要求： </p>
@@ -1219,7 +1219,7 @@ $password
     }
 }
 </code></pre>
-<p>以上的代码几乎与前面章节的代码相同。要使用 Combine，你需要先汇入 Combine 框架。在 <code>init()</code> 方法中，我们初始化所有的订阅者来监听文字栏位的值的变更，并运行相应的验证。</p>
+<p>以上的代码几乎与前面章节的代码相同。要使用 Combine，你需要先汇入 Combine 框架。在 <code>init()</code> 方法中，我们初始化所有的订阅者来监听文字栏位的值的修改，并运行相应的验证。</p>
 <p>代码与我们之前讨论的代码几乎相同，但你可能注意到一件事，即 <code>cancellableSet</code> 变量。对于每一个订阅者，我们在最后调用 <code>store</code> 函数。</p>
 <p>这些是什么呢？ </p>
 <p><code>assign</code> 函数建立订阅者，并回传一个可取消的实例。你可以使用该实例在适当的时间取消订阅。<code>store</code> 函数可让我们将可取消的的参照储存到一个集合中，以便稍后的清理。如果你不储存这个参照，则 App 可能出现记忆体泄漏的问题。</p>
@@ -1237,7 +1237,7 @@ $password
 <span class="hljs-type">RequirementText</span>(iconColor: userRegistrationViewModel.isUsernameLengthValid ? <span class="hljs-type">Color</span>.secondary : <span class="hljs-type">Color</span>(red: <span class="hljs-number">251</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>), text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>, isStrikeThrough: userRegistrationViewModel.isUsernameLengthValid)
     .padding()
 </code></pre>
-<p>现在，<code>fieldValue</code> 参数已经变更为 <code>$userRegistrationViewModel.username</code>。对于栏位要求文字，SwiftUI 监控 <code>userRegistrationViewModel.isUsernameLengthValid</code> 属性，并相应修改栏位要求文字。</p>
+<p>现在，<code>fieldValue</code> 参数已经修改为 <code>$userRegistrationViewModel.username</code>。对于栏位要求文字，SwiftUI 监控 <code>userRegistrationViewModel.isUsernameLengthValid</code> 属性，并相应修改栏位要求文字。</p>
 <p>同样的，修改密码与密码确认栏位的UI 代码如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">FormField</span>(fieldName: <span class="hljs-string">&quot;Password&quot;</span>, fieldValue: $userRegistrationViewModel.password, isSecure: <span class="hljs-built_in">true</span>)
 <span class="hljs-type">VStack</span> {

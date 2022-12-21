@@ -1029,7 +1029,7 @@
 <p>一切都没有改变，UI 仍然相同，不过底层代码已经修改为利用 <code>List</code> 与数据集合了。</p>
 <figure id="fig10.7"><img src="images/list/swiftui-list-7.png" alt="图 10.7.　与图 10.6 的 UI 相同"><figcaption>图 10.7.　与图 10.6 的 UI 相同</figcaption></figure>
 <h4 id="%E9%81%B5%E5%BE%AA-identifiable-%E5%8D%94%E5%AE%9A">遵守 Identifiable 协议</h4>
-<p>为了让你更了解 <code>List</code> 内 <code>id</code> 参数的用途，我们对 <code>restaurants</code> 数组做一个小变更。由于我们使用餐厅名称作为识别码，因此我们来看当有两笔数据具有相同的餐厅名称时会发生什么事？现在将 <code>restaurants</code> 数组中的“Upstate”修改为“Homei”，如下所示： </p>
+<p>为了让你更了解 <code>List</code> 内 <code>id</code> 参数的用途，我们对 <code>restaurants</code> 数组做一个小修改。由于我们使用餐厅名称作为识别码，因此我们来看当有两笔数据具有相同的餐厅名称时会发生什么事？现在将 <code>restaurants</code> 数组中的“Upstate”修改为“Homei”，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Homei&quot;</span>, image: <span class="hljs-string">&quot;upstate&quot;</span>)
 </code></pre>
 <p>请注意，我们只修改“name”属性值，图片仍保持为 <code>upstate</code>，如图 10.8 所示。再次检查预览画布，看看你得到了什么。</p>
@@ -1119,13 +1119,13 @@
     }
 }
 </code></pre>
-<p>这个列布局是用于显示更大的餐厅图片，并将餐厅名称叠在上面。由于我们已经重构代码，因此非常容易变更 App，来使用新的布局，你只需要在 <code>List</code> 闭包中，将 <code>BasicImageRow</code> 改成 <code>FullImageRow</code> 即可： </p>
+<p>这个列布局是用于显示更大的餐厅图片，并将餐厅名称叠在上面。由于我们已经重构代码，因此非常容易修改 App，来使用新的布局，你只需要在 <code>List</code> 闭包中，将 <code>BasicImageRow</code> 改成 <code>FullImageRow</code> 即可： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
     <span class="hljs-type">FullImageRow</span>(restaurant: restaurant)
 }
 </code></pre>
 <p>修改一行代码后，这个 App 会立即切换至另一个布局，如图 10.11 所示。</p>
-<figure id="fig10.11"><img src="images/list/swiftui-list-11.png" alt="图 10.11.　变更列布局"><figcaption>图 10.11.　变更列布局</figcaption></figure>
+<figure id="fig10.11"><img src="images/list/swiftui-list-11.png" alt="图 10.11.　修改列布局"><figcaption>图 10.11.　修改列布局</figcaption></figure>
 <p>你可以进一步混合列布局， 以建立更有趣的 UI。举例而言， 新的设计是使用 <code>FullImageRow</code> 来显示前两列的数据，其余的列则利用 <code>BasicImageRow</code>，如图 10.12 所示。你可以修改 <code>List</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants.<span class="hljs-built_in">indices</span>, id: \.<span class="hljs-keyword">self</span>) { index <span class="hljs-keyword">in</span>

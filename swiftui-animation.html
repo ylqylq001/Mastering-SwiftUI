@@ -981,7 +981,7 @@
 }
 </code></pre>
 <p>我们不再使用 <code>animation</code> 修饰器，而是使用 <code>withAnimation</code> 包裹在 <code>onTapGesture</code> 中。<code>withAnimation</code> 调用带入一个动画参数，这里我们指定使用默认动画。</p>
-<p>当然，你可修改 <code>withAnimation</code>，以将动画变更为弹簧动画，如下所示： </p>
+<p>当然，你可修改 <code>withAnimation</code>，以将动画修改为弹簧动画，如下所示： </p>
 <pre><code class="lang-swift">withAnimation(.spring(response: <span class="hljs-number">0.3</span>, dampingFraction: <span class="hljs-number">0.3</span>, blendDuration: <span class="hljs-number">0.3</span>)) {
     <span class="hljs-keyword">self</span>.circleColorChanged.toggle()
     <span class="hljs-keyword">self</span>.heartColorChanged.toggle()

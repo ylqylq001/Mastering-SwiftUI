@@ -973,8 +973,8 @@
 <pre><code class="lang-swift">.navigationBarTitleDisplayMode(.automatic)
 </code></pre>
 <h4 id="%E8%A8%AD%E5%AE%9A%E5%AD%97%E5%9E%8B%E8%88%87%E9%A1%8F%E8%89%B2">设定字型与颜色</h4>
-<p>接下来，我们来看如何变更标题的字型与颜色。在撰写本章时，SwiftUI 还没有修饰器来让开发人员设定导航列的字型及颜色，而我们需要使用 UIKit 所提供的 <code>UINavigation BarAppearance</code> API。</p>
-<p>举例而言，我们要将导航列的标题颜色变更为红色、字型变更为 <code>Arial Rounded MT Bold</code>，则我们可以在 init() 函数中建立一个 <code>UINavigationBarAppearance</code> 物件，并相应地设定属性。在 <code>ContentView</code> 中插入下列的函数： </p>
+<p>接下来，我们来看如何修改标题的字型与颜色。在撰写本章时，SwiftUI 还没有修饰器来让开发人员设定导航列的字型及颜色，而我们需要使用 UIKit 所提供的 <code>UINavigation BarAppearance</code> API。</p>
+<p>举例而言，我们要将导航列的标题颜色修改为红色、字型修改为 <code>Arial Rounded MT Bold</code>，则我们可以在 init() 函数中建立一个 <code>UINavigationBarAppearance</code> 物件，并相应地设定属性。在 <code>ContentView</code> 中插入下列的函数： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>() {
     <span class="hljs-keyword">let</span> navBarAppearance = <span class="hljs-type">UINavigationBarAppearance</span>()
     navBarAppearance.largeTitleTextAttributes = [.foregroundColor: <span class="hljs-type">UIColor</span>.red, .font: <span class="hljs-type">UIFont</span>(name: <span class="hljs-string">&quot;ArialRoundedMTBold&quot;</span>, size: <span class="hljs-number">35</span>)!]
@@ -986,11 +986,11 @@
 }
 </code></pre>
 <p><code>largeTitleTextAttributes</code> 属性用于设定大尺寸标题的文字属性，而 <code>titleTextAttributes</code> 属性则用于设定标准尺寸标题的文字属性。当我们设定 <code>navBarAppearance</code> 后，将其它指定给三个外观属性，包括<code>standardAppearance</code>、<code>scrollEdgeAppearance</code> 与 <code>compactAppearance</code>。如前所述，如果需要的话，你可以为 <code>scrollEdgeAppearance</code> 与 <code>compactAppearance</code> 建立及指定一个单独的外观物件。</p>
-<figure id="fig11.7"><img src="images/navigation/swiftui-navigation-7.png" alt="图 11.7.　对大尺寸标题与标准尺寸标题变更字型与颜色"><figcaption>图 11.7.　对大尺寸标题与标准尺寸标题变更字型与颜色</figcaption></figure>
+<figure id="fig11.7"><img src="images/navigation/swiftui-navigation-7.png" alt="图 11.7.　对大尺寸标题与标准尺寸标题修改字型与颜色"><figcaption>图 11.7.　对大尺寸标题与标准尺寸标题修改字型与颜色</figcaption></figure>
 <h4 id="%E3%80%8C%E8%BF%94%E5%9B%9E%E3%80%8D%E6%8C%89%E9%88%95%E7%9A%84%E5%9C%96%E7%89%87%E8%88%87%E9%A1%8F%E8%89%B2">“返回”按钮的图片与颜色</h4>
 <p>导航视图的“返回”（Back ）按钮默认为蓝色，其使用V 形图示（chevron icon ）来表示“返回”，如图 11.8 所示。通过使用 <code>UINavigationBarAppearance</code>  API，你可以自订颜色、甚至是“返回”按钮的指示器图片。</p>
 <figure id="fig11.8"><img src="images/navigation/swiftui-navigation-8.png" alt="图 11.8.　标准的“返回”按钮"><figcaption>图 11.8.　标准的“返回”按钮</figcaption></figure>
-<p>我们来看这个自定义是否如何工作的。要变更指示器的图片，你可以调用 <code>setBackIndicatorImage</code> 方法，并提供自己的 <code>UIImage</code>。这里，我设定系统图片为 <code>arrow.turn. up.left</code>。</p>
+<p>我们来看这个自定义是否如何工作的。要修改指示器的图片，你可以调用 <code>setBackIndicatorImage</code> 方法，并提供自己的 <code>UIImage</code>。这里，我设定系统图片为 <code>arrow.turn. up.left</code>。</p>
 <pre><code class="lang-swift">navBarAppearance.setBackIndicatorImage(<span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;arrow.turn.up.left&quot;</span>), transitionMaskImage: <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;arrow.turn.up.left&quot;</span>))
 </code></pre>
 <p>对于“返回”按钮的颜色，你可以通过设置 <code>accentColor</code> 属性来修改它，如下所示：</p>
@@ -1001,7 +1001,7 @@
 }
 .accentColor(.black)
 </code></pre>
-<p>如果你已经进行变更，则运行该 App 来快速测试，“返回”按钮应该如图 11.9 所示。</p>
+<p>如果你已经进行修改，则运行该 App 来快速测试，“返回”按钮应该如图 11.9 所示。</p>
 <figure id="fig11.9"><img src="images/navigation/swiftui-navigation-9.png" alt="图 11.9.　自订“返回”按钮的外观"><figcaption>图 11.9.　自订“返回”按钮的外观</figcaption></figure>
 <h4 id="%E8%87%AA%E8%A8%82%E8%BF%94%E5%9B%9E%E6%8C%89%E9%88%95">自订返回按钮</h4>
 <p>除了使用  UIKit 的 API 来自订返回按钮以外，另一个方式为隐藏返回按钮，利用 SwiftUI 自己建立一个返回按钮，要隐藏返回按钮，如下所示，你可以使用  <code>.navigationBarBackButtonHidden</code> 修饰器，并将其值设定为 true：</p>
@@ -1111,7 +1111,7 @@
     }
 }
 </code></pre>
-<p>这里，我们只选择 <code>articles</code> 数组中的第一篇文章来预览。如果想要预览其他文章，你可以将其修改为其他值。当你变更后，预览画布应会正确渲染细节视图，如图 11.11 所示。</p>
+<p>这里，我们只选择 <code>articles</code> 数组中的第一篇文章来预览。如果想要预览其他文章，你可以将其修改为其他值。当你修改后，预览画布应会正确渲染细节视图，如图 11.11 所示。</p>
 <figure id="fig11.11"><img src="images/navigation/swiftui-navigation-11.png" alt="图 11.11.　用于显示文章的细节视图"><figcaption>图 11.11.　用于显示文章的细节视图</figcaption></figure>
 <p>我们再多尝试一件事。由于这个视图将嵌入至 <code>NavigationView</code>中，因此你可以修改预览代码，来预览它在预览介面的外观： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
@@ -1169,7 +1169,7 @@
     .navigationTitle(<span class="hljs-string">&quot;Your Reading&quot;</span>)
 }
 </code></pre>
-<p>下层是文章列，上层则是空视图。<code>NavigationLink</code> 现在应用于空视图，以避免 iOS 渲染揭示按钮。当你变更后，揭示指示器就会消失，但你仍然可以导航至细节视图。</p>
+<p>下层是文章列，上层则是空视图。<code>NavigationLink</code> 现在应用于空视图，以避免 iOS 渲染揭示按钮。当你修改后，揭示指示器就会消失，但你仍然可以导航至细节视图。</p>
 <p>现在，我们来看第二个问题的根本原因。</p>
 <p>切换到 <code>ArticleDetailView.swift</code>，在设计细节视图时，我没有提到这个问题，但实际上从预览中，你应该会发现这个问题，如图 11.13 所示。</p>
 <figure id="fig11.13"><img src="images/navigation/swiftui-navigation-13.png" alt="图 11.13　标头中的空白区域"><figcaption>图 11.13　标头中的空白区域</figcaption></figure>
