@@ -1053,7 +1053,7 @@
 }
 </code></pre>
 <p>每次变更 <code>isReadySubmit</code> 的值时，它都会向订阅者发布一个事件。订阅者接收更新后的值，并继续处理，例如：订阅者可以使用该值来判断是否应启用“送出”按钮。</p>
-<p>你可能会觉得在 SwiftUI 中 <code>@Published</code> 和 <code>@State</code> 的运作方式非常相似。虽然在这个例子，它的工作原理几乎相同，不过 <code>@State</code> 只能应用在属于特定SwiftUI 视图的属性。如果你想要建立不属于特定视图或可以用于多个视图的自订类型的话，则你需要建立一个遵从 <code>ObservableObject</code> 的类别，并以 <code>@Published</code> 标注来标记这些属性。</p>
+<p>你可能会觉得在 SwiftUI 中 <code>@Published</code> 和 <code>@State</code> 的运作方式非常相似。虽然在这个例子，它的工作原理几乎相同，不过 <code>@State</code> 只能应用在属于特定SwiftUI 视图的属性。如果你想要建立不属于特定视图或可以用于多个视图的自订类型的话，则你需要建立一个遵守 <code>ObservableObject</code> 的类别，并以 <code>@Published</code> 标注来标记这些属性。</p>
 <h3 id="combine-%E8%88%87-mvvm">Combine 与 MVVM</h3>
 <p>现在你应该具备 Combine 的一些基本观念，我们来开始使用框架实现表单验证，下列是我们将要做的事情： </p>
 <ol>
@@ -1091,7 +1091,7 @@
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> isPasswordConfirmValid = <span class="hljs-built_in">false</span>
 }
 </code></pre>
-<p>这就是表单视图的资料模型。<code>username</code>、<code>password</code> 与 <code>passwordConfirm</code> 属性分别存放使用者名称、密码与密码确认的文字栏位的值。这个类别应该遵从 <code>ObservableObject</code>。所有这些属性都使用 <code>@Published</code> 来做标注，因为我们想要在值发生变更时通知订阅者，并相应执行验证。</p>
+<p>这就是表单视图的资料模型。<code>username</code>、<code>password</code> 与 <code>passwordConfirm</code> 属性分别存放使用者名称、密码与密码确认的文字栏位的值。这个类别应该遵守 <code>ObservableObject</code>。所有这些属性都使用 <code>@Published</code> 来做标注，因为我们想要在值发生变更时通知订阅者，并相应执行验证。</p>
 <h4 id="%E4%BD%BF%E7%94%A8combine-%E9%A9%97%E8%AD%89%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1">使用Combine 验证使用者名称</h4>
 <p>好的，以上为资料模型，不过我们还没有处理表单验证。我们要如何依照要求来验证使用者名称、密码与密码确认呢？ </p>
 <p>使用 Combine，你就必须培养发布者/ 订阅者思维模式来解决问题。考虑到使用者名称， 我们这里其实有两个发布者：<code>username</code> 与<code>isUsernameLengthValid</code>。每当使用者在使用者名称栏位上敲击键盘输入时，<code>username</code> 发布者就会发布值的变更，而 <code>isUsernameLengthValid</code> 发布者将使用者输入的验证状态通知订阅者。几乎所有SwiftUI 中的控制组件都是订阅者，因此栏位要求文字视图将监听验证结果的变化，并相应更新其样式（即是否有删除线）。图15.6 说明了我们如何使用 Combine 来验证使用者名称的输入。</p>

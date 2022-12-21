@@ -1215,7 +1215,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
 }
 </code></pre>
-<p>这个类别遵从<code>ObservableObject</code>。 所有属性都以<code>@Published</code>标注，因为我们想在数值发生变化时通知订阅者并相应地执行验证。</p>
+<p>这个类别遵守<code>ObservableObject</code>。 所有属性都以<code>@Published</code>标注，因为我们想在数值发生变化时通知订阅者并相应地执行验证。</p>
 <p>每当使用者输入表格栏时，此视图模型就会执行验证代码并更新结果，以及通知订阅者。</p>
 <p>那么，谁是订阅者？</p>
 <p>如果你回到 <code>PaymentFormView.swift</code>，你应该注意到我们已经用 <code>@ObservedObject</code> 标注了一个名为 <code>paymentFormViewModel</code> 的变量：</p>
