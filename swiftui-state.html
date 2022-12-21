@@ -945,7 +945,7 @@
 <figure id="fig7.6"><img src="images/state/swiftui-state-6.png" alt="图 7.6.　计数器按钮"><figcaption>图 7.6.　计数器按钮</figcaption></figure>
 <p>好的，现在我们进一步修改代码，以显示三个计数器按钮，如图 7.7 所示。这三个按钮都共享相同的计数器，不论哪一个按钮被点击，该计数器将会增加 1，所有的按钮会同时一起显示更新后的计数。</p>
 <figure id="fig7.7"><img src="images/state/swiftui-state-7.png" alt="图 7.7.　三个计数按钮"><figcaption>图 7.7.　三个计数按钮</figcaption></figure>
-<p>如你所见，所有的按钮共享相同的外观。就如我在前面章节内容所说明的，与其复制代码，较好的作法是取出一个共用视图作为可重复使用的子视图。因此，我们可以取出 Button 来建立一个独立视图，如下所示： </p>
+<p>如你所见，所有的按钮共享相同的外观。就如我在前面章节内容所说明的，与其复制代码，较好的做法是取出一个共用视图作为可重复使用的子视图。因此，我们可以取出 Button 来建立一个独立视图，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CounterButton</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> counter: <span class="hljs-type">Int</span>
 
