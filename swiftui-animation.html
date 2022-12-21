@@ -1023,7 +1023,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8rotationeffect-%E5%BB%BA%E7%AB%8B%E4%B8%8B%E8%BC%89%E6%8C%87%E7%A4%BA%E5%99%A8">使用RotationEffect 建立下载指示器</h3>
 <p>SwiftUI 动画的强大之处在于，你不需关心如何对视图设定动画，你只需要提供初始与结束状态，接着 SwiftUI 会找出其余的状态。当你具备了这个概念，即可以建立各种类型的动画。</p>
 <figure id="fig9.3"><img src="images/animation/swiftui-animation-3.gif" alt="图 9.3.　下载指示器示例"><figcaption>图 9.3.　下载指示器示例</figcaption></figure>
-<p>举例而言，我们来建立一个简单的下载指示器，你通常可以在一些真实世界的应用程序（如 Medium）中找到它。要建立一个如图 9.3 所示的下载指示器，我们从开放式圆环（open ended circle ）来开始，如下所示： </p>
+<p>举例而言，我们来建立一个简单的下载指示器，你通常可以在一些现实世界的应用程序（如 Medium）中找到它。要建立一个如图 9.3 所示的下载指示器，我们从开放式圆环（open ended circle ）来开始，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Circle</span>()
     .trim(from: <span class="hljs-number">0</span>, to: <span class="hljs-number">0.7</span>)
     .stroke(<span class="hljs-type">Color</span>.green, lineWidth: <span class="hljs-number">5</span>)
@@ -1149,7 +1149,7 @@
     }
 }
 </code></pre>
-<p>这里的状态变量不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在真实世界的应用程序中，你可以修改 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒修改一次。</p>
+<p>这里的状态变量不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在现实世界的应用程序中，你可以修改 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒修改一次。</p>
 <h3 id="%E5%BB%B6%E9%81%B2%E5%8B%95%E7%95%AB">延迟动画</h3>
 <p>SwiftUI 框架不只让你可以控制动画的持续时间，你可以通过 <code>delay</code> 函数来延迟动画， 如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.<span class="hljs-keyword">default</span>.delay(<span class="hljs-number">1.0</span>)
@@ -1360,7 +1360,7 @@
     <span class="hljs-keyword">self</span>.loading = <span class="hljs-built_in">true</span>
 
     <span class="hljs-comment">// 使用DispatchQueue.main.asyncAfter 来模拟操作</span>
-    <span class="hljs-comment">// 在真实世界的项目中，你将在这里运行一个任务</span>
+    <span class="hljs-comment">// 在现实世界的项目中，你将在这里运行一个任务</span>
     <span class="hljs-comment">// 当任务完成之后，你将完成状态设定为true</span>
     <span class="hljs-type">DispatchQueue</span>.main.asyncAfter(deadline: .now() + <span class="hljs-number">4</span>) {
         <span class="hljs-keyword">self</span>.completed = <span class="hljs-built_in">true</span>
