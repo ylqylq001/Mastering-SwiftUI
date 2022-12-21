@@ -1010,7 +1010,7 @@
 <p>SwiftUI 框架有一个 <code>ActionSheet</code> 视图，可以让你建立动作表。基本上，你可以建立动作列表如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ActionSheet</span>(title: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;What do you want to do&quot;</span>), message: <span class="hljs-built_in">nil</span>, buttons: [.<span class="hljs-keyword">default</span>(<span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Delete&quot;</span>))]
 </code></pre>
-<p>你使用标题及选项讯息初始化一个动作表，<code>buttons</code> 参数接受一个按钮的数组。在示例代码中，它提供标题为“Delete”的默认按钮。</p>
+<p>你使用标题及选项信息初始化一个动作表，<code>buttons</code> 参数接受一个按钮的数组。在示例代码中，它提供标题为“Delete”的默认按钮。</p>
 <p>要启用动作表，可将 <code>actionSheet</code> 修饰器加到按钮或任何视图上来触发动作表。如果你研究 SwiftUI 的文件，则有两个带出动作表的方式。</p>
 <p>你可以使用 <code>isPresented</code> 参数来控制动作表的外观：  </p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">actionSheet</span><span class="hljs-params">(isPresented: Binding&lt;Bool&gt;, content: <span class="hljs-params">()</span> -&gt; ActionSheet)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span>

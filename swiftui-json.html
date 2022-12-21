@@ -988,7 +988,7 @@
     }
 }
 </code></pre>
-<p>如果你执行这个项目，则应该在主控台中看到一个讯息，这是 <code>Loan</code> 实例，其中填满了解码后的值。</p>
+<p>如果你执行这个项目，则应该在主控台中看到一个信息，这是 <code>Loan</code> 实例，其中填满了解码后的值。</p>
 <figure id="fig21.4"><img src="images/json/swiftui-json-4.png" alt="图 21.4.　在主控台中显示解码后的借贷数据"><figcaption>图 21.4.　在主控台中显示解码后的借贷数据</figcaption></figure>
 <p>让我们再次研究代码片段。我们实例化一个 <code>JSONDecoder</code> 实例，然后将 JSON 字串转换为 <code>Loan</code>。而魔法发生在下列这行代码中： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
@@ -1117,7 +1117,7 @@
 <p>修改为： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loanStore = try decoder.decode(<span class="hljs-type">LoanStore</span>.<span class="hljs-keyword">self</span>, from: jsonData)
 </code></pre>
-<p>解码器将自动解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 数组中。如果你印出 <code>loans</code>，应该会看到如图 21.5 所示的类似讯息。</p>
+<p>解码器将自动解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 数组中。如果你印出 <code>loans</code>，应该会看到如图 21.5 所示的类似信息。</p>
 <figure id="fig21.5"><img src="images/json/swiftui-json-5.png" alt="图 21.5.　印出loans 数组"><figcaption>图 21.5.　印出loans 数组</figcaption></figure>
 <p>以上就是使用 Swift 解码 JSON 的方式。</p>
 <p><em>注意：作为参考，Playgrounds 项目包含在最终下载档内。 你可以在本章末端找到下载连结。</em></p>
@@ -1188,8 +1188,8 @@
 }
 </code></pre>
 <p>如此，当 <code>loans</code> 变量有任何变动时，SwiftUI 将自动管理 UI 的修改。如果你已经忘记什么是 <code>ObservableObject</code>，则请再次阅读第 14 章。</p>
-<p>不过，当你加上 <code>@Published</code> 属性包裹器后，Xcode 就会显示一个错误讯息，如图 21.6 所示。<code>Decodable</code>（或Codable ）协议在 <code>@Published</code>上不好发挥作用。</p>
-<figure id="fig21.6"><img src="images/json/swiftui-json-6.png" alt="图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协议的错误讯息"><figcaption>图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协议的错误讯息</figcaption></figure>
+<p>不过，当你加上 <code>@Published</code> 属性包裹器后，Xcode 就会显示一个错误信息，如图 21.6 所示。<code>Decodable</code>（或Codable ）协议在 <code>@Published</code>上不好发挥作用。</p>
+<figure id="fig21.6"><img src="images/json/swiftui-json-6.png" alt="图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协议的错误信息"><figcaption>图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协议的错误信息</figcaption></figure>
 <p>要修正这个错误，需要做一些额外的工作。当使用 <code>@Published</code> 属性包裹器时，我们需要手动实现 <code>Decodable</code>所需的方法。如果你研究文件（<a href="https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：" target="_blank">https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：</a> </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>(from decoder: <span class="hljs-type">Decoder</span>) throws
 </code></pre>

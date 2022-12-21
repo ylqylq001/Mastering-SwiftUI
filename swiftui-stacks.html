@@ -1096,7 +1096,7 @@
 <p>售价区块的布局虽相同，但是底层代码（underlying code ）已经变得更简洁且易于阅读了，如图 4.21 所示。</p>
 <figure id="fig4.21"><img src="images/stacks/swiftui-stacks-21.png" alt="图 4.21.　重构代码后的 ContentView"><figcaption>图 4.21.　重构代码后的 ContentView</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8zstack">使用ZStack</h3>
-<p>现在，你已经布局了售价区块，并且重构了代码，不过对于“Pro”售价仍有一件事情漏掉了，在此设计中，我们要以黄色色块在售价区块重叠一个讯息。为此，我们可以使用 <code>ZStack</code>，这让你可叠一个视图在目前的视图之上。</p>
+<p>现在，你已经布局了售价区块，并且重构了代码，不过对于“Pro”售价仍有一件事情漏掉了，在此设计中，我们要以黄色色块在售价区块重叠一个信息。为此，我们可以使用 <code>ZStack</code>，这让你可叠一个视图在目前的视图之上。</p>
 <p>现在以 <code>ZStack</code> 嵌入“Pro”方案的 <code>PricingView</code>，并加入<code>Text</code> 视图，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Pro&quot;</span>, price: <span class="hljs-string">&quot;$19&quot;</span>, textColor: .black, bgColor: <span class="hljs-type">Color</span>(red: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">240</span>/<span class="hljs-number">255</span>))

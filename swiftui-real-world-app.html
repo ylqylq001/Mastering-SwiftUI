@@ -1005,7 +1005,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     }
 }
 </code></pre>
-<p>您是否注意到表单标题下的两个验证错误？ 由于这些验证讯息的格式相似，我们就为此类讯息建立了一个独立视图：</p>
+<p>您是否注意到表单标题下的两个验证错误？ 由于这些验证信息的格式相似，我们就为此类信息建立了一个独立视图：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ValidationErrorText</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> iconName = <span class="hljs-string">&quot;info.circle&quot;</span>
@@ -1025,7 +1025,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     }
 }
 </code></pre>
-<p>建立了这两个通用视图后，建立表格就变得非常简单。 我们使用 <code>ScrollView</code> 和 <code>VStack</code> 来排列表格栏。 只有在检测到错误时才会显示错误讯息：</p>
+<p>建立了这两个通用视图后，建立表格就变得非常简单。 我们使用 <code>ScrollView</code> 和 <code>VStack</code> 来排列表格栏。 只有在检测到错误时才会显示错误信息：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Group</span> {
     <span class="hljs-keyword">if</span> !paymentFormViewModel.isNameValid {
         <span class="hljs-type">ValidationErrorText</span>(text: <span class="hljs-string">&quot;Please enter the payment name&quot;</span>)

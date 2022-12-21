@@ -997,8 +997,8 @@
 <p>现在我们有一个采用了 <code>UISearchBarDelegate</code> 协议的 Coordinator，我们需要再做一个修改。 在 <code>makeUIView</code> 方法中，加入以下一行代码，将协调器指定给搜索栏：</p>
 <pre><code class="lang-swift">searchBar.delegate = context.coordinator
 </code></pre>
-<p>就是这样！ 再次执行App并在输入搜寻文字。 你应该会在控制台中看到<code>textDidChange:</code>的讯息。</p>
-<figure id="fig23.3"><img src="images/uikit/swiftui-uikit-3.png" alt="图 3. 控制台在你输入搜寻文字时即时显示讯息"><figcaption>图 3. 控制台在你输入搜寻文字时即时显示讯息</figcaption></figure>
+<p>就是这样！ 再次执行App并在输入搜寻文字。 你应该会在控制台中看到<code>textDidChange:</code>的信息。</p>
+<figure id="fig23.3"><img src="images/uikit/swiftui-uikit-3.png" alt="图 3. 控制台在你输入搜寻文字时即时显示信息"><figcaption>图 3. 控制台在你输入搜寻文字时即时显示信息</figcaption></figure>
 <h3 id="%E8%99%95%E7%90%86%E5%8F%96%E6%B6%88%E6%8C%89%E9%88%95">处理取消按钮</h3>
 <p>你是否点击了<em>取消</em>按钮？ 如果你尝试过，就会知道它又是不能正常运作。 要解决这个问题，我们必须在<code>Coordinator</code>中实现以下方法：</p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">searchBarCancelButtonClicked</span><span class="hljs-params">(<span class="hljs-number">_</span> searchBar: UISearchBar)</span> </span>{
