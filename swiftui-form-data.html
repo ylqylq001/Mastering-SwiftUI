@@ -934,7 +934,7 @@
     }
 }
 </code></pre>
-<p>由于我们在 <code>DisplayOrder</code> 枚举中采用 <code>CaseIterable</code> 协定，因此我们可存取 <code>allCases</code> 属性（该属性包含所有枚举情况的数组）来找出所有的显示顺序。</p>
+<p>由于我们在 <code>DisplayOrder</code> 枚举中采用 <code>CaseIterable</code> 协议，因此我们可存取 <code>allCases</code> 属性（该属性包含所有枚举情况的数组）来找出所有的显示顺序。</p>
 <p>现在，你可以再次测试设定画面，它应该可正常运作且外观相同，不过底层代码更易于管理及阅读了。</p>
 <h3 id="%E5%9C%A8-userdefaults-%E5%84%B2%E5%AD%98%E4%BD%BF%E7%94%A8%E8%80%85%E5%81%8F%E5%A5%BD">在 UserDefaults 储存使用者偏好</h3>
 <p>目前，App 还不能永久储存使用者偏好。每当你重新启动这个 App 时，设定画面都会重置为预设设定。</p>
@@ -1037,14 +1037,14 @@
 <p>我来介绍三个关键字： </p>
 <ol>
 <li><strong>@EnvironmentObject</strong> - 以技术而言，这就是一个属性包裹器（ property wrapper ），不过，你可将此关键字视为一个特殊的标记，当你声明一个属性为环境物件时，SwiftUI 会监控该属性的值，并在有任何改变时，使对应的视图无效。@EnvironmentObject 的运作方式与 @State 几乎相同，不过属性被声明为环境物件时， 整个 App 中的所有视图皆可存取它。举例而言，如果你的App 有很多共享相同资料（例如：使用者设定）的视图，则环境物件在这种情况下可运作得很好，你不需要在视图间传送属性，就可以自动存取它。</li>
-<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协定。当你声明一个属性为环境物件时， 该属性的型别必须实现此协定。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？通过实现此协定，这个物件可以作为一个发布者，发出更改后的值。而那些监控值的订阅者将会收到通知。</li>
+<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协议。当你声明一个属性为环境物件时， 该属性的型别必须实现此协议。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？通过实现此协议，这个物件可以作为一个发布者，发出更改后的值。而那些监控值的订阅者将会收到通知。</li>
 <li><strong>@Published</strong> - 这是一个与  <code>ObservableObject</code> 一起使用的属性包裹器。当一个属性以 <code>@Publisher</code> 为前缀时，这表示发布者应该在值发生更改时通知所有订阅者。</li>
 </ol>
 <p>我知道这有点令人困惑。不过，当我们看完代码后，你将会更加了解。</p>
-<p>我们从 <code>SettingStore.swift</code> 开始。设定视图与清单视图需要监控使用者偏好的变化，因此 <code>SettingStore</code> 应该实现 <code>ObservableObject</code> 协定，并宣布 <code>defaults</code> 属性的变更。在 <code>Setting Store.swift</code> 档的开始处，我们必须先汇入 Combine 框架： </p>
+<p>我们从 <code>SettingStore.swift</code> 开始。设定视图与清单视图需要监控使用者偏好的变化，因此 <code>SettingStore</code> 应该实现 <code>ObservableObject</code> 协议，并宣布 <code>defaults</code> 属性的变更。在 <code>Setting Store.swift</code> 档的开始处，我们必须先汇入 Combine 框架： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">Combine</span>
 </code></pre>
-<p><code>SettingStore</code> 类别应该采用 <code>ObservableObject</code> 协定。更新类别声明，如下所示： </p>
+<p><code>SettingStore</code> 类别应该采用 <code>ObservableObject</code> 协议。更新类别声明，如下所示： </p>
 <pre><code class="lang-swift">final <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SettingStore</span>: <span class="hljs-title">ObservableObject</span> </span>{
 </code></pre>
 <p>接下来，如下，在所有的属性的前面插入 <code>@Published</code> 标注： </p>
@@ -1067,7 +1067,7 @@
 }
 </code></pre>
 <p>藉由使用 <code>@Published</code> 属性包裹器，发布者将在属性的值发生变化时通知订阅者（例如：<code>displayOrder</code> 的更新）。</p>
-<p>如你所见，使用 Combine 通知变更的值非常容易。实际上，我们还没有编写任何新代码，只有采用所需的协定，并插入一个标记。</p>
+<p>如你所见，使用 Combine 通知变更的值非常容易。实际上，我们还没有编写任何新代码，只有采用所需的协议，并插入一个标记。</p>
 <p>现在，我们切换至 <code>SettingView.swift</code>。<code>settingStore</code> 现在应该声明为环境物件，以让我们可以与其他视图共享资料。更新 <code>settingStore</code> 变量，如下所示： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">EnvironmentObject</span> <span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>

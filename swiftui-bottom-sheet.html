@@ -1408,8 +1408,8 @@
 <p>现在于模拟器中执行 App，带出细节视图，并完全展开它。当你拖曳视图时你便可以见到这个拖曳偏移量，如图 8.14 所示，当你拖曳距离顶部列越远时，偏移量会越大。</p>
 <figure id="fig18.14"><img src="images/bottom-sheet/swiftui-bottom-sheet-14.jpg" alt="图 8.14. 在不同方向拖曳滚动视图。"><figcaption>图 8.14. 在不同方向拖曳滚动视图。</figcaption></figure>
 <h3 id="preferencekey-%E7%9A%84%E4%BB%8B%E7%B4%B9">PreferenceKey 的介绍</h3>
-<p>现在我们已经找到滚动偏移量取得方式，接下的问题是如何让它的父视图知道偏移量，以利进一步处理。 SwiftUI 框架提供了一个  <code>PreferenceKey</code> 协定，可以让你很容易地从子视图传递资料至它的父视图。</p>
-<p>为了使用布局偏好（preference）来传递滚动偏移量，我们必须建立一个结构来遵循 <code>PreferenceKey</code>协定，如下所示，在 <code>RestaurantDetailView.swift</code> 插入以下这段程式：</p>
+<p>现在我们已经找到滚动偏移量取得方式，接下的问题是如何让它的父视图知道偏移量，以利进一步处理。 SwiftUI 框架提供了一个  <code>PreferenceKey</code> 协议，可以让你很容易地从子视图传递资料至它的父视图。</p>
+<p>为了使用布局偏好（preference）来传递滚动偏移量，我们必须建立一个结构来遵循 <code>PreferenceKey</code>协议，如下所示，在 <code>RestaurantDetailView.swift</code> 插入以下这段程式：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ScrollOffsetKey</span>: <span class="hljs-title">PreferenceKey</span> </span>{
     <span class="hljs-keyword">typealias</span> <span class="hljs-type">Value</span> = <span class="hljs-type">CGFloat</span>
 
@@ -1420,7 +1420,7 @@
     }
 }
 </code></pre>
-<p>这个协定有两个必要的实现内容，首先，你必须定义预设值，以我们这个实现而言预设值为零。第二，你必须实现 <code>reduce</code> 函数来将所有偏移量值合并成一个。</p>
+<p>这个协议有两个必要的实现内容，首先，你必须定义预设值，以我们这个实现而言预设值为零。第二，你必须实现 <code>reduce</code> 函数来将所有偏移量值合并成一个。</p>
 <p>接下来，你可以修改前一节所建立的 <code>GeometryReader</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">GeometryReader</span> { scrollViewProxy <span class="hljs-keyword">in</span>
     <span class="hljs-type">Color</span>.clear.preference(key: <span class="hljs-type">ScrollOffsetKey</span>.<span class="hljs-keyword">self</span>, value: scrollViewProxy.frame(<span class="hljs-keyword">in</span>: .named(<span class="hljs-string">&quot;scrollview&quot;</span>)).minY)

@@ -946,8 +946,8 @@
 <pre><code class="lang-bash">curl https://api.kivaws.org/v1/loans/newest.json | python -m json.tool &gt; kiva-loans-data.txt
 </code></pre>
 <p>这将格式化 JSON 回应，并将其储存到文字档中。</p>
-<p>现在你对 JSON 有一些了解了，我们如何在 Swift 中解析 JSON 资料呢？从 Swift 4 开始， Apple 导入一个编码及解码 JSON 资料的新方式，即采用了一个名为 <code>Codable</code>的协定。</p>
-<p><code>Codable</code> 为开发者提供一个不同的方式来解码（或编码）JSON，从而简化了整个过程。只要你的型别遵循<code>Codable</code> 协定以及新的 <code>JSONDecoder</code>，你就能够将 JSON 资料解码到你指定的实例（instance ）中。</p>
+<p>现在你对 JSON 有一些了解了，我们如何在 Swift 中解析 JSON 资料呢？从 Swift 4 开始， Apple 导入一个编码及解码 JSON 资料的新方式，即采用了一个名为 <code>Codable</code>的协议。</p>
+<p><code>Codable</code> 为开发者提供一个不同的方式来解码（或编码）JSON，从而简化了整个过程。只要你的型别遵循<code>Codable</code> 协议以及新的 <code>JSONDecoder</code>，你就能够将 JSON 资料解码到你指定的实例（instance ）中。</p>
 <p>图 21.3 说明了使用 <code>JSONDecoder</code>，将示例借贷资料解码为一个 <code>Loan</code> 实例。</p>
 <figure id="fig21.3"><img src="images/json/swiftui-json-3.png" alt="图 21.3.　JSONDecoder 解码 JSON 资料，并将其转换为一个 Loan 实例"><figcaption>图 21.3.　JSONDecoder 解码 JSON 资料，并将其转换为一个 Loan 实例</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-jsondecoder-%E8%88%87-codable">使用 JSONDecoder 与 Codable</h3>
@@ -972,7 +972,7 @@
     <span class="hljs-keyword">var</span> amount: <span class="hljs-type">Int</span>
 }
 </code></pre>
-<p>如你所见，该结构采用了 <code>Codable</code>协定。而且，结构中定义的变量与 JSON 回应的键值相符，这是让解码器知道如何解码资料的方法。</p>
+<p>如你所见，该结构采用了 <code>Codable</code>协议。而且，结构中定义的变量与 JSON 回应的键值相符，这是让解码器知道如何解码资料的方法。</p>
 <p>现在，让我们来看看它的魔力 ！ </p>
 <p>继续在Playground 档案中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> decoder = <span class="hljs-type">JSONDecoder</span>()
@@ -1010,7 +1010,7 @@
 &quot;&quot;&quot;
 </code></pre>
 <p>如你所见，<code>amount</code> 这个键现在改为 <code>loan_amount</code>。为了解码 JSON 资料，你可以将属性名称从 <code>amount</code> 改为<code>loan_amount</code>。不过，我们真的想要保留名称 <code>amount</code>，在这种的情况下，我们如何定义映射呢？ </p>
-<p>要定义键与属性名称之间的映射，你需要声明一个名为“CodingKeys”的枚举， <code>CodingKeys</code> 枚举具有一个    <code>String</code> 型别的原始值，并遵循 <code>CodingKey</code> 协定。</p>
+<p>要定义键与属性名称之间的映射，你需要声明一个名为“CodingKeys”的枚举， <code>CodingKeys</code> 枚举具有一个    <code>String</code> 型别的原始值，并遵循 <code>CodingKey</code> 协议。</p>
 <p>现在，更新 <code>Loan</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Codable</span> </span>{
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1076,7 +1076,7 @@
 }
 </code></pre>
 <p>和我们之前所做的类似，我们必须定义一个枚举 <code>CodingKeys</code>。对于 <code>country</code> 这个 case， 我们指定要映射<code>location</code> 键。而要处理巢状的 JSON 物件，我们需要定义另一个枚举，在上面的代码中，我们将其命名为<code>LocationKeys</code>，并声明与巢状物件的 <code>country</code> 键相符的 <code>country</code> 这个 case。</p>
-<p>因为它不是直接映射，我们需要实现 <code>Decodable</code>  协定的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 调用解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
+<p>因为它不是直接映射，我们需要实现 <code>Decodable</code>  协议的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 调用解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
 <p>要解码一个特定值，我们使用特定键（例如：.name ）和关联型别（例如：String.self ） 来调用 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 调用 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
 <p>以上为使用巢状物件来解码JSON 资料的方式。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E9%99%A3%E5%88%97">使用数组</h3>
@@ -1105,7 +1105,7 @@
 &quot;&quot;&quot;
 </code></pre>
 <p>在上面的示例中，<code>json</code> 变量中有两笔贷款资料，你如何将其解码为 <code>Loan</code> 的数组呢？ </p>
-<p>为此，声明另一个名称为 <code>LoanStore</code>的结构，该结构也采用 <code>Codable</code> 协定： </p>
+<p>为此，声明另一个名称为 <code>LoanStore</code>的结构，该结构也采用 <code>Codable</code> 协议： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Codable</span> </span>{
     <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>]
 }
@@ -1126,7 +1126,7 @@
 <p>倘若你已经开启 Xcode，至选单并选择“File → New → Projects”来建立一个新项目。如往常一样，使用“App”模板，并将项目名称命名为“SwiftUIKivaLoan”或是你所喜爱的其他名称。</p>
 <p>我们将从建立模型类别来开始，该模型类别储存从 Kiva 取得的所有最新贷款资料。对于使用者介面的实现，我们将稍后处理。</p>
 <h4 id="%E5%8F%96%E5%BE%97-kiva-%E6%9C%80%E6%96%B0%E7%9A%84%E8%B2%B8%E6%AC%BE%E8%B3%87%E6%96%99">取得 Kiva 最新的贷款资料</h4>
-<p>首先，使用“Swift File”模板来建立一个新档案，并将其命名为 <code>Loan.swift</code>。这个档案储存了采用 Codable 协定来进行 JSON 解码的 <code>Loan</code> 结构。</p>
+<p>首先，使用“Swift File”模板来建立一个新档案，并将其命名为 <code>Loan.swift</code>。这个档案储存了采用 Codable 协议来进行 JSON 解码的 <code>Loan</code> 结构。</p>
 <p>在档案中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
@@ -1170,26 +1170,26 @@
     }
 }
 </code></pre>
-<p>代码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协定，除了<code>Codable</code> 协定之外，这个结构也采用了 <code>Identifiable</code> 协定，并具有预设为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制组件来呈现这些贷款资料， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协定的原因。</p>
+<p>代码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协议，除了<code>Codable</code> 协议之外，这个结构也采用了 <code>Identifiable</code> 协议，并具有预设为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制组件来呈现这些贷款资料， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协议的原因。</p>
 <p>接下来， 使用“Swift File”模板来建立另一个档案， 并将其命名为“LoanStore. swift”。这个类别是负责连接到 Kiva 的 Web API、解码  JSON 资料，并将资料储存在本地端。</p>
 <p>我们来逐步撰写 <code>LoanStore</code> 类别， 如此你就可以更加了解我是如何实现的。在 <code>LoanStore.swift</code> 中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span> </span>{
     <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
 }
 </code></pre>
-<p>稍后，解码器将解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 数组中，这就是为什么我们建立上述 <code>LoanStore</code> 的原因。代码看起来与我们之前建立的 <code>LoanStore</code> 结构非常相似，但是它采用 <code>Decodable</code> 协定而不是<code>Codable</code> 协定。</p>
-<p>如果你研究 <code>Codable</code> 的文件，它只是一个协定组成的型别别名： </p>
+<p>稍后，解码器将解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 数组中，这就是为什么我们建立上述 <code>LoanStore</code> 的原因。代码看起来与我们之前建立的 <code>LoanStore</code> 结构非常相似，但是它采用 <code>Decodable</code> 协议而不是<code>Codable</code> 协议。</p>
+<p>如果你研究 <code>Codable</code> 的文件，它只是一个协议组成的型别别名： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">typealias</span> <span class="hljs-type">Codable</span> = <span class="hljs-type">Decodable</span> &amp; <span class="hljs-type">Encodable</span>
 </code></pre>
-<p><code>Decodable</code> 与 <code>Encodable</code> 是你需要实际使用的两个协定。由于<code>LoanStore</code> 只有负责处理 JSON 解码，因此我们采用 <code>Decodable</code> 协定。</p>
-<p>如前所述，我们将使用一个清单视图来显示 <code>loans</code>。因此，除了 <code>Decodable</code>之外，我们必须采用<code>ObservableObject</code> 协定，并使用 <code>@Published</code> 属性包裹器标记 <code>loans</code> 变量，如下所示： </p>
+<p><code>Decodable</code> 与 <code>Encodable</code> 是你需要实际使用的两个协议。由于<code>LoanStore</code> 只有负责处理 JSON 解码，因此我们采用 <code>Decodable</code> 协议。</p>
+<p>如前所述，我们将使用一个清单视图来显示 <code>loans</code>。因此，除了 <code>Decodable</code>之外，我们必须采用<code>ObservableObject</code> 协议，并使用 <code>@Published</code> 属性包裹器标记 <code>loans</code> 变量，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span>, <span class="hljs-title">ObservableObject</span> </span>{
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
 }
 </code></pre>
 <p>如此，当 <code>loans</code> 变量有任何变动时，SwiftUI 将自动管理 UI 的更新。如果你已经忘记什么是 <code>ObservableObject</code>，则请再次阅读第 14 章。</p>
-<p>不过，当你加上 <code>@Published</code> 属性包裹器后，Xcode 就会显示一个错误讯息，如图 21.6 所示。<code>Decodable</code>（或Codable ）协定在 <code>@Published</code>上不好发挥作用。</p>
-<figure id="fig21.6"><img src="images/json/swiftui-json-6.png" alt="图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协定的错误讯息"><figcaption>图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协定的错误讯息</figcaption></figure>
+<p>不过，当你加上 <code>@Published</code> 属性包裹器后，Xcode 就会显示一个错误讯息，如图 21.6 所示。<code>Decodable</code>（或Codable ）协议在 <code>@Published</code>上不好发挥作用。</p>
+<figure id="fig21.6"><img src="images/json/swiftui-json-6.png" alt="图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协议的错误讯息"><figcaption>图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协议的错误讯息</figcaption></figure>
 <p>要修正这个错误，需要做一些额外的工作。当使用 <code>@Published</code> 属性包裹器时，我们需要手动实现 <code>Decodable</code>所需的方法。如果你研究文件（<a href="https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：" target="_blank">https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：</a> </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>(from decoder: <span class="hljs-type">Decoder</span>) throws
 </code></pre>

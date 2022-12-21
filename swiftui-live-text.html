@@ -904,7 +904,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 </code></pre>
 <p>我们只需要创建一个 <code>DataScannerViewController</code> 实例，并指定要辨识的资料型别即可。在示例中，我们要辨识的是文本，因此我们会把资料型别指定为 <code>.text()</code>。准备好实例之后，我们就可以调用 <code>startScanning()</code> 方法来开始扫描。</p>
 <h3 id="%E5%9C%A8-swiftui-%E4%BD%BF%E7%94%A8-datascannerviewcontroller">在 SwiftUI 使用 DataScannerViewController</h3>
-<p><code>DataScannerViewController</code> 类别现时只支持 UIKit，因此在 SwiftUI 我们需要多做几个步骤。我们需要采用 <code>UIViewControllerRepresentable</code> 协定，才可以在 SwiftUI 项目中使用这个类别。在这个情况下，让我们创建一个新的 <code>DataScanner</code>结构：</p>
+<p><code>DataScannerViewController</code> 类别现时只支持 UIKit，因此在 SwiftUI 我们需要多做几个步骤。我们需要采用 <code>UIViewControllerRepresentable</code> 协议，才可以在 SwiftUI 项目中使用这个类别。在这个情况下，让我们创建一个新的 <code>DataScanner</code>结构：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">SwiftUI</span>
 <span class="hljs-keyword">import</span> <span class="hljs-type">VisionKit</span>
 
@@ -918,7 +918,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> startScanning: <span class="hljs-type">Bool</span>
 @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> scanText: <span class="hljs-type">String</span>
 </code></pre>
-<p>让我们实现以下方法，来采用 <code>UIViewControllerRepresentable</code> 协定：</p>
+<p>让我们实现以下方法，来采用 <code>UIViewControllerRepresentable</code> 协议：</p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">makeUIViewController</span><span class="hljs-params">(context: Context)</span> -&gt; <span class="hljs-title">DataScannerViewController</span> </span>{
     <span class="hljs-keyword">let</span> controller = <span class="hljs-type">DataScannerViewController</span>(
                         recognizedDataTypes: [.text()],

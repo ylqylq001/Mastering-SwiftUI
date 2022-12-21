@@ -925,7 +925,7 @@
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
 </code></pre>
-<p>主荧幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协定，并导入一个 <code>id</code> 变量，如下所示： </p>
+<p>主荧幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协议，并导入一个 <code>id</code> 变量，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span>, <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">let</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
@@ -936,7 +936,7 @@
     .
 }
 </code></pre>
-<p>如果您忘记什么是 <code>Identifiable</code> 协定，则请参考第 10 章。</p>
+<p>如果您忘记什么是 <code>Identifiable</code> 协议，则请参考第 10 章。</p>
 <p>现在，我们继续实现卡片视图，并更新 <code>body</code> 变量如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">Image</span>(image)

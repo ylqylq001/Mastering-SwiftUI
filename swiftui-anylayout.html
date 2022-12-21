@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-45-%E7%AB%A0-br-%E5%88%A9%E7%94%A8-anylayout-%E5%88%87%E6%8F%9B-ui-%E4%BD%88%E5%B1%80">第 45 章<br>利用 AnyLayout 切换 UI 布局</h1>
-<p>从 iOS 16 开始，SwiftUI 推出了 <code>AnyLayout</code> 和 <code>Layout</code> 协定，让开发者构建客制化和复杂的 UI 布局。<code>AnyLayout</code> 是 layout 协定的 type-erased 实例。我们可以使用 <code>AnyLayout</code> 来创建动态 UI 布局，它可以回应使用者的互动或环境变化。</p>
+<p>从 iOS 16 开始，SwiftUI 推出了 <code>AnyLayout</code> 和 <code>Layout</code> 协议，让开发者构建客制化和复杂的 UI 布局。<code>AnyLayout</code> 是 layout 协议的 type-erased 实例。我们可以使用 <code>AnyLayout</code> 来创建动态 UI 布局，它可以回应使用者的互动或环境变化。</p>
 <p>在这章节，我们会看看如何使用 <code>AnyLayout</code> 来切换垂直和水平布局。</p>
 <h3 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-anylayout">如何使用 AnyLayout</h3>
 <p>首先，让我们用 <em>App</em> 模板创建一个新的 Xcode 项目，并为项目命名，我会把项目命名为 <code>SwiftUIAnyLayout</code>。我们会构建一个简单的示例 App，在使用者点击堆叠视图时切换 UI 布局。UI 布局在不同方向看起来会是这样的：</p>
@@ -920,7 +920,7 @@
     }
 }
 </code></pre>
-<p>我们定义了一个 layout 变量，来保存 <code>AnyLayout</code> 的实例。这个 layout 会根据 <code>changeLayout</code> 的数值，来切换水平和垂直 layout。<code>HStackLayout</code>（或 <code>VStackLayout</code>）的行为与 <code>HStack</code>（或 <code>VStack</code>）类似；但因为它符合 <code>Layout</code> 协定，我们就可以在 conditional layout 中使用它。</p>
+<p>我们定义了一个 layout 变量，来保存 <code>AnyLayout</code> 的实例。这个 layout 会根据 <code>changeLayout</code> 的数值，来切换水平和垂直 layout。<code>HStackLayout</code>（或 <code>VStackLayout</code>）的行为与 <code>HStack</code>（或 <code>VStack</code>）类似；但因为它符合 <code>Layout</code> 协议，我们就可以在 conditional layout 中使用它。</p>
 <p>我们还可以把动画附加到 layout，来动画化布局的改变。现在，当我们点击堆叠视图时，它就会切换垂直或水平布局。</p>
 <h2 id="%E6%A0%B9%E6%93%9A%E8%A3%9D%E7%BD%AE%E7%9A%84%E6%96%B9%E5%90%91%E5%88%87%E6%8F%9B-layout">根据装置的方向切换 layout</h2>
 <p>现在，示例 App 让使用者点击堆叠视图来切换 layout。在某些 App 中，我们可能会想根据装置方向和荧幕大小来切换 layout。在这个情况下，就可以利用 <code>.horizontalSizeClass</code> 变量来捕捉装置方向的改变。</p>
@@ -931,7 +931,7 @@
 </code></pre>
 <p>举个例子，如果我们把 iPhone 14 Pro Max 转为横向，layout 就会切换为横向堆叠视图。</p>
 <figure id="fig45.2"><img src="images/anylayout/swiftui-anylayout-2.png" alt="图 45.2. 当设备处于横向时切换到水平堆栈视图"><figcaption>图 45.2. 当设备处于横向时切换到水平堆栈视图</figcaption></figure>
-<p>在大多数情况下，我们会使用 SwiftUI 内建的 layout container 来创建 layout，像是 <code>HStackLayout</code> 和 <code>VStackLayout</code>。但如果这些 layout container 无法实现我们需要的 layout 型别，该怎么办呢？iOS 16 引入的 Layout 协定就让我们可以定义自己客制化的 layout。我们只需要创建一个符合 <code>Layout</code> 协定的型别，并实现以下所需的方法，来定义一个客制化的 layout container：</p>
+<p>在大多数情况下，我们会使用 SwiftUI 内建的 layout container 来创建 layout，像是 <code>HStackLayout</code> 和 <code>VStackLayout</code>。但如果这些 layout container 无法实现我们需要的 layout 型别，该怎么办呢？iOS 16 引入的 Layout 协议就让我们可以定义自己客制化的 layout。我们只需要创建一个符合 <code>Layout</code> 协议的型别，并实现以下所需的方法，来定义一个客制化的 layout container：</p>
 <ul>
 <li><code>sizeThatFits(proposal:subviews:cache:)</code> -  这个方法会报告合成 layout 视图的大小。</li>
 <li><code>placeSubviews(in:proposal:subviews:cache:)</code> - 这个方法会为 container 的子视图分配位置。</li>

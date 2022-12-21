@@ -881,7 +881,7 @@
 <p>在本章中，你将学习如何使用 <code>Path</code> 与内建的 <code>Shape</code>（如 <code>Circle</code> 与 <code>RoundedRectangle</code> ）， 来绘制线条、圆弧、圆饼图与环圈图。下列是我将要介绍的主题： </p>
 <ul>
 <li>了解 Path 以及如何利用它来绘制线条。</li>
-<li>什么是 <code>Shape</code> 协定？如何遵循这个协定来绘制出自订的形状？ </li>
+<li>什么是 <code>Shape</code> 协议？如何遵循这个协议来绘制出自订的形状？ </li>
 <li>如何绘制圆饼图（ pie chart）？ </li>
 <li>如何以开口圆环（ open circle）来建立一个进度指示器？ </li>
 <li>如何绘制环圈图（ donut chart）？ </li>
@@ -1033,8 +1033,8 @@
 </code></pre>
 <p>该路径有与紫色扇形相同的起点角度与终点角度，但是它只仅绘制边框及加入一个文字视图，以使扇形突出，图 8.10 为最后的结果。</p>
 <figure id="fig8.10"><img src="images/shape/swiftui-shape-10.png" alt="图 8.10.　突出扇形的分裂式圆饼图"><figcaption>图 8.10.　突出扇形的分裂式圆饼图</figcaption></figure>
-<h3 id="%E4%BA%86%E8%A7%A3-shape-%E5%8D%94%E5%AE%9A">了解 Shape 协定</h3>
-<p>在我们深入了解 <code>Shape</code> 协定之前，我们先从一个简单的作业来开始。根据所学，使用 <code>Path</code> 绘制下列的形状，如图8.11 所示。</p>
+<h3 id="%E4%BA%86%E8%A7%A3-shape-%E5%8D%94%E5%AE%9A">了解 Shape 协议</h3>
+<p>在我们深入了解 <code>Shape</code> 协议之前，我们先从一个简单的作业来开始。根据所学，使用 <code>Path</code> 绘制下列的形状，如图8.11 所示。</p>
 <figure id="fig8.11"><img src="images/shape/swiftui-shape-11.png" alt="图 8.11.　你的作业－使用Path 来绘制形状"><figcaption>图 8.11.　你的作业－使用Path 来绘制形状</figcaption></figure>
 <p>请先不要看解答，试着自己做看看。</p>
 <p>好，要建立一个像这样的形状，你可使用 <code>addLine</code> 与 <code>addQuadCurve</code> 来建立一个 <code>Path</code>： </p>
@@ -1055,12 +1055,12 @@
 }
 .fill(<span class="hljs-type">Color</span>.green)
 </code></pre>
-<p>现在，我们来讨论一下 <code>Shape</code> 协定，这个协定非常简单，只有一个需求，当你使用它时，你必须实现下列函数： </p>
+<p>现在，我们来讨论一下 <code>Shape</code> 协议，这个协议非常简单，只有一个需求，当你使用它时，你必须实现下列函数： </p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-keyword">in</span> rect: CGRect)</span> -&gt; <span class="hljs-title">Path</span>
 </span></code></pre>
-<p>那么，我们何时需要使用 <code>Shape</code> 协定呢？试问你如何重新使用刚建立的 <code>Path</code> 呢？例如： 你想要建立一个圆顶（Dome）形状、大小弹性的按钮，该如何实现呢？ </p>
-<p>再看一下上列的代码，你以绝对座标与尺寸来建立一个路径。为了建立相同但大小可变的形状，则可以建立一个结构来采用 <code>Shape</code> 协定，并实现 <code>path(in:)</code> 函数。当 <code>path(in:)</code> 函数被框架调用时，你将获得 <code>rect</code> 的大小，然后可在 <code>rect</code> 中绘制路径。</p>
-<p>我们来了解如何建立圆顶形状，如此你便能更了解 <code>Shape</code> 协定。</p>
+<p>那么，我们何时需要使用 <code>Shape</code> 协议呢？试问你如何重新使用刚建立的 <code>Path</code> 呢？例如： 你想要建立一个圆顶（Dome）形状、大小弹性的按钮，该如何实现呢？ </p>
+<p>再看一下上列的代码，你以绝对座标与尺寸来建立一个路径。为了建立相同但大小可变的形状，则可以建立一个结构来采用 <code>Shape</code> 协议，并实现 <code>path(in:)</code> 函数。当 <code>path(in:)</code> 函数被框架调用时，你将获得 <code>rect</code> 的大小，然后可在 <code>rect</code> 中绘制路径。</p>
+<p>我们来了解如何建立圆顶形状，如此你便能更了解 <code>Shape</code> 协议。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Dome</span>: <span class="hljs-title">Shape</span> </span>{
     <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-keyword">in</span> rect: CGRect)</span> -&gt; <span class="hljs-title">Path</span> </span>{
         <span class="hljs-keyword">var</span> path = <span class="hljs-type">Path</span>()
@@ -1073,7 +1073,7 @@
     }
 }
 </code></pre>
-<p>使用该协定后，我们会获得用于绘制路径的矩形区城，我们从 <code>rect</code> 可以找到矩形区域的宽度与高度来计算控制点，并绘制矩形底座。</p>
+<p>使用该协议后，我们会获得用于绘制路径的矩形区城，我们从 <code>rect</code> 可以找到矩形区域的宽度与高度来计算控制点，并绘制矩形底座。</p>
 <p>藉由这个形状，你就可以使用它来建立各种 <code>SwiftUI</code> 控制组件。举例而言，你可以建立一个具有圆顶形状的按钮，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
     <span class="hljs-comment">// 执行动作</span>
@@ -1089,7 +1089,7 @@
 <p>我们将圆顶形状作为按钮的背景，其宽度与高度是基于指定的框架大小。</p>
 <figure id="fig8.12"><img src="images/shape/swiftui-shape-12.png" alt="图 8.12　建立圆顶形状的按钮"><figcaption>图 8.12　建立圆顶形状的按钮</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%85%A7%E5%BB%BA%E5%BD%A2%E7%8B%80">使用内建形状</h3>
-<p>在前面，我们使用 <code>Shape</code> 协定自订了一个形状。而 <code>SwiftUI</code>其实有几种内建形状，如圆形（ <code>Circle</code> ）、矩形（ <code>Rectangle</code> ）、圆角矩形（ <code>RoundedRectangle</code> ）与椭圆（ <code>Ellipse</code> ）等， 如果你不想要太花俏的话，这些形状已经足以建立一些常见的物件了。</p>
+<p>在前面，我们使用 <code>Shape</code> 协议自订了一个形状。而 <code>SwiftUI</code>其实有几种内建形状，如圆形（ <code>Circle</code> ）、矩形（ <code>Rectangle</code> ）、圆角矩形（ <code>RoundedRectangle</code> ）与椭圆（ <code>Ellipse</code> ）等， 如果你不想要太花俏的话，这些形状已经足以建立一些常见的物件了。</p>
 <figure id="fig8.13"><img src="images/shape/swiftui-shape-13.png" alt="图 8.13　停止按钮"><figcaption>图 8.13　停止按钮</figcaption></figure>
 <p>举例而言，你要建立一个如图 8.13 所示的“停止”按钮，此按钮是由一个圆角矩形与一个圆形所组成，你可以撰写代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Circle</span>()

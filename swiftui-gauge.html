@@ -980,7 +980,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%AE%A2%E8%A3%BD%E5%8C%96%E7%9A%84-gauge-%E6%A8%A3%E5%BC%8F">建立一个客制化的 Gauge 样式</h3>
 <figure id="fig43.9"><img src="images/gauge/swiftui-gauge-9.png" alt="图 43.9. 客制化的 Gauge 视图"><figcaption>图 43.9. 客制化的 Gauge 视图</figcaption></figure>
 <p>内建的 Gauge 样式有限，但是我们可以利用 SwiftUI 来建立自己的 Gauge 样式。让我们看看一个简单的示例，来建立上图的 Gauge 样式吧！</p>
-<p>要建立一个客制化的 Gauge 样式，我们需要采用 <code>GaugeStyle</code> 协定，并编写自己的实现。以下是我们的客制化样式的实现：</p>
+<p>要建立一个客制化的 Gauge 样式，我们需要采用 <code>GaugeStyle</code> 协议，并编写自己的实现。以下是我们的客制化样式的实现：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SpeedometerGaugeStyle</span>: <span class="hljs-title">GaugeStyle</span> </span>{
     private <span class="hljs-keyword">var</span> purpleGradient = <span class="hljs-type">LinearGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [ <span class="hljs-type">Color</span>(red: <span class="hljs-number">207</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">150</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">207</span>/<span class="hljs-number">255</span>), <span class="hljs-type">Color</span>(red: <span class="hljs-number">107</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">116</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">179</span>/<span class="hljs-number">255</span>) ]), startPoint: .trailing, endPoint: .leading)
 
@@ -1017,7 +1017,7 @@
 
 }
 </code></pre>
-<p>为了遵守 <code>GaugeStyle</code> 协定，我们需要实现 <code>makeBody</code> 方法，来显示我们自己的 Gauge 样式。<code>configuration</code> 捆绑了 Gauge 的当前数值和数值的 label。在上面的代码中，我们使用了这两个数值，来显示当前速率，并计算弧形的长度。</p>
+<p>为了遵守 <code>GaugeStyle</code> 协议，我们需要实现 <code>makeBody</code> 方法，来显示我们自己的 Gauge 样式。<code>configuration</code> 捆绑了 Gauge 的当前数值和数值的 label。在上面的代码中，我们使用了这两个数值，来显示当前速率，并计算弧形的长度。</p>
 <p>我们实现好客制化的 Gauge 样式后，就可以附加到 <code>gaugeStyle</code> 修饰器上来应用它。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CustomGaugeView</span>: <span class="hljs-title">View</span> </span>{
 
