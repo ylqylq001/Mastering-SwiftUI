@@ -881,7 +881,7 @@
 <p>按钮可启动App 的特定动作，其有自订背景，并可加入一个标题或一个图示。这个系统为大部分的使用情况提供许多预定义的按钮样式。你也可以充分设计自订按钮。</p>
 <p>- Apple 的官方文件 (<a href="https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/" target="_blank">https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/</a>)</p>
 </blockquote>
-<p>我想应该不需要去解释什么是按钮，它是一个非常基本的 UI 控制元件，你可以在所有的 App 中看到它，按钮可处理使用者的触控动作，并触发特定的动作。倘若你之前有学过 iOS 程式设计的话，SwiftUI 的 Button 与 UIKit 的UIButton 非常相似，但更具弹性与可客制化，待会你将会了解我的意思。在本章中，我将详细介绍 SwiftUI 控制元件，你将学到下列的技巧： </p>
+<p>我想应该不需要去解释什么是按钮，它是一个非常基本的 UI 控制组件，你可以在所有的 App 中看到它，按钮可处理使用者的触控动作，并触发特定的动作。倘若你之前有学过 iOS 程式设计的话，SwiftUI 的 Button 与 UIKit 的UIButton 非常相似，但更具弹性与可客制化，待会你将会了解我的意思。在本章中，我将详细介绍 SwiftUI 控制组件，你将学到下列的技巧： </p>
 <ol>
 <li>如何建立一个简单的按钮，并处理使用者的选择。</li>
 <li>如何自订按钮的背景、间距与字型。</li>
@@ -979,7 +979,7 @@
 <h3 id="%E6%8C%89%E9%88%95%E5%8A%A0%E4%B8%8A%E9%82%8A%E6%A1%86">按钮加上边框</h3>
 <p><code>padding</code> 修饰器并非一定要始终放在最前面，而是取决于你的按钮设计，例如：你要建立一个具有图 6.8 所示的边框的按钮。</p>
 <figure id="fig6.8"><img src="images/buttons/swiftui-buttons-8.png" alt="图 6.8.　具有边框的按钮"><figcaption>图 6.8.　具有边框的按钮</figcaption></figure>
-<p>你可以如下更改 <code>Text</code> 控制元件的代码：</p>
+<p>你可以如下更改 <code>Text</code> 控制组件的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
     .foregroundColor(.purple)
     .font(.title)
@@ -1021,7 +1021,7 @@
 </code></pre>
 <p><code>overlay</code> 修饰器可以让你将另一个视图叠在目前的视图之上。在代码中，我们使用 <code>RoundedRectangle</code> 物件的<code>stroke</code>  修饰器来绘制一个圆角边框，而 <code>stroke</code> 修饰器可以让你设定框线的颜色与线宽。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%B7%E6%9C%89%E5%9C%96%E7%89%87%E8%88%87%E6%96%87%E5%AD%97%E7%9A%84%E6%8C%89%E9%88%95">建立具有图片与文字的按钮</h3>
-<p>到目前为止，我们只使用了文字按钮。在真实世界的项目中，你或你的设计师可能想要显示具有图片的按钮，而建立图片按钮的语法是相同的，除了你是使用 <code>Image</code> 控制元件来代替 <code>Text</code> 控制元件，如下所示：</p>
+<p>到目前为止，我们只使用了文字按钮。在真实世界的项目中，你或你的设计师可能想要显示具有图片的按钮，而建立图片按钮的语法是相同的，除了你是使用 <code>Image</code> 控制组件来代替 <code>Text</code> 控制组件，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Delete button tapped!&quot;</span>)
 }) {
@@ -1051,7 +1051,7 @@
     .cornerRadius(<span class="hljs-number">40</span>)
 }
 </code></pre>
-<p>这里，我们将图片与文字控制元件皆嵌入在一个水平堆叠中，这将使垃圾桶图示与“Delete”文字并排。在<code>HStack</code> 中，修饰器设定了背景色、间距与按钮的圆角，图 6.13 显示了最后结果的按钮。</p>
+<p>这里，我们将图片与文字控制组件皆嵌入在一个水平堆叠中，这将使垃圾桶图示与“Delete”文字并排。在<code>HStack</code> 中，修饰器设定了背景色、间距与按钮的圆角，图 6.13 显示了最后结果的按钮。</p>
 <figure id="fig6.13"><img src="images/buttons/swiftui-buttons-13.png" alt="图 6.13.　具有图示与文字的按钮"><figcaption>图 6.13.　具有图示与文字的按钮</figcaption></figure>
 <h3 id="%E6%A8%99%E7%B1%A4%E7%9A%84%E7%94%A8%E6%B3%95">标签的用法</h3>
 <p>SwiftUI 于 iOS 14 导入了一个新的视图称作 <code>Label</code>，可以将图片与文字并排，因此，你可以使用 <code>Label</code>  来替代 <code>HStack</code> 来实现同样的布局。</p>

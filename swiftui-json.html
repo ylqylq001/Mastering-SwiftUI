@@ -881,8 +881,8 @@
 <p>在本章中，我们将讨论当使用 SwiftUI 框架建立 App 时如何使用 JSON。如果你对于不了解 JSON 的话，我建议看一下在《iOS 程式设计进阶攻略》一书中的 <a href="https://www.appcoda.com/intermediate-swift-tips/json.html" target="_blank">免费试阅章节</a> ，这里会详细解释在 Swift 中处理 JSON 的两种不同方法。</p>
 <figure id="fig21.1"><img src="images/json/swiftui-json-1.png" alt="图 21.1.　示例App"><figcaption>图 21.1.　示例App</figcaption></figure>
 <p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是通过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的示例 App，我们将调用一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
-<p>除此之外，我们将示范滑杆（Slider ）的用法，滑杆是SwiftUI 提供的众多内建 UI 控制元件之一。你将在 App 中实现一个资料筛选选项，以让使用者可以筛选清单中的贷款资料，如图 21.2 所示。</p>
-<figure id="fig21.2"><img src="images/json/swiftui-json-2.png" alt="图 21.2.　滑杆控制元件"><figcaption>图 21.2.　滑杆控制元件</figcaption></figure>
+<p>除此之外，我们将示范滑杆（Slider ）的用法，滑杆是SwiftUI 提供的众多内建 UI 控制组件之一。你将在 App 中实现一个资料筛选选项，以让使用者可以筛选清单中的贷款资料，如图 21.2 所示。</p>
+<figure id="fig21.2"><img src="images/json/swiftui-json-2.png" alt="图 21.2.　滑杆控制组件"><figcaption>图 21.2.　滑杆控制组件</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-json-%E8%88%87-codable">了解 JSON 与 Codable</h3>
 <p>首先，JSON 格式是什么样子呢？如果你不了解 JSON，则开启浏览器，并指向下列由 Kiva 提供的 Web API：</p>
 <pre><code>https://api.kivaws.org/v1/loans/newest.json
@@ -1170,7 +1170,7 @@
     }
 }
 </code></pre>
-<p>代码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协定，除了<code>Codable</code> 协定之外，这个结构也采用了 <code>Identifiable</code> 协定，并具有预设为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制元件来呈现这些贷款资料， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协定的原因。</p>
+<p>代码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协定，除了<code>Codable</code> 协定之外，这个结构也采用了 <code>Identifiable</code> 协定，并具有预设为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制组件来呈现这些贷款资料， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协定的原因。</p>
 <p>接下来， 使用“Swift File”模板来建立另一个档案， 并将其命名为“LoanStore. swift”。这个类别是负责连接到 Kiva 的 Web API、解码  JSON 资料，并将资料储存在本地端。</p>
 <p>我们来逐步撰写 <code>LoanStore</code> 类别， 如此你就可以更加了解我是如何实现的。在 <code>LoanStore.swift</code> 中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span> </span>{
@@ -1381,10 +1381,10 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     }
 }
 </code></pre>
-<p>我假设你完全了解堆叠视图，因此我将不讨论如何使用它们来实现布局，不过让我们再多谈一下滑杆控制元件，其是 SwiftUI 所提供的一个标准元件，你可以通过传送滑杆的绑定（Binding ）、范围与滑杆刻度（step ）来实例化滑杆。绑定保存滑杆的目前值。以下是用于建立滑杆的示例代码： </p>
+<p>我假设你完全了解堆叠视图，因此我将不讨论如何使用它们来实现布局，不过让我们再多谈一下滑杆控制组件，其是 SwiftUI 所提供的一个标准组件，你可以通过传送滑杆的绑定（Binding ）、范围与滑杆刻度（step ）来实例化滑杆。绑定保存滑杆的目前值。以下是用于建立滑杆的示例代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Slider</span>(value: $amount, <span class="hljs-keyword">in</span>: minAmount...maxAmount, step: <span class="hljs-number">100</span>)
 </code></pre>
-<p>刻度可控制使用者拖曳滑杆时的更改量。如果你让使用者拥有很好的控制元件，请将刻度设定更小一点。对于上列的代码，我们将其设定为“100”。</p>
+<p>刻度可控制使用者拖曳滑杆时的更改量。如果你让使用者拥有很好的控制组件，请将刻度设定更小一点。对于上列的代码，我们将其设定为“100”。</p>
 <p>为了预览筛选器视图，更新 LoanFilterView_Previews 如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1452,7 +1452,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <p>现在执行 App 来测试它，你应该会在导览列上看到一个筛选器按钮，点击它一次，将带出筛选器视图，然后你可以设定新的上限（例如：$500）。再次点击按钮，App 只会显示低于 $500的贷款纪录。</p>
 <figure id="fig21.11"><img src="images/json/swiftui-json-11.png" alt="图 21.11.　显示筛选器视图"><figcaption>图 21.11.　显示筛选器视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>本章介绍了很多的内容，你应该知道如何使用 Web API、解析 JSON 内容，以及在清单视图中显示资料，我们还简要介绍了滑杆控制元件的用法。</p>
+<p>本章介绍了很多的内容，你应该知道如何使用 Web API、解析 JSON 内容，以及在清单视图中显示资料，我们还简要介绍了滑杆控制组件的用法。</p>
 <p>如果你之前使用 UIKit 开发过 App，你可能会对 SwiftUI 的简单性感到惊讶。再看一下 ContentView 的代码，只需要 40 行的代码就可以建立清单视图。最重要的是，你不需要手动处理 UI 更新及传送资料，一切都在背后运作。</p>
 <p>为了参考，你可以至下列的网址下载完整的项目： </p>
 <ul>

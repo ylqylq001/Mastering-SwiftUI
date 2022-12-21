@@ -917,7 +917,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%A4%90%E5%BB%B3%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">建立餐厅细节视图</h3>
 <p>底部表实际上包含餐厅细节与一个小横列（handlebar ），因此我们要做的第一件事是建立如图 18.4 所示的餐厅细节视图。</p>
 <figure id="fig18.4"><img src="images/bottom-sheet/swiftui-bottom-sheet-4.png" alt="图 18.4.　具有小横列的餐厅细节视图"><figcaption>图 18.4.　具有小横列的餐厅细节视图</figcaption></figure>
-<p>在随着我实现视图之前，我建议你把它当作练习，并自行建立细节视图。如您所见， 细节视图是由 UI 元件所组成，包括“图片”（Image ）、“文字”（Text ）与“滚动视图”（ScrollView ）。我们已经介绍过这些元件，所以你可以尝试自行实现细节视图。</p>
+<p>在随着我实现视图之前，我建议你把它当作练习，并自行建立细节视图。如您所见， 细节视图是由 UI 组件所组成，包括“图片”（Image ）、“文字”（Text ）与“滚动视图”（ScrollView ）。我们已经介绍过这些组件，所以你可以尝试自行实现细节视图。</p>
 <p>好的，让我教你如何建立细节视图。如果你已经自行建立了细节视图，你可以参考我的实现。</p>
 <p>细节视图的布局有点复杂，因此最好将其分成几个部分，以更容易实现： </p>
 <ul>
@@ -1022,8 +1022,8 @@
 <pre><code class="lang-swift"><span class="hljs-type">DetailInfoView</span>(icon: <span class="hljs-built_in">nil</span>, info: <span class="hljs-keyword">self</span>.restaurant.description)
 </code></pre>
 <p>如你所见，通过建立一个通用视图来处理相似的布局，可以使代码更具模组化及可重用性。</p>
-<h4 id="%E4%BD%BF%E7%94%A8-vstack-%E7%B5%84%E5%90%88%E5%85%83%E4%BB%B6">使用 VStack 组合元件</h4>
-<p>现在，我们已经建立了所有的元件，我们可以使用 <code>VStack</code> 组合它们，如下所示： </p>
+<h4 id="%E4%BD%BF%E7%94%A8-vstack-%E7%B5%84%E5%90%88%E5%85%83%E4%BB%B6">使用 VStack 组合组件</h4>
+<p>现在，我们已经建立了所有的组件，我们可以使用 <code>VStack</code> 组合它们，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">let</span> restaurant: <span class="hljs-type">Restaurant</span>
 
@@ -1048,7 +1048,7 @@
     }
 }
 </code></pre>
-<p>上列的代码很容易理解，我们只使用前面章节中建立过的元件，并将它们嵌入到一个垂直堆叠中。原本 <code>VStack</code> 有一个透明背景，要确保细节视图具有白色背景，我们加入 <code>background</code>修饰器并进行更改。</p>
+<p>上列的代码很容易理解，我们只使用前面章节中建立过的组件，并将它们嵌入到一个垂直堆叠中。原本 <code>VStack</code> 有一个透明背景，要确保细节视图具有白色背景，我们加入 <code>background</code>修饰器并进行更改。</p>
 <p>在测试细节视图之前，必须修改 <code>RestaurantDetailView_Previews</code> 的代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1461,8 +1461,8 @@
 <figure id="fig18.15"><img src="images/bottom-sheet/swiftui-bottom-sheet-15.png" alt="图 8.15. 在完全展开状态下滚动视图"><figcaption>图 8.15. 在完全展开状态下滚动视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>本章的篇幅很多，但我希望你喜欢它。在本章中，我们将利用你到目前为止所学到的知识来建立展开式底部表。当建立底部表时，我尽力记录了我解决问题的思考过程，我真的希望这可以帮助你了解我的解决方案与代码。</p>
-<p>SwiftUI 的其中一项优势是，它鼓励你建立模组化的 UI 元件。这部分我们还没有做，但是你可能会发现通过使用我在上一章中所介绍的技术，可以很容易将这个餐厅细节视图转换为支持各种类型内容的通用底部表。</p>
-<p>因此，请尝试自行建立通用的底部表，并将其作为你的项目中的共享元件。</p>
+<p>SwiftUI 的其中一项优势是，它鼓励你建立模组化的 UI 组件。这部分我们还没有做，但是你可能会发现通过使用我在上一章中所介绍的技术，可以很容易将这个餐厅细节视图转换为支持各种类型内容的通用底部表。</p>
+<p>因此，请尝试自行建立通用的底部表，并将其作为你的项目中的共享组件。</p>
 <p>在本章所准备的示例档中，有完整的项目与作业解答可以下载： </p>
 <ul>
 <li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheet.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheet.zip</a>)</li>

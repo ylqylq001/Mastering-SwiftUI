@@ -960,7 +960,7 @@
         }
 }
 </code></pre>
-<p>卡片视图是由一张图片及一个叠在图片上方的文字元件所组成。我们设定图片为 <code>scaleToFill</code> 模式，并使用 <code>cornerRadius</code> 修饰器来为图片加上圆角。文字元件是用来显示旅程的目的地。</p>
+<p>卡片视图是由一张图片及一个叠在图片上方的文字组件所组成。我们设定图片为 <code>scaleToFill</code> 模式，并使用 <code>cornerRadius</code> 修饰器来为图片加上圆角。文字组件是用来显示旅程的目的地。</p>
 <p>我们在第 5 章中深入讨论过卡片视图的类似实现。如果你不能完全了解代码，则请再次阅读该章。</p>
 <p>你还无法预览卡片视图，因为你必须在 <code>CardView_Previews</code> 中同时提供 <code>image</code> 与 <code>title</code> 的值，因此更新<code>CardView_Previews</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
@@ -1035,7 +1035,7 @@
     }
 }
 </code></pre>
-<p>这里，我们使用 <code>Group</code> 来将多个元件的预览进行分组。不指定任何的预览选项（如ContentView），Xcode 会在目前模拟器上显示预览。对于 <code>TopBarMenu</code> 与 <code>BottomBarMenu</code>， 我们告诉 Xcode 在容器视图中预览布局，图19.5 可让你更加了解预览是什么样。</p>
+<p>这里，我们使用 <code>Group</code> 来将多个组件的预览进行分组。不指定任何的预览选项（如ContentView），Xcode 会在目前模拟器上显示预览。对于 <code>TopBarMenu</code> 与 <code>BottomBarMenu</code>， 我们告诉 Xcode 在容器视图中预览布局，图19.5 可让你更加了解预览是什么样。</p>
 <figure id="fig19.5"><img src="images/triptinder/swiftui-trip-tinder-5.png" alt="图 19.5　预览选单列"><figcaption>图 19.5　预览选单列</figcaption></figure>
 <p>好的，我们继续布局主UI。更新 <code>ContentView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
@@ -1052,7 +1052,7 @@
     }
 }
 </code></pre>
-<p>在代码中，我们只安排了使用 <code>VStack</code> 建立的 UI 元件。你的预览现在应该显示主荧幕了，如图 19.6 所示。</p>
+<p>在代码中，我们只安排了使用 <code>VStack</code> 建立的 UI 组件。你的预览现在应该显示主荧幕了，如图 19.6 所示。</p>
 <figure id="fig19.6"><img src="images/triptinder/swiftui-trip-tinder-6.png" alt="图 19.6.　预览主 UI"><figcaption>图 19.6.　预览主 UI</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E5%BA%AB">实现卡片库</h3>
 <p>在做好所有的准备之后，终于可以实现如 Tinder 般的 UI。对于之前从未用过 Tinder App 的人，让我先解释一下如 Tinder 般 UI 的工作原理。</p>

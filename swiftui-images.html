@@ -878,7 +878,7 @@
                     
                         <h1 id="%E7%AC%AC-3-%E7%AB%A0-br-%E5%9C%96%E7%89%87%E8%88%87%E6%A8%99%E7%B1%A4%E7%9A%84%E8%99%95%E7%90%86">第 3 章<br>图片与标签的处理</h1>
 <p>现在你应该对于 SwiftUI 有了基本概念，并了解如何显示文字内容，本章我们来看如何显示图片。我们也会学习标签（Label）的用法。</p>
-<p>除了文字之外，图片是 iOS App 开发的另外一个基本元件。SwiftUI 提供一个名为 <code>Image</code> 的视图，来让开发者将图片渲染在荧幕上。首前一章的内容相似，我会建立一个简单的 App，以示范如何进行图片的处理。本章可归纳为以下几个主题： </p>
+<p>除了文字之外，图片是 iOS App 开发的另外一个基本组件。SwiftUI 提供一个名为 <code>Image</code> 的视图，来让开发者将图片渲染在荧幕上。首前一章的内容相似，我会建立一个简单的 App，以示范如何进行图片的处理。本章可归纳为以下几个主题： </p>
 <ul>
 <li>什么是SF Symbol，以及如何显示一个系统图片？ </li>
 <li>如何显示我们自己的图片？ </li>
@@ -948,7 +948,7 @@
 </code></pre>
 <p>预设上，图片大小调整是使用“延伸”（stretch ）模式。这表示原始图片将会被放大到填满整个荧幕画面（除了顶部与底部区域之外），如图 3.7 所示。</p>
 <figure id="fig3.7"><img src="images/images/swiftui-images-7.png" alt="图 3.7. 以resizable 修饰器调整图片大小"><figcaption>图 3.7. 以resizable 修饰器调整图片大小</figcaption></figure>
-<p>技术上而言，这个图片填满了整个 iOS 所定义的安全区域（Safe Area ）。安全区域的观念已经存在一段颇长的时间了，定义为安全布局UI 元件的视图区域。举例而言，如图 3.7 所示，这个安全区域不包含顶部列（Top Bar ）（也就是状态列）与底部列（Bottom Bar ） 的区域。安全区域可以避免你不小心隐藏了系统 UI 元件，例如：状态列（Status Bar ）、导览列（Navigation Bar ）与标签列（Tab Bar ）。</p>
+<p>技术上而言，这个图片填满了整个 iOS 所定义的安全区域（Safe Area ）。安全区域的观念已经存在一段颇长的时间了，定义为安全布局UI 组件的视图区域。举例而言，如图 3.7 所示，这个安全区域不包含顶部列（Top Bar ）（也就是状态列）与底部列（Bottom Bar ） 的区域。安全区域可以避免你不小心隐藏了系统 UI 组件，例如：状态列（Status Bar ）、导览列（Navigation Bar ）与标签列（Tab Bar ）。</p>
 <p>既然我们正好说到这件事， 若是你想要显示全荧幕图片， 你可以设定 <code>ignoringSafeArea</code> 修饰器来忽略安全区域，如图 3.8 所示。 </p>
 <figure id="fig3.8"><img src="images/images/swiftui-images-8.png" alt="图 3.8　忽略安全区域"><figcaption>图 3.8　忽略安全区域</figcaption></figure>
 <p>你可以针对特定的边缘来忽略安全区域，例如：要忽略底部边缘的安全区域，你只要传送 <code>.bottom</code> 作为参数即可:</p>

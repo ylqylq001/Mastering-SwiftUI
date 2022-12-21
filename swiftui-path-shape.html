@@ -1074,7 +1074,7 @@
 }
 </code></pre>
 <p>使用该协定后，我们会获得用于绘制路径的矩形区城，我们从 <code>rect</code> 可以找到矩形区域的宽度与高度来计算控制点，并绘制矩形底座。</p>
-<p>藉由这个形状，你就可以使用它来建立各种 <code>SwiftUI</code> 控制元件。举例而言，你可以建立一个具有圆顶形状的按钮，如下所示： </p>
+<p>藉由这个形状，你就可以使用它来建立各种 <code>SwiftUI</code> 控制组件。举例而言，你可以建立一个具有圆顶形状的按钮，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
     <span class="hljs-comment">// 执行动作</span>
 }) {
@@ -1103,7 +1103,7 @@
 </code></pre>
 <p>这里，我们初始化一个 <code>Circle</code> 视图，然后将一个 <code>RoundedRectangle</code> 视图叠在上面。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-shape-%E5%BB%BA%E7%AB%8B%E9%80%B2%E5%BA%A6%E6%8C%87%E7%A4%BA%E5%99%A8">使用 Shape 建立进度指示器</h3>
-<p>通过内建形状的混搭，你可以为应用程式建立各种类型的向量式（vector-based ）UI 控制元件。我再举另一个例子，图 8.14 为一个使用 <code>Circle</code> 建立的进度指示器。</p>
+<p>通过内建形状的混搭，你可以为应用程式建立各种类型的向量式（vector-based ）UI 控制组件。我再举另一个例子，图 8.14 为一个使用 <code>Circle</code> 建立的进度指示器。</p>
 <figure id="fig8.14"><img src="images/shape/swiftui-shape-14.png" alt="图 8.14　进度指示器"><figcaption>图 8.14　进度指示器</figcaption></figure>
 <p>这个进度指示器其实是由两个圆形所组成，下方是一个灰色圆环，而在灰色圆环的上方则是一个开口圆环，指示完成的进度。你可以在 <code>ContentView</code> 中撰写代码，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{

@@ -937,9 +937,9 @@
 <p>此外，你可以使用 <code>space</code> 参数来调整嵌入视图的间距。图 4.6 为调整后的视图。上面的代码将参数<code>spacing</code>添加到VStack并将其值设置为<code>2</code>。</p>
 <figure id="fig4.6"><img src="images/stacks/swiftui-stacks-6.png" alt="图4.6.　变更 VStack 的对齐方式"><figcaption>图4.6.　变更 VStack 的对齐方式</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-hstack">使用 HStack</h3>
-<p>接下来，我们布局两个售价方案。如果你比较“Basic”与“Pro”方案，这两个元件的外观非常相似。以“Basic”方案为例，要实现这样的布局，你可以使用 <code>VStack</code> 结合三个文字视图，如图 4.7 所示。</p>
+<p>接下来，我们布局两个售价方案。如果你比较“Basic”与“Pro”方案，这两个组件的外观非常相似。以“Basic”方案为例，要实现这样的布局，你可以使用 <code>VStack</code> 结合三个文字视图，如图 4.7 所示。</p>
 <figure id="fig4.7"><img src="images/stacks/swiftui-stacks-7.png" alt="图 4.7.　布局售价方案"><figcaption>图 4.7.　布局售价方案</figcaption></figure>
-<p>“Basic”与“Pro”元件是并排排列。使用 <code>HStack</code>，你可以水平布局视图。堆叠可以使用巢状结构，以致于你能够在堆叠视图之中放入另一个堆叠视图。由于售价方案区块位于标题视图的下方，因此我们会使用另外一个VStack 来嵌入一个垂直堆叠（即 Choose Your Plan ）与一个水平堆叠（即售价方案区块），如图 4.8 所示。</p>
+<p>“Basic”与“Pro”组件是并排排列。使用 <code>HStack</code>，你可以水平布局视图。堆叠可以使用巢状结构，以致于你能够在堆叠视图之中放入另一个堆叠视图。由于售价方案区块位于标题视图的下方，因此我们会使用另外一个VStack 来嵌入一个垂直堆叠（即 Choose Your Plan ）与一个水平堆叠（即售价方案区块），如图 4.8 所示。</p>
 <figure id="fig4.8"><img src="images/stacks/swiftui-stacks-8.png" alt="图 4.8.　使用VStack 来嵌入其他堆叠视图"><figcaption>图 4.8.　使用VStack 来嵌入其他堆叠视图</figcaption></figure>
 <p>现在，你应该对如何使用 <code>VStack</code> 与 <code>HStack</code> 来实现 UI 有了一些基本观念，让我们进入代码部分。</p>
 <p>要将目前的 <code>VStack</code> 嵌入另外一个 <code>VStack</code>，你可以按住 command  键，并点选 <code>VStack</code> 关键字，这会带出一个显示所有可用选项的内容选单（content menu ），选择“Embed in VStack”来嵌入 <code>VStack</code>，如图 4.9 所示。</p>
@@ -961,7 +961,7 @@
 }
 </code></pre>
 <h4 id="%E5%8F%96%E5%87%BA%E8%A6%96%E5%9C%96">取出视图</h4>
-<p>在我们继续布局这个 UI 之前，让我教你一些整理代码的技巧。当你要建立一个包含好几个元件的复杂 UI 时，在 <code>ContentView</code> 内的代码最后会变成一个大而冗长的代码区块，而难以检视与除错，因此较佳的作法是将代码分拆成小块，如此代码才能更易阅读与维护。</p>
+<p>在我们继续布局这个 UI 之前，让我教你一些整理代码的技巧。当你要建立一个包含好几个组件的复杂 UI 时，在 <code>ContentView</code> 内的代码最后会变成一个大而冗长的代码区块，而难以检视与除错，因此较佳的作法是将代码分拆成小块，如此代码才能更易阅读与维护。</p>
 <p>Xcode 内建了重构 SwiftUI 代码的功能。现在按住 command 键不放，并点选包含文字视图的 VStack（即是第 13 行），然后选择“Extract Subview”来取出代码，如图 4.10 所示。</p>
 <figure id="fig4.10"><img src="images/stacks/swiftui-stacks-10.png" alt="图 4.10.　取出子视图"><figcaption>图 4.10.　取出子视图</figcaption></figure>
 <p>Xcode 取出代码区块， 并建立一个名为 <code>ExtractedView</code> 的预设结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
@@ -1045,7 +1045,7 @@
 <figure id="fig4.18"><img src="images/stacks/swiftui-stacks-18.png" alt="图 4.18　为堆叠视图加入一些间距"><figcaption>图 4.18　为堆叠视图加入一些间距</figcaption></figure>
 <p><code>.horizontal</code> 参数表示我们只为 <code>HStack</code> 的前缘（leading）及后缘（trailing）加入一些间距。</p>
 <h3 id="%E6%95%B4%E7%90%86%E7%A8%8B%E5%BC%8F%E7%A2%BC">整理代码</h3>
-<p>同样的，在我们布局其余的UI 元件之前，让我们先重构目前的代码，以使其更有条理。如果你同时查看用来布局“Basic”与“Pro”售价方案的这两个堆叠，其代码除了下列的项目之外，其他都很相似。</p>
+<p>同样的，在我们布局其余的UI 组件之前，让我们先重构目前的代码，以使其更有条理。如果你同时查看用来布局“Basic”与“Pro”售价方案的这两个堆叠，其代码除了下列的项目之外，其他都很相似。</p>
 <ul>
 <li>售价方案的名称。</li>
 <li>售价。</li>
@@ -1122,7 +1122,7 @@
 }
 </code></pre>
 <h3 id="%E4%BD%9C%E6%A5%AD-1">作业 #1</h3>
-<p>我们还没有完成，我想要与你讨论如何在 SwiftUI 中处理Optional，并介绍另一个称为“留白”（Spacer ）的视图元件。在继续往下之前，我们来做一个简单的作业，你的任务是布局“ Team”售价方案，如图 4.24 所示。关于这个图片，我是使用来自 SF Symbols、名称为“wand.and.rays”的系统图片。</p>
+<p>我们还没有完成，我想要与你讨论如何在 SwiftUI 中处理Optional，并介绍另一个称为“留白”（Spacer ）的视图组件。在继续往下之前，我们来做一个简单的作业，你的任务是布局“ Team”售价方案，如图 4.24 所示。关于这个图片，我是使用来自 SF Symbols、名称为“wand.and.rays”的系统图片。</p>
 <figure id="fig4.24"><img src="images/stacks/swiftui-stacks-24.png" alt="图 4.24.　加入Team 方案"><figcaption>图 4.24.　加入Team 方案</figcaption></figure>
 <p>请先不要看解答，自己要开发自己的解决方案。</p>
 <h3 id="swiftui-%E4%B8%ADoptionals-%E7%9A%84%E8%99%95%E7%90%86">SwiftUI 中Optionals 的处理</h3>
