@@ -970,7 +970,7 @@
 }
 </code></pre>
 <p>我们通过采用<code>Shape</code>协议创建了一个<code>RingShape</code>结构， 在结构中声明了两个属性。 <code>progress</code> 属性允许用户指定进度百分比，手 <code>thickness</code> 属性，类似于 <code>ProgressRingView</code> 中的属性，可让你控制环的宽度。</p>
-<p>要绘制圆环，我们使用 <code>addArc</code> 方法，然后使用 <code>strokedPath</code>。 弧的半径可以通过将框架的宽度（或高度）除以 2 来计算。起始角度当前设定为零度。 而结束角度（ending angle），我们就将 360 乘以进度值来计算。 例如，如果我们将 <code>progress</code> 设定为 0.5，就会绘制一个半环（从 0 到 180 度）。</p>
+<p>要绘制圆环，我们使用 <code>addArc</code> 方法，然后使用 <code>strokedPath</code>。 弧的半径可以通过将框架的宽度（或高度）除以 2 来计算。初始角度当前设定为零度。 而结束角度（ending angle），我们就将 360 乘以进度值来计算。 例如，如果我们将 <code>progress</code> 设定为 0.5，就会绘制一个半环（从 0 到 180 度）。</p>
 <p>要使用 <code>RingShape</code>，你可以像这样修改 <code>body</code> 变量：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">Circle</span>()
@@ -992,8 +992,8 @@
             startAngle: .degrees(startAngle),
             endAngle: .degrees(<span class="hljs-number">360</span> * progress + startAngle), clockwise: <span class="hljs-built_in">false</span>)
 </code></pre>
-<p>我们将 <code>startAngle</code> 参数修改为 <code>-90</code> 度数。 另外，还需要修改 <code>endAngle</code> 参数，因为起始角度已修改。 修改后，圆弧现在就逆时针旋转 90 度。</p>
-<figure id="fig30.8"><img src="images/progressring/swiftui-progressring-8.png" alt="图 30.8。 改变起始角度后的局部环"><figcaption>图 30.8。 改变起始角度后的局部环</figcaption></figure>
+<p>我们将 <code>startAngle</code> 参数修改为 <code>-90</code> 度数。 另外，还需要修改 <code>endAngle</code> 参数，因为初始角度已修改。 修改后，圆弧现在就逆时针旋转 90 度。</p>
+<figure id="fig30.8"><img src="images/progressring/swiftui-progressring-8.png" alt="图 30.8。 改变初始角度后的局部环"><figcaption>图 30.8。 改变初始角度后的局部环</figcaption></figure>
 <h3 id="%E6%B7%BB%E5%8A%A0%E6%BC%B8%E8%AE%8A%E8%89%B2">添加渐变色</h3>
 <p>现在你有了一个可以显示不同的进度的环，如果每条进度条都能显示渐变颜色，不就更好吗？ SwiftUI 提供了三种类型的渐变，包括线性渐变、角度渐变和径向渐变。 Apple 使用角度渐变来为进度条加进渐变效果。</p>
 <p>这是一个使用 <code>AngularGradient</code> 的示例：</p>
@@ -1001,7 +1001,7 @@
 </code></pre>
 <p>角度渐变是随着角度的变化做出不同的渐变颜色。 在上面的代码中，我们将渐变从 0 度渲染到 180 度。 图 30.9 显示了两种不同角度的结果。</p>
 <figure id="fig30.9"><img src="images/progressring/swiftui-progressring-9.png" alt="图 30.9. 具有不同开始和结束角度的渐变效果"><figcaption>图 30.9. 具有不同开始和结束角度的渐变效果</figcaption></figure>
-<p>由于环形的起始角度设定为 -90 度，我们将像这样应用角度渐变（假设进度设置为 0.5）：</p>
+<p>由于环形的初始角度设定为 -90 度，我们将像这样应用角度渐变（假设进度设置为 0.5）：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AngularGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [.darkPurple, .lightYellow]), center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(<span class="hljs-number">360</span> * <span class="hljs-number">0.5</span> + startAngle))
 </code></pre>
 <p>现在让我们修改代码为<code>RingShape</code>加入渐变效果。 首先，在 <code>ProgressRingView</code> 中声明以下属性：</p>
@@ -1149,7 +1149,7 @@
     .frame(width: thickness, height: thickness)
     .foregroundColor(progress &gt; <span class="hljs-number">0.96</span> ? gradient.stops[<span class="hljs-number">1</span>].color : <span class="hljs-type">Color</span>.clear)
 </code></pre>
-<p>我们通过传当前进度、起始角度和圆环的半径来建立<code>RingTip</code>。 前景色设置为结束渐变色。 你可能想知道为什么我们只在进度大于 0.96 时才显示渐变色。 看看图 30.18，你就会明白我为什么会做出这个决定。</p>
+<p>我们通过传当前进度、初始角度和圆环的半径来建立<code>RingTip</code>。 前景色设置为结束渐变色。 你可能想知道为什么我们只在进度大于 0.96 时才显示渐变色。 看看图 30.18，你就会明白我为什么会做出这个决定。</p>
 <figure id="fig30.18"><img src="images/progressring/swiftui-progressring-18.png" alt="图 30.18. 仅当进度大于 0.96 时才需要覆盖圆圈"><figcaption>图 30.18. 仅当进度大于 0.96 时才需要覆盖圆圈</figcaption></figure>
 <p>在 <code>ZStack</code> 中添加 <code>RingTip</code> 后，运行App试一试。 按 100% 按钮， 进度条现在应该有一个圆顶。</p>
 <figure id="fig30.19"><img src="images/progressring/swiftui-progressring-19.png" alt="图 30.19. 在环末端覆盖一个小圆圈"><figcaption>图 30.19. 在环末端覆盖一个小圆圈</figcaption></figure>

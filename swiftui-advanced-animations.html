@@ -881,13 +881,13 @@
 <figure id="fig20.1"><img src="images/wallet/swiftui-wallet-1.png" alt="图 20.1.　建立如电子钱包的动画与视图转场"><figcaption>图 20.1.　建立如电子钱包的动画与视图转场</figcaption></figure>
 <p>在电子钱包 App 中，点击其中一张信用卡，就会弹出交易历史纪录。我们还建立一个类似的动画，以让你更了解视图转场与水平滚动视图。</p>
 <h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">项目准备</h3>
-<p>为了让你专注于学习动画与视图转场，你可以从起始项目开始(<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip</a>)。这个起始项目已经绑定了所需的信用卡图片，并且带有内建的交易历史纪录视图，如果想要使用自己的图片，请在素材目录中替换它们，如图20.2 所示。</p>
-<figure id="fig20.2"><img src="images/wallet/swiftui-wallet-2.png" alt="图 20.2　起始项目绑定了信用卡图片"><figcaption>图 20.2　起始项目绑定了信用卡图片</figcaption></figure>
+<p>为了让你专注于学习动画与视图转场，你可以从初始项目开始(<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip</a>)。这个初始项目已经绑定了所需的信用卡图片，并且带有内建的交易历史纪录视图，如果想要使用自己的图片，请在素材目录中替换它们，如图20.2 所示。</p>
+<figure id="fig20.2"><img src="images/wallet/swiftui-wallet-2.png" alt="图 20.2　初始项目绑定了信用卡图片"><figcaption>图 20.2　初始项目绑定了信用卡图片</figcaption></figure>
 <p>在项目导航器中，你应该会发现一些 <code>.swift</code> 档： </p>
 <ul>
 <li><strong>Transaction.swift</strong> - <code>Transaction</code> 结构代表电子钱包 App中的交易。每一笔交易有一个唯一的 ID、交易商、金额、日期与图示。除了 <code>Transaction</code> 结构之外，作为示范之用，我们还声明一个测试交易的数组。</li>
 <li><strong>Card.swift</strong> - 这个文件包含了 <code>Card</code> 的结构。<code>Card</code> 表示信用卡的数据，包含卡号、类型、有效日期、图片与客户姓名，除此之外，你可以在文件中找到一个测试信用卡的数组。需要注意的一点是，卡片图片中不包含任何的个人资讯，而只包含卡片品牌（例如： Visa ）。稍后，我们将为信用卡建立一个视图。</li>
-<li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始项目已经带有交易历史纪录视图的实现。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
+<li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，初始项目已经带有交易历史纪录视图的实现。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
 <li><strong>ContentView.swift</strong> - 这是 Xcode产生的默认 SwiftUI 视图。</li>
 </ul>
 <figure id="fig20.3"><img src="images/wallet/swiftui-wallet-3.png" alt="图 20.3.　使用.horizontal 建立水平滚动视图"><figcaption>图 20.3.　使用.horizontal 建立水平滚动视图</figcaption></figure>
@@ -1135,7 +1135,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 }
 </code></pre>
 <p>我们加入了一个 <code>if</code> 语句来检查卡片是否被选中。如果给定的卡片是使用者选择的卡片， 则我们将偏移量设定为<code>.zero</code>。对于所选卡片正下方的那些卡片，我们也将向上移动， 这就是为什么我们将偏移量设定为 <code>.zero</code>。而其余的卡片，我们将它们移出屏幕，因此垂直偏移量设定为 <code>1400 点</code>。</p>
-<p>现在，我们已经准备好编写用于弹出交易历史纪录视图的代码。正如一开始所述， 起始项目已经提供这个交易历史纪录视图。因此，你不需要自己建立它。</p>
+<p>现在，我们已经准备好编写用于弹出交易历史纪录视图的代码。正如一开始所述， 初始项目已经提供这个交易历史纪录视图。因此，你不需要自己建立它。</p>
 <p>藉由 <code>isCardPressed</code> 状态变量，我们可以使用它来确定是否显示交易历史纪录视图。在 <code>Spacer()</code> 前面插入下列代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> isCardPressed {
     <span class="hljs-type">TransactionHistoryView</span>(transactions: testTransactions)

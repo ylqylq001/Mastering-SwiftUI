@@ -880,9 +880,9 @@
 <p>在大多数的 App 中（尤其是以内容为基础的 App），你应该体验过导航介面。这类型的 UI 通常有一个包含数据清单的导航列，并且它让使用者点击内容时导航至细节视图。</p>
 <p>在 UIKit 中，我们可以使用 UINavigationController 来实现这类型的介面。在 SwiftUI 中，Apple 称其为“NavigationView”。由 iOS 16 开始，这个 “NavigationView” 以 “NavigationStack”取替。在本章中，我详细解说导航 UI 的实现，并教你如何进行一些自定义。和往常一样，我们将进行几个示例项目，以让你获得一些使用 NavigationStack 的实务经验。</p>
 <figure id="fig11.1"><img src="images/navigation/swiftui-navigation-1.jpg" alt="图 11.1.　示例项目的导航介面"><figcaption>图 11.1.　示例项目的导航介面</figcaption></figure>
-<h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
-<p>让我们开始并实现一个我们之前使用导航 UI 建立的示例项目。那么，首先至下列网址下载起始项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationListStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationListStarter.zip</a> 。下载后开启项目，并看一下预览，你应该对于这个示例 App 非常熟悉，它只显示一个餐厅列表，如图 11.2 所示。</p>
-<figure id="fig11.2"><img src="images/navigation/swiftui-navigation-2.png" alt="图 11.2.　起始项目应显示一个简单的清单视图"><figcaption>图 11.2.　起始项目应显示一个简单的清单视图</figcaption></figure>
+<h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备初始项目</h3>
+<p>让我们开始并实现一个我们之前使用导航 UI 建立的示例项目。那么，首先至下列网址下载初始项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationListStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationListStarter.zip</a> 。下载后开启项目，并看一下预览，你应该对于这个示例 App 非常熟悉，它只显示一个餐厅列表，如图 11.2 所示。</p>
+<figure id="fig11.2"><img src="images/navigation/swiftui-navigation-2.png" alt="图 11.2.　初始项目应显示一个简单的清单视图"><figcaption>图 11.2.　初始项目应显示一个简单的清单视图</figcaption></figure>
 <p>我们所要做的是，将这个清单视图嵌入至导航视图中。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E5%B0%8E%E8%A6%BD%E8%A6%96%E5%9C%96">实现导航视图</h3>
 <p>在旧版的 iOS，SwiftUI 框架提供一个名为 <code>NavigationView</code> 的视图来建立导航 UI。要将清单视图嵌入至<code>NavigationView</code> 中，你所需要做的是使用 <code>NavigationView</code> 包裹 List ，如下所示： </p>
@@ -1062,7 +1062,7 @@
 </code></pre>
 <p>你在预览画布再测试 App，并选取其中一家餐厅，你会见到一个带有餐厅名的返回按钮。点击返回按钮，视图将导航回主画面。</p>
 <h2 id="%E4%BD%9C%E6%A5%AD">作业</h2>
-<p>为了确认你理解如何建立导航UI，这里有一个作业。首先，至下列网址下载起始项目： </p>
+<p>为了确认你理解如何建立导航UI，这里有一个作业。首先，至下列网址下载初始项目： </p>
 <p> <a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationStarter.zip</a>。开启项目后，你将看到一个显示文章清单的示例App。</p>
 <p>这个项目与你之前建立的项目非常类似，主要的差异是 <code>Article.swift</code> 的导入。这个文件储存了 <code>articles</code> 数组，而该数组附有一些示例数据。如果你仔细检查 <code>Article</code> 结构，它现在有一个用于储存完整文章的 <code>content</code> 属性。</p>
 <p>你的任务是将清单嵌入导航视图，并建立细节视图。当使用者点击内容视图中其中一篇文章时，它将导航至显示完整文章的细节视图，如图 11.10 所示。我将在下一节中与你讨论解决方案，但请你尽力找出自己的解决方案。</p>

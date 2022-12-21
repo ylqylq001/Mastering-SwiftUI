@@ -882,8 +882,8 @@
 <figure id="fig13.1"><img src="images/form/swiftui-form-1.png" alt="图 13.1.　建立一个设定画面"><figcaption>图 13.1.　建立一个设定画面</figcaption></figure>
 <p>那么，我们准备要做什么项目呢？以图 13.1 为例，我们将为前面章节所制作的餐厅 App 来建立其设定画面，该画面提供使用者设定“排序”与“筛选”的偏好选项。这种类型的画面在真实的项目中很常见，当你了解其如何运作，你将可在你的 App 项目中建立你自己的表单。</p>
 <p>在本章中，我将着重在实现表单布局，你将了解如何使用“Form”组件来布局设定画面，我们也将实现选择器来选择“排序”的偏好，并建立一个切换与一个步进器，以表示“筛选”的偏好。当你了解如何布局表单后，在下一章中，我将教你如何依照使用者的偏好来修改清单，以使 App 的功能完善。你将学会如何储存使用者的偏好、分享视图间的数据，并以 <code>@EnvironmentObject</code> 来监控数据的修改。</p>
-<h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
-<p>为了节省你从头再建一次餐厅清单的时间，我已经建好一个起始项目。首先，至 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormStarter.zip</a>下载起始项目，下载之后，以 Xcode 开启 <code>SwiftUIForm.xcodeproj</code>  档，在画布上预览 <code>ContentView.swift</code>，你将看到熟悉的 UI，除此之外，还加入更多的餐厅细节资讯，如图 13.2 所示。</p>
+<h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备初始项目</h3>
+<p>为了节省你从头再建一次餐厅清单的时间，我已经建好一个初始项目。首先，至 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormStarter.zip</a>下载初始项目，下载之后，以 Xcode 开启 <code>SwiftUIForm.xcodeproj</code>  档，在画布上预览 <code>ContentView.swift</code>，你将看到熟悉的 UI，除此之外，还加入更多的餐厅细节资讯，如图 13.2 所示。</p>
 <figure id="fig13.2"><img src="images/form/swiftui-form-2.png" alt="图 13.2.　餐厅清单视图"><figcaption>图 13.2.　餐厅清单视图</figcaption></figure>
 <p>现在，<code>Restaurant</code> 结构具有三个属性：“type”、“phone”与“priceLevel”。我觉得“type”与“phone”的意思本身很清楚了，不必另外说明，而“priceLevel”则是储存了范围为 1 至 5 的整数，以反映该餐厅的平均价位。restaurants 数组已预填一些范本数据，为了之后的测试，将一些范本餐厅的 <code>isFavorite</code> 与 <code>isCheckIn</code>设定为“true”，这就是为何你会在预览中看到一些打卡与最爱符号的原因。</p>
 <h3 id="-%E5%BB%BA%E7%AB%8B%E8%A1%A8%E5%96%AE-ui"><strong>建立表单</strong>UI</h3>

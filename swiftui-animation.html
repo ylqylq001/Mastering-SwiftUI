@@ -1021,7 +1021,7 @@
 <p>对于 Image 视图，我们在 scaleEffect 之前置入 <code>animation(nil)</code> 修饰器，这会将动画取消，<code>scaleEffect</code> 修饰器的状态变化将不会设定动画。</p>
 <p>虽然你可以使用隐式动画建立相同的动画，但我认为在这种情况下，使用显式动画会更方便。</p>
 <h3 id="%E4%BD%BF%E7%94%A8rotationeffect-%E5%BB%BA%E7%AB%8B%E4%B8%8B%E8%BC%89%E6%8C%87%E7%A4%BA%E5%99%A8">使用RotationEffect 建立下载指示器</h3>
-<p>SwiftUI 动画的强大之处在于，你不需关心如何对视图设定动画，你只需要提供起始与结束状态，接着 SwiftUI 会找出其余的状态。当你具备了这个概念，即可以建立各种类型的动画。</p>
+<p>SwiftUI 动画的强大之处在于，你不需关心如何对视图设定动画，你只需要提供初始与结束状态，接着 SwiftUI 会找出其余的状态。当你具备了这个概念，即可以建立各种类型的动画。</p>
 <figure id="fig9.3"><img src="images/animation/swiftui-animation-3.gif" alt="图 9.3.　下载指示器示例"><figcaption>图 9.3.　下载指示器示例</figcaption></figure>
 <p>举例而言，我们来建立一个简单的下载指示器，你通常可以在一些真实世界的应用程序（如 Medium）中找到它。要建立一个如图 9.3 所示的下载指示器，我们从开放式圆环（open ended circle ）来开始，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Circle</span>()

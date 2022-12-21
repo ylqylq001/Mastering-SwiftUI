@@ -883,10 +883,10 @@
 <figure id="fig18.1"><img src="images/bottom-sheet/swiftui-bottom-sheet-1.jpg" alt="图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表"><figcaption>图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表</figcaption></figure>
 <p>在本章中，我们将使用 SwiftUI 手势建立类似的展开式底部表（expandable bottom sheet ）。示例 App 在主视图中显示餐厅清单，当使用者点击其中一笔餐厅纪录时，该 App 会弹出一个底部表来显示餐厅的详细资讯。你可以向上滑动来展开表，而要解除表则是向下滑动，如图 18.2 所示</p>
 <figure id="fig18.2"><img src="images/bottom-sheet/swiftui-bottom-sheet-2.png" alt="图 18.2.　建立一个展开式底部表"><figcaption>图 18.2.　建立一个展开式底部表</figcaption></figure>
-<h3 id="%E4%BA%86%E8%A7%A3%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">了解起始项目</h3>
-<p>为了节省你从头建立示例App 的时间，我已经为你准备好起始项目。你可以至</p>
-<p><a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip</a>  下载起始项目，并解压缩文件，并开启 <code>SwiftUIBottomSheet.xcodeproj</code> 来开始。</p>
-<p>起始项目已经提供一组餐厅图片及餐厅数据。如果你在项目导航器中查看“Model”数据夹，则应该会找到一个<code>Restaurant.swift</code> 档，此文件包含了 <code>Restaurant</code> 结构与一组示例餐厅数据。</p>
+<h3 id="%E4%BA%86%E8%A7%A3%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">了解初始项目</h3>
+<p>为了节省你从头建立示例App 的时间，我已经为你准备好初始项目。你可以至</p>
+<p><a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip</a>  下载初始项目，并解压缩文件，并开启 <code>SwiftUIBottomSheet.xcodeproj</code> 来开始。</p>
+<p>初始项目已经提供一组餐厅图片及餐厅数据。如果你在项目导航器中查看“Model”数据夹，则应该会找到一个<code>Restaurant.swift</code> 档，此文件包含了 <code>Restaurant</code> 结构与一组示例餐厅数据。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id: <span class="hljs-type">UUID</span> = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
