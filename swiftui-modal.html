@@ -905,7 +905,7 @@
 </code></pre>
 <p><code>sheet</code> 修饰器也让你可通过传送一个 <code>Optional</code> 绑定来触发强制回应视图的显示。如果 <code>Optional</code>有一个值，iOS 会弹出强制回应视图，如果你还记得我们在前一章中对于 <code>actionSheet</code> 的讨论，你应该会发现 <code>sheet</code> 的用法与 <code>actionSheet</code> 非常相似。</p>
 <h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
-<p>以上是背景资讯，我们来继续实际执行示例项目。首先，，请至
+<p>以上是背景资讯，我们来继续实际运行示例项目。首先，，请至
 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip</a>。 下载起始项目，下载后开启项目，并看一下预览，如图 12.3 所示。你应该非常熟悉示例 App 了，该 App 仍有一个导航列，但导航连结已被删除。</p>
 <figure id="fig12.3"><img src="images/modal/swiftui-modal-3.png" alt="图 12.3.　起始项目"><figcaption>图 12.3.　起始项目</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-ispresented-%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 isPresented 实现强制回应视图</h3>
@@ -958,7 +958,7 @@
 }
 </code></pre>
 <p>在 <code>onTapGesture</code> 的闭包中，我们将 <code>showDetailView</code> 设定为 <code>true</code>，这是用于触发强制回应视图的显示。我们也将所选的文章储存在 <code>selectedArticle</code> 变量中。</p>
-<p>现在于预览画布上执行这个 App。你应该能够以强制回应模式弹出细节视图，如图 12.4 所示。</p>
+<p>现在于预览画布上运行这个 App。你应该能够以强制回应模式弹出细节视图，如图 12.4 所示。</p>
 <p><em>注意：当你第一次打开模态视图时，它显示的是一个空白视图。 擦拭对话框以关闭它，然后选择另一篇文章（不是同一篇文章），App应该会显示正确的文章。 这是一个已知问题，我们将在后面的部分讨论如何改善。</em></p>
 <figure id="fig12.4"><img src="images/modal/swiftui-modal-4.png" alt="图 12.4. 以强制回应模式来显示细节视图"><figcaption>图 12.4. 以强制回应模式来显示细节视图</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-optional-%E7%B6%81%E5%AE%9A%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 Optional 绑定实现强制回应视图</h3>
@@ -1014,7 +1014,7 @@
 </code></pre>
 <p>如此，按钮将会覆盖在滚动视图上方，以浮动按钮的形式显示。即使你向下滚动视图，按钮也会停留在相同的位置。要将按钮放在右上角，这里我们使用 <code>HStack</code> 与 <code>VStack</code>， 然后加上 <code>Spacer</code> 作为辅助。要解除视图， 你可以调用  <code>dismiss()</code> 函数。</p>
 <figure id="fig12.6"><img src="images/modal/swiftui-modal-8.png" alt="图 12.9. 实现“关闭”按钮"><figcaption>图 12.9. 实现“关闭”按钮</figcaption></figure>
-<p>现在于模拟器中实现 App，或切换至 <code>ContentView</code>，并在画布中执行。你应该能点选“关闭”按钮来解除强制回应视图。</p>
+<p>现在于模拟器中实现 App，或切换至 <code>ContentView</code>，并在画布中运行。你应该能点选“关闭”按钮来解除强制回应视图。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E8%AD%A6%E5%91%8A%E6%8F%90%E7%A4%BA%E8%A6%96%E7%AA%97">使用警告提示视窗</h3>
 <p>除了卡片式的强制回应视图，“警告提示视窗”（ Alert ）是另一种强制回应视图，当它显示时，整个画面会被锁住，如果你不选择其中一个选项，将会无法离开。图 12.7 为一个警告提示视窗的示例，这是我们将在示例项目中实现的内容，而我们所要做的是，当使用者点击“关闭”按钮后，显示一个警告提示视窗。</p>
 <figure id="fig12.7"><img src="images/modal/swiftui-modal-9.png" alt="图 12.7　显示一个警告提示视窗"><figcaption>图 12.7　显示一个警告提示视窗</figcaption></figure>

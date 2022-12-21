@@ -1019,7 +1019,7 @@
 }
 </code></pre>
 <p>我们只是初始化一个 <code>SettingStore</code>，并将其传送给 <code>SettingView</code>。这是必需的，因为我们已经在 <code>SettingView</code> 中加入 <code>settingStore</code> 属性。</p>
-<p>如果你现在编译并执行该 App，Xcode 将显示一个错误。在 App 可正常运作之前，我们还需要做一个修改。</p>
+<p>如果你现在编译并运行该 App，Xcode 将显示一个错误。在 App 可正常运作之前，我们还需要做一个修改。</p>
 <figure id="fig14.2"><img src="images/formdata/swiftui-formdata-2.png" alt="图 14.2. SwiftUIFormApp.swift 中出现错误"><figcaption>图 14.2. SwiftUIFormApp.swift 中出现错误</figcaption></figure>
 <p>至 <code>SwiftUIFormApp.swift</code> 并加入下列属性来建立一个 <code>SettingStore</code> 实例： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore = <span class="hljs-type">SettingStore</span>()
@@ -1027,7 +1027,7 @@
 <p>接着，将这行代码修改为下列代码，来修正错误： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ContentView</span>(settingStore: settingStore)
 </code></pre>
-<p>现在，你应该能够执行 App，并进行设定了。当你储存设定之后，它将永久储存在本地默认系统中。你可尝试停止 App，然后再次启动它，储存的设定应已载入至设定画面中，如图 14.3 所示。</p>
+<p>现在，你应该能够运行 App，并进行设定了。当你储存设定之后，它将永久储存在本地默认系统中。你可尝试停止 App，然后再次启动它，储存的设定应已载入至设定画面中，如图 14.3 所示。</p>
 <figure id="fig14.3"><img src="images/formdata/swiftui-formdata-3.png" alt="图 14.3.　设定画面应该已载入你的使用者偏好"><figcaption>图 14.3.　设定画面应该已载入你的使用者偏好</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-environmentobject-%E5%9C%A8%E8%A6%96%E5%9C%96%E9%96%93%E5%85%B1%E4%BA%AB%E8%B3%87%E6%96%99">使用 @EnvironmentObject 在视图间共享数据</h3>
 <p>现在，使用者偏好已经储存在本地默认系统中，但是清单视图并没有依照使用者设定来变更。同样的，有多种方式可以解决这个问题。</p>
@@ -1133,7 +1133,7 @@
 }
 </code></pre>
 <p>这里，我们首先调用刚才实现的 <code>shouldShowItem</code> 函数，来检查是否应该显示餐厅。</p>
-<p>现在按 Play 在模拟器执行 App 并快速测试。在设定画面中，设定“Show Check-in Only”选项为“ON”， 并配置价位级别选项，以显示价位级别为 3（即$$$ ）或以下的餐厅，如图 14.4 所示。当你点击“Save”按钮后，清单视图应会自动修改（使用动画），并显示筛选后的纪录。</p>
+<p>现在按 Play 在模拟器运行 App 并快速测试。在设定画面中，设定“Show Check-in Only”选项为“ON”， 并配置价位级别选项，以显示价位级别为 3（即$$$ ）或以下的餐厅，如图 14.4 所示。当你点击“Save”按钮后，清单视图应会自动修改（使用动画），并显示筛选后的纪录。</p>
 <figure id="fig14.4"><img src="images/formdata/swiftui-formdata-4.png" alt="图 14.4.　当你修改筛选偏好时，清单视图现在会修改其项目"><figcaption>图 14.4.　当你修改筛选偏好时，清单视图现在会修改其项目</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%8E%92%E5%BA%8F%E9%81%B8%E9%A0%85">实现排序选项</h3>
 <p>现在，我们已经完成筛选选项的实现，我们来继续处理排序选项。在 Swift 中，你可以使用 sort(by:) 方法对一个序列中的元素排序。当使用此方法时，你需要提供一个述词（predicate ）给它，在第一个元素应排在第二个元素之前，该述词会回传 <code>true</code>。</p>

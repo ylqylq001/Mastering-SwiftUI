@@ -925,7 +925,7 @@
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
 </code></pre>
-<p>主屏幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协议，并导入一个 <code>id</code> 变量，如下所示： </p>
+<p>主屏幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一运行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协议，并导入一个 <code>id</code> 变量，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span>, <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">let</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
@@ -1090,7 +1090,7 @@
     }
 }
 </code></pre>
-<p>在上面的代码中，我们初始化一个包含所有旅程的 <code>cardViews</code> 数组（其在 <code>Trip.swift</code> 档中定义）。在body 变量中，我们逐一执行所有的卡片视图，并将它们包裹在 <code>ZStack</code> 中来相互重叠。</p>
+<p>在上面的代码中，我们初始化一个包含所有旅程的 <code>cardViews</code> 数组（其在 <code>Trip.swift</code> 档中定义）。在body 变量中，我们逐一运行所有的卡片视图，并将它们包裹在 <code>ZStack</code> 中来相互重叠。</p>
 <p>预览画布应该会显示相同的UI，但使用另一张图片，如图19.8 所示。</p>
 <figure id="fig19.8"><img src="images/triptinder/swiftui-trip-tinder-8.png" alt="图 19.8.　建立卡片视图库"><figcaption>图 19.8.　建立卡片视图库</figcaption></figure>
 <p>为什么它会显示另一张图片呢？如果你引用在 <code>Trip.swift</code> 中定义的 <code>trips</code> 数组，图片是数组的最后一个元素。在<code>ForEach</code> 区块中，第一个旅程是放在卡片库的最下面，如此最后一个旅程便成为卡片库的最上面照片。</p>
@@ -1110,7 +1110,7 @@
     <span class="hljs-keyword">return</span> index == <span class="hljs-number">0</span>
 }
 </code></pre>
-<p>在逐一执行卡片视图时，我们必须找到一种识别最上面卡片的方式。上面的函式带入一个卡片视图，找出其索引，并告诉你卡片视图是否位于最上面。</p>
+<p>在逐一运行卡片视图时，我们必须找到一种识别最上面卡片的方式。上面的函式带入一个卡片视图，找出其索引，并告诉你卡片视图是否位于最上面。</p>
 <p>接下来，修改 <code>ZStack</code> 的代码区块如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">ForEach</span>(cardViews) { cardView <span class="hljs-keyword">in</span>
@@ -1220,7 +1220,7 @@
 <p>基本上，我们将应用在手势章节中所学的知识来实现拖曳。<code>.gesture</code> 修饰器有两个手势识别器：长按与拖曳。当侦测到拖曳手势时，我们修改 <code>dragState</code> 变量，并储存拖曳的位移量。</p>
 <p><code>offset</code>、<code>scaleEffect</code>、<code>rotationEffect</code> 与 <code>animation</code> 修饰器的结合， 可建立拖曳效果。拖曳是通过修改卡片视图的 <code>offset</code>来实现。当卡片视图处于拖曳状态时，我们会使用 <code>scaleEffect</code> 将它缩小一点，并应用<code>rotationEffect</code> 修饰器将它旋转特定角度。动画设定为 <code>interpolatingSpring</code>，但你可以自由尝试其他动画。</p>
 <p>我们还对 <code>BottomBarMenu</code> 做一些代码修改。当使用者拖曳卡片视图时，我想要隐藏底部列，因此我们应用 <code>.opacity</code> 修饰器，并且当它在拖曳状态时，设定它的值为“0”。</p>
-<p>进行修改后，在预览画布中执行项目来测试它。你应该能够拖曳卡片并四处移动。而当你释放卡片时，卡片会回到原来的位置，如图 19.10 所示。</p>
+<p>进行修改后，在预览画布中运行项目来测试它。你应该能够拖曳卡片并四处移动。而当你释放卡片时，卡片会回到原来的位置，如图 19.10 所示。</p>
 <figure id="fig19.10"><img src="images/triptinder/swiftui-trip-tinder-13.png" alt="图 19.10.　拖曳卡片视图"><figcaption>图 19.10.　拖曳卡片视图</figcaption></figure>
 <p>你注意到问题了吗？当拖曳开始时，你实际上是在拖曳整个卡片库 ！假设使用者只能拖曳最上面的卡片，下面的卡片应该保持不变。而且，缩放效果应只应用于最上面的卡片。</p>
 <p>要解决这些问题，我们需要修改 <code>offset</code>、<code>scaleEffect</code> 与 <code>rotationEffect</code> 修饰器的代码， 如此拖曳只发生在最上面的卡片视图。</p>
@@ -1275,7 +1275,7 @@
 }
 </code></pre>
 <p>默认上，将不透明度设定为“0”来隐藏这两张图片。如果向右拖曳，则位移的宽度为正值，否则其为负值。依照拖曳的方向，当拖曳的位移超过界限值时，App 将显示其中一张图片。</p>
-<p>你可以执行这个项目来快速测试一下。当你的拖曳超出界限值时，心形/&#xD7; 形图示将会出现，如图 19.12 所示。</p>
+<p>你可以运行这个项目来快速测试一下。当你的拖曳超出界限值时，心形/&#xD7; 形图示将会出现，如图 19.12 所示。</p>
 <figure id="fig19.12"><img src="images/triptinder/swiftui-trip-tinder-15.png" alt="图 19.12.　出现心形图示"><figcaption>图 19.12.　出现心形图示</figcaption></figure>
 <h3 id="%E5%88%AA%E9%99%A4-%E6%8F%92%E5%85%A5%E5%8D%A1%E7%89%87">删除/ 插入卡片</h3>
 <p>现在，当你释放卡片时，它仍会回到原来的位置。我们如何才能删除最上面的卡片， 并同时加入一张新卡片呢？ </p>
@@ -1331,7 +1331,7 @@
 )
 </code></pre>
 <p>当拖曳手势结束时，我们检查拖曳的位移是否超过界限值，并相应调用 <code>moveCard()</code>。</p>
-<p>现在，当你在预览画布中执行项目时，将图片向右 / 左拖曳，直到图示出现。放开拖曳，最上面的卡片应由下一张卡片取代。</p>
+<p>现在，当你在预览画布中运行项目时，将图片向右 / 左拖曳，直到图示出现。放开拖曳，最上面的卡片应由下一张卡片取代。</p>
 <figure id="fig19.13"><img src="images/triptinder/swiftui-trip-tinder-16.png" alt="图 19.13.　删除最上面的图片"><figcaption>图 19.13.　删除最上面的图片</figcaption></figure>
 <h3 id="%E5%BE%AE%E8%AA%BF%E5%8B%95%E7%95%AB">微调动画</h3>
 <p>这个 App 几乎可以运作了，但是动画效果并不如预期。不要让卡片视图突然消失，而是卡片丢弃后应逐渐从屏幕离开。</p>
@@ -1405,7 +1405,7 @@
 
 )
 </code></pre>
-<p>上列代码的作用是设定 <code>removalTransition</code>，转场类型是根据滑动方向来修改。现在，你可以再次执行 App 了，当丢弃卡片时，你应该会看到动画效果已改善。</p>
+<p>上列代码的作用是设定 <code>removalTransition</code>，转场类型是根据滑动方向来修改。现在，你可以再次运行 App 了，当丢弃卡片时，你应该会看到动画效果已改善。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>使用 SwiftUI，你可以轻松建立一些很酷的动画与行动装置 UI 模式，这个如 Tinder 般的 UI 就是一个例子。</p>
 <p>我希望你能真正了解本章所介绍的内容，如此你就可以修改代码，来配合自己的项目。这是非常重要的一章，我想要记录一下我的思考过程，而不仅仅是向你提供最终的解决方案。</p>

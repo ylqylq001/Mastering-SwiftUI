@@ -916,7 +916,7 @@
 <p>-  Apple 官方文件 (<a href="https://developer.apple.com/documentation/swiftui/foreach" target="_blank">https://developer.apple.com/documentation/swiftui/foreach</a>)</p>
 </blockquote>
 <p>你可以提供 <code>ForEach</code> 一组数据集合或一个范围。不过，你必须要注意的是，你需要告诉 <code>ForEach</code> 如何识别集合中的每个项目，参数 <code>id</code> 的目的在于此，为什么 <code>ForEach</code> 需要识别项目的唯一性呢？ SwiftUI 功能强大，可在部分或全部集合内的项目修改时自动修改 UI， 因此当修改或删除项目时，需要一个识别码来识别该项目。</p>
-<p>在上面的代码中，我们传送给 <code>ForEach</code> 一个范围的值来逐一执行。该识别码设定为其值（即 1、2、3、4），<code>index</code> 参数储存回圈的目前值，例如：它从“1”这个值开始， <code>index</code> 参数的值则为“1”。</p>
+<p>在上面的代码中，我们传送给 <code>ForEach</code> 一个范围的值来逐一运行。该识别码设定为其值（即 1、2、3、4），<code>index</code> 参数储存回圈的目前值，例如：它从“1”这个值开始， <code>index</code> 参数的值则为“1”。</p>
 <p>在闭包中，即是渲染视图所需的代码，这里也是我们需要建立的文字视图，其叙述将依据回圈中的 <code>index</code> 值而变化。如此，你就可以在清单中建立四个不同标题的项目。</p>
 <p>我再教你一种技巧，相同的代码片段也可以进一步重写如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
@@ -1025,7 +1025,7 @@
     .listStyle(.plain)
 }
 </code></pre>
-<p>看一下我们传入 <code>List</code> 的参数，我们没有传送范围，而是传送 <code>restaurants</code> 数组，并告诉 <code>List</code> 使用其 <code>name</code> 属性作为识别码。<code>List</code>  将逐一执行数组，并让我们知道它在闭包中正在处理的目前餐厅。因此，在闭包中，我们指示清单如何显示餐厅列，这里我们只在 <code>HStack</code> 中同时显示餐厅图片与餐厅名称。</p>
+<p>看一下我们传入 <code>List</code> 的参数，我们没有传送范围，而是传送 <code>restaurants</code> 数组，并告诉 <code>List</code> 使用其 <code>name</code> 属性作为识别码。<code>List</code>  将逐一运行数组，并让我们知道它在闭包中正在处理的目前餐厅。因此，在闭包中，我们指示清单如何显示餐厅列，这里我们只在 <code>HStack</code> 中同时显示餐厅图片与餐厅名称。</p>
 <p>一切都没有改变，UI 仍然相同，不过底层代码已经修改为利用 <code>List</code> 与数据集合了。</p>
 <figure id="fig10.7"><img src="images/list/swiftui-list-7.png" alt="图 10.7.　与图 10.6 的 UI 相同"><figcaption>图 10.7.　与图 10.6 的 UI 相同</figcaption></figure>
 <h4 id="%E9%81%B5%E5%BE%AA-identifiable-%E5%8D%94%E5%AE%9A">遵循 Identifiable 协议</h4>

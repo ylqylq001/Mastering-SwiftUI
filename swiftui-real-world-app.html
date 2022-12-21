@@ -892,7 +892,7 @@
 <p>让我再次强调这一点。 这个App是你将所学应用出来的成果。 因此，我假设你已经阅读了第 1 章到第 24 章。你应该了解如何构建Bottom Sheet（第 18 章）、使用 Combine 验证表单（第 14 章和第 15 章）以及如何使用 Core Data（第 22 章）。 如果您还没有阅读这些章节，我建议您先阅读它们。 在本章中，我将集中讲解以前没有讨论过的技术。</p>
 <h3 id="%E4%B8%8B%E8%BC%89%E5%AE%8C%E6%95%B4%E5%B0%88%E6%A1%88">下载完整项目</h3>
 <p>一般来说，我们是从头开始构建一个示例App。 这一次有点不同。 我已经写好了这个个人理财App。 您可以从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIPFinance.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIPFinance.zip</a> 下载完整代码。 解压文件并在模拟器上试试运行App。 当App第一次启动时，它看起来与图 25.1 所示的有点不同，因为没有记录。 您可以点击 + 按钮添加新记录。 返回主视图后，您可在 <em>Recent Transactions</em> 部分看到新记录。 并且，App 会自动计算总余额。</p>
-<p>此App 使用 Core Data 执行数据管理。 收入和支出记录存放在内置数据库中，因此即使在重新启动App后，您也会看到记录。</p>
+<p>此App 使用 Core Data 运行数据管理。 收入和支出记录存放在内置数据库中，因此即使在重新启动App后，您也会看到记录。</p>
 <p>在本章的其余部分，我将详细解释内里的代码是如何运作的。 但我鼓励你试试自己先看一下代码，看看你能了解多少。</p>
 <h3 id="%E4%BA%86%E8%A7%A3%E6%A8%A1%E5%9E%8B">了解模型</h3>
 <p>正如您在项目导航器中看到的，App分为三个主要部分：模型（Model）、视图模型（ViewModel）和视图（View）。 让我们从模型层和Core Data模型开始。 打开 <code>PaymentActivity.swift</code> 看一下：</p>
@@ -1144,7 +1144,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 </code></pre>
 <p>当点击按钮时，App会调用<code>save()</code>方法将交易永久存放到数据库中。 然后，就调用 <code>dismiss()</code> 方法来关闭视图。 如果您不熟悉环境值 <code>presentationMode</code>，请阅读第 12 章。</p>
 <h4 id="%E8%A1%A8%E6%A0%BC%E9%A9%97%E8%AD%89">表格验证</h4>
-<p>这就是布局表格 UI 的技巧，现在让我们来谈谈表格验证。 基本上，我是按照第 15 章中讨论的内容，使用 Combine 执行表格验证：</p>
+<p>这就是布局表格 UI 的技巧，现在让我们来谈谈表格验证。 基本上，我是按照第 15 章中讨论的内容，使用 Combine 运行表格验证：</p>
 <ol>
 <li>建立一个视图模型（view model）来代表交易活动表格（payment activity form）。</li>
 <li>在视图模型中验证表格输入并使用 Combine 发布验证结果。</li>
@@ -1215,8 +1215,8 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
 }
 </code></pre>
-<p>这个类别遵守<code>ObservableObject</code>。 所有属性都以<code>@Published</code>标注，因为我们想在数值发生变化时通知订阅者并相应地执行验证。</p>
-<p>每当使用者输入表格栏时，此视图模型就会执行验证代码并修改结果，以及通知订阅者。</p>
+<p>这个类别遵守<code>ObservableObject</code>。 所有属性都以<code>@Published</code>标注，因为我们想在数值发生变化时通知订阅者并相应地运行验证。</p>
+<p>每当使用者输入表格栏时，此视图模型就会运行验证代码并修改结果，以及通知订阅者。</p>
 <p>那么，谁是订阅者？</p>
 <p>如果你回到 <code>PaymentFormView.swift</code>，你应该注意到我们已经用 <code>@ObservedObject</code> 标注了一个名为 <code>paymentFormViewModel</code> 的变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">ObservedObject</span> private <span class="hljs-keyword">var</span> paymentFormViewModel: <span class="hljs-type">PaymentFormViewModel</span>
@@ -1282,7 +1282,7 @@ private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type"
     <span class="hljs-keyword">self</span>.viewModel = <span class="hljs-type">PaymentDetailViewModel</span>(payment: payment)
 }
 </code></pre>
-<p>由于我们需要执行一些初始化来创建视图模型，我们加了一个客制化的 <code>init</code> 方法。</p>
+<p>由于我们需要运行一些初始化来创建视图模型，我们加了一个客制化的 <code>init</code> 方法。</p>
 <h4 id="%E8%A6%96%E5%9C%96%E6%A8%A1%E5%9E%8B%EF%BC%88view-model%EF%BC%89">视图模型（View Model）</h4>
 <blockquote>
 <p>我们可以把视图分成视图及其视图模型等两个组件，而不是将所有的东西放在一个视图中。视图本身是负责 UI 布局，而视图模型存放要在视图中显示的状态与数据，并且视图模型还处理数据验证与转换。对于有经验的开发者而言，你知道我们正应用众所周知的“MVVM”（Model- View-ViewModel 的缩写）设计模式。</p>
@@ -1566,7 +1566,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     sortDescriptors: [ <span class="hljs-type">NSSortDescriptor</span>(keyPath: \<span class="hljs-type">PaymentActivity</span>.date, ascending: <span class="hljs-built_in">false</span>) ])
 <span class="hljs-keyword">var</span> paymentActivities: <span class="hljs-type">FetchedResults</span>&lt;<span class="hljs-type">PaymentActivity</span>&gt;
 </code></pre>
-<p>这个属性包装器让执行读取请求变得非常容易。 我们只需指定实体，即<code>PaymentActivity</code>，以及描述数据应如何排序。 然后，Core Data 框架会使用环境的托管物件内容（managed object context）来读取数据。 最重要的是，SwiftUI 会自动修改列表视图和相关视图。</p>
+<p>这个属性包装器让运行读取请求变得非常容易。 我们只需指定实体，即<code>PaymentActivity</code>，以及描述数据应如何排序。 然后，Core Data 框架会使用环境的托管物件内容（managed object context）来读取数据。 最重要的是，SwiftUI 会自动修改列表视图和相关视图。</p>
 <p>从数据库中删除交易记录也是非常简单。 我们调用<code>context</code>的 <code>delete</code> 函数并指定要删除的交易就可以了：</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">delete</span><span class="hljs-params">(payment: PaymentActivity)</span> </span>{
     <span class="hljs-keyword">self</span>.context.delete(payment)

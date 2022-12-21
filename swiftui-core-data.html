@@ -928,7 +928,7 @@ task.isComplete = isComplete
    sortDescriptors: [ <span class="hljs-type">NSSortDescriptor</span>(keyPath: \<span class="hljs-type">ToDoItem</span>.priorityNum, ascending: <span class="hljs-built_in">false</span>) ])
 <span class="hljs-keyword">var</span> todoItems: <span class="hljs-type">FetchedResults</span>&lt;<span class="hljs-type">ToDoItem</span>&gt;
 </code></pre>
-<p>此属性包装器使执行读取请求变得非常简单。 你只需要指定要检索的实体物件以及数据的排序方式， 然后框架将使用环境的托管物件内容来获取数据。 最重要的是，取得数据之后，SwiftUI 会自动修改所有相关的视图。</p>
+<p>此属性包装器使运行读取请求变得非常简单。 你只需要指定要检索的实体物件以及数据的排序方式， 然后框架将使用环境的托管物件内容来获取数据。 最重要的是，取得数据之后，SwiftUI 会自动修改所有相关的视图。</p>
 </li>
 </ol>
 <p>这就是你在 SwiftUI 项目中使用 Core Data 的方式。 我知道你可能对某些程序感到困惑， 本节只是一个非常初步的简介。 稍后，当你修改示例程序时，我们将更详细解释这些程序。</p>
@@ -1251,7 +1251,7 @@ task.isComplete = isComplete
 </code></pre>
 <p>最重要的是，你可以直接传递 <code>todoItem</code>，因为它就是一个 <code>NSManageObject</code>。看一看<code>NSManagedObject</code> 的技术文， 它符合<code>ObservableObject</code>。 这就是为什么我们可以直接将 <code>todoItem</code> 传递给 <code>ToDoListRow</code>。</p>
 <figure id="fig22.9"><img src="images/core-data/swiftui-core-data-9.png" alt="Figure 9. NSManagedObject documentation"><figcaption>Figure 9. NSManagedObject documentation</figcaption></figure>
-<p>还有一件事。 你可能还想知道我们是否需要在 <code>todoItems</code> 发生修改时手动执行 fetch 请求（例如，我们添加了一个新项目）。 这是使用<code>@FetchRequest</code> 的另一个优点。 SwiftUI 会自动管理其变动并相应地修改 UI。</p>
+<p>还有一件事。 你可能还想知道我们是否需要在 <code>todoItems</code> 发生修改时手动运行 fetch 请求（例如，我们添加了一个新项目）。 这是使用<code>@FetchRequest</code> 的另一个优点。 SwiftUI 会自动管理其变动并相应地修改 UI。</p>
 <h4 id="%E5%B0%87%E6%95%B8%E6%93%9A%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%8C%81%E4%B9%85%E5%AD%98%E5%84%B2">将数据添加到持久存储</h4>
 <p>现在，让我们继续进行 Core Data 迁移并修改 <code>NewToDoView.swift</code> 的代码。 要在数据库中存新事项，首先需要从环境中获取托管物件内容：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.managedObjectContext) <span class="hljs-keyword">var</span> context
@@ -1335,7 +1335,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>此函数接收一个索引集，该集储存要删除项目的索引。 要从数据库中删除项目，你可以调用<code>context</code>的<code>delete</code> 方法并指定要删除的项目。 最后，调用 <code>save()</code> 来执行修改。</p>
+<p>此函数接收一个索引集，该集储存要删除项目的索引。 要从数据库中删除项目，你可以调用<code>context</code>的<code>delete</code> 方法并指定要删除的项目。 最后，调用 <code>save()</code> 来运行修改。</p>
 <p>既然我们已经准备好了删除方法，那么我们应该在哪里调用它呢？ 将 <code>onDelete</code> 修饰器附加到列表视图的 <code>ForEach</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
 
@@ -1347,7 +1347,7 @@ task.isComplete = isComplete
 }
 </code></pre>
 <p><code>onDelete</code> 修饰器自动启用列表视图中的滑动删除功能。 当用户删除一个项目时，我们调用<code>deleteTask</code> 方法从数据库中删除该项目。</p>
-<p>执行App并试试删除一个项目，按delete钮就可以将其从数据库中完全删除。</p>
+<p>运行App并试试删除一个项目，按delete钮就可以将其从数据库中完全删除。</p>
 <figure id="fig22.12"><img src="images/core-data/swiftui-core-data-12.png" alt="图 22.12. 删除一个项目"><figcaption>图 22.12. 删除一个项目</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%A7">使用 SwiftUI 预览</h3>
 <p>不知你有没有留意，现在Xcode内的SwiftUI预览已经不能正常显示预览。 这是可以理解的，因为我们没有在 <code>ContentView_Previews</code> 结构中注入托管物件内容（managed object context）。 那么，我们要如何解决问题并使预览正常运作？</p>
@@ -1384,7 +1384,7 @@ task.isComplete = isComplete
 </code></pre>
 <p>我们将数据暂存器的<code>context</code>注入到内容视图的环境中。 通过这样做，内容视图现在可以加载示例待办事项并将显示在预览画面中。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>在本章中，我们将 Todo 示例App加入永久储存数据功能。 我希望你现在了解如何在 SwiftUI 开发中使用 Core Data 并知道如何执行所有基本的 CRUD（建立、读取、修改和删除）操作。SwiftUI框架新加入的 <code>@FetchRequest</code> 属性包装器使得在数据库管理变得非常容易。</p>
+<p>在本章中，我们将 Todo 示例App加入永久储存数据功能。 我希望你现在了解如何在 SwiftUI 开发中使用 Core Data 并知道如何运行所有基本的 CRUD（建立、读取、修改和删除）操作。SwiftUI框架新加入的 <code>@FetchRequest</code> 属性包装器使得在数据库管理变得非常容易。</p>
 <p>本章所讲解的示例以及最后完整的Xcode 项目：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoList.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoList.zip</a></p>
 <p>请自行下载以供你参考。</p>

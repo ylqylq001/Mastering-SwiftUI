@@ -898,7 +898,7 @@
     }
 }
 </code></pre>
-<p>SwiftUI 会自动为你加入搜寻栏，并将其放在导航栏标题下方。 如果找不到搜寻栏，请尝试执行App并向下拖动列表视图。 这样搜寻框就应该出现。</p>
+<p>SwiftUI 会自动为你加入搜寻栏，并将其放在导航栏标题下方。 如果找不到搜寻栏，请尝试运行App并向下拖动列表视图。 这样搜寻框就应该出现。</p>
 <figure id="fig37.2"><img src="images/searchable/searchable-2.png" alt="图 37.2. searchable 修饰器自动为你加入搜寻栏"><figcaption>图 37.2. searchable 修饰器自动为你加入搜寻栏</figcaption></figure>
 <p>在默认情况下，它显示 <em>Search</em> 作为占位符。 如果你想修改它，你可以像这样编写<code>.searchable</code>修饰器并使用你指定的占位符：</p>
 <pre><code class="lang-swift">.searchable(text: $searchText, prompt: <span class="hljs-string">&quot;Search articles...&quot;</span>)
@@ -940,7 +940,7 @@
 </code></pre>
 <p>通过将 <code>placement</code> 参数设置为 <code>.navigationBarDrawer</code>，iPadOS 就会将搜寻栏置于导航栏标题下方。</p>
 <figure id="fig37.5"><img src="images/searchable/searchable-5.png" alt="图 37.5. 利用 .navigationBarDrawer 改变搜寻栏位置"><figcaption>图 37.5. 利用 .navigationBarDrawer 改变搜寻栏位置</figcaption></figure>
-<h3 id="%E5%A6%82%E4%BD%95%E5%9F%B7%E8%A1%8C%E6%90%9C%E5%B0%8B%E4%B8%A6%E9%A1%AF%E7%A4%BA%E6%90%9C%E7%B4%A2%E7%B5%90%E6%9E%9C">如何执行搜寻并显示搜索结果</h3>
+<h3 id="%E5%A6%82%E4%BD%95%E5%9F%B7%E8%A1%8C%E6%90%9C%E5%B0%8B%E4%B8%A6%E9%A1%AF%E7%A4%BA%E6%90%9C%E7%B4%A2%E7%B5%90%E6%9E%9C">如何运行搜寻并显示搜索结果</h3>
 <p>搜寻数据的方法有很多种。 你可以建立一个计算属性（computed property）来实时过滤数据。 又或者，你可以附加 <code>.onChange</code> 修饰器以监测使用者输入的搜寻文字，如有修改就立刻启动搜寻。 试试修改 <code>NavigationStack</code> 的代码，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span> {
@@ -965,8 +965,8 @@
     }
 }
 </code></pre>
-<p>每当使用者输入搜寻字时，App都会执行 <code>.onChange</code> 修饰器。 然后我们使用 <code>filter</code> 方法实时进行搜寻。Xcode 预览无法正常搜索，请在模拟器上测试搜索功能。</p>
-<figure id="fig37.6"><img src="images/searchable/searchable-6.png" alt="图 37.6. 执行搜寻"><figcaption>图 37.6. 执行搜寻</figcaption></figure>
+<p>每当使用者输入搜寻字时，App都会运行 <code>.onChange</code> 修饰器。 然后我们使用 <code>filter</code> 方法实时进行搜寻。Xcode 预览无法正常搜索，请在模拟器上测试搜索功能。</p>
+<figure id="fig37.6"><img src="images/searchable/searchable-6.png" alt="图 37.6. 运行搜寻"><figcaption>图 37.6. 运行搜寻</figcaption></figure>
 <h3 id="%E6%B7%BB%E5%8A%A0%E6%90%9C%E5%B0%8B%E5%BB%BA%E8%AD%B0">添加搜寻建议</h3>
 <p><code>.searchable</code> 修饰器允许你添加搜寻建议列表，以显示一些常用的搜索词或搜寻历史。 例如，你可以像这样建立可点击的搜寻建议：</p>
 <pre><code class="lang-swift">.searchable(text: $searchText) {
@@ -974,7 +974,7 @@
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;iOS 15&quot;</span>).searchCompletion(<span class="hljs-string">&quot;iOS 15&quot;</span>)
 }
 </code></pre>
-<p>当使用者进行搜索时，搜寻栏就会显示两个常用的搜寻建议。 使用者可以键入搜寻关键字或点击搜寻建议来执行搜索。</p>
+<p>当使用者进行搜索时，搜寻栏就会显示两个常用的搜寻建议。 使用者可以键入搜寻关键字或点击搜寻建议来运行搜索。</p>
 <figure id="fig37.7"><img src="images/searchable/searchable-7.png" alt="图 37.7. 显示搜寻建议"><figcaption>图 37.7. 显示搜寻建议</figcaption></figure>
 <p>在 iOS 16 上，Apple 引入了一个名为 <code>.searchSuggestions</code> 的修饰符，用于添加搜索建议。 以上同一段代码可以写成这样：</p>
 <pre><code class="lang-swift">.searchable(text: $searchText)

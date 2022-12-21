@@ -912,7 +912,7 @@
 <figure id="fig16.3"><img src="images/actionsheet/swiftui-actionsheet-3.png" alt="图 16.3.　从清单中删除项目"><figcaption>图 16.3.　从清单中删除项目</figcaption></figure>
 <p>如果你之前使用过 UIKit 编写相同的功能，我相信你会对 SwiftUI 感到惊讶。只需要几行代码与一个关键字，你便已实现了“滑动删除”功能。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%A7%E5%AE%B9%E9%81%B8%E5%96%AE">建立内容选单</h3>
-<p>接下来，我们来讨论内容选单（Context Menu）。如前所述，内容选单类似于 3D Touch 的预览（peek ）及弹出（pop ），有个明显的差别在于，这个功能适用于所有执行 iOS 13 与之后版本的装置，即使该装置不支持 3D Touch 也可以。要弹出内容选单，人们需要使用长按的手势，而若是装置使用 3D Touch，则使用压力触控。</p>
+<p>接下来，我们来讨论内容选单（Context Menu）。如前所述，内容选单类似于 3D Touch 的预览（peek ）及弹出（pop ），有个明显的差别在于，这个功能适用于所有运行 iOS 13 与之后版本的装置，即使该装置不支持 3D Touch 也可以。要弹出内容选单，人们需要使用长按的手势，而若是装置使用 3D Touch，则使用压力触控。</p>
 <p>SwiftUI 使得内容选单的实现变得非常简单，你只需要将contextMenu 容器加到视图， 并设定它的选单项目即可。</p>
 <p>在我们的示例 App 中，我们想在人们长按任何一列时触发内容选单。而在选单中，它提供了“删除”（Delete ）与“最爱”（Favorite ）等两个动作按钮，供使用者选择。当选择后，“删除”（Delete ）按钮将从清单中删除该列，“最爱”（Favorite ）按钮将以星号标记所选的列。</p>
 <p>要在内容选单中显示这两个项目，我们可以将 <code>contextMenu</code> 加到清单中的每一列，如下所示： </p>
@@ -955,11 +955,11 @@
     }
 }
 </code></pre>
-<p>这个 <code>delete</code> 函数接受一个 =restaurant 物件，并在 <code>restaurants</code> 数组中搜寻它的索引。要找出索引，我们调用<code>firstIndex</code> 函数，并指定搜寻条件，这个函数会逐一执行数组，并将给定的餐厅 id 与数组中的 id 进行比对，如果有匹配的话，<code>firstIndex</code> 函式会回传给定餐厅的索引。当我们有了索引后，我们就可以通过调用 <code>remove(at:)</code> 从 <code>restaurants</code> 数组中删除餐厅。</p>
+<p>这个 <code>delete</code> 函数接受一个 =restaurant 物件，并在 <code>restaurants</code> 数组中搜寻它的索引。要找出索引，我们调用<code>firstIndex</code> 函数，并指定搜寻条件，这个函数会逐一运行数组，并将给定的餐厅 id 与数组中的 id 进行比对，如果有匹配的话，<code>firstIndex</code> 函式会回传给定餐厅的索引。当我们有了索引后，我们就可以通过调用 <code>remove(at:)</code> 从 <code>restaurants</code> 数组中删除餐厅。</p>
 <p>接下来，在“// 删除所选的餐厅”下面插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">self</span>.delete(item: restaurant)
 </code></pre>
-<p>当使用者选择“删除”（Delete ）按钮时，我们只调用delete 函式。现在，你已经可以测试App 了。在画布中点选“播放”（Play ）按钮，来执行该App，长按其中一列来弹出内容选单，接着选择“删除”（Delete ），你应会看到所选的餐厅从清单中删除了。</p>
+<p>当使用者选择“删除”（Delete ）按钮时，我们只调用delete 函式。现在，你已经可以测试App 了。在画布中点选“播放”（Play ）按钮，来运行该App，长按其中一列来弹出内容选单，接着选择“删除”（Delete ），你应会看到所选的餐厅从清单中删除了。</p>
 <p>我们继续“最爱”（Favorite ）按钮的实现。当这个按钮被选中时， App 将在所选的餐厅中放置一颗星。要实现这个功能，我们必须先修改 Restaurant 结构，并加入一个名为“isFavorite”的新属性，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
@@ -1003,7 +1003,7 @@
 <p>这就是我们如何实现“最爱”功能的方式。最后在“// 将所选的餐厅标记为最爱”下面插入下列这行代码来调用setFavorite 函数： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">self</span>.setFavorite(item: restaurant)
 </code></pre>
-<p>现在该进行测试了。在画布中执行 App，长按其中一列（例如：Petite Oyster ），然后选择“最爱”（Favorite ），你应该会看到该列末尾出现一个星号，如图 16.5 所示。</p>
+<p>现在该进行测试了。在画布中运行 App，长按其中一列（例如：Petite Oyster ），然后选择“最爱”（Favorite ），你应该会看到该列末尾出现一个星号，如图 16.5 所示。</p>
 <figure id="fig16.5"><img src="images/actionsheet/swiftui-actionsheet-5.png" alt="图 16.5.　使用“最爱”的功能"><figcaption>图 16.5.　使用“最爱”的功能</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%8B%95%E4%BD%9C%E8%A1%A8">使用动作表</h3>
 <p>以上为如何实现内容选单的方式。最后，我们来看如何在 SwiftUI 中建立一个动作表。我们将要建立的动作表提供了与内容选单一样的相同选项，如果你忘记动作表的外观，请再次参考图 16.1。</p>
@@ -1062,8 +1062,8 @@
     }
 }
 </code></pre>
-<p>加到每列的 <code>onTapGesture</code>修饰器， 是用于侦测使用者的触控。当点击一列后， <code>onTapGesture</code> 中的代码区块将会执行。这里，我们切换 <code>showActionSheet</code> 变量，并设定 <code>selectedRestaurant</code>。</p>
-<p>之前， 我已经解释过 <code>actionSheet</code> 修饰器的用法。在上列的代码中， 我们使用 <code>showActionSheet</code> 的绑定来传送 <code>isPresented</code> 参数，当 <code>showActionSheet</code> 设定为<code>true</code>时， 则会执行该代码区块。我们建立一个具有“标记为最爱”（Mark as Favorite ）、“删除”（Delete ）与“取消”（Cancel ）等三个按钮的<code>ActionSheet</code>，而动作表有三种按钮型别， 包括“默认”（default ）、“破坏性”（destructive）与“取消”（cancel ）。对于一般动作， 动作表通常使用默认按钮型别；破坏性按钮与默认按钮非常相似，但是字型颜色设定为“红色”，以表示为一些破坏性的动作（例如：删除）；“取消”按钮是一个特别的型别， 用于解除动作表。</p>
+<p>加到每列的 <code>onTapGesture</code>修饰器， 是用于侦测使用者的触控。当点击一列后， <code>onTapGesture</code> 中的代码区块将会运行。这里，我们切换 <code>showActionSheet</code> 变量，并设定 <code>selectedRestaurant</code>。</p>
+<p>之前， 我已经解释过 <code>actionSheet</code> 修饰器的用法。在上列的代码中， 我们使用 <code>showActionSheet</code> 的绑定来传送 <code>isPresented</code> 参数，当 <code>showActionSheet</code> 设定为<code>true</code>时， 则会运行该代码区块。我们建立一个具有“标记为最爱”（Mark as Favorite ）、“删除”（Delete ）与“取消”（Cancel ）等三个按钮的<code>ActionSheet</code>，而动作表有三种按钮型别， 包括“默认”（default ）、“破坏性”（destructive）与“取消”（cancel ）。对于一般动作， 动作表通常使用默认按钮型别；破坏性按钮与默认按钮非常相似，但是字型颜色设定为“红色”，以表示为一些破坏性的动作（例如：删除）；“取消”按钮是一个特别的型别， 用于解除动作表。</p>
 <p>对于“标记为最爱”（Mark as Favorite ）按钮，我们将其建立为默认按钮。在action 闭包中，我们调用 <code>setFavorite</code> 函式来加入星星。对于“删除”（Delete ）按钮，则建立为破坏性按钮，其与内容选单的“删除”（Delete ）按钮类似，我们调用 <code>delete</code> 函式来删除所选餐厅。</p>
 <p>如果你已正确进行变更，则在清单视图中点击其中一列时应可弹出动作表。当选择“删除”（Delete）按钮，将会删除该列。若是你选择“标记为最爱”（Mark as Favorite）选项， 则将使用黄色星星标记该列，如图16.6 所示</p>
 <figure id="fig16.6"><img src="images/actionsheet/swiftui-actionsheet-6.png" alt="图 16.6.　点击一列来显示动作表"><figcaption>图 16.6.　点击一列来显示动作表</figcaption></figure>
@@ -1088,7 +1088,7 @@
     ])
 }
 </code></pre>
-<p>如果 <code>selectedRestaurant</code> 有一个值，App 将会弹出动作表。从闭包的参数中，你可以取得所选的餐厅，并执行对应的操作。当你使用这个方法，则不再需要 <code>shownActionSheet</code>  布林变量，你可以从代码删除它： </p>
+<p>如果 <code>selectedRestaurant</code> 有一个值，App 将会弹出动作表。从闭包的参数中，你可以取得所选的餐厅，并运行对应的操作。当你使用这个方法，则不再需要 <code>shownActionSheet</code>  布林变量，你可以从代码删除它： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showActionSheet = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>另外，在 <code>tapGesture</code> 修饰器中，移除下列这行切换 <code>showActionSheet</code> 变量的代码：</p>

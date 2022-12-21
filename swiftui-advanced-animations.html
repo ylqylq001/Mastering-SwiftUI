@@ -936,13 +936,13 @@
     }
 }
 </code></pre>
-<p><code>testCards</code> 变量在 <code>Card.swift</code> 中定义，因此我们使用 <code>ForEach</code> 来逐一执行卡片，并调用 <code>previewDisplayName</code> 来设定预览的名称。Xcode 将如图 20.5 所示布局卡片。</p>
+<p><code>testCards</code> 变量在 <code>Card.swift</code> 中定义，因此我们使用 <code>ForEach</code> 来逐一运行卡片，并调用 <code>previewDisplayName</code> 来设定预览的名称。Xcode 将如图 20.5 所示布局卡片。</p>
 <figure id="fig20.5"><img src="images/wallet/swiftui-wallet-5.png" alt="图 20.5.　预览卡片视图"><figcaption>图 20.5.　预览卡片视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%9B%BB%E5%AD%90%E9%8C%A2%E5%8C%85%E8%A6%96%E5%9C%96%E8%88%87%E5%8D%A1%E7%89%87%E5%BA%AB">建立电子钱包视图与卡片库</h3>
 <p>我们现在已经实现了卡片视图，让我们开始建立电子钱包视图。如果你忘记电子钱包视图的外观，请看一下图 20.6。在进行手势与动画之前，我们将先布局卡片库。</p>
 <figure id="fig20.6"><img src="images/wallet/swiftui-wallet-6.png" alt="图 20.6　钱包视图"><figcaption>图 20.6　钱包视图</figcaption></figure>
 <p>在项目导航器中，你应该会看到 <code>ContentView.swift</code> 档。删除它，然后右键点选 <code>View</code> 数据夹，以建立一个新文件。在对话方块中，选取“SwiftUI View”作为模板，并将文件命名为 <code>WalletView.swift</code>。</p>
-<p>如果你预览 <code>WalletView</code>  或在模拟器中执行 App，Xcode 应该会显示一个错误，因为 <code>ContentView</code> 设定为初始视图，并且其被删除了。要修正这个错误，则开启 <code>SwiftUIWallet App.swift</code>，并将 <code>WindowGroup</code> 中下列这行代码： </p>
+<p>如果你预览 <code>WalletView</code>  或在模拟器中运行 App，Xcode 应该会显示一个错误，因为 <code>ContentView</code> 设定为初始视图，并且其被删除了。要修正这个错误，则开启 <code>SwiftUIWallet App.swift</code>，并将 <code>WindowGroup</code> 中下列这行代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ContentView</span>()
 </code></pre>
 <p>修改为： </p>
@@ -991,7 +991,7 @@
     }
 }
 </code></pre>
-<p>如果你在模拟器中执行这个 App 或直接预览 UI，则应该只看到卡片库中的最后一张卡片，如图 20.7 所示。</p>
+<p>如果你在模拟器中运行这个 App 或直接预览 UI，则应该只看到卡片库中的最后一张卡片，如图 20.7 所示。</p>
 <figure id="fig20.7"><img src="images/wallet/swiftui-wallet-7.png" alt="图 20.7.　尝试显示卡片库"><figcaption>图 20.7.　尝试显示卡片库</figcaption></figure>
 <p>目前的实现有两个问题： </p>
 <ol>
@@ -1283,7 +1283,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>我们加入一段代码区块来处理拖曳。请谨记，只有选定的卡片是可拖曳的。因此， 在修改偏移量之前，我们需要检查给定的卡片是否为使用者拖曳的卡片。</p>
 <p>之前，我们将卡片索引值储存在 <code>dragState</code> 变量中，因此我们可轻松比较给定的卡片索引值与储存在 <code>dragState</code> 中的卡片索引值，以找出拖曳的卡片。</p>
 <p>对于拖曳的卡片，我们在水平与垂直方向上都加入了额外的偏移量。</p>
-<p>现在，你可以执行App 来进行测试，长按卡片并任意拖曳，如图20.13 所示。</p>
+<p>现在，你可以运行App 来进行测试，长按卡片并任意拖曳，如图20.13 所示。</p>
 <figure id="fig20.13"><img src="images/wallet/swiftui-wallet-13.png" alt="图 20.13.　拖曳卡片"><figcaption>图 20.13.　拖曳卡片</figcaption></figure>
 <p>现在，你应该可以拖曳卡片，不过卡片的 z-index 并没有相应做修改，例如：如果你拖曳Visa 卡，它总是停留在卡片库的最上层，我们通过修改 <code>zIndex(for:)</code> 函数来修正它： </p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">zIndex</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Double</span> </span>{
@@ -1307,7 +1307,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 }
 </code></pre>
 <p>默认的 z-index 仍设定为卡片索引值的负值。对于拖曳的卡片，当使用者在卡片库上拖曳时，我们需要计算一个新的 z-index。修改后的 z-index 是根据位移的高度与卡片的默认偏移量（即 50 点）来计算。</p>
-<p>执行 App 并尝试再次拖曳 Visa 卡片。现在，当你拖曳卡片时，z-index 会不断修改。</p>
+<p>运行 App 并尝试再次拖曳 Visa 卡片。现在，当你拖曳卡片时，z-index 会不断修改。</p>
 <figure id="fig20.14"><img src="images/wallet/swiftui-wallet-14.png" alt="图 20.14.　将 Visa 卡移到后面"><figcaption>图 20.14.　将 Visa 卡移到后面</figcaption></figure>
 <h4 id="%E6%9B%B4%E6%96%B0%E5%8D%A1%E7%89%87%E5%BA%AB">修改卡片库</h4>
 <p>当你放开卡片时，它现在会回到原来的位置，那么我们如何在拖曳之后重新排序卡片的位置呢？</p>
@@ -1340,7 +1340,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
     <span class="hljs-keyword">self</span>.rearrangeCards(with: card, dragOffset: drag.translation)
 }
 </code></pre>
-<p>之后，你可以执行 App 来测试它。你已经建立了如电子钱包般的动画。</p>
+<p>之后，你可以运行 App 来测试它。你已经建立了如电子钱包般的动画。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>阅读完本章后，我希望你对于 SwiftUI 动画与视图转场有更深入的了解。如果你将 SwiftUI 与原来的UIKit 框架进行比较，你会发现 SwiftUI 让“使用动画”变得非常容易。你还记得如何为使用者放开拖曳的卡片来渲染卡片动画吗？你需要做的是修改状态变量， 而 SwiftUI 就会处理这些繁重的工作，这就是 SwiftUI 的力量。</p>
 <p>为了方便进一步参考，您可以至下列网址下载完整项目： </p>

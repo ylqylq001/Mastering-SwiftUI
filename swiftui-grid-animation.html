@@ -988,7 +988,7 @@
 <p>要启用动画，请将 <code>.animation</code> 修饰器附加到 <code>VStack</code> 并在 <code>.padding()</code> 下插入以下代码：</p>
 <pre><code class="lang-swift">.animation(.interactiveSpring(), value: selectedPhotoId)
 </code></pre>
-<p>在模拟器或预览画面上执行App。 当你点击网格中的照片时，就可以在将它添加到 Dock ，而照片应该看起来像是从照片网格飞到 Dock。</p>
+<p>在模拟器或预览画面上运行App。 当你点击网格中的照片时，就可以在将它添加到 Dock ，而照片应该看起来像是从照片网格飞到 Dock。</p>
 <figure id="fig34.5"><img src="images/gridanimation/swiftui-gridanimation-5.png" alt="图 34.5. 所选照片将添加到Dock中"><figcaption>图 34.5. 所选照片将添加到Dock中</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-scrollviewreader-%E7%A7%BB%E5%8B%95%E6%BB%BE%E5%8B%95%E8%A6%96%E5%9C%96">使用 ScrollViewReader 移动滚动视图</h3>
 <p>动画效果应该不错吧？ 但是你是否注意到App还有一个小问题？ 当你不断将照片加入至Dock，你会发现Dock是不会自动滚动至最近选择的照片。 如果你选择的照片超过 4 张，则需要自己滚动Dock以显示其他选定的照片。</p>

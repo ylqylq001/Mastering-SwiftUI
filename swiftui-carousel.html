@@ -1200,7 +1200,7 @@
 <p>为了让动画看起来更流畅，让我们在详细视图出现时将图像向上移动。 将 <code>.offset</code> 修饰器附加到 <code>TripCardView</code>：</p>
 <pre><code class="lang-swift">.offset(y: <span class="hljs-keyword">self</span>.isCardTapped ? -innerView.size.height * <span class="hljs-number">0.3</span> : <span class="hljs-number">0</span>)
 </code></pre>
-<p>我将垂直 offset 设定为卡片视图高度的 30%， 你可以自由修改该值。 现在再次执行App，你应该会看到更流畅的动画。</p>
+<p>我将垂直 offset 设定为卡片视图高度的 30%， 你可以自由修改该值。 现在再次运行App，你应该会看到更流畅的动画。</p>
 <figure id="fig27.22"><img src="images/carousel/swiftui-carousel-22.png" alt="图 27.22. 在 TripCardView 添加offset修饰器"><figcaption>图 27.22. 在 TripCardView 添加offset修饰器</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>酷！ 你已经构建了一个支持分页的客制化滚动视图，并学习了如何加入过场动画。 该技术不限于图像轮播。 实际上，你可以修改代码以建立一组onboarding screens。 我希望你喜欢本章所介绍的东西，并将它应用到你的下一个App。</p>

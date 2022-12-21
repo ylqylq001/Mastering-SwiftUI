@@ -988,7 +988,7 @@
     }
 }
 </code></pre>
-<p>如果你执行这个项目，则应该在主控台中看到一个信息，这是 <code>Loan</code> 实例，其中填满了解码后的值。</p>
+<p>如果你运行这个项目，则应该在主控台中看到一个信息，这是 <code>Loan</code> 实例，其中填满了解码后的值。</p>
 <figure id="fig21.4"><img src="images/json/swiftui-json-4.png" alt="图 21.4.　在主控台中显示解码后的借贷数据"><figcaption>图 21.4.　在主控台中显示解码后的借贷数据</figcaption></figure>
 <p>让我们再次研究代码片段。我们实例化一个 <code>JSONDecoder</code> 实例，然后将 JSON 字串转换为 <code>Loan</code>。而魔法发生在下列这行代码中： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
@@ -1265,7 +1265,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     <span class="hljs-keyword">self</span>.loans = <span class="hljs-keyword">self</span>.parseJsonData(data: data)
 }
 </code></pre>
-<p>当调用 Web API 时， 该操作是在背景伫列中执行。在此，<code>loans</code> 变量标记为 <code>@Published</code>，这意味着对于变量的任何修改，SwiftUI 将触发使用者介面的修改。而且， UI 修改需要在主伫列中执行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
+<p>当调用 Web API 时， 该操作是在背景伫列中运行。在此，<code>loans</code> 变量标记为 <code>@Published</code>，这意味着对于变量的任何修改，SwiftUI 将触发使用者介面的修改。而且， UI 修改需要在主伫列中运行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
 <h4 id="%E5%AF%A6%E4%BD%9C%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">实现使用者介面</h4>
 <p>现在，我们已经建立了用于取得贷款数据的类别，让我们继续进行使用者介面的实现。我猜想你可能忘了UI 的外观，请参考图 21.7，这是我们将要建立的 UI。</p>
 <figure id="fig21.7"><img src="images/json/swiftui-json-7.png" alt="图 21.7.　示例 App 的使用者介面"><figcaption>图 21.7.　示例 App 的使用者介面</figcaption></figure>
@@ -1339,7 +1339,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 </code></pre>
 <p>如果你已经阅读了第 10 章与第 11 章，则应该了解如何显示清单视图，并将其嵌入到导航视图中，这就是上面的代码所做的事情。在视图出现时将调用 <code>task</code> 函数，并且我们调用 <code>fetchLatestLoans()</code> 方法来从 Kiva 取得最新的贷款数据。</p>
 <p>如果这是你第一次使用 .task ，它与 .onAppear 非常相似。 两者都允许你在视图出现时运行异步任务。 主要区别在于<code>.task</code>会在视图被销毁时自动取消任务。 在这种情况下更合适。</p>
-<p>现在，在预览中或模拟器上执行这个 App，你应该能够看到如图 21.9 所示的贷款纪录。</p>
+<p>现在，在预览中或模拟器上运行这个 App，你应该能够看到如图 21.9 所示的贷款纪录。</p>
 <figure id="fig21.9"><img src="images/json/swiftui-json-9.png" alt="图 21.9.　在清单视图中呈现贷款数据"><figcaption>图 21.9.　在清单视图中呈现贷款数据</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8%E6%BB%91%E6%A1%BF%E5%BB%BA%E7%AB%8B%E7%AF%A9%E9%81%B8%E5%99%A8%E8%A6%96%E5%9C%96">使用滑杆建立筛选器视图</h4>
 <p>在完成本章之前，我想要介绍如何实现一个筛选功能。这个筛选功能可让使用者定义最大贷款金额，并只显示低于该金额的那些纪录。图 21.7 为筛选器视图的示例，使用者可以使用滑杆来设定最大数量。</p>
@@ -1449,7 +1449,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 }
 </code></pre>
 <p>这将在右上角加入一个导航列按钮。当点击按钮后，我们切换 <code>filterEnabled</code> 的值来显示/ 隐藏筛选器视图。除此之外，我们调用 <code>filterLoans</code> 函数来筛选贷款项目。</p>
-<p>现在执行 App 来测试它，你应该会在导航列上看到一个筛选器按钮，点击它一次，将弹出筛选器视图，然后你可以设定新的上限（例如：$500）。再次点击按钮，App 只会显示低于 $500的贷款纪录。</p>
+<p>现在运行 App 来测试它，你应该会在导航列上看到一个筛选器按钮，点击它一次，将弹出筛选器视图，然后你可以设定新的上限（例如：$500）。再次点击按钮，App 只会显示低于 $500的贷款纪录。</p>
 <figure id="fig21.11"><img src="images/json/swiftui-json-11.png" alt="图 21.11.　显示筛选器视图"><figcaption>图 21.11.　显示筛选器视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>本章介绍了很多的内容，你应该知道如何使用 Web API、解析 JSON 内容，以及在清单视图中显示数据，我们还简要介绍了滑杆控制组件的用法。</p>

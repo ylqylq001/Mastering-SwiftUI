@@ -950,11 +950,11 @@
 }
 </code></pre>
 <p>你使用 <code>Toggle</code> 建立一个切换开关，并传送“切换”的目前状态。在闭包中，你显示切换的描述，这里我们只使用一个 <code>Text</code> 视图。</p>
-<p>上面是实现切换所需的代码，画布应该会在“Filter Preference”区块下显示一个切换开关，如图13.6 所示。如果你执行这个 App，你可以在 ON 与 OFF 状态之间切换。同样的，这个状态变量 <code>showCheckInOnly</code> 将会持续追踪使用者的选择。</p>
+<p>上面是实现切换所需的代码，画布应该会在“Filter Preference”区块下显示一个切换开关，如图13.6 所示。如果你运行这个 App，你可以在 ON 与 OFF 状态之间切换。同样的，这个状态变量 <code>showCheckInOnly</code> 将会持续追踪使用者的选择。</p>
 <figure id="fig13.6"><img src="images/form/swiftui-form-6.png" alt="图 13.6.　显示一个切换开关"><figcaption>图 13.6.　显示一个切换开关</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%80%B2%E5%99%A8">使用步进器</h3>
 <p>设定表单中最后一个 UI 控制组件是“步进器”。再次参考图 13.1，使用者可以通过设定价位级别来筛选餐厅， 每间餐厅都有一个价位指示器，范围在1 至 5 之间。使用者可调整价位级别，以缩小清单视图中显示的餐厅数量。</p>
-<p>在设定表单中，我们将实现一个步进器，供使用者调整设定。基本上，iOS 中的步进器显示了一个“+”和“-”的按钮，来执行递增及递减的动作。</p>
+<p>在设定表单中，我们将实现一个步进器，供使用者调整设定。基本上，iOS 中的步进器显示了一个“+”和“-”的按钮，来运行递增及递减的动作。</p>
 <p>要在 SwiftUI 中实现步进器，我们首先需要一个状态变量来存放步进器的目前值。在本例中，这个变量储存使用者选择的价位级别。在 <code>SettingView</code> 中声明状态变量，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> maxPriceLevel = <span class="hljs-number">5</span>
 </code></pre>
@@ -981,10 +981,10 @@
     }
 }
 </code></pre>
-<p>你可通过初始化一个 <code>Stepper</code>组件来建立一个步进器。对于 <code>onIncrement</code> 参数，你指定点选“+”按钮时要执行的动作。在代码中，我们只将 <code>maxPriceLevel</code> 增加“1”。反之， 点选“-”按钮时将执行 <code>onDecrement</code> 参数中指定的代码。</p>
-<p>由于价位级别在 1 至 5 的范围之间，我们执行检查来确保 <code>maxPriceLevel</code>的值介于 1 至 5 之间。在闭包中，我们显示筛选偏好的文字描述。这里的最高价位是以美元符号表示， 如图 13.7 所示。</p>
+<p>你可通过初始化一个 <code>Stepper</code>组件来建立一个步进器。对于 <code>onIncrement</code> 参数，你指定点选“+”按钮时要运行的动作。在代码中，我们只将 <code>maxPriceLevel</code> 增加“1”。反之， 点选“-”按钮时将运行 <code>onDecrement</code> 参数中指定的代码。</p>
+<p>由于价位级别在 1 至 5 的范围之间，我们运行检查来确保 <code>maxPriceLevel</code>的值介于 1 至 5 之间。在闭包中，我们显示筛选偏好的文字描述。这里的最高价位是以美元符号表示， 如图 13.7 所示。</p>
 <figure id="fig13.7"><img src="images/form/swiftui-form-7.png" alt="图 13.7.　实现一个步进器"><figcaption>图 13.7.　实现一个步进器</figcaption></figure>
-<p>要测试步进器，则点选“Play”按钮来执行 App。当你点选  <code>+</code>/ <code>-</code> 按钮时，将会调整 $ 符号的数量。</p>
+<p>要测试步进器，则点选“Play”按钮来运行 App。当你点选  <code>+</code>/ <code>-</code> 按钮时，将会调整 $ 符号的数量。</p>
 <h3 id="%E9%A1%AF%E7%A4%BA%E8%A1%A8%E5%96%AE">显示表单</h3>
 <p>现在你已经完成了表单UI，下一步是显示表单给使用者。以本示例来说，我们将以强制回应视图的形式来显示此表单。在内容视图中，我们将会在导航列加入一个“Setting”按钮，以触发设定视图。</p>
 <p>切换至 <code>ContentView.swift</code>，我假设你已经阅读过强制回应视图一章，因此我将不再深入解释代码。首先，我们需要一个变量来追踪强制回应视图状态（即显示或不显示）。插入下列这行代码来声明状态变量： </p>
@@ -1006,7 +1006,7 @@
 }
 </code></pre>
 <p>&#xB7;<code>toolbar</code> 修饰器和<code>ToolbarItem</code> 可让你在导航列加入一个按钮，你可在导航列前缘（navigationBarLeading） 或后缘（navigationBarTrailing ）位置建立一个按钮。由于我们想在右上角显示按钮，因此我们使用 <code>navigationBarTrailing</code> 参数。<code>sheet</code>修饰器用于以强制回应视图的形式显示 <code>SettingView</code>。</p>
-<p>在画布中，你应该会在导航列中看到一个齿轮图示，如图 13.8 所示。如果你执行 App，并点选齿轮图示，即会弹出设定视图。</p>
+<p>在画布中，你应该会在导航列中看到一个齿轮图示，如图 13.8 所示。如果你运行 App，并点选齿轮图示，即会弹出设定视图。</p>
 <figure id="fig13.8"><img src="images/form/swiftui-form-8.png" alt="图 13.8.　建立一个导航列按钮"><figcaption>图 13.8.　建立一个导航列按钮</figcaption></figure>
 <h3 id="%E4%BD%9C%E6%A5%AD">作业</h3>
 <p>现在解除设定视图的唯一方式是使用向下滑动手势。在第 12 章中，你已经学过如何以程序设计方式来解除强制回应视图。我们来练习修改，请在导航列建立“Save”与“Cancel”按钮，如图13.9 所示。你不需要实现这些按钮，当使用者点击任一按钮时，你只需解除设定视图即可。</p>

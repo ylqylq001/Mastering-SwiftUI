@@ -965,7 +965,7 @@
 <p><code>SearchBar</code> 就像任何其他 SwiftUI 视图一样，你可以应用<code>.padding</code>等修饰器来调整布局。 如果你在模拟器中运行该App，你应该会看到一个搜索栏，但它尚未起能正常运作。</p>
 <figure id="fig23.2"><img src="images/uikit/swiftui-uikit-2.png" alt="图 2. 加入搜索栏"><figcaption>图 2. 加入搜索栏</figcaption></figure>
 <h3 id="%E8%99%95%E7%90%86%E6%90%9C%E7%B4%A2%E6%96%87%E5%AD%97">处理搜索文字</h3>
-<p>如你所见，在 SwiftUI App中显示 UIKit 视图并不是一件很复杂的事。 虽然这样说，要样搜索栏运作就是另一回事。 目前，你可以在搜索字段中输入，但App尚未能执行查询。 这个App应该在使用者输入搜索文字时即时搜索待办事项。</p>
+<p>如你所见，在 SwiftUI App中显示 UIKit 视图并不是一件很复杂的事。 虽然这样说，要样搜索栏运作就是另一回事。 目前，你可以在搜索字段中输入，但App尚未能运行查询。 这个App应该在使用者输入搜索文字时即时搜索待办事项。</p>
 <p>那么，我们如何知道用户正在输入搜索文字呢？</p>
 <p>搜索栏有一个名为<code>UISearchBarDelegate</code>的配套协议。 该协议提供了多种管理搜索文字的方法。 特别是，每当用户修改搜索文字时，都会调用以下方法：</p>
 <pre><code class="lang-swift">optional <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">searchBar</span><span class="hljs-params">(<span class="hljs-number">_</span> searchBar: UISearchBar, textDidChange searchText: String)</span>
@@ -997,7 +997,7 @@
 <p>现在我们有一个采用了 <code>UISearchBarDelegate</code> 协议的 Coordinator，我们需要再做一个修改。 在 <code>makeUIView</code> 方法中，加入以下一行代码，将协调器指定给搜索栏：</p>
 <pre><code class="lang-swift">searchBar.delegate = context.coordinator
 </code></pre>
-<p>就是这样！ 再次执行App并在输入搜寻文字。 你应该会在控制台中看到<code>textDidChange:</code>的信息。</p>
+<p>就是这样！ 再次运行App并在输入搜寻文字。 你应该会在控制台中看到<code>textDidChange:</code>的信息。</p>
 <figure id="fig23.3"><img src="images/uikit/swiftui-uikit-3.png" alt="图 3. 控制台在你输入搜寻文字时即时显示信息"><figcaption>图 3. 控制台在你输入搜寻文字时即时显示信息</figcaption></figure>
 <h3 id="%E8%99%95%E7%90%86%E5%8F%96%E6%B6%88%E6%8C%89%E9%88%95">处理取消按钮</h3>
 <p>你是否点击了<em>取消</em>按钮？ 如果你尝试过，就会知道它又是不能正常运作。 要解决这个问题，我们必须在<code>Coordinator</code>中实现以下方法：</p>
@@ -1017,12 +1017,12 @@
 <p>单击取消按钮时触发第一种方法。 在代码中，我们调用 <code>resignFirstResponder()</code> 来关闭键盘并告诉搜索栏结束编辑。 第二种方法确保在使用者点击搜寻文字时出现 <em>Cancel</em> 按钮。</p>
 <p>你可以在模拟器中运行App来试试这个修改。 在编辑时，点击 <em>Cancel</em> 按钮应该会自动关闭软体键盘。</p>
 <h3 id="%E6%90%9C%E5%B0%8B%E6%96%87%E5%AD%97">搜寻文字</h3>
-<p>我们现在可以检索搜寻文字并处理了取消按钮。 可惜，搜索栏仍然无法正常使用。 这就是我们将在本节中讲解的内容。 对于这个App，有几种方法可以执行搜索：</p>
+<p>我们现在可以检索搜寻文字并处理了取消按钮。 可惜，搜索栏仍然无法正常使用。 这就是我们将在本节中讲解的内容。 对于这个App，有几种方法可以运行搜索：</p>
 <ol>
-<li>使用 <code>filter</code> 函数对 <code>todoItems</code> 执行搜索</li>
-<li>通过指定述词（predicate ）并利用 <code>FetchRequest</code> 执行搜寻</li>
+<li>使用 <code>filter</code> 函数对 <code>todoItems</code> 运行搜索</li>
+<li>通过指定述词（predicate ）并利用 <code>FetchRequest</code> 运行搜寻</li>
 </ol>
-<p>基本上第一种方法对于这个App来说已经足够，因为 <code>todoItems</code> 与储存在数据库中的待办事项同步。 但我还是想向你示范如何使用<code>FetchRequest</code>来执行搜寻。 因此，我们将一齐研究这两种方法。</p>
+<p>基本上第一种方法对于这个App来说已经足够，因为 <code>todoItems</code> 与储存在数据库中的待办事项同步。 但我还是想向你示范如何使用<code>FetchRequest</code>来运行搜寻。 因此，我们将一齐研究这两种方法。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-filter-%E5%87%BD%E6%95%B8">使用 <code>filter</code> 函数</h4>
 <p>在 Swift 中，你可以使用 <code>filter</code> 函数以回圈来重复查询一个集合，然后回传一个内含符合搜寻条件项目的新数组。 以下是一个例子：</p>
 <pre><code class="lang-swift">todoItems.<span class="hljs-built_in">filter</span>({ $<span class="hljs-number">0</span>.name.<span class="hljs-built_in">contains</span>(<span class="hljs-string">&quot;Buy&quot;</span>) })
@@ -1037,8 +1037,8 @@
 <p>在 <code>filter</code> 函数的闭包中，我们首先检查搜寻文字是否有值。 如果没有，我们简单地回 <code>true</code>。这意味所有待办事项都会被加入新数组中。 相反，就只回包含搜寻字串的待办事项。</p>
 <p>酷 ！你可以准备启动你的 App 来测试搜寻功能。 输入搜寻文字，App就会搜寻相关记录。</p>
 <figure id="fig23.4"><img src="images/uikit/swiftui-uikit-4.png" alt="图 4. 搜寻待办事项"><figcaption>图 4. 搜寻待办事项</figcaption></figure>
-<h4 id="%E4%BD%BF%E7%94%A8-fetchrequest-%E4%BE%86%E5%9F%B7%E8%A1%8C%E6%90%9C%E5%B0%8B">使用<code>FetchRequest</code>来执行搜寻</h4>
-<p>刚刚讨论的搜寻方法是从已取得的结果执行搜寻。 另一种方法则是直接使用 Core Data 执行搜寻。 当我们从数据库中获取数据时，我们明确指定要过虑的待办事项。</p>
+<h4 id="%E4%BD%BF%E7%94%A8-fetchrequest-%E4%BE%86%E5%9F%B7%E8%A1%8C%E6%90%9C%E5%B0%8B">使用<code>FetchRequest</code>来运行搜寻</h4>
+<p>刚刚讨论的搜寻方法是从已取得的结果运行搜寻。 另一种方法则是直接使用 Core Data 运行搜寻。 当我们从数据库中获取数据时，我们明确指定要过虑的待办事项。</p>
 <p><code>@FetchRequest</code> 属性包装器允许你传递一个我们之前没有讨论过的述词（predicate）。通过提供述词，你就可指定过滤条件。</p>
 <p>以下是一个例子：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">FetchRequest</span>(
@@ -1151,7 +1151,7 @@
 <p>改为:</p>
 <pre><code class="lang-swift"><span class="hljs-type">FilteredList</span>($searchText)
 </code></pre>
-<p>这里我们使用<code>FilteredList</code> 来渲染列表视图。 我们传递<code>searchText</code> 的绑定来执行搜寻。 由于<code>searchText</code> 是一个状态变量，任何有关搜寻文字的修改都会触发<code>FilteredList</code> 的修改。 实际上，当使用者输入搜寻文字时，App会建立一个不同的述词以取得一组新的待办事项。</p>
+<p>这里我们使用<code>FilteredList</code> 来渲染列表视图。 我们传递<code>searchText</code> 的绑定来运行搜寻。 由于<code>searchText</code> 是一个状态变量，任何有关搜寻文字的修改都会触发<code>FilteredList</code> 的修改。 实际上，当使用者输入搜寻文字时，App会建立一个不同的述词以取得一组新的待办事项。</p>
 <p>接下来，删除以下代码，因为它已在<code>FilteredList</code>中：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// If there is no data, show an empty view</span>
 <span class="hljs-keyword">if</span> todoItems.<span class="hljs-built_in">count</span> == <span class="hljs-number">0</span> {
