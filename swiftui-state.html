@@ -882,10 +882,10 @@
 <p>在 SwiftUI 中，内建了一些状态管理的功能，特别是它导入了一个名为“@State”的属性包装器（ Property Wrapper ）。当你使用 <code>@State</code> 来标注一个属性时，SwiftUI 会自动将其储存在你的应用程式中的某处。此外，使用该属性的视图会自动监听属性值的变更，当状态改变时，SwiftUI 将重新计算这些视图，并更新应用程式的外观。</p>
 <p>听起来不错，不是吗？还是你对于状态管理觉得困惑？ </p>
 <p>总之，透过本章的范例代码，你将对状态与绑定有更多的了解。而且，我为你准备了一些作业，请花一点时间来练习一下，这将帮助你掌握 SwiftUI 的重要观念。</p>
-<h3 id="%E5%95%9F%E7%94%A8swiftui-%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88">启用SwiftUI 建立新专案</h3>
-<p>我们从刚才提到的简单范例来开始，以了解如何透过追踪应用程式的状态，来切换“播放”与“停止”按钮。首先，开启Xcode 并使用“App”模板，来建立一个新专案。设定专案名称为“SwiftUIState”，不过你可以自由使用其他的名称，而你只需确保已选取“SwiftUI”选项，如图 7 .2 所示。</p>
-<figure id="fig7.2"><img src="images/state/swiftui-state-2.png" alt="图 7.2.　建立一个新专案"><figcaption>图 7.2.　建立一个新专案</figcaption></figure>
-<p>当你储存专案后，Xcode 应该要载入 <code>ContentView.swift</code> 档，并且在设计划布中显示一个预览。现在我们建立“播放”按钮，如下所示： </p>
+<h3 id="%E5%95%9F%E7%94%A8swiftui-%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88">启用SwiftUI 建立新项目</h3>
+<p>我们从刚才提到的简单范例来开始，以了解如何透过追踪应用程式的状态，来切换“播放”与“停止”按钮。首先，开启Xcode 并使用“App”模板，来建立一个新项目。设定项目名称为“SwiftUIState”，不过你可以自由使用其他的名称，而你只需确保已选取“SwiftUI”选项，如图 7 .2 所示。</p>
+<figure id="fig7.2"><img src="images/state/swiftui-state-2.png" alt="图 7.2.　建立一个新项目"><figcaption>图 7.2.　建立一个新项目</figcaption></figure>
+<p>当你储存项目后，Xcode 应该要载入 <code>ContentView.swift</code> 档，并且在设计划布中显示一个预览。现在我们建立“播放”按钮，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     <span class="hljs-comment">// 在“播放”与“停止”按钮之间切换</span>
 } label: {
@@ -915,7 +915,7 @@
     }
 }
 </code></pre>
-<p>我们参照 <code>isPlaying</code> 变量的值来变更图片的名称与颜色。如果更新在你的专案中的代码，则应该会在预览画布中看到一个“播放”按钮。不过，若是你将 <code>isPlaying</code> 的预设值设定为 <code>true</code>，则会见到一个“停止”按钮。</p>
+<p>我们参照 <code>isPlaying</code> 变量的值来变更图片的名称与颜色。如果更新在你的项目中的代码，则应该会在预览画布中看到一个“播放”按钮。不过，若是你将 <code>isPlaying</code> 的预设值设定为 <code>true</code>，则会见到一个“停止”按钮。</p>
 <p>现在的问题是，App 如何监听状态（即 <code>isPlaying</code> ）的变化，并自动更新按钮呢？使用 SwiftUI，你需要做的是在 <code>isPlaying</code> 属性前面加上 <code>@State</code>。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isPlaying = <span class="hljs-built_in">false</span>
 </code></pre>
@@ -997,9 +997,9 @@
 <figure id="fig7.10"><img src="images/state/swiftui-state-10.png" alt="图 7.10.　每个按钮都有其计数器"><figcaption>图 7.10.　每个按钮都有其计数器</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>在 SwiftUI 中，状态的支持可简化应用程式开发中的状态管理。了解什么是 <code>@State</code> 与 <code>@Binding</code> 是非常重要的，因为它们对于在 SwiftUI 中做“状态管理”与“UI 更新”而言， 发挥了很大的作用。本章介绍了 SwiftUI 中状态管理的基础概念，之后你将学习到更多有关如何在视图动画应用 <code>@State</code>，以及如何管理多个视图之间的共享状态。</p>
-<p>在本章所准备的范例档中，有完整的专案与作业解答可以下载： </p>
+<p>在本章所准备的范例档中，有完整的项目与作业解答可以下载： </p>
 <ul>
-<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUICounter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUICounter.zip</a>)</li>
+<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUICounter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUICounter.zip</a>)</li>
 <li>作业解答 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIMasterCounter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIMasterCounter.zip</a>)</li>
 </ul>
 

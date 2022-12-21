@@ -879,12 +879,12 @@
                         <h1 id="%E7%AC%AC-2-%E7%AB%A0-br-swiftui-%E5%85%A5%E9%96%80-%E6%96%87%E5%AD%97%E7%9A%84%E8%99%95%E7%90%86">第 2 章 <br>SwiftUI  入门-文字的处理</h1>
 <p>如果你之前有使用过 UIKit，SwiftUI  的 <code>Text</code> 控制与 UIKit 中的 <code>UILabel</code> 非常相似。这是一个能够显示一 行或多行文字的视图。这个  <code>Text</code> 控制无法编辑，不过对于在荧幕上呈现唯读的资讯非常好用。举例来说，你想要在画面上呈现一个讯息，你可以使用 <code>Text</code>  来实现。</p>
 <p>本章，我将告诉你如何以 <code>Text</code>  来呈现资讯。你将会学到如何运用不同颜色、字体、背景与旋转效果来自订文字。</p>
-<h3 id="%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88%E4%BE%86%E9%AB%94%E9%A9%97-swiftui">建立新专案来体验 SwiftUI</h3>
-<p>首先，开启  Xcode 并使用 <em>Single View App</em>  模板来建立一个新专案，输入专案名称，我设定为 <em>SwiftUIText</em> ，不过你可以使用任何的名称。在组织名称（ organization name），你可以设定为你的公司或组织的名字。组织识别码（organization identifier）是 App  的唯一识别码，这里我使用 <em>com.appcoda</em>，不过这里需要填入你自己的内容，如果你有一个网站，则可以将网域名称以倒过来写的方式作为设定。要使用 SwiftUI 的话，则需要在User Interface选项勾选 <em>SwiftUI</em> ，点选  <em>Next</em> 并选取一个资料夹来建立专案。</p>
-<figure id="fig2.1"><img src="images/text/swiftui-text-1.png" alt="图 1. 建立一个新专案"><figcaption>图 1. 建立一个新专案</figcaption></figure>
-<p>储存完专案之后，Xcode 即会载入 <code>ContentView.swift</code>  档，并显示一个设计划布（ design canvas ）与预览画布（preview canvas）。如果你没有见到这个画布，你可以至  Xcode 选单，并选取  <em>Editor</em> &gt; <em>Canvas</em> 来启用它。</p>
+<h3 id="%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88%E4%BE%86%E9%AB%94%E9%A9%97-swiftui">建立新项目来体验 SwiftUI</h3>
+<p>首先，开启  Xcode 并使用 <em>Single View App</em>  模板来建立一个新项目，输入项目名称，我设定为 <em>SwiftUIText</em> ，不过你可以使用任何的名称。在组织名称（ organization name），你可以设定为你的公司或组织的名字。组织识别码（organization identifier）是 App  的唯一识别码，这里我使用 <em>com.appcoda</em>，不过这里需要填入你自己的内容，如果你有一个网站，则可以将网域名称以倒过来写的方式作为设定。要使用 SwiftUI 的话，则需要在User Interface选项勾选 <em>SwiftUI</em> ，点选  <em>Next</em> 并选取一个资料夹来建立项目。</p>
+<figure id="fig2.1"><img src="images/text/swiftui-text-1.png" alt="图 1. 建立一个新项目"><figcaption>图 1. 建立一个新项目</figcaption></figure>
+<p>储存完项目之后，Xcode 即会载入 <code>ContentView.swift</code>  档，并显示一个设计划布（ design canvas ）与预览画布（preview canvas）。如果你没有见到这个画布，你可以至  Xcode 选单，并选取  <em>Editor</em> &gt; <em>Canvas</em> 来启用它。</p>
 <p>Xcode 预设会在  <code>ContentView.swift</code> 上建立一些  SwiftUI 代码。在 Xcode 14，这个预览画布会自动渲染（render）App 预览画面。Xcode 会依照你在模拟器选项（例如 iPhone 13 Pro）中的选择来将预览画面渲染在模拟器中。在旧版的 Xcode，你必须点选 <em>Resume</em>  按钮才能看到这个预览画面。</p>
-<p>为了让程式编辑器与画布能显示，你可以隐藏专案导览器（project navigator ）与工具面板来释放更多空间。</p>
+<p>为了让程式编辑器与画布能显示，你可以隐藏项目导览器（project navigator ）与工具面板来释放更多空间。</p>
 <figure id="fig2.2"><img src="images/text/swiftui-text-2.png" alt="图 2. 程式编辑器与画布"><figcaption>图 2. 程式编辑器与画布</figcaption></figure>
 <h3 id="%E7%B0%A1%E5%96%AE%E6%96%87%E5%AD%97%E7%9A%84%E5%91%88%E7%8F%BE">简单文字的呈现</h3>
 <p>在 <code>ContentView</code>  所产生的简单程式已经告诉你如何显示一行文字和简单图像。它使用一个 <code>VStack</code> 包装内里的 <code>Text</code> 和 <code>Image</code>。我们将在后面的章节中讨论图像和堆栈视图。 现在让我们首先关注 <code>Text</code> 的用法。</p>
@@ -985,11 +985,11 @@
 <figure id="fig2.15"><img src="images/text/swiftui-text-15.png" alt="图 15. 应用阴影效果"><figcaption>图 15. 应用阴影效果</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82%E5%AD%97%E9%AB%94">使用自订字体</h3>
 <p>在预设情况下，所有文字都是使用系统字体显示的。 假设你在 Google Fonts 上找到了一种免费字体（例如 <a href="https://fonts.google.com/specimen/Nunito）。那如何在" target="_blank">https://fonts.google.com/specimen/Nunito）。那如何在</a> App 中使用自订字体？</p>
-<p>假设你已经下载了字体档案，跟着就要将字体档加到你的 Xcode 项目中。 方法很简单，只要将字体档拖到专案导览器中并将它们放进 <em>SwiftUIText</em> 文件夹下。 在这个演示，我只添加了常规字体档（即 Nunito-Regular.ttf）。 如需使用粗体或斜体，请添加相应的档案。</p>
+<p>假设你已经下载了字体档案，跟着就要将字体档加到你的 Xcode 项目中。 方法很简单，只要将字体档拖到项目导览器中并将它们放进 <em>SwiftUIText</em> 文件夹下。 在这个演示，我只添加了常规字体档（即 Nunito-Regular.ttf）。 如需使用粗体或斜体，请添加相应的档案。</p>
 <figure id="fig2.16"><img src="images/text/swiftui-text-16.png" alt="图 16. 将字体档加到你的 Xcode 项目中"><figcaption>图 16. 将字体档加到你的 Xcode 项目中</figcaption></figure>
 <p>添加字体后，Xcode 即显示一个选项框。 请确保你选取 “Copy items if needed”和 <em>SwiftUIText</em> target。</p>
 <figure id="fig2.17"><img src="images/text/swiftui-text-17.png" alt="图 17. 选择添加文件的选项"><figcaption>图 17. 选择添加文件的选项</figcaption></figure>
-<p>添加字体文件后，还未能直接使用字体。 Xcode 要求开发者在项目配置中设定字体。 在专案导览器中，先选择 <em>SwiftUIText</em>，然后点击 Targets 下的 <em>SwiftUIText</em>。 选择显示项目配置的 <em>Info</em> 选项。</p>
+<p>添加字体文件后，还未能直接使用字体。 Xcode 要求开发者在项目配置中设定字体。 在项目导览器中，先选择 <em>SwiftUIText</em>，然后点击 Targets 下的 <em>SwiftUIText</em>。 选择显示项目配置的 <em>Info</em> 选项。</p>
 <p>你可以右点<em>Bundle</em>并选择<em>Add row</em>。 将 Key 设置为“Fonts provided by application”。 接下来，点击披露指示器以展开条目。 在 <em>item 0</em>，将值设置为<code>Nunito-Regular.ttf</code>，这是你刚刚添加的字体档。 如果你有多个字体档，你可以点击“+”按钮添加另一个项目。</p>
 <figure id="fig2.18"><img src="images/text/swiftui-text-18.png" alt="图 18. 在项目配置中设置字体文件"><figcaption>图 18. 在项目配置中设置字体文件</figcaption></figure>
 <p>现在你可以回到<code>ContentView.swift</code>。 要使用自定义字体，你可以将以下代码：</p>
@@ -1013,9 +1013,9 @@
 <figure id="fig2.20"><img src="images/text/swiftui-text-20.png" alt="图 20. 使用 Markdown"><figcaption>图 20. 使用 Markdown</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>你喜欢以 SwiftUI 来建立使用者介面吗？我希望你会喜欢，SwiftUI  的声明式语法让程式可读性更高，且更容易理解。当你经验更多之后，你只要在 SwiftUI 写几行代码就可以建立酷炫的 3D 样式。</p>
-<p>在本章所准备的范例档中，有最后完整的专案，您可以至以下网址下载：</p>
+<p>在本章所准备的范例档中，有最后完整的项目，您可以至以下网址下载：</p>
 <ul>
-<li>范例专案 ( <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIText.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIText.zip</a> )</li>
+<li>范例项目 ( <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIText.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIText.zip</a> )</li>
 </ul>
 
                     

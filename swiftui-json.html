@@ -951,7 +951,7 @@
 <p>图 21.3 说明了使用 <code>JSONDecoder</code>，将范例借贷资料解码为一个 <code>Loan</code> 实例。</p>
 <figure id="fig21.3"><img src="images/json/swiftui-json-3.png" alt="图 21.3.　JSONDecoder 解码 JSON 资料，并将其转换为一个 Loan 实例"><figcaption>图 21.3.　JSONDecoder 解码 JSON 资料，并将其转换为一个 Loan 实例</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-jsondecoder-%E8%88%87-codable">使用 JSONDecoder 与 Codable</h3>
-<p>在建立范例 App 之前，我们在 Playgrounds 上尝试 JSON 解码。启动 Xcode，并开启一个新的 Playgrounds 专案（在 Xcode 选单并选择 <em>File &gt; New &gt; Playground...</em>），当你建立你的 Playground 专案后，声明下列的 <code>json</code> 变量： </p>
+<p>在建立范例 App 之前，我们在 Playgrounds 上尝试 JSON 解码。启动 Xcode，并开启一个新的 Playgrounds 项目（在 Xcode 选单并选择 <em>File &gt; New &gt; Playground...</em>），当你建立你的 Playground 项目后，声明下列的 <code>json</code> 变量： </p>
 <pre><code class="lang-swift">let json = &quot;&quot;&quot;
 {
 
@@ -988,7 +988,7 @@
     }
 }
 </code></pre>
-<p>如果你执行这个专案，则应该在主控台中看到一个讯息，这是 <code>Loan</code> 实例，其中填满了解码后的值。</p>
+<p>如果你执行这个项目，则应该在主控台中看到一个讯息，这是 <code>Loan</code> 实例，其中填满了解码后的值。</p>
 <figure id="fig21.4"><img src="images/json/swiftui-json-4.png" alt="图 21.4.　在主控台中显示解码后的借贷资料"><figcaption>图 21.4.　在主控台中显示解码后的借贷资料</figcaption></figure>
 <p>让我们再次研究代码片段。我们实例化一个 <code>JSONDecoder</code> 实例，然后将 JSON 字串转换为 <code>Loan</code>。而魔法发生在下列这行代码中： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
@@ -1123,7 +1123,7 @@
 <p><em>注意：作为参考，Playgrounds 项目包含在最终下载档内。 你可以在本章末端找到下载连结。</em></p>
 <h3 id="%E5%BB%BA%E7%AB%8B-kiva-%E8%B2%B8%E6%AC%BE-app">建立 Kiva 贷款 App</h3>
 <p>好的，你现在应该已经了解如何处理 JSON 解码，让我们开始建立一个范例 App，来看如何运用刚刚所学的技术。</p>
-<p>倘若你已经开启 Xcode，至选单并选择“File → New → Projects”来建立一个新专案。如往常一样，使用“App”模板，并将专案名称命名为“SwiftUIKivaLoan”或是你所喜爱的其他名称。</p>
+<p>倘若你已经开启 Xcode，至选单并选择“File → New → Projects”来建立一个新项目。如往常一样，使用“App”模板，并将项目名称命名为“SwiftUIKivaLoan”或是你所喜爱的其他名称。</p>
 <p>我们将从建立模型类别来开始，该模型类别储存从 Kiva 取得的所有最新贷款资料。对于使用者介面的实现，我们将稍后处理。</p>
 <h4 id="%E5%8F%96%E5%BE%97-kiva-%E6%9C%80%E6%96%B0%E7%9A%84%E8%B2%B8%E6%AC%BE%E8%B3%87%E6%96%99">取得 Kiva 最新的贷款资料</h4>
 <p>首先，使用“Swift File”模板来建立一个新档案，并将其命名为 <code>Loan.swift</code>。这个档案储存了采用 Codable 协定来进行 JSON 解码的 <code>Loan</code> 结构。</p>
@@ -1275,7 +1275,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <li><em>LoanCellView.swift</em> - 这是单元格视图。</li>
 <li><em>LoanFilterView.swift</em> - 这是显示筛选选项的视图。</li>
 </ul>
-<p>我们从单元格视图开始。在专案导览器中，在 <code>SwiftUIKivaLoan</code>  按右键，选择“New file...”，然后选取“SwiftUI View”模板，并将档案命名为 <code>LoanCellView.swift</code>。</p>
+<p>我们从单元格视图开始。在项目导览器中，在 <code>SwiftUIKivaLoan</code>  按右键，选择“New file...”，然后选取“SwiftUI View”模板，并将档案命名为 <code>LoanCellView.swift</code>。</p>
 <p>更新 <code>LoanCellView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanCellView</span>: <span class="hljs-title">View</span> </span>{
 
@@ -1454,9 +1454,9 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>本章介绍了很多的内容，你应该知道如何使用 Web API、解析 JSON 内容，以及在清单视图中显示资料，我们还简要介绍了滑杆控制元件的用法。</p>
 <p>如果你之前使用 UIKit 开发过 App，你可能会对 SwiftUI 的简单性感到惊讶。再看一下 ContentView 的代码，只需要 40 行的代码就可以建立清单视图。最重要的是，你不需要手动处理 UI 更新及传送资料，一切都在背后运作。</p>
-<p>为了参考，你可以至下列的网址下载完整的专案： </p>
+<p>为了参考，你可以至下列的网址下载完整的项目： </p>
 <ul>
-<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip</a>)</li>
+<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIKivaLoan.zip</a>)</li>
 </ul>
 
                     

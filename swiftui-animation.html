@@ -884,7 +884,7 @@
 <p>显式动画对你要显示的动画提供更具局限性的控制，其并非将修饰器加到视图，而是在 <code>withAnimation()</code> 区块中，告诉 SwiftUI 若有什么的状态变化时，要绘制动画。</p>
 <p>仍是觉得有些困惑吗？没有关系，藉由几个范例，你就会更有概念了。</p>
 <h4 id="%E9%9A%B1%E5%BC%8F%E5%8B%95%E7%95%AB">隐式动画</h4>
-<p>我们从隐式动画来开始介绍，我建议你建立一个新专案来看动画的实际效果。你可以任意为专案命名，而我将它命名为 <code>SwiftUIAnimation</code>。</p>
+<p>我们从隐式动画来开始介绍，我建议你建立一个新项目来看动画的实际效果。你可以任意为项目命名，而我将它命名为 <code>SwiftUIAnimation</code>。</p>
 <figure id="fig9.1"><img src="images/animation/swiftui-animation-1.png" alt="图 9.1. 绘制按钮的状态变化"><figcaption>图 9.1. 绘制按钮的状态变化</figcaption></figure>
 <p>我们来看图 9.1，这是一个简单的可点击视图，由红色圆形与心形所组成。当使用者点击心形或圆形时，圆形的颜色会变成淡灰色，而心形则会变成红色，同时心形图示的大小也变得较大。因此，以下是其状态变化： </p>
 <ol>
@@ -892,7 +892,7 @@
 <li>心形图示的颜色会从白色变成红色。</li>
 <li>心形图示会比原来的大小大两倍。</li>
 </ol>
-<p>如果你使用SwiftUI 来实现可点击的圆形，以下为程式内容，你可以建立一个 Xcode 的新专案，并将程式插入至 <code>ContentView.swift</code> 来测试看看：</p>
+<p>如果你使用SwiftUI 来实现可点击的圆形，以下为程式内容，你可以建立一个 Xcode 的新项目，并将程式插入至 <code>ContentView.swift</code> 来测试看看：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> circleColorChanged = <span class="hljs-built_in">false</span>
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> heartColorChanged = <span class="hljs-built_in">false</span>
@@ -1233,7 +1233,7 @@
 <p>SwiftUI 让开发者不只是做出前述的动画，你可以定义如何从视图层次中插入或移除视图，而在 SwiftUI 中，这就是所谓的“转场”（ transition ）。框架预设是使用淡入（ fade in ）与淡出（ fade out ）转场。不过它内建了几个现成的转场效果，如滑动（ slide ）、移动（ move）、不透明度（opacity ）等。当然，你可以开发自己的转场效果，也可以简单的混合搭配各种类型的转场，以建立所需的转场效果。</p>
 <figure id="fig9.10"><img src="images/animation/swiftui-animation-10.gif" alt="图 9.10.　使用 SwiftUI 建立的转场范例"><figcaption>图 9.10.　使用 SwiftUI 建立的转场范例</figcaption></figure>
 <h4 id="%E5%BB%BA%E7%AB%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E8%BD%89%E5%A0%B4">建立简单的转场</h4>
-<p>我们来看一个简单的范例，以更加了解转场的含义以及动画如何运作。建立一个名为 <code>SwiftUITransition</code> 的新专案，并更新 <code>ContentView</code> 如下： </p>
+<p>我们来看一个简单的范例，以更加了解转场的含义以及动画如何运作。建立一个名为 <code>SwiftUITransition</code> 的新项目，并更新 <code>ContentView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
@@ -1354,13 +1354,13 @@
 <li><strong>处理状态</strong>：显示一个旋转的圆环，并更新其标签为“Processing”。</li>
 <li><strong>完成状态</strong>：以红色显示“Done”按钮。</li>
 </ul>
-<p>这是一个非常具挑战性的专案，它将测试你对 SwiftUI 动画与转场的了解。你将需要结合到目前为止所学的知识来制定解决方案。</p>
+<p>这是一个非常具挑战性的项目，它将测试你对 SwiftUI 动画与转场的了解。你将需要结合到目前为止所学的知识来制定解决方案。</p>
 <p>如图 9.16 所示的范例按钮，这个处理状态大约是 4 秒处理状态约需要 4 秒，你不需要执行实际操作。作为提示，我使用下列的代码来模拟该操作。</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">startProcessing</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">self</span>.loading = <span class="hljs-built_in">true</span>
 
     <span class="hljs-comment">// 使用DispatchQueue.main.asyncAfter 来模拟操作</span>
-    <span class="hljs-comment">// 在真实世界的专案中，你将在这里执行一个任务</span>
+    <span class="hljs-comment">// 在真实世界的项目中，你将在这里执行一个任务</span>
     <span class="hljs-comment">// 当任务完成之后，你将完成状态设定为true</span>
     <span class="hljs-type">DispatchQueue</span>.main.asyncAfter(deadline: .now() + <span class="hljs-number">4</span>) {
         <span class="hljs-keyword">self</span>.completed = <span class="hljs-built_in">true</span>
@@ -1368,16 +1368,16 @@
 }
 </code></pre>
 <h3 id="%E4%BD%9C%E6%A5%AD-2-%E8%A6%96%E5%9C%96%E8%BD%89%E5%A0%B4%E5%8B%95%E7%95%AB">作业 #2: 视图转场动画</h3>
-<p>你已经学会了如何实现视图转场，试着结合在第 5 章中建立的卡片视图专案，并建立如下所示的视图转场。当使用者点击卡片时，目前的视图将缩小并淡出，下一个视图将以放大动画显示在前面。</p>
+<p>你已经学会了如何实现视图转场，试着结合在第 5 章中建立的卡片视图项目，并建立如下所示的视图转场。当使用者点击卡片时，目前的视图将缩小并淡出，下一个视图将以放大动画显示在前面。</p>
 <figure id="fig9.17"><img src="images/animation/swiftui-animation-17.png" alt="图 9.17.　视图转场动画"><figcaption>图 9.17.　视图转场动画</figcaption></figure>
 <p>如果你不懂上述的动画， 则可以输入网址： <a href="https://www.appcoda.com/wp-content/uploads/2019/10/swiftui-view-animation.gif" target="_blank">https://www.appcoda.com/wp-content/uploads/2019/10/swiftui-view-animation.gif</a>，来看一下动画效果。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>动画在行动 UI 设计中扮演着一个特殊的角色，精心设计的动画可改善使用者体验，并让 UI 的互动具有意义。两个视图之间流畅轻快的转场，将让使用者满意且印象深刻。在 App Store 上有超过 200 万支 App，要使你的 App 脱颖而出，并不容易，不过精心设计的 UI 与动画肯定会产生根本的差别。</p>
 <p>话虽如此，但是对于有经验的开发者而言，撰写平滑动画动画也不是一件容易的事。幸运的是，SwiftUI 框架简化了 UI 动画与转场的开发，你只须告诉框架：视图在开始及结束时的状态为何，SwiftUI 会计算出其余的状态，为你渲染出一个流畅且漂亮的动画。</p>
 <p>在本章中，我已介绍了基本的原理，不过如你所见，你已经建立了一些令人愉悦的动画与转场效果，最重要的是，只需要几行代码即能办到。</p>
-<p>我期望你喜欢本章的内容，并发掘出有用的技巧。在本章所准备的范例档中，有完整的专案与作业解答可以下载： </p>
+<p>我期望你喜欢本章的内容，并发掘出有用的技巧。在本章所准备的范例档中，有完整的项目与作业解答可以下载： </p>
 <ul>
-<li><p>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAnimation.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAnimation.zip</a>)</p>
+<li><p>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAnimation.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAnimation.zip</a>)</p>
 </li>
 <li><p>作业解答 #1 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAnimationExercise1.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAnimationExercise1.zip</a>)</p>
 </li>

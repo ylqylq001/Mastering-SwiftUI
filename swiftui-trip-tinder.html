@@ -877,12 +877,12 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-19-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8%E6%89%8B%E5%8B%A2%E8%88%87%E5%8B%95%E7%95%AB%E5%BB%BA%E7%AB%8B%E5%A6%82-tinder-%E8%88%AC%E7%9A%84-ui">第 19 章<br>使用手势与动画建立如 Tinder 般的 UI</h1>
-<p>建立一个展开式底部表不是很有趣呢？我们来继续应用我们所学到的手势，并将其应用到真实世界的专案中。我不确定你之前是否用过 Tinder App，但是在一些其他 App 中， 你可能会碰到如 Tinder 般的使用者介面。滑动动作是 Tinder UI 的设计重点，并已成为最流行的行动装置 UI 模式之一。使用者向右滑动即表示喜欢某张图片，向左滑动则表示不喜欢。</p>
+<p>建立一个展开式底部表不是很有趣呢？我们来继续应用我们所学到的手势，并将其应用到真实世界的项目中。我不确定你之前是否用过 Tinder App，但是在一些其他 App 中， 你可能会碰到如 Tinder 般的使用者介面。滑动动作是 Tinder UI 的设计重点，并已成为最流行的行动装置 UI 模式之一。使用者向右滑动即表示喜欢某张图片，向左滑动则表示不喜欢。</p>
 <p>在本章中，我们要做的是建立一个具有如 Tinder 般UI 的简单 App。这个 App 向使用者显示一副旅游卡，并让他们使用滑动手势来表示喜欢/ 不喜欢一张卡片。</p>
 <figure id="fig19.1"><img src="images/triptinder/swiftui-trip-tinder-1.jpg" alt="图 19.1.　建立如Tinder 般的使用者介面"><figcaption>图 19.1.　建立如Tinder 般的使用者介面</figcaption></figure>
 <p>请注意，我们将不会建立一个功能齐全的App，而是只着眼于如Tinder 般的UI 。</p>
-<h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">专案准备</h3>
-<p>如果你使用自己的图片，那就太棒了。不过，为了节省你准备旅游图片的时间，我已经为你建立了一个起始专案，你可以至下列网址下载：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTripStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTripStarter.zip</a>。这个专案已经具有一组旅游卡的照片，如图 19.2 所示。</p>
+<h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">项目准备</h3>
+<p>如果你使用自己的图片，那就太棒了。不过，为了节省你准备旅游图片的时间，我已经为你建立了一个起始项目，你可以至下列网址下载：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTripStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTripStarter.zip</a>。这个项目已经具有一组旅游卡的照片，如图 19.2 所示。</p>
 <figure id="fig19.2"><img src="images/triptinder/swiftui-trip-tinder-2.png" alt="图 19.2.　预载了一组旅游照片"><figcaption>图 19.2.　预载了一组旅游照片</figcaption></figure>
 <p>除此之外，我已经为范例 App 准备测试资料，并建立了 Trip.swift 档来代表旅程： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Trip</span> </span>{
@@ -920,7 +920,7 @@
 <figure id="fig19.3"><img src="images/triptinder/swiftui-trip-tinder-3.png" alt="图 19.3.　主荧幕"><figcaption>图 19.3.　主荧幕</figcaption></figure>
 <h4 id="%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">卡片视图</h4>
 <p>首先，我们建立一个卡片视图。若是你想挑战自我，我强烈建议你在这里停下来并实现它，而无须遵循本节内容，否则请继续阅读。</p>
-<p>为了让代码更易编写，我们将在一个单独的档案中实现卡片视图。在专案导览器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
+<p>为了让代码更易编写，我们将在一个单独的档案中实现卡片视图。在项目导览器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
 <p><code>CardView</code> 是设计用来显示不同的照片与标题，因此声明两个变量来储存这些资料：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
@@ -1220,7 +1220,7 @@
 <p>基本上，我们将应用在手势章节中所学的知识来实现拖曳。<code>.gesture</code> 修饰器有两个手势识别器：长按与拖曳。当侦测到拖曳手势时，我们更新 <code>dragState</code> 变量，并储存拖曳的位移量。</p>
 <p><code>offset</code>、<code>scaleEffect</code>、<code>rotationEffect</code> 与 <code>animation</code> 修饰器的结合， 可建立拖曳效果。拖曳是透过更新卡片视图的 <code>offset</code>来实现。当卡片视图处于拖曳状态时，我们会使用 <code>scaleEffect</code> 将它缩小一点，并应用<code>rotationEffect</code> 修饰器将它旋转特定角度。动画设定为 <code>interpolatingSpring</code>，但你可以自由尝试其他动画。</p>
 <p>我们还对 <code>BottomBarMenu</code> 做一些代码更改。当使用者拖曳卡片视图时，我想要隐藏底部列，因此我们应用 <code>.opacity</code> 修饰器，并且当它在拖曳状态时，设定它的值为“0”。</p>
-<p>进行更改后，在预览画布中执行专案来测试它。你应该能够拖曳卡片并四处移动。而当你释放卡片时，卡片会回到原来的位置，如图 19.10 所示。</p>
+<p>进行更改后，在预览画布中执行项目来测试它。你应该能够拖曳卡片并四处移动。而当你释放卡片时，卡片会回到原来的位置，如图 19.10 所示。</p>
 <figure id="fig19.10"><img src="images/triptinder/swiftui-trip-tinder-13.png" alt="图 19.10.　拖曳卡片视图"><figcaption>图 19.10.　拖曳卡片视图</figcaption></figure>
 <p>你注意到问题了吗？当拖曳开始时，你实际上是在拖曳整个卡片库 ！假设使用者只能拖曳最上面的卡片，下面的卡片应该保持不变。而且，缩放效果应只应用于最上面的卡片。</p>
 <p>要解决这些问题，我们需要修改 <code>offset</code>、<code>scaleEffect</code> 与 <code>rotationEffect</code> 修饰器的代码， 如此拖曳只发生在最上面的卡片视图。</p>
@@ -1275,7 +1275,7 @@
 }
 </code></pre>
 <p>预设上，将不透明度设定为“0”来隐藏这两张图片。如果向右拖曳，则位移的宽度为正值，否则其为负值。依照拖曳的方向，当拖曳的位移超过界限值时，App 将显示其中一张图片。</p>
-<p>你可以执行这个专案来快速测试一下。当你的拖曳超出界限值时，心形/&#xD7; 形图示将会出现，如图 19.12 所示。</p>
+<p>你可以执行这个项目来快速测试一下。当你的拖曳超出界限值时，心形/&#xD7; 形图示将会出现，如图 19.12 所示。</p>
 <figure id="fig19.12"><img src="images/triptinder/swiftui-trip-tinder-15.png" alt="图 19.12.　出现心形图示"><figcaption>图 19.12.　出现心形图示</figcaption></figure>
 <h3 id="%E5%88%AA%E9%99%A4-%E6%8F%92%E5%85%A5%E5%8D%A1%E7%89%87">删除/ 插入卡片</h3>
 <p>现在，当你释放卡片时，它仍会回到原来的位置。我们如何才能删除最上面的卡片， 并同时加入一张新卡片呢？ </p>
@@ -1331,7 +1331,7 @@
 )
 </code></pre>
 <p>当拖曳手势结束时，我们检查拖曳的位移是否超过界限值，并相应调用 <code>moveCard()</code>。</p>
-<p>现在，当你在预览画布中执行专案时，将图片向右 / 左拖曳，直到图示出现。放开拖曳，最上面的卡片应由下一张卡片取代。</p>
+<p>现在，当你在预览画布中执行项目时，将图片向右 / 左拖曳，直到图示出现。放开拖曳，最上面的卡片应由下一张卡片取代。</p>
 <figure id="fig19.13"><img src="images/triptinder/swiftui-trip-tinder-16.png" alt="图 19.13.　删除最上面的图片"><figcaption>图 19.13.　删除最上面的图片</figcaption></figure>
 <h3 id="%E5%BE%AE%E8%AA%BF%E5%8B%95%E7%95%AB">微调动画</h3>
 <p>这个 App 几乎可以运作了，但是动画效果并不如预期。不要让卡片视图突然消失，而是卡片丢弃后应逐渐从荧幕离开。</p>
@@ -1408,10 +1408,10 @@
 <p>上列代码的作用是设定 <code>removalTransition</code>，转场类型是根据滑动方向来更新。现在，你可以再次执行 App 了，当丢弃卡片时，你应该会看到动画效果已改善。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>使用 SwiftUI，你可以轻松建立一些很酷的动画与行动装置 UI 模式，这个如 Tinder 般的 UI 就是一个例子。</p>
-<p>我希望你能真正了解本章所介绍的内容，如此你就可以修改代码，来配合自己的专案。这是非常重要的一章，我想要记录一下我的思考过程，而不仅仅是向你提供最终的解决方案。</p>
-<p>为了方便进一步参考，您可以至下列网址下载完整专案： </p>
+<p>我希望你能真正了解本章所介绍的内容，如此你就可以修改代码，来配合自己的项目。这是非常重要的一章，我想要记录一下我的思考过程，而不仅仅是向你提供最终的解决方案。</p>
+<p>为了方便进一步参考，您可以至下列网址下载完整项目： </p>
 <ul>
-<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip</a>) 。</li>
+<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTrip.zip</a>) 。</li>
 </ul>
 
                     

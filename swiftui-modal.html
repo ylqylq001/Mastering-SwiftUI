@@ -904,10 +904,10 @@
 }
 </code></pre>
 <p><code>sheet</code> 修饰器也让你可透过传送一个 <code>Optional</code> 绑定来触发强制回应视图的显示。如果 <code>Optional</code>有一个值，iOS 会带出强制回应视图，如果你还记得我们在前一章中对于 <code>actionSheet</code> 的讨论，你应该会发现 <code>sheet</code> 的用法与 <code>actionSheet</code> 非常相似。</p>
-<h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始专案</h3>
-<p>以上是背景资讯，我们来继续实际执行范例专案。首先，，请至
-<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip</a>。 下载起始专案，下载后开启专案，并看一下预览，如图 12.3 所示。你应该非常熟悉范例 App 了，该 App 仍有一个导览列，但导览连结已被删除。</p>
-<figure id="fig12.3"><img src="images/modal/swiftui-modal-3.png" alt="图 12.3.　起始专案"><figcaption>图 12.3.　起始专案</figcaption></figure>
+<h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
+<p>以上是背景资讯，我们来继续实际执行范例项目。首先，，请至
+<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip</a>。 下载起始项目，下载后开启项目，并看一下预览，如图 12.3 所示。你应该非常熟悉范例 App 了，该 App 仍有一个导览列，但导览连结已被删除。</p>
+<figure id="fig12.3"><img src="images/modal/swiftui-modal-3.png" alt="图 12.3.　起始项目"><figcaption>图 12.3.　起始项目</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-ispresented-%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 isPresented 实现强制回应视图</h3>
 <p>如前所述，<code>sheet</code> 修饰器提供我们两种显示模式的方式。我将展示这两种方法如何工作，我们从 <code>isPresented</code> 方法开始，对于这个方法，我们需要一个Bool 型别的状态变量来追踪强制回应视图的状态。在 <code>ContentView</code>中声明这个变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showDetailView = <span class="hljs-built_in">false</span>
@@ -1016,7 +1016,7 @@
 <figure id="fig12.6"><img src="images/modal/swiftui-modal-8.png" alt="图 12.9. 实现“关闭”按钮"><figcaption>图 12.9. 实现“关闭”按钮</figcaption></figure>
 <p>现在于模拟器中实现 App，或切换至 <code>ContentView</code>，并在画布中执行。你应该能点选“关闭”按钮来解除强制回应视图。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E8%AD%A6%E5%91%8A%E6%8F%90%E7%A4%BA%E8%A6%96%E7%AA%97">使用警告提示视窗</h3>
-<p>除了卡片式的强制回应视图，“警告提示视窗”（ Alert ）是另一种强制回应视图，当它显示时，整个画面会被锁住，如果你不选择其中一个选项，将会无法离开。图 12.7 为一个警告提示视窗的范例，这是我们将在范例专案中实现的内容，而我们所要做的是，当使用者点击“关闭”按钮后，显示一个警告提示视窗。</p>
+<p>除了卡片式的强制回应视图，“警告提示视窗”（ Alert ）是另一种强制回应视图，当它显示时，整个画面会被锁住，如果你不选择其中一个选项，将会无法离开。图 12.7 为一个警告提示视窗的范例，这是我们将在范例项目中实现的内容，而我们所要做的是，当使用者点击“关闭”按钮后，显示一个警告提示视窗。</p>
 <figure id="fig12.7"><img src="images/modal/swiftui-modal-9.png" alt="图 12.7　显示一个警告提示视窗"><figcaption>图 12.7　显示一个警告提示视窗</figcaption></figure>
 <p>在 SwiftUI 中，你可以使用 <code>Alert</code> 结构来建立一个警告提示视窗，下列是 <code>Alert</code> 的范例用法： </p>
 <pre><code class="lang-swift">.alert(<span class="hljs-string">&quot;Warning&quot;</span>, isPresented: $showAlert, actions: {
@@ -1076,9 +1076,9 @@
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>你已经学习了如何显示强制回应视图、实现浮动按钮以及显示警告提示视窗。iOS 持续鼓励使用者利用手势来与装置互动，并为常见手势提供内建支持。不需要撰写一行代码，即可让使用者在画面上向下滑动，以解除强制回应视图。</p>
 <p>强制回应视图与警告提示视窗的 API 设计非常相似，它监控状态变量，以确认是否触发强制回应视图（或警告提示视窗）。一旦你了解这个技术后，实现对你而言应该不困难了。</p>
-<p>在本章所准备的范例档中，有完整的专案可供下载： </p>
+<p>在本章所准备的范例档中，有完整的项目可供下载： </p>
 <ul>
-<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModal.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModal.zip</a>)</li>
+<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModal.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModal.zip</a>)</li>
 </ul>
 
                     

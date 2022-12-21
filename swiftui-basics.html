@@ -938,17 +938,17 @@
 </blockquote>
 <p>虽然 UI 程式是可以跨平台，对于特定类型的装置，你依然需要提供对应的规格。你应该要常常检视你的 App 的每一个版本，以确保对某个平台是正确的。这么说好了， SwiftUI 已经省下了你学习另外一个平台专用框架的许多时间，而且你可以重用大部分的代码。</p>
 <h3 id="uikit-appkit-watchkit-%E7%9A%84%E4%BB%8B%E6%8E%A5">UIKit/AppKit/WatchKit 的介接</h3>
-<p>我可以在我目前的专案中使用 SwiftUI 吗？我不想要重写整个以 UIKit 所建立的 App。</p>
+<p>我可以在我目前的项目中使用 SwiftUI 吗？我不想要重写整个以 UIKit 所建立的 App。</p>
 <p>SwiftUI 可以设计用于目前的框架如 iOS 的 UIKit 与 macOS 的 Appkit。为了能够将视图或控制器加入 SwiftUI 中，Apple 提供几个代表性（representable）的协定供你采用，如图 1.5 所示。</p>
 <figure id="fig1.5"><img src="images/basic/swiftui-basic-5.png" alt="图 1.5. 目前 UI 框架的代表性协定"><figcaption>图 1.5. 目前 UI 框架的代表性协定</figcaption></figure>
 <p>例如：若你有一个自订的视图是使用 UIKit 开发，你可以采用 UIViewRepresentable 协定，来让它相容 SwiftUI。图 1.6 是在 SwiftUI 中使用 <code>WKWebView</code> 的范例程式。</p>
 <figure id="fig1.6"><img src="images/basic/swiftui-basic-6.png" alt="图 1.6. 移植 WKWebView 至 SwiftUI"><figcaption>图 1.6. 移植 WKWebView 至 SwiftUI</figcaption></figure>
-<h3 id="%E4%B8%8B%E4%B8%80%E5%80%8B%E5%B0%88%E6%A1%88%E6%94%B9%E6%8E%A1swiftui-%E5%90%A7">下一个专案改采SwiftUI 吧</h3>
-<p>每当一个新框架释出后，通常就会有人问：“这个框架是否可以用在我下一个专案中，是否应再观望一些时间？”</p>
-<p>虽然 SwiftUI 对大部分开发者而言依然是全新的，这也正是学习并整合这个框架进入你的新专案的好时机。随着 Xcode 14 释出，经过 Apple 改版后的 SwiftUI 框架已经更加稳定，功能也更多。如果你有一些个人的专案或者是你的公司一些业余专案（ Side Project ）在进行，我想没有什么理由不尝试一下 SwiftUI。</p>
-<p>必须这样说，你需要仔细考虑是否要在你的商业性专案中应用SwiftUI。SwiftUI 的一个主要缺点是只能在运行 iOS 13、macOS 10.15、tvOS 13 与 watchOS 6 版本以上的装置才能执行。如果你的 App 仍需要支持比较旧版本（例如 iOS 12）的平台，这种情况下，可能需要等待一下，再来采用 SwiftUI。</p>
+<h3 id="%E4%B8%8B%E4%B8%80%E5%80%8B%E5%B0%88%E6%A1%88%E6%94%B9%E6%8E%A1swiftui-%E5%90%A7">下一个项目改采SwiftUI 吧</h3>
+<p>每当一个新框架释出后，通常就会有人问：“这个框架是否可以用在我下一个项目中，是否应再观望一些时间？”</p>
+<p>虽然 SwiftUI 对大部分开发者而言依然是全新的，这也正是学习并整合这个框架进入你的新项目的好时机。随着 Xcode 14 释出，经过 Apple 改版后的 SwiftUI 框架已经更加稳定，功能也更多。如果你有一些个人的项目或者是你的公司一些业余项目（ Side Project ）在进行，我想没有什么理由不尝试一下 SwiftUI。</p>
+<p>必须这样说，你需要仔细考虑是否要在你的商业性项目中应用SwiftUI。SwiftUI 的一个主要缺点是只能在运行 iOS 13、macOS 10.15、tvOS 13 与 watchOS 6 版本以上的装置才能执行。如果你的 App 仍需要支持比较旧版本（例如 iOS 12）的平台，这种情况下，可能需要等待一下，再来采用 SwiftUI。</p>
 <p>在撰写本书时，SwiftUI 已经超过三年，Xcode 14 已经为 SwiftUI 增加了更多的 UI 控制与新的 API（例如 Charts），就功能而言，你无法和目前释出多年的UI 框架（如 UIKit ）相比。一些功能（例如：使用照相机）很明显就只有旧框架有，而无法在 SwiftUI 取得，你可能需要开发一些解决方案来处理这些问题。在已经上市的产品采用 SwiftUI，需要再多做一点考量。</p>
-<p>无疑的，SwiftUI 还是很新的，需要一些时间才能变成一个成熟的框架，但很明确的， SwiftUI 是 Apple 平台应用程式开发的未来，即使目前可能还无法应用在你的专案中。建议可从一些业余的产品来开始尝试，并摸索这个框架，当你更加熟练之后，你将会喜爱以声明式来开发 UI。</p>
+<p>无疑的，SwiftUI 还是很新的，需要一些时间才能变成一个成熟的框架，但很明确的， SwiftUI 是 Apple 平台应用程式开发的未来，即使目前可能还无法应用在你的项目中。建议可从一些业余的产品来开始尝试，并摸索这个框架，当你更加熟练之后，你将会喜爱以声明式来开发 UI。</p>
 
                     
                     </section>

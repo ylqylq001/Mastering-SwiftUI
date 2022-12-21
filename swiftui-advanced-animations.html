@@ -880,21 +880,21 @@
 <p>你使用过 Apple 电子钱包 App 吗？我相信应该有，在上一章中，我们建立了一个如 Tinder UI 的简单 App，而本章要做的是建立一个动态 UI，类似于你在电子钱包 App 中看到的 UI。当你在电子钱包 App 中长按信用卡时，则可使用拖曳手势来重新排列卡片。如果你没有使用过这个 App，请开启电子钱包快速浏览一下，或者你可以访问这个URL （<a href="https://link.appcoda.com/swiftui-wallet" target="_blank">https://link.appcoda.com/swiftui-wallet</a>）来了解我们将建立的动画。</p>
 <figure id="fig20.1"><img src="images/wallet/swiftui-wallet-1.png" alt="图 20.1.　建立如电子钱包的动画与视图转场"><figcaption>图 20.1.　建立如电子钱包的动画与视图转场</figcaption></figure>
 <p>在电子钱包 App 中，点击其中一张信用卡，就会带出交易历史纪录。我们还建立一个类似的动画，以让你更了解视图转场与水平滚动视图。</p>
-<h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">专案准备</h3>
-<p>为了让你专注于学习动画与视图转场，你可以从起始专案开始(<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip</a>)。这个起始专案已经绑定了所需的信用卡图片，并且带有内建的交易历史纪录视图，如果想要使用自己的图片，请在素材目录中替换它们，如图20.2 所示。</p>
-<figure id="fig20.2"><img src="images/wallet/swiftui-wallet-2.png" alt="图 20.2　起始专案绑定了信用卡图片"><figcaption>图 20.2　起始专案绑定了信用卡图片</figcaption></figure>
-<p>在专案导览器中，你应该会发现一些 <code>.swift</code> 档： </p>
+<h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">项目准备</h3>
+<p>为了让你专注于学习动画与视图转场，你可以从起始项目开始(<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip</a>)。这个起始项目已经绑定了所需的信用卡图片，并且带有内建的交易历史纪录视图，如果想要使用自己的图片，请在素材目录中替换它们，如图20.2 所示。</p>
+<figure id="fig20.2"><img src="images/wallet/swiftui-wallet-2.png" alt="图 20.2　起始项目绑定了信用卡图片"><figcaption>图 20.2　起始项目绑定了信用卡图片</figcaption></figure>
+<p>在项目导览器中，你应该会发现一些 <code>.swift</code> 档： </p>
 <ul>
 <li><strong>Transaction.swift</strong> - <code>Transaction</code> 结构代表电子钱包 App中的交易。每一笔交易有一个唯一的 ID、交易商、金额、日期与图示。除了 <code>Transaction</code> 结构之外，作为示范之用，我们还声明一个测试交易的数组。</li>
 <li><strong>Card.swift</strong> - 这个档案包含了 <code>Card</code> 的结构。<code>Card</code> 表示信用卡的资料，包含卡号、类型、有效日期、图片与客户姓名，除此之外，你可以在档案中找到一个测试信用卡的数组。需要注意的一点是，卡片图片中不包含任何的个人资讯，而只包含卡片品牌（例如： Visa ）。稍后，我们将为信用卡建立一个视图。</li>
-<li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始专案已经带有交易历史纪录视图的实现。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
+<li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始项目已经带有交易历史纪录视图的实现。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
 <li><strong>ContentView.swift</strong> - 这是 Xcode产生的预设 SwiftUI 视图。</li>
 </ul>
 <figure id="fig20.3"><img src="images/wallet/swiftui-wallet-3.png" alt="图 20.3.　使用.horizontal 建立水平滚动视图"><figcaption>图 20.3.　使用.horizontal 建立水平滚动视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">建立卡片视图</h3>
 <p>如上一节所述，所有的卡片图片皆不包含任何个人资讯与卡号。再次开启素材目录， 并看一下图片，每张卡片图片只具有卡片标志。我们将很快建立一个卡片视图，来布局个人资讯与卡号，如图 20.4 所示。</p>
 <figure id="fig20.4"><img src="images/wallet/swiftui-wallet-4.png" alt="图 20.4.　范例卡片"><figcaption>图 20.4.　范例卡片</figcaption></figure>
-<p>要建立卡片视图，则在专案导览器中，右键点选 <code>View</code> 群组，然后建立一个新档案。选取“SwiftUI View”模板，档案名称命名为 <code>CardView.swift</code>。接下来，更新代码如下：</p>
+<p>要建立卡片视图，则在项目导览器中，右键点选 <code>View</code> 群组，然后建立一个新档案。选取“SwiftUI View”模板，档案名称命名为 <code>CardView.swift</code>。接下来，更新代码如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> card: <span class="hljs-type">Card</span>
 
@@ -941,7 +941,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%9B%BB%E5%AD%90%E9%8C%A2%E5%8C%85%E8%A6%96%E5%9C%96%E8%88%87%E5%8D%A1%E7%89%87%E5%BA%AB">建立电子钱包视图与卡片库</h3>
 <p>我们现在已经实现了卡片视图，让我们开始建立电子钱包视图。如果你忘记电子钱包视图的外观，请看一下图 20.6。在进行手势与动画之前，我们将先布局卡片库。</p>
 <figure id="fig20.6"><img src="images/wallet/swiftui-wallet-6.png" alt="图 20.6　钱包视图"><figcaption>图 20.6　钱包视图</figcaption></figure>
-<p>在专案导览器中，你应该会看到 <code>ContentView.swift</code> 档。删除它，然后右键点选 <code>View</code> 资料夹，以建立一个新档案。在对话方块中，选取“SwiftUI View”作为模板，并将档案命名为 <code>WalletView.swift</code>。</p>
+<p>在项目导览器中，你应该会看到 <code>ContentView.swift</code> 档。删除它，然后右键点选 <code>View</code> 资料夹，以建立一个新档案。在对话方块中，选取“SwiftUI View”作为模板，并将档案命名为 <code>WalletView.swift</code>。</p>
 <p>如果你预览 <code>WalletView</code>  或在模拟器中执行 App，Xcode 应该会显示一个错误，因为 <code>ContentView</code> 设定为初始视图，并且其被删除了。要修正这个错误，则开启 <code>SwiftUIWallet App.swift</code>，并将 <code>WindowGroup</code> 中下列这行代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ContentView</span>()
 </code></pre>
@@ -1135,7 +1135,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 }
 </code></pre>
 <p>我们加入了一个 <code>if</code> 语句来检查卡片是否被选中。如果给定的卡片是使用者选择的卡片， 则我们将偏移量设定为<code>.zero</code>。对于所选卡片正下方的那些卡片，我们也将向上移动， 这就是为什么我们将偏移量设定为 <code>.zero</code>。而其余的卡片，我们将它们移出荧幕，因此垂直偏移量设定为 <code>1400 点</code>。</p>
-<p>现在，我们已经准备好编写用于带出交易历史纪录视图的代码。正如一开始所述， 起始专案已经提供这个交易历史纪录视图。因此，你不需要自己建立它。</p>
+<p>现在，我们已经准备好编写用于带出交易历史纪录视图的代码。正如一开始所述， 起始项目已经提供这个交易历史纪录视图。因此，你不需要自己建立它。</p>
 <p>藉由 <code>isCardPressed</code> 状态变量，我们可以使用它来确定是否显示交易历史纪录视图。在 <code>Spacer()</code> 前面插入下列代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> isCardPressed {
     <span class="hljs-type">TransactionHistoryView</span>(transactions: testTransactions)
@@ -1343,9 +1343,9 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>之后，你可以执行 App 来测试它。你已经建立了如电子钱包般的动画。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>阅读完本章后，我希望你对于 SwiftUI 动画与视图转场有更深入的了解。如果你将 SwiftUI 与原来的UIKit 框架进行比较，你会发现 SwiftUI 让“使用动画”变得非常容易。你还记得如何为使用者放开拖曳的卡片来渲染卡片动画吗？你需要做的是更新状态变量， 而 SwiftUI 就会处理这些繁重的工作，这就是 SwiftUI 的力量。</p>
-<p>为了方便进一步参考，您可以至下列网址下载完整专案： </p>
+<p>为了方便进一步参考，您可以至下列网址下载完整项目： </p>
 <ul>
-<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWallet.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWallet.zip</a>)</li>
+<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWallet.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWallet.zip</a>)</li>
 </ul>
 
                     

@@ -894,8 +894,8 @@
     .padding(.horizontal)
 </code></pre>
 <p>我知道这两个元件对你而言比较陌生，不过在观看解答之前，试着尽力建立表单。</p>
-<p>那么，你能建立表单吗？即使你无法完成这个练习，也没有关系，现在至 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistrationUI.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistrationUI.zip</a> 。来下载这个专案。我将会介绍我的作法让你参考。</p>
-<figure id="fig15.2"><img src="images/registration/swiftui-registration-2.png" alt="图 15.2　起始专案"><figcaption>图 15.2　起始专案</figcaption></figure>
+<p>那么，你能建立表单吗？即使你无法完成这个练习，也没有关系，现在至 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistrationUI.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistrationUI.zip</a> 。来下载这个项目。我将会介绍我的作法让你参考。</p>
+<figure id="fig15.2"><img src="images/registration/swiftui-registration-2.png" alt="图 15.2　起始项目"><figcaption>图 15.2　起始项目</figcaption></figure>
 <p>开启 <code>ContentView.swift</code> 档，并预览画布中的布局，你渲染的视图应该如图 15.2 所示。现在，我们简要检视一下代码，并从 <code>RequirementText</code> 视图开始。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RequirementText</span>: <span class="hljs-title">View</span> </span>{
 
@@ -1061,7 +1061,7 @@
 <li>在视图模型中实现表单验证。</li>
 </ol>
 <p>我知道你心里可能会有几个问题。首先，为什么我们需要建立视图模型呢？我们可以在 ContentView 加入这些表单属性并执行表单验证吗？ </p>
-<p>你绝对可以这样做，但是随着专案规模持续成长，或者视图变得更加复杂，将复杂的元件拆成多层是一个良好作法。</p>
+<p>你绝对可以这样做，但是随着项目规模持续成长，或者视图变得更加复杂，将复杂的元件拆成多层是一个良好作法。</p>
 <p>“关注点分离”（Separation of concerns ）是编写优秀软体的基本原则。我们可以把视图分成视图及其视图模型等两个元件，而不是将所有的东西放在一个视图中。视图本身是负责 UI 布局，而视图模型存放要在视图中显示的状态与资料，并且视图模型还处理资料验证与转换。对于有经验的开发者而言，你知道我们正应用众所周知的“MVVM”（Model- View-ViewModel 的缩写）设计模式。</p>
 <p>所以，这个视图模型将保存哪些资料呢？ </p>
 <p>再看一次注册表单，我们有三个文字栏位，包括： </p>
@@ -1122,7 +1122,7 @@
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(iconColor: userRegistrationViewModel.isUsernameLengthValid ? <span class="hljs-type">Color</span>.secondary : <span class="hljs-type">Color</span>(red: <span class="hljs-number">251</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>), text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>, isStrikeThrough: userRegistrationViewModel.isUsernameLengthValid)
 </code></pre>
 <p>图示的颜色与删除线的状态都取决于验证结果而定（也就是 <code>isUsernameLengthValid</code> ）。</p>
-<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码变更放入我们的专案中，不过我希望让你了解发布者/ 订阅者的观念，以及我们如何使用这个方法执行验证。在后面的小节中，我们将应用所学的知识，并对代码进行更改。</p>
+<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码变更放入我们的项目中，不过我希望让你了解发布者/ 订阅者的观念，以及我们如何使用这个方法执行验证。在后面的小节中，我们将应用所学的知识，并对代码进行更改。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-combine-%E9%A9%97%E8%AD%89%E5%AF%86%E7%A2%BC">使用 Combine 验证密码</h4>
 <p>如果你了解使用者名称栏位的验证是如何完成的，我们将对密码与密码确认验证应用类似的实现。</p>
 <p>对于密码栏位，有两个要求： </p>
@@ -1161,7 +1161,7 @@ $password
 </code></pre>
 <p>同样的，我们指定验证结果给 <code>isPasswordConfirmValid</code> 属性。</p>
 <h4 id="%E5%AF%A6%E4%BD%9C-userregistrationviewmodel">实现 UserRegistrationViewModel</h4>
-<p>现在我已经解释了实现的方法，我们将所有内容放至专案中。首先，使用 “Swift File” 模板建立一个新 Swift 档，命名为 <code>UserRegistrationViewModel.swift</code>，然后使用下列代码替换整个档案内容： </p>
+<p>现在我已经解释了实现的方法，我们将所有内容放至项目中。首先，使用 “Swift File” 模板建立一个新 Swift 档，命名为 <code>UserRegistrationViewModel.swift</code>，然后使用下列代码替换整个档案内容： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">Foundation</span>
 <span class="hljs-keyword">import</span> <span class="hljs-type">Combine</span>
 
@@ -1257,9 +1257,9 @@ $password
 <p>我希望你现在已经掌握了一些 Combine 框架的基本认识。SwiftUI 与 Combine 的导入彻底改变了建立 App 的方式。函式响应式程式设计（Functional Reactive Programming，简称 FRP），近年来越来越流行，不过这是Apple 首次释出自己的函式响应式框架。在我看来，这是一个重要的典范转移（paradigm shift ）。Apple 公司最终对 FRP 做出定位，并推荐 Apple 开发者拥抱这个新的程式设计方法。 </p>
 <p>就像导入任何一个新技术的导入一样，会有一个学习曲线，即使你之前有 iOS 开发经验，也要花一些时间从委派的程式设计方法变成到发布者/ 订阅者的设计方法。</p>
 <p>不过，一旦你管理了 Combine 框架，你将会非常高兴，因为它可以帮你实现更可维护与模组化的代码，与SwiftUI 一起使用，如你所见，视图与视图模型之间的沟通变得轻而易举了。</p>
-<p>在本章所准备的范例档中，有完整的专案可供下载： </p>
+<p>在本章所准备的范例档中，有完整的项目可供下载： </p>
 <ul>
-<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip</a>)</li>
+<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistration.zip</a>)</li>
 </ul>
 
                     

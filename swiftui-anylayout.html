@@ -880,7 +880,7 @@
 <p>从 iOS 16 开始，SwiftUI 推出了 <code>AnyLayout</code> 和 <code>Layout</code> 协定，让开发者构建客制化和复杂的 UI 布局。<code>AnyLayout</code> 是 layout 协定的 type-erased 实例。我们可以使用 <code>AnyLayout</code> 来创建动态 UI 布局，它可以回应使用者的互动或环境变化。</p>
 <p>在这章节，我们会看看如何使用 <code>AnyLayout</code> 来切换垂直和水平布局。</p>
 <h3 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-anylayout">如何使用 AnyLayout</h3>
-<p>首先，让我们用 <em>App</em> 模板创建一个新的 Xcode 专案，并为专案命名，我会把专案命名为 <code>SwiftUIAnyLayout</code>。我们会构建一个简单的范例 App，在使用者点击堆叠视图时切换 UI 布局。UI 布局在不同方向看起来会是这样的：</p>
+<p>首先，让我们用 <em>App</em> 模板创建一个新的 Xcode 项目，并为项目命名，我会把项目命名为 <code>SwiftUIAnyLayout</code>。我们会构建一个简单的范例 App，在使用者点击堆叠视图时切换 UI 布局。UI 布局在不同方向看起来会是这样的：</p>
 <figure id="fig45.1"><img src="images/anylayout/swiftui-anylayout-1.png" alt="图 45.1. 使用 AnyLayout 在垂直和水平堆栈之间切换"><figcaption>图 45.1. 使用 AnyLayout 在垂直和水平堆栈之间切换</figcaption></figure>
 <p>在开始时，范例 App 利用 <code>VStack</code> 把三个图像垂直排列。当使用者点击堆叠视图时，就会变成水平堆叠。我们可以这样使用 <code>AnyLayout</code> 来实现：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
@@ -938,7 +938,7 @@
 </ul>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>推出了 <code>AnyLayout</code> 后，我们只需要几行代码就可以客制化或更改 UI layout，这绝对可以帮助我们构建更优雅和吸引的 UI。在这篇文章的范例 App 中，大家都学会了如何根据荧幕方向切换 layout。其实同样的技术也可以应用于其他情况中，例如是 Dynamic Type 的大小。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
+<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAnyLayout.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAnyLayout.zip</a></li>
 </ul>

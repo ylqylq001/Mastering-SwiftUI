@@ -897,7 +897,7 @@
 <p>Core Data 框架只是将开发人员与永久存储的内部细节屏蔽开来。 以 SQLite 数据库为例， 你不需要知道如何连接到数据库，也不需要了解 SQL 来检索数据记录。 你只需要弄清楚如何使用Core Data API，例如 <code>NSManagedObjectContext</code> 和托管物件模型（Managed Object Model）。</p>
 <p>这看起来有点复杂，是吧？不用担心。 在我们将 ToDo App从数组转换为 Core Data 之后，你就会明白我的意思。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-core-data-%E6%A8%A1%E6%9D%BF">使用 Core Data 模板</h3>
-<p>使用 Core Data 的最简单方式，就是建立一个新专案时启用 Core Data 选项 。你也可以试一试。 启动 Xcode 并使用 <em>App</em> 模板建立一个新项目。 将其命名为你喜欢的名称，但请确保选中 <em>Core Data</em> 选项。</p>
+<p>使用 Core Data 的最简单方式，就是建立一个新项目时启用 Core Data 选项 。你也可以试一试。 启动 Xcode 并使用 <em>App</em> 模板建立一个新项目。 将其命名为你喜欢的名称，但请确保选中 <em>Core Data</em> 选项。</p>
 <figure id="fig22.2"><img src="images/core-data/swiftui-core-data-2.png" alt="图 22.2. 建立一个启用 Core Data 的新项目"><figcaption>图 22.2. 建立一个启用 Core Data 的新项目</figcaption></figure>
 <p>透过使用 Core Data，Xcode 将为你生成所有必需的代码和托管物件模型。 建立项目后，你应该会看到一个名为“CoreDataTest.xcdatamodeld”的新文件。 在 Xcode 中，托管物件模型的副档名为“.xcdatamodeld”。 这是为你的项目生成的托管物件模型，也是你定义持久性物件的地方。</p>
 <p>看一下 <code>Persistence.swift</code> 文件，这是 Xcode 生成的另一个文件。 该文件包含用于加载托管物件模型并将数据保存到持久性储存器的代码。</p>
@@ -1385,7 +1385,7 @@ task.isComplete = isComplete
 <p>我们将数据暂存器的<code>context</code>注入到内容视图的环境中。 通过这样做，内容视图现在可以加载示例待办事项并将显示在预览画面中。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>在本章中，我们将 Todo 范例App加入永久储存数据功能。 我希望你现在了解如何在 SwiftUI 开发中使用 Core Data 并知道如何执行所有基本的 CRUD（建立、读取、更新和删除）操作。SwiftUI框架新加入的 <code>@FetchRequest</code> 属性包装器使得在数据库管理变得非常容易。</p>
-<p>本章所讲解的范例以及最后完整的Xcode 专案：</p>
+<p>本章所讲解的范例以及最后完整的Xcode 项目：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoList.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoList.zip</a></p>
 <p>请自行下载以供你参考。</p>
 

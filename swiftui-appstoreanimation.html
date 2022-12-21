@@ -889,13 +889,13 @@
 <h3 id="%E7%AF%84%E4%BE%8B-app-%E7%B0%A1%E4%BB%8B">范例 App 简介</h3>
 <p>像往常一样，我们将一起构建一个范例 App。 App看起来与 <em>App Store</em> App 非常相似，只是没有标签列（Tab Bar）。 打开App 后会见到一个列表视图，以卡片格式显示所有文章。 当使用者点击任何文章时，卡片会扩展为全荧幕并显示整篇文章。 要返回列表视图，使用者可以点击关闭按钮或向下拖动文章视图。</p>
 <figure id="fig26.2"><img src="images/appstore/swiftui-appstore-2.jpg" alt="图 26.2. 范例 App"><figcaption>图 26.2. 范例 App</figcaption></figure>
-<p>我们将由零开始建立App， 但是为了节省你一些时间，我已准备了一个Starter专案。 你可以从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAppStoreStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAppStoreStarter.zip</a> 下载它。 下载项目后，解压后并打开<code>SwiftUIAppStore.xcodeproj</code>查看一下。</p>
-<figure id="fig26.3"><img src="images/appstore/swiftui-appstore-3.png" alt="图 26.3. Starter 专案"><figcaption>图 26.3. Starter 专案</figcaption></figure>
-<p>这个Starter专案已经为了实现以下项目：</p>
+<p>我们将由零开始建立App， 但是为了节省你一些时间，我已准备了一个Starter项目。 你可以从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAppStoreStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAppStoreStarter.zip</a> 下载它。 下载项目后，解压后并打开<code>SwiftUIAppStore.xcodeproj</code>查看一下。</p>
+<figure id="fig26.3"><img src="images/appstore/swiftui-appstore-3.png" alt="图 26.3. Starter 项目"><figcaption>图 26.3. Starter 项目</figcaption></figure>
+<p>这个Starter项目已经为了实现以下项目：</p>
 <ol>
 <li>它已经将所需的图像加进 Assets。</li>
 <li><code>ContentView.swift</code> 是 Xcode 自动生成的SwiftUI 视图。</li>
-<li><code>Article.swift</code> 包含 <code>Article</code> 结构，用于代表App内的文章。 因为是范例关系，Starter专案还包含一些测试数据（<code>sampleArticles</code>数组）。 如果你想加入更多文章，你可以随便修改<code>sampleArticles</code>。</li>
+<li><code>Article.swift</code> 包含 <code>Article</code> 结构，用于代表App内的文章。 因为是范例关系，Starter项目还包含一些测试数据（<code>sampleArticles</code>数组）。 如果你想加入更多文章，你可以随便修改<code>sampleArticles</code>。</li>
 </ol>
 <h3 id="%E4%BA%86%E8%A7%A3%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">了解卡片视图</h3>
 <p>你之前已经学习过如何创建类似卡片式UI。 这个卡片视图与第 5 章中做的非常相似，但它会更加灵活并且支持滚动内容。 换句话说，它有两种模式：<em>节录</em>和<em>完整内容</em>。 在节录模式下，只显示文章的图片、类别、标题和副标题。 完整内容模式则显示文章详细内容，如图26.2所示。</p>
@@ -969,7 +969,7 @@
     }
 }
 </code></pre>
-<p>因为想预览两种模式，我们建立两个节录视图。一个将<code>isShowContent</code>绑定设定为<code>false</code>，另一个则为<code>true</code>。 <code>sampleArticles</code> 数组是Starter专案附带的测试数据。</p>
+<p>因为想预览两种模式，我们建立两个节录视图。一个将<code>isShowContent</code>绑定设定为<code>false</code>，另一个则为<code>true</code>。 <code>sampleArticles</code> 数组是Starter项目附带的测试数据。</p>
 <p>我们不使用装置预览，而是在固定大小的矩形中预览 UI。 如果一切正常，你应该会在预览画面中看到节录视图。请确保你更改为 <em>Selectable</em> 模式以预览固定布局。</p>
 <figure id="fig26.7"><img src="images/appstore/swiftui-appstore-7.png" alt="图 26.7. 预览节录视图"><figcaption>图 26.7. 预览节录视图</figcaption></figure>
 <p>准备好节录视图后，让我们实现文章卡片视图。 像这样更新 <code>ArticleCardView</code> 结构：</p>
@@ -1237,7 +1237,7 @@
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>恭喜！你构建了一个类似于 App Store app 的动画。 在实现了这个示范 App 之后，我希望你了解如何创建复杂的视图动画，并了解如何使用 GeometryReader 来完善你的 UI。</p>
 <p>动画已成为手机 App UI 的重要部分。 如你所见，SwiftUI 让开发人员可以非常轻松地构建一些漂亮的动画和视图过渡效果。 当你开发下一个App时，不要忘记应用在本章中所学到的技术，来提升使用者体验。</p>
-<p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
+<p>在本章所准备的范例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAppStore.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAppStore.zip</a></p>
 
                     

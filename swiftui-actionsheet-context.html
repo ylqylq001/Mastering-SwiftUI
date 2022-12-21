@@ -886,13 +886,13 @@
 <figure id="fig16.1"><img src="images/actionsheet/swiftui-actionsheet-1.jpg" alt="图 16.1.　滑动删除（左图）、内容选单与动作表（右图)"><figcaption>图 16.1.　滑动删除（左图）、内容选单与动作表（右图)</figcaption></figure>
 <p>参考图 16.1，我相信你应该非常熟悉“滑动删除”与“动作表”，这两个 UI 元素在 iOS 中已经存在多年，而内容选单则是在 iOS 13 新导入，尽管它看起来类似 3D Touch 的预览（peek ）与弹出（pop ）。对于使用内容选单实现的任何视图（例如：按钮），每当使用者在视图上做压力触控（force touch ）时，iOS 会带出一个弹出选单。对于开发者而言，配置选单中显示的动作项目是你的责任。</p>
 <p>虽然本章的重点是“与清单的互动”，但是我所介绍的技巧也可以应用于其他的UI 控制元件（例如：按钮）。</p>
-<h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始专案</h3>
-<p>我们开始建立这个专案，而我们将以之前建立的清单 App 为基础，来建立一个互动式清单。你可以至</p>
-<p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip</a> 来下载专案，下载后开启专案，并检视预览，它应该会显示一个包含文字与图片的简单清单，如图 16.2 所示。稍后，我们将在这个范例 App 中加入滑动删除功能、一个动作表与一个内容选单。</p>
-<figure id="fig16.2"><img src="images/actionsheet/swiftui-actionsheet-2.png" alt="图 16.2.　起始专案会显示一个简单的清单视图"><figcaption>图 16.2.　起始专案会显示一个简单的清单视图</figcaption></figure>
-<p>如果你的眼睛够敏锐的话，你可能会发现起始专案使用 <code>ForEach</code> 来实现该清单。为什么我将它变更回 <code>ForEach</code>，而不是传送资料集合至 <code>List</code> 呢？主要原因是我将介绍的 <code>onDelete</code>处理器只能使用 <code>ForEach</code>。</p>
+<h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
+<p>我们开始建立这个项目，而我们将以之前建立的清单 App 为基础，来建立一个互动式清单。你可以至</p>
+<p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip</a> 来下载项目，下载后开启项目，并检视预览，它应该会显示一个包含文字与图片的简单清单，如图 16.2 所示。稍后，我们将在这个范例 App 中加入滑动删除功能、一个动作表与一个内容选单。</p>
+<figure id="fig16.2"><img src="images/actionsheet/swiftui-actionsheet-2.png" alt="图 16.2.　起始项目会显示一个简单的清单视图"><figcaption>图 16.2.　起始项目会显示一个简单的清单视图</figcaption></figure>
+<p>如果你的眼睛够敏锐的话，你可能会发现起始项目使用 <code>ForEach</code> 来实现该清单。为什么我将它变更回 <code>ForEach</code>，而不是传送资料集合至 <code>List</code> 呢？主要原因是我将介绍的 <code>onDelete</code>处理器只能使用 <code>ForEach</code>。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%BB%91%E5%8B%95%E5%88%AA%E9%99%A4">实现滑动删除</h3>
-<p>假设你已经准备好起始专案了，我们开始实现“滑动删除”（swipe to delete ）功能，我已经简要提过 <code>onDelete</code> 处理器。要对清单中的所有列启用“滑动删除”功能，你只需要将这个处理器加到所有列的资料即可。因此，更新 <code>List</code> 如下： </p>
+<p>假设你已经准备好起始项目了，我们开始实现“滑动删除”（swipe to delete ）功能，我已经简要提过 <code>onDelete</code> 处理器。要对清单中的所有列启用“滑动删除”功能，你只需要将这个处理器加到所有列的资料即可。因此，更新 <code>List</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
         <span class="hljs-type">BasicImageRow</span>(restaurant: restaurant)
@@ -1103,9 +1103,9 @@
 <figure id="fig16.7"><img src="images/actionsheet/swiftui-actionsheet-7.png" alt="图 16.7.　加入“打卡”功能"><figcaption>图 16.7.　加入“打卡”功能</figcaption></figure>
 <div style="page-break-after: always;"></div>
 
-<p>在本章所准备的范例档中，有完整的专案与作业解答可以下载： </p>
+<p>在本章所准备的范例档中，有完整的项目与作业解答可以下载： </p>
 <ul>
-<li>范例专案与作业解答  (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheet.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheet.zip</a>)</li>
+<li>范例项目与作业解答  (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheet.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheet.zip</a>)</li>
 </ul>
 
                     

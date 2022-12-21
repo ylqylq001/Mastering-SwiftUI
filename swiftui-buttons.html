@@ -892,10 +892,10 @@
 <li>如何建立一个可重复使用的按钮样式。</li>
 <li>如何加入一个点击按钮动画。</li>
 </ol>
-<h3 id="%E5%95%9F%E7%94%A8-swiftui-%E4%BE%86%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88">启用 SwiftUI 来建立新专案</h3>
-<p>好的，让我们从基础开始，使用 SwiftUI 来建立一个简单的按钮。首先开启Xcode， 并使用“App”模板建立一个新专案。接着于下一个画面输入专案的名称，我将它设定为“SwiftUIButton”，不过你可以自由使用其他的名称。你只需确保于 Interface 选项下已选取“ SwiftUI”即可，如图 6.1 所示。</p>
-<figure id="fig6.1"><img src="images/buttons/swiftui-buttons-1.png" alt="图 6.1. 建立一个新专案"><figcaption>图 6.1. 建立一个新专案</figcaption></figure>
-<p>当你储存专案后，Xcode 应会载入 <code>ContentView.swift</code> 档，并在设计划布中显示一个预览画面，如图 6.2 所示。</p>
+<h3 id="%E5%95%9F%E7%94%A8-swiftui-%E4%BE%86%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88">启用 SwiftUI 来建立新项目</h3>
+<p>好的，让我们从基础开始，使用 SwiftUI 来建立一个简单的按钮。首先开启Xcode， 并使用“App”模板建立一个新项目。接着于下一个画面输入项目的名称，我将它设定为“SwiftUIButton”，不过你可以自由使用其他的名称。你只需确保于 Interface 选项下已选取“ SwiftUI”即可，如图 6.1 所示。</p>
+<figure id="fig6.1"><img src="images/buttons/swiftui-buttons-1.png" alt="图 6.1. 建立一个新项目"><figcaption>图 6.1. 建立一个新项目</figcaption></figure>
+<p>当你储存项目后，Xcode 应会载入 <code>ContentView.swift</code> 档，并在设计划布中显示一个预览画面，如图 6.2 所示。</p>
 <figure id="fig6.2"><img src="images/buttons/swiftui-buttons-2.png" alt="图 6.2　预览预设的内容视图"><figcaption>图 6.2　预览预设的内容视图</figcaption></figure>
 <p>使用 SwiftUI 建立按钮非常简单。基本上，你可以使用下列的代码片段来建立按钮： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
@@ -1021,7 +1021,7 @@
 </code></pre>
 <p><code>overlay</code> 修饰器可以让你将另一个视图叠在目前的视图之上。在代码中，我们使用 <code>RoundedRectangle</code> 物件的<code>stroke</code>  修饰器来绘制一个圆角边框，而 <code>stroke</code> 修饰器可以让你设定框线的颜色与线宽。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%B7%E6%9C%89%E5%9C%96%E7%89%87%E8%88%87%E6%96%87%E5%AD%97%E7%9A%84%E6%8C%89%E9%88%95">建立具有图片与文字的按钮</h3>
-<p>到目前为止，我们只使用了文字按钮。在真实世界的专案中，你或你的设计师可能想要显示具有图片的按钮，而建立图片按钮的语法是相同的，除了你是使用 <code>Image</code> 控制元件来代替 <code>Text</code> 控制元件，如下所示：</p>
+<p>到目前为止，我们只使用了文字按钮。在真实世界的项目中，你或你的设计师可能想要显示具有图片的按钮，而建立图片按钮的语法是相同的，除了你是使用 <code>Image</code> 控制元件来代替 <code>Text</code> 控制元件，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Delete button tapped!&quot;</span>)
 }) {
@@ -1089,7 +1089,7 @@
 </code></pre>
 <p>你可以自由使用自己喜好的颜色来渲染渐层效果。例如：你的设计师告诉你使用了如图 6.15 所示的渐层。</p>
 <figure id="fig6.15"><img src="images/buttons/swiftui-buttons-15.png" alt="图 6.15.　uigradients.com 的渐层范例"><figcaption>图 6.15.　uigradients.com 的渐层范例</figcaption></figure>
-<p>有多种方式可以将色码（ color code ）从十六进制（ hex ）转换为Swift 相容的格式。这里我将展示其中一种方式。在专案导览器中，选取素材目录（也就是 <code>Assets</code> ），然后在空白区域（ AppIcon 下方）按右键，并选择“New Color Set”，如图 6.16 所示。</p>
+<p>有多种方式可以将色码（ color code ）从十六进制（ hex ）转换为Swift 相容的格式。这里我将展示其中一种方式。在项目导览器中，选取素材目录（也就是 <code>Assets</code> ），然后在空白区域（ AppIcon 下方）按右键，并选择“New Color Set”，如图 6.16 所示。</p>
 <figure id="fig6.16"><img src="images/buttons/swiftui-buttons-16.png" alt="图 6.16.　在素材目录定义一个新颜色集"><figcaption>图 6.16.　在素材目录定义一个新颜色集</figcaption></figure>
 <p>接下来， 于 “Any Appearance”选择好颜色并点选“Show inspector”按钮， 然后点选属性检阅器（Attributes Inspector ）图示来显示颜色集的属性。在“Name”栏位中，将名称设定为“DarkGreen”，接着在“Color”区块中，更改“Input Method”（输入方法）栏位为“8-bit Hexadecimal”，如图 6.17 所示。</p>
 <figure id="fig6.17"><img src="images/buttons/swiftui-buttons-17.png" alt="图 6.17　编辑颜色集的属性"><figcaption>图 6.17　编辑颜色集的属性</figcaption></figure>
@@ -1313,9 +1313,9 @@
 <figure id="fig6.29"><img src="images/buttons/swiftui-buttons-29.png" alt="图 6.29. 不同角色和样式的按钮外观"><figcaption>图 6.29. 不同角色和样式的按钮外观</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>在本章中，我们介绍了 SwiftUI 中建立按钮的基本观念。按钮在手机介面（或确切地说在任何应用程式 UI）中扮演着关键角色，良好设计的按钮不仅可以使你的 UI 更具吸引力，还可以提升你的 App 的使用者体验。如你所学，透过结合 SF Symbols、渐层与动画的应用，你可以轻松建立一个有吸引力且实用的按钮。</p>
-<p>在本章所准备的范例档中，有完整的专案可以下载： </p>
+<p>在本章所准备的范例档中，有完整的项目可以下载： </p>
 <ul>
-<li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip</a>)</li>
+<li>范例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip</a>)</li>
 </ul>
 
                     
