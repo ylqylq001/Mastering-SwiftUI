@@ -1002,7 +1002,7 @@
     .padding()
 }
 </code></pre>
-<p>更改完成后，你将在 <code>CardView_Previews</code> 结构中看到一个错误，如图 5.11 所示。这是因为我们在 <code>CardView</code> 导入了一些变量，当使用它时，必须指定参数给它。</p>
+<p>修改完成后，你将在 <code>CardView_Previews</code> 结构中看到一个错误，如图 5.11 所示。这是因为我们在 <code>CardView</code> 导入了一些变量，当使用它时，必须指定参数给它。</p>
 <figure id="fig5.11"><img src="images/scrollview/swiftui-scrollview-11.png" alt="图 5.11. 调用 CardView 时缺少参数"><figcaption>图 5.11. 调用 CardView 时缺少参数</figcaption></figure>
 <p>因此，以下列代码来取代： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{

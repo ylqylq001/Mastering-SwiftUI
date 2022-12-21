@@ -959,7 +959,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>这个示例App是一个普通 ToDo App的简化版本。 每个待办事项（或任务）具有三个属性：<em>name</em>、<em>priority</em> 和 <em>isComplete</em>（即事项的状态）。 这个类别采用了<code>ObservableObject</code> 协议。 这三个属性都用<code>@Published</code> 标记，当其中的值发生任何更改时就会自动通知订阅者。 稍后，在 ContentView 的实现中，SwiftUI 会不时观察数值的变化并相应地修改视图。 例如，当 <code>isComplete</code> 的值发生变化时，它会切换核取方块。</p>
+<p>这个示例App是一个普通 ToDo App的简化版本。 每个待办事项（或任务）具有三个属性：<em>name</em>、<em>priority</em> 和 <em>isComplete</em>（即事项的状态）。 这个类别采用了<code>ObservableObject</code> 协议。 这三个属性都用<code>@Published</code> 标记，当其中的值发生任何修改时就会自动通知订阅者。 稍后，在 ContentView 的实现中，SwiftUI 会不时观察数值的变化并相应地修改视图。 例如，当 <code>isComplete</code> 的值发生变化时，它会切换核取方块。</p>
 <p>这个类别也符合<code>Identifiable</code> 协议，这样<code>ToDoItem</code> 的每个实体（instance）都有一个独一无二的识别码。 稍后，我们将使用 <code>ForEach</code> 和 <code>List</code> 来显示待办事项。 这就是为什么我们需要采用协议并创建 <code>id</code> 属性。</p>
 <p>现在让我们转到视图并从<code>ContentView.swift</code> 开始。 假设你已经阅读了第 10 章，你应该理解大部分代码。 内容视图包含三个主要部分，它们嵌入在一个“ZStack”中：</p>
 <ol>
@@ -999,7 +999,7 @@ task.isComplete = isComplete
 .offset(y: showNewTask ? -<span class="hljs-number">50</span> : <span class="hljs-number">0</span>)
 .animation(.easeOut)
 </code></pre>
-<p>我加了一个名为 <code>todoItems</code> 的变量来保存所有的待办事项。 这个变量标有<code>@State</code>，以便在有任何更改时修改列表。 在 List 视图中，我们使用 ForEach 以显示所有项目。</p>
+<p>我加了一个名为 <code>todoItems</code> 的变量来保存所有的待办事项。 这个变量标有<code>@State</code>，以便在有任何修改时修改列表。 在 List 视图中，我们使用 ForEach 以显示所有项目。</p>
 <p>另外，我们有一个名为<code>ToDoListRow</code>的独立视图以处理列表的行：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ToDoListRow</span>: <span class="hljs-title">View</span> </span>{
 
@@ -1031,7 +1031,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>这个视图接受一个待办事项，它是一个<code>ObservableObject</code>。 这意味着该待办事项有任何更改时，相关的视图将自动修改UI。</p>
+<p>这个视图接受一个待办事项，它是一个<code>ObservableObject</code>。 这意味着该待办事项有任何修改时，相关的视图将自动修改UI。</p>
 <p>对于每一行的待办事项，由三部分组成：</p>
 <ol>
 <li>切换（Toggle）/ 核取方块（Checkbox） - 提示事项是否完成。</li>
@@ -1182,7 +1182,7 @@ task.isComplete = isComplete
 <h4 id="%E5%BB%BA%E7%AB%8B%E8%A8%97%E7%AE%A1%E7%89%A9%E4%BB%B6%E6%A8%A1%E5%9E%8B">建立托管物件模型</h4>
 <p>接下来，我们需要手动建立托管物件模型。 在项目导航器中，右键单击 <em>ToDoList</em> 文件夹并选择 <em>New file...</em>。 选择 <em>Data Model</em> 并将文件命名为“ToDoList.xcdatamodeld”。 请确保你正确命名文件，因为它应该与<code>NSPersistentContainer</code>内的名称相同。</p>
 <figure id="fig22.7"><img src="images/core-data/swiftui-core-data-7.png" alt="图 22.7. 选择数据模型模板"><figcaption>图 22.7. 选择数据模型模板</figcaption></figure>
-<p>之后，选择模型文件并单击 <em>Add Entity</em> 以建立新实体。 将实体的名称从 <em>Entity</em> 更改为 <em>ToDoItem</em>。 你可以将此实体视为数据库表中的一条记录。 因此，该实体应存储“ToDoItem”的属性。 我们需要为实体添加 4 个属性，包括（见图 22.8）：</p>
+<p>之后，选择模型文件并单击 <em>Add Entity</em> 以建立新实体。 将实体的名称从 <em>Entity</em> 修改为 <em>ToDoItem</em>。 你可以将此实体视为数据库表中的一条记录。 因此，该实体应存储“ToDoItem”的属性。 我们需要为实体添加 4 个属性，包括（见图 22.8）：</p>
 <ul>
 <li><em>id</em> - 类型为 <em>UUID</em></li>
 <li><em>name</em> - 类型为 <em>String</em></li>
@@ -1201,7 +1201,7 @@ task.isComplete = isComplete
 <figure id="fig22.8"><img src="images/core-data/swiftui-core-data-8.png" alt="图 8. 禁用代码生成"><figcaption>图 8. 禁用代码生成</figcaption></figure>
 <p>如你所见，到目前为止我们开发的所有内容都不需要你具备数据库编程知识。 没有 SQL，没有数据库表。 你处理的所有事情都是基于对象的， 这就是 Core Data 的美妙之处。</p>
 <h4 id="%E5%AE%9A%E7%BE%A9%E6%A8%A1%E5%9E%8B%E9%A1%9E%E5%88%A5">定义模型类别</h4>
-<p>在 Core Data 中，每个实体都应该与一个模型类配对。 默认情况下，这个模型类是由 Xcode 生成的。 之前，我们把设置从 <em>code gen</em> 更改为 <em>manual</em>。 所以，我们需要手动建立模型类型<code>ToDoItem</code>。 切换到 <code>ToDoItem.swift</code> 并导入 <em>CoreData</em> 包：</p>
+<p>在 Core Data 中，每个实体都应该与一个模型类配对。 默认情况下，这个模型类是由 Xcode 生成的。 之前，我们把设置从 <em>code gen</em> 修改为 <em>manual</em>。 所以，我们需要手动建立模型类型<code>ToDoItem</code>。 切换到 <code>ToDoItem.swift</code> 并导入 <em>CoreData</em> 包：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">CoreData</span>
 </code></pre>
 <p>像这样建立<code>ToDoItem</code>类别：</p>
@@ -1240,7 +1240,7 @@ task.isComplete = isComplete
 </code></pre>
 <p>回想一下，我们已经在环境中注入了托管物件内容，这个读取请求会自动利用托管物件内容以获取所需的数据。 在上面的代码中，我们指定获取 <code>ToDoItem</code> 实体以及结果的排序方式。 另外，我们想根据优先次序对各事项进行排序。</p>
 <p>获取完成后，你将拥有一组 <code>ToDoItem</code> 托管物件，这些物件是建基于我们之前在模型层中定义的 <code>ToDoItem</code> 类别。</p>
-<p>这就是从数据库中检索数据的方式。 而且，由于 <code>ToDoItem</code> 的属性保持不变，我们不需要为列表视图做任何代码更改，就可以直接在 ForEach 中使用所得的数据：</p>
+<p>这就是从数据库中检索数据的方式。 而且，由于 <code>ToDoItem</code> 的属性保持不变，我们不需要为列表视图做任何代码修改，就可以直接在 ForEach 中使用所得的数据：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
 
     <span class="hljs-type">ForEach</span>(todoItems) { todoItem <span class="hljs-keyword">in</span>
@@ -1251,7 +1251,7 @@ task.isComplete = isComplete
 </code></pre>
 <p>最重要的是，你可以直接传递 <code>todoItem</code>，因为它就是一个 <code>NSManageObject</code>。看一看<code>NSManagedObject</code> 的技术文， 它符合<code>ObservableObject</code>。 这就是为什么我们可以直接将 <code>todoItem</code> 传递给 <code>ToDoListRow</code>。</p>
 <figure id="fig22.9"><img src="images/core-data/swiftui-core-data-9.png" alt="Figure 9. NSManagedObject documentation"><figcaption>Figure 9. NSManagedObject documentation</figcaption></figure>
-<p>还有一件事。 你可能还想知道我们是否需要在 <code>todoItems</code> 发生更改时手动执行 fetch 请求（例如，我们添加了一个新项目）。 这是使用<code>@FetchRequest</code> 的另一个优点。 SwiftUI 会自动管理其变动并相应地修改 UI。</p>
+<p>还有一件事。 你可能还想知道我们是否需要在 <code>todoItems</code> 发生修改时手动执行 fetch 请求（例如，我们添加了一个新项目）。 这是使用<code>@FetchRequest</code> 的另一个优点。 SwiftUI 会自动管理其变动并相应地修改 UI。</p>
 <h4 id="%E5%B0%87%E6%95%B8%E6%93%9A%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%8C%81%E4%B9%85%E5%AD%98%E5%84%B2">将数据添加到持久存储</h4>
 <p>现在，让我们继续进行 Core Data 迁移并修改 <code>NewToDoView.swift</code> 的代码。 要在数据库中存新事项，首先需要从环境中获取托管物件内容：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.managedObjectContext) <span class="hljs-keyword">var</span> context
@@ -1275,7 +1275,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>要将新记录加入数据库，你需要使用托管物件内容建立一个 <code>ToDoItem</code>，然后调用 <code>save()</code> 方法来储存更改。</p>
+<p>要将新记录加入数据库，你需要使用托管物件内容建立一个 <code>ToDoItem</code>，然后调用 <code>save()</code> 方法来储存修改。</p>
 <p>由于我们移除了 <code>todoItems</code> 绑定，我们需要修改预览代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">NewToDoView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1285,7 +1285,7 @@ task.isComplete = isComplete
 </code></pre>
 <p>现在让我们回到<code>ContentView.swift</code>。 同样地，你应该会在<code>ContentView</code>中看到一个错误（见图 22.10）。</p>
 <figure id="fig22.10"><img src="images/core-data/swiftui-core-data-10.png" alt="图 22.10. Xcode 向你显示 ContentView 中的错误"><figcaption>图 22.10. Xcode 向你显示 ContentView 中的错误</figcaption></figure>
-<p>像这样更改代码行以修复错误：</p>
+<p>像这样修改代码行以修复错误：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NewToDoView</span>(isShow: $showNewTask, name: <span class="hljs-string">&quot;&quot;</span>, priority: .normal)
 </code></pre>
 <p>我们只需删除 <code>todoItems</code> 参数。 这就是我们将示例App从使用数组存储转换为持久存储的方式。</p>
@@ -1309,7 +1309,7 @@ task.isComplete = isComplete
     })
 }
 </code></pre>
-<p>每当切换发生更改时，<code>todoItem</code> 的 <code>isComplete</code> 属性都会修改。 但是，我们如何将它保存到数据库呢？ 回想一下 <code>todoItem</code> 已符合 <code>ObservableObject</code>，这意味着它有一个发布者来广播值的变化。</p>
+<p>每当切换发生修改时，<code>todoItem</code> 的 <code>isComplete</code> 属性都会修改。 但是，我们如何将它保存到数据库呢？ 回想一下 <code>todoItem</code> 已符合 <code>ObservableObject</code>，这意味着它有一个发布者来广播值的变化。</p>
 <p><code>onChange</code> 修饰器则监听这些变化（比如<code>isComplete</code> 的变化），并通过调用<code>context</code>的 <code>save()</code> 方法将它们保存到数据库中。</p>
 <p>现在你可以在模拟器中运行App进行测试， 你应该能够添加新事项。 添加新事项后，它们应立即显示在列表视图中。 核取方块也应该可以用了，点一下就可以将相关事项画线。 最重要的是，所有改动现在都永久保存在装置内的数据库。 就算重新App，所有项目仍然存在。</p>
 <figure id="fig22.11"><img src="images/core-data/swiftui-core-data-11.png" alt="图 22.11. ToDo App 现在支持 Core Data"><figcaption>图 22.11. ToDo App 现在支持 Core Data</figcaption></figure>
@@ -1335,7 +1335,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>此函数接收一个索引集，该集储存要删除项目的索引。 要从数据库中删除项目，你可以调用<code>context</code>的<code>delete</code> 方法并指定要删除的项目。 最后，调用 <code>save()</code> 来执行更改。</p>
+<p>此函数接收一个索引集，该集储存要删除项目的索引。 要从数据库中删除项目，你可以调用<code>context</code>的<code>delete</code> 方法并指定要删除的项目。 最后，调用 <code>save()</code> 来执行修改。</p>
 <p>既然我们已经准备好了删除方法，那么我们应该在哪里调用它呢？ 将 <code>onDelete</code> 修饰器附加到列表视图的 <code>ForEach</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
 

@@ -930,7 +930,7 @@
 }
 .fill(<span class="hljs-type">Color</span>.purple)
 </code></pre>
-<p> <code>addQuadCurve</code>  方法可以让你通过定义一个控制点（control point ）来绘制曲线。参考图 8.6，(40, 60) 与(210, 60) 就是所谓的“锚点”（anchor point ），(125, 0) 则是计算建立圆顶形状的控制点，我不打算在这里讨论有关绘制曲线的数学，你可尝试更改控制点的值来查看效果。简单而言，该控制点控制如何绘制曲线。如果你将控制点放在更靠近矩形顶部的位置（例如：125, 30），则会绘制出不圆的外观。</p>
+<p> <code>addQuadCurve</code>  方法可以让你通过定义一个控制点（control point ）来绘制曲线。参考图 8.6，(40, 60) 与(210, 60) 就是所谓的“锚点”（anchor point ），(125, 0) 则是计算建立圆顶形状的控制点，我不打算在这里讨论有关绘制曲线的数学，你可尝试修改控制点的值来查看效果。简单而言，该控制点控制如何绘制曲线。如果你将控制点放在更靠近矩形顶部的位置（例如：125, 30），则会绘制出不圆的外观。</p>
 <h3 id="fill-%E8%88%87-stroke">Fill 与 Stroke</h3>
 <p>如果要画出形状的边框，并同时以颜色填满形状，该怎么做呢？ <code>fill</code> 与 <code>stroke</code> 修饰器无法并行使用，不过你可以使用 <code>ZStack</code> 来达到相同的效果，代码如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {

@@ -1087,7 +1087,7 @@
 <p>这里我们为售价区块的标题、售价、文字与背景颜色加入变量。另外，我们在代码中使用这些变量来修改标题、售价、文字与背景颜色。</p>
 <p>当变更完成后，你会见到一个错误，如图 4.20 所示，指出 <code>PricingView</code> 少了一些参数。</p>
 <figure id="fig4.20"><img src="images/stacks/swiftui-stacks-20.png" alt="图 4.20.　Xcode 指出 PricingView 中的错误"><figcaption>图 4.20.　Xcode 指出 PricingView 中的错误</figcaption></figure>
-<p>之前，我们在视图中导入了四个变量。调用 <code>PricingView</code> 时，我们现在应该能提供这些参数的值，因此将<code>PricingView()</code> 更改如下： </p>
+<p>之前，我们在视图中导入了四个变量。调用 <code>PricingView</code> 时，我们现在应该能提供这些参数的值，因此将<code>PricingView()</code> 修改如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Basic&quot;</span>, price: <span class="hljs-string">&quot;$9&quot;</span>, textColor: .white, bgColor: .purple)
 </code></pre>
 <p>另外，你也可以 <code>PricingView</code> 取代“Pro”方案的 <code>VStack</code>，如下所示： </p>
@@ -1187,7 +1187,7 @@
     }
 }
 </code></pre>
-<p>当你更改完成之后，就可以使用 <code>ZStack</code> 与 <code>PricingView</code> 来建立一个“Team”方案，如下所示，你可以将程序放在 <code>ContentView</code> 内，于 <code>.padding(.horiontal)</code> 后插入：</p>
+<p>当你修改完成之后，就可以使用 <code>ZStack</code> 与 <code>PricingView</code> 来建立一个“Team”方案，如下所示，你可以将程序放在 <code>ContentView</code> 内，于 <code>.padding(.horiontal)</code> 后插入：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Team&quot;</span>, price: <span class="hljs-string">&quot;$299&quot;</span>, textColor: .white, bgColor: <span class="hljs-type">Color</span>(red: <span class="hljs-number">62</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">63</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">70</span>/<span class="hljs-number">255</span>), icon: <span class="hljs-string">&quot;wand.and.rays&quot;</span>)
         .padding()

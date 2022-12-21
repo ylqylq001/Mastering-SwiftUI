@@ -1046,7 +1046,7 @@
 <p>Combine 框架提供一个声明式方法，供App 处理事件。你可以为给定的事件源建立单一处理链（chain），而不是实现多个委派回呼（delegate callback ）或完成处理闭包（completion handler closure ）。链的每一个部分都是一个Combine 运算子，对上一个步骤收到的元素执行不同的动作。</p>
 <p>- Apple 的官方文件 (<a href="https://developer.apple.com/documentation/combine/receiving_and_handling_events_with_combine" target="_blank">https://developer.apple.com/documentation/combine/receiving_and_handling_events_with_combine</a>)</p>
 </blockquote>
-<p>发布者与订阅者是框架的两个核心元素。使用 Combine，发布者传送事件，订阅者订阅，以从发布者接收值。同样的，我们以文字栏位为例。通过使用 Combine，使用者在文字栏位中输入的每个按键，都会触发一个值更改的事件。而对监控这些值感兴趣的订阅者，可以订阅接收这些事件，并进一步执行操作（例如：验证）。</p>
+<p>发布者与订阅者是框架的两个核心元素。使用 Combine，发布者传送事件，订阅者订阅，以从发布者接收值。同样的，我们以文字栏位为例。通过使用 Combine，使用者在文字栏位中输入的每个按键，都会触发一个值修改的事件。而对监控这些值感兴趣的订阅者，可以订阅接收这些事件，并进一步执行操作（例如：验证）。</p>
 <p>举例而言，你正在写一个表单验证器，它有指示表单是否准备好送出的属性。在这个例子中，你可以使用<code>@Published</code> 标注来标记该属性，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FormValidator</span>: <span class="hljs-title">ObservableObject</span> </span>{
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> isReadySubmit: <span class="hljs-type">Bool</span> = <span class="hljs-built_in">false</span>
@@ -1122,7 +1122,7 @@
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(iconColor: userRegistrationViewModel.isUsernameLengthValid ? <span class="hljs-type">Color</span>.secondary : <span class="hljs-type">Color</span>(red: <span class="hljs-number">251</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">128</span>/<span class="hljs-number">255</span>), text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>, isStrikeThrough: userRegistrationViewModel.isUsernameLengthValid)
 </code></pre>
 <p>图示的颜色与删除线的状态都取决于验证结果而定（也就是 <code>isUsernameLengthValid</code> ）。</p>
-<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码变更放入我们的项目中，不过我希望让你了解发布者/ 订阅者的观念，以及我们如何使用这个方法执行验证。在后面的小节中，我们将应用所学的知识，并对代码进行更改。</p>
+<p>这就是我们如何使用 Combine 来验证表单栏位的方式。我们还没有将代码变更放入我们的项目中，不过我希望让你了解发布者/ 订阅者的观念，以及我们如何使用这个方法执行验证。在后面的小节中，我们将应用所学的知识，并对代码进行修改。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-combine-%E9%A9%97%E8%AD%89%E5%AF%86%E7%A2%BC">使用 Combine 验证密码</h4>
 <p>如果你了解使用者名称栏位的验证是如何完成的，我们将对密码与密码确认验证应用类似的实现。</p>
 <p>对于密码栏位，有两个要求： </p>

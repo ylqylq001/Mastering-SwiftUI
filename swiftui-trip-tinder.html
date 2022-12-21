@@ -969,7 +969,7 @@
     }
 }
 </code></pre>
-<p>我只是使用素材目录中的其中一张图片来进行预览，你可以依自己的需求随意更改图片及标题。在预览画布中，你现在应该看到类似图 19.4 的卡片视图。</p>
+<p>我只是使用素材目录中的其中一张图片来进行预览，你可以依自己的需求随意修改图片及标题。在预览画布中，你现在应该看到类似图 19.4 的卡片视图。</p>
 <figure id="fig19.4"><img src="images/triptinder/swiftui-trip-tinder-4.png" alt="图 19.4.　预览卡片视图"><figcaption>图 19.4.　预览卡片视图</figcaption></figure>
 <h4 id="%E9%81%B8%E5%96%AE%E5%88%97%E8%88%87%E4%B8%BB-ui">选单列与主 UI</h4>
 <p>准备好卡片视图后，我们可以继续实现主 UI。如前所述，主 UI 有卡片与两个选单列， 对于这两个选单列，我将为它们个别建立一个单独的 <code>struct</code>。</p>
@@ -1137,7 +1137,7 @@
     <span class="hljs-keyword">return</span> views
 }()
 </code></pre>
-<p>更改代码之后，UI 看起来应该完全相同。但在底层架构中，你应该在卡片库中只看到两个卡片视图。</p>
+<p>修改代码之后，UI 看起来应该完全相同。但在底层架构中，你应该在卡片库中只看到两个卡片视图。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%BB%91%E5%8B%95%E5%8B%95%E4%BD%9C">实现滑动动作</h3>
 <p>在动态建立新的卡片视图之前，我们必须先实现滑动功能。如果你忘记湍如何处理手势，请再阅读第17 章及第18 章。我们将会重新使用前面讨论的一些代码。</p>
 <p>首先，在 <code>ContentView</code> 中定义 <code>DragState</code>枚举，它表示可能的拖曳状态： </p>
@@ -1219,8 +1219,8 @@
 </code></pre>
 <p>基本上，我们将应用在手势章节中所学的知识来实现拖曳。<code>.gesture</code> 修饰器有两个手势识别器：长按与拖曳。当侦测到拖曳手势时，我们修改 <code>dragState</code> 变量，并储存拖曳的位移量。</p>
 <p><code>offset</code>、<code>scaleEffect</code>、<code>rotationEffect</code> 与 <code>animation</code> 修饰器的结合， 可建立拖曳效果。拖曳是通过修改卡片视图的 <code>offset</code>来实现。当卡片视图处于拖曳状态时，我们会使用 <code>scaleEffect</code> 将它缩小一点，并应用<code>rotationEffect</code> 修饰器将它旋转特定角度。动画设定为 <code>interpolatingSpring</code>，但你可以自由尝试其他动画。</p>
-<p>我们还对 <code>BottomBarMenu</code> 做一些代码更改。当使用者拖曳卡片视图时，我想要隐藏底部列，因此我们应用 <code>.opacity</code> 修饰器，并且当它在拖曳状态时，设定它的值为“0”。</p>
-<p>进行更改后，在预览画布中执行项目来测试它。你应该能够拖曳卡片并四处移动。而当你释放卡片时，卡片会回到原来的位置，如图 19.10 所示。</p>
+<p>我们还对 <code>BottomBarMenu</code> 做一些代码修改。当使用者拖曳卡片视图时，我想要隐藏底部列，因此我们应用 <code>.opacity</code> 修饰器，并且当它在拖曳状态时，设定它的值为“0”。</p>
+<p>进行修改后，在预览画布中执行项目来测试它。你应该能够拖曳卡片并四处移动。而当你释放卡片时，卡片会回到原来的位置，如图 19.10 所示。</p>
 <figure id="fig19.10"><img src="images/triptinder/swiftui-trip-tinder-13.png" alt="图 19.10.　拖曳卡片视图"><figcaption>图 19.10.　拖曳卡片视图</figcaption></figure>
 <p>你注意到问题了吗？当拖曳开始时，你实际上是在拖曳整个卡片库 ！假设使用者只能拖曳最上面的卡片，下面的卡片应该保持不变。而且，缩放效果应只应用于最上面的卡片。</p>
 <p>要解决这些问题，我们需要修改 <code>offset</code>、<code>scaleEffect</code> 与 <code>rotationEffect</code> 修饰器的代码， 如此拖曳只发生在最上面的卡片视图。</p>
@@ -1306,7 +1306,7 @@
     cardViews.append(newCardView)
 }
 </code></pre>
-<p>这个函式先从 <code>cardViews</code> 数组中删除最上面的卡片，然后它使用后续旅程的图片来实例化一个新卡片视图。由于 <code>cardViews</code> 定义为状态属性，因此一旦数组的值更改时，SwiftUI 将再次渲染卡片视图，这就是我们如何删除最上面的卡片，并插入一张新卡片至卡片库的方式。</p>
+<p>这个函式先从 <code>cardViews</code> 数组中删除最上面的卡片，然后它使用后续旅程的图片来实例化一个新卡片视图。由于 <code>cardViews</code> 定义为状态属性，因此一旦数组的值修改时，SwiftUI 将再次渲染卡片视图，这就是我们如何删除最上面的卡片，并插入一张新卡片至卡片库的方式。</p>
 <p>针对这个示例，我想要卡片库继续显示一个旅程。在 <code>trips</code> 数组的最后一张图片显示后， App 将会回到第一个元素（注意，上列代码中的模数运算子%）。</p>
 <p>接下来，修改 <code>.gesture</code>修饰器，并插入 <code>.onEnded</code> 函式： </p>
 <pre><code class="lang-swift">.gesture(<span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">0.01</span>)

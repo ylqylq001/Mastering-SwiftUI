@@ -956,7 +956,7 @@
 </code></pre>
 <p>其工作原理是完全相同的，SwiftUI 寻找嵌入在 <code>ZStack</code> 中所有的状态变化，并建立动画。</p>
 <p>在示例中，我们使用默认动画。SwiftUI 提供许多内建动画供你选择，包括 <code>linear</code>、<code>easeIn</code>、<code>easeOut</code>、<code>easeInOut</code> 与 <code>spring</code>。“线性动画”（linear animation ）是以线性速度来呈现变化，而“缓动动画”（easing animation ）则是速度会做变化。详细内容可以参考 www.easings.net 来了解每个 ease 函数的差异。</p>
-<p>要使用其他的动画，你只需要在 <code>animation</code> 修饰器中设定特定的动画。例如：你想要使用 <code>spring</code> 动画，则可以将 <code>.default</code> 更改如下： </p>
+<p>要使用其他的动画，你只需要在 <code>animation</code> 修饰器中设定特定的动画。例如：你想要使用 <code>spring</code> 动画，则可以将 <code>.default</code> 修改如下： </p>
 <pre><code class="lang-swift">.animation(.spring(response: <span class="hljs-number">0.3</span>, dampingFraction: <span class="hljs-number">0.3</span>, blendDuration: <span class="hljs-number">0.3</span>), value: circleColorChanged)
 </code></pre>
 <p>这会渲染一个基于弹簧特性的动画，使得心形产生心跳的效果。你可以调整阻尼（damping ）值与混合（blend ）值，来达到不同的效果。</p>
@@ -1048,7 +1048,7 @@
 </code></pre>
 <p><code>rotationEffect</code> 修饰器带入旋转角度，在上列的代码中，我们有一个状态变量来控制下载状态。当它设定为true 时，这个旋转角度设定为 360 度以旋转圆环。在 <code>animation</code> 修饰器中，我们指定使用默认动画，不过还有些不同，我们告诉 SwiftUI 要一次又一次重复相同的动画，这就是建立下载动画的诀窍。</p>
 <p><strong>*备注</strong>: 如果在预览画布中看不到动画，请在模拟器中运行App再试一试。*</p>
-<p>如果你想要更改动画的速度，则可以使用线性动画，并指定持续时间，如下所示：</p>
+<p>如果你想要修改动画的速度，则可以使用线性动画，并指定持续时间，如下所示：</p>
 <pre><code class="lang-swift">.animation(.linear(duration: <span class="hljs-number">5</span>).repeatForever(autoreverses: <span class="hljs-built_in">false</span>), value: isLoading)
 </code></pre>
 <p>持续时间越久，则动画越慢。</p>
@@ -1080,7 +1080,7 @@
     }
 }
 </code></pre>
-<p>下载指示器不需要为圆形，你也可以使用 <code>Rectangle</code> 或 <code>RoundedRectangle</code> 来建立该指示器。不过，无需更改旋转角度，你可以修改位移值（offset value）来建立如图 9.5 所示的动画。</p>
+<p>下载指示器不需要为圆形，你也可以使用 <code>Rectangle</code> 或 <code>RoundedRectangle</code> 来建立该指示器。不过，无需修改旋转角度，你可以修改位移值（offset value）来建立如图 9.5 所示的动画。</p>
 <figure id="fig9.5"><img src="images/animation/swiftui-animation-5.gif" alt="图 9.5.　下载指示器的另一个示例"><figcaption>图 9.5.　下载指示器的另一个示例</figcaption></figure>
 <p>为了建立动画，我们将两个圆角矩形重叠在一起。上面的矩形比下面的矩形短得多， 当开始载入时，我们将位移值从“-110”修改为“110”。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
@@ -1183,7 +1183,7 @@
 </code></pre>
 <p>第一个部分建立一个持续时间为 0.6 秒的线性动画，该动画会重复执行，因此我们调用 <code>repeatForever</code> 函数。</p>
 <p>如果你没有调用 <code>delay</code> 函数来执行这个动画，则所有的点会同时缩放。但是，这不是我们想要的结果，每个点应独立调整大小，而不是全部同时放大/ 缩小，这也是为何我们调用 <code>delay</code> 函数的原因，并对每个点使用不同的延迟时间值。</p>
-<p>你可以更改持续时间值与延迟时间值来调整动画。</p>
+<p>你可以修改持续时间值与延迟时间值来调整动画。</p>
 <h3 id="%E5%B0%87%E7%9F%A9%E5%BD%A2%E8%AE%8A%E5%BD%A2%E7%82%BA%E5%9C%93%E5%BD%A2">将矩形变形为圆形</h3>
 <p>有时，你可能需要将一个形状（例如：矩形）流畅地变形为另一个形状（例如：圆形）。这该如何实现呢？使用内建的形状与动画，你可以轻松建立如图 9.9 所示的变形。</p>
 <figure id="fig9.9"><img src="images/animation/swiftui-animation-9.gif" alt="图 9.9.　将矩形变形为圆形"><figcaption>图 9.9.　将矩形变形为圆形</figcaption></figure>
@@ -1226,7 +1226,7 @@
 </code></pre>
 <p>这里有两个状态变量：<code>recordBegin</code> 与 <code>recording</code>，其是控制两个单独的动画。第一个变量控制按钮的变形，如前所述，我们使用圆角半径来实现这个变形。矩形的宽度原先是设定为“250 点”，当使用者点击矩形来触发变形时，这个框架的宽度会变为“60 点”。随着改变，圆角半径变成“30 点”，也就是宽度的一半。</p>
 <p>这就是我们将矩形变形为圆形的方法，而且SwiftUI 会自动渲染此变形的动画。</p>
-<p>另一方面，<code>recording</code> 状态变量处理了麦克风图片的缩放。当它为录音状态时，我们将缩放比例从“1”更改为“0.7”，藉由重复执行相同的动画，即可建立放大及缩小的动画。</p>
+<p>另一方面，<code>recording</code> 状态变量处理了麦克风图片的缩放。当它为录音状态时，我们将缩放比例从“1”修改为“0.7”，藉由重复执行相同的动画，即可建立放大及缩小的动画。</p>
 <p>请注意，以上的代码使用显式方法来对视图设定动画。这不是强制性的，依照自己的喜好，你也可以使用隐式动画方法来获得相同的结果。</p>
 <h3 id="%E4%BA%86%E8%A7%A3%E8%BD%89%E5%A0%B4">了解转场</h3>
 <p>到目前为止，我们已经讨论了对视图层次（view hierarchy ）中已存在的视图设定动画。我们建立动画来放大和缩小视图，或者对视图大小设定动画。</p>
@@ -1343,7 +1343,7 @@
     }
 }
 </code></pre>
-<p>更改代码后，请使用内建模拟器来执行这个 App。当紫色矩形出现于屏幕上时，你应该会看到缩放转场，而当你点击矩形时，紫色矩形会滑出屏幕画面。</p>
+<p>修改代码后，请使用内建模拟器来执行这个 App。当紫色矩形出现于屏幕上时，你应该会看到缩放转场，而当你点击矩形时，紫色矩形会滑出屏幕画面。</p>
 <figure id="fig9.15"><img src="images/animation/swiftui-animation-15.png" alt="图 9.15.　不对称转场示例"><figcaption>图 9.15.　不对称转场示例</figcaption></figure>
 <h3 id="%E4%BD%9C%E6%A5%AD-1-%E4%BD%BF%E7%94%A8%E5%8B%95%E7%95%AB%E8%88%87%E8%BD%89%E5%A0%B4%E5%BB%BA%E7%AB%8B%E7%B2%BE%E7%BE%8E%E6%8C%89%E9%88%95">作业 #1: 使用动画与转场建立精美按钮</h3>
 <p>现在，你应该具备了转场与动画的概念，我们来挑战建立一个精美的按钮，以显示目前操作状态。请输入下列网址：<a href="https://www.appcoda.com/wp-content/uploads/2019/10/swiftui-animation-16.gif" target="_blank">https://www.appcoda.com/wp-content/uploads/2019/10/swiftui-animation-16.gif</a>，来看一下效果。</p>

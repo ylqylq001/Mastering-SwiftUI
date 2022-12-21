@@ -1035,13 +1035,13 @@
 <p>做好改动之后，Xcode 预览应该会把图表修改如下。y 轴会在左侧显示，而月份的格式也会变成以数字格式显示。另外，你也应该会看到 grid line。</p>
 <figure id="fig38.6"><img src="images/charts/swiftui-charts-6.png" alt="图 38.6. 自定义图表轴"><figcaption>图 38.6. 自定义图表轴</figcaption></figure>
 <h3 id="%E5%AE%A2%E8%A3%BD%E5%8C%96%E7%B9%AA%E5%9C%96%E5%8D%80%E5%9F%9F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A1%8F%E8%89%B2">客制化绘图区域的背景颜色</h3>
-<p>我们可以利用 <code>chartPlotStyle</code> 修饰器，来更改绘图区域的背景颜色。让我们将修饰符附加到 <code>Chart</code> 视图：</p>
+<p>我们可以利用 <code>chartPlotStyle</code> 修饰器，来修改绘图区域的背景颜色。让我们将修饰符附加到 <code>Chart</code> 视图：</p>
 <pre><code class="lang-swift">.chartPlotStyle { plotArea <span class="hljs-keyword">in</span>
     plotArea
         .background(.blue.opacity(<span class="hljs-number">0.1</span>))
 }
 </code></pre>
-<p>然后，我们就可以使用 <code>background</code> 修饰符更改绘图区域的颜色。在上面的例子中，我们把绘图区域更改成浅蓝色。</p>
+<p>然后，我们就可以使用 <code>background</code> 修饰符修改绘图区域的颜色。在上面的例子中，我们把绘图区域修改成浅蓝色。</p>
 <figure id="fig38.7"><img src="images/charts/swiftui-charts-7.png" alt="图 38.7. 自定图表的背景颜色"><figcaption>图 38.7. 自定图表的背景颜色</figcaption></figure>
 <h3 id="%E6%A7%8B%E5%BB%BA%E5%A4%9A%E6%96%BC%E4%B8%80%E6%A2%9D%E7%B7%9A%E7%9A%84%E6%8A%98%E7%B7%9A%E5%9C%96">构建多于一条线的折线图</h3>
 <p>现在，图表只显示单一数据（香港的天气数据），那我们如何把伦敦和台北的天气数据显示在同一个折线图中呢？</p>
@@ -1066,7 +1066,7 @@
 <p>如此一来，不同城市就会有不同的符号了。</p>
 <figure id="fig38.9"><img src="images/charts/swiftui-charts-9.png" alt="图 38.9. 加入不同的符号"><figcaption>图 38.9. 加入不同的符号</figcaption></figure>
 <h3 id="%E5%AE%A2%E8%A3%BD%E5%8C%96%E5%85%A7%E6%8F%92-interpolation-%E6%96%B9%E6%B3%95">客制化内插 (Interpolation) 方法</h3>
-<p>我们可以把 <code>interpolationMethod</code> 修饰器附加到 <code>LineMark</code>，来更改折线图的内插方法。</p>
+<p>我们可以把 <code>interpolationMethod</code> 修饰器附加到 <code>LineMark</code>，来修改折线图的内插方法。</p>
 <pre><code class="lang-swift">.interpolationMethod(.stepStart)
 </code></pre>
 <p>如果我们把内插方法设置为 <code>.stepStart</code>，折线图就会变成这样：</p>

@@ -982,7 +982,7 @@
 </code></pre>
 <p>进行修改后，你应该会在灰色圆圈的顶部看到部分环形覆盖。 请注意，由于我们将 <code>strokedPath</code> 的 <code>lineCap</code> 参数设为 <code>.round</code>，所以它的两端都是圆帽形。</p>
 <figure id="fig30.7"><img src="images/progressring/swiftui-progressring-7.png" alt="图 30.7. 显示 RingShape"><figcaption>图 30.7. 显示 RingShape</figcaption></figure>
-<p>除了环的颜色，你可能还会注意到我们需要调整的一些代码。 圆弧的起点与图 30.4 是不同的。要解决此问题，你需要将 <code>startAngle</code> 从0更改为 -90。</p>
+<p>除了环的颜色，你可能还会注意到我们需要调整的一些代码。 圆弧的起点与图 30.4 是不同的。要解决此问题，你需要将 <code>startAngle</code> 从0修改为 -90。</p>
 <p>在 <code>RingShape</code> 中声明以下属性：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> startAngle: <span class="hljs-type">Double</span> = -<span class="hljs-number">90.0</span>
 </code></pre>
@@ -992,7 +992,7 @@
             startAngle: .degrees(startAngle),
             endAngle: .degrees(<span class="hljs-number">360</span> * progress + startAngle), clockwise: <span class="hljs-built_in">false</span>)
 </code></pre>
-<p>我们将 <code>startAngle</code> 参数更改为 <code>-90</code> 度数。 另外，还需要更改 <code>endAngle</code> 参数，因为起始角度已更改。 修改后，圆弧现在就逆时针旋转 90 度。</p>
+<p>我们将 <code>startAngle</code> 参数修改为 <code>-90</code> 度数。 另外，还需要修改 <code>endAngle</code> 参数，因为起始角度已修改。 修改后，圆弧现在就逆时针旋转 90 度。</p>
 <figure id="fig30.8"><img src="images/progressring/swiftui-progressring-8.png" alt="图 30.8。 改变起始角度后的局部环"><figcaption>图 30.8。 改变起始角度后的局部环</figcaption></figure>
 <h3 id="%E6%B7%BB%E5%8A%A0%E6%BC%B8%E8%AE%8A%E8%89%B2">添加渐变色</h3>
 <p>现在你有了一个可以显示不同的进度的环，如果每条进度条都能显示渐变颜色，不就更好吗？ SwiftUI 提供了三种类型的渐变，包括线性渐变、角度渐变和径向渐变。 Apple 使用角度渐变来为进度条加进渐变效果。</p>
@@ -1174,7 +1174,7 @@
 <p>我们可以将 <code>.shadow</code> 修饰器附加到 <code>RingTip</code>：</p>
 <pre><code class="lang-swift">.shadow(color: progress &gt; <span class="hljs-number">0.96</span> ? <span class="hljs-type">Color</span>.black.opacity(<span class="hljs-number">0.15</span>) : <span class="hljs-type">Color</span>.clear, radius: <span class="hljs-number">2</span>, x: ringTipShadowOffset.x, y: ringTipShadowOffset.y)
 </code></pre>
-<p>我只是想添加一个浅色的阴影，所以将<code>opacity</code>设定为0.15。 如果你喜欢较暗色的阴影，请增加<code>opacity</code>值（例如 1.0）。 更改代码后，当进度大于 0.96，你应该会在环的末尾看到一个阴影。 你也可以尝试将进度值设置为大于 1.0 的值，然后看看进度条的外观。</p>
+<p>我只是想添加一个浅色的阴影，所以将<code>opacity</code>设定为0.15。 如果你喜欢较暗色的阴影，请增加<code>opacity</code>值（例如 1.0）。 修改代码后，当进度大于 0.96，你应该会在环的末尾看到一个阴影。 你也可以尝试将进度值设置为大于 1.0 的值，然后看看进度条的外观。</p>
 <figure id="fig30.20"><img src="images/progressring/swiftui-progressring-20.png" alt="图 30.20. 环形末端现在有一个阴影"><figcaption>图 30.20. 环形末端现在有一个阴影</figcaption></figure>
 <h3 id="%E7%B7%B4%E7%BF%92">练习</h3>
 <p>现在你已经创建了一个圆形进度条，是时候进行练习了。 你的任务是利用你已构建的内容并创建一个活动环。 另外，还需要提供四个按钮来调整活动环，如图 30.21 所示。</p>

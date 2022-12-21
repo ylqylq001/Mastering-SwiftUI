@@ -904,11 +904,11 @@
 .listStyle(.plain)
 </code></pre>
 <p>在 <code>onDelete</code> 的闭包中，它将传送一个 <code>indexSet</code>，其储存要删除的列的索引，然后我们使用 <code>indexSet</code> 调用<code>remove</code> 方法，以删除在 <code>restaurants</code> 数组中的特定项目。</p>
-<p>在“滑动删除”功能可以运作之前，还一件事要做。每当使用者从清单中删除一列时， UI 应该相应修改。正如前面章节所讨论的，SwiftUI 有一个非常强大的功能来管理应用程序的状态。在我们的代码中，当使用者选择删除一笔纪录时，<code>restaurants</code> 数组的值将更考，我们必须要求 SwiftUI 监控属性，并在属性值更改时修改UI。</p>
+<p>在“滑动删除”功能可以运作之前，还一件事要做。每当使用者从清单中删除一列时， UI 应该相应修改。正如前面章节所讨论的，SwiftUI 有一个非常强大的功能来管理应用程序的状态。在我们的代码中，当使用者选择删除一笔纪录时，<code>restaurants</code> 数组的值将更考，我们必须要求 SwiftUI 监控属性，并在属性值修改时修改UI。</p>
 <p>为此，插入 <code>@State</code> 关键字至 <code>restaurants</code> 变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> restaurants = [ ... ]
 </code></pre>
-<p>当你更改后，你应该能够在预览试试这个删除功能。向左滑动任一列来显示出“删除”（Delete ）按钮，如图 16.3 所示。点击它，该列将从清单中删除。顺带一提，你是否注意到删除该列时的精美动画呢？你不需要撰写任何额外的代码，这个动画是由 SwiftUI 自动产生。很酷，对吧？</p>
+<p>当你修改后，你应该能够在预览试试这个删除功能。向左滑动任一列来显示出“删除”（Delete ）按钮，如图 16.3 所示。点击它，该列将从清单中删除。顺带一提，你是否注意到删除该列时的精美动画呢？你不需要撰写任何额外的代码，这个动画是由 SwiftUI 自动产生。很酷，对吧？</p>
 <figure id="fig16.3"><img src="images/actionsheet/swiftui-actionsheet-3.png" alt="图 16.3.　从清单中删除项目"><figcaption>图 16.3.　从清单中删除项目</figcaption></figure>
 <p>如果你之前使用过 UIKit 编写相同的功能，我相信你会对 SwiftUI 感到惊讶。只需要几行代码与一个关键字，你便已实现了“滑动删除”功能。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%A7%E5%AE%B9%E9%81%B8%E5%96%AE">建立内容选单</h3>

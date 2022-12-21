@@ -1048,7 +1048,7 @@
     }
 }
 </code></pre>
-<p>上列的代码很容易理解，我们只使用前面章节中建立过的组件，并将它们嵌入到一个垂直堆叠中。原本 <code>VStack</code> 有一个透明背景，要确保细节视图具有白色背景，我们加入 <code>background</code>修饰器并进行更改。</p>
+<p>上列的代码很容易理解，我们只使用前面章节中建立过的组件，并将它们嵌入到一个垂直堆叠中。原本 <code>VStack</code> 有一个透明背景，要确保细节视图具有白色背景，我们加入 <code>background</code>修饰器并进行修改。</p>
 <p>在测试细节视图之前，必须修改 <code>RestaurantDetailView_Previews</code> 的代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1220,7 +1220,7 @@
 </code></pre>
 <p>显示细节视图时，我们在其下方放置一个空视图。空视图会填满为黑色及半透明，这将会阻止使用者与清单视图进行互动，但将它们保留在原本的内容中。我们还将点击手势识别器加到空视图，以让使用者点击空白区域时解除细节视图。</p>
 <figure id="fig18.8"><img src="images/bottom-sheet/swiftui-bottom-sheet-8.png" alt="图 18.8.　清单视图变暗"><figcaption>图 18.8.　清单视图变暗</figcaption></figure>
-<p>现在执行App 并尝试更改，当你点击变暗的区域时，你可以关闭细节视图。</p>
+<p>现在执行App 并尝试修改，当你点击变暗的区域时，你可以关闭细节视图。</p>
 <h3 id="%E5%8A%A0%E5%85%A5%E5%8B%95%E7%95%AB">加入动画</h3>
 <p>它更接近最终成果了，不过我们还有一些事情需要注意，你是否注意到细节视图的转场没有动画呢？当我们有了 <code>.transition</code>修饰器，只有当我们将它与动画配对时，转场才会动态显示。</p>
 <p>因此，回到 <code>RestaurantDetailView.swift</code>，并将 <code>.animation</code> 修饰器加入 <code>VStack</code>，如下所示： </p>
@@ -1231,7 +1231,7 @@
 .animation(.interpolatingSpring(stiffness: <span class="hljs-number">200.0</span>, damping: <span class="hljs-number">25.0</span>, initialVelocity: <span class="hljs-number">10.0</span>))
 .edgesIgnoringSafeArea(.all)
 </code></pre>
-<p>在代码中，我们使用 <code>interpolatingSpring</code>  动画，刚性（stiffness ）、阻尼（damping ） 与初速度（initial velocity ）的值是可以更改的。你可以使用这些值来找到适合你的App 的最佳动画。</p>
+<p>在代码中，我们使用 <code>interpolatingSpring</code>  动画，刚性（stiffness ）、阻尼（damping ） 与初速度（initial velocity ）的值是可以修改的。你可以使用这些值来找到适合你的App 的最佳动画。</p>
 <p>此外，我还想在细节视图中加入一个精巧的动画，如此当我们弹出细节视图时，它会稍微向上移动。回到<code>ContentView.swift</code>，在导航视图中加入 <code>.offset</code> 与 <code>.animation</code>修饰器： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationView</span> {
     <span class="hljs-type">List</span> {

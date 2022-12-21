@@ -964,7 +964,7 @@
 <figure id="fig6.7"><img src="images/buttons/swiftui-buttons-7.png" alt="图 6.7　将 padding 修饰器放置于 background 修饰器之后"><figcaption>图 6.7　将 padding 修饰器放置于 background 修饰器之后</figcaption></figure>
 <p>如果你将 <code>padding</code> 修饰器放置于 <code>background</code> 修饰器之后，你依然可以加入一些间距至按钮中，但是间距没有套用所选的背景色。如果你想知道原因，则可如下解读这些修饰器： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
-    .background(<span class="hljs-type">Color</span>.purple) <span class="hljs-comment">// 1. 将背景色更改为紫色</span>
+    .background(<span class="hljs-type">Color</span>.purple) <span class="hljs-comment">// 1. 将背景色修改为紫色</span>
     .foregroundColor(.white)  <span class="hljs-comment">// 2. 将前景色 / 字型颜色设定为白色</span>
     .font(.title)             <span class="hljs-comment">// 3. 变更字型样式</span>
     .padding()                <span class="hljs-comment">// 4. 使用主色来加入间距（ 即白色）</span>
@@ -972,21 +972,21 @@
 <p>反之，如果 <code>padding</code> 修饰器放置于 <code>background</code> 修饰器之前，则修饰器会像这样工作： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
     .padding()                <span class="hljs-comment">// 1. 加入间距    </span>
-    .background(<span class="hljs-type">Color</span>.purple) <span class="hljs-comment">// 2. 将背景色更改为紫色（ 包含间距）</span>
+    .background(<span class="hljs-type">Color</span>.purple) <span class="hljs-comment">// 2. 将背景色修改为紫色（ 包含间距）</span>
     .foregroundColor(.white)  <span class="hljs-comment">// 3. 将前景色/ 字型颜色设定为白色</span>
     .font(.title)             <span class="hljs-comment">// 4. 变更字型样式</span>
 </code></pre>
 <h3 id="%E6%8C%89%E9%88%95%E5%8A%A0%E4%B8%8A%E9%82%8A%E6%A1%86">按钮加上边框</h3>
 <p><code>padding</code> 修饰器并非一定要始终放在最前面，而是取决于你的按钮设计，例如：你要建立一个具有图 6.8 所示的边框的按钮。</p>
 <figure id="fig6.8"><img src="images/buttons/swiftui-buttons-8.png" alt="图 6.8.　具有边框的按钮"><figcaption>图 6.8.　具有边框的按钮</figcaption></figure>
-<p>你可以如下更改 <code>Text</code> 控制组件的代码：</p>
+<p>你可以如下修改 <code>Text</code> 控制组件的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
     .foregroundColor(.purple)
     .font(.title)
     .padding()
     .border(<span class="hljs-type">Color</span>.purple, width: <span class="hljs-number">5</span>)
 </code></pre>
-<p>这里我们设定前景色为“紫色”，然后在文字周围加入一些空白的间距。<code>border</code> 修饰器是用来定义边框的宽度与颜色，请自行更改 <code>width</code> 参数的值来查看效果。</p>
+<p>这里我们设定前景色为“紫色”，然后在文字周围加入一些空白的间距。<code>border</code> 修饰器是用来定义边框的宽度与颜色，请自行修改 <code>width</code> 参数的值来查看效果。</p>
 <p>再举一个例子，例如：一位设计师向你展示如图 6.9 所示的按钮设计，你将如何利用目前所学的内容来实现它呢？在阅读到下一个段落之前，请自行花个几分钟来思考解决方案。</p>
 <figure id="fig6.9"><img src="images/buttons/swiftui-buttons-9.png" alt="图 6.9　具有背景色及边框的按钮"><figcaption>图 6.9　具有背景色及边框的按钮</figcaption></figure>
 <p>那么，你所需要的代码如下：</p>
@@ -1084,14 +1084,14 @@
 </code></pre>
 <p>SwiftUI 框架有几个内建的渐层效果，上列的代码从左（ <code>.leading</code> ）至右（ <code>.trailing</code> ）应用了线性渐层，其从左侧的红色开始，至右侧的蓝色结束，如图 6.14 所示。</p>
 <figure id="fig6.14"><img src="images/buttons/swiftui-buttons-14.png" alt="图 6.14.　渐层背景的按钮"><figcaption>图 6.14.　渐层背景的按钮</figcaption></figure>
-<p>如果你想要由上而下应用渐层效果，则可以将代码更改如下： </p>
+<p>如果你想要由上而下应用渐层效果，则可以将代码修改如下： </p>
 <pre><code class="lang-swift">.background(<span class="hljs-type">LinearGradient</span>(gradient: <span class="hljs-type">Gradient</span>(colors: [<span class="hljs-type">Color</span>.red, <span class="hljs-type">Color</span>.blue]), startPoint: .top, endPoint: .bottom))
 </code></pre>
 <p>你可以自由使用自己喜好的颜色来渲染渐层效果。例如：你的设计师告诉你使用了如图 6.15 所示的渐层。</p>
 <figure id="fig6.15"><img src="images/buttons/swiftui-buttons-15.png" alt="图 6.15.　uigradients.com 的渐层示例"><figcaption>图 6.15.　uigradients.com 的渐层示例</figcaption></figure>
 <p>有多种方式可以将色码（ color code ）从十六进制（ hex ）转换为Swift 相容的格式。这里我将展示其中一种方式。在项目导航器中，选取素材目录（也就是 <code>Assets</code> ），然后在空白区域（ AppIcon 下方）按右键，并选择“New Color Set”，如图 6.16 所示。</p>
 <figure id="fig6.16"><img src="images/buttons/swiftui-buttons-16.png" alt="图 6.16.　在素材目录定义一个新颜色集"><figcaption>图 6.16.　在素材目录定义一个新颜色集</figcaption></figure>
-<p>接下来， 于 “Any Appearance”选择好颜色并点选“Show inspector”按钮， 然后点选属性检阅器（Attributes Inspector ）图示来显示颜色集的属性。在“Name”栏位中，将名称设定为“DarkGreen”，接着在“Color”区块中，更改“Input Method”（输入方法）栏位为“8-bit Hexadecimal”，如图 6.17 所示。</p>
+<p>接下来， 于 “Any Appearance”选择好颜色并点选“Show inspector”按钮， 然后点选属性检阅器（Attributes Inspector ）图示来显示颜色集的属性。在“Name”栏位中，将名称设定为“DarkGreen”，接着在“Color”区块中，修改“Input Method”（输入方法）栏位为“8-bit Hexadecimal”，如图 6.17 所示。</p>
 <figure id="fig6.17"><img src="images/buttons/swiftui-buttons-17.png" alt="图 6.17　编辑颜色集的属性"><figcaption>图 6.17　编辑颜色集的属性</figcaption></figure>
 <p>现在，你可以在“Hex”栏位设定色码。对于此示例，输入 <code>#11998e</code>来定义颜色并将颜色集命名为“LightGreen”。重复上述步骤，输入<code>#38ef7d</code>来定义另一个颜色集，你可以将颜色集命名为“DarkGreen”， 如图 6.18 所示。</p>
 <figure id="fig6.18"><img src="images/buttons/swiftui-buttons-18.png" alt="图 6.18.　定义两个颜色集"><figcaption>图 6.18.　定义两个颜色集</figcaption></figure>
@@ -1271,7 +1271,7 @@
 .controlSize(.large)
 </code></pre>
 <p><code>tint</code> 修饰器指定按钮的颜色。 通过应用<code>.borderedProminent</code> 样式，iOS 将按钮呈现为紫色背景并以白色显示文字。 <code>.buttonBorderShape</code> 修饰器可让你设置按钮的边框形状。 在这里，我们将它设置为 <code>.roundedRectangle</code> 使按钮变圆角。</p>
-<p><code>.controlSize</code> 允许你更改按钮的大小。 默认大小为 <code>.regular</code>。 其他有效值包括 <code>.large</code>、<code>.small</code> 和 <code>.mini</code> 。 下图显示了按钮在不同尺寸下的外观。</p>
+<p><code>.controlSize</code> 允许你修改按钮的大小。 默认大小为 <code>.regular</code>。 其他有效值包括 <code>.large</code>、<code>.small</code> 和 <code>.mini</code> 。 下图显示了按钮在不同尺寸下的外观。</p>
 <figure id="fig6.26"><img src="images/buttons/swiftui-buttons-26.png" alt="图 6.26. 不同控件大小的按钮"><figcaption>图 6.26. 不同控件大小的按钮</figcaption></figure>
 <p>除了使用<code>.roundedRectangle</code>，SwiftUI 还提供了另一种名为<code>.capsule</code>的边框形状，供开发者创建胶囊形状按钮。</p>
 <figure id="fig6.27"><img src="images/buttons/swiftui-buttons-27.png" alt="图 6.27. 使用胶囊形状"><figcaption>图 6.27. 使用胶囊形状</figcaption></figure>

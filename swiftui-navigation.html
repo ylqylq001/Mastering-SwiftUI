@@ -906,7 +906,7 @@
     .listStyle(.plain)
 }
 </code></pre>
-<p>进行更改后，你应该会看到一个空的导航栏。 要为栏加入标题，请使用 <code>navigationBarTitle</code> 修饰符，如下所示：</p>
+<p>进行修改后，你应该会看到一个空的导航栏。 要为栏加入标题，请使用 <code>navigationBarTitle</code> 修饰符，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span> {
         <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
@@ -993,7 +993,7 @@
 <p>我们来看这个自定义是否如何工作的。要变更指示器的图片，你可以调用 <code>setBackIndicatorImage</code> 方法，并提供自己的 <code>UIImage</code>。这里，我设定系统图片为 <code>arrow.turn. up.left</code>。</p>
 <pre><code class="lang-swift">navBarAppearance.setBackIndicatorImage(<span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;arrow.turn.up.left&quot;</span>), transitionMaskImage: <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;arrow.turn.up.left&quot;</span>))
 </code></pre>
-<p>对于“返回”按钮的颜色，你可以通过设置 <code>accentColor</code> 属性来更改它，如下所示：</p>
+<p>对于“返回”按钮的颜色，你可以通过设置 <code>accentColor</code> 属性来修改它，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
   .
   .
@@ -1111,7 +1111,7 @@
     }
 }
 </code></pre>
-<p>这里，我们只选择 <code>articles</code> 数组中的第一篇文章来预览。如果想要预览其他文章，你可以将其更改为其他值。当你变更后，预览画布应会正确渲染细节视图，如图 11.11 所示。</p>
+<p>这里，我们只选择 <code>articles</code> 数组中的第一篇文章来预览。如果想要预览其他文章，你可以将其修改为其他值。当你变更后，预览画布应会正确渲染细节视图，如图 11.11 所示。</p>
 <figure id="fig11.11"><img src="images/navigation/swiftui-navigation-11.png" alt="图 11.11.　用于显示文章的细节视图"><figcaption>图 11.11.　用于显示文章的细节视图</figcaption></figure>
 <p>我们再多尝试一件事。由于这个视图将嵌入至 <code>NavigationView</code>中，因此你可以修改预览代码，来预览它在预览介面的外观： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{

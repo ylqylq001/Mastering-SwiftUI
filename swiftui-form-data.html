@@ -924,7 +924,7 @@
 <p>接下来，修改 <code>selectedOrder</code> 的默认值为 <code>DisplayOrderType.alphabetical</code>，如下所示： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedOrder = <span class="hljs-type">DisplayOrderType</span>.alphabetical
 </code></pre>
-<p>这里，我们默认显示顺序为依字母排列（alphabetical ），如果你与先前的值（即“0”） 进行比较，转换为使用枚举后，代码更易于阅读了。接下来，你还需要在“Sort Preference”区块更改代码，具体而言，我们修改<code>ForEach</code> 回圈中的代码： </p>
+<p>这里，我们默认显示顺序为依字母排列（alphabetical ），如果你与先前的值（即“0”） 进行比较，转换为使用枚举后，代码更易于阅读了。接下来，你还需要在“Sort Preference”区块修改代码，具体而言，我们修改<code>ForEach</code> 回圈中的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Section</span>(header: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;SORT PREFERENCE&quot;</span>)) {
     <span class="hljs-type">Picker</span>(selection: $selectedOrder, label: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Display order&quot;</span>)) {
         <span class="hljs-type">ForEach</span>(<span class="hljs-type">DisplayOrderType</span>.allCases, id: \.<span class="hljs-keyword">self</span>) {
@@ -1024,7 +1024,7 @@
 <p>至 <code>SwiftUIFormApp.swift</code> 并加入下列属性来建立一个 <code>SettingStore</code> 实例： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore = <span class="hljs-type">SettingStore</span>()
 </code></pre>
-<p>接着，将这行代码更改为下列代码，来修正错误： </p>
+<p>接着，将这行代码修改为下列代码，来修正错误： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ContentView</span>(settingStore: settingStore)
 </code></pre>
 <p>现在，你应该能够执行 App，并进行设定了。当你储存设定之后，它将永久储存在本地默认系统中。你可尝试停止 App，然后再次启动它，储存的设定应已载入至设定画面中，如图 14.3 所示。</p>
@@ -1037,8 +1037,8 @@
 <p>我来介绍三个关键字： </p>
 <ol>
 <li><strong>@EnvironmentObject</strong> - 以技术而言，这就是一个属性包裹器（ property wrapper ），不过，你可将此关键字视为一个特殊的标记，当你声明一个属性为环境物件时，SwiftUI 会监控该属性的值，并在有任何改变时，使对应的视图无效。@EnvironmentObject 的运作方式与 @State 几乎相同，不过属性被声明为环境物件时， 整个 App 中的所有视图皆可存取它。举例而言，如果你的App 有很多共享相同数据（例如：使用者设定）的视图，则环境物件在这种情况下可运作得很好，你不需要在视图间传送属性，就可以自动存取它。</li>
-<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协议。当你声明一个属性为环境物件时， 该属性的型别必须实现此协议。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？通过实现此协议，这个物件可以作为一个发布者，发出更改后的值。而那些监控值的订阅者将会收到通知。</li>
-<li><strong>@Published</strong> - 这是一个与  <code>ObservableObject</code> 一起使用的属性包裹器。当一个属性以 <code>@Publisher</code> 为前缀时，这表示发布者应该在值发生更改时通知所有订阅者。</li>
+<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协议。当你声明一个属性为环境物件时， 该属性的型别必须实现此协议。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？通过实现此协议，这个物件可以作为一个发布者，发出修改后的值。而那些监控值的订阅者将会收到通知。</li>
+<li><strong>@Published</strong> - 这是一个与  <code>ObservableObject</code> 一起使用的属性包裹器。当一个属性以 <code>@Publisher</code> 为前缀时，这表示发布者应该在值发生修改时通知所有订阅者。</li>
 </ol>
 <p>我知道这有点令人困惑。不过，当我们看完代码后，你将会更加了解。</p>
 <p>我们从 <code>SettingStore.swift</code> 开始。设定视图与清单视图需要监控使用者偏好的变化，因此 <code>SettingStore</code> 应该实现 <code>ObservableObject</code> 协议，并宣布 <code>defaults</code> 属性的变更。在 <code>Setting Store.swift</code> 档的开始处，我们必须先汇入 Combine 框架： </p>
@@ -1110,7 +1110,7 @@
 </code></pre>
 <p>这里，我们调用 <code>environmentObject</code> 方法，将设定储存区注入至环境。现在，设定储存区的实例可用于 App 内的所有视图。换句话说，设定与清单视图皆可自动存取它了。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E7%AF%A9%E9%81%B8%E9%81%B8%E9%A0%85">实现筛选选项</h3>
-<p>现在，我们已经实现了一个可以让所有视图存取的通用设定储存区。最棒的是，只要设定储存区中有任何更改，它会自动通知监控修改的视图。尽管你看不出任何的视觉差异，但是当你修改设定画面的选项时，设定储存区会将变更通知至清单视图。</p>
+<p>现在，我们已经实现了一个可以让所有视图存取的通用设定储存区。最棒的是，只要设定储存区中有任何修改，它会自动通知监控修改的视图。尽管你看不出任何的视觉差异，但是当你修改设定画面的选项时，设定储存区会将变更通知至清单视图。</p>
 <p>我们最终任务是实现筛选与排序选项，以只显示和使用者偏好相配的餐厅。我们从实现下列两个筛选选项来开始： </p>
 <ul>
 <li>只显示打卡过的餐厅（Show Check-in Only）。</li>
@@ -1134,7 +1134,7 @@
 </code></pre>
 <p>这里，我们首先调用刚才实现的 <code>shouldShowItem</code> 函数，来检查是否应该显示餐厅。</p>
 <p>现在按 Play 在模拟器执行 App 并快速测试。在设定画面中，设定“Show Check-in Only”选项为“ON”， 并配置价位级别选项，以显示价位级别为 3（即$$$ ）或以下的餐厅，如图 14.4 所示。当你点击“Save”按钮后，清单视图应会自动修改（使用动画），并显示筛选后的纪录。</p>
-<figure id="fig14.4"><img src="images/formdata/swiftui-formdata-4.png" alt="图 14.4.　当你更改筛选偏好时，清单视图现在会修改其项目"><figcaption>图 14.4.　当你更改筛选偏好时，清单视图现在会修改其项目</figcaption></figure>
+<figure id="fig14.4"><img src="images/formdata/swiftui-formdata-4.png" alt="图 14.4.　当你修改筛选偏好时，清单视图现在会修改其项目"><figcaption>图 14.4.　当你修改筛选偏好时，清单视图现在会修改其项目</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%8E%92%E5%BA%8F%E9%81%B8%E9%A0%85">实现排序选项</h3>
 <p>现在，我们已经完成筛选选项的实现，我们来继续处理排序选项。在 Swift 中，你可以使用 sort(by:) 方法对一个序列中的元素排序。当使用此方法时，你需要提供一个述词（predicate ）给它，在第一个元素应排在第二个元素之前，该述词会回传 <code>true</code>。</p>
 <p>举例而言，要将 <code>restaurants</code> 数组依字母排序，则可以使用 <code>sort(by:)</code>方法，如下所示： </p>

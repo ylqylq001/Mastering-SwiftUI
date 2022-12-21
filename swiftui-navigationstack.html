@@ -1033,7 +1033,7 @@
 }
 </code></pre>
 <p>这段代码与之前的示例有点相似，我们添加了一个 <code>path</code> 状态变量，它是 <code>Color</code> 的数组，用来储存导航状态。在 <code>NavigationStack</code> 进行 initialization 时，我们会传递它的 binding 来管理堆叠。当导航堆叠的状态发生变化时，<code>path</code> 变量的数值就会被自动修改。</p>
-<p>我更改了导航目的地，它会显示使用者选择的颜色，和另一个颜色列表以供使用者选择。</p>
+<p>我修改了导航目的地，它会显示使用者选择的颜色，和另一个颜色列表以供使用者选择。</p>
 <figure id="fig46.4"><img src="images/navigationstack/swiftui-navigationstack-4.png" alt="图 46.4. 使用 path 变量"><figcaption>图 46.4. 使用 path 变量</figcaption></figure>
 <p>在上面的代码中，我们有一行代码来显示 path 的内容：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;<span class="hljs-subst">\(path.<span class="hljs-built_in">count</span>)</span>, <span class="hljs-subst">\(path.description)</span>&quot;</span>)

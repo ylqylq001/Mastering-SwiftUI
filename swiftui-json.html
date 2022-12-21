@@ -1384,7 +1384,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <p>我假设你完全了解堆叠视图，因此我将不讨论如何使用它们来实现布局，不过让我们再多谈一下滑杆控制组件，其是 SwiftUI 所提供的一个标准组件，你可以通过传送滑杆的绑定（Binding ）、范围与滑杆刻度（step ）来实例化滑杆。绑定保存滑杆的目前值。以下是用于建立滑杆的示例代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Slider</span>(value: $amount, <span class="hljs-keyword">in</span>: minAmount...maxAmount, step: <span class="hljs-number">100</span>)
 </code></pre>
-<p>刻度可控制使用者拖曳滑杆时的更改量。如果你让使用者拥有很好的控制组件，请将刻度设定更小一点。对于上列的代码，我们将其设定为“100”。</p>
+<p>刻度可控制使用者拖曳滑杆时的修改量。如果你让使用者拥有很好的控制组件，请将刻度设定更小一点。对于上列的代码，我们将其设定为“100”。</p>
 <p>为了预览筛选器视图，修改 LoanFilterView_Previews 如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {

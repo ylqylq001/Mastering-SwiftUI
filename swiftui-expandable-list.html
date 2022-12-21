@@ -952,7 +952,7 @@
 }
 .listStyle(.plain)
 </code></pre>
-<p>如果你没有加错位置，列表视图现在应该更改为普通样式。</p>
+<p>如果你没有加错位置，列表视图现在应该修改为普通样式。</p>
 <figure id="fig28.3"><img src="images/expandablelist/swiftui-expandablelist-3.png" alt="图 28.3. 使用普通列表样式"><figcaption>图 28.3. 使用普通列表样式</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-inset-grouped-%E5%88%97%E8%A1%A8%E6%A8%A3%E5%BC%8F">使用 Inset Grouped 列表样式</h3>
 <p>正如您在前面的示例中所见，使用 <code>List</code> 视图创建大纲视图非常容易。 但是，如果您想更好地控制大纲视图的外观（例如添加部分标题），则需要使用 <code>OutlineGroup</code>。 这个新视图是自 iOS 14 才引入的，用于呈现数据的层次结构。</p>
@@ -1009,7 +1009,7 @@
     }
 }
 </code></pre>
-<p>在上面的代码中，我们使用 <code>ForEach</code> 来遍历菜单项。 我们将顶层项目呈现为节标题。 对于其余的子菜单项，我们依靠“OutlineGroup”来创建数据层次结构。 如果您更改 <code>ContentView.swift</code>内的代码，您应该会看到如图 28.4 所示的大纲视图。</p>
+<p>在上面的代码中，我们使用 <code>ForEach</code> 来遍历菜单项。 我们将顶层项目呈现为节标题。 对于其余的子菜单项，我们依靠“OutlineGroup”来创建数据层次结构。 如果您修改 <code>ContentView.swift</code>内的代码，您应该会看到如图 28.4 所示的大纲视图。</p>
 <figure id="fig28.4"><img src="images/expandablelist/swiftui-expandablelist-4.png" alt="图 28.4. 使用 OutlineGroup 构建大纲视图"><figcaption>图 28.4. 使用 OutlineGroup 构建大纲视图</figcaption></figure>
 <p>同样地，如果您更喜欢使用普通列表样式，可以将 <code>listStyle</code> 修饰器附加到 <code>List</code> 视图：</p>
 <pre><code class="lang-swift">.listStyle(.plain)
