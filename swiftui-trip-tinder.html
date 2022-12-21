@@ -911,13 +911,13 @@
 </code></pre>
 <p>假如你希望使用自己的图片与数据，则只需替换素材目录中的图片，并修改 <code>Trip.swift</code> 档。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E8%88%87%E9%81%B8%E5%96%AE%E5%88%97">建立卡片视图与选单列</h3>
-<p>在实现滑动功能之前，我们先建立主UI，我将主荧幕分成三个部分，如图 19.3 所示： </p>
+<p>在实现滑动功能之前，我们先建立主UI，我将主屏幕分成三个部分，如图 19.3 所示： </p>
 <ol>
 <li>顶部选单列（top menu bar）。</li>
 <li>顶部选单列（top menu bar）。</li>
 <li>底部选单列（bottom menu bar）。</li>
 </ol>
-<figure id="fig19.3"><img src="images/triptinder/swiftui-trip-tinder-3.png" alt="图 19.3.　主荧幕"><figcaption>图 19.3.　主荧幕</figcaption></figure>
+<figure id="fig19.3"><img src="images/triptinder/swiftui-trip-tinder-3.png" alt="图 19.3.　主屏幕"><figcaption>图 19.3.　主屏幕</figcaption></figure>
 <h4 id="%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">卡片视图</h4>
 <p>首先，我们建立一个卡片视图。若是你想挑战自我，我强烈建议你在这里停下来并实现它，而无须遵循本节内容，否则请继续阅读。</p>
 <p>为了让代码更易编写，我们将在一个单独的文件中实现卡片视图。在项目导航器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
@@ -925,7 +925,7 @@
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
 </code></pre>
-<p>主荧幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协议，并导入一个 <code>id</code> 变量，如下所示： </p>
+<p>主屏幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协议，并导入一个 <code>id</code> 变量，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span>, <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">let</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
@@ -1052,13 +1052,13 @@
     }
 }
 </code></pre>
-<p>在代码中，我们只安排了使用 <code>VStack</code> 建立的 UI 组件。你的预览现在应该显示主荧幕了，如图 19.6 所示。</p>
+<p>在代码中，我们只安排了使用 <code>VStack</code> 建立的 UI 组件。你的预览现在应该显示主屏幕了，如图 19.6 所示。</p>
 <figure id="fig19.6"><img src="images/triptinder/swiftui-trip-tinder-6.png" alt="图 19.6.　预览主 UI"><figcaption>图 19.6.　预览主 UI</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E5%BA%AB">实现卡片库</h3>
 <p>在做好所有的准备之后，终于可以实现如 Tinder 般的 UI。对于之前从未用过 Tinder App 的人，让我先解释一下如 Tinder 般 UI 的工作原理。</p>
 <p>你可以将 Tinder 般 UI 想像为一副成堆的卡片，每张卡片都显示一张照片。在我们的示例 App 中，照片是旅程的目的地。将最上面的卡片（即第一个旅程）轻微向左或向右滑动，即可揭示下一张卡片（即下一个旅程）。如果使用者放开卡片，App 就会将卡片带回原来的位置。不过，当使用者用力滑动时，他/ 她可以丢掉这张卡片，然后App 会将第二张卡片向前移动，成为最上面的卡片，如图 19.7 所示。</p>
 <figure id="fig19.7"><img src="images/triptinder/swiftui-trip-tinder-7.jpg" alt="图 19.7.　Tinder 般 UI 的工作原理"><figcaption>图 19.7.　Tinder 般 UI 的工作原理</figcaption></figure>
-<p>我们实现的主荧幕只包含一个卡片视图，那么我们如何实现一堆卡片视图呢？ </p>
+<p>我们实现的主屏幕只包含一个卡片视图，那么我们如何实现一堆卡片视图呢？ </p>
 <p>最直截了当的方式是，使用 <code>ZStack</code> 将每个卡片视图互相堆叠，我们来试着做这个。修改 <code>ContentView</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
@@ -1334,7 +1334,7 @@
 <p>现在，当你在预览画布中执行项目时，将图片向右 / 左拖曳，直到图示出现。放开拖曳，最上面的卡片应由下一张卡片取代。</p>
 <figure id="fig19.13"><img src="images/triptinder/swiftui-trip-tinder-16.png" alt="图 19.13.　删除最上面的图片"><figcaption>图 19.13.　删除最上面的图片</figcaption></figure>
 <h3 id="%E5%BE%AE%E8%AA%BF%E5%8B%95%E7%95%AB">微调动画</h3>
-<p>这个 App 几乎可以运作了，但是动画效果并不如预期。不要让卡片视图突然消失，而是卡片丢弃后应逐渐从荧幕离开。</p>
+<p>这个 App 几乎可以运作了，但是动画效果并不如预期。不要让卡片视图突然消失，而是卡片丢弃后应逐渐从屏幕离开。</p>
 <p>要微调动画效果，我们将加上 <code>transition</code> 修饰器，并应用不对称转场至卡片视图。</p>
 <p>现在建立一个 <code>AnyTransition</code> 扩展（可以加在 <code>ContentView.swift</code>最后端），并定义两个转场效果：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">AnyTransition</span> </span>{
@@ -1355,7 +1355,7 @@
 }
 </code></pre>
 <p>之所以使用不对称转场，是因为我们只想在卡片视图被删除时，对转场设定动画。当一个新卡片视图插入卡片库时，则不应有动画。</p>
-<p>当卡片视图向荧幕右方丢弃时，使用 <code>trailingBottom</code> 转场，而当卡片视图向荧幕左方丢弃时，则使用<code>leadingBottom</code> 转场。</p>
+<p>当卡片视图向屏幕右方丢弃时，使用 <code>trailingBottom</code> 转场，而当卡片视图向屏幕左方丢弃时，则使用<code>leadingBottom</code> 转场。</p>
 <p>接下来，声明一个包含转场类型的状态属性，默认是设定 <code>trailingBottom</code>。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> removalTransition = <span class="hljs-type">AnyTransition</span>.trailingBottom
 </code></pre>

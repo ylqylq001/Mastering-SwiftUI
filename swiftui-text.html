@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-2-%E7%AB%A0-br-swiftui-%E5%85%A5%E9%96%80-%E6%96%87%E5%AD%97%E7%9A%84%E8%99%95%E7%90%86">第 2 章 <br>SwiftUI  入门-文字的处理</h1>
-<p>如果你之前有使用过 UIKit，SwiftUI  的 <code>Text</code> 控制与 UIKit 中的 <code>UILabel</code> 非常相似。这是一个能够显示一 行或多行文字的视图。这个  <code>Text</code> 控制无法编辑，不过对于在荧幕上呈现唯读的资讯非常好用。举例来说，你想要在画面上呈现一个信息，你可以使用 <code>Text</code>  来实现。</p>
+<p>如果你之前有使用过 UIKit，SwiftUI  的 <code>Text</code> 控制与 UIKit 中的 <code>UILabel</code> 非常相似。这是一个能够显示一 行或多行文字的视图。这个  <code>Text</code> 控制无法编辑，不过对于在屏幕上呈现唯读的资讯非常好用。举例来说，你想要在画面上呈现一个信息，你可以使用 <code>Text</code>  来实现。</p>
 <p>本章，我将告诉你如何以 <code>Text</code>  来呈现资讯。你将会学到如何运用不同颜色、字体、背景与旋转效果来自订文字。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88%E4%BE%86%E9%AB%94%E9%A9%97-swiftui">建立新项目来体验 SwiftUI</h3>
 <p>首先，开启  Xcode 并使用 <em>Single View App</em>  模板来建立一个新项目，输入项目名称，我设定为 <em>SwiftUIText</em> ，不过你可以使用任何的名称。在组织名称（ organization name），你可以设定为你的公司或组织的名字。组织识别码（organization identifier）是 App  的唯一识别码，这里我使用 <em>com.appcoda</em>，不过这里需要填入你自己的内容，如果你有一个网站，则可以将网域名称以倒过来写的方式作为设定。要使用 SwiftUI 的话，则需要在User Interface选项勾选 <em>SwiftUI</em> ，点选  <em>Next</em> 并选取一个数据夹来建立项目。</p>
@@ -888,11 +888,11 @@
 <figure id="fig2.2"><img src="images/text/swiftui-text-2.png" alt="图 2. 程序编辑器与画布"><figcaption>图 2. 程序编辑器与画布</figcaption></figure>
 <h3 id="%E7%B0%A1%E5%96%AE%E6%96%87%E5%AD%97%E7%9A%84%E5%91%88%E7%8F%BE">简单文字的呈现</h3>
 <p>在 <code>ContentView</code>  所产生的简单程序已经告诉你如何显示一行文字和简单图像。它使用一个 <code>VStack</code> 包装内里的 <code>Text</code> 和 <code>Image</code>。我们将在后面的章节中讨论图像和堆栈视图。 现在让我们首先关注 <code>Text</code> 的用法。</p>
-<p>要在荧幕上显示文字，你需要初始化一个 <code>Text</code> 并将要显示的文字（例如 <em>Hello World</em>）作为参数来传递。 像这样修改 <code>body</code> 的代码：</p>
+<p>要在屏幕上显示文字，你需要初始化一个 <code>Text</code> 并将要显示的文字（例如 <em>Hello World</em>）作为参数来传递。 像这样修改 <code>body</code> 的代码：</p>
 <p>程序初始化一个  <code>Text</code>  并将要放的文字（例如 <em>Hello World</em> ）作为参数来传传递。现在将 <code>body</code> 内的代码如下修改：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>)
 </code></pre>
-<p>如此，预览画布即会在荧幕上显示  <em>Stay Hungry. Stay Foolish.</em> 。这是建立一个文字视图的基本语法。你可以任意变更文字内容，画布会即时显示变更的结果。</p>
+<p>如此，预览画布即会在屏幕上显示  <em>Stay Hungry. Stay Foolish.</em> 。这是建立一个文字视图的基本语法。你可以任意变更文字内容，画布会即时显示变更的结果。</p>
 <figure id="fig2.3"><img src="images/text/swiftui-text-3.png" alt="图 3. 变更文字"><figcaption>图 3. 变更文字</figcaption></figure>
 <h3 id="%E8%AE%8A%E6%9B%B4%E5%AD%97%E9%AB%94%E8%88%87%E9%A1%8F%E8%89%B2">变更字体与颜色</h3>
 <p>在 SwiftUI，你可以调用一些方法，也就是所谓的修饰器（<em>Modifiers</em> ）来变更属性（例如颜色）。譬如说，你想要粗体字。你可以使用名为 <code>fontWeight</code> 的修饰器，并指定你想要的字体粗细（例如 <code>.bold</code> ）：</p>
@@ -917,7 +917,7 @@
 </code></pre>
 <p>这里你指定使用系统字体，文字样式为 <code>largeTitle</code>  ，以及  <code>rounded</code>  设计。预览画布应该会立即对变更做出反应，并显示圆润的文字。</p>
 <figure id="fig2.6"><img src="images/text/swiftui-text-6.png" alt="图 6.使用圆字体设计"><figcaption>图 6.使用圆字体设计</figcaption></figure>
-<p>动态型态（ Dynamic Type ）是 iOS 依照使用者设定（设定 &gt; 荧幕显示与亮度 &gt; 文字大小）而自动调整字体大小的功能。换句话说，当你使用文字样式（例如 <code>.title</code> ），这个字体大小将会改变，你的 App 会依照使用者的偏好来自动缩放文字。</p>
+<p>动态型态（ Dynamic Type ）是 iOS 依照使用者设定（设定 &gt; 屏幕显示与亮度 &gt; 文字大小）而自动调整字体大小的功能。换句话说，当你使用文字样式（例如 <code>.title</code> ），这个字体大小将会改变，你的 App 会依照使用者的偏好来自动缩放文字。</p>
 <p>如果你想要使用一个固定大小的字体，你可以将程序修改如下：</p>
 <pre><code class="lang-swift">.font(.system(size: <span class="hljs-number">20</span>))
 </code></pre>

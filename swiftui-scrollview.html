@@ -883,7 +883,7 @@
 <p>当你完成卡片视图的建立之后，我将与你讨论 <code>ScrollView</code>，并使用卡片视图建立一个可滚动的介面，图 5.2 即是完成后的 UI。</p>
 <figure id="fig5.2"><img src="images/scrollview/swiftui-scrollview-2.jpg" alt="图 5.2.　使用 ScrollView 建立一个滚动式UI"><figcaption>图 5.2.　使用 ScrollView 建立一个滚动式UI</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%8D%A1%E7%89%87%E5%BC%8F-ui">建立一个卡片式 UI</h3>
-<p>如果你还没有开启 Xcode，请开启它并使用 App  模板 （于 iOS 下）。来建立一个新项目。在下一个荧幕画面中，设定项目名称为“SwiftUIScrollView”（或是任何你喜欢的名称），并填入所需要的值。请确认已选取“Interface”选项中的“SwiftUI”。</p>
+<p>如果你还没有开启 Xcode，请开启它并使用 App  模板 （于 iOS 下）。来建立一个新项目。在下一个屏幕画面中，设定项目名称为“SwiftUIScrollView”（或是任何你喜欢的名称），并填入所需要的值。请确认已选取“Interface”选项中的“SwiftUI”。</p>
 <p>到目前为止，我们在 <code>ContentView.swift</code> 档中撰写使用者介面的代码，代码撰写在这里完全没有任何问题，不过我要介绍一个整理代码的较佳方式。为了实现卡片视图， 我们另外为它建立一个单独文件，在项目导航器中，于 <code>SwiftUIScrollView</code> 按右键，并选择“New File...”，如图 5.3 所示。</p>
 <figure id="fig5.3"><img src="images/scrollview/swiftui-scrollview-3.png" alt="图 5.3. 建立一个新文件"><figcaption>图 5.3. 建立一个新文件</figcaption></figure>
 <p>如图 5.4 所示，在“User Interface”区块，选取“SwiftUI View”模板，然后点选“Next”来建立文件。将文件名称命名为 <code>CardView</code>，并将其储存在项目数据夹中。</p>
@@ -895,7 +895,7 @@
 <figure id="fig5.6"><img src="images/scrollview/swiftui-scrollview-6.png" alt="图 5.6　将图片档加入素材目录"><figcaption>图 5.6　将图片档加入素材目录</figcaption></figure>
 <h4 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">实现卡片视图</h4>
 <p>现在切回 <code>CardView.swift</code> 档。若你再看一下图 5.1，这个卡片视图是由两个部分组成， 视图上部是图片，而视图下部是文字叙述。</p>
-<p>让我们从图片开始。我将使图片可调整大小，以缩放来填满荧幕，同时保持长宽比。你可以撰写代码如下： </p>
+<p>让我们从图片开始。我将使图片可调整大小，以缩放来填满屏幕，同时保持长宽比。你可以撰写代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;swiftui-button&quot;</span>)
@@ -926,7 +926,7 @@
 <figure id="fig5.7"><img src="images/scrollview/swiftui-scrollview-7.png" alt="图 5.7.　将图片与文字视图嵌入到 VStack 中"><figcaption>图 5.7.　将图片与文字视图嵌入到 VStack 中</figcaption></figure>
 <p>还没有完成，尚有几件事情需要实现。首先，如果文字叙述区块要与图片的边缘对齐，该如何做呢？ </p>
 <p>依照我们所学，我们可以在一个 <code>HStack</code> 嵌入文字视图的 <code>VStack</code>，然后我们将使用一个留白（ <code>Spacer</code> ）来将<code>VStack</code> 往左推，我们来看看是否可行。</p>
-<p>如果你已经变更代码，如图 5.8 所示，这个文字视图的VStack 会对齐荧幕的左侧。</p>
+<p>如果你已经变更代码，如图 5.8 所示，这个文字视图的VStack 会对齐屏幕的左侧。</p>
 <figure id="fig5.8"><img src="images/scrollview/swiftui-scrollview-8.png" alt="图 5.8.　文字叙述的对齐"><figcaption>图 5.8.　文字叙述的对齐</figcaption></figure>
 <p>最好是在 <code>HStack</code> 周围加入一些间距（ padding ）。插入 <code>padding</code> 修饰器如下，如图 5.9 所示 ：</p>
 <figure id="fig5.9"><img src="images/scrollview/swiftui-scrollview-9.png" alt="图 5.9. 加入一些文字叙述的间距"><figcaption>图 5.9. 加入一些文字叙述的间距</figcaption></figure>
@@ -1021,7 +1021,7 @@
     <span class="hljs-type">CardView</span>(image: <span class="hljs-string">&quot;natural-language-api&quot;</span>, category: <span class="hljs-string">&quot;iOS&quot;</span>, heading: <span class="hljs-string">&quot;What&apos;s New in Natural Language API&quot;</span>, author: <span class="hljs-string">&quot;Sai Kambampati&quot;</span>)
 }
 </code></pre>
-<p>如果你这样做的话，这些卡片视图将被挤压，以填满荧幕，因为 <code>VStack</code> 是不可滚动的，如图 5.12 所示。</p>
+<p>如果你这样做的话，这些卡片视图将被挤压，以填满屏幕，因为 <code>VStack</code> 是不可滚动的，如图 5.12 所示。</p>
 <figure id="fig5.12"><img src="images/scrollview/swiftui-scrollview-12.png" alt="图 5.12　在一个VStack 中嵌入卡片视图"><figcaption>图 5.12　在一个VStack 中嵌入卡片视图</figcaption></figure>
 <p>要让内容可以滚动，SwiftUI 提供一个名为 <code>ScrollView</code> 的视图。当内容嵌入在一个 <code>ScrollView</code> 时，它变得可以滚动，因此你需要做的是在一个 <code>ScrollView</code> 内加入一个 <code>VStack</code>，以使视图可以滚动。在预览画布中，你可以拖曳这些视图来滚动内容。</p>
 <figure id="fig5.13"><img src="images/scrollview/swiftui-scrollview-13.png" alt="图 5.13. 使用 ScrollView"><figcaption>图 5.13. 使用 ScrollView</figcaption></figure>
@@ -1062,7 +1062,7 @@
 <p>变更代码之后，你将看到卡片视图以水平排列且可以滚动，如图 5.15 所示。</p>
 <figure id="fig5.15"><img src="images/scrollview/swiftui-scrollview-15.png" alt="图 5.15 轮播 UI"><figcaption>图 5.15 轮播 UI</figcaption></figure>
 <h3 id="%E9%9A%B1%E8%97%8F%E6%BB%BE%E5%8B%95%E6%8C%87%E7%A4%BA%E5%99%A8">隐藏滚动指示器</h3>
-<p>在滚动视图时，荧幕底部附近有一个滚动指示器。这个指示器默认是显示的。如果你想要隐藏它，你可以将 <code>ScrollView</code> 的代码变更如下： </p>
+<p>在滚动视图时，屏幕底部附近有一个滚动指示器。这个指示器默认是显示的。如果你想要隐藏它，你可以将 <code>ScrollView</code> 的代码变更如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal, showsIndicators: <span class="hljs-built_in">false</span>)
 </code></pre>
 <p>通过指定 <code>showIndicators</code> 为 <code>false</code>，iOS 将不再显示该指示器。</p>

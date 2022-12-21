@@ -880,7 +880,7 @@
 <p>在前一章，我已介绍了新的 <code>matchedGeometryEffect</code> 修饰器 (modifier) ，并向你展示了如何创建一些基本的视图动画。 在本章中，让我们看看如何在网格视图中使用修饰器和加入过场动画。 此外，你还将学习另一个名为<code>ScrollViewReader</code>的全新 UI 组件。</p>
 <h3 id="%E7%AF%84%E4%BE%8B-app">示例 App</h3>
 <p>在我们开始实现之前，让我先向你展示最终的成果。 这应该让你对要即将构建的内容有所了解。 当你开发 App时，你可能需要以网格（Grid）形式显示照片并让使用者选择其中的一些项目。</p>
-<p>示例 App 在荧幕底部显示一个Dock，当一个项目被选中时，它会从网格中移除并插入到 Dock 中。 当你选择更多项目时，个 Dock 自动扩大以容纳更多项目。 你可以水平滑动以浏览Dock中的项目。 如果你点击 Dock 中的其中一个项目，该项目就会被移除并重新加到网格中。 </p>
+<p>示例 App 在屏幕底部显示一个Dock，当一个项目被选中时，它会从网格中移除并插入到 Dock 中。 当你选择更多项目时，个 Dock 自动扩大以容纳更多项目。 你可以水平滑动以浏览Dock中的项目。 如果你点击 Dock 中的其中一个项目，该项目就会被移除并重新加到网格中。 </p>
 <figure id="fig34.1"><img src="images/gridanimation/swiftui-gridanimation-1.jpg" alt="图 34.1. 示例 App"><figcaption>图 34.1. 示例 App</figcaption></figure>
 <p>我们将实现这个示例App，并会使用 <code>matchedGeometryEffect</code> 修饰符加入绚丽的过场动画。 开始之前，请到 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGridViewAnimationStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGridViewAnimationStarter.zip</a> 下载Starter项目。 该项目已包含样本数据和图像。</p>
 <h3 id="%E6%A7%8B%E5%BB%BA%E7%85%A7%E7%89%87%E7%B6%B2%E6%A0%BC%EF%BC%88photo-grid%EF%BC%89">构建照片网格（Photo Grid）</h3>

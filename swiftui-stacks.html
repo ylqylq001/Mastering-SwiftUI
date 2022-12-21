@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-4-%E7%AB%A0-br-%E4%BB%A5%E5%A0%86%E7%96%8A%E4%BD%88%E5%B1%80%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">第 4 章<br>以堆叠布局使用者介面</h1>
-<p>SwiftUI 的“堆叠”（Stack ）和在 UIKit 的堆叠视图一样，通过水平与垂直堆叠结合视图，你可以为 App 建构复杂的使用者介面。对 UIKit 而言，使用自动布局（ Auto Layout ）来建立相容所有荧幕尺寸的介面是无法避免的。对初学者而言，自动布局是一个复杂的主题且难以学习，但好消息是你不再需要在 SwiftUI 中使用自动布局，所有东西都是堆叠，包括了 VStack、HStack 与 ZStack。</p>
+<p>SwiftUI 的“堆叠”（Stack ）和在 UIKit 的堆叠视图一样，通过水平与垂直堆叠结合视图，你可以为 App 建构复杂的使用者介面。对 UIKit 而言，使用自动布局（ Auto Layout ）来建立相容所有屏幕尺寸的介面是无法避免的。对初学者而言，自动布局是一个复杂的主题且难以学习，但好消息是你不再需要在 SwiftUI 中使用自动布局，所有东西都是堆叠，包括了 VStack、HStack 与 ZStack。</p>
 <p>在本章中，我将会介绍所有类型的堆叠，并使用堆叠来建立网格布局（Grid Layout ）， 那么，你将进行什么项目呢？参考图 4.1，我们会逐步布局一个简单的网格介面。学习完本章的内容之后，你将能够结合视图与堆叠，并建立想要的 UI。</p>
 <figure id="fig4.1"><img src="images/stacks/swiftui-stacks-1.png" alt="图 4.1.　示例App"><figcaption>图 4.1.　示例App</figcaption></figure>
 <h3 id="%E8%AA%8D%E8%AD%98-vstack%E3%80%81hstack-%E8%88%87-zstack">认识 VStack、HStack 与 ZStack</h3>
@@ -1037,9 +1037,9 @@
 <p>如果你再次参考图 4.1，两个售价方案都具有相同的大小。要将这两个区块调整为相同的大小，你可以使用 <code>.frame</code> 修饰器来将 <code>maxWidth</code> 设定为“.infinity”，如下所示： </p>
 <pre><code class="lang-swift">.frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity, minHeight: <span class="hljs-number">100</span>)
 </code></pre>
-<p><code>.frame</code> 修饰器可让你定义框架的尺寸。你可以指定尺寸大小为固定值。举例而言，在上列的代码中，我们将<code>minHeight</code> 设定为“100 点”，当你设定 <code>maxWidth</code> 为 <code>.infinity</code>时， 此视图将会调整自己来填满最大宽度，例如：如果只有一个售价区块，则它会占满整个荧幕宽度，如图 4.16 所示。</p>
+<p><code>.frame</code> 修饰器可让你定义框架的尺寸。你可以指定尺寸大小为固定值。举例而言，在上列的代码中，我们将<code>minHeight</code> 设定为“100 点”，当你设定 <code>maxWidth</code> 为 <code>.infinity</code>时， 此视图将会调整自己来填满最大宽度，例如：如果只有一个售价区块，则它会占满整个屏幕宽度，如图 4.16 所示。</p>
 <figure id="fig4.16"><img src="images/stacks/swiftui-stacks-16.png" alt="图4.16　设定 maxWidth 为“.infinity”"><figcaption>图4.16　设定 maxWidth 为“.infinity”</figcaption></figure>
-<p>对于这两个售价区块，当 <code>maxWidth</code> 设定为<code>.infinity</code>时，iOS 将平均填满填满区块。现在将上列代码插入至每一个售价区块中，则你应该可完成如图 4.17 所示的荧幕画面。</p>
+<p>对于这两个售价区块，当 <code>maxWidth</code> 设定为<code>.infinity</code>时，iOS 将平均填满填满区块。现在将上列代码插入至每一个售价区块中，则你应该可完成如图 4.17 所示的屏幕画面。</p>
 <figure id="fig4.17"><img src="images/stacks/swiftui-stacks-17.png" alt="图 4.17. 以等宽来排列两个售价区块"><figcaption>图 4.17. 以等宽来排列两个售价区块</figcaption></figure>
 <p>要让水平堆叠一些间距，则你可以加入一个 <code>.padding</code> 修饰器，如图4.18 所示。</p>
 <figure id="fig4.18"><img src="images/stacks/swiftui-stacks-18.png" alt="图 4.18　为堆叠视图加入一些间距"><figcaption>图 4.18　为堆叠视图加入一些间距</figcaption></figure>
@@ -1205,7 +1205,7 @@
 <p>将你目前的 UI 与图 4.1 进行比较，你看出任何差异了吗？你可能会注意两个差异点： </p>
 <ol>
 <li>“Choose Your Plan”标签没有靠左对齐。</li>
-<li>“Choose Your Plan”标签与售价方案应该要对齐荧幕的顶部。</li>
+<li>“Choose Your Plan”标签与售价方案应该要对齐屏幕的顶部。</li>
 </ol>
 <p>在UIKit 中，你可定义自动布局约束条件来放置视图。SwiftUI 没有自动布局，而是提供一个称为“留白”（Spacer ）的视图来建立复杂的布局。</p>
 <blockquote>

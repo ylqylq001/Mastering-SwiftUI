@@ -1552,7 +1552,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 </code></pre>
 <p><code>paymentDataForView</code> 是另一个计算属性，它传回一个交易活动集合。 在代码中，我们使用<code>filter</code>函数来过滤交易活动，并使用<code>sort</code>函数将交易活动排序。</p>
 <h4 id="%E5%BA%95%E9%A0%81%EF%BC%88the-bottom-sheet%EF%BC%89">底页（The Bottom Sheet）</h4>
-<p>交易详细信息视图是以<code>BottomSheet</code>形式显示。 当使用者点击交易记录时，bottom sheet 会从荧幕底部弹出来并显示支付详情。 另外，bottom sheet 是可以扩展至全荧幕的，使用者可以向上拖动详细视图就可以展开它。 相反地，使用者可以向下拖动视图将其关闭。</p>
+<p>交易详细信息视图是以<code>BottomSheet</code>形式显示。 当使用者点击交易记录时，bottom sheet 会从屏幕底部弹出来并显示支付详情。 另外，bottom sheet 是可以扩展至全屏幕的，使用者可以向上拖动详细视图就可以展开它。 相反地，使用者可以向下拖动视图将其关闭。</p>
 <pre><code class="lang-swift">.sheet(isPresented: $showPaymentDetails) {
     <span class="hljs-type">PaymentDetailView</span>(payment: selectedPaymentActivity!)
         .presentationDetents([.medium, .large])       

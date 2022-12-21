@@ -1092,7 +1092,7 @@ task.isComplete = isComplete
 </code></pre>
 <h4 id="%E4%BA%86%E8%A7%A3%E6%B7%BB%E5%8A%A0%E4%BA%8B%E9%A0%85%E8%A6%96%E5%9C%96">了解添加事项视图</h4>
 <p>现在让我和你讨论一下 <code>NewToDoView.swift</code> 中的代码，该代码用于让使用者添加新任务或待办事项。 你可以参考图 22.6 或简单地打开文件进行预览，看看该视图的外观。</p>
-<p><code>NewToDoView</code> 接受两个绑定：<em>isShow</em> 和 <em>todoItems</em>。 <code>isShow</code> 参数控制这个 <em>Add New Task</em> 视图是否应该出现在荧幕上。 <code>todoItems</code> 变量储存了对待办事项数组的参考。 我们需要方法调用者将绑定传递给 <code>todoItems</code>，以便我们可以将新事项加进数组。</p>
+<p><code>NewToDoView</code> 接受两个绑定：<em>isShow</em> 和 <em>todoItems</em>。 <code>isShow</code> 参数控制这个 <em>Add New Task</em> 视图是否应该出现在屏幕上。 <code>todoItems</code> 变量储存了对待办事项数组的参考。 我们需要方法调用者将绑定传递给 <code>todoItems</code>，以便我们可以将新事项加进数组。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> isShow: <span class="hljs-type">Bool</span>
 @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> todoItems: [<span class="hljs-type">ToDoItem</span>]
 
@@ -1133,7 +1133,7 @@ task.isComplete = isComplete
 }
 .padding(.bottom)
 </code></pre>
-<p>由于 <code>todoItems</code> 数组是一个状态变量，列表视图会自动修改并显示新事项。 这就是整个代码的运作原理。 如果你不明白 <em>Add task</em> 视图是如何显示在荧幕底部的话，请参阅第 18 章。</p>
+<p>由于 <code>todoItems</code> 数组是一个状态变量，列表视图会自动修改并显示新事项。 这就是整个代码的运作原理。 如果你不明白 <em>Add task</em> 视图是如何显示在屏幕底部的话，请参阅第 18 章。</p>
 <h3 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-core-data">如何使用 Core Data</h3>
 <p>现在我已经为你介绍了这个ToDo项目，是时候将App转换为使用 Core Data 将待办事项存储在数据库中了。 一开始，我们曾建立了一个启用了 <em>Core Data</em> 的空白项目。 通过选中 Core Data 选框，Xcode 会自动生成 Core Data 项目的基本框架。 这一次，我将向你展示如何手动转换Xcode项目以使用 Core Data。</p>
 <h4 id="%E5%BB%BA%E7%AB%8B%E6%8C%81%E4%B9%85%E6%8E%A7%E5%88%B6%E5%99%A8-persistent-controller">建立持久控制器 Persistent Controller</h4>

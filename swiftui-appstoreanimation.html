@@ -881,13 +881,13 @@
 <figure id="fig26.1"><img src="images/appstore/swiftui-appstore-1.jpg" alt="图 26.1. App Store app"><figcaption>图 26.1. App Store app</figcaption></figure>
 <p>在本章中，我们将构建一个类似的列表视图并使用 SwiftUI 实现动画过渡。 通过建立示例App，你将学习以下技术：</p>
 <ul>
-<li>如何使用 GeometryReader 检测荧幕尺寸</li>
+<li>如何使用 GeometryReader 检测屏幕尺寸</li>
 <li>如何创建可变大变小的卡片视图（Card View）</li>
 <li>如何实现类似 App Store 内的视图转换动画效果</li>
 </ul>
 <p>酷！让我们开始吧。</p>
 <h3 id="%E7%AF%84%E4%BE%8B-app-%E7%B0%A1%E4%BB%8B">示例 App 简介</h3>
-<p>像往常一样，我们将一起构建一个示例 App。 App看起来与 <em>App Store</em> App 非常相似，只是没有标签列（Tab Bar）。 打开App 后会见到一个列表视图，以卡片格式显示所有文章。 当使用者点击任何文章时，卡片会扩展为全荧幕并显示整篇文章。 要返回列表视图，使用者可以点击关闭按钮或向下拖动文章视图。</p>
+<p>像往常一样，我们将一起构建一个示例 App。 App看起来与 <em>App Store</em> App 非常相似，只是没有标签列（Tab Bar）。 打开App 后会见到一个列表视图，以卡片格式显示所有文章。 当使用者点击任何文章时，卡片会扩展为全屏幕并显示整篇文章。 要返回列表视图，使用者可以点击关闭按钮或向下拖动文章视图。</p>
 <figure id="fig26.2"><img src="images/appstore/swiftui-appstore-2.jpg" alt="图 26.2. 示例 App"><figcaption>图 26.2. 示例 App</figcaption></figure>
 <p>我们将由零开始建立App， 但是为了节省你一些时间，我已准备了一个Starter项目。 你可以从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAppStoreStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAppStoreStarter.zip</a> 下载它。 下载项目后，解压后并打开<code>SwiftUIAppStore.xcodeproj</code>查看一下。</p>
 <figure id="fig26.3"><img src="images/appstore/swiftui-appstore-3.png" alt="图 26.3. Starter 项目"><figcaption>图 26.3. Starter 项目</figcaption></figure>
@@ -902,7 +902,7 @@
 <figure id="fig26.4"><img src="images/appstore/swiftui-appstore-4.jpg" alt="图 26.4. 卡片式UI"><figcaption>图 26.4. 卡片式UI</figcaption></figure>
 <p>如果你仔细观察图 26.4 所示的卡片视图，你会发现卡片视图的大小会根据图像的高度而变化。 但是，卡片的高度不会超过 500 点。</p>
 <figure id="fig26.5"><img src="images/appstore/swiftui-appstore-5.png" alt="图 26.5. 在节录模式下的卡片视图"><figcaption>图 26.5. 在节录模式下的卡片视图</figcaption></figure>
-<p>让我们也看看卡片视图在完整内容模式下的外观。 如下图所示，卡片视图展开以全荧幕显示内容。 除此之外，图像变大了，副标题则被隐藏。 此外，关闭按钮会出现在屏幕上，让使用者关闭视图。 还有，这是一个可滚动的视图。</p>
+<p>让我们也看看卡片视图在完整内容模式下的外观。 如下图所示，卡片视图展开以全屏幕显示内容。 除此之外，图像变大了，副标题则被隐藏。 此外，关闭按钮会出现在屏幕上，让使用者关闭视图。 还有，这是一个可滚动的视图。</p>
 <figure id="fig26.6"><img src="images/appstore/swiftui-appstore-6.png" alt="图 26.6. 在完整内容模式下的外观"><figcaption>图 26.6. 在完整内容模式下的外观</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">实现卡片视图</h3>
 <p>现在你了解了此卡片视图的要求，让我们看看如何建立它。 我们将使用一个新文档来建立卡片视图。 在项目导航器中，右点 <em>View</em> 文件夹并选择 <em>New file...</em>。 选择 <em>SwiftUI View</em> 模板并将文件命名为 <code>ArticleCardView.swift</code>。</p>
@@ -1024,12 +1024,12 @@
 <p>进行更改后，你应该能够在预览画面中看到卡片 UI。 此外，你应该看到两个模拟器，一个显示节录视图，另一个显示完整内容。</p>
 <figure id="fig26.8"><img src="images/appstore/swiftui-appstore-8.png" alt="图 26.8. 预览卡片 UI"><figcaption>图 26.8. 预览卡片 UI</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8-geometryreader">使用 GeometryReader</h4>
-<p>似乎一切都很好。 但是，如果你尝试使用另一篇示例文章（例如，<code>sampleArticles[1]</code>）预览卡片视图，则 UI 看起来不太好。 图像和内容都超出了荧幕边缘。</p>
-<figure id="fig26.9"><img src="images/appstore/swiftui-appstore-9.png" alt="图 26.9. 图像和内容都超出了荧幕边缘"><figcaption>图 26.9. 图像和内容都超出了荧幕边缘</figcaption></figure>
+<p>似乎一切都很好。 但是，如果你尝试使用另一篇示例文章（例如，<code>sampleArticles[1]</code>）预览卡片视图，则 UI 看起来不太好。 图像和内容都超出了屏幕边缘。</p>
+<figure id="fig26.9"><img src="images/appstore/swiftui-appstore-9.png" alt="图 26.9. 图像和内容都超出了屏幕边缘"><figcaption>图 26.9. 图像和内容都超出了屏幕边缘</figcaption></figure>
 <p>让我们再看看之前的代码。 对于 <code>Image</code> 视图，我们只限制了图像的高度，对它的宽度没有任何限制：</p>
 <pre><code class="lang-swift">.frame(height: <span class="hljs-built_in">min</span>(<span class="hljs-keyword">self</span>.image.size.height/<span class="hljs-number">3</span>, <span class="hljs-number">500</span>))
 </code></pre>
-<p>为了解决这个问题，我们必须限制<code>frame</code>的宽度并确保它不超过荧幕的宽度。 问题是如何找出荧幕的宽度？ SwiftUI 提供了一个名为<code>GeometryReader</code>的容器视图，可以读取parent view的大小。 因此，我们需要将 <code>ScrollView</code> 嵌入到 <code>GeometryReader</code> 中，如下所示：</p>
+<p>为了解决这个问题，我们必须限制<code>frame</code>的宽度并确保它不超过屏幕的宽度。 问题是如何找出屏幕的宽度？ SwiftUI 提供了一个名为<code>GeometryReader</code>的容器视图，可以读取parent view的大小。 因此，我们需要将 <code>ScrollView</code> 嵌入到 <code>GeometryReader</code> 中，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">GeometryReader</span> { geometry <span class="hljs-keyword">in</span> 
         <span class="hljs-type">ScrollView</span> {
@@ -1043,11 +1043,11 @@
     }
 }
 </code></pre>
-<p>在 <code>GeometryReader</code> 的闭包中，它有一个参数，可以为你提供有关视图的额外数据，例如大小和位置。 要将框架的宽度限制为荧幕大小的话，我郐就可以像这样修改 <code>.frame</code> 修饰器：</p>
+<p>在 <code>GeometryReader</code> 的闭包中，它有一个参数，可以为你提供有关视图的额外数据，例如大小和位置。 要将框架的宽度限制为屏幕大小的话，我郐就可以像这样修改 <code>.frame</code> 修饰器：</p>
 <pre><code class="lang-swift">.frame(width: geometry.size.width, height: <span class="hljs-built_in">min</span>(<span class="hljs-keyword">self</span>.image.size.height/<span class="hljs-number">3</span>, <span class="hljs-number">500</span>))
 </code></pre>
-<p>在代码中，我们将宽度设定为荧幕宽度。 完成更改后，就可以解决之前遇到的问题。</p>
-<figure id="fig26.10"><img src="images/appstore/swiftui-appstore-10.png" alt="图 26.10. 图像宽度设定为荧幕宽度"><figcaption>图 26.10. 图像宽度设定为荧幕宽度</figcaption></figure>
+<p>在代码中，我们将宽度设定为屏幕宽度。 完成更改后，就可以解决之前遇到的问题。</p>
+<figure id="fig26.10"><img src="images/appstore/swiftui-appstore-10.png" alt="图 26.10. 图像宽度设定为屏幕宽度"><figcaption>图 26.10. 图像宽度设定为屏幕宽度</figcaption></figure>
 <h4 id="%E6%B7%BB%E5%8A%A0%E9%97%9C%E9%96%89%E6%8C%89%E9%88%95">添加关闭按钮</h4>
 <p>卡片视图几乎完成了，但还剩下一件事。 我们还没有加入关闭按钮。 为了将按钮覆盖在图像顶部，我们要将滚动视图嵌入到<code>ZStack</code>中。 你可以直接修改代码以添加<code>ZStack</code>，但这里让我试范另一种方法。</p>
 <p>按住 command 键并单击<code>ScrollView</code>，你应该会看到一个选单。 选择 <em>Embed in ZStack</em> 将滚动视图嵌入到 <code>ZStack</code> 中。</p>
@@ -1159,7 +1159,7 @@
 </code></pre>
 <p>我们在 <code>ScrollView</code> 中嵌入了一个 <code>VStack</code> 来创建垂直滚动视图。 在代码中，我们传送给<code>ForEach</code>一个<code>sampleArticles</code>数组，并为每篇文章创建一个<code>ArticleCardView</code>。 如果你的代码能正常运作，预览画面应该会向显示文章列表。</p>
 <figure id="fig26.14"><img src="images/appstore/swiftui-appstore-14.png" alt="图 26.14. 显示文章列表"><figcaption>图 26.14. 显示文章列表</figcaption></figure>
-<h3 id="%E5%B0%87%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E6%93%B4%E5%B1%95%E5%88%B0%E5%85%A8%E8%9E%A2%E5%B9%95">将卡片视图扩展到全荧幕</h3>
+<h3 id="%E5%B0%87%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E6%93%B4%E5%B1%95%E5%88%B0%E5%85%A8%E8%9E%A2%E5%B9%95">将卡片视图扩展到全屏幕</h3>
 <p>现在到了最困难的部分。 如何将卡片视图从节录模式切换到完整内容模式？ 之前，我们将 <code>isShowContent</code> 参数设定为 <code>.constant(false)</code>。 要在这两种模式之间切换，每个卡片视图都应该有一个变量来存放其状态。</p>
 <p>因此，在 <code>ContentView</code> 中声明以下状态变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showContent = <span class="hljs-built_in">false</span>
@@ -1173,7 +1173,7 @@
 <pre><code class="lang-swift"><span class="hljs-type">ArticleCardView</span>(category: sampleArticles[index].category, headline: sampleArticles[index].headline, subHeadline: sampleArticles[index].subHeadline, image: sampleArticles[index].image, content: sampleArticles[index].content, isShowContent: $showContent)
 </code></pre>
 <h4 id="%E8%99%95%E7%90%86%E9%BB%9E%E6%93%8A%E6%89%8B%E5%8B%A2">处理点击手势</h4>
-<p>当使用者点击其中一个卡片视图时，所选卡片将变为全荧幕模式。 要侦测点击手势，请在你刚刚添加的代码下方附加 <code>.onTapGesture</code> 修饰器（在<code>.padding(.horizontal, 20)</code>之下加入）：</p>
+<p>当使用者点击其中一个卡片视图时，所选卡片将变为全屏幕模式。 要侦测点击手势，请在你刚刚添加的代码下方附加 <code>.onTapGesture</code> 修饰器（在<code>.padding(.horizontal, 20)</code>之下加入）：</p>
 <pre><code class="lang-swift">.onTapGesture {
     withAnimation(.interactiveSpring(response: <span class="hljs-number">0.35</span>, dampingFraction: <span class="hljs-number">0.65</span>, blendDuration: <span class="hljs-number">0.1</span>)) {
         <span class="hljs-keyword">self</span>.selectedArticleIndex = index
@@ -1185,7 +1185,7 @@
 <p>让我们快速测试一下App！当你在预览画面中运行App时，点击任何卡片视图就可以测试到结果。 虽然它没有像预期般运作，但卡片视图应该显示文章的内容并隐藏子标题。 此外，你应该能点击关闭按钮以返回节录模式。 如果看不到内容，请向上拖动卡片视图以显示它。</p>
 <figure id="fig26.15"><img src="images/appstore/swiftui-appstore-15.png" alt="图 26.15. 测试App"><figcaption>图 26.15. 测试App</figcaption></figure>
 <h4 id="%E5%88%A9%E7%94%A8-matchedgeometryeffect-%E8%A3%BD%E4%BD%9C%E9%81%8E%E5%A0%B4%E5%8B%95%E7%95%AB">利用 MatchedGeometryEffect 制作过场动画</h4>
-<p>我们如何将选定的卡片视图扩展为全荧幕卡片视图并为过渡设置动画？ 在第 33 章中，我介绍了一个名为<code>matchedGeometryEffect</code>的修饰器。 使用这个强大的修饰符，你可以描述初始视图和最终视图的外观。 <code>matchedGeometryEffect</code> 然后计算这两个视图之间的差异并自动为大小和位置变化设置动画。</p>
+<p>我们如何将选定的卡片视图扩展为全屏幕卡片视图并为过渡设置动画？ 在第 33 章中，我介绍了一个名为<code>matchedGeometryEffect</code>的修饰器。 使用这个强大的修饰符，你可以描述初始视图和最终视图的外观。 <code>matchedGeometryEffect</code> 然后计算这两个视图之间的差异并自动为大小和位置变化设置动画。</p>
 <p>注意：如果你还没有阅读第 33 章，请先阅读本章。</p>
 <p>在这个示例中，初始视图是摘录模式下的卡片视图，而最终视图是显示完整内容的卡片视图。 我们要做的是将当前滚动视图嵌入到一个 <code>ZStack</code> 视图中。 最初，App显示卡片视图列表。 当使用者点击任何卡片视图时，我们会将完整内容视图覆盖在现有滚动视图之上。</p>
 <p>现在按住命令键并单击 <code>ScrollView</code>。 选择 <em>Embed in ZStack</em>。</p>
@@ -1209,8 +1209,8 @@
 }
 </code></pre>
 <p>当使用者点击其中一个卡片视图时，<code>showContent</code> 的值将更改为 <code>true</code>，并且将 <code>selectedArticleIndex</code> 设置为所选卡片视图的索引。 在这种情况下，我们通过将 <code>isShowContent</code> 参数设置为 <code>true</code> 以完整内容模式显示卡片视图。</p>
-<p>如果你在预览画布中测试App，点击卡片视图就会将其内容扩展到全荧幕。</p>
-<figure id="fig26.17"><img src="images/appstore/swiftui-appstore-17.png" alt="图 26.17. 将卡片视图扩展到全荧幕"><figcaption>图 26.17. 将卡片视图扩展到全荧幕</figcaption></figure>
+<p>如果你在预览画布中测试App，点击卡片视图就会将其内容扩展到全屏幕。</p>
+<figure id="fig26.17"><img src="images/appstore/swiftui-appstore-17.png" alt="图 26.17. 将卡片视图扩展到全屏幕"><figcaption>图 26.17. 将卡片视图扩展到全屏幕</figcaption></figure>
 <p>功能上是可以的，但效果看起来并不好。 完整内容卡片视图后面的列表仍然可见。 当选择任何卡片视图时，我们需要将其隐藏起来。 要解决此问题，请将 <code>opacity</code> 修饰器附加到 <code>ScrollView</code>：</p>
 <pre><code class="lang-swift">.opacity(showContent ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>)
 </code></pre>
@@ -1232,7 +1232,7 @@
 <p>我们还未完成喔。 尽管我们解决了其中一个主要问题，但仍有一些问题在等待我们。 接下来是特色图片。 在完整内容模式下，我想让图像更大一点。 只需切换到 <code>ArticleCardView.swift</code> 并更改 <code>Image</code> 视图的 <code>.frame</code> 修饰器，如下所示：</p>
 <pre><code class="lang-swift">.frame(width: geometry.size.width, height: <span class="hljs-keyword">self</span>.isShowContent ? geometry.size.height * <span class="hljs-number">0.7</span> : <span class="hljs-built_in">min</span>(<span class="hljs-keyword">self</span>.image.size.height/<span class="hljs-number">3</span>, <span class="hljs-number">500</span>))
 </code></pre>
-<p>当卡片视图显示文章内容时，图像高度现在调整为荧幕高度的 70%。 你可以更改这个值以配合你的个人偏好。 现在回到 <code>ContentView.swift</code> 并测试更改， 特色图像在全内容模式下会变大。</p>
+<p>当卡片视图显示文章内容时，图像高度现在调整为屏幕高度的 70%。 你可以更改这个值以配合你的个人偏好。 现在回到 <code>ContentView.swift</code> 并测试更改， 特色图像在全内容模式下会变大。</p>
 <figure id="fig26.19"><img src="images/appstore/swiftui-appstore-19.png" alt="图 26.19. 特色图像在全内容模式下变大"><figcaption>图 26.19. 特色图像在全内容模式下变大</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>恭喜！你构建了一个类似于 App Store app 的动画。 在实现了这个示范 App 之后，我希望你了解如何创建复杂的视图动画，并了解如何使用 GeometryReader 来完善你的 UI。</p>

@@ -878,12 +878,12 @@
                     
                         <h1 id="%E7%AC%AC-3-%E7%AB%A0-br-%E5%9C%96%E7%89%87%E8%88%87%E6%A8%99%E7%B1%A4%E7%9A%84%E8%99%95%E7%90%86">第 3 章<br>图片与标签的处理</h1>
 <p>现在你应该对于 SwiftUI 有了基本概念，并了解如何显示文字内容，本章我们来看如何显示图片。我们也会学习标签（Label）的用法。</p>
-<p>除了文字之外，图片是 iOS App 开发的另外一个基本组件。SwiftUI 提供一个名为 <code>Image</code> 的视图，来让开发者将图片渲染在荧幕上。首前一章的内容相似，我会建立一个简单的 App，以示范如何进行图片的处理。本章可归纳为以下几个主题： </p>
+<p>除了文字之外，图片是 iOS App 开发的另外一个基本组件。SwiftUI 提供一个名为 <code>Image</code> 的视图，来让开发者将图片渲染在屏幕上。首前一章的内容相似，我会建立一个简单的 App，以示范如何进行图片的处理。本章可归纳为以下几个主题： </p>
 <ul>
 <li>什么是SF Symbol，以及如何显示一个系统图片？ </li>
 <li>如何显示我们自己的图片？ </li>
 <li>如何调整图片大小？ </li>
-<li>如何使用 <code>ignoresSafeArea</code> 来显示一个全荧幕的图片？  </li>
+<li>如何使用 <code>ignoresSafeArea</code> 来显示一个全屏幕的图片？  </li>
 <li>如何建立一个圆形图片？ </li>
 <li>如何在图片上应用重叠？ </li>
 </ul>
@@ -896,7 +896,7 @@
 <blockquote>
 <p>超过 4,000 个可设定的标志，SF Symbols 无缝整合了 Apple 平台的 San Francisco 系统字型，每一个标志皆设定了不同的权重与比例，可以自动对齐文字标签，并支持动态型态（Dynamic type）与粗体字（Bold Text）辅助功能，你也可以输出这些文字，以向量图形编辑工具来进一步编辑，建立具有共享特点与可用性的自订标志。SF Symbols 4 加入 700 多个新符号、增强的颜色自定义、新的检查器以及对自定义符号的改进支持。</p>
 </blockquote>
-<p>在教你如何在荧幕显示图片之前，我们先谈一下关于图片的来源。当然，你可以在 App 中提供自己的图片。从 iOS 13 开始，Apple 导入名为“SF Symbols”的大量系统图片，可以让开发者在任何 App 中使用。iOS 16 进一步修改版释出了 SF Symbol 4 ，新增了 700 个标志，并增强的颜色设置。</p>
+<p>在教你如何在屏幕显示图片之前，我们先谈一下关于图片的来源。当然，你可以在 App 中提供自己的图片。从 iOS 13 开始，Apple 导入名为“SF Symbols”的大量系统图片，可以让开发者在任何 App 中使用。iOS 16 进一步修改版释出了 SF Symbol 4 ，新增了 700 个标志，并增强的颜色设置。</p>
 <p>这些图片是作为标志用，由于它整合了内建的 San Francisco 字型，因此使用这些标志， 并不需要额外的安装，只要你的 App 是部署在执行 iOS 13（或之后的版本）的装置，你就可以直接取得这些标志。但你要注意，现在有五组不同的符号需要考虑：</p>
 <ul>
 <li><strong>SF Symbols v1.1</strong> 适用于 iOS/iPadOS/tvOS/Mac Catalyst 13.0, watchOS 6.0 和 macOS 11.0</li>
@@ -909,7 +909,7 @@
 <p>当要使用这些标志时，你需要准备的是找到标志名称。由于有超过 4,000 个符号可供使用，Apple 释出一个名为 <a href="https://developer.apple.com/design/downloads/SF-Symbols.dmg" target="_blank">SF Symbols</a> (<a href="https://developer.apple.com/sf-symbols/" target="_blank">https://developer.apple.com/sf-symbols/</a>) 个标志可以让你使用，因此你可以很容易地找到你要的标志来配合你的设计。我极力推荐你在进行下一节之前，先安装这个 App。</p>
 <figure id="fig3.3"><img src="images/images/swiftui-images-3.png" alt="图 3.3　SF Symbols App"><figcaption>图 3.3　SF Symbols App</figcaption></figure>
 <h3 id="%E9%A1%AF%E7%A4%BA%E7%B3%BB%E7%B5%B1%E5%9C%96%E7%89%87">显示系统图片</h3>
-<p>想要在荧幕上显示系统图片的话，你可以初始化一个 <code>Image</code> 视图，加上 <code>systemName</code> 参数，如下所示： </p>
+<p>想要在屏幕上显示系统图片的话，你可以初始化一个 <code>Image</code> 视图，加上 <code>systemName</code> 参数，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;cloud.heavyrain&quot;</span>)
 </code></pre>
 <p>这将会建立一个图片视图，并载入指定的系统图片。如前所述，SF Symbols 与 San Francisco 字型无缝整合。你可以很容易地应用 <code>font</code> 修饰器来进行图片的缩放。</p>
@@ -936,7 +936,7 @@
 <p>在你的项目能够使用图片之前，首先你必须先将图片汇入素材目录（ Asset Catalog ）， 也就是 <code>Assets</code>。假设你已经准备好图片（paris.jpg ），按下 command+0 键来开启项目导航器（Project Navigator ），并选取 Assets。现在开启 Finder，并将图片拖曳至大纲视图（Outline View ），如图 3.5 所示。</p>
 <figure id="fig3.5"><img src="images/images/swiftui-images-5.png" alt="图 3.5　将图片加至素材目录"><figcaption>图 3.5　将图片加至素材目录</figcaption></figure>
 <p>如果你是 iOS App 开发新手，这个素材目录是你储存应用程序资源如图片、颜色与数据的地方。当你将图片放入素材目录时，你可以参照它的名称来下载图片。另外，你可以设定要载入图片的装置（例如：只限 iPhone ）。</p>
-<p>要在荧幕上显示图片，可撰写程序如下： </p>
+<p>要在屏幕上显示图片，可撰写程序如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
 </code></pre>
 <p>你只需要指定图片名称，可在预览画布中见到图片。然而，由于图片是高解析度图片（ 4437&#xD7;6656 像素），你只能见到部分图片，如图 3.6 所示。</p>
@@ -946,10 +946,10 @@
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
     .resizable()
 </code></pre>
-<p>默认上，图片大小调整是使用“延伸”（stretch ）模式。这表示原始图片将会被放大到填满整个荧幕画面（除了顶部与底部区域之外），如图 3.7 所示。</p>
+<p>默认上，图片大小调整是使用“延伸”（stretch ）模式。这表示原始图片将会被放大到填满整个屏幕画面（除了顶部与底部区域之外），如图 3.7 所示。</p>
 <figure id="fig3.7"><img src="images/images/swiftui-images-7.png" alt="图 3.7. 以resizable 修饰器调整图片大小"><figcaption>图 3.7. 以resizable 修饰器调整图片大小</figcaption></figure>
 <p>技术上而言，这个图片填满了整个 iOS 所定义的安全区域（Safe Area ）。安全区域的观念已经存在一段颇长的时间了，定义为安全布局UI 组件的视图区域。举例而言，如图 3.7 所示，这个安全区域不包含顶部列（Top Bar ）（也就是状态列）与底部列（Bottom Bar ） 的区域。安全区域可以避免你不小心隐藏了系统 UI 组件，例如：状态列（Status Bar ）、导航列（Navigation Bar ）与标签列（Tab Bar ）。</p>
-<p>既然我们正好说到这件事， 若是你想要显示全荧幕图片， 你可以设定 <code>ignoringSafeArea</code> 修饰器来忽略安全区域，如图 3.8 所示。 </p>
+<p>既然我们正好说到这件事， 若是你想要显示全屏幕图片， 你可以设定 <code>ignoringSafeArea</code> 修饰器来忽略安全区域，如图 3.8 所示。 </p>
 <figure id="fig3.8"><img src="images/images/swiftui-images-8.png" alt="图 3.8　忽略安全区域"><figcaption>图 3.8　忽略安全区域</figcaption></figure>
 <p>你可以针对特定的边缘来忽略安全区域，例如：要忽略底部边缘的安全区域，你只要传送 <code>.bottom</code> 作为参数即可:</p>
 <pre><code class="lang-swift">.ignoresSafeArea(.container, edges: .bottom)
@@ -981,7 +981,7 @@
 </code></pre>
 <p>这张图片会被缩小，但是仍保持原始长宽比。如果你变更内容模式为 <code>.fill</code>，图片看起来与图 3.7 几乎相同，然而当你使用<em>selectable</em> 模式并仔细看图 3.11，长宽比是维持不变的。</p>
 <figure id="fig3.11"><img src="images/images/swiftui-images-11.png" alt="图 3.11.　使用.fill 内容模式"><figcaption>图 3.11.　使用.fill 内容模式</figcaption></figure>
-<p>你可能会注意到图片的宽度不是我们想要的，它依然占满整个荧幕宽度。要正确运作的话，你必须使用 <code>clipped</code> 修饰器来消除视图额外的部分，如图 3.12 所示。</p>
+<p>你可能会注意到图片的宽度不是我们想要的，它依然占满整个屏幕宽度。要正确运作的话，你必须使用 <code>clipped</code> 修饰器来消除视图额外的部分，如图 3.12 所示。</p>
 <figure id="fig3.12"><img src="images/images/swiftui-images-12.png" alt="图 3.12.　使用.clipped 来裁切视图"><figcaption>图 3.12.　使用.clipped 来裁切视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%9C%93%E5%BD%A2%E5%9C%96%E7%89%87">建立圆形图片</h3>
 <p>除了将图片裁切为长方形之外，SwiftUI 提供其他修饰器来让你将图片裁成不同的形状，例如：圆形。举例而言，如果你想要建立圆形图片，你可以像这样使用 <code>clipShape</code> 修饰器： </p>

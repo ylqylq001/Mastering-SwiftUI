@@ -1111,7 +1111,7 @@
 <pre><code class="lang-swift">.shadow(color: .gray, radius: <span class="hljs-number">20.0</span>, x: <span class="hljs-number">20</span>, y: <span class="hljs-number">10</span>)
 </code></pre>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%A8%E5%AF%AC%E5%BA%A6%E6%8C%89%E9%88%95">建立全宽度按钮</h3>
-<p>大一点的按钮通常可以吸引使用者的注意。有时，你可能需要建立一个占满荧幕宽度的全宽度按钮。<code>frame</code> 修饰器是设计用来让你控制视图的尺寸，不论你是想要建立一个固定大小的按钮，还是可变化宽度的按钮，都可以使用这个修饰器。要建立全宽度按钮，你可以变更 <code>Button</code> 代码，如下所示： </p>
+<p>大一点的按钮通常可以吸引使用者的注意。有时，你可能需要建立一个占满屏幕宽度的全宽度按钮。<code>frame</code> 修饰器是设计用来让你控制视图的尺寸，不论你是想要建立一个固定大小的按钮，还是可变化宽度的按钮，都可以使用这个修饰器。要建立全宽度按钮，你可以变更 <code>Button</code> 代码，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Delete tapped!&quot;</span>)
 }) {
@@ -1131,7 +1131,7 @@
 </code></pre>
 <p>该代码与我们刚才编写代码非常相似，除了在 <code>padding</code> 之前加入 <code>frame</code> 修饰器。这里我们为按钮定义了弹性宽度，并设定 <code>maxWidth</code> 参数为 <code>.infinity</code>，这表示该按钮将填满容器视图的宽度。在画布中，它现在应该显示了一个全宽度按钮，如图 6.20 所示。</p>
 <figure id="fig6.20"><img src="images/buttons/swiftui-buttons-20.png" alt="图 6.20.　全宽度按钮"><figcaption>图 6.20.　全宽度按钮</figcaption></figure>
-<p>通过将 <code>maxWidth</code> 定义为 <code>.infinity</code>，按钮宽度将根据装置的荧幕宽度来自动调整。若是你想要给此按钮更多的水平空间的话，则在 <code>.cornerRadius(40)</code> 后插入一个 <code>padding</code> 修饰器： </p>
+<p>通过将 <code>maxWidth</code> 定义为 <code>.infinity</code>，按钮宽度将根据装置的屏幕宽度来自动调整。若是你想要给此按钮更多的水平空间的话，则在 <code>.cornerRadius(40)</code> 后插入一个 <code>padding</code> 修饰器： </p>
 <pre><code class="lang-swift">.padding(.horizontal, <span class="hljs-number">20</span>)
 </code></pre>
 <h3 id="%E4%BD%BF%E7%94%A8-buttonstyle-%E8%A8%AD%E8%A8%88%E6%8C%89%E9%88%95">使用 ButtonStyle 设计按钮</h3>

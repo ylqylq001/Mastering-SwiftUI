@@ -1047,12 +1047,12 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>这就是我们使用 <code>offset</code> 修饰器来展开卡片的方式。若是一切正确，你应该会看到如图 20.9 所示的预览。</p>
 <figure id="fig20.9"><img src="images/wallet/swiftui-wallet-9.png" alt="图 20.9.　展开卡片"><figcaption>图 20.9.　展开卡片</figcaption></figure>
 <h3 id="%E5%8A%A0%E5%85%A5%E6%BB%91%E5%85%A5%E5%8B%95%E7%95%AB">加入滑入动画</h3>
-<p>我们现在已经完成了电子钱包视图的布局，是时候加入一些动画了，我要加入的第一个动画是滑入动画。当第一次开启 App 时，每张卡片都从荧幕最左侧滑入，你可能认为这个动画是不必要的，但是我想藉此机会教你如何建立动画以及开启 App 时的视图转场。</p>
+<p>我们现在已经完成了电子钱包视图的布局，是时候加入一些动画了，我要加入的第一个动画是滑入动画。当第一次开启 App 时，每张卡片都从屏幕最左侧滑入，你可能认为这个动画是不必要的，但是我想藉此机会教你如何建立动画以及开启 App 时的视图转场。</p>
 <figure id="fig20.10"><img src="images/wallet/swiftui-wallet-10.png" alt="图 20.10　滑入动画"><figcaption>图 20.10　滑入动画</figcaption></figure>
 <p>首先，我们需要一种触发过渡动画的方法， 先在 <code>CardView</code> 的开头声明一个状态变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isCardPresented = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>此变量指示卡片是否应显示在荧幕上。 在默认的情况下，它设置为<code>false</code>。 稍后，我们将此值设置为 <code>true</code> 以启动视图转换。</p>
+<p>此变量指示卡片是否应显示在屏幕上。 在默认的情况下，它设置为<code>false</code>。 稍后，我们将此值设置为 <code>true</code> 以启动视图转换。</p>
 <p>每张卡片都是一个视图。要实现如图 20.10 所示的动画，我们需要将 <code>transition</code> 与 <code>animation</code> 修饰器加到<code>CardView</code> 上，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">CardView</span>(card: card)
     .offset(<span class="hljs-keyword">self</span>.offset(<span class="hljs-keyword">for</span>: card))
@@ -1092,7 +1092,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p> 当 <code>ZStack</code> 出现时，我们将 <code>isCardPresented</code> 的值从 <code>false</code> 更改为 <code>true</code>，这将触发卡片的视图动画。应用更改后，在预览画布中点墼“Play”按钮，来进行测试。</p>
 <p>更改后，点击 <em>Play</em> 按钮在模拟器中测试App，App启动时就会呈现动画。</p>
 <h3 id="%E8%99%95%E7%90%86%E9%BB%9E%E6%93%8A%E6%89%8B%E5%8B%A2%E5%8F%8A%E9%A1%AF%E7%A4%BA%E4%BA%A4%E6%98%93%E7%B4%80%E9%8C%84">处理点击手势及显示交易纪录</h3>
-<p>当使用者点击卡片时，App 会向上移动所选的卡片，并且显示历史交易纪录。对于其他没有选到的卡片，它们会被移出荧幕。</p>
+<p>当使用者点击卡片时，App 会向上移动所选的卡片，并且显示历史交易纪录。对于其他没有选到的卡片，它们会被移出屏幕。</p>
 <p>要实现这个功能，我们还需要两个状态变量。在 <code>WalletView</code> 中声明这些变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> isCardPressed = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> selectedCard: <span class="hljs-type">Card</span>?
@@ -1109,7 +1109,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 )
 </code></pre>
 <p>要处理点击手势，我们可以将上述的 <code>gesture</code> 修饰器加到 <code>CardView</code>，并使用内建的 <code>TapGesture</code> 来捕捉点击事件。在代码区块中，我们只需切换<code>isCardPressed</code>的状态，并将目前的卡片设定为 <code>selectedCard</code> 变量。</p>
-<p>要将所选的卡片（及其下方的卡片）向上移动，并让其余的卡片移出荧幕的话，则修改 <code>offset(for:)</code> 函数如下：</p>
+<p>要将所选的卡片（及其下方的卡片）向上移动，并让其余的卡片移出屏幕的话，则修改 <code>offset(for:)</code> 函数如下：</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">offset</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">CGSize</span> </span>{
 
     guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
@@ -1134,7 +1134,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
     <span class="hljs-keyword">return</span> <span class="hljs-type">CGSize</span>(width: <span class="hljs-number">0</span>, height: -<span class="hljs-number">50</span> * <span class="hljs-type">CGFloat</span>(cardIndex))
 }
 </code></pre>
-<p>我们加入了一个 <code>if</code> 语句来检查卡片是否被选中。如果给定的卡片是使用者选择的卡片， 则我们将偏移量设定为<code>.zero</code>。对于所选卡片正下方的那些卡片，我们也将向上移动， 这就是为什么我们将偏移量设定为 <code>.zero</code>。而其余的卡片，我们将它们移出荧幕，因此垂直偏移量设定为 <code>1400 点</code>。</p>
+<p>我们加入了一个 <code>if</code> 语句来检查卡片是否被选中。如果给定的卡片是使用者选择的卡片， 则我们将偏移量设定为<code>.zero</code>。对于所选卡片正下方的那些卡片，我们也将向上移动， 这就是为什么我们将偏移量设定为 <code>.zero</code>。而其余的卡片，我们将它们移出屏幕，因此垂直偏移量设定为 <code>1400 点</code>。</p>
 <p>现在，我们已经准备好编写用于带出交易历史纪录视图的代码。正如一开始所述， 起始项目已经提供这个交易历史纪录视图。因此，你不需要自己建立它。</p>
 <p>藉由 <code>isCardPressed</code> 状态变量，我们可以使用它来确定是否显示交易历史纪录视图。在 <code>Spacer()</code> 前面插入下列代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> isCardPressed {
@@ -1143,7 +1143,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
         .transition(.move(edge: .bottom))
 }
 </code></pre>
-<p>在上列的代码中，我们设定转场为 <code>.move</code>，以从荧幕底部带入视图，你可以依照自己的喜好来随意更改它。</p>
+<p>在上列的代码中，我们设定转场为 <code>.move</code>，以从屏幕底部带入视图，你可以依照自己的喜好来随意更改它。</p>
 <figure id="fig20.11"><img src="images/wallet/swiftui-wallet-11.png" alt="图 20.11　显示交易历史纪录"><figcaption>图 20.11　显示交易历史纪录</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E5%8D%A1%E7%89%87">使用拖曳手势重新排列卡片</h3>
 <p>现在，来到本章的核心部分，我们来看如何让使用者以拖曳手势重新排列卡片库。首先，我详细描述此功能的工作原理： </p>

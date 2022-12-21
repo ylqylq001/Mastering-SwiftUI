@@ -878,8 +878,8 @@
                     
                         <h1 id="%E7%AC%AC-18-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-swiftui-%E6%89%8B%E5%8B%A2%E8%88%87-geometryreader-%E5%BB%BA%E7%AB%8B%E5%B1%95%E9%96%8B%E5%BC%8F%E5%BA%95%E9%83%A8%E8%A1%A8">第 18 章<br>使用 SwiftUI 手势与 GeometryReader 建立展开式底部表</h1>
 <p>现在你应该对 SwiftUI 手势有了基本的了解，我们来看如何应用所学的技术来建立真实世界应用程序的常用功能。</p>
-<p>最近“底部表”（bottom sheet ）越来越受欢迎，你可以在 Facebook 与 Uber 等知名 App 中找到这个功能，它更像是动作表（action sheet ）的加强版，底部表会从荧幕底部向上滑动，并覆盖在原始视图的上面，来提供上下文信息（contextual information ）或者可供使用者选择的其他选项。举例而言，当你将照片储存在 Instagram 的照片集中，该 App 会显示一个底部表，以选择照片集。而在 Facebook App 中，当点选贴文的“⋯”（ellipsis ）按钮，它会显示带有其他的动作项目表。Uber App 也使用底部表来显示所选择的行程价格。</p>
-<p>底部表的大小取决于想要显示的上下文信息。在某些情况下，底部表往往较大（也称为“背幕”（backdrop ）），占据了荧幕的 80~90%。通常，使用者可以使用拖曳手势与表互动。你可以向上滑动来展开它，或者向下滑动来最小化或解除表。</p>
+<p>最近“底部表”（bottom sheet ）越来越受欢迎，你可以在 Facebook 与 Uber 等知名 App 中找到这个功能，它更像是动作表（action sheet ）的加强版，底部表会从屏幕底部向上滑动，并覆盖在原始视图的上面，来提供上下文信息（contextual information ）或者可供使用者选择的其他选项。举例而言，当你将照片储存在 Instagram 的照片集中，该 App 会显示一个底部表，以选择照片集。而在 Facebook App 中，当点选贴文的“⋯”（ellipsis ）按钮，它会显示带有其他的动作项目表。Uber App 也使用底部表来显示所选择的行程价格。</p>
+<p>底部表的大小取决于想要显示的上下文信息。在某些情况下，底部表往往较大（也称为“背幕”（backdrop ）），占据了屏幕的 80~90%。通常，使用者可以使用拖曳手势与表互动。你可以向上滑动来展开它，或者向下滑动来最小化或解除表。</p>
 <figure id="fig18.1"><img src="images/bottom-sheet/swiftui-bottom-sheet-1.jpg" alt="图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表"><figcaption>图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表</figcaption></figure>
 <p>在本章中，我们将使用 SwiftUI 手势建立类似的展开式底部表（expandable bottom sheet ）。示例 App 在主视图中显示餐厅清单，当使用者点击其中一笔餐厅纪录时，该 App 会带出一个底部表来显示餐厅的详细资讯。你可以向上滑动来展开表，而要解除表则是向下滑动，如图 18.2 所示</p>
 <figure id="fig18.2"><img src="images/bottom-sheet/swiftui-bottom-sheet-2.png" alt="图 18.2.　建立一个展开式底部表"><figcaption>图 18.2.　建立一个展开式底部表</figcaption></figure>
@@ -1088,10 +1088,10 @@
 </code></pre>
 <p>除了横列之外，其他视图被包裹在滚动视图中。如果你再次在预览画布中执行App， 细节视图现在可滚动了。</p>
 <h3 id="%E8%AA%BF%E6%95%B4%E5%81%8F%E7%A7%BB%E9%87%8F">调整偏移量</h3>
-<p>底部表目前叠在原本内容的上方，不过通常只覆盖部分内容，因此我们必须调整细节视图的偏移量，使它只覆盖荧幕的一部分。为此，我们可以像这样将 <code>offset</code>修饰器加到 <code>VStack</code> 上，如下所示： </p>
+<p>底部表目前叠在原本内容的上方，不过通常只覆盖部分内容，因此我们必须调整细节视图的偏移量，使它只覆盖屏幕的一部分。为此，我们可以像这样将 <code>offset</code>修饰器加到 <code>VStack</code> 上，如下所示： </p>
 <pre><code class="lang-swift">.offset(y: <span class="hljs-number">300</span>)
 </code></pre>
-<p>这会将细节视图向下移动  300 点，如果你在预览画布中测试代码，则细节视图应该会移到荧幕的下半部，如图18.6 所示。</p>
+<p>这会将细节视图向下移动  300 点，如果你在预览画布中测试代码，则细节视图应该会移到屏幕的下半部，如图18.6 所示。</p>
 <figure id="fig18.6"><img src="images/bottom-sheet/swiftui-bottom-sheet-6.png" alt="图 18.6.　调整细节视图的偏移量"><figcaption>图 18.6.　调整细节视图的偏移量</figcaption></figure>
 <p>要使它看起来更像最终结果，你可以变更 <code>RestaurantDetailView_Previews</code> 的背景颜色如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
@@ -1102,8 +1102,8 @@
     }
 }
 </code></pre>
-<p>细节视图现在看起来不错，不过有个问题是偏移量设定为固定值。由于 App 将支持多个装置或荧幕大小，因此偏移量应该能够自动调整。</p>
-<p>我想要做的是将偏移量设定为荧幕高度的一半，那么如何才能知道装置的荧幕大小呢？ 在 SwiftUI 中，它提供一个名为“GeometryReader”的容器视图，可以让你存取父视图（parent view ）的大小与位置。因此，要取得荧幕高度，你所需要做的是使用 <code>GeometryReader</code> 包裹 <code>VStack</code>，如下所示：</p>
+<p>细节视图现在看起来不错，不过有个问题是偏移量设定为固定值。由于 App 将支持多个装置或屏幕大小，因此偏移量应该能够自动调整。</p>
+<p>我想要做的是将偏移量设定为屏幕高度的一半，那么如何才能知道装置的屏幕大小呢？ 在 SwiftUI 中，它提供一个名为“GeometryReader”的容器视图，可以让你存取父视图（parent view ）的大小与位置。因此，要取得屏幕高度，你所需要做的是使用 <code>GeometryReader</code> 包裹 <code>VStack</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">let</span> restaurant: <span class="hljs-type">Restaurant</span>
 
@@ -1137,8 +1137,8 @@
 <p>在闭包中，我们可以使用 <code>geometry</code> 参数来存取父视图的大小，这就是为什么我们设定 <code>offset</code> 修饰器如下： </p>
 <pre><code class="lang-swift">.offset(y: geometry.size.height/<span class="hljs-number">2</span>)
 </code></pre>
-<p>要正确计算全荧幕的尺寸，我们加入 <code>edgesIgnoringSafeArea</code>修饰器，并设定其参数为 <code>.all</code>，以完全忽略安全区域。</p>
-<p>现在，在预览画布中再次执行这个 App。你应该会有一个底部表，而它占了荧幕大小的一半，如图 18.7 所示。</p>
+<p>要正确计算全屏幕的尺寸，我们加入 <code>edgesIgnoringSafeArea</code>修饰器，并设定其参数为 <code>.all</code>，以完全忽略安全区域。</p>
+<p>现在，在预览画布中再次执行这个 App。你应该会有一个底部表，而它占了屏幕大小的一半，如图 18.7 所示。</p>
 <figure id="fig18.7"><img src="images/bottom-sheet/swiftui-bottom-sheet-7.png" alt="图 18.7.　调整细节视图的偏移量"><figcaption>图 18.7.　调整细节视图的偏移量</figcaption></figure>
 <h3 id="%E5%B8%B6%E5%87%BA%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">带出细节视图</h3>
 <p>现在，细节视图几乎快完成了。我们回到清单视图（即 <code>ContentView.swift</code> ），以在使用者选择餐厅时，带出细节视图。</p>
@@ -1301,7 +1301,7 @@
 <p>不过，接下来的问题是，当禁用滚动视图后，使用者无法与滚动视图互动，这表示使用者不能查看餐厅的全部内容，因此我们还是需要使内容部分可以滚动。</p>
 <p>用者不能查看餐厅的全部内容，因此我们还是需要使内容部分可以滚动。</p>
 <p>显然的，我们需要找到一种方式来控制滚动视图的启用。一个简单的解决方案是，当滚动视图在半开状态禁用它。在细节视图全部开启后，我们再次启用滚动视图。</p>
-<p>目前实现的另一个问题是，即使使用者将视图一直滑动到状态列，细节视图也无法保持完全开启。拖曳结束后，它会反弹回半开状态。反之，即使你将细节视图向下滑动到荧幕尾端，也无法关闭细节视图。</p>
+<p>目前实现的另一个问题是，即使使用者将视图一直滑动到状态列，细节视图也无法保持完全开启。拖曳结束后，它会反弹回半开状态。反之，即使你将细节视图向下滑动到屏幕尾端，也无法关闭细节视图。</p>
 <p>我们该如何处理这些问题呢？ </p>
 <h3 id="%E5%8D%8A%E9%96%8B%E7%8B%80%E6%85%8B%E6%99%82%E7%9A%84%E8%99%95%E7%90%86%E6%96%B9%E5%BC%8F">半开状态时的处理方式</h3>
 <p>我们先处理在半开状态时会碰到的问题。细节视图带出时会以半开作为默认状态，这个状态下会出现以下两种情况：</p>
@@ -1364,7 +1364,7 @@
     })
 )
 </code></pre>
-<p>我使用荧幕高度来计算界限值。举例而言，界限值 #2 设定为荧幕高度的三分之一，这只是一个示例值，你可以根据你的需要修改它。</p>
+<p>我使用屏幕高度来计算界限值。举例而言，界限值 #2 设定为屏幕高度的三分之一，这只是一个示例值，你可以根据你的需要修改它。</p>
 <p>如果你需要进一步了解代码的工作原理，请参考代码注释。</p>
 <p>由于我们在 <code>RestaurantDetailView</code> 中加入一个绑定变量，因此必须修改 <code>RestaurantDetailView_Previews</code> 的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{

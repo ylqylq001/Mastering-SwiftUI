@@ -945,7 +945,7 @@
 <p>ID 以及命名空间的用途，是用来标记属于同一个转换的视图，所以两个 <code>Circle</code> 视图会使用相同的 ID 和命名空间。</p>
 <p>以上我们介绍了如何使用 <code>matchedGeometryEffect</code>，来实现两个视图之间的动画转换效果。如果你有使用过Keynote 的 Magic Move，这个新的修饰器跟 Magic Move非常类似。我建议你使用 iPhone 模拟器来执行这个 App，以便测试这个动画效果。在我写这篇文章时， Xcode  中有一个 bug，导致我们无法在预览画面测试这个动画效果。</p>
 <h3 id="%E5%BE%9E%E5%9C%93%E5%BD%A2%E8%AE%8A%E7%82%BA%E5%9C%93%E8%A7%92%E9%95%B7%E6%96%B9%E5%BD%A2">从圆形变为圆角长方形</h3>
-<p>现在，让我们来试试实现另一个视图转换动画。这一次，我们会将一个圆形变化成为一个圆角长方形 (rounded rectangle)。圆形位置于荧幕的上端，而圆角长方形则位于荧幕的底端。</p>
+<p>现在，让我们来试试实现另一个视图转换动画。这一次，我们会将一个圆形变化成为一个圆角长方形 (rounded rectangle)。圆形位置于屏幕的上端，而圆角长方形则位于屏幕的底端。</p>
 <figure id="fig33.3"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-3.png" alt="图 33.3. 圆形视图的开始状态 (左), 圆角长方形的结束状态 (右)"><figcaption>图 33.3. 圆形视图的开始状态 (左), 圆角长方形的结束状态 (右)</figcaption></figure>
 <p>我们可以使用刚刚学到的技巧，准备两个视图：一个圆形视图和一个圆角长方形视图，<code>matchedGeometryEffect</code> 修饰器就会处理视图转换的部分。现在，让我们将 <code>body</code> 变量的 <code>ContentView</code> 结构改成这样：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
@@ -987,8 +987,8 @@
 <figure id="fig33.4"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-4.gif" alt="图 33.4. 从圆形变为圆角长方形"><figcaption>图 33.4. 从圆形变为圆角长方形</figcaption></figure>
 <p>不过，你可能注意到这个修饰器无法执行改变颜色的动画。没错，<code>matchedGeometryEffect</code> 只能用来处理位置和大小的变化。</p>
 <h3 id="%E7%B7%B4%E7%BF%92%E4%B8%80">练习一</h3>
-<p>让我们来做一个小小的练习，来测试你对 <code>matchedGeometryEffect</code> 的了解。你的任务是要建立如下图的动画视图转换。开始时，它是一个橘色的圆形视图，圆形视图被点击后，就会转换成全荧幕的背景图。你可以在项目档中找到完整代码。</p>
-<figure id="fig33.5"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-5.png" alt="图 33.5. 圆形视图转换成全荧幕的背景图"><figcaption>图 33.5. 圆形视图转换成全荧幕的背景图</figcaption></figure>
+<p>让我们来做一个小小的练习，来测试你对 <code>matchedGeometryEffect</code> 的了解。你的任务是要建立如下图的动画视图转换。开始时，它是一个橘色的圆形视图，圆形视图被点击后，就会转换成全屏幕的背景图。你可以在项目档中找到完整代码。</p>
+<figure id="fig33.5"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-5.png" alt="图 33.5. 圆形视图转换成全屏幕的背景图"><figcaption>图 33.5. 圆形视图转换成全屏幕的背景图</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%8B%95%E7%95%AB%E8%BD%89%E6%8F%9B%E4%BE%86%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%A6%96%E5%9C%96">使用动画转换来交换两个视图</h3>
 <p>现在你应该对 <code>matchedGeometryEffect</code> 有了基础的认识，让我们继续来看看它如何帮助我们建立一些绚丽的动画。在这个示例中，我们会交换两个圆形视图的位置，并且套用修饰器来建立顺畅的视图转换。</p>
 <figure id="fig33.6"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-6.gif" alt="图 33.6. 交换两个视图的位置"><figcaption>图 33.6. 交换两个视图的位置</figcaption></figure>
@@ -997,7 +997,7 @@
 
 @<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> dotTransition
 </code></pre>
-<p>橘色圆形默认位在荧幕的左边，而绿色圆形则在荧幕的右边。当使用者点击任意一个圆形图案，就会触发互换的动画。使用 <code>matchedGeometryEffect</code> 时，你不用了解交换动画是如何达成的。要建立视图转换，你只需要做到以下事情：</p>
+<p>橘色圆形默认位在屏幕的左边，而绿色圆形则在屏幕的右边。当使用者点击任意一个圆形图案，就会触发互换的动画。使用 <code>matchedGeometryEffect</code> 时，你不用了解交换动画是如何达成的。要建立视图转换，你只需要做到以下事情：</p>
 <ol>
 <li>建立橘色和绿色圆形交换之前的版面配置</li>
 <li>建立两个圆形在交换之后的版面配置</li>
@@ -1066,12 +1066,12 @@
 <li><a href="https://unsplash.com/photos/PM4Vu1B0gxk" target="_blank">https://unsplash.com/photos/PM4Vu1B0gxk</a></li>
 </ul>
 <h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E8%8B%B1%E9%9B%84%E5%8B%95%E7%95%AB%E6%95%88%E6%9E%9C%EF%BC%88hero-animation%EF%BC%89">建立一个英雄动画效果（Hero Animation）</h3>
-<p>除了从一种形状转换到另一种形状之外，你还可以使用 <code>matchedGeometryEffect</code> 修改器来创建基本的英雄动画。 给你一个例子，图 33.8 显示了一个图像和一段文字的堆栈视图。 点击视图时，图像和文字都会展开以占据全荧幕。 这种类型的动画通常被称为英雄动画（Hero Animation）。</p>
-<figure id="fig33.8"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-8.png" alt="图 33.8. 将堆栈视图扩展到全荧幕"><figcaption>图 33.8. 将堆栈视图扩展到全荧幕</figcaption></figure>
+<p>除了从一种形状转换到另一种形状之外，你还可以使用 <code>matchedGeometryEffect</code> 修改器来创建基本的英雄动画。 给你一个例子，图 33.8 显示了一个图像和一段文字的堆栈视图。 点击视图时，图像和文字都会展开以占据全屏幕。 这种类型的动画通常被称为英雄动画（Hero Animation）。</p>
+<figure id="fig33.8"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-8.png" alt="图 33.8. 将堆栈视图扩展到全屏幕"><figcaption>图 33.8. 将堆栈视图扩展到全屏幕</figcaption></figure>
 <p>同样地，我们可以应用 <code>matchedGeometryEffect</code> 技巧来创建这种类型的过场动画。 如果参考图 33.8，视图转换中有两个视图：</p>
 <ol>
 <li>一个是显示较小图像和文章节录的视图。</li>
-<li>另一个是扩展为全荧幕的视图，显示精选照片和全文。</li>
+<li>另一个是扩展为全屏幕的视图，显示精选照片和全文。</li>
 </ol>
 <p>首先，声明一个状态变量来控制视图模式的状态：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showDetail = <span class="hljs-built_in">false</span>
@@ -1138,7 +1138,7 @@
 }
 </code></pre>
 <p>在上面的代码中，我们将视图布局为不同的状态。 当 <code>showDetail</code> 设为 <code>false</code> 时，我们使用 <code>VStack</code> 来布局文章的图片和节录。 图像的高度设定为 200 点以使其变小。</p>
-<p>文章视图的布局在全荧幕模式下非常相似， 主要分别在于 <code>VStack</code> 视图嵌入在 <code>ScrollView</code> 中以使内容可滚动。 图像的高度设定为 400 点，这样图像就会变大一点。 为了将图像和文字视图扩展出荧幕安全区域以外，我们将 <code>.edgesIgnoringSafeArea</code> 修饰器加到滚动视图并将其值设置为 <code>.all</code>。</p>
+<p>文章视图的布局在全屏幕模式下非常相似， 主要分别在于 <code>VStack</code> 视图嵌入在 <code>ScrollView</code> 中以使内容可滚动。 图像的高度设定为 400 点，这样图像就会变大一点。 为了将图像和文字视图扩展出屏幕安全区域以外，我们将 <code>.edgesIgnoringSafeArea</code> 修饰器加到滚动视图并将其值设置为 <code>.all</code>。</p>
 <p>由于我们在过场效果有两个不同的视图，因此我们在 <code>matchedGeometryEffect</code> 修饰器要使用两个不同的 ID。 对于图像，我们将 ID 设定为<code>image</code>：</p>
 <pre><code class="lang-swift">.matchedGeometryEffect(id: <span class="hljs-string">&quot;image&quot;</span>, <span class="hljs-keyword">in</span>: articleTransition)
 </code></pre>
@@ -1146,7 +1146,7 @@
 <pre><code class="lang-swift">.matchedGeometryEffect(id: <span class="hljs-string">&quot;text&quot;</span>, <span class="hljs-keyword">in</span>: articleTransition)
 </code></pre>
 <p>此外，我们为文字和图像视图使用了两种不同的动画。 图像视图使用 <code>.interactiveSpring</code> 动画，至于文字视图，我们使用 <code>.easeOut</code> 动画。</p>
-<p>现在，可以在模拟器中运行App并试一下。 当你点击图像视图时，App会显示漂亮的动画并以全荧幕显示文章。</p>
+<p>现在，可以在模拟器中运行App并试一下。 当你点击图像视图时，App会显示漂亮的动画并以全屏幕显示文章。</p>
 <figure id="fig33.9"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-9.gif" alt="图 33.9. 英雄动画效果"><figcaption>图 33.9. 英雄动画效果</figcaption></figure>
 <h3 id="%E5%9C%A8%E8%A6%96%E5%9C%96%E4%B9%8B%E9%96%93%E5%82%B3%E9%81%9E-namespace">在视图之间传递@Namespace</h3>
 <p>参考前面的例子，我们可以将两个不同的堆栈视图分成为子视图让代码整理得更好。 但问题是我们如何在视图之间传递<code>@Namespace</code> 变量， 让我们可以怎样做。</p>
