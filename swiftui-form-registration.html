@@ -1041,7 +1041,7 @@
 <p>“随着时间处理值”是什么意思？这些值又是什么？ </p>
 <p>我们以注册表单为例。App 与使用者互动时，持续产生 UI 事件，假设使用者在文字栏位中输入的每个按键，都会触发一个事件，而这可以成为值的串流，如图 15.5 所示。</p>
 <figure id="fig15.5"><img src="images/registration/swiftui-registration-5.png" alt="图 15.5.　输入资料串流"><figcaption>图 15.5.　输入资料串流</figcaption></figure>
-<p>这些 UI 事件是框架所参照的一种类型的值。这些值的另一个例子是网路事件（例如： 从远端伺服器下载一个档案）。</p>
+<p>这些 UI 事件是框架所参照的一种类型的值。这些值的另一个例子是网路事件（例如： 从远端服务器下载一个档案）。</p>
 <blockquote>
 <p>Combine 框架提供一个声明式方法，供App 处理事件。你可以为给定的事件源建立单一处理链（chain），而不是实现多个委派回呼（delegate callback ）或完成处理闭包（completion handler closure ）。链的每一个部分都是一个Combine 运算子，对上一个步骤收到的元素执行不同的动作。</p>
 <p>- Apple 的官方文件 (<a href="https://developer.apple.com/documentation/combine/receiving_and_handling_events_with_combine" target="_blank">https://developer.apple.com/documentation/combine/receiving_and_handling_events_with_combine</a>)</p>

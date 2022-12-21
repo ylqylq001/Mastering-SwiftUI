@@ -877,14 +877,14 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-36-%E7%AB%A0-br-%E5%88%A9%E7%94%A8-asyncimage-%E9%9D%9E%E5%90%8C%E6%AD%A5%E5%8A%A0%E8%BC%89%E5%92%8C%E9%A1%AF%E7%A4%BA%E5%9C%96%E5%83%8F">第 36 章<br>利用 AsyncImage 非同步加载和显示图像</h1>
-<p>在 WWDC 2021 中，Apple 公布了 SwiftUI 框架的大量新功能，使开发者的开发 App 变得更得心应手。 <code>AsyncImage</code> 绝对是 iOS 15 其中一个最令人期待的功能。如果你的App需要从远程伺服器加载和显示图像，这个新视图应该可以让你不必编写自己的代码来处理非同步 (asynchronous) 下载。</p>
+<p>在 WWDC 2021 中，Apple 公布了 SwiftUI 框架的大量新功能，使开发者的开发 App 变得更得心应手。 <code>AsyncImage</code> 绝对是 iOS 15 其中一个最令人期待的功能。如果你的App需要从远程服务器加载和显示图像，这个新视图应该可以让你不必编写自己的代码来处理非同步 (asynchronous) 下载。</p>
 <p><code>AsyncImage</code> 是用于非同步加载和显示远程图像的内置视图。 你只需要告诉它图像的 URL， <code>AsyncImage</code> 就自动抓取远程图像并将其显示在屏幕上。</p>
 <p>在本章中，我将向你讲解如何在 SwiftUI 项目中使用 <code>AsyncImage</code>。</p>
 <h3 id="asyncimage-%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">AsyncImage 的基本用法</h3>
 <p>使用 AsyncImage 的最简单方法是像这样指定图像的 URL：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AsyncImage</span>(url: <span class="hljs-type">URL</span>(string: imageURL))
 </code></pre>
-<p>AsyncImage 就会自动连接到所指定的 URL 以非同步形式从远程伺服器加载图像。 当图像尚未能够显示时，它还会自动将占位符呈现为灰色。 完全下载后，<code>AsyncImage</code> 就会以其固有大小显示图像。</p>
+<p>AsyncImage 就会自动连接到所指定的 URL 以非同步形式从远程服务器加载图像。 当图像尚未能够显示时，它还会自动将占位符呈现为灰色。 完全下载后，<code>AsyncImage</code> 就会以其固有大小显示图像。</p>
 <figure id="fig36.1"><img src="images/asyncimage/asyncimage-1.png" alt="图 36.1. 使用 AsyncImage"><figcaption>图 36.1. 使用 AsyncImage</figcaption></figure>
 <p>假设你已经在 Xcode 中建立了一个新的 SwiftUI 项目，你可以像这样更改 <code>ContentView</code> 中的代码来试一试：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
