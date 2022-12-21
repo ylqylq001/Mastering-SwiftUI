@@ -1064,7 +1064,7 @@
 <h2 id="%E4%BD%9C%E6%A5%AD">作业</h2>
 <p>为了确认你理解如何建立导览UI，这里有一个作业。首先，至下列网址下载起始专案： </p>
 <p> <a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationStarter.zip</a>。开启专案后，你将看到一个显示文章清单的范例App。</p>
-<p>这个专案与你之前建立的专案非常类似，主要的差异是 <code>Article.swift</code> 的导入。这个档案储存了 <code>articles</code> 阵列，而该阵列附有一些范例资料。如果你仔细检视 <code>Article</code> 结构，它现在有一个用于储存完整文章的 <code>content</code> 属性。</p>
+<p>这个专案与你之前建立的专案非常类似，主要的差异是 <code>Article.swift</code> 的导入。这个档案储存了 <code>articles</code> 数组，而该数组附有一些范例资料。如果你仔细检视 <code>Article</code> 结构，它现在有一个用于储存完整文章的 <code>content</code> 属性。</p>
 <p>你的任务是将清单嵌入导览视图，并建立细节视图。当使用者点击内容视图中其中一篇文章时，它将导览至显示完整文章的细节视图，如图 11.10 所示。我将在下一节中与你讨论解决方案，但请你尽力找出自己的解决方案。</p>
 <figure id="fig11.10"><img src="images/navigation/swiftui-navigation-10.jpg" alt="图11.10.　为阅读 App 建立导览 UI"><figcaption>图11.10.　为阅读 App 建立导览 UI</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">建立细节视图</h3>
@@ -1111,7 +1111,7 @@
     }
 }
 </code></pre>
-<p>这里，我们只选择 <code>articles</code> 阵列中的第一篇文章来预览。如果想要预览其他文章，你可以将其更改为其他值。当你变更后，预览画布应会正确渲染细节视图，如图 11.11 所示。</p>
+<p>这里，我们只选择 <code>articles</code> 数组中的第一篇文章来预览。如果想要预览其他文章，你可以将其更改为其他值。当你变更后，预览画布应会正确渲染细节视图，如图 11.11 所示。</p>
 <figure id="fig11.11"><img src="images/navigation/swiftui-navigation-11.png" alt="图 11.11.　用于显示文章的细节视图"><figcaption>图 11.11.　用于显示文章的细节视图</figcaption></figure>
 <p>我们再多尝试一件事。由于这个视图将嵌入至 <code>NavigationView</code>中，因此你可以修改预览代码，来预览它在预览介面的外观： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleDetailView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{

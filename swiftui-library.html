@@ -971,7 +971,7 @@
     }
 }
 </code></pre>
-<p>你建立一个符合 <code>LibraryContentProvider</code> 的结构并覆载 <code>views</code> 属性以回一个客制化视图阵列。 在上面的代码，我们回了带有一些预设值的进度环视图，将其命名为<code>Progress Ring</code>，并将其放入元件类别中。</p>
+<p>你建立一个符合 <code>LibraryContentProvider</code> 的结构并覆载 <code>views</code> 属性以回一个客制化视图数组。 在上面的代码，我们回了带有一些预设值的进度环视图，将其命名为<code>Progress Ring</code>，并将其放入元件类别中。</p>
 <p>或者，如果你想添加多个库项目，你可以编写如下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressBar_Library</span>: <span class="hljs-title">LibraryContentProvider</span> </span>{
     @<span class="hljs-type">LibraryContentBuilder</span> <span class="hljs-keyword">var</span> views: [<span class="hljs-type">LibraryItem</span>] {
@@ -988,7 +988,7 @@
 <li><code>layout</code></li>
 <li><code>other</code></li>
 </ul>
-<p>你可能还未知道 <code>@LibraryContentBuilder</code> 属性包装器是什么？ 它只是使你免于编写用于创建<code>LibraryItem</code>阵列的代码。 上面的代码其实可以改写成这样：</p>
+<p>你可能还未知道 <code>@LibraryContentBuilder</code> 属性包装器是什么？ 它只是使你免于编写用于创建<code>LibraryItem</code>数组的代码。 上面的代码其实可以改写成这样：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProgressBar_Library</span>: <span class="hljs-title">LibraryContentProvider</span> </span>{
     <span class="hljs-keyword">var</span> views: [<span class="hljs-type">LibraryItem</span>] {
         <span class="hljs-keyword">return</span> [<span class="hljs-type">LibraryItem</span>(<span class="hljs-type">ProgressRingView</span>(progress: .constant(<span class="hljs-number">1.0</span>), thickness: <span class="hljs-number">12.0</span>, width: <span class="hljs-number">130.0</span>, gradient: <span class="hljs-type">Gradient</span>(colors: [.darkYellow, .lightYellow])), title: <span class="hljs-string">&quot;Progress Ring&quot;</span>, category: .control),

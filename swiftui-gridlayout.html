@@ -887,7 +887,7 @@
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> symbols = [<span class="hljs-string">&quot;keyboard&quot;</span>, <span class="hljs-string">&quot;hifispeaker.fill&quot;</span>, <span class="hljs-string">&quot;printer.fill&quot;</span>, <span class="hljs-string">&quot;tv.fill&quot;</span>, <span class="hljs-string">&quot;desktopcomputer&quot;</span>, <span class="hljs-string">&quot;headphones&quot;</span>, <span class="hljs-string">&quot;tv.music.note&quot;</span>, <span class="hljs-string">&quot;mic&quot;</span>, <span class="hljs-string">&quot;plus.bubble&quot;</span>, <span class="hljs-string">&quot;video&quot;</span>]
 </code></pre>
 </li>
-<li><p>创建一个 <code>GridItem</code> 阵列，来描述 Grid 的外观。比方说，Grid 需要有多少列？以下是描述一个 3 列 (column) 网格的范例代码：</p>
+<li><p>创建一个 <code>GridItem</code> 数组，来描述 Grid 的外观。比方说，Grid 需要有多少列？以下是描述一个 3 列 (column) 网格的范例代码：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> threeColumnGrid = [<span class="hljs-type">GridItem</span>(.flexible()), <span class="hljs-type">GridItem</span>(.flexible()), <span class="hljs-type">GridItem</span>(.flexible())]
 </code></pre>
 </li>
@@ -950,7 +950,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <p>如果你已更新相关代码，你的预览画布应该会显示一个没有任何间距的网格视图。</p>
 <figure id="fig29.5"><img src="images/gridlayout/swiftui-gridlayout-5.png" alt="Figure 5. Removing the spacing between columns and rows"><figcaption>Figure 5. Removing the spacing between columns and rows</figcaption></figure>
 <h2 id="%E5%88%A9%E7%94%A8-griditem-%E6%9B%B4%E6%94%B9-grid-%E4%BD%88%E5%B1%80-flexible-fixed-adaptive">利用 GridItem 更改 Grid 布局 (Flexible/ Fixed/ Adaptive)</h2>
-<p>让我们进一步看看 <code>GridItem</code>。你可以使用 <code>GridItem</code> 实例在 <code>LazyHGrid</code> 和 <code>LazyVGrid</code> 视图中配置项目的布局。在前文中，我们定义了一个有三个 <code>GridItem</code> 实例的阵列，而每个实例都使用尺寸型别 (Size Type) <code>.flexible()</code>。Flexible 尺寸型别让我们可以创建三个大小相等的列。如果想要一个 6 列的 Grid，则可以如此创建 <code>GridItem</code> 阵列：</p>
+<p>让我们进一步看看 <code>GridItem</code>。你可以使用 <code>GridItem</code> 实例在 <code>LazyHGrid</code> 和 <code>LazyVGrid</code> 视图中配置项目的布局。在前文中，我们定义了一个有三个 <code>GridItem</code> 实例的数组，而每个实例都使用尺寸型别 (Size Type) <code>.flexible()</code>。Flexible 尺寸型别让我们可以创建三个大小相等的列。如果想要一个 6 列的 Grid，则可以如此创建 <code>GridItem</code> 数组：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> sixColumnGrid: [<span class="hljs-type">GridItem</span>] = <span class="hljs-type">Array</span>(repeating: .<span class="hljs-keyword">init</span>(.flexible()), <span class="hljs-built_in">count</span>: <span class="hljs-number">6</span>)
 </code></pre>
 <p><code>.flexible()</code> 只是其中一个用于控制 Grid 布局的尺寸型别。如果要在一行中放置尽可能多的项目，你可以使用如下的 <em>adaptive</em> 尺寸型别：</p>
@@ -1000,7 +1000,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 
 <span class="hljs-keyword">let</span> samplePhotos = (<span class="hljs-number">1</span>...<span class="hljs-number">20</span>).<span class="hljs-built_in">map</span> { <span class="hljs-type">Photo</span>(name: <span class="hljs-string">&quot;coffee-<span class="hljs-subst">\($<span class="hljs-number">0</span>)</span>&quot;</span>) }
 </code></pre>
-<p>图像包中有 20 张咖啡照片，因此我们初始化了一个包含 20 个<code>Photo</code>实体的阵列。 准备好数据模型后，让我们切换到 <code>ContentView.swift</code> 来构建网格。</p>
+<p>图像包中有 20 张咖啡照片，因此我们初始化了一个包含 20 个<code>Photo</code>实体的数组。 准备好数据模型后，让我们切换到 <code>ContentView.swift</code> 来构建网格。</p>
 <p>首先，宣告一个 <code>gridLayout</code> 变数来定义我们首选的网格布局：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout: [<span class="hljs-type">GridItem</span>] = [ <span class="hljs-type">GridItem</span>() ]
 </code></pre>
@@ -1042,7 +1042,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
     }
 }
 </code></pre>
-<p>在上面的代码中，我们更新了<code>gridLayout</code>变数并初始化了<code>GridItem</code>的阵列。 假设当前项目数为 1，我们将创建一个包含两个 <code>GridItem</code> 的数组以更改为 2 列网格。 由于我们将 <code>gridLayout</code> 标记为状态变数，因此每次更改变数时，SwiftUI 都会更新网格视图。</p>
+<p>在上面的代码中，我们更新了<code>gridLayout</code>变数并初始化了<code>GridItem</code>的数组。 假设当前项目数为 1，我们将创建一个包含两个 <code>GridItem</code> 的数组以更改为 2 列网格。 由于我们将 <code>gridLayout</code> 标记为状态变数，因此每次更改变数时，SwiftUI 都会更新网格视图。</p>
 <figure id="fig29.12"><img src="images/gridlayout/swiftui-gridlayout-12.png" alt="图 29.12. 添加用于切换网格布局的按钮"><figcaption>图 29.12. 添加用于切换网格布局的按钮</figcaption></figure>
 <p>你可以执行该App进行快速测试。 点击网格按钮将切换到另一个网格布局。</p>
 <p>我们有几件事需要改进。 首先，对于具有两列或更多列的网格，应将网格项的高度调整为 100 点。 使用 <code>height</code> 参数更新 <code>.frame</code> 修饰器，如下所示：</p>
@@ -1075,7 +1075,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
     <span class="hljs-keyword">return</span> cafes
 }()
 </code></pre>
-<p><code>Cafe</code> 结构是不言自明的。 它有一个用于存储咖啡照片的<code>image</code> 属性和用于存储咖啡照片列表的<code>coffeePhotos</code> 属性。 在上面的代码中，我们还创建了一个<code>Cafe</code> 阵列。 对于每个咖啡馆，我们随机挑选一些咖啡照片。 如果你有其他喜欢的图像，请随时修改代码。</p>
+<p><code>Cafe</code> 结构是不言自明的。 它有一个用于存储咖啡照片的<code>image</code> 属性和用于存储咖啡照片列表的<code>coffeePhotos</code> 属性。 在上面的代码中，我们还创建了一个<code>Cafe</code> 数组。 对于每个咖啡馆，我们随机挑选一些咖啡照片。 如果你有其他喜欢的图像，请随时修改代码。</p>
 <p>让我们创建一个新档案来实现这个网格视图。 右键单击 <em>SwiftUIPhotoGrid</em> 并选择 <em>New File...</em>。 选择 <em>SwiftUI View</em> 模板并将文件命名为 <em>MultiGridView</em>。</p>
 <p>与前面的实现类似，让我们宣告了一个 <code>gridLayout</code> 变数来储存当前的网格布局：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout = [ <span class="hljs-type">GridItem</span>() ]

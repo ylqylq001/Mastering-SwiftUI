@@ -952,7 +952,7 @@
         }
     }
 </code></pre>
-<p>在 <code>onTapGesture</code> 中，我们将所选照片添加到 <code>selectedPhotos</code> 阵列并更新 <code>selectedPhotoId</code>。 此外，我们从 <code>photoSet</code> 中删除所选择的照片。 由于 <code>photoSet</code> 是一个状态变数，一旦从阵列中删除选定的照片，它就会自动从网格中删除。</p>
+<p>在 <code>onTapGesture</code> 中，我们将所选照片添加到 <code>selectedPhotos</code> 数组并更新 <code>selectedPhotoId</code>。 此外，我们从 <code>photoSet</code> 中删除所选择的照片。 由于 <code>photoSet</code> 是一个状态变数，一旦从数组中删除选定的照片，它就会自动从网格中删除。</p>
 <p>App 会将所选的照片添加到Dock中。 因此，像这样更新 Dock 的 <code>ScrollView</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal, showsIndicators: <span class="hljs-built_in">false</span>) {
     <span class="hljs-type">LazyHGrid</span>(rows: [ <span class="hljs-type">GridItem</span>() ]) {

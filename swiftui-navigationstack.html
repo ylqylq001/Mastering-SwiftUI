@@ -964,7 +964,7 @@
 }
 .listStyle(.plain)
 </code></pre>
-<p><code>systemImages</code> 变数会储存系统图像名称的阵列 (array)。</p>
+<p><code>systemImages</code> 变数会储存系统图像名称的数组 (array)。</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> systemImages: [<span class="hljs-type">String</span>] = [ <span class="hljs-string">&quot;trash&quot;</span>, <span class="hljs-string">&quot;cloud&quot;</span>, <span class="hljs-string">&quot;bolt&quot;</span> ]
 </code></pre>
 <p>在这个范例中，我们有两个型别的 Navigation Link，一个是 <code>Color</code>，另一个是 <code>String</code> 型别。让我们把另一个 <code>navigationDestination</code> 修饰器嵌入到堆叠中，来处理 <code>String</code> 型别的导览：</p>
@@ -1032,7 +1032,7 @@
     }
 }
 </code></pre>
-<p>这段代码与之前的范例有点相似，我们添加了一个 <code>path</code> 状态变数，它是 <code>Color</code> 的阵列，用来储存导览状态。在 <code>NavigationStack</code> 进行 initialization 时，我们会传递它的 binding 来管理堆叠。当导览堆叠的状态发生变化时，<code>path</code> 变数的数值就会被自动更新。</p>
+<p>这段代码与之前的范例有点相似，我们添加了一个 <code>path</code> 状态变数，它是 <code>Color</code> 的数组，用来储存导览状态。在 <code>NavigationStack</code> 进行 initialization 时，我们会传递它的 binding 来管理堆叠。当导览堆叠的状态发生变化时，<code>path</code> 变数的数值就会被自动更新。</p>
 <p>我更改了导览目的地，它会显示使用者选择的颜色，和另一个颜色列表以供使用者选择。</p>
 <figure id="fig46.4"><img src="images/navigationstack/swiftui-navigationstack-4.png" alt="图 46.4. 使用 path 变数"><figcaption>图 46.4. 使用 path 变数</figcaption></figure>
 <p>在上面的代码中，我们有一行代码来显示 path 的内容：</p>

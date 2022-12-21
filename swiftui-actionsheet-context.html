@@ -903,8 +903,8 @@
 }
 .listStyle(.plain)
 </code></pre>
-<p>在 <code>onDelete</code> 的闭包中，它将传送一个 <code>indexSet</code>，其储存要删除的列的索引，然后我们使用 <code>indexSet</code> 呼叫<code>remove</code> 方法，以删除在 <code>restaurants</code> 阵列中的特定项目。</p>
-<p>在“滑动删除”功能可以运作之前，还一件事要做。每当使用者从清单中删除一列时， UI 应该相应更新。正如前面章节所讨论的，SwiftUI 有一个非常强大的功能来管理应用程式的状态。在我们的代码中，当使用者选择删除一笔纪录时，<code>restaurants</code> 阵列的值将更考，我们必须要求 SwiftUI 监控属性，并在属性值更改时更新UI。</p>
+<p>在 <code>onDelete</code> 的闭包中，它将传送一个 <code>indexSet</code>，其储存要删除的列的索引，然后我们使用 <code>indexSet</code> 呼叫<code>remove</code> 方法，以删除在 <code>restaurants</code> 数组中的特定项目。</p>
+<p>在“滑动删除”功能可以运作之前，还一件事要做。每当使用者从清单中删除一列时， UI 应该相应更新。正如前面章节所讨论的，SwiftUI 有一个非常强大的功能来管理应用程式的状态。在我们的代码中，当使用者选择删除一笔纪录时，<code>restaurants</code> 数组的值将更考，我们必须要求 SwiftUI 监控属性，并在属性值更改时更新UI。</p>
 <p>为此，插入 <code>@State</code> 关键字至 <code>restaurants</code> 变数： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> restaurants = [ ... ]
 </code></pre>
@@ -955,7 +955,7 @@
     }
 }
 </code></pre>
-<p>这个 <code>delete</code> 函数接受一个 =restaurant 物件，并在 <code>restaurants</code> 阵列中搜寻它的索引。要找出索引，我们呼叫<code>firstIndex</code> 函数，并指定搜寻条件，这个函数会逐一执行阵列，并将给定的餐厅 id 与阵列中的 id 进行比对，如果有匹配的话，<code>firstIndex</code> 函式会回传给定餐厅的索引。当我们有了索引后，我们就可以透过呼叫 <code>remove(at:)</code> 从 <code>restaurants</code> 阵列中删除餐厅。</p>
+<p>这个 <code>delete</code> 函数接受一个 =restaurant 物件，并在 <code>restaurants</code> 数组中搜寻它的索引。要找出索引，我们呼叫<code>firstIndex</code> 函数，并指定搜寻条件，这个函数会逐一执行数组，并将给定的餐厅 id 与数组中的 id 进行比对，如果有匹配的话，<code>firstIndex</code> 函式会回传给定餐厅的索引。当我们有了索引后，我们就可以透过呼叫 <code>remove(at:)</code> 从 <code>restaurants</code> 数组中删除餐厅。</p>
 <p>接下来，在“// 删除所选的餐厅”下面插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">self</span>.delete(item: restaurant)
 </code></pre>
@@ -1010,7 +1010,7 @@
 <p>SwiftUI 框架有一个 <code>ActionSheet</code> 视图，可以让你建立动作表。基本上，你可以建立动作列表如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ActionSheet</span>(title: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;What do you want to do&quot;</span>), message: <span class="hljs-built_in">nil</span>, buttons: [.<span class="hljs-keyword">default</span>(<span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Delete&quot;</span>))]
 </code></pre>
-<p>你使用标题及选项讯息初始化一个动作表，<code>buttons</code> 参数接受一个按钮的阵列。在范例代码中，它提供标题为“Delete”的预设按钮。</p>
+<p>你使用标题及选项讯息初始化一个动作表，<code>buttons</code> 参数接受一个按钮的数组。在范例代码中，它提供标题为“Delete”的预设按钮。</p>
 <p>要启用动作表，可将 <code>actionSheet</code> 修饰器加到按钮或任何视图上来触发动作表。如果你研究 SwiftUI 的文件，则有两个带出动作表的方式。</p>
 <p>你可以使用 <code>isPresented</code> 参数来控制动作表的外观：  </p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">actionSheet</span><span class="hljs-params">(isPresented: Binding&lt;Bool&gt;, content: <span class="hljs-params">()</span> -&gt; ActionSheet)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span>

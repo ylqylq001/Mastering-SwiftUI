@@ -1024,7 +1024,7 @@
 </ol>
 <p>基本上第一种方法对于这个App来说已经足够，因为 <code>todoItems</code> 与储存在数据库中的待办事项同步。 但我还是想向你示范如何使用<code>FetchRequest</code>来执行搜寻。 因此，我们将一齐研究这两种方法。</p>
 <h4 id="%E4%BD%BF%E7%94%A8-filter-%E5%87%BD%E6%95%B8">使用 <code>filter</code> 函数</h4>
-<p>在 Swift 中，你可以使用 <code>filter</code> 函数以回圈来重复查询一个集合，然后回传一个内含符合搜寻条件项目的新阵列。 以下是一个例子：</p>
+<p>在 Swift 中，你可以使用 <code>filter</code> 函数以回圈来重复查询一个集合，然后回传一个内含符合搜寻条件项目的新数组。 以下是一个例子：</p>
 <pre><code class="lang-swift">todoItems.<span class="hljs-built_in">filter</span>({ $<span class="hljs-number">0</span>.name.<span class="hljs-built_in">contains</span>(<span class="hljs-string">&quot;Buy&quot;</span>) })
 </code></pre>
 <p><code>filter</code> 函数内的其中一个参数是给呼叫者以闭包形式指定过滤条件。 举例，以上的代码就会搜出所有包含“Buy”字名称的项目。</p>
@@ -1034,7 +1034,7 @@
 }
 .onDelete(perform: deleteTask)
 </code></pre>
-<p>在 <code>filter</code> 函数的闭包中，我们首先检查搜寻文字是否有值。 如果没有，我们简单地回 <code>true</code>。这意味所有待办事项都会被加入新阵列中。 相反，就只回包含搜寻字串的待办事项。</p>
+<p>在 <code>filter</code> 函数的闭包中，我们首先检查搜寻文字是否有值。 如果没有，我们简单地回 <code>true</code>。这意味所有待办事项都会被加入新数组中。 相反，就只回包含搜寻字串的待办事项。</p>
 <p>酷 ！你可以准备启动你的 App 来测试搜寻功能。 输入搜寻文字，App就会搜寻相关记录。</p>
 <figure id="fig23.4"><img src="images/uikit/swiftui-uikit-4.png" alt="图 4. 搜寻待办事项"><figcaption>图 4. 搜寻待办事项</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8-fetchrequest-%E4%BE%86%E5%9F%B7%E8%A1%8C%E6%90%9C%E5%B0%8B">使用<code>FetchRequest</code>来执行搜寻</h4>

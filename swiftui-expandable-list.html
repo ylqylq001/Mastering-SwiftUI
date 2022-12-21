@@ -895,15 +895,15 @@
     <span class="hljs-keyword">var</span> subMenuItems: [<span class="hljs-type">MenuItem</span>]?
 }
 </code></pre>
-<p>在上面的代码中，我们有一个用来建造选单物件的结构 (struct)。要创建一个巢状列表 (nested list)，关键就是要加入一个属性，包含子级的可选阵列 (optional array) <code>subMenuItems</code>。请注意，子级与其父级的型别 (type) 是一样的。</p>
-<p>对于顶层 (top level) 选单物件，我们可以如此创建一个 <code>MenuItem</code> 阵列：</p>
+<p>在上面的代码中，我们有一个用来建造选单物件的结构 (struct)。要创建一个巢状列表 (nested list)，关键就是要加入一个属性，包含子级的可选数组 (optional array) <code>subMenuItems</code>。请注意，子级与其父级的型别 (type) 是一样的。</p>
+<p>对于顶层 (top level) 选单物件，我们可以如此创建一个 <code>MenuItem</code> 数组：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// Main menu items</span>
 <span class="hljs-keyword">let</span> sampleMenuItems = [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Espresso Machines&quot;</span>, image: <span class="hljs-string">&quot;linea-mini&quot;</span>, subMenuItems: espressoMachineMenuItems),
                         <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Grinders&quot;</span>, image: <span class="hljs-string">&quot;swift-mini&quot;</span>, subMenuItems: grinderMenuItems),
                         <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Other Equipment&quot;</span>, image: <span class="hljs-string">&quot;espresso-ep&quot;</span>, subMenuItems: otherMenuItems)
                     ]
 </code></pre>
-<p>我们会针对每个选单物件，指定子选单 (sub-menu) 物件的阵列。如果没有子选单物件，则可以省略 <code>subMenuItems</code> 参数，或传递 <code>nil</code> 值。我们可以这样定义子选单物件：</p>
+<p>我们会针对每个选单物件，指定子选单 (sub-menu) 物件的数组。如果没有子选单物件，则可以省略 <code>subMenuItems</code> 参数，或传递 <code>nil</code> 值。我们可以这样定义子选单物件：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// Sub-menu items for Espressco Machines</span>
 <span class="hljs-keyword">let</span> espressoMachineMenuItems = [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Leva&quot;</span>, image: <span class="hljs-string">&quot;leva-x&quot;</span>, subMenuItems: [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Leva X&quot;</span>, image: <span class="hljs-string">&quot;leva-x&quot;</span>), <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Leva S&quot;</span>, image: <span class="hljs-string">&quot;leva-s&quot;</span>) ]),
                                  <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada&quot;</span>, image: <span class="hljs-string">&quot;strada-ep&quot;</span>, subMenuItems: [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada EP&quot;</span>, image: <span class="hljs-string">&quot;strada-ep&quot;</span>), <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada AV&quot;</span>, image: <span class="hljs-string">&quot;strada-av&quot;</span>), <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada MP&quot;</span>, image: <span class="hljs-string">&quot;strada-mp&quot;</span>), <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada EE&quot;</span>, image: <span class="hljs-string">&quot;strada-ee&quot;</span>) ]),

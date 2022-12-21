@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-27-%E7%AB%A0-br-%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%9C%96%E5%83%8F%E8%BC%AA%E6%92%AD%EF%BC%88image-carousel%EF%BC%89">第 27 章<br>如何建立图像轮播（Image Carousel）</h1>
-<p>Carousel （轮播）是你在大多数手机和 Web App中看到最常见的 UI 模式之一。 有些人称它为图像滑块（Image Slider）或旋转器（Rotator）。 但是，无论你如何称呼它，轮播的设计都旨在在有限的荧幕空间显示一组数据。 例如，图像轮播会显示阵列或集合中的其中一个图片，使用者可以滑动荧幕来浏览图像集的其他图片。  Instagram 也有用这种轮播设计，当要显示多张图片时，使用者就要滑动荧幕来浏览图像集。 另外，你也可以在 Apple 的 Music App 和 App Store App 找到类似的轮播应用。</p>
+<p>Carousel （轮播）是你在大多数手机和 Web App中看到最常见的 UI 模式之一。 有些人称它为图像滑块（Image Slider）或旋转器（Rotator）。 但是，无论你如何称呼它，轮播的设计都旨在在有限的荧幕空间显示一组数据。 例如，图像轮播会显示数组或集合中的其中一个图片，使用者可以滑动荧幕来浏览图像集的其他图片。  Instagram 也有用这种轮播设计，当要显示多张图片时，使用者就要滑动荧幕来浏览图像集。 另外，你也可以在 Apple 的 Music App 和 App Store App 找到类似的轮播应用。</p>
 <figure id="fig27.1"><img src="images/carousel/swiftui-carousel-1.jpg" alt="图 27.1. Music, App Store 和 Instagram app 都有用轮播设计"><figcaption>图 27.1. Music, App Store 和 Instagram app 都有用轮播设计</figcaption></figure>
 <p>在本章中，你将学习如何实作图像轮播，当然是用 SwiftUI。有多种方法可以实现轮播，其中一种方法是整合 UIKit 内的 <code>UIPageViewController</code> 。 但是，我们将探讨另一种方法，并完全以 SwiftUI 框架来建立轮播。</p>
 <p>让我们开始吧。</p>
@@ -960,10 +960,10 @@
 <p><code>outerView</code> 参数为我们提供了荧幕的宽度和高度，而<code>innerView</code> 参数可以让我们更好地控制卡片视图的大小和位置。</p>
 <p>在上面的程码中，我们将<code>.frame</code>修饰器附加到卡片视图并将其宽度设定为荧幕宽度（即<code>outerView.size.width</code>）。 这样可以确保每个卡片视图占据整个荧幕。 对于卡片视图的高度，我们将其设置为 500 点以使其更小一些。 进行更改后，你应该会看到“London”图像的卡片视图。</p>
 <figure id="fig27.7"><img src="images/carousel/swiftui-carousel-7.png" alt="图 27.7. 水平堆栈现在只显示一个卡片视图"><figcaption>图 27.7. 水平堆栈现在只显示一个卡片视图</figcaption></figure>
-<p>为什么是“London”卡片视图？ 如果你将预览模式转至 Selectable，预览画面应显示如图 27.8 所示的内容。我们在 <code>sampleTrips</code> 数组中有 13 个项目。 由于每个卡片视图的宽度都等于荧幕宽度，因此水平堆栈视图必须扩展到荧幕之外。 碰巧“London”卡片视图是阵列的中间（第 7 个）项。 这就是你看到“London”卡片视图的原因。</p>
+<p>为什么是“London”卡片视图？ 如果你将预览模式转至 Selectable，预览画面应显示如图 27.8 所示的内容。我们在 <code>sampleTrips</code> 数组中有 13 个项目。 由于每个卡片视图的宽度都等于荧幕宽度，因此水平堆栈视图必须扩展到荧幕之外。 碰巧“London”卡片视图是数组的中间（第 7 个）项。 这就是你看到“London”卡片视图的原因。</p>
 <figure id="fig27.8"><img src="images/carousel/swiftui-carousel-8.png" alt="图 27.8. 这个水平堆栈其实包含 13 个卡片视图"><figcaption>图 27.8. 这个水平堆栈其实包含 13 个卡片视图</figcaption></figure>
 <h4 id="%E6%9B%B4%E6%94%B9%E5%B0%8D%E9%BD%8A%E6%96%B9%E5%BC%8F">更改对齐方式</h4>
-<p>那么，我们如何才能显示阵列的第一项而不是中间（第 7 个）项？ 诀窍是将<code>.frame</code>修饰器附加到<code>HStack</code>，对齐设定为<code>.leading</code>，如下所示：</p>
+<p>那么，我们如何才能显示数组的第一项而不是中间（第 7 个）项？ 诀窍是将<code>.frame</code>修饰器附加到<code>HStack</code>，对齐设定为<code>.leading</code>，如下所示：</p>
 <pre><code class="lang-swift">.frame(width: outerView.size.width, height: outerView.size.height, alignment: .leading)
 </code></pre>
 <p>SwiftUI 预设的对齐方式为<code>.center</code>。 这就是为什么水平视图的第 7 个项目会显示在荧幕上的原因。 将<code>alignment</code>更改为 <code>.leading</code> 后，你就会看到第一张图。</p>
@@ -1024,7 +1024,7 @@
     : <span class="hljs-built_in">nil</span>
 )
 </code></pre>
-<p>当你拖动水平堆栈时，App会自动呼叫<code>updating</code>函数。 我们将水平拖动距离存放到 <code>dragOffset</code> 变数中。 当拖动结束时，就检查拖动距离是否超过荧幕宽度的 65%，并计算新的索引（index）。 当计算了 <code>newIndex</code>，我们会先确定它是否在 <code>sampleTrips</code> 阵列的范围内。 最后，我们将 <code>newIndex</code> 的值指定至 <code>currentTripIndex</code>。 然后， SwiftUI 会自动更新 UI 并显示相应的卡片视图。</p>
+<p>当你拖动水平堆栈时，App会自动呼叫<code>updating</code>函数。 我们将水平拖动距离存放到 <code>dragOffset</code> 变数中。 当拖动结束时，就检查拖动距离是否超过荧幕宽度的 65%，并计算新的索引（index）。 当计算了 <code>newIndex</code>，我们会先确定它是否在 <code>sampleTrips</code> 数组的范围内。 最后，我们将 <code>newIndex</code> 的值指定至 <code>currentTripIndex</code>。 然后， SwiftUI 会自动更新 UI 并显示相应的卡片视图。</p>
 <p>请注意，我们有一个启用拖动手势的条件。 点击卡片视图时，没有手势识别器。</p>
 <p>要在拖动过程中移动堆栈视图，我们必须再进行一项更改。 附加一个额外的 <code>.offset</code> 修饰器到 <code>HStack</code>（紧跟在前一个 .offset 之后），如下所示：</p>
 <pre><code class="lang-swift">.offset(x: <span class="hljs-keyword">self</span>.dragOffset)

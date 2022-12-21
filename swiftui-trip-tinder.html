@@ -925,7 +925,7 @@
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
 </code></pre>
-<p>主荧幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图阵列并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别阵列中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协定，并导入一个 <code>id</code> 变数，如下所示： </p>
+<p>主荧幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协定，并导入一个 <code>id</code> 变数，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span>, <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">let</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
@@ -1090,13 +1090,13 @@
     }
 }
 </code></pre>
-<p>在上面的代码中，我们初始化一个包含所有旅程的 <code>cardViews</code> 阵列（其在 <code>Trip.swift</code> 档中定义）。在body 变数中，我们逐一执行所有的卡片视图，并将它们包裹在 <code>ZStack</code> 中来相互重叠。</p>
+<p>在上面的代码中，我们初始化一个包含所有旅程的 <code>cardViews</code> 数组（其在 <code>Trip.swift</code> 档中定义）。在body 变数中，我们逐一执行所有的卡片视图，并将它们包裹在 <code>ZStack</code> 中来相互重叠。</p>
 <p>预览画布应该会显示相同的UI，但使用另一张图片，如图19.8 所示。</p>
 <figure id="fig19.8"><img src="images/triptinder/swiftui-trip-tinder-8.png" alt="图 19.8.　建立卡片视图库"><figcaption>图 19.8.　建立卡片视图库</figcaption></figure>
-<p>为什么它会显示另一张图片呢？如果你引用在 <code>Trip.swift</code> 中定义的 <code>trips</code> 阵列，图片是阵列的最后一个元素。在<code>ForEach</code> 区块中，第一个旅程是放在卡片库的最下面，如此最后一个旅程便成为卡片库的最上面照片。</p>
+<p>为什么它会显示另一张图片呢？如果你引用在 <code>Trip.swift</code> 中定义的 <code>trips</code> 数组，图片是数组的最后一个元素。在<code>ForEach</code> 区块中，第一个旅程是放在卡片库的最下面，如此最后一个旅程便成为卡片库的最上面照片。</p>
 <p>当我们实作卡片库时，实际上有两个问题： </p>
 <ol>
-<li>.<code>trips</code> 阵列的第一个旅程应该是最上面的卡片，但是现在却是最下面的卡片。 </li>
+<li>.<code>trips</code> 数组的第一个旅程应该是最上面的卡片，但是现在却是最下面的卡片。 </li>
 <li>我们为 15 个旅程渲染了 15 个卡片视图。如果未来有 10,000 个旅程，甚至更多时，该怎么办呢？我们是否应该为每个旅程建立一个卡片视图呢？有没有高效率的方式来实作卡片库呢？</li>
 </ol>
 <p>我们先来解决卡片顺序的问题。SwiftUI 提供 <code>zIndex</code>修饰器，来指示 ZStack 中的视图顺序。zIndex 值较高的视图，位于较低值的视图之上，因此最上面的卡片应该有最大的 <code>zIndex</code> 值。</p>
@@ -1125,7 +1125,7 @@
 <p>当最上面的卡片视图被丢弃时，下面的卡片视图将成为最上面的卡片；同时，我们立即使用不同的照片初始化一个新的卡片视图，并将它放在最上面的卡片后面。无论你需要在卡片库中显示多少张照片，App 永远只有两个卡片视图。不过，从使用者的角度来看，UI 是由一堆卡片所组成。</p>
 <figure id="fig19.9"><img src="images/triptinder/swiftui-trip-tinder-11.jpg" alt="图 19.9.　我们如何使用两个卡片视图来建立卡片库"><figcaption>图 19.9.　我们如何使用两个卡片视图来建立卡片库</figcaption></figure>
 <p>现在，你应该了解我们如何建立卡片库，我们来继续进行实作。</p>
-<p>首先，更新 <code>cardViews</code> 阵列，我们不再需要初始化所有的旅程，而只需要初始化前两个旅程。之后，当第一个旅程（即第一张卡片）被丢弃时，我们会加入另一张卡片。</p>
+<p>首先，更新 <code>cardViews</code> 数组，我们不再需要初始化所有的旅程，而只需要初始化前两个旅程。之后，当第一个旅程（即第一张卡片）被丢弃时，我们会加入另一张卡片。</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> cardViews: [<span class="hljs-type">CardView</span>] = {
 
     <span class="hljs-keyword">var</span> views = [<span class="hljs-type">CardView</span>]()
@@ -1279,7 +1279,7 @@
 <figure id="fig19.12"><img src="images/triptinder/swiftui-trip-tinder-15.png" alt="图 19.12.　出现心形图示"><figcaption>图 19.12.　出现心形图示</figcaption></figure>
 <h3 id="%E5%88%AA%E9%99%A4-%E6%8F%92%E5%85%A5%E5%8D%A1%E7%89%87">删除/ 插入卡片</h3>
 <p>现在，当你释放卡片时，它仍会回到原来的位置。我们如何才能删除最上面的卡片， 并同时加入一张新卡片呢？ </p>
-<p>首先，我们使用 <code>@State</code> 来标记 <code>cardViews</code> 阵列，以让我们可以更新它的值，并重新更新 UI： </p>
+<p>首先，我们使用 <code>@State</code> 来标记 <code>cardViews</code> 数组，以让我们可以更新它的值，并重新更新 UI： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> cardViews: [<span class="hljs-type">CardView</span>] = {
 
     <span class="hljs-keyword">var</span> views = [<span class="hljs-type">CardView</span>]()
@@ -1291,7 +1291,7 @@
     <span class="hljs-keyword">return</span> views
 }()
 </code></pre>
-<p>接下来，宣告另一个状态变数来追踪旅程的最后一个索引。假设卡片库第一次初始化时，我们显示储存在 <code>trips</code> 阵列中的前两个旅程，最后一个索引设定为 <code>1</code>。</p>
+<p>接下来，宣告另一个状态变数来追踪旅程的最后一个索引。假设卡片库第一次初始化时，我们显示储存在 <code>trips</code> 数组中的前两个旅程，最后一个索引设定为 <code>1</code>。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> lastIndex = <span class="hljs-number">1</span>
 </code></pre>
 <p>下面是用于删除及插入卡片视图的核心函数。定义一个名为 <code>moveCard</code> 新函数： </p>
@@ -1306,8 +1306,8 @@
     cardViews.append(newCardView)
 }
 </code></pre>
-<p>这个函式先从 <code>cardViews</code> 阵列中删除最上面的卡片，然后它使用后续旅程的图片来实例化一个新卡片视图。由于 <code>cardViews</code> 定义为状态属性，因此一旦阵列的值更改时，SwiftUI 将再次渲染卡片视图，这就是我们如何删除最上面的卡片，并插入一张新卡片至卡片库的方式。</p>
-<p>针对这个范例，我想要卡片库继续显示一个旅程。在 <code>trips</code> 阵列的最后一张图片显示后， App 将会回到第一个元素（注意，上列代码中的模数运算子%）。</p>
+<p>这个函式先从 <code>cardViews</code> 数组中删除最上面的卡片，然后它使用后续旅程的图片来实例化一个新卡片视图。由于 <code>cardViews</code> 定义为状态属性，因此一旦数组的值更改时，SwiftUI 将再次渲染卡片视图，这就是我们如何删除最上面的卡片，并插入一张新卡片至卡片库的方式。</p>
+<p>针对这个范例，我想要卡片库继续显示一个旅程。在 <code>trips</code> 数组的最后一张图片显示后， App 将会回到第一个元素（注意，上列代码中的模数运算子%）。</p>
 <p>接下来，更新 <code>.gesture</code>修饰器，并插入 <code>.onEnded</code> 函式： </p>
 <pre><code class="lang-swift">.gesture(<span class="hljs-type">LongPressGesture</span>(minimumDuration: <span class="hljs-number">0.01</span>)
     .sequenced(before: <span class="hljs-type">DragGesture</span>())

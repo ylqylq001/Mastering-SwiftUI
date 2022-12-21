@@ -1079,8 +1079,8 @@
 <p>因为它不是直接映射，我们需要实作 <code>Decodable</code>  协定的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 呼叫解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
 <p>要解码一个特定值，我们使用特定键（例如：.name ）和关联型别（例如：String.self ） 来呼叫 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 呼叫 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
 <p>以上为使用巢状物件来解码JSON 资料的方式。</p>
-<h3 id="%E4%BD%BF%E7%94%A8%E9%99%A3%E5%88%97">使用阵列</h3>
-<p>从 Kiva API 所回传的 JSON 资料中，通常不只一笔贷款，多笔贷款以阵列的形式建构， 现在我们来看如何使用Codable 解码 JSON 物件的阵列。</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E9%99%A3%E5%88%97">使用数组</h3>
+<p>从 Kiva API 所回传的 JSON 资料中，通常不只一笔贷款，多笔贷款以数组的形式建构， 现在我们来看如何使用Codable 解码 JSON 物件的数组。</p>
 <p>首先，修改 <code>json</code> 变数如下：</p>
 <pre><code class="lang-swift">let json = &quot;&quot;&quot;
 {
@@ -1104,21 +1104,21 @@
 }
 &quot;&quot;&quot;
 </code></pre>
-<p>在上面的范例中，<code>json</code> 变数中有两笔贷款资料，你如何将其解码为 <code>Loan</code> 的阵列呢？ </p>
+<p>在上面的范例中，<code>json</code> 变数中有两笔贷款资料，你如何将其解码为 <code>Loan</code> 的数组呢？ </p>
 <p>为此，宣告另一个名称为 <code>LoanStore</code>的结构，该结构也采用 <code>Codable</code> 协定： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Codable</span> </span>{
     <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>]
 }
 </code></pre>
-<p>该 <code>LoanStore</code> 只有一个 <code>loans</code> 属性，它与 JSON 资料的 <code>loans</code> 键相符。并且，其型别定义为 <code>Loan</code> 的阵列。</p>
+<p>该 <code>LoanStore</code> 只有一个 <code>loans</code> 属性，它与 JSON 资料的 <code>loans</code> 键相符。并且，其型别定义为 <code>Loan</code> 的数组。</p>
 <p>要解码贷款资料，将下列这行代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
 </code></pre>
 <p>修改为： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loanStore = try decoder.decode(<span class="hljs-type">LoanStore</span>.<span class="hljs-keyword">self</span>, from: jsonData)
 </code></pre>
-<p>解码器将自动解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 阵列中。如果你印出 <code>loans</code>，应该会看到如图 21.5 所示的类似讯息。</p>
-<figure id="fig21.5"><img src="images/json/swiftui-json-5.png" alt="图 21.5.　印出loans 阵列"><figcaption>图 21.5.　印出loans 阵列</figcaption></figure>
+<p>解码器将自动解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 数组中。如果你印出 <code>loans</code>，应该会看到如图 21.5 所示的类似讯息。</p>
+<figure id="fig21.5"><img src="images/json/swiftui-json-5.png" alt="图 21.5.　印出loans 数组"><figcaption>图 21.5.　印出loans 数组</figcaption></figure>
 <p>以上就是使用 Swift 解码 JSON 的方式。</p>
 <p><em>注意：作为参考，Playgrounds 项目包含在最终下载档内。 你可以在本章末端找到下载连结。</em></p>
 <h3 id="%E5%BB%BA%E7%AB%8B-kiva-%E8%B2%B8%E6%AC%BE-app">建立 Kiva 贷款 App</h3>
@@ -1177,7 +1177,7 @@
     <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
 }
 </code></pre>
-<p>稍后，解码器将解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 阵列中，这就是为什么我们建立上述 <code>LoanStore</code> 的原因。代码看起来与我们之前建立的 <code>LoanStore</code> 结构非常相似，但是它采用 <code>Decodable</code> 协定而不是<code>Codable</code> 协定。</p>
+<p>稍后，解码器将解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 数组中，这就是为什么我们建立上述 <code>LoanStore</code> 的原因。代码看起来与我们之前建立的 <code>LoanStore</code> 结构非常相似，但是它采用 <code>Decodable</code> 协定而不是<code>Codable</code> 协定。</p>
 <p>如果你研究 <code>Codable</code> 的文件，它只是一个协定组成的型别别名： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">typealias</span> <span class="hljs-type">Codable</span> = <span class="hljs-type">Decodable</span> &amp; <span class="hljs-type">Encodable</span>
 </code></pre>
@@ -1259,7 +1259,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
     return loans
 }
 </code></pre>
-<p><code>fetchLatestLoans()</code> 方法透过使用 <code>URLSession</code> 来连接到 Web API。当它接收到 API 回传的资料后，它会传送资料给 <code>parseJsonData</code> 方法来解码 JSON，并转换贷款资料为 <code>Loan</code> 阵列。</p>
+<p><code>fetchLatestLoans()</code> 方法透过使用 <code>URLSession</code> 来连接到 Web API。当它接收到 API 回传的资料后，它会传送资料给 <code>parseJsonData</code> 方法来解码 JSON，并转换贷款资料为 <code>Loan</code> 数组。</p>
 <p>你可能想知道为什么我们需要使用 <code>DispatchQueue.main.async</code> 来包裹这行代码？ </p>
 <pre><code class="lang-swift"><span class="hljs-type">DispatchQueue</span>.main.async {
     <span class="hljs-keyword">self</span>.loans = <span class="hljs-keyword">self</span>.parseJsonData(data: data)

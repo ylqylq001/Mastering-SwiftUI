@@ -947,7 +947,7 @@
 <p>要使用 UIKit 建立表格，你需要建立一个表格视图或表格视图控制器，然后自订 Prototype Cell。另外，你还必须编写表格视图资料来源的代码，以提供资料。建立一个表格UI 需要很多的步骤，现在我们来看如何在 SwiftUI 中实作相同的表格视图。</p>
 <p>首先，我们至下列网址来下载图片素材：<a href="https://www.appcoda.com/resources/swiftui/SwiftUISimpleTableImages.zip" target="_blank">https://www.appcoda.com/resources/swiftui/SwiftUISimpleTableImages.zip</a> 然后将 zip 档解压缩，并把所有图片汇入素材目录，如图 10.5 所示。</p>
 <figure id="fig10.5"><img src="images/list/swiftui-list-5.png" alt="图 10.5.　汇入图片至素材目录"><figcaption>图 10.5.　汇入图片至素材目录</figcaption></figure>
-<p>现在，切换到 <code>ContentView.swift</code> 来编写 UI 的代码。首先，我们在 <code>ContentView</code> 中宣告两个阵列，这些阵列是用来储存餐厅名称与图片。下列是完整的代码： </p>
+<p>现在，切换到 <code>ContentView.swift</code> 来编写 UI 的代码。首先，我们在 <code>ContentView</code> 中宣告两个数组，这些数组是用来储存餐厅名称与图片。下列是完整的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> restaurantNames = [<span class="hljs-string">&quot;Cafe Deadend&quot;</span>, <span class="hljs-string">&quot;Homei&quot;</span>, <span class="hljs-string">&quot;Teakha&quot;</span>, <span class="hljs-string">&quot;Cafe Loisl&quot;</span>, <span class="hljs-string">&quot;Petite Oyster&quot;</span>, <span class="hljs-string">&quot;For Kee Restaurant&quot;</span>, <span class="hljs-string">&quot;Po&apos;s Atelier&quot;</span>, <span class="hljs-string">&quot;Bourke Street Bakery&quot;</span>, <span class="hljs-string">&quot;Haigh&apos;s Chocolate&quot;</span>, <span class="hljs-string">&quot;Palomino Espresso&quot;</span>, <span class="hljs-string">&quot;Upstate&quot;</span>, <span class="hljs-string">&quot;Traif&quot;</span>, <span class="hljs-string">&quot;Graham Avenue Meats And Deli&quot;</span>, <span class="hljs-string">&quot;Waffle &amp; Wolf&quot;</span>, <span class="hljs-string">&quot;Five Leaves&quot;</span>, <span class="hljs-string">&quot;Cafe Lore&quot;</span>, <span class="hljs-string">&quot;Confessional&quot;</span>, <span class="hljs-string">&quot;Barrafina&quot;</span>, <span class="hljs-string">&quot;Donostia&quot;</span>, <span class="hljs-string">&quot;Royal Oak&quot;</span>, <span class="hljs-string">&quot;CASK Pub and Kitchen&quot;</span>]
@@ -961,7 +961,7 @@
     }
 }
 </code></pre>
-<p>两个阵列具有相同项目数，<code>restaurantNames</code>  阵列储存餐厅名称，<code>restaurantImages</code> 变数储存你刚汇入的图片名称。要建立如图 10.4 所示的清单视图，你只需要更新 <code>body</code> 变数如下： :</p>
+<p>两个数组具有相同项目数，<code>restaurantNames</code>  数组储存餐厅名称，<code>restaurantImages</code> 变数储存你刚汇入的图片名称。要建立如图 10.4 所示的清单视图，你只需要更新 <code>body</code> 变数如下： :</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">List</span>(restaurantNames.<span class="hljs-built_in">indices</span>, id: \.<span class="hljs-keyword">self</span>) { index <span class="hljs-keyword">in</span>
         <span class="hljs-type">HStack</span> {
@@ -974,19 +974,19 @@
     }
 }
 </code></pre>
-<p>我们做了一些修改，首先是 <code>List</code> 视图，我们传送餐厅名称的范围（即 <code>restaurantNames. indices</code> ），而不是一个固定的范围。例如：<code>restaurantNames</code> 阵列有 21 个项目，范围是从 0 至 20。</p>
+<p>我们做了一些修改，首先是 <code>List</code> 视图，我们传送餐厅名称的范围（即 <code>restaurantNames. indices</code> ），而不是一个固定的范围。例如：<code>restaurantNames</code> 数组有 21 个项目，范围是从 0 至 20。</p>
 <p>在闭包中，代码会更新，以建立列的布局，我将不会深入探讨细节，因为如果你对堆叠视图已经完全了解，那么代码一看便明白了。为了更改<code>List</code> 视图的样式，我们附加了<code>listStyle</code> 修饰器并将样式设置为<code>plain</code>。</p>
 <p>就是这样，使用不到 10 行的代码，我们已经建立了一个自订布局的清单（或表格）。</p>
 <figure id="fig10.6"><img src="images/list/swiftui-list-6.png" alt="图 10.6.　自订列布局的清单视图"><figcaption>图 10.6.　自订列布局的清单视图</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8%E8%B3%87%E6%96%99%E9%9B%86%E5%90%88">使用资料集合</h4>
-<p>如前所述，<code>List</code> 可以带入一个范围或一个资料集合。你已经学过如何处理范围，我们来看如何将 <code>List</code> 与餐厅资料的阵列一起使用。</p>
-<p>我们将建立一个 <code>Restaurant</code> 结构来加以组织资料，而不是将餐厅资料储存在两个单独的阵列中。这个结构有两个属性：“name”与“image”。在 <code>ContentView.swift</code> 档的最后面， 插入下列代码： </p>
+<p>如前所述，<code>List</code> 可以带入一个范围或一个资料集合。你已经学过如何处理范围，我们来看如何将 <code>List</code> 与餐厅资料的数组一起使用。</p>
+<p>我们将建立一个 <code>Restaurant</code> 结构来加以组织资料，而不是将餐厅资料储存在两个单独的数组中。这个结构有两个属性：“name”与“image”。在 <code>ContentView.swift</code> 档的最后面， 插入下列代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span> </span>{
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
     <span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
 }
 </code></pre>
-<p>使用这个结构，我们可以将 <code>restaurantNames</code> 与 <code>restaurantImages</code> 阵列合并为一个阵列。现在删除<code>restaurantNames</code> 与 <code>restaurantImages</code> 变数，并以 <code>ContentView</code>中的这个变数来代替： </p>
+<p>使用这个结构，我们可以将 <code>restaurantNames</code> 与 <code>restaurantImages</code> 数组合并为一个数组。现在删除<code>restaurantNames</code> 与 <code>restaurantImages</code> 变数，并以 <code>ContentView</code>中的这个变数来代替： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> restaurants = [ <span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Cafe Deadend&quot;</span>, image: <span class="hljs-string">&quot;cafedeadend&quot;</span>),
                <span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Homei&quot;</span>, image: <span class="hljs-string">&quot;homei&quot;</span>),
                <span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Teakha&quot;</span>, image: <span class="hljs-string">&quot;teakha&quot;</span>),
@@ -1010,7 +1010,7 @@
                <span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;CASK Pub and Kitchen&quot;</span>, image: <span class="hljs-string">&quot;caskpubkitchen&quot;</span>)
 ]
 </code></pre>
-<p>如果你是 Swift 新手，这里做个解释，阵列的每一个项目表示一笔特定餐厅的纪录。当你进行更改后，你将会在Xcode 中见到一个错误，其指出遗失了<code>restaurantNames</code> 变数， 这很正常，因为我们刚才删除这个变数了。</p>
+<p>如果你是 Swift 新手，这里做个解释，数组的每一个项目表示一笔特定餐厅的纪录。当你进行更改后，你将会在Xcode 中见到一个错误，其指出遗失了<code>restaurantNames</code> 变数， 这很正常，因为我们刚才删除这个变数了。</p>
 <p>现在更新 <code>body</code> 变数如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">List</span>(restaurants, id: \.name) { restaurant <span class="hljs-keyword">in</span>
@@ -1025,11 +1025,11 @@
     .listStyle(.plain)
 }
 </code></pre>
-<p>看一下我们传入 <code>List</code> 的参数，我们没有传送范围，而是传送 <code>restaurants</code> 阵列，并告诉 <code>List</code> 使用其 <code>name</code> 属性作为识别码。<code>List</code>  将逐一执行阵列，并让我们知道它在闭包中正在处理的目前餐厅。因此，在闭包中，我们指示清单如何显示餐厅列，这里我们只在 <code>HStack</code> 中同时显示餐厅图片与餐厅名称。</p>
+<p>看一下我们传入 <code>List</code> 的参数，我们没有传送范围，而是传送 <code>restaurants</code> 数组，并告诉 <code>List</code> 使用其 <code>name</code> 属性作为识别码。<code>List</code>  将逐一执行数组，并让我们知道它在闭包中正在处理的目前餐厅。因此，在闭包中，我们指示清单如何显示餐厅列，这里我们只在 <code>HStack</code> 中同时显示餐厅图片与餐厅名称。</p>
 <p>一切都没有改变，UI 仍然相同，不过底层代码已经修改为利用 <code>List</code> 与资料集合了。</p>
 <figure id="fig10.7"><img src="images/list/swiftui-list-7.png" alt="图 10.7.　与图 10.6 的 UI 相同"><figcaption>图 10.7.　与图 10.6 的 UI 相同</figcaption></figure>
 <h4 id="%E9%81%B5%E5%BE%AA-identifiable-%E5%8D%94%E5%AE%9A">遵循 Identifiable 协定</h4>
-<p>为了让你更了解 <code>List</code> 内 <code>id</code> 参数的用途，我们对 <code>restaurants</code> 阵列做一个小变更。由于我们使用餐厅名称作为识别码，因此我们来看当有两笔资料具有相同的餐厅名称时会发生什么事？现在将 <code>restaurants</code> 阵列中的“Upstate”更新为“Homei”，如下所示： </p>
+<p>为了让你更了解 <code>List</code> 内 <code>id</code> 参数的用途，我们对 <code>restaurants</code> 数组做一个小变更。由于我们使用餐厅名称作为识别码，因此我们来看当有两笔资料具有相同的餐厅名称时会发生什么事？现在将 <code>restaurants</code> 数组中的“Upstate”更新为“Homei”，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Homei&quot;</span>, image: <span class="hljs-string">&quot;upstate&quot;</span>)
 </code></pre>
 <p>请注意，我们只更改“name”属性值，图片仍保持为 <code>upstate</code>，如图 10.8 所示。再次检查预览画布，看看你得到了什么。</p>
