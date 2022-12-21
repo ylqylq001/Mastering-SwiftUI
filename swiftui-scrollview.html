@@ -970,7 +970,7 @@
 <p>除了边框之外，我们也在顶部、左侧、右侧分别加入了一些间距。现在，你应该已经建立好卡片视图的布局，如图 5.10 所示。</p>
 <figure id="fig5.10"><img src="images/scrollview/swiftui-scrollview-10.png" alt="图 5.10. 加入边框与圆角"><figcaption>图 5.10. 加入边框与圆角</figcaption></figure>
 <h4 id="%E8%AE%93%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E6%9B%B4%E5%85%B7%E5%BD%88%E6%80%A7">让卡片视图更具弹性</h4>
-<p>虽然目前卡片视图看起来没问题，但我们将图片与文字写死（ Hard Code）在程式中， 为了让它更具弹性，我们要重构代码。首先，在 <code>CardView</code> 声明 image、category、heading 与author 这些变量： </p>
+<p>虽然目前卡片视图看起来没问题，但我们将图片与文字写死（ Hard Code）在程序中， 为了让它更具弹性，我们要重构代码。首先，在 <code>CardView</code> 声明 image、category、heading 与author 这些变量： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">var</span> category: <span class="hljs-type">String</span>
 <span class="hljs-keyword">var</span> heading: <span class="hljs-type">String</span>
@@ -1013,7 +1013,7 @@
 </code></pre>
 <p>错误将可被修正，现在你已经建立了一个能接受不同图片及文字的弹性 <code>CardView</code>。</p>
 <h3 id="scrollview-%E7%9A%84%E4%BB%8B%E7%B4%B9">ScrollView 的介绍</h3>
-<p>再看一下图5.2，这就是我们要实现的使用者介面。首先，你可能认为我们可以使用一个 <code>VStack</code> 来嵌入四个卡片视图。你可以切换到  <code>ContentView.swift</code> ，于 body 内插入以下的程式：</p>
+<p>再看一下图5.2，这就是我们要实现的使用者介面。首先，你可能认为我们可以使用一个 <code>VStack</code> 来嵌入四个卡片视图。你可以切换到  <code>ContentView.swift</code> ，于 body 内插入以下的程序：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">CardView</span>(image: <span class="hljs-string">&quot;swiftui-button&quot;</span>, category: <span class="hljs-string">&quot;SwiftUI&quot;</span>, heading: <span class="hljs-string">&quot;Drawing a Border with Rounded Corners&quot;</span>, author: <span class="hljs-string">&quot;Simon Ng&quot;</span>)
     <span class="hljs-type">CardView</span>(image: <span class="hljs-string">&quot;macos-programming&quot;</span>, category: <span class="hljs-string">&quot;macOS&quot;</span>, heading: <span class="hljs-string">&quot;Building a Simple Editing App&quot;</span>, author: <span class="hljs-string">&quot;Gabriel Theodoropoulos&quot;</span>)
@@ -1068,7 +1068,7 @@
 <p>通过指定 <code>showIndicators</code> 为 <code>false</code>，iOS 将不再显示该指示器。</p>
 <h3 id="%E7%BE%A4%E7%B5%84%E8%A6%96%E5%9C%96%E5%85%A7%E5%AE%B9">群组视图内容</h3>
 <p>如果你再次阅读一下代码，所有的  <code>CardViews</code> 是以 <code>.frame</code> 修饰器来限制其宽度为 300 点，是否有其他简化的方式，并移除重复的代码呢？SwiftUI 框架提供了开发者群组视图（<code>Group</code> view）的功能，可以将相关内容群组起来。更重要的是，你可以将修饰器加至群组，所有嵌入群组内的视图皆能够同步做产生效果。 </p>
-<p>举例而言，你可以将 <code>HStack</code> 内的程式重写如下来完成同样的结果：</p>
+<p>举例而言，你可以将 <code>HStack</code> 内的程序重写如下来完成同样的结果：</p>
 <pre><code class="lang-swift"><span class="hljs-type">HStack</span> {
     <span class="hljs-type">Group</span> {
         <span class="hljs-type">CardView</span>(image: <span class="hljs-string">&quot;swiftui-button&quot;</span>, category: <span class="hljs-string">&quot;SwiftUI&quot;</span>, heading: <span class="hljs-string">&quot;Drawing a Border with Rounded Corners&quot;</span>, author: <span class="hljs-string">&quot;Simon Ng&quot;</span>)

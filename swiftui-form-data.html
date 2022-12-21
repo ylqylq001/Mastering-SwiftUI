@@ -938,7 +938,7 @@
 <p>现在，你可以再次测试设定画面，它应该可正常运作且外观相同，不过底层代码更易于管理及阅读了。</p>
 <h3 id="%E5%9C%A8-userdefaults-%E5%84%B2%E5%AD%98%E4%BD%BF%E7%94%A8%E8%80%85%E5%81%8F%E5%A5%BD">在 UserDefaults 储存使用者偏好</h3>
 <p>目前，App 还不能永久储存使用者偏好。每当你重新启动这个 App 时，设定画面都会重置为默认设定。</p>
-<p>有多种储存设定的方式。要储存少量数据（如 iOS 的使用者设定），内建的默认数据库是方案之一。此默认系统让App 以键值对的形式来储存使用者偏好。要和这个默认数据库互动，你可以使用一个名为 <code>UserDefaults</code>的可程式化介面（programmatic interface ）。</p>
+<p>有多种储存设定的方式。要储存少量数据（如 iOS 的使用者设定），内建的默认数据库是方案之一。此默认系统让App 以键值对的形式来储存使用者偏好。要和这个默认数据库互动，你可以使用一个名为 <code>UserDefaults</code>的可程序化介面（programmatic interface ）。</p>
 <p>在 <code>SettingStore.swift</code> 档中，我们将会建立一个 <code>SettingStore</code> 类别，以提供一些方便的方法来储存及载入使用者偏好，在 <code>SettingStore.swift</code> 中插入下列的代码片段： </p>
 <pre><code class="lang-swift">final <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SettingStore</span> </span>{
 
@@ -975,7 +975,7 @@
 <p><code>settingStore</code> 准备好后，我们切换到 <code>SettingView.swift</code> 档来实现“Save”操作。首先， 在 <code>SettingView</code> 中为 <code>SettingStore</code> 声明一个属性。</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>
-<p>而“储存”（Save ）按钮的程式更新如下： </p>
+<p>而“储存”（Save ）按钮的程序更新如下： </p>
 <p>至于 <em>Save</em> 按钮，你可以将 <em>Save</em> 按钮的代码（在 <code>ToolbarItem(placement: .navigationBarTrailing)</code> 块中）并将之改为：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     <span class="hljs-keyword">self</span>.settingStore.showCheckInOnly = <span class="hljs-keyword">self</span>.showCheckInOnly

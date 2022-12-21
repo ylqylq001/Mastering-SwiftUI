@@ -881,7 +881,7 @@
 <p>按钮可启动App 的特定动作，其有自订背景，并可加入一个标题或一个图示。这个系统为大部分的使用情况提供许多预定义的按钮样式。你也可以充分设计自订按钮。</p>
 <p>- Apple 的官方文件 (<a href="https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/" target="_blank">https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/</a>)</p>
 </blockquote>
-<p>我想应该不需要去解释什么是按钮，它是一个非常基本的 UI 控制组件，你可以在所有的 App 中看到它，按钮可处理使用者的触控动作，并触发特定的动作。倘若你之前有学过 iOS 程式设计的话，SwiftUI 的 Button 与 UIKit 的UIButton 非常相似，但更具弹性与可客制化，待会你将会了解我的意思。在本章中，我将详细介绍 SwiftUI 控制组件，你将学到下列的技巧： </p>
+<p>我想应该不需要去解释什么是按钮，它是一个非常基本的 UI 控制组件，你可以在所有的 App 中看到它，按钮可处理使用者的触控动作，并触发特定的动作。倘若你之前有学过 iOS 程序设计的话，SwiftUI 的 Button 与 UIKit 的UIButton 非常相似，但更具弹性与可客制化，待会你将会了解我的意思。在本章中，我将详细介绍 SwiftUI 控制组件，你将学到下列的技巧： </p>
 <ol>
 <li>如何建立一个简单的按钮，并处理使用者的选择。</li>
 <li>如何自订按钮的背景、间距与字型。</li>
@@ -1211,7 +1211,7 @@
     }
 }
 </code></pre>
-<p>从上列的代码中可以见到，你需要为每个按钮复制所有的修饰器。当你或你的设计师想要修改按钮样式时，你将需要修改所有的修饰器，这会是一个非常繁锁的工作，并非是程式设计的最佳实践，那么你如何归纳样式并重复使用呢？</p>
+<p>从上列的代码中可以见到，你需要为每个按钮复制所有的修饰器。当你或你的设计师想要修改按钮样式时，你将需要修改所有的修饰器，这会是一个非常繁锁的工作，并非是程序设计的最佳实践，那么你如何归纳样式并重复使用呢？</p>
 <p>SwiftUI 提供了一个名为 <code>ButtonStyle</code>的协议，可以让你建立自己的按钮样式。要为我们的按钮建立一个可以重复使用的样式， 则我们建立一个名为 <code>Gradient BackgroundStyle</code> 的新结构，该结构遵循 ButtonStyle 协议。在 <code>struct ContentPreview_Previews</code>上方，插入下列这段代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">GradientBackgroundStyle</span>: <span class="hljs-title">ButtonStyle</span> </span>{
 
@@ -1247,7 +1247,7 @@
 </code></pre>
 <p>很酷，是吧？代码现在已经被简化了，你只要一行代码，即可轻松应用按钮样式于任何按钮上。</p>
 <figure id="fig6.22"><img src="images/buttons/swiftui-buttons-22.png" alt="图 6.22. 使用.buttonStyle 修饰器来应用自订样式"><figcaption>图 6.22. 使用.buttonStyle 修饰器来应用自订样式</figcaption></figure>
-<p>你也可以通过 configuration 的 <code>isPressed 属性</code>，来判断按钮是否有被按下，这可以让你在使用者按下它时改变按钮的样式。举例而言，我们想要制作一个当使用者按下去时会变小一点的按钮，你可以加入一行程式，如图 6.23 所示。</p>
+<p>你也可以通过 configuration 的 <code>isPressed 属性</code>，来判断按钮是否有被按下，这可以让你在使用者按下它时改变按钮的样式。举例而言，我们想要制作一个当使用者按下去时会变小一点的按钮，你可以加入一行程序，如图 6.23 所示。</p>
 <figure id="fig6.23"><img src="images/buttons/swiftui-buttons-23.png" alt="图 6.23.　使用 .buttonStyle 修饰器来自订样式"><figcaption>图 6.23.　使用 .buttonStyle 修饰器来自订样式</figcaption></figure>
 <p><code>scaleEffect</code> 修饰器可以让你缩放按钮（或任何视图）。当要放大按钮时，则要传送大于 1.0 的值，而小于1.0 的值，会让按钮变小。</p>
 <pre><code class="lang-swift">.scaleEffect(configuration.isPressed ? <span class="hljs-number">0.9</span> : <span class="hljs-number">1.0</span>)
@@ -1312,7 +1312,7 @@
 <p>iOS 会自动以红色显示<em>删除</em> 按钮。 图 29 显示了不同角色和样式的按钮外观。</p>
 <figure id="fig6.29"><img src="images/buttons/swiftui-buttons-29.png" alt="图 6.29. 不同角色和样式的按钮外观"><figcaption>图 6.29. 不同角色和样式的按钮外观</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>在本章中，我们介绍了 SwiftUI 中建立按钮的基本观念。按钮在手机介面（或确切地说在任何应用程式 UI）中扮演着关键角色，良好设计的按钮不仅可以使你的 UI 更具吸引力，还可以提升你的 App 的使用者体验。如你所学，通过结合 SF Symbols、渐层与动画的应用，你可以轻松建立一个有吸引力且实用的按钮。</p>
+<p>在本章中，我们介绍了 SwiftUI 中建立按钮的基本观念。按钮在手机介面（或确切地说在任何应用程序 UI）中扮演着关键角色，良好设计的按钮不仅可以使你的 UI 更具吸引力，还可以提升你的 App 的使用者体验。如你所学，通过结合 SF Symbols、渐层与动画的应用，你可以轻松建立一个有吸引力且实用的按钮。</p>
 <p>在本章所准备的示例档中，有完整的项目可以下载： </p>
 <ul>
 <li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIButton.zip</a>)</li>

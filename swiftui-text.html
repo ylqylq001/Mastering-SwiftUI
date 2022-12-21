@@ -884,12 +884,12 @@
 <figure id="fig2.1"><img src="images/text/swiftui-text-1.png" alt="图 1. 建立一个新项目"><figcaption>图 1. 建立一个新项目</figcaption></figure>
 <p>储存完项目之后，Xcode 即会载入 <code>ContentView.swift</code>  档，并显示一个设计划布（ design canvas ）与预览画布（preview canvas）。如果你没有见到这个画布，你可以至  Xcode 选单，并选取  <em>Editor</em> &gt; <em>Canvas</em> 来启用它。</p>
 <p>Xcode 默认会在  <code>ContentView.swift</code> 上建立一些  SwiftUI 代码。在 Xcode 14，这个预览画布会自动渲染（render）App 预览画面。Xcode 会依照你在模拟器选项（例如 iPhone 13 Pro）中的选择来将预览画面渲染在模拟器中。在旧版的 Xcode，你必须点选 <em>Resume</em>  按钮才能看到这个预览画面。</p>
-<p>为了让程式编辑器与画布能显示，你可以隐藏项目导航器（project navigator ）与工具面板来释放更多空间。</p>
-<figure id="fig2.2"><img src="images/text/swiftui-text-2.png" alt="图 2. 程式编辑器与画布"><figcaption>图 2. 程式编辑器与画布</figcaption></figure>
+<p>为了让程序编辑器与画布能显示，你可以隐藏项目导航器（project navigator ）与工具面板来释放更多空间。</p>
+<figure id="fig2.2"><img src="images/text/swiftui-text-2.png" alt="图 2. 程序编辑器与画布"><figcaption>图 2. 程序编辑器与画布</figcaption></figure>
 <h3 id="%E7%B0%A1%E5%96%AE%E6%96%87%E5%AD%97%E7%9A%84%E5%91%88%E7%8F%BE">简单文字的呈现</h3>
-<p>在 <code>ContentView</code>  所产生的简单程式已经告诉你如何显示一行文字和简单图像。它使用一个 <code>VStack</code> 包装内里的 <code>Text</code> 和 <code>Image</code>。我们将在后面的章节中讨论图像和堆栈视图。 现在让我们首先关注 <code>Text</code> 的用法。</p>
+<p>在 <code>ContentView</code>  所产生的简单程序已经告诉你如何显示一行文字和简单图像。它使用一个 <code>VStack</code> 包装内里的 <code>Text</code> 和 <code>Image</code>。我们将在后面的章节中讨论图像和堆栈视图。 现在让我们首先关注 <code>Text</code> 的用法。</p>
 <p>要在荧幕上显示文字，你需要初始化一个 <code>Text</code> 并将要显示的文字（例如 <em>Hello World</em>）作为参数来传递。 像这样更新 <code>body</code> 的代码：</p>
-<p>程式初始化一个  <code>Text</code>  并将要放的文字（例如 <em>Hello World</em> ）作为参数来传传递。现在将 <code>body</code> 内的代码如下更新：</p>
+<p>程序初始化一个  <code>Text</code>  并将要放的文字（例如 <em>Hello World</em> ）作为参数来传传递。现在将 <code>body</code> 内的代码如下更新：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>)
 </code></pre>
 <p>如此，预览画布即会在荧幕上显示  <em>Stay Hungry. Stay Foolish.</em> 。这是建立一个文字视图的基本语法。你可以任意变更文字内容，画布会即时显示变更的结果。</p>
@@ -900,16 +900,16 @@
 </code></pre>
 <p>你可以使用点语法（dot syntax）来存取修饰器。当你输入一个点符号时，Xcode 则出现你可能会用到的修饰器或值。举例来说，当你在 <code>fontWeight</code> 修饰器，输入一个点符号时，你会见到不同的字体粗细选项，你可以选取 <code>bold</code> 来使用粗体字。如果你想要更粗一点，则可以选取 <code>heavy</code> 或 <code>black</code> 。</p>
 <figure id="fig2.4"><img src="images/text/swiftui-text-4.png" alt="图 4. 挑选你喜爱的字体粗细"><figcaption>图 4. 挑选你喜爱的字体粗细</figcaption></figure>
-<p>通过 <code>fontWeight</code>  修饰器的调用，并选取  <code>.bold</code> 的值，它会回传一个加上粗体字的视图。 SwiftUI 有趣的是，你可以进一步串连其他修饰器。譬如说，你想要大一点的粗体字，程式可以修改如下：</p>
+<p>通过 <code>fontWeight</code>  修饰器的调用，并选取  <code>.bold</code> 的值，它会回传一个加上粗体字的视图。 SwiftUI 有趣的是，你可以进一步串连其他修饰器。譬如说，你想要大一点的粗体字，程序可以修改如下：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>).fontWeight(.bold).font(.title)
 </code></pre>
-<p>因为可能会串连多个修饰器，我们通常会将以上的程式写成如下的格式：</p>
+<p>因为可能会串连多个修饰器，我们通常会将以上的程序写成如下的格式：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Stay Hungry. Stay Foolish.&quot;</span>)
     .fontWeight(.bold)
     .font(.title)
 </code></pre>
-<p>这个功能是一样的，不过我相信你会发现到以上的程式更容易阅读。我们将继续在本书中使用这样的程式写法。</p>
-<p> <code>font</code> 修饰器可以让你变更字体属性。在上面的程式中，我们指定使用 <em>title</em> 字体以放大文字。SwiftUI 内有几个内建的字体样式，包括 <em>title</em> 、 <em>largeTitle</em> 、<em>body</em> 等等。如果你想要加大字体大小，则可以将 <code>.title</code> 改成 <code>.largeTitle</code> 。</p>
+<p>这个功能是一样的，不过我相信你会发现到以上的程序更容易阅读。我们将继续在本书中使用这样的程序写法。</p>
+<p> <code>font</code> 修饰器可以让你变更字体属性。在上面的程序中，我们指定使用 <em>title</em> 字体以放大文字。SwiftUI 内有几个内建的字体样式，包括 <em>title</em> 、 <em>largeTitle</em> 、<em>body</em> 等等。如果你想要加大字体大小，则可以将 <code>.title</code> 改成 <code>.largeTitle</code> 。</p>
 <p><em>提示：你可以参考这份文件（<a href="https://developer.apple.com/documentation/swiftui/font）来找出所有" target="_blank">https://developer.apple.com/documentation/swiftui/font）来找出所有</a> <code>font</code> 修饰器所支持的值。</em></p>
 <figure id="fig2.5"><img src="images/text/swiftui-text-5.png" alt="图 5. 变更字体样式"><figcaption>图 5. 变更字体样式</figcaption></figure>
 <p>你也可以使用  <code>font</code> 修饰器来指定字体设计，譬如说，你想要字体圆润。你可以将修饰器撰写如下：</p>
@@ -918,7 +918,7 @@
 <p>这里你指定使用系统字体，文字样式为 <code>largeTitle</code>  ，以及  <code>rounded</code>  设计。预览画布应该会立即对变更做出反应，并显示圆润的文字。</p>
 <figure id="fig2.6"><img src="images/text/swiftui-text-6.png" alt="图 6.使用圆字体设计"><figcaption>图 6.使用圆字体设计</figcaption></figure>
 <p>动态型态（ Dynamic Type ）是 iOS 依照使用者设定（设定 &gt; 荧幕显示与亮度 &gt; 文字大小）而自动调整字体大小的功能。换句话说，当你使用文字样式（例如 <code>.title</code> ），这个字体大小将会改变，你的 App 会依照使用者的偏好来自动缩放文字。</p>
-<p>如果你想要使用一个固定大小的字体，你可以将程式修改如下：</p>
+<p>如果你想要使用一个固定大小的字体，你可以将程序修改如下：</p>
 <pre><code class="lang-swift">.font(.system(size: <span class="hljs-number">20</span>))
 </code></pre>
 <p>这是告诉系统使用一个 20 点大小的固定字体。</p>
@@ -931,7 +931,7 @@
 <p>按住 command 键不放，并点选文字来带出弹出选单， 选取 <em>Show SwiftUI Inspector</em> ，然后你可以编辑 text/font 属性。 最棒的是，当你更改字体属性时，代码也会自动更新。</p>
 <figure id="fig2.8"><img src="images/text/swiftui-text-8.png" alt="图 8. 使用 Inspect 功能来编辑文字属性"><figcaption>图 8. 使用 Inspect 功能来编辑文字属性</figcaption></figure>
 <h3 id="%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E8%99%95%E7%90%86">多行文字的处理</h3>
-<p><code>Text</code> 默认支持多行文字，所以它可以显示一段文字，而不需要使用任何其他修饰器，将程式以下面这段替换：</p>
+<p><code>Text</code> 默认支持多行文字，所以它可以显示一段文字，而不需要使用任何其他修饰器，将程序以下面这段替换：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma—which is living with the results of other people’s thinking. Don’t let the noise of others’ opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition.&quot;</span>)
     .fontWeight(.bold)
     .font(.title)
@@ -957,7 +957,7 @@
 <p>一般默认的行距对大部分的情况而言已经够用。如果你想要改默认的设定，你可以使用 <code>lineSpacing</code>  修饰器来调整间距。</p>
 <pre><code class="lang-swift">.lineSpacing(<span class="hljs-number">10</span>)
 </code></pre>
-<p>如你所见，文字太靠近边缘的左侧与右侧。要赋予更多间距，你可以使用  <code>padding</code> 修饰器，为文字的每一边增加一些间距。在 <code>lineSpacing</code> 修饰器后面插入以下这行程式：</p>
+<p>如你所见，文字太靠近边缘的左侧与右侧。要赋予更多间距，你可以使用  <code>padding</code> 修饰器，为文字的每一边增加一些间距。在 <code>lineSpacing</code> 修饰器后面插入以下这行程序：</p>
 <pre><code class="lang-swift">.padding()
 </code></pre>
 <p>设计划布现在的结果如下：</p>
@@ -966,19 +966,19 @@
 <p>SwiftUI 框架提供了可以轻易旋转文字的 API，你可以像这样使用 <code>rotateEffect</code>  修饰器，并传入旋转角度：</p>
 <pre><code class="lang-swift">.rotationEffect(.degrees(<span class="hljs-number">45</span>))
 </code></pre>
-<p>如果你在 <code>padding()</code> 后面插入以上这行程式，你将会见到文字旋转 45 度。</p>
+<p>如果你在 <code>padding()</code> 后面插入以上这行程序，你将会见到文字旋转 45 度。</p>
 <figure id="fig2.12"><img src="images/text/swiftui-text-12.png" alt="图 12. 旋转文字"><figcaption>图 12. 旋转文字</figcaption></figure>
-<p>默认，旋转动作会以文字视图为中心来旋转，如果你想要将文字以特定点来旋转（譬如左上角），程式的写法如下：</p>
+<p>默认，旋转动作会以文字视图为中心来旋转，如果你想要将文字以特定点来旋转（譬如左上角），程序的写法如下：</p>
 <pre><code class="lang-swift">.rotationEffect(.degrees(<span class="hljs-number">20</span>), anchor: <span class="hljs-type">UnitPoint</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>))
 </code></pre>
 <p>我们另外传入 <code>anchor</code>  参数来指定旋转点。</p>
 <figure id="fig2.13"><img src="images/text/swiftui-text-13.png" alt="图 13. 以文字视图的左上角来旋转"><figcaption>图 13. 以文字视图的左上角来旋转</figcaption></figure>
-<p>你不止可以进行 2D 旋转， SwiftUI  提供一个称作  <code>rotation3DEffect</code>  修饰器，可以让你建立 3D  效果。这个修饰器有两个参数：“旋转角度”与“旋转轴”，譬如你要建立透视文字特效，程式可以这样写：</p>
+<p>你不止可以进行 2D 旋转， SwiftUI  提供一个称作  <code>rotation3DEffect</code>  修饰器，可以让你建立 3D  效果。这个修饰器有两个参数：“旋转角度”与“旋转轴”，譬如你要建立透视文字特效，程序可以这样写：</p>
 <pre><code class="lang-swift">.rotation3DEffect(.degrees(<span class="hljs-number">60</span>), axis: (x: <span class="hljs-number">1</span>, y: <span class="hljs-number">0</span>, z: <span class="hljs-number">0</span>))
 </code></pre>
-<p>只要一行程式，你就可以建立星际大战透视（ Star Wars perspective ）文字</p>
+<p>只要一行程序，你就可以建立星际大战透视（ Star Wars perspective ）文字</p>
 <figure id="fig2.14"><img src="images/text/swiftui-text-14.png" alt="图 14. 使用 3D 旋转建立惊艳的文字效果"><figcaption>图 14. 使用 3D 旋转建立惊艳的文字效果</figcaption></figure>
-<p>你还可以插入以下这行程式来对透视文字建立阴影效果</p>
+<p>你还可以插入以下这行程序来对透视文字建立阴影效果</p>
 <pre><code class="lang-swift">.shadow(color: .gray, radius: <span class="hljs-number">2</span>, x: <span class="hljs-number">0</span>, y: <span class="hljs-number">15</span>)
 </code></pre>
 <p>这个  <code>shadow</code>  修饰器将会对文字应用阴影效果，你只需要指定颜色与阴影半径。另外，你也可以告诉系统 <code>x</code> 与 <code>y</code> 值来指定阴影位置</p>
@@ -998,7 +998,7 @@
 <p>转成:</p>
 <pre><code class="lang-swift">.font(.custom(<span class="hljs-string">&quot;Nunito&quot;</span>, size: <span class="hljs-number">25</span>))
 </code></pre>
-<p>上面的代码没有使用系统字体样式，而是使用 <code>.custom</code> 并指定字体名称。 字体名称可以在应用程式“Font Book”中找到。 你可以打开 Finder &gt; Application，然后点击 <em>Font Book</em> 以启动该 App。</p>
+<p>上面的代码没有使用系统字体样式，而是使用 <code>.custom</code> 并指定字体名称。 字体名称可以在应用程序“Font Book”中找到。 你可以打开 Finder &gt; Application，然后点击 <em>Font Book</em> 以启动该 App。</p>
 <figure id="fig2.19"><img src="images/text/swiftui-text-19.png" alt="图 19. 使用自订字体"><figcaption>图 19. 使用自订字体</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-markdown-%E8%A8%AD%E7%BD%AE%E6%96%87%E5%AD%97%E6%A8%A3%E5%BC%8F">使用 Markdown 设置文字样式</h3>
 <blockquote>
@@ -1012,7 +1012,7 @@
 <p>如果你在 <code>ContentView</code> 中加入以上代码，Xcode 就会自动将 Markdown 文字的样式呈现出来。 要测试超链结，你必须在模拟器中运行该 App。 当你点击该链接时，iOS 会自动开启 Safari 并打开该 URL。</p>
 <figure id="fig2.20"><img src="images/text/swiftui-text-20.png" alt="图 20. 使用 Markdown"><figcaption>图 20. 使用 Markdown</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>你喜欢以 SwiftUI 来建立使用者介面吗？我希望你会喜欢，SwiftUI  的声明式语法让程式可读性更高，且更容易理解。当你经验更多之后，你只要在 SwiftUI 写几行代码就可以建立酷炫的 3D 样式。</p>
+<p>你喜欢以 SwiftUI 来建立使用者介面吗？我希望你会喜欢，SwiftUI  的声明式语法让程序可读性更高，且更容易理解。当你经验更多之后，你只要在 SwiftUI 写几行代码就可以建立酷炫的 3D 样式。</p>
 <p>在本章所准备的示例档中，有最后完整的项目，您可以至以下网址下载：</p>
 <ul>
 <li>示例项目 ( <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIText.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIText.zip</a> )</li>

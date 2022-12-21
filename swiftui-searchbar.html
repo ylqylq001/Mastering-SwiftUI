@@ -878,7 +878,7 @@
                     
                         <h1 id="%E7%AC%AC-24-%E7%AB%A0-br-%E5%BB%BA%E7%AB%8B%E6%90%9C%E5%B0%8B%E6%AC%84%E8%A6%96%E5%9C%96%E4%B8%A6%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82%E7%B6%81%E5%AE%9A%EF%BC%88custom-binding%EF%BC%89">第 24 章<br>建立搜寻栏视图并使用自订绑定（Custom Binding）</h1>
 <p>之前，我们向你讲解了如何利用 UIKit 框架的<code>UISearchBar</code> 来实现搜索栏。 你有没有想过从头开始自己建立一个？ 如果仔细看看搜寻栏，要自己做出来并不太难。 所以，让我们在本章中尝试构建一个 SwiftUI 版本的搜寻栏。</p>
-<p>你不仅可以学习如何建立搜寻栏视图，我们还将会和你讲解如何使用自订绑定。 之前我们讨论过绑定，但还没有向你展示如何建立自定义绑定。 当你需要为绑定（Binding）加入额外的程式逻辑时，自订绑定就特别有用。 另外，你也会学习如何在 SwiftUI 中关闭软体键盘。</p>
+<p>你不仅可以学习如何建立搜寻栏视图，我们还将会和你讲解如何使用自订绑定。 之前我们讨论过绑定，但还没有向你展示如何建立自定义绑定。 当你需要为绑定（Binding）加入额外的程序逻辑时，自订绑定就特别有用。 另外，你也会学习如何在 SwiftUI 中关闭软体键盘。</p>
 <p>图 24.1 就是我们将要建立的搜索栏，外观与 UIKit 中的 UISearchBar 非常相似。 同样地，这个搜索栏也会有个 <em>Cancel</em> 按钮，当使用者开始输入搜寻文字时就会出现。</p>
 <figure id="fig24.1"><img src="images/searchbar/swiftui-searchbar-1.png" alt="图 24.1. 利用 SwiftUI 自己建立搜寻栏"><figcaption>图 24.1. 利用 SwiftUI 自己建立搜寻栏</figcaption></figure>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%90%9C%E5%B0%8B%E6%AC%84-ui">实现搜寻栏 UI</h3>
@@ -966,7 +966,7 @@
 <p>SwiftUI 版本的搜寻栏已经可以正常使用了，不过我想藉此机会与你讨论自订绑定。 在 <code>SearchBar.swift</code> ，我们像这样声明搜寻文字的绑定：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> text: <span class="hljs-type">String</span>
 </code></pre>
-<p>它非常适合我们当前程式的运作。 但是让我来问问你， 如果我们在读取或写入此绑定时需要添加额外的逻辑，那可以怎么办？ 例如，如何将使用者输入的文字自动变成大写？</p>
+<p>它非常适合我们当前程序的运作。 但是让我来问问你， 如果我们在读取或写入此绑定时需要添加额外的逻辑，那可以怎么办？ 例如，如何将使用者输入的文字自动变成大写？</p>
 <p>Swift 有一个内置的功能可以将字串变为大写。 你可以使用字串的 <code>capitalized</code> 属性取得大写文字串。但 问题是我们如何更新<code>text</code>的绑定？</p>
 <p>在这种情况下，你需要在<code>SearchBar.swift</code>中建立一个自定义绑定，如下所示：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> searchText: <span class="hljs-type">Binding</span>&lt;<span class="hljs-type">String</span>&gt; {

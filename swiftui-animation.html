@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-9-%E7%AB%A0-br-%E5%9F%BA%E7%A4%8E%E5%8B%95%E7%95%AB%E8%88%87%E8%BD%89%E5%A0%B4">第 9 章<br>基础动画与转场</h1>
-<p>你曾在 Keynote 使用过瞬间移动动画（ magic move animation ）吗？藉由瞬间移动效果， 你可以轻松建立投影片间的平滑动画（ slick animation ）。Keynote 会自动分析两张投影片之间的物件，并自动渲染动画。同样，SwiftUI 也将瞬间移动动画带入应用程式开发中， 使用该框架的动画是自动且神奇的。当你定义一个视图的两个状态，SwiftUI 会找出其余的状态，接着以动画呈现两个状态之间的变化。</p>
+<p>你曾在 Keynote 使用过瞬间移动动画（ magic move animation ）吗？藉由瞬间移动效果， 你可以轻松建立投影片间的平滑动画（ slick animation ）。Keynote 会自动分析两张投影片之间的物件，并自动渲染动画。同样，SwiftUI 也将瞬间移动动画带入应用程序开发中， 使用该框架的动画是自动且神奇的。当你定义一个视图的两个状态，SwiftUI 会找出其余的状态，接着以动画呈现两个状态之间的变化。</p>
 <p>SwiftUI 使你能够为单个视图的变化以及两个视图之间的转场来设定动画。SwiftUI 框架具有许多的内建动画，可建立不同的效果。</p>
 <h3 id="%E9%9A%B1%E5%BC%8F%E5%8B%95%E7%95%AB%E8%88%87%E9%A1%AF%E5%BC%8F%E5%8B%95%E7%95%AB">隐式动画与显式动画</h3>
 <p>SwiftUI 提供两种动画类型：隐式（ implicit ）与显式（ explicit ）。这两个方式可以让你为视图及视图转场设定动画。为了实现隐式动画，SwiftUI 框架提供一个名为 <code>animation</code> 的修饰器，你把这个修饰器加到要设定动画的视图上，并指定喜欢的动画类型。或者，你可以定义动画的持续时间与延迟时间，SwiftUI 会根据视图的状态变化来自动渲染动画。</p>
@@ -892,7 +892,7 @@
 <li>心形图示的颜色会从白色变成红色。</li>
 <li>心形图示会比原来的大小大两倍。</li>
 </ol>
-<p>如果你使用SwiftUI 来实现可点击的圆形，以下为程式内容，你可以建立一个 Xcode 的新项目，并将程式插入至 <code>ContentView.swift</code> 来测试看看：</p>
+<p>如果你使用SwiftUI 来实现可点击的圆形，以下为程序内容，你可以建立一个 Xcode 的新项目，并将程序插入至 <code>ContentView.swift</code> 来测试看看：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> circleColorChanged = <span class="hljs-built_in">false</span>
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> heartColorChanged = <span class="hljs-built_in">false</span>
@@ -999,7 +999,7 @@
 }
 </code></pre>
 <p>在这个情况下，SwiftUI 将只对圆形与心形的颜色变化设定动画，你不会再看到心形图示的变大动画效果。</p>
-<p>你可能想知道我们是否可以使用隐式动画来关闭缩放动画。好的，你仍然可以做到， 可重新调整 <code>.animation</code> 的顺序，以防止 SwiftUI 对特定状态变化设定动画。下列为达到相同效果的程式： </p>
+<p>你可能想知道我们是否可以使用隐式动画来关闭缩放动画。好的，你仍然可以做到， 可重新调整 <code>.animation</code> 的顺序，以防止 SwiftUI 对特定状态变化设定动画。下列为达到相同效果的程序： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">Circle</span>()
         .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)
@@ -1023,7 +1023,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8rotationeffect-%E5%BB%BA%E7%AB%8B%E4%B8%8B%E8%BC%89%E6%8C%87%E7%A4%BA%E5%99%A8">使用RotationEffect 建立下载指示器</h3>
 <p>SwiftUI 动画的强大之处在于，你不需关心如何对视图设定动画，你只需要提供起始与结束状态，接着 SwiftUI 会找出其余的状态。当你具备了这个观念，即可以建立各种类型的动画。</p>
 <figure id="fig9.3"><img src="images/animation/swiftui-animation-3.gif" alt="图 9.3.　下载指示器示例"><figcaption>图 9.3.　下载指示器示例</figcaption></figure>
-<p>举例而言，我们来建立一个简单的下载指示器，你通常可以在一些真实世界的应用程式（如 Medium）中找到它。要建立一个如图 9.3 所示的下载指示器，我们从开放式圆环（open ended circle ）来开始，如下所示： </p>
+<p>举例而言，我们来建立一个简单的下载指示器，你通常可以在一些真实世界的应用程序（如 Medium）中找到它。要建立一个如图 9.3 所示的下载指示器，我们从开放式圆环（open ended circle ）来开始，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Circle</span>()
     .trim(from: <span class="hljs-number">0</span>, to: <span class="hljs-number">0.7</span>)
     .stroke(<span class="hljs-type">Color</span>.green, lineWidth: <span class="hljs-number">5</span>)
@@ -1149,7 +1149,7 @@
     }
 }
 </code></pre>
-<p>这里的状态变量不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在真实世界的应用程式中，你可以更新 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒更新一次。</p>
+<p>这里的状态变量不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在真实世界的应用程序中，你可以更新 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒更新一次。</p>
 <h3 id="%E5%BB%B6%E9%81%B2%E5%8B%95%E7%95%AB">延迟动画</h3>
 <p>SwiftUI 框架不只让你可以控制动画的持续时间，你可以通过 <code>delay</code> 函数来延迟动画， 如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.<span class="hljs-keyword">default</span>.delay(<span class="hljs-number">1.0</span>)

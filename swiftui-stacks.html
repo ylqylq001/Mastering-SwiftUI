@@ -1111,7 +1111,7 @@
 </code></pre>
 <p>嵌入在 <code>ZStack</code> 的视图顺序，决定了视图之间的重叠方式。对于上列的代码，<code>Text</code> 视图会叠在售价视图之上。在画布中，你应该会见到如图 4.22 所示的售价布局。</p>
 <figure id="fig4.22"><img src="images/stacks/swiftui-stacks-22.png" alt="图 4.22.　使用Zstack 重叠视图"><figcaption>图 4.22.　使用Zstack 重叠视图</figcaption></figure>
-<p>要调整文字的位置，你可以使用 <code>.offset</code> 修饰器，在 <code>Text</code> 视图的结尾处插入下列这行程式： </p>
+<p>要调整文字的位置，你可以使用 <code>.offset</code> 修饰器，在 <code>Text</code> 视图的结尾处插入下列这行程序： </p>
 <pre><code class="lang-swift">.offset(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">87</span>)
 </code></pre>
 <p>这个“Best for designer”标签将会移到区块的底部，如图4.23 所示。如果你要重新放置它的话，将 <code>y</code> 设定为负值，则标签会移至顶部。</p>
@@ -1187,7 +1187,7 @@
     }
 }
 </code></pre>
-<p>当你更改完成之后，就可以使用 <code>ZStack</code> 与 <code>PricingView</code> 来建立一个“Team”方案，如下所示，你可以将程式放在 <code>ContentView</code> 内，于 <code>.padding(.horiontal)</code> 后插入：</p>
+<p>当你更改完成之后，就可以使用 <code>ZStack</code> 与 <code>PricingView</code> 来建立一个“Team”方案，如下所示，你可以将程序放在 <code>ContentView</code> 内，于 <code>.padding(.horiontal)</code> 后插入：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">PricingView</span>(title: <span class="hljs-string">&quot;Team&quot;</span>, price: <span class="hljs-string">&quot;$299&quot;</span>, textColor: .white, bgColor: <span class="hljs-type">Color</span>(red: <span class="hljs-number">62</span>/<span class="hljs-number">255</span>, green: <span class="hljs-number">63</span>/<span class="hljs-number">255</span>, blue: <span class="hljs-number">70</span>/<span class="hljs-number">255</span>), icon: <span class="hljs-string">&quot;wand.and.rays&quot;</span>)
         .padding()

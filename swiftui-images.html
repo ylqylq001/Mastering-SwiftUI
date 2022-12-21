@@ -891,7 +891,7 @@
 <p>首先，开启Xcode 并使用“App”模板（ 在 iOS 分类下），来建立一个新项目。输入项目的名称，并设定为“SwiftUIImage”。关于组织名称，你可以设定为你自己公司或组织名称， 同样的，我使用“com.appcoda”，但你可以使用自己的值。要使用SwiftUI 的话，请确认在“User Interface”选项中选取 “SwiftUI”然后点击“Next”，选取要建立项目的数据夹， 如图 3.1 所示。</p>
 <figure id="fig3.1"><img src="images/images/swiftui-images-1.png" alt="图 3.1. 建立一个新项目"><figcaption>图 3.1. 建立一个新项目</figcaption></figure>
 <p>项目储存完成之后，Xcode 即会载入 <code>ContentView.swift</code> 档，并显示一个“设计/ 预览”画布，如图 3.2 所示。</p>
-<figure id="fig3.2"><img src="images/images/swiftui-images-2.png" alt="图 3.2.　预览所产生的程式"><figcaption>图 3.2.　预览所产生的程式</figcaption></figure>
+<figure id="fig3.2"><img src="images/images/swiftui-images-2.png" alt="图 3.2.　预览所产生的程序"><figcaption>图 3.2.　预览所产生的程序</figcaption></figure>
 <h3 id="sf-symbols-%E4%BB%8B%E7%B4%B9">SF Symbols 介绍</h3>
 <blockquote>
 <p>超过 4,000 个可设定的标志，SF Symbols 无缝整合了 Apple 平台的 San Francisco 系统字型，每一个标志皆设定了不同的权重与比例，可以自动对齐文字标签，并支持动态型态（Dynamic type）与粗体字（Bold Text）辅助功能，你也可以输出这些文字，以向量图形编辑工具来进一步编辑，建立具有共享特点与可用性的自订标志。SF Symbols 4 加入 700 多个新符号、增强的颜色自定义、新的检查器以及对自定义符号的改进支持。</p>
@@ -919,7 +919,7 @@
 <p>你可以变更字型大小来观察图片的反应，如图 3.4 所示。</p>
 <figure id="fig3.4"><img src="images/images/swiftui-images-4.png" alt="图 3.4.　显示系统图片"><figcaption>图 3.4.　显示系统图片</figcaption></figure>
 <p>同样的，因为系统图片实际上是一个字型，你可以应用其他的修饰器如之前所学过的 <code>foregroundColor</code>，来变更它的外观。</p>
-<p>例如：要变更颜色为蓝色，你可以撰写程式如下： </p>
+<p>例如：要变更颜色为蓝色，你可以撰写程序如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;cloud.heavyrain&quot;</span>)
     .font(.system(size: <span class="hljs-number">100</span>))
     .foregroundColor(.blue)
@@ -935,8 +935,8 @@
 <p><em><strong>Note</strong>: 你可以任意使用自己的图片，若是你没有合适的图片，也可以至 unsplash.com 下载图片 (<a href="https://unsplash.com/photos/Q0-fOL2nqZc" target="_blank">https://unsplash.com/photos/Q0-fOL2nqZc</a>) ，以方便继续后面的内容。图片下载完成之后，请将档名改成“paris.jpg”。</em></p>
 <p>在你的项目能够使用图片之前，首先你必须先将图片汇入素材目录（ Asset Catalog ）， 也就是 <code>Assets</code>。假设你已经准备好图片（paris.jpg ），按下 command+0 键来开启项目导航器（Project Navigator ），并选取 Assets。现在开启 Finder，并将图片拖曳至大纲视图（Outline View ），如图 3.5 所示。</p>
 <figure id="fig3.5"><img src="images/images/swiftui-images-5.png" alt="图 3.5　将图片加至素材目录"><figcaption>图 3.5　将图片加至素材目录</figcaption></figure>
-<p>如果你是 iOS App 开发新手，这个素材目录是你储存应用程式资源如图片、颜色与数据的地方。当你将图片放入素材目录时，你可以参照它的名称来下载图片。另外，你可以设定要载入图片的装置（例如：只限 iPhone ）。</p>
-<p>要在荧幕上显示图片，可撰写程式如下： </p>
+<p>如果你是 iOS App 开发新手，这个素材目录是你储存应用程序资源如图片、颜色与数据的地方。当你将图片放入素材目录时，你可以参照它的名称来下载图片。另外，你可以设定要载入图片的装置（例如：只限 iPhone ）。</p>
+<p>要在荧幕上显示图片，可撰写程序如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
 </code></pre>
 <p>你只需要指定图片名称，可在预览画布中见到图片。然而，由于图片是高解析度图片（ 4437&#xD7;6656 像素），你只能见到部分图片，如图 3.6 所示。</p>
@@ -973,7 +973,7 @@
 </code></pre>
 <p>我们试着来限制图片的大小，这有助于你对这两种模式能更了解。frame 修饰器可以让你控制视图的大小。举例而言，设定框架（frame ）的宽度为“300 点”，图片的宽度将会限制在 300 点，如图 3.10 所示。</p>
 <figure id="fig3.10"><img src="images/images/swiftui-images-10.png" alt="图 3.10.　利用 frame 控制图片的宽度"><figcaption>图 3.10.　利用 frame 控制图片的宽度</figcaption></figure>
-<p>现在将 <code>Image</code> 程式以下面的代码取代： </p>
+<p>现在将 <code>Image</code> 程序以下面的代码取代： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
     .resizable()
     .aspectRatio(contentMode: .fill)
@@ -998,7 +998,7 @@
 <p>举例而言，如果你对图片视图应用了<code>opacity</code> 修饰器，并设定其值为“0.5”，则这个图片将会呈现半透明（partially transparent ），如图 3.14 所示。</p>
 <figure id="fig3.14"><img src="images/images/swiftui-images-14.png" alt="图 3.14　调整不透明度为50 %"><figcaption>图 3.14　调整不透明度为50 %</figcaption></figure>
 <h3 id="%E6%87%89%E7%94%A8%E5%9C%96%E7%89%87%E9%87%8D%E7%96%8A">应用图片重叠</h3>
-<p>在设计App 时，有时你需要将另一个图片或文字分层放置在图片视图之上。SwiftUI 框架提供一个名为“overlay”的修饰器给开发者，来将图片进行重叠（Overlay ），例如：你要重叠一个系统图片（如 heart.fill ）至目前的图片，你可以撰写程式如下：</p>
+<p>在设计App 时，有时你需要将另一个图片或文字分层放置在图片视图之上。SwiftUI 框架提供一个名为“overlay”的修饰器给开发者，来将图片进行重叠（Overlay ），例如：你要重叠一个系统图片（如 heart.fill ）至目前的图片，你可以撰写程序如下：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
     .resizable()
     .aspectRatio(contentMode: .fill)
@@ -1011,9 +1011,9 @@
             .opacity(<span class="hljs-number">0.5</span>)
     )
 </code></pre>
-<p>程式中的 <code>.overlay</code> 修饰器带入一个 <code>View</code> 作为参数。在上列的程式中，我们建立其他的图片（如 heart.fill ），并将其重叠在目前图片（如 Paris ）之上，如图 3.15 所示。</p>
+<p>程序中的 <code>.overlay</code> 修饰器带入一个 <code>View</code> 作为参数。在上列的程序中，我们建立其他的图片（如 heart.fill ），并将其重叠在目前图片（如 Paris ）之上，如图 3.15 所示。</p>
 <figure id="fig3.15"><img src="images/images/swiftui-images-15.png" alt="图 3.15　在目前的图片上应用重叠"><figcaption>图 3.15　在目前的图片上应用重叠</figcaption></figure>
-<p>事实上，你可以采用任何视图来做重叠。例如：你可以重叠一个 <code>Text</code> 视图在图片之上。程式写法如下： </p>
+<p>事实上，你可以采用任何视图来做重叠。例如：你可以重叠一个 <code>Text</code> 视图在图片之上。程序写法如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
     .resizable()
     .aspectRatio(contentMode: .fit)
@@ -1036,7 +1036,7 @@
 <p>在 <code>overlay</code> 修饰器，你只需要建立一个 <code>Text</code> 视图，而这个文字视图将会作为图片上的重叠物件。我相信你已经熟悉了 <code>Text</code> 视图的修饰器，我们在前面的章节已经有介绍过。我们只是变更字型与颜色，除此之外，我们加入了间距与背景颜色。另外，要特别说明的是 <code>alignment</code> 参数，对于 <code>overlay</code> 修饰器，你可以提供一个可选值（Optional Value ）来调整视图的对齐。默认是置中对齐，这里我们想要将文字重叠于图片之上，如图 3.16 所示。你可以自己将值变更为“.center”或者“.bottom”，来看看结果为何。</p>
 <figure id="fig3.16"><img src="images/images/swiftui-images-16.png" alt="图3.16　在目前的图片上应用重叠"><figcaption>图3.16　在目前的图片上应用重叠</figcaption></figure>
 <h3 id="%E4%BB%A5%E9%87%8D%E7%96%8A%E4%BE%86%E4%BD%BF%E5%9C%96%E7%89%87%E8%AE%8A%E6%9A%97">以重叠来使图片变暗</h3>
-<p>你不止可以重叠图片或文字在另一张图片上，你也可以应用重叠来使图片变暗。将 <code>Image</code> 程式以下列程式替代，并看一下效果： </p>
+<p>你不止可以重叠图片或文字在另一张图片上，你也可以应用重叠来使图片变暗。将 <code>Image</code> 程序以下列程序替代，并看一下效果： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
     .resizable()
     .aspectRatio(contentMode: .fit)
@@ -1047,7 +1047,7 @@
     )
 </code></pre>
 <p>我们在图片上画一个矩形（Rectangle ），并将其前景色设定为“black”。为了达到变暗（darken ）效果，我们设定不透明度为“0.4”，也就是 40% 的不透明度，图片现在应该变暗了。</p>
-<p>也可以将程式重写如下完成一样的效果：</p>
+<p>也可以将程序重写如下完成一样的效果：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
     .resizable()
     .aspectRatio(contentMode: .fit)
@@ -1057,7 +1057,7 @@
     )
 </code></pre>
 <p>在  SwiftUI，正好 <code>Color</code> 也是一个视图，因此我们可以使用 <code>Color.black</code> 作为上层来将下层的图片变暗。</p>
-<p>当你想要将一些亮色文字重叠在太亮的图片上时，这个技术尤其有用。我们将 <code>Image</code> 程式替换如下： </p>
+<p>当你想要将一些亮色文字重叠在太亮的图片上时，这个技术尤其有用。我们将 <code>Image</code> 程序替换如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
     .resizable()
     .aspectRatio(contentMode: .fit)
@@ -1074,10 +1074,10 @@
             )
     )
 </code></pre>
-<p>如前所述，这个 <code>overlay</code> 修饰器不限于 <code>Image</code>，你也可以将它应用在其他视图上。在上列的程式中，我们使用“Color.black”来使图片变暗。此外，我们也重叠并放置了一个 <code>Text</code>。如果你的步骤都正确的话，你应该会见到一个“Paris”的文字放置在深色的图片上面，如图 3.17 所示。</p>
+<p>如前所述，这个 <code>overlay</code> 修饰器不限于 <code>Image</code>，你也可以将它应用在其他视图上。在上列的程序中，我们使用“Color.black”来使图片变暗。此外，我们也重叠并放置了一个 <code>Text</code>。如果你的步骤都正确的话，你应该会见到一个“Paris”的文字放置在深色的图片上面，如图 3.17 所示。</p>
 <figure id="fig3.17"><img src="images/images/swiftui-images-17.png" alt="图 3.17. 使图片变暗并应用文字重叠"><figcaption>图 3.17. 使图片变暗并应用文字重叠</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%9C%89%E9%A1%8F%E8%89%B2%E7%9A%84-sf-symbols">使用有颜色的 SF Symbols</h3>
-<p>自 iOS 15 推出后，SF Symbols 提供四种渲染模式，可以将颜色应用于符号。 根据所选择的模式，你可以为符号填上单色或多种颜色。 例如，cloud.sun.rain 是一个支持<em>Palette Rendering</em> 的符号。 你可以对符号应用两种或多种对比色。 下图显示如何使用 SF Symbols 应用程式测试调色板。</p>
+<p>自 iOS 15 推出后，SF Symbols 提供四种渲染模式，可以将颜色应用于符号。 根据所选择的模式，你可以为符号填上单色或多种颜色。 例如，cloud.sun.rain 是一个支持<em>Palette Rendering</em> 的符号。 你可以对符号应用两种或多种对比色。 下图显示如何使用 SF Symbols 应用程序测试调色板。</p>
 <figure id="fig3.18"><img src="images/images/swiftui-images-18.png" alt="图 3.18. 在 SF Symbols 中使用调色板"><figcaption>图 3.18. 在 SF Symbols 中使用调色板</figcaption></figure>
 <p>在 SwiftUI 中，你可以加入 <code>symbolRenderingMode</code> 修饰器来更改模式。 要建立具有多种颜色的相同符号，你可以编写如下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;cloud.sun.rain&quot;</span>)
@@ -1087,7 +1087,7 @@
 <p>我们在代码中指定使用<code>palette</code> 模式，然后使用<code>foregroundStyle</code> 修饰器使用颜色。</p>
 <h3 id="%E5%8F%AF%E8%AE%8A%E9%A1%8F%E8%89%B2%EF%BC%88variable-colors%EF%BC%89">可变颜色（Variable Colors）</h3>
 <p>在 iOS 16 中，SF Symbols 添加了一个名为 <em>Variable Color</em> 的新功能。 你可以通过更改百分比值来调整符号的颜色。 这在使用某些符号表示进度时特别有用。</p>
-<p>你可以下载 SF Symbols 4 (<a href="https://developer.apple.com/sf-symbols/" target="_blank">https://developer.apple.com/sf-symbols/</a>) 以试用此新功能。 安装应用程式后，选择 <em>Variable</em> 类别并选择其中一个符号。 在检查器中，你可以选取 <em>Variable Color</em> 按钮来启用该功能。 当你更改百分比值时，符号会对更改做出反应并填充其中的一部分。 以 <code>slowmo</code> 符号为例。 当你将百分比值设置为 <code>60%</code> 时，仅填充一些条形以表示进度。</p>
+<p>你可以下载 SF Symbols 4 (<a href="https://developer.apple.com/sf-symbols/" target="_blank">https://developer.apple.com/sf-symbols/</a>) 以试用此新功能。 安装应用程序后，选择 <em>Variable</em> 类别并选择其中一个符号。 在检查器中，你可以选取 <em>Variable Color</em> 按钮来启用该功能。 当你更改百分比值时，符号会对更改做出反应并填充其中的一部分。 以 <code>slowmo</code> 符号为例。 当你将百分比值设置为 <code>60%</code> 时，仅填充一些条形以表示进度。</p>
 <figure id="fig3.19"><img src="images/images/swiftui-images-19.png" alt="图 3.19. 在 SF Symbols app 使用 Variable Colors"><figcaption>图 3.19. 在 SF Symbols app 使用 Variable Colors</figcaption></figure>
 <p>可变颜色适用于 SF Symbols 内的每种渲染模式（Rendering mode）。 你可以试试更改为其他渲染模式以查看效果。</p>
 <p>至于，要在代码中设置百分比值，你可以在建立 <code>Image</code> 视图时，加入 <code>variableValue</code> 参数并将其与百分比值一起传递：</p>

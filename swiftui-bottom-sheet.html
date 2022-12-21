@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-18-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-swiftui-%E6%89%8B%E5%8B%A2%E8%88%87-geometryreader-%E5%BB%BA%E7%AB%8B%E5%B1%95%E9%96%8B%E5%BC%8F%E5%BA%95%E9%83%A8%E8%A1%A8">第 18 章<br>使用 SwiftUI 手势与 GeometryReader 建立展开式底部表</h1>
-<p>现在你应该对 SwiftUI 手势有了基本的了解，我们来看如何应用所学的技术来建立真实世界应用程式的常用功能。</p>
+<p>现在你应该对 SwiftUI 手势有了基本的了解，我们来看如何应用所学的技术来建立真实世界应用程序的常用功能。</p>
 <p>最近“底部表”（bottom sheet ）越来越受欢迎，你可以在 Facebook 与 Uber 等知名 App 中找到这个功能，它更像是动作表（action sheet ）的加强版，底部表会从荧幕底部向上滑动，并覆盖在原始视图的上面，来提供上下文讯息（contextual information ）或者可供使用者选择的其他选项。举例而言，当你将照片储存在 Instagram 的照片集中，该 App 会显示一个底部表，以选择照片集。而在 Facebook App 中，当点选贴文的“⋯”（ellipsis ）按钮，它会显示带有其他的动作项目表。Uber App 也使用底部表来显示所选择的行程价格。</p>
 <p>底部表的大小取决于想要显示的上下文讯息。在某些情况下，底部表往往较大（也称为“背幕”（backdrop ）），占据了荧幕的 80~90%。通常，使用者可以使用拖曳手势与表互动。你可以向上滑动来展开它，或者向下滑动来最小化或解除表。</p>
 <figure id="fig18.1"><img src="images/bottom-sheet/swiftui-bottom-sheet-1.jpg" alt="图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表"><figcaption>图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表</figcaption></figure>
@@ -1394,7 +1394,7 @@
 <p>回到滚动的问题。我们如何让使用者使用拖曳手势滚动内容并可以将视图退回至半开状态呢？使用者将视图向上拖曳来揭开内容，反之，使用者想关闭细节视图时会继续将视图向下拖曳。现在，你可以向下拖曳滚动视图，不过问题是当你手指放开时，视图会弹回上面。</p>
 <figure id="fig18.13"><img src="images/bottom-sheet/swiftui-bottom-sheet-13.png" alt="图 8.13.  在两个方向拖曳滚动视图"><figcaption>图 8.13.  在两个方向拖曳滚动视图</figcaption></figure>
 <p>因为滚动视图挡住了我们加上的拖曳手势，我们必须找到另外一个方式来侦测这个“向下拖曳”手势。你已经学过如何使用 <code>GeometryReader</code>  来测量视图的大小，我们可以利用它来找到如图  8.13 所示的滚动偏移量（scroll offset）</p>
-<p>试着将下面这段程式加在  <code>ScrollView</code> 内，并置于  <code>TitleBar()</code> 上方：</p>
+<p>试着将下面这段程序加在  <code>ScrollView</code> 内，并置于  <code>TitleBar()</code> 上方：</p>
 <pre><code class="lang-swift"><span class="hljs-type">GeometryReader</span> { scrollViewProxy <span class="hljs-keyword">in</span>
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;<span class="hljs-subst">\(scrollViewProxy.frame(<span class="hljs-keyword">in</span>: .named(&quot;scrollview&quot;)</span>).minY)&quot;</span>)
 }
@@ -1409,7 +1409,7 @@
 <figure id="fig18.14"><img src="images/bottom-sheet/swiftui-bottom-sheet-14.jpg" alt="图 8.14. 在不同方向拖曳滚动视图。"><figcaption>图 8.14. 在不同方向拖曳滚动视图。</figcaption></figure>
 <h3 id="preferencekey-%E7%9A%84%E4%BB%8B%E7%B4%B9">PreferenceKey 的介绍</h3>
 <p>现在我们已经找到滚动偏移量取得方式，接下的问题是如何让它的父视图知道偏移量，以利进一步处理。 SwiftUI 框架提供了一个  <code>PreferenceKey</code> 协议，可以让你很容易地从子视图传递数据至它的父视图。</p>
-<p>为了使用布局偏好（preference）来传递滚动偏移量，我们必须建立一个结构来遵循 <code>PreferenceKey</code>协议，如下所示，在 <code>RestaurantDetailView.swift</code> 插入以下这段程式：</p>
+<p>为了使用布局偏好（preference）来传递滚动偏移量，我们必须建立一个结构来遵循 <code>PreferenceKey</code>协议，如下所示，在 <code>RestaurantDetailView.swift</code> 插入以下这段程序：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ScrollOffsetKey</span>: <span class="hljs-title">PreferenceKey</span> </span>{
     <span class="hljs-keyword">typealias</span> <span class="hljs-type">Value</span> = <span class="hljs-type">CGFloat</span>
 
@@ -1427,7 +1427,7 @@
 }
 .frame(height: <span class="hljs-number">0</span>)
 </code></pre>
-<p>程式中，我们取得滚动的偏移量，并将至储存至偏好键（preference key）。我们使用 <code>Color.clear</code> 视图来隐藏视图。</p>
+<p>程序中，我们取得滚动的偏移量，并将至储存至偏好键（preference key）。我们使用 <code>Color.clear</code> 视图来隐藏视图。</p>
 <p>接下来的问题是如何从布局偏好取得滚动视图呢？</p>
 <p>一个简单的方式是使用  <code>.onPreferenceChange</code> 修饰器来观察值的变更。你可以加上修饰器至  <code>VStack</code>，并置于  <code>.gesture</code> 下方，如下所示：</p>
 <pre><code class="lang-swift">.onPreferenceChange(<span class="hljs-type">ScrollOffsetKey</span>.<span class="hljs-keyword">self</span>) { value <span class="hljs-keyword">in</span>

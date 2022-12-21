@@ -877,13 +877,13 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-7-%E7%AB%A0-br-%E4%BA%86%E8%A7%A3%E7%8B%80%E6%85%8B%E8%88%87%E7%B6%81%E5%AE%9A">第 7 章<br>了解状态与绑定</h1>
-<p>状态管理（state management）是每个开发者在应用程式开发中必须处理的事情。想像一下，你正在开发一个音乐播放器 App，当使用者点击“播放”按钮时，该按钮会变为“停止”按钮。在你的实现中，必须有一些方式来追踪应用程式状态，以让你知道何时变更按钮的外观。</p>
+<p>状态管理（state management）是每个开发者在应用程序开发中必须处理的事情。想像一下，你正在开发一个音乐播放器 App，当使用者点击“播放”按钮时，该按钮会变为“停止”按钮。在你的实现中，必须有一些方式来追踪应用程序状态，以让你知道何时变更按钮的外观。</p>
 <figure id="fig7.1"><img src="images/state/swiftui-state-1.png" alt="图 7.1.　“停止”与“播放”按钮"><figcaption>图 7.1.　“停止”与“播放”按钮</figcaption></figure>
-<p>在 SwiftUI 中，内建了一些状态管理的功能，特别是它导入了一个名为“@State”的属性包装器（ Property Wrapper ）。当你使用 <code>@State</code> 来标注一个属性时，SwiftUI 会自动将其储存在你的应用程式中的某处。此外，使用该属性的视图会自动监听属性值的变更，当状态改变时，SwiftUI 将重新计算这些视图，并更新应用程式的外观。</p>
+<p>在 SwiftUI 中，内建了一些状态管理的功能，特别是它导入了一个名为“@State”的属性包装器（ Property Wrapper ）。当你使用 <code>@State</code> 来标注一个属性时，SwiftUI 会自动将其储存在你的应用程序中的某处。此外，使用该属性的视图会自动监听属性值的变更，当状态改变时，SwiftUI 将重新计算这些视图，并更新应用程序的外观。</p>
 <p>听起来不错，不是吗？还是你对于状态管理觉得困惑？ </p>
 <p>总之，通过本章的示例代码，你将对状态与绑定有更多的了解。而且，我为你准备了一些作业，请花一点时间来练习一下，这将帮助你掌握 SwiftUI 的重要观念。</p>
 <h3 id="%E5%95%9F%E7%94%A8swiftui-%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88">启用SwiftUI 建立新项目</h3>
-<p>我们从刚才提到的简单示例来开始，以了解如何通过追踪应用程式的状态，来切换“播放”与“停止”按钮。首先，开启Xcode 并使用“App”模板，来建立一个新项目。设定项目名称为“SwiftUIState”，不过你可以自由使用其他的名称，而你只需确保已选取“SwiftUI”选项，如图 7 .2 所示。</p>
+<p>我们从刚才提到的简单示例来开始，以了解如何通过追踪应用程序的状态，来切换“播放”与“停止”按钮。首先，开启Xcode 并使用“App”模板，来建立一个新项目。设定项目名称为“SwiftUIState”，不过你可以自由使用其他的名称，而你只需确保已选取“SwiftUI”选项，如图 7 .2 所示。</p>
 <figure id="fig7.2"><img src="images/state/swiftui-state-2.png" alt="图 7.2.　建立一个新项目"><figcaption>图 7.2.　建立一个新项目</figcaption></figure>
 <p>当你储存项目后，Xcode 应该要载入 <code>ContentView.swift</code> 档，并且在设计划布中显示一个预览。现在我们建立“播放”按钮，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
@@ -996,7 +996,7 @@
 <p>目前，所有的按钮共享相同的计数，而本作业需要修改代码，以使每个按钮都有其计数器。例如：当使用者点击蓝色按钮，则该 App 中只有蓝色按钮的计数器会加 1。除此之外，你需要提供一个主计数器，以计算所有按钮。图 7.10 为本作业的示范布局。</p>
 <figure id="fig7.10"><img src="images/state/swiftui-state-10.png" alt="图 7.10.　每个按钮都有其计数器"><figcaption>图 7.10.　每个按钮都有其计数器</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>在 SwiftUI 中，状态的支持可简化应用程式开发中的状态管理。了解什么是 <code>@State</code> 与 <code>@Binding</code> 是非常重要的，因为它们对于在 SwiftUI 中做“状态管理”与“UI 更新”而言， 发挥了很大的作用。本章介绍了 SwiftUI 中状态管理的基础概念，之后你将学习到更多有关如何在视图动画应用 <code>@State</code>，以及如何管理多个视图之间的共享状态。</p>
+<p>在 SwiftUI 中，状态的支持可简化应用程序开发中的状态管理。了解什么是 <code>@State</code> 与 <code>@Binding</code> 是非常重要的，因为它们对于在 SwiftUI 中做“状态管理”与“UI 更新”而言， 发挥了很大的作用。本章介绍了 SwiftUI 中状态管理的基础概念，之后你将学习到更多有关如何在视图动画应用 <code>@State</code>，以及如何管理多个视图之间的共享状态。</p>
 <p>在本章所准备的示例档中，有完整的项目与作业解答可以下载： </p>
 <ul>
 <li>示例项目 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUICounter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUICounter.zip</a>)</li>

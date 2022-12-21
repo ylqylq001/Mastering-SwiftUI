@@ -1292,7 +1292,7 @@ private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type"
 <pre><code class="lang-swift">private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type">PaymentDetailViewModel</span>
 </code></pre>
 <p>为什么我们需要创建一个额外的视图模型来存放视图的数据？ 看看标题 <em>Payment Details</em> 旁边的图标。 这是一个动态图标，会随着支付/交易类型而变化。 另外，你注意到金额的格式吗？ App的一项要求是金额仅可显示两个小数位。当然， 我们可以在视图中处理这个格式问题，但是如果您不断在视图中加入这些逻辑处理，视图将变得过于复杂变得越来越难维护。</p>
-<p>计算机程式设计有一个原则叫做“单一职责”原则（single responsibility principle）。它指出程式中的每个类别或模块都应该只负责一个功能。 SRP （single responsibility principle的缩写）是编写好代码的关键之一，让您的代码更易于维护和阅读。</p>
+<p>计算机程序设计有一个原则叫做“单一职责”原则（single responsibility principle）。它指出程序中的每个类别或模块都应该只负责一个功能。 SRP （single responsibility principle的缩写）是编写好代码的关键之一，让您的代码更易于维护和阅读。</p>
 <p>这就是我们将视图分为两个组件的原因：</p>
 <ol>
 <li><code>PaymentDetailView</code> 只负责UI布局。</li>

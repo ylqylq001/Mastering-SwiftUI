@@ -878,7 +878,7 @@
                     
                         <h1 id="%E7%AC%AC-22-%E7%AB%A0-br-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-core-data-%E5%BB%BA%E7%AB%8B-todo-app">第 22 章<br>如何使用 Core Data 建立 ToDo App</h1>
 <p>iOS App 开发的一个常见问题是我们如何使用 Core Data 和 SwiftUI 将数据永久保存在内置数据库中。 在本章中，我们将通过构建一个 ToDo 应用程序来回答这个问题。</p>
-<p>由于 ToDo 这个示例程式使用 List 和 Combine 来处理数据展示和共享，我假设你已经阅读了以下章节：</p>
+<p>由于 ToDo 这个示例程序使用 List 和 Combine 来处理数据展示和共享，我假设你已经阅读了以下章节：</p>
 <ul>
 <li>第 7 章 - 状态(State)与绑定(Binding)</li>
 <li>第 10 章 - 动态列表、 ForEach 与 Identifiable 的使用方法</li>
@@ -931,7 +931,7 @@ task.isComplete = isComplete
 <p>此属性包装器使执行读取请求变得非常简单。 你只需要指定要检索的实体物件以及数据的排序方式， 然后框架将使用环境的托管物件内容来获取数据。 最重要的是，取得数据之后，SwiftUI 会自动更新所有相关的视图。</p>
 </li>
 </ol>
-<p>这就是你在 SwiftUI 项目中使用 Core Data 的方式。 我知道你可能对某些程序感到困惑， 本节只是一个非常初步的简介。 稍后，当你修改示例程式时，我们将更详细解释这些程序。</p>
+<p>这就是你在 SwiftUI 项目中使用 Core Data 的方式。 我知道你可能对某些程序感到困惑， 本节只是一个非常初步的简介。 稍后，当你修改示例程序时，我们将更详细解释这些程序。</p>
 <h3 id="%E4%BA%86%E8%A7%A3-todo-app-%E7%AF%84%E4%BE%8B%E9%81%8B%E4%BD%9C">了解 ToDo App 示例运作</h3>
 <p>现在你对 Core Data 有了基本的了解，让我和你一起完成这个示例App。 稍后，我们将修改此 ToDo App，让它能永久保存待办事项。 现在，如前所述，所有数据都存储在记忆体当中，并且会在App重新启动时消失。</p>
 <p>首先，请从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListStarter.zip</a> 下载启动项目。 解压文件并在 Xcode 中打开 <code>ToDoList.xcodeproj</code>。 选择 <code>ContentView.swift</code> 并预览 UI。 你应该会看到如图 22.5 所示的屏幕。</p>

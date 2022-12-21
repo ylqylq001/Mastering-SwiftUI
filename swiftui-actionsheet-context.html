@@ -904,7 +904,7 @@
 .listStyle(.plain)
 </code></pre>
 <p>在 <code>onDelete</code> 的闭包中，它将传送一个 <code>indexSet</code>，其储存要删除的列的索引，然后我们使用 <code>indexSet</code> 调用<code>remove</code> 方法，以删除在 <code>restaurants</code> 数组中的特定项目。</p>
-<p>在“滑动删除”功能可以运作之前，还一件事要做。每当使用者从清单中删除一列时， UI 应该相应更新。正如前面章节所讨论的，SwiftUI 有一个非常强大的功能来管理应用程式的状态。在我们的代码中，当使用者选择删除一笔纪录时，<code>restaurants</code> 数组的值将更考，我们必须要求 SwiftUI 监控属性，并在属性值更改时更新UI。</p>
+<p>在“滑动删除”功能可以运作之前，还一件事要做。每当使用者从清单中删除一列时， UI 应该相应更新。正如前面章节所讨论的，SwiftUI 有一个非常强大的功能来管理应用程序的状态。在我们的代码中，当使用者选择删除一笔纪录时，<code>restaurants</code> 数组的值将更考，我们必须要求 SwiftUI 监控属性，并在属性值更改时更新UI。</p>
 <p>为此，插入 <code>@State</code> 关键字至 <code>restaurants</code> 变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> restaurants = [ ... ]
 </code></pre>
