@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -884,7 +884,7 @@
 <h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">项目准备</h3>
 <p>如果你使用自己的图片，那就太棒了。不过，为了节省你准备旅游图片的时间，我已经为你建立了一个起始项目，你可以至下列网址下载：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUITinderTripStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUITinderTripStarter.zip</a>。这个项目已经具有一组旅游卡的照片，如图 19.2 所示。</p>
 <figure id="fig19.2"><img src="images/triptinder/swiftui-trip-tinder-2.png" alt="图 19.2.　预载了一组旅游照片"><figcaption>图 19.2.　预载了一组旅游照片</figcaption></figure>
-<p>除此之外，我已经为示例 App 准备测试资料，并建立了 Trip.swift 档来代表旅程： </p>
+<p>除此之外，我已经为示例 App 准备测试数据，并建立了 Trip.swift 档来代表旅程： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Trip</span> </span>{
     <span class="hljs-keyword">var</span> destination: <span class="hljs-type">String</span>
     <span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
@@ -909,7 +909,7 @@
             ]
 #endif
 </code></pre>
-<p>假如你希望使用自己的图片与资料，则只需替换素材目录中的图片，并更新 <code>Trip.swift</code> 档。</p>
+<p>假如你希望使用自己的图片与数据，则只需替换素材目录中的图片，并更新 <code>Trip.swift</code> 档。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E8%88%87%E9%81%B8%E5%96%AE%E5%88%97">建立卡片视图与选单列</h3>
 <p>在实现滑动功能之前，我们先建立主UI，我将主荧幕分成三个部分，如图 19.3 所示： </p>
 <ol>
@@ -921,7 +921,7 @@
 <h4 id="%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">卡片视图</h4>
 <p>首先，我们建立一个卡片视图。若是你想挑战自我，我强烈建议你在这里停下来并实现它，而无须遵循本节内容，否则请继续阅读。</p>
 <p>为了让代码更易编写，我们将在一个单独的档案中实现卡片视图。在项目导航器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
-<p><code>CardView</code> 是设计用来显示不同的照片与标题，因此声明两个变量来储存这些资料：</p>
+<p><code>CardView</code> 是设计用来显示不同的照片与标题，因此声明两个变量来储存这些数据：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
 </code></pre>

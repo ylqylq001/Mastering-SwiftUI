@@ -5,7 +5,7 @@
         
         <meta charset=utf-8"UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>使用 Combine 与 Environment 物件进行资料分享 | 精通 SwiftUI - iOS 16 版</title>
+        <title>使用 Combine 与 Environment 物件进行数据分享 | 精通 SwiftUI - iOS 16 版</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.1">
@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -876,13 +876,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E7%AC%AC-14-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-combine-%E8%88%87-environment-%E7%89%A9%E4%BB%B6%E9%80%B2%E8%A1%8C%E8%B3%87%E6%96%99%E5%85%B1%E4%BA%AB">第 14 章<br>使用 Combine 与 Environment 物件进行资料共享</h1>
+                        <h1 id="%E7%AC%AC-14-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-combine-%E8%88%87-environment-%E7%89%A9%E4%BB%B6%E9%80%B2%E8%A1%8C%E8%B3%87%E6%96%99%E5%85%B1%E4%BA%AB">第 14 章<br>使用 Combine 与 Environment 物件进行数据共享</h1>
 <p>在第 13 章中，你学到了使用 Form 组件来布局表单。不过，目前表单还没有功能，不论你选择哪个选项，清单视图都不会反映使用者偏好而有任何改变，这也是我们将在本章中讨论与实现的内容。我们将继续开发设定画面，并依照使用者的个人偏好更新餐厅清单， 使 App 的功能完善。</p>
 <p>具体而言，我们将在后面的小节讨论下列主题： </p>
 <ol>
 <li>如何使用枚举（enum）来组织代码。</li>
 <li>如何使用 UserDefaults 来永久储存使用者偏好。</li>
-<li>如何使用 Combine 与 @EnvironmentObject 来共享资料。</li>
+<li>如何使用 Combine 与 @EnvironmentObject 来共享数据。</li>
 </ol>
 <p>如果你还没有完成第 13 章作业，我鼓励你花点时间练习。不过，如果你等不及要阅读本章内容，你可以至下列网址下载示例项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIForm.zip</a> 。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%88%89%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">使用枚举重构代码</h3>
@@ -915,7 +915,7 @@
     }
 }
 </code></pre>
-<p>使用枚举的优点是我们可在代码中以型别安全的方式使用这些值。最重要的是， Swift 中的 <code>Enum</code> 本身就是一级型别，这表示你可以建立实例方法来提供与值相关的附加功能。稍后，我们将会加入一个处理筛选的功能。同时，我们建立一个名为 <code>SettingStore. swift</code> 的新 Swift 档来储存 Enum，如图 14.1 所示，你可以在项目导航处的 <code>SwiftUIForm</code> 资料夹点击右键，并选取 “ New File... ”来建立这个档案。</p>
+<p>使用枚举的优点是我们可在代码中以型别安全的方式使用这些值。最重要的是， Swift 中的 <code>Enum</code> 本身就是一级型别，这表示你可以建立实例方法来提供与值相关的附加功能。稍后，我们将会加入一个处理筛选的功能。同时，我们建立一个名为 <code>SettingStore. swift</code> 的新 Swift 档来储存 Enum，如图 14.1 所示，你可以在项目导航处的 <code>SwiftUIForm</code> 数据夹点击右键，并选取 “ New File... ”来建立这个档案。</p>
 <figure id="fig14.1"><img src="images/formdata/swiftui-formdata-1.png" alt="图 14.1　建立一个新的 Swift 档"><figcaption>图 14.1　建立一个新的 Swift 档</figcaption></figure>
 <p>建立 <code>SettingStore.swift</code> 之后，将上列的代码片段插入档案中。接下来，回到 <code>Setting View.swift</code>，我们将更新代码来使用 <code>DisplayOrder</code> 枚举，而不是使用 <code>displayOrders</code> 数组。</p>
 <p>首先，从 <code>SettingView</code> 删除下列这行代码： </p>
@@ -938,7 +938,7 @@
 <p>现在，你可以再次测试设定画面，它应该可正常运作且外观相同，不过底层代码更易于管理及阅读了。</p>
 <h3 id="%E5%9C%A8-userdefaults-%E5%84%B2%E5%AD%98%E4%BD%BF%E7%94%A8%E8%80%85%E5%81%8F%E5%A5%BD">在 UserDefaults 储存使用者偏好</h3>
 <p>目前，App 还不能永久储存使用者偏好。每当你重新启动这个 App 时，设定画面都会重置为默认设定。</p>
-<p>有多种储存设定的方式。要储存少量资料（如 iOS 的使用者设定），内建的默认资料库是方案之一。此默认系统让App 以键值对的形式来储存使用者偏好。要和这个默认资料库互动，你可以使用一个名为 <code>UserDefaults</code>的可程式化介面（programmatic interface ）。</p>
+<p>有多种储存设定的方式。要储存少量数据（如 iOS 的使用者设定），内建的默认数据库是方案之一。此默认系统让App 以键值对的形式来储存使用者偏好。要和这个默认数据库互动，你可以使用一个名为 <code>UserDefaults</code>的可程式化介面（programmatic interface ）。</p>
 <p>在 <code>SettingStore.swift</code> 档中，我们将会建立一个 <code>SettingStore</code> 类别，以提供一些方便的方法来储存及载入使用者偏好，在 <code>SettingStore.swift</code> 中插入下列的代码片段： </p>
 <pre><code class="lang-swift">final <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SettingStore</span> </span>{
 
@@ -970,7 +970,7 @@
 
 }
 </code></pre>
-<p>我来简短解释一下代码，在 <code>init</code>方法中，我们使用一些默认值来初始化默认系统。如果资料库中找不到使用者偏好，才会使用这些值。</p>
+<p>我来简短解释一下代码，在 <code>init</code>方法中，我们使用一些默认值来初始化默认系统。如果数据库中找不到使用者偏好，才会使用这些值。</p>
 <p>如前所述，你可以使用 <code>UserDefaults</code>，以键值对的形式储存设定。在上列的代码中， 我们为此目的声明了三个属性，以特定的键，从默认系统中载入对应的值，在didSet中，我们使用 <code>UserDefaults</code> 的 <code>set</code> 方法，来将值储存在使用者默认，这三个属性前面都标注 <code>@Published</code>，因此当值更新后，它会通知订阅者。</p>
 <p><code>settingStore</code> 准备好后，我们切换到 <code>SettingView.swift</code> 档来实现“Save”操作。首先， 在 <code>SettingView</code> 中为 <code>SettingStore</code> 声明一个属性。</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
@@ -1029,14 +1029,14 @@
 </code></pre>
 <p>现在，你应该能够执行 App，并进行设定了。当你储存设定之后，它将永久储存在本地默认系统中。你可尝试停止 App，然后再次启动它，储存的设定应已载入至设定画面中，如图 14.3 所示。</p>
 <figure id="fig14.3"><img src="images/formdata/swiftui-formdata-3.png" alt="图 14.3.　设定画面应该已载入你的使用者偏好"><figcaption>图 14.3.　设定画面应该已载入你的使用者偏好</figcaption></figure>
-<h3 id="%E4%BD%BF%E7%94%A8-environmentobject-%E5%9C%A8%E8%A6%96%E5%9C%96%E9%96%93%E5%85%B1%E4%BA%AB%E8%B3%87%E6%96%99">使用 @EnvironmentObject 在视图间共享资料</h3>
+<h3 id="%E4%BD%BF%E7%94%A8-environmentobject-%E5%9C%A8%E8%A6%96%E5%9C%96%E9%96%93%E5%85%B1%E4%BA%AB%E8%B3%87%E6%96%99">使用 @EnvironmentObject 在视图间共享数据</h3>
 <p>现在，使用者偏好已经储存在本地默认系统中，但是清单视图并没有依照使用者设定来变更。同样的，有多种方式可以解决这个问题。</p>
 <p>我们概括说明一下目前的情形，当使用者在设定画面中点击“Save”按钮，我们储存所选的选项至本地默认系统中，然后关闭设定画面，App 将带使用者回到清单视图。因此， 我们指示清单视图来重新载入设定，或者清单视图能够监控默认系统的变更，并触发清单的更新。</p>
 <p>随着 SwiftUI 的推出，Apple 还发布了一个名为“Combine”的新框架，根据Apple 的说法，这个框架提供一个声明式 API 来随着时间推移处理值。在此示例的内容中，Combine 让你轻松监控单一物件，并取得变更通知。与SwiftUI 一起使用时，我们甚至可不撰写一行代码，就触发视图更新，一切都由 SwiftUI 与 Combine 在幕后处理。</p>
 <p>那么，清单视图如何知道使用者偏好已被修改，并触发更新呢？ </p>
 <p>我来介绍三个关键字： </p>
 <ol>
-<li><strong>@EnvironmentObject</strong> - 以技术而言，这就是一个属性包裹器（ property wrapper ），不过，你可将此关键字视为一个特殊的标记，当你声明一个属性为环境物件时，SwiftUI 会监控该属性的值，并在有任何改变时，使对应的视图无效。@EnvironmentObject 的运作方式与 @State 几乎相同，不过属性被声明为环境物件时， 整个 App 中的所有视图皆可存取它。举例而言，如果你的App 有很多共享相同资料（例如：使用者设定）的视图，则环境物件在这种情况下可运作得很好，你不需要在视图间传送属性，就可以自动存取它。</li>
+<li><strong>@EnvironmentObject</strong> - 以技术而言，这就是一个属性包裹器（ property wrapper ），不过，你可将此关键字视为一个特殊的标记，当你声明一个属性为环境物件时，SwiftUI 会监控该属性的值，并在有任何改变时，使对应的视图无效。@EnvironmentObject 的运作方式与 @State 几乎相同，不过属性被声明为环境物件时， 整个 App 中的所有视图皆可存取它。举例而言，如果你的App 有很多共享相同数据（例如：使用者设定）的视图，则环境物件在这种情况下可运作得很好，你不需要在视图间传送属性，就可以自动存取它。</li>
 <li><strong>ObservableObject</strong> - 这是一个 Combine框架的协议。当你声明一个属性为环境物件时， 该属性的型别必须实现此协议。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？通过实现此协议，这个物件可以作为一个发布者，发出更改后的值。而那些监控值的订阅者将会收到通知。</li>
 <li><strong>@Published</strong> - 这是一个与  <code>ObservableObject</code> 一起使用的属性包裹器。当一个属性以 <code>@Publisher</code> 为前缀时，这表示发布者应该在值发生更改时通知所有订阅者。</li>
 </ol>
@@ -1068,7 +1068,7 @@
 </code></pre>
 <p>藉由使用 <code>@Published</code> 属性包裹器，发布者将在属性的值发生变化时通知订阅者（例如：<code>displayOrder</code> 的更新）。</p>
 <p>如你所见，使用 Combine 通知变更的值非常容易。实际上，我们还没有编写任何新代码，只有采用所需的协议，并插入一个标记。</p>
-<p>现在，我们切换至 <code>SettingView.swift</code>。<code>settingStore</code> 现在应该声明为环境物件，以让我们可以与其他视图共享资料。更新 <code>settingStore</code> 变量，如下所示： </p>
+<p>现在，我们切换至 <code>SettingView.swift</code>。<code>settingStore</code> 现在应该声明为环境物件，以让我们可以与其他视图共享数据。更新 <code>settingStore</code> 变量，如下所示： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">EnvironmentObject</span> <span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>
 <p>你不需要更新和“Save”按钮有关的代码。不过，当你设定一个新值至设定储存区时（例如：更新<code>showCheckInOnly</code>，从 true 改为 false ），此更新将会发布，并让所有订阅者知道。</p>

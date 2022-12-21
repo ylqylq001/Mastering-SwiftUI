@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-11-%E7%AB%A0-br-%E9%81%8B%E7%94%A8%E5%B0%8E%E8%A6%BD-ui-%E8%88%87%E5%B0%8E%E8%A6%BD%E5%88%97%E5%AE%A2%E8%A3%BD%E5%8C%96">第 11 章<br>运用导航 UI 与导航列客制化</h1>
-<p>在大多数的 App 中（尤其是以内容为基础的 App），你应该体验过导航介面。这类型的 UI 通常有一个包含资料清单的导航列，并且它让使用者点击内容时导航至细节视图。</p>
+<p>在大多数的 App 中（尤其是以内容为基础的 App），你应该体验过导航介面。这类型的 UI 通常有一个包含数据清单的导航列，并且它让使用者点击内容时导航至细节视图。</p>
 <p>在 UIKit 中，我们可以使用 UINavigationController 来实现这类型的介面。在 SwiftUI 中，Apple 称其为“NavigationView”。由 iOS 16 开始，这个 “NavigationView” 以 “NavigationStack”取替。在本章中，我详细解说导航 UI 的实现，并教你如何进行一些自定义。和往常一样，我们将进行几个示例项目，以让你获得一些使用 NavigationStack 的实务经验。</p>
 <figure id="fig11.1"><img src="images/navigation/swiftui-navigation-1.jpg" alt="图 11.1.　示例项目的导航介面"><figcaption>图 11.1.　示例项目的导航介面</figcaption></figure>
 <h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
@@ -920,7 +920,7 @@
 </code></pre>
 <p>现在，该 App 应该有一个具大标题的导航列，如图 11.3 所示。</p>
 <figure id="fig11.3"><img src="images/navigation/swiftui-navigation-3.png" alt="图 11.3.　基本的导航UI"><figcaption>图 11.3.　基本的导航UI</figcaption></figure>
-<h3 id="%E4%BD%BF%E7%94%A8-navigationlink-%E5%82%B3%E9%80%81%E8%B3%87%E6%96%99%E8%87%B3%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">使用 NavigationLink 传送资料至细节视图</h3>
+<h3 id="%E4%BD%BF%E7%94%A8-navigationlink-%E5%82%B3%E9%80%81%E8%B3%87%E6%96%99%E8%87%B3%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">使用 NavigationLink 传送数据至细节视图</h3>
 <p>至目前为止，我们只是在清单视图中加入一个导航列。我们通常使用导航介面来让使用者导航至细节视图，以显示所选项目的细节。对于此示例，我们将建立一个简单的细节视图，以显示餐厅的大图，如图 11.4 所示。</p>
 <figure id="fig11.4"><img src="images/navigation/swiftui-navigation-4.png" alt="图 11.4.　内容视图与细节视图"><figcaption>图 11.4.　内容视图与细节视图</figcaption></figure>
 <p>让我们从细节视图开始。在 <code>ContentView.swift</code> 档的结尾处，插入下列的代码，以建立细节视图： </p>
@@ -959,9 +959,9 @@
 }
 .listStyle(.plain)
 </code></pre>
-<p>在上列的代码中， 我们告诉 <code>NavigationLink</code> 在使用者选择餐厅时， 导航至 <code>RestaurantDetailView</code>。我们也将所选的餐厅传送至细节视图，以进行显示。这就是建立导航介面与执行资料传送所需的全部内容。</p>
+<p>在上列的代码中， 我们告诉 <code>NavigationLink</code> 在使用者选择餐厅时， 导航至 <code>RestaurantDetailView</code>。我们也将所选的餐厅传送至细节视图，以进行显示。这就是建立导航介面与执行数据传送所需的全部内容。</p>
 <figure id="fig11.5"><img src="images/navigation/swiftui-navigation-5.png" alt="图 11.5.　执行 App 来测试导航"><figcaption>图 11.5.　执行 App 来测试导航</figcaption></figure>
-<p>在画布中，你应该注意到每列资料皆已加入了一个揭露图示。如图 11.5 所示，你应该能够在选择其中一间餐厅后，导航至细节视图。另外，你可以点击“返回”（Back ）按钮来导航回内容视图。整个导航由 <code>NavigationStack</code> 自动渲染。</p>
+<p>在画布中，你应该注意到每列数据皆已加入了一个揭露图示。如图 11.5 所示，你应该能够在选择其中一间餐厅后，导航至细节视图。另外，你可以点击“返回”（Back ）按钮来导航回内容视图。整个导航由 <code>NavigationStack</code> 自动渲染。</p>
 <h3 id="%E8%87%AA%E8%A8%82%E5%B0%8E%E8%A6%BD%E5%88%97">自订导航列</h3>
 <p>首先，我们来讨论导航列的显示模式。默认情况下，导航列是设定为显示大标题，但当你向上滚动清单时，导航列会变小，这是 Apple 导入“大标题”（Large Title ）导航列后的默认行为。</p>
 <p>如果你想要使导航列更小型，并禁用大标题，你可以在 <code>navigationBarTitle</code> 修饰器之下加入<code>navigationBarTitleDisplayMode</code> 修饰器： </p>
@@ -1064,12 +1064,12 @@
 <h2 id="%E4%BD%9C%E6%A5%AD">作业</h2>
 <p>为了确认你理解如何建立导航UI，这里有一个作业。首先，至下列网址下载起始项目： </p>
 <p> <a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationStarter.zip</a>。开启项目后，你将看到一个显示文章清单的示例App。</p>
-<p>这个项目与你之前建立的项目非常类似，主要的差异是 <code>Article.swift</code> 的导入。这个档案储存了 <code>articles</code> 数组，而该数组附有一些示例资料。如果你仔细检视 <code>Article</code> 结构，它现在有一个用于储存完整文章的 <code>content</code> 属性。</p>
+<p>这个项目与你之前建立的项目非常类似，主要的差异是 <code>Article.swift</code> 的导入。这个档案储存了 <code>articles</code> 数组，而该数组附有一些示例数据。如果你仔细检视 <code>Article</code> 结构，它现在有一个用于储存完整文章的 <code>content</code> 属性。</p>
 <p>你的任务是将清单嵌入导航视图，并建立细节视图。当使用者点击内容视图中其中一篇文章时，它将导航至显示完整文章的细节视图，如图 11.10 所示。我将在下一节中与你讨论解决方案，但请你尽力找出自己的解决方案。</p>
 <figure id="fig11.10"><img src="images/navigation/swiftui-navigation-10.jpg" alt="图11.10.　为阅读 App 建立导航 UI"><figcaption>图11.10.　为阅读 App 建立导航 UI</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">建立细节视图</h3>
 <p>你完成作业了吗？细节视图比我们之前建立的视图更复杂，我们来看看如何建立它。</p>
-<p>为了让代码更易编写，我们将为它建立一个单独的档案，而不是在 ContentView.swift 档中建立细节视图。在项目导航器中，右键点击 <code>SwiftUINavigation</code> 资料夹，选择“New File...”，接着选取“SwiftUI View”模板，并将档案命名为“ArticleDetailView.swift”。</p>
+<p>为了让代码更易编写，我们将为它建立一个单独的档案，而不是在 ContentView.swift 档中建立细节视图。在项目导航器中，右键点击 <code>SwiftUINavigation</code> 数据夹，选择“New File...”，接着选取“SwiftUI View”模板，并将档案命名为“ArticleDetailView.swift”。</p>
 <p>由于细节视图将显示文章的详细资讯，我们需要这个属性来让调用者传送文章。因此，在 <code>ArticleDetailView</code> 中声明一个 <code>article</code> 属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> article: <span class="hljs-type">Article</span>
 </code></pre>
@@ -1227,7 +1227,7 @@
 </code></pre>
 <p>这里，我们调用 <code>dismiss</code> 方法，以在点击“返回”按钮时解除细节视图。现在，你可以执行 App 并再次测试它，你应该能够在内容视图与细节视图之间进行导航。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>导航 UI 在行动 App 中非常常见，理解我在本章所介绍的内容非常重要。如果你完全理解了内容，即使资料是静态的，你也可以建立一个基于内容的简单 App。</p>
+<p>导航 UI 在行动 App 中非常常见，理解我在本章所介绍的内容非常重要。如果你完全理解了内容，即使数据是静态的，你也可以建立一个基于内容的简单 App。</p>
 <p>在本章所准备的示例档中，有完整的项目可供下载： </p>
 <ul>
 <li>第一个项目的项目示例 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationList.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationList.zip</a>)</li>

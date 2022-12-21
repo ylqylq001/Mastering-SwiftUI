@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -1285,7 +1285,7 @@ private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type"
 <p>由于我们需要执行一些初始化来创建视图模型，我们加了一个客制化的 <code>init</code> 方法。</p>
 <h4 id="%E8%A6%96%E5%9C%96%E6%A8%A1%E5%9E%8B%EF%BC%88view-model%EF%BC%89">视图模型（View Model）</h4>
 <blockquote>
-<p>我们可以把视图分成视图及其视图模型等两个组件，而不是将所有的东西放在一个视图中。视图本身是负责 UI 布局，而视图模型存放要在视图中显示的状态与资料，并且视图模型还处理资料验证与转换。对于有经验的开发者而言，你知道我们正应用众所周知的“MVVM”（Model- View-ViewModel 的缩写）设计模式。</p>
+<p>我们可以把视图分成视图及其视图模型等两个组件，而不是将所有的东西放在一个视图中。视图本身是负责 UI 布局，而视图模型存放要在视图中显示的状态与数据，并且视图模型还处理数据验证与转换。对于有经验的开发者而言，你知道我们正应用众所周知的“MVVM”（Model- View-ViewModel 的缩写）设计模式。</p>
 <p>- 摘自第 15 章</p>
 </blockquote>
 <p>为了将实际的视图数据与视图 UI 分开，我们建立了一个名为<code>PaymentDetailViewModel</code>的视图模型：</p>
@@ -1566,7 +1566,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     sortDescriptors: [ <span class="hljs-type">NSSortDescriptor</span>(keyPath: \<span class="hljs-type">PaymentActivity</span>.date, ascending: <span class="hljs-built_in">false</span>) ])
 <span class="hljs-keyword">var</span> paymentActivities: <span class="hljs-type">FetchedResults</span>&lt;<span class="hljs-type">PaymentActivity</span>&gt;
 </code></pre>
-<p>这个属性包装器让执行读取请求变得非常容易。 我们只需指定实体，即<code>PaymentActivity</code>，以及描述数据应如何排序。 然后，Core Data 框架会使用环境的托管物件内容（managed object context）来读取资料。 最重要的是，SwiftUI 会自动更新列表视图和相关视图。</p>
+<p>这个属性包装器让执行读取请求变得非常容易。 我们只需指定实体，即<code>PaymentActivity</code>，以及描述数据应如何排序。 然后，Core Data 框架会使用环境的托管物件内容（managed object context）来读取数据。 最重要的是，SwiftUI 会自动更新列表视图和相关视图。</p>
 <p>从数据库中删除交易记录也是非常简单。 我们调用<code>context</code>的 <code>delete</code> 函数并指定要删除的交易就可以了：</p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">delete</span><span class="hljs-params">(payment: PaymentActivity)</span> </span>{
     <span class="hljs-keyword">self</span>.context.delete(payment)

@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -877,18 +877,18 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-13-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8%E9%81%B8%E6%93%87%E5%99%A8%E3%80%81%E5%88%87%E6%8F%9B%E8%88%87%E6%AD%A5%E9%80%B2%E5%99%A8%E5%BB%BA%E7%AB%8B%E8%A1%A8%E5%96%AE">第 13 章<br>使用选择器、切换与步进器建立表单</h1>
-<p>行动 App 运用表单与使用者互动，并从使用者请求所需的资料。每天使用 iPhone 时， 你很可能碰到行动表单。举例而言，行事历 App 可能显示表单，让你填写新行程的资讯， 或者购物 App 显示表单，要求你提供购物与付款资讯。作为一个使用者，我不否认我讨厌填写表单，但是作为开发者，这些表单可帮助我们与使用者互动，并请求资讯来完成某些操作。开发一个表单，绝对是你需要掌握的基本技能。</p>
+<p>行动 App 运用表单与使用者互动，并从使用者请求所需的数据。每天使用 iPhone 时， 你很可能碰到行动表单。举例而言，行事历 App 可能显示表单，让你填写新行程的资讯， 或者购物 App 显示表单，要求你提供购物与付款资讯。作为一个使用者，我不否认我讨厌填写表单，但是作为开发者，这些表单可帮助我们与使用者互动，并请求资讯来完成某些操作。开发一个表单，绝对是你需要掌握的基本技能。</p>
 <p>在 SwiftUI 框架中，有一个名为“Form”的特别UI 控制组件。使用这个新控制组件， 你可以轻松建立表单。我将教你如何使用 Form 组件来建立表单。在建立表单时，你也将学习如何使用常见的控制组件，例如：选择器（picker ）、切换（toggle ）与步进器（stepper ）。</p>
 <figure id="fig13.1"><img src="images/form/swiftui-form-1.png" alt="图 13.1.　建立一个设定画面"><figcaption>图 13.1.　建立一个设定画面</figcaption></figure>
 <p>那么，我们准备要做什么项目呢？以图 13.1 为例，我们将为前面章节所制作的餐厅 App 来建立其设定画面，该画面提供使用者设定“排序”与“筛选”的偏好选项。这种类型的画面在真实的项目中很常见，当你了解其如何运作，你将可在你的 App 项目中建立你自己的表单。</p>
-<p>在本章中，我将着重在实现表单布局，你将了解如何使用“Form”组件来布局设定画面，我们也将实现选择器来选择“排序”的偏好，并建立一个切换与一个步进器，以表示“筛选”的偏好。当你了解如何布局表单后，在下一章中，我将教你如何依照使用者的偏好来更新清单，以使 App 的功能完善。你将学会如何储存使用者的偏好、分享视图间的资料，并以 <code>@EnvironmentObject</code> 来监控资料的更新。</p>
+<p>在本章中，我将着重在实现表单布局，你将了解如何使用“Form”组件来布局设定画面，我们也将实现选择器来选择“排序”的偏好，并建立一个切换与一个步进器，以表示“筛选”的偏好。当你了解如何布局表单后，在下一章中，我将教你如何依照使用者的偏好来更新清单，以使 App 的功能完善。你将学会如何储存使用者的偏好、分享视图间的数据，并以 <code>@EnvironmentObject</code> 来监控数据的更新。</p>
 <h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始项目</h3>
 <p>为了节省你从头再建一次餐厅清单的时间，我已经建好一个起始项目。首先，至 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormStarter.zip</a>下载起始项目，下载之后，以 Xcode 开启 <code>SwiftUIForm.xcodeproj</code>  档，在画布上预览 <code>ContentView.swift</code>，你将看到熟悉的 UI，除此之外，还加入更多的餐厅细节资讯，如图 13.2 所示。</p>
 <figure id="fig13.2"><img src="images/form/swiftui-form-2.png" alt="图 13.2.　餐厅清单视图"><figcaption>图 13.2.　餐厅清单视图</figcaption></figure>
-<p>现在，<code>Restaurant</code> 结构具有三个属性：“type”、“phone”与“priceLevel”。我觉得“type”与“phone”的意思本身很清楚了，不必另外说明，而“priceLevel”则是储存了范围为 1 至 5 的整数，以反映该餐厅的平均价位。restaurants 数组已预填一些范本资料，为了之后的测试，将一些范本餐厅的 <code>isFavorite</code> 与 <code>isCheckIn</code>设定为“true”，这就是为何你会在预览中看到一些打卡与最爱符号的原因。</p>
+<p>现在，<code>Restaurant</code> 结构具有三个属性：“type”、“phone”与“priceLevel”。我觉得“type”与“phone”的意思本身很清楚了，不必另外说明，而“priceLevel”则是储存了范围为 1 至 5 的整数，以反映该餐厅的平均价位。restaurants 数组已预填一些范本数据，为了之后的测试，将一些范本餐厅的 <code>isFavorite</code> 与 <code>isCheckIn</code>设定为“true”，这就是为何你会在预览中看到一些打卡与最爱符号的原因。</p>
 <h3 id="-%E5%BB%BA%E7%AB%8B%E8%A1%A8%E5%96%AE-ui"><strong>建立表单</strong>UI</h3>
-<p>如前所述，SwiftUI 提供一个名为“Form”的 UI 组件来建立表单 UI。输入资料时，它是一个用于存放及分组控制组件的容器（例如：切换）。与其向你解释用法，不如我们直接进入实现，在此过程中，你将了解如何使用该组件。</p>
-<p>由于我们将建立一个单独的设定画面，因此为表单建立一个新档案。在项目导航器中，在“SwiftUIList”资料夹按右键，并选取“New File....”，如图 13.3 所示。接下来，选择使用“SwiftUI View”作为模板，并将档案命名为“SettingView.swift”。</p>
+<p>如前所述，SwiftUI 提供一个名为“Form”的 UI 组件来建立表单 UI。输入数据时，它是一个用于存放及分组控制组件的容器（例如：切换）。与其向你解释用法，不如我们直接进入实现，在此过程中，你将了解如何使用该组件。</p>
+<p>由于我们将建立一个单独的设定画面，因此为表单建立一个新档案。在项目导航器中，在“SwiftUIList”数据夹按右键，并选取“New File....”，如图 13.3 所示。接下来，选择使用“SwiftUI View”作为模板，并将档案命名为“SettingView.swift”。</p>
 <figure id="fig13.3"><img src="images/form/swiftui-form-3.png" alt="图 13.3.　建立一个新 SwiftUI 档"><figcaption>图 13.3.　建立一个新 SwiftUI 档</figcaption></figure>
 <p>现在，我们来开始建立表单。以下列代码替代 <code>SettingView</code>： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SettingView</span>: <span class="hljs-title">View</span> </span>{
@@ -1032,7 +1032,7 @@
         <a href="./swiftui-modal.html" class="navigation navigation-prev " aria-label="Previous page: 强制回应视图、浮动按钮与提示的实现"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./swiftui-form-data.html" class="navigation navigation-next " aria-label="Next page: 使用 Combine 与 Environment 物件进行资料分享"><i class="fa fa-angle-right"></i></a>
+        <a href="./swiftui-form-data.html" class="navigation navigation-next " aria-label="Next page: 使用 Combine 与 Environment 物件进行数据分享"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -1043,7 +1043,7 @@
     }
 }
 </code></pre>
-<p>在 <code>GeometryReader</code> 的闭包中，它有一个参数，可以为你提供有关视图的额外资料，例如大小和位置。 要将框架的宽度限制为荧幕大小的话，我郐就可以像这样修改 <code>.frame</code> 修饰器：</p>
+<p>在 <code>GeometryReader</code> 的闭包中，它有一个参数，可以为你提供有关视图的额外数据，例如大小和位置。 要将框架的宽度限制为荧幕大小的话，我郐就可以像这样修改 <code>.frame</code> 修饰器：</p>
 <pre><code class="lang-swift">.frame(width: geometry.size.width, height: <span class="hljs-built_in">min</span>(<span class="hljs-keyword">self</span>.image.size.height/<span class="hljs-number">3</span>, <span class="hljs-number">500</span>))
 </code></pre>
 <p>在代码中，我们将宽度设定为荧幕宽度。 完成更改后，就可以解决之前遇到的问题。</p>
@@ -1091,8 +1091,8 @@
 <p>修改后，当 <code>isShowContent</code> 的值设定为 <code>true</code> 时，预览就会显示关闭按钮。</p>
 <figure id="fig26.12"><img src="images/appstore/swiftui-appstore-12.png" alt="图 26.12. 加入关闭按钮"><figcaption>图 26.12. 加入关闭按钮</figcaption></figure>
 <h3 id="%E6%A7%8B%E5%BB%BA%E5%88%97%E8%A1%A8%E8%A6%96%E5%9C%96">构建列表视图</h3>
-<p>现在我们已经实现了卡片视图的布局，让我们切换到 <code>ContentView.swift</code> 并创建列表视图。 在列表视图的最顶部，是带有标题和个人资料照片的顶部栏（Top Bar）。</p>
-<figure id="fig26.13"><img src="images/appstore/swiftui-appstore-13.png" alt="图 26.13. 带有标题和个人资料照片的顶部栏"><figcaption>图 26.13. 带有标题和个人资料照片的顶部栏</figcaption></figure>
+<p>现在我们已经实现了卡片视图的布局，让我们切换到 <code>ContentView.swift</code> 并创建列表视图。 在列表视图的最顶部，是带有标题和个人数据照片的顶部栏（Top Bar）。</p>
+<figure id="fig26.13"><img src="images/appstore/swiftui-appstore-13.png" alt="图 26.13. 带有标题和个人数据照片的顶部栏"><figcaption>图 26.13. 带有标题和个人数据照片的顶部栏</figcaption></figure>
 <p>我相信你应该知道如何使用 <code>VStack</code> 和 <code>HStack</code> 来布局。 为了将代码整理得更好，我将在两个独立的结构中创建顶部栏和头像。 在 <code>ContentView.swift</code> 中插入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TopBarView</span> : <span class="hljs-title">View</span> </span>{
 

@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -1040,7 +1040,7 @@
 <p>在深入研究表单验证代码之前，我们先来了解更多关于 Combine 框架的背景资讯。如前一章所述，这个新框架提供了一个声明式API，用于随着时间处理值。</p>
 <p>“随着时间处理值”是什么意思？这些值又是什么？ </p>
 <p>我们以注册表单为例。App 与使用者互动时，持续产生 UI 事件，假设使用者在文字栏位中输入的每个按键，都会触发一个事件，而这可以成为值的串流，如图 15.5 所示。</p>
-<figure id="fig15.5"><img src="images/registration/swiftui-registration-5.png" alt="图 15.5.　输入资料串流"><figcaption>图 15.5.　输入资料串流</figcaption></figure>
+<figure id="fig15.5"><img src="images/registration/swiftui-registration-5.png" alt="图 15.5.　输入数据串流"><figcaption>图 15.5.　输入数据串流</figcaption></figure>
 <p>这些 UI 事件是框架所参照的一种类型的值。这些值的另一个例子是网路事件（例如： 从远端服务器下载一个档案）。</p>
 <blockquote>
 <p>Combine 框架提供一个声明式方法，供App 处理事件。你可以为给定的事件源建立单一处理链（chain），而不是实现多个委派回呼（delegate callback ）或完成处理闭包（completion handler closure ）。链的每一个部分都是一个Combine 运算子，对上一个步骤收到的元素执行不同的动作。</p>
@@ -1062,8 +1062,8 @@
 </ol>
 <p>我知道你心里可能会有几个问题。首先，为什么我们需要建立视图模型呢？我们可以在 ContentView 加入这些表单属性并执行表单验证吗？ </p>
 <p>你绝对可以这样做，但是随着项目规模持续成长，或者视图变得更加复杂，将复杂的组件拆成多层是一个良好做法。</p>
-<p>“关注点分离”（Separation of concerns ）是编写优秀软体的基本原则。我们可以把视图分成视图及其视图模型等两个组件，而不是将所有的东西放在一个视图中。视图本身是负责 UI 布局，而视图模型存放要在视图中显示的状态与资料，并且视图模型还处理资料验证与转换。对于有经验的开发者而言，你知道我们正应用众所周知的“MVVM”（Model- View-ViewModel 的缩写）设计模式。</p>
-<p>所以，这个视图模型将保存哪些资料呢？ </p>
+<p>“关注点分离”（Separation of concerns ）是编写优秀软体的基本原则。我们可以把视图分成视图及其视图模型等两个组件，而不是将所有的东西放在一个视图中。视图本身是负责 UI 布局，而视图模型存放要在视图中显示的状态与数据，并且视图模型还处理数据验证与转换。对于有经验的开发者而言，你知道我们正应用众所周知的“MVVM”（Model- View-ViewModel 的缩写）设计模式。</p>
+<p>所以，这个视图模型将保存哪些数据呢？ </p>
 <p>再看一次注册表单，我们有三个文字栏位，包括： </p>
 <ul>
 <li>使用者名称。</li>
@@ -1091,9 +1091,9 @@
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> isPasswordConfirmValid = <span class="hljs-built_in">false</span>
 }
 </code></pre>
-<p>这就是表单视图的资料模型。<code>username</code>、<code>password</code> 与 <code>passwordConfirm</code> 属性分别存放使用者名称、密码与密码确认的文字栏位的值。这个类别应该遵守 <code>ObservableObject</code>。所有这些属性都使用 <code>@Published</code> 来做标注，因为我们想要在值发生变更时通知订阅者，并相应执行验证。</p>
+<p>这就是表单视图的数据模型。<code>username</code>、<code>password</code> 与 <code>passwordConfirm</code> 属性分别存放使用者名称、密码与密码确认的文字栏位的值。这个类别应该遵守 <code>ObservableObject</code>。所有这些属性都使用 <code>@Published</code> 来做标注，因为我们想要在值发生变更时通知订阅者，并相应执行验证。</p>
 <h4 id="%E4%BD%BF%E7%94%A8combine-%E9%A9%97%E8%AD%89%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1">使用Combine 验证使用者名称</h4>
-<p>好的，以上为资料模型，不过我们还没有处理表单验证。我们要如何依照要求来验证使用者名称、密码与密码确认呢？ </p>
+<p>好的，以上为数据模型，不过我们还没有处理表单验证。我们要如何依照要求来验证使用者名称、密码与密码确认呢？ </p>
 <p>使用 Combine，你就必须培养发布者/ 订阅者思维模式来解决问题。考虑到使用者名称， 我们这里其实有两个发布者：<code>username</code> 与<code>isUsernameLengthValid</code>。每当使用者在使用者名称栏位上敲击键盘输入时，<code>username</code> 发布者就会发布值的变更，而 <code>isUsernameLengthValid</code> 发布者将使用者输入的验证状态通知订阅者。几乎所有SwiftUI 中的控制组件都是订阅者，因此栏位要求文字视图将监听验证结果的变化，并相应更新其样式（即是否有删除线）。图15.6 说明了我们如何使用 Combine 来验证使用者名称的输入。</p>
 <figure id="fig15.6"><img src="images/registration/swiftui-registration-6.png" alt="图 15.6.　username 与 isUsernameValid 发布者"><figcaption>图 15.6.　username 与 isUsernameValid 发布者</figcaption></figure>
 <p>这里缺少的是连接两个发布者之间的东西，并且这个“东西”要处理下列的任务： </p>
@@ -1271,7 +1271,7 @@ $password
         </div>
 
         
-        <a href="./swiftui-form-data.html" class="navigation navigation-prev " aria-label="Previous page: 使用 Combine 与 Environment 物件进行资料分享"><i class="fa fa-angle-left"></i></a>
+        <a href="./swiftui-form-data.html" class="navigation navigation-prev " aria-label="Previous page: 使用 Combine 与 Environment 物件进行数据分享"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="./swiftui-actionsheet-context.html" class="navigation navigation-next " aria-label="Next page: 滑动删除、内容选单与动作列表"><i class="fa fa-angle-right"></i></a>

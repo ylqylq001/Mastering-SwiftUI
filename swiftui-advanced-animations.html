@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -886,7 +886,7 @@
 <p>在项目导航器中，你应该会发现一些 <code>.swift</code> 档： </p>
 <ul>
 <li><strong>Transaction.swift</strong> - <code>Transaction</code> 结构代表电子钱包 App中的交易。每一笔交易有一个唯一的 ID、交易商、金额、日期与图示。除了 <code>Transaction</code> 结构之外，作为示范之用，我们还声明一个测试交易的数组。</li>
-<li><strong>Card.swift</strong> - 这个档案包含了 <code>Card</code> 的结构。<code>Card</code> 表示信用卡的资料，包含卡号、类型、有效日期、图片与客户姓名，除此之外，你可以在档案中找到一个测试信用卡的数组。需要注意的一点是，卡片图片中不包含任何的个人资讯，而只包含卡片品牌（例如： Visa ）。稍后，我们将为信用卡建立一个视图。</li>
+<li><strong>Card.swift</strong> - 这个档案包含了 <code>Card</code> 的结构。<code>Card</code> 表示信用卡的数据，包含卡号、类型、有效日期、图片与客户姓名，除此之外，你可以在档案中找到一个测试信用卡的数组。需要注意的一点是，卡片图片中不包含任何的个人资讯，而只包含卡片品牌（例如： Visa ）。稍后，我们将为信用卡建立一个视图。</li>
 <li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始项目已经带有交易历史纪录视图的实现。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
 <li><strong>ContentView.swift</strong> - 这是 Xcode产生的默认 SwiftUI 视图。</li>
 </ul>
@@ -926,7 +926,7 @@
     }
 }
 </code></pre>
-<p>我们声明一个 <code>card</code> 属性来带入卡片资料。为了在卡片图片上显示个人资料与卡号，我们使用 <code>overlay</code> 修饰器，并以垂直堆叠视图与水平堆叠视图来布局文字组件。</p>
+<p>我们声明一个 <code>card</code> 属性来带入卡片数据。为了在卡片图片上显示个人数据与卡号，我们使用 <code>overlay</code> 修饰器，并以垂直堆叠视图与水平堆叠视图来布局文字组件。</p>
 <p>要预览卡片，则更新 <code>CardView_Previews</code>结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -941,7 +941,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%9B%BB%E5%AD%90%E9%8C%A2%E5%8C%85%E8%A6%96%E5%9C%96%E8%88%87%E5%8D%A1%E7%89%87%E5%BA%AB">建立电子钱包视图与卡片库</h3>
 <p>我们现在已经实现了卡片视图，让我们开始建立电子钱包视图。如果你忘记电子钱包视图的外观，请看一下图 20.6。在进行手势与动画之前，我们将先布局卡片库。</p>
 <figure id="fig20.6"><img src="images/wallet/swiftui-wallet-6.png" alt="图 20.6　钱包视图"><figcaption>图 20.6　钱包视图</figcaption></figure>
-<p>在项目导航器中，你应该会看到 <code>ContentView.swift</code> 档。删除它，然后右键点选 <code>View</code> 资料夹，以建立一个新档案。在对话方块中，选取“SwiftUI View”作为模板，并将档案命名为 <code>WalletView.swift</code>。</p>
+<p>在项目导航器中，你应该会看到 <code>ContentView.swift</code> 档。删除它，然后右键点选 <code>View</code> 数据夹，以建立一个新档案。在对话方块中，选取“SwiftUI View”作为模板，并将档案命名为 <code>WalletView.swift</code>。</p>
 <p>如果你预览 <code>WalletView</code>  或在模拟器中执行 App，Xcode 应该会显示一个错误，因为 <code>ContentView</code> 设定为初始视图，并且其被删除了。要修正这个错误，则开启 <code>SwiftUIWallet App.swift</code>，并将 <code>WindowGroup</code> 中下列这行代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ContentView</span>()
 </code></pre>
@@ -1360,7 +1360,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
         <a href="./swiftui-trip-tinder.html" class="navigation navigation-prev " aria-label="Previous page: 使用手势与动画建立 Tinder 风格的 UI"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./swiftui-json.html" class="navigation navigation-next " aria-label="Next page: JSON、滑杆的运用与资料过滤"><i class="fa fa-angle-right"></i></a>
+        <a href="./swiftui-json.html" class="navigation navigation-next " aria-label="Next page: JSON、滑杆的运用与数据过滤"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-16-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8%E6%BB%91%E5%8B%95%E5%88%AA%E9%99%A4%E3%80%81%E5%85%A7%E5%AE%B9%E9%81%B8%E5%96%AE%E8%88%87%E5%8B%95%E4%BD%9C%E8%A1%A8">第 16 章<br>使用滑动删除、内容选单与动作表</h1>
-<p>在前面的章节中，你已经学会如何使用清单来显示资料列。而在本章中，我们将会更深入一点，了解如何让使用者和清单视图进行互动，包括： </p>
+<p>在前面的章节中，你已经学会如何使用清单来显示数据列。而在本章中，我们将会更深入一点，了解如何让使用者和清单视图进行互动，包括： </p>
 <ul>
 <li>使用滑动删除一列。</li>
 <li>点击一列来启用动作表（action sheet）。</li>
@@ -890,9 +890,9 @@
 <p>我们开始建立这个项目，而我们将以之前建立的清单 App 为基础，来建立一个互动式清单。你可以至</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIActionSheetStarter.zip</a> 来下载项目，下载后开启项目，并检视预览，它应该会显示一个包含文字与图片的简单清单，如图 16.2 所示。稍后，我们将在这个示例 App 中加入滑动删除功能、一个动作表与一个内容选单。</p>
 <figure id="fig16.2"><img src="images/actionsheet/swiftui-actionsheet-2.png" alt="图 16.2.　起始项目会显示一个简单的清单视图"><figcaption>图 16.2.　起始项目会显示一个简单的清单视图</figcaption></figure>
-<p>如果你的眼睛够敏锐的话，你可能会发现起始项目使用 <code>ForEach</code> 来实现该清单。为什么我将它变更回 <code>ForEach</code>，而不是传送资料集合至 <code>List</code> 呢？主要原因是我将介绍的 <code>onDelete</code>处理器只能使用 <code>ForEach</code>。</p>
+<p>如果你的眼睛够敏锐的话，你可能会发现起始项目使用 <code>ForEach</code> 来实现该清单。为什么我将它变更回 <code>ForEach</code>，而不是传送数据集合至 <code>List</code> 呢？主要原因是我将介绍的 <code>onDelete</code>处理器只能使用 <code>ForEach</code>。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%BB%91%E5%8B%95%E5%88%AA%E9%99%A4">实现滑动删除</h3>
-<p>假设你已经准备好起始项目了，我们开始实现“滑动删除”（swipe to delete ）功能，我已经简要提过 <code>onDelete</code> 处理器。要对清单中的所有列启用“滑动删除”功能，你只需要将这个处理器加到所有列的资料即可。因此，更新 <code>List</code> 如下： </p>
+<p>假设你已经准备好起始项目了，我们开始实现“滑动删除”（swipe to delete ）功能，我已经简要提过 <code>onDelete</code> 处理器。要对清单中的所有列启用“滑动删除”功能，你只需要将这个处理器加到所有列的数据即可。因此，更新 <code>List</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
         <span class="hljs-type">BasicImageRow</span>(restaurant: restaurant)

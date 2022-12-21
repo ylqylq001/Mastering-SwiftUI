@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -882,7 +882,7 @@
 <ul>
 <li>第 7 章 - 状态(State)与绑定(Binding)</li>
 <li>第 10 章 - 动态列表、 ForEach 与 Identifiable 的使用方法</li>
-<li>第 14 章 - 使用 Combine 与 Environment 物件进行资料分享</li>
+<li>第 14 章 - 使用 Combine 与 Environment 物件进行数据分享</li>
 </ul>
 <p>如果你还未阅读或忘记了Combine 和Environment Objects 是什么，请先阅读这些章节。</p>
 <p>究竟你会将会做什么以理解 Core Data？ 我已经构建了示例App的核心部分，你并不需要从头开始构建 ToDo App。 但是，它不能永久保存数据。 更具体地说，它只能将待办事项保存在记忆体当中。 每当用户关闭App并再次启动它时，所有数据都会消失。 我们将修改这个示例 App 并将其转换为使用 Core Data 将数据永久保存到本地数据库。 图 22.1 显示了 ToDo App 的一些示例屏幕截图。</p>
@@ -907,7 +907,7 @@
 <figure id="fig22.4"><img src="images/core-data/swiftui-core-data-4.png" alt="图 4. 将托管物件内容注入到环境中"><figcaption>图 4. 将托管物件内容注入到环境中</figcaption></figure>
 <p>以上所讲的，就是在启用 Core Data 选项时由 Xcode 生成的代码和文件。 如果打开<code>ContentView.swift</code>，Xcode 还会生成示例代码，用于从本地数据存储加载数据。 查看代码以了解其工作原理。 一般来说，要在本地数据库上保存和管理数据，步骤如下：</p>
 <ol>
-<li><p>利用模型编辑器（ Data Model Editor ）在资料模型 (i.e. <code>.xcdatamodeld</code>) 建立实体（ Entity ）。</p>
+<li><p>利用模型编辑器（ Data Model Editor ）在数据模型 (i.e. <code>.xcdatamodeld</code>) 建立实体（ Entity ）。</p>
 </li>
 <li><p>建立实体的相对应的托管物件（应继承自 <code>NSManagedObject</code>）。</p>
 </li>
@@ -922,7 +922,7 @@ task.priority = priority
 task.isComplete = isComplete
 </code></pre>
 </li>
-<li><p>至于数据检索，Apple 引入了一个名为<code>@FetchRequest</code>的属性包装器，供你从持久存储器获取资料。 以下是相关的代码：</p>
+<li><p>至于数据检索，Apple 引入了一个名为<code>@FetchRequest</code>的属性包装器，供你从持久存储器获取数据。 以下是相关的代码：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">FetchRequest</span>(
    entity: <span class="hljs-type">ToDoItem</span>.entity(),
    sortDescriptors: [ <span class="hljs-type">NSSortDescriptor</span>(keyPath: \<span class="hljs-type">ToDoItem</span>.priorityNum, ascending: <span class="hljs-built_in">false</span>) ])
@@ -1069,7 +1069,7 @@ task.isComplete = isComplete
 </code></pre>
 <h4 id="%E8%99%95%E7%90%86%E7%A9%BA%E5%88%97%E8%A1%A8%E8%A6%96%E5%9C%96">处理空列表视图</h4>
 <p>当数组中没有项目时，我们显示一个图像视图而不是一个空的列表视图。 这个并不是必须做，但是，我认为它使App看起来更好，并让使用者知道在App首次启动时该做什么。</p>
-<pre><code class="lang-swift"><span class="hljs-comment">// 如果没有资料，就显示一个空视图</span>
+<pre><code class="lang-swift"><span class="hljs-comment">// 如果没有数据，就显示一个空视图</span>
 <span class="hljs-keyword">if</span> todoItems.<span class="hljs-built_in">count</span> == <span class="hljs-number">0</span> {
     <span class="hljs-type">NoDataView</span>()
 }
@@ -1227,7 +1227,7 @@ task.isComplete = isComplete
 </code></pre>
 <p>Core Data 的模型类别应该继承自<code>NSManagedObject</code>。 每个属性都用<code>@NSManaged</code> 注释，并对应于我们之前建立的 Core Data 模型的属性。 通过使用<code>@NSManaged</code>，这告诉编译器该属性是由Core Data 处理。</p>
 <p>在 <code>ToDoItem</code> 的原始版本中，我们有一个类型为 Enum 的 <code>priority</code> 属性。 对于 Core Data 版本，我们必须为<code>priority</code>建立一个计算属性（Computed Property）。 此计算属性将优先次序的编号转换为 Enum，反之亦然。</p>
-<h4 id="%E5%88%A9%E7%94%A8-fetchrequest-%E5%8F%96%E5%BE%97%E8%B3%87%E6%96%99">利用 @FetchRequest 取得资料</h4>
+<h4 id="%E5%88%A9%E7%94%A8-fetchrequest-%E5%8F%96%E5%BE%97%E8%B3%87%E6%96%99">利用 @FetchRequest 取得数据</h4>
 <p>现在我们已经准备好了模型类别，让我们看看从数据库中获取记录是多么容易。 切换到<code>ContentView.swift</code>。 最初，我们有一个包含所有待办事项的数组变量，它也标有<code>@State</code>：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> todoItems: [<span class="hljs-type">ToDoItem</span>] = []
 </code></pre>
@@ -1398,7 +1398,7 @@ task.isComplete = isComplete
         </div>
 
         
-        <a href="./swiftui-json.html" class="navigation navigation-prev " aria-label="Previous page: JSON、滑杆的运用与资料过滤"><i class="fa fa-angle-left"></i></a>
+        <a href="./swiftui-json.html" class="navigation navigation-prev " aria-label="Previous page: JSON、滑杆的运用与数据过滤"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="./swiftui-uikit.html" class="navigation navigation-next " aria-label="Next page: 利用 UIViewRepresentable 整合UIKit 组件"><i class="fa fa-angle-right"></i></a>

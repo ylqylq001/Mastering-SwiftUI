@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -882,7 +882,7 @@
 <p>在本章中，你将学习如何实现图像轮播，当然是用 SwiftUI。有多种方法可以实现轮播，其中一种方法是整合 UIKit 内的 <code>UIPageViewController</code> 。 但是，我们将探讨另一种方法，并完全以 SwiftUI 框架来建立轮播。</p>
 <p>让我们开始吧。</p>
 <h3 id="%E6%97%85%E8%A1%8C%E7%AF%84%E4%BE%8B-app-%E7%B0%A1%E4%BB%8B">旅行示例 App 简介</h3>
-<p>像其他章节一样，我通过构建一个示例 App来引导你了解当中的技术问题。 今次的 App 以轮播形式显示不同的旅行目的地。 要浏览行程，用户可以向右滑动查看下一个目的地，或者向左滑动查看之前的行程。 为了使这个示例 App更具吸引力，使用者可以点击一个目的地来查看它的详细资料。 因此，除了实现轮播外，你还会学习一些动画技术。 图 27.2 显示了示例 App的一些荧幕截图。想知它实际的运作，你可以到 <a href="https://link.appcoda.com/carousel-demo" target="_blank">https://link.appcoda.com/carousel-demo</a> 上观看示范影片。</p>
+<p>像其他章节一样，我通过构建一个示例 App来引导你了解当中的技术问题。 今次的 App 以轮播形式显示不同的旅行目的地。 要浏览行程，用户可以向右滑动查看下一个目的地，或者向左滑动查看之前的行程。 为了使这个示例 App更具吸引力，使用者可以点击一个目的地来查看它的详细数据。 因此，除了实现轮播外，你还会学习一些动画技术。 图 27.2 显示了示例 App的一些荧幕截图。想知它实际的运作，你可以到 <a href="https://link.appcoda.com/carousel-demo" target="_blank">https://link.appcoda.com/carousel-demo</a> 上观看示范影片。</p>
 <figure id="fig27.2"><img src="images/carousel/swiftui-carousel-2.jpg" alt="图 27.2. 示例 App"><figcaption>图 27.2. 示例 App</figcaption></figure>
 <p>为了节省你的时间并专注于开发轮播，我已为建立了一个Starter项目。 请从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUICarouselStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUICarouselStarter.zip</a> 下载并解压档案。</p>
 <figure id="fig27.3"><img src="images/carousel/swiftui-carousel-3.png" alt="图 27.3. Starter 项目"><figcaption>图 27.3. Starter 项目</figcaption></figure>
@@ -890,7 +890,7 @@
 <ol>
 <li>它已包含所需的图像并加至Assets 中。</li>
 <li><code>ContentView.swift</code> 是 Xcode 自动建立的默认视图。</li>
-<li><code>Trip.swift</code> 包含 <code>Trip</code> 结构，它代表App内的旅行目的地。 出于测试目的，该文件还包含一些测试数据（<code>sampleTrips</code>）。 你可以随便修改这些测试资料。</li>
+<li><code>Trip.swift</code> 包含 <code>Trip</code> 结构，它代表App内的旅行目的地。 出于测试目的，该文件还包含一些测试数据（<code>sampleTrips</code>）。 你可以随便修改这些测试数据。</li>
 <li><code>TripCardView.swift</code> 已建立了卡片视图的 UI。 每个卡片视图都旨在显示目的地的图像。 <code>isShowDetails</code> 绑定控制文字标签的外观。 当 <code>isShowDetails</code> 设定为 true 时，标签将被隐藏。</li>
 </ol>
 <h3 id="%E6%BB%BE%E5%8B%95%E8%A6%96%E5%9C%96%E7%9A%84%E5%95%8F%E9%A1%8C">滚动视图的问题</h3>
@@ -1070,7 +1070,7 @@
 <h3 id="%E7%B7%B4%E7%BF%92%EF%BC%9A%E8%99%95%E7%90%86%E8%A9%B3%E7%B4%B0%E8%A6%96%E5%9C%96">练习：处理详细视图</h3>
 <p>让我们通过一个练习来开始详细视图的实现。 我假设你对 SwiftUI 有一定的经验，并且应该能够建立图 27.18 的详细视图。你可以建立一个名为<code>TripDetailView.swift</code>的文件并在那里编写代码。</p>
 <figure id="fig27.18"><img src="images/carousel/swiftui-carousel-18.png" alt="图 27.18. 行程详细视图"><figcaption>图 27.18. 行程详细视图</figcaption></figure>
-<p>为简单起见，评级和描述都只是一些 hardcode 的资料。 <em>Book Now</em> 按钮也是如此，它不能运作的。 这个详细视图的框架大概就是这样：</p>
+<p>为简单起见，评级和描述都只是一些 hardcode 的数据。 <em>Book Now</em> 按钮也是如此，它不能运作的。 这个详细视图的框架大概就是这样：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TripDetailView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">let</span> destination: <span class="hljs-type">String</span>
 

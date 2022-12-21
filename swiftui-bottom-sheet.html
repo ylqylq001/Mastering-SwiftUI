@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -886,7 +886,7 @@
 <h3 id="%E4%BA%86%E8%A7%A3%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">了解起始项目</h3>
 <p>为了节省你从头建立示例App 的时间，我已经为你准备好起始项目。你可以至</p>
 <p><a href="https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui3/SwiftUIBottomSheetStarter.zip</a>  下载起始项目，并解压缩档案，并开启 <code>SwiftUIBottomSheet.xcodeproj</code> 来开始。</p>
-<p>起始项目已经提供一组餐厅图片及餐厅资料。如果你在项目导航器中查看“Model”资料夹，则应该会找到一个<code>Restaurant.swift</code> 档，此档案包含了 <code>Restaurant</code> 结构与一组示例餐厅资料。</p>
+<p>起始项目已经提供一组餐厅图片及餐厅数据。如果你在项目导航器中查看“Model”数据夹，则应该会找到一个<code>Restaurant.swift</code> 档，此档案包含了 <code>Restaurant</code> 结构与一组示例餐厅数据。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id: <span class="hljs-type">UUID</span> = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -924,7 +924,7 @@
 <li>“横列”是一个小圆角矩形。</li>
 <li>标题列包含细节视图的标题。</li>
 <li>头部视图包含餐厅特色图片、餐厅名称与餐厅类型。</li>
-<li>细节资讯视图包含餐厅资料，其中有地址、电话与描述。</li>
+<li>细节资讯视图包含餐厅数据，其中有地址、电话与描述。</li>
 </ul>
 <p>我们将使用单独的 结构（struct ）来实现上述每个部分，以让代码更易编写。现在使用“SwiftUI View”模板建立一个新档案，并命名为<code>RestaurantDetailView.swift</code>。下面讨论的所有代码都将放到这个新档案中。</p>
 <h4 id="%E6%A9%AB%E5%88%97">横列</h4>
@@ -991,7 +991,7 @@
     }
 }
 </code></pre>
-<p>由于我们需要显示餐厅资料，因此 <code>HeaderView</code> 具有 <code>restaurant</code> 属性。对于这个布局，我们建立一个图片视图，并设定它的内容模式为 <code>scaleToFill</code>，图片高度固定为“300 点”。由于我们使用 <code>scaleToFill</code> 模式，我们需要加上 <code>.clipped()</code>修饰器，以隐藏超出图片框边缘的任何内容。</p>
+<p>由于我们需要显示餐厅数据，因此 <code>HeaderView</code> 具有 <code>restaurant</code> 属性。对于这个布局，我们建立一个图片视图，并设定它的内容模式为 <code>scaleToFill</code>，图片高度固定为“300 点”。由于我们使用 <code>scaleToFill</code> 模式，我们需要加上 <code>.clipped()</code>修饰器，以隐藏超出图片框边缘的任何内容。</p>
 <p>对于这两个标签，我们使用 <code>.overlay</code> 修饰器来叠加两个文字视图。</p>
 <h4 id="%E7%B4%B0%E7%AF%80%E8%B3%87%E8%A8%8A%E8%A6%96%E5%9C%96">细节资讯视图</h4>
 <p>最后是资讯视图（information view ）。如果你仔细看一下地址、电话与描述栏位，你会发现它们非常相似。地址与电话栏位在文字资讯旁都有一个图示，而描述栏位则只包含文字。</p>
@@ -1015,7 +1015,7 @@
 }
 </code></pre>
 <p><code>DetailInfoView</code>有两个参数：<code>icon</code> 与 <code>info</code>。<code>icon</code> 参数是可选用的，表示它可以有值或是 nil。</p>
-<p>当你需要显示资料栏位及图示时，你可以像这样使用 <code>DetailInfoView</code>： </p>
+<p>当你需要显示数据栏位及图示时，你可以像这样使用 <code>DetailInfoView</code>： </p>
 <pre><code class="lang-swift"><span class="hljs-type">DetailInfoView</span>(icon: <span class="hljs-string">&quot;map&quot;</span>, info: <span class="hljs-keyword">self</span>.restaurant.location)
 </code></pre>
 <p>另外，如果你只需要显示一个文字栏位（如描述栏位），则可以像这样使用 <code>DetailInfoView</code> : </p>
@@ -1285,7 +1285,7 @@
         })
 )
 </code></pre>
-<p>在updating 函数中，我们只使用最新的拖曳资料来更新 <code>dragState</code> 属性。</p>
+<p>在updating 函数中，我们只使用最新的拖曳数据来更新 <code>dragState</code> 属性。</p>
 <p>最后，像这样修改 <code>VStack</code> 的 <code>.offset</code> 修饰器来移动细节视图： </p>
 <pre><code class="lang-swift">.offset(y: geometry.size.height/<span class="hljs-number">2</span> + <span class="hljs-keyword">self</span>.dragState.translation.height + <span class="hljs-keyword">self</span>.positionOffset)
 </code></pre>
@@ -1408,7 +1408,7 @@
 <p>现在于模拟器中执行 App，带出细节视图，并完全展开它。当你拖曳视图时你便可以见到这个拖曳偏移量，如图 8.14 所示，当你拖曳距离顶部列越远时，偏移量会越大。</p>
 <figure id="fig18.14"><img src="images/bottom-sheet/swiftui-bottom-sheet-14.jpg" alt="图 8.14. 在不同方向拖曳滚动视图。"><figcaption>图 8.14. 在不同方向拖曳滚动视图。</figcaption></figure>
 <h3 id="preferencekey-%E7%9A%84%E4%BB%8B%E7%B4%B9">PreferenceKey 的介绍</h3>
-<p>现在我们已经找到滚动偏移量取得方式，接下的问题是如何让它的父视图知道偏移量，以利进一步处理。 SwiftUI 框架提供了一个  <code>PreferenceKey</code> 协议，可以让你很容易地从子视图传递资料至它的父视图。</p>
+<p>现在我们已经找到滚动偏移量取得方式，接下的问题是如何让它的父视图知道偏移量，以利进一步处理。 SwiftUI 框架提供了一个  <code>PreferenceKey</code> 协议，可以让你很容易地从子视图传递数据至它的父视图。</p>
 <p>为了使用布局偏好（preference）来传递滚动偏移量，我们必须建立一个结构来遵循 <code>PreferenceKey</code>协议，如下所示，在 <code>RestaurantDetailView.swift</code> 插入以下这段程式：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ScrollOffsetKey</span>: <span class="hljs-title">PreferenceKey</span> </span>{
     <span class="hljs-keyword">typealias</span> <span class="hljs-type">Value</span> = <span class="hljs-type">CGFloat</span>

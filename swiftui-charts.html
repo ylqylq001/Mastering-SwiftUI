@@ -292,7 +292,7 @@
                         
                             <b>14.</b>
                         
-                        使用 Combine 与 Environment 物件进行资料分享
+                        使用 Combine 与 Environment 物件进行数据分享
                     </a>
                 
             
@@ -397,7 +397,7 @@
                         
                             <b>21.</b>
                         
-                        JSON、滑杆的运用与资料过滤
+                        JSON、滑杆的运用与数据过滤
                     </a>
                 
             
@@ -682,7 +682,7 @@
                         
                             <b>40.</b>
                         
-                        通过 ShareLink 来分享文本和图像等资料
+                        通过 ShareLink 来分享文本和图像等数据
                     </a>
                 
             
@@ -772,7 +772,7 @@
                         
                             <b>46.</b>
                         
-                        使用新的 NavigationStack 视图构建资料导向的导航
+                        使用新的 NavigationStack 视图构建数据导向的导航
                     </a>
                 
             
@@ -899,7 +899,7 @@
     }
 }
 </code></pre>
-<p>无论我们想要构建长条图还是折线图，我们都会从 <code>Chart</code> 视图开始。在图表里面，我们可以定义 bar mark，来提供图表资料。<code>BarMark</code> 视图是用来构建长条图的，每一个 <code>BarMark</code> 视图都会有 <code>x</code> 和 <code>y</code> 值，<code>x</code> 值就是代表 x 轴的图表资料，如此类推。在以上的代码中，我把 <code>x</code> 轴的标签设置为 <em>Day</em>，而 <code>y</code> 轴就是总步数。</p>
+<p>无论我们想要构建长条图还是折线图，我们都会从 <code>Chart</code> 视图开始。在图表里面，我们可以定义 bar mark，来提供图表数据。<code>BarMark</code> 视图是用来构建长条图的，每一个 <code>BarMark</code> 视图都会有 <code>x</code> 和 <code>y</code> 值，<code>x</code> 值就是代表 x 轴的图表数据，如此类推。在以上的代码中，我把 <code>x</code> 轴的标签设置为 <em>Day</em>，而 <code>y</code> 轴就是总步数。</p>
 <p>让我们在 Xcode 14 输入以上代码，预览就会自动显示有两个垂直长方体的长条图。</p>
 <figure id="fig38.1"><img src="images/charts/swiftui-charts-1.png" alt="图 38.1. 基本的长条图"><figcaption>图 38.1. 基本的长条图</figcaption></figure>
 <p>以上就是创建长条图最简单的方法。不过，我们通常都不会对图表数据进行硬编码 (hardcode)，而是在 Charts API 编写一组数据。让我们看看以下例子：</p>
