@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -905,7 +905,7 @@
 <p><code>AsyncImage</code> 也提供了另一个构造函数 (constructor)，让开发者可以进一步客制化图像：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>&lt;<span class="hljs-type">I</span>, <span class="hljs-type">P</span>&gt;(url: <span class="hljs-type">URL</span>?, scale: <span class="hljs-type">CGFloat</span>, content: (<span class="hljs-type">Image</span>) -&gt; <span class="hljs-type">I</span>, placeholder: () -&gt; <span class="hljs-type">P</span>)
 </code></pre>
-<p>我们可以使用上面的 <code>init</code> 初始化 <code>AsyncImage</code>，来调整及缩放下载好的图像。更重要的是，我们可以实作自己的占位符。看看以下的范例代码片段：</p>
+<p>我们可以使用上面的 <code>init</code> 初始化 <code>AsyncImage</code>，来调整及缩放下载好的图像。更重要的是，我们可以实现自己的占位符。看看以下的范例代码片段：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AsyncImage</span>(url: <span class="hljs-type">URL</span>(string: imageURL)) { image <span class="hljs-keyword">in</span>
     image
         .resizable()
@@ -923,7 +923,7 @@
 <p>如果你需要更精准操作非同步下载，<code>AsyncImage</code> 视图提供了另一个<code>init</code>函数：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>(url: <span class="hljs-type">URL</span>?, scale: <span class="hljs-type">CGFloat</span>, transaction: <span class="hljs-type">Transaction</span>, content: (<span class="hljs-type">AsyncImagePhase</span>) -&gt; <span class="hljs-type">Content</span>
 </code></pre>
-<p><code>AsyncImagePhase</code> 是一个枚举 (enum)，用于跟踪下载操作的当前阶段。 你可以针对每个阶段提供详细的实作，包括<em>empty</em>、<em>failure</em> 和<em>success</em>。</p>
+<p><code>AsyncImagePhase</code> 是一个枚举 (enum)，用于跟踪下载操作的当前阶段。 你可以针对每个阶段提供详细的实现，包括<em>empty</em>、<em>failure</em> 和<em>success</em>。</p>
 <p>看看以下范例代码片段：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AsyncImage</span>(url: <span class="hljs-type">URL</span>(string: imageURL)) { phase <span class="hljs-keyword">in</span>
     <span class="hljs-keyword">switch</span> phase {

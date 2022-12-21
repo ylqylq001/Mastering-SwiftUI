@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -899,15 +899,15 @@
     }
 }
 </code></pre>
-<h4 id="%E5%88%86%E6%9E%90%E6%B4%BB%E5%8B%95%E7%92%B0%E7%9A%84%E5%AF%A6%E4%BD%9C">分析活动环的实作</h4>
-<p>在我们深入实作之前，请再次查看图 30.1 和图 30.2。 你应该会发现，一个活动环实际上是由两个或多个圆形进度条组成的。 所以，我们需要构建一个圆形进度条视图，可以灵活地显示指定的百分比值，并允许使用者调整进度条的宽度和颜色。</p>
+<h4 id="%E5%88%86%E6%9E%90%E6%B4%BB%E5%8B%95%E7%92%B0%E7%9A%84%E5%AF%A6%E4%BD%9C">分析活动环的实现</h4>
+<p>在我们深入实现之前，请再次查看图 30.1 和图 30.2。 你应该会发现，一个活动环实际上是由两个或多个圆形进度条组成的。 所以，我们需要构建一个圆形进度条视图，可以灵活地显示指定的百分比值，并允许使用者调整进度条的宽度和颜色。</p>
 <p>例如，如果你告诉条形视图以红色显示 60% 的进度并将其宽度设置为 250 点。 循环进度视图应显示如下内容：</p>
 <figure id="fig30.4"><img src="images/progressring/swiftui-progressring-4.png" alt="图 30.4. 圆形进度条例子"><figcaption>图 30.4. 圆形进度条例子</figcaption></figure>
 <p>通过构建圆形进度条视图，开发活动环就变得非常容易。 例如，我们可以在图 30.4 所示的上面叠加另一个尺寸更大、颜色不同的圆形进度条，就成为一个活动环。</p>
 <figure id="fig30.5"><img src="images/progressring/swiftui-progressring-5.png" alt="图 5. 活动环示范"><figcaption>图 5. 活动环示范</figcaption></figure>
 <p>这就是我们将如何构建活动环的方式。 现在让我们正式开始开发圆形进度条！</p>
 <h3 id="%E6%BA%96%E5%82%99%E9%A1%8F%E8%89%B2%E6%93%B4%E5%B1%95">准备颜色扩展</h3>
-<p>如前所述，我们将要实作的圆形进度条，而这进度条可以灵活地支持多种颜色和渐变。 为了这个示范，我们将使用 <code>Color</code> 扩展来准备一组预定颜色。 在项目导航器中，右键单击 <em>SwiftUIProgressRing</em> 并选择 <em>New file...</em>， 选择 <em>Swift 文件</em> 模板并将文件命名为 <code>Color+Ext.swift</code>。 将文件内容更换为以下代码：</p>
+<p>如前所述，我们将要实现的圆形进度条，而这进度条可以灵活地支持多种颜色和渐变。 为了这个示范，我们将使用 <code>Color</code> 扩展来准备一组预定颜色。 在项目导航器中，右键单击 <em>SwiftUIProgressRing</em> 并选择 <em>New file...</em>， 选择 <em>Swift 文件</em> 模板并将文件命名为 <code>Color+Ext.swift</code>。 将文件内容更换为以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">SwiftUI</span>
 
 <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Color</span> </span>{
@@ -936,8 +936,8 @@
 }
 </code></pre>
 <p>在上面的代码中，我们建立了一个 <code>init</code> 方法，它提供 <code>red</code>、<code>green</code> 和 <code>blue</code> 的参数。 这使得使用 RGB 颜色代码初始化 Color 实体变得更加容易。 所有颜色均来自平面调色板 (<a href="https://flatuicolors.com/palette/defo)，" target="_blank">https://flatuicolors.com/palette/defo)，</a> 如果你喜欢使用其他颜色，你可以简单地修改颜色值。</p>
-<h3 id="%E5%AF%A6%E4%BD%9C%E5%9C%93%E5%BD%A2%E9%80%B2%E5%BA%A6%E6%A2%9D">实作圆形进度条</h3>
-<p>参考图 30.4，圆形进度条实际上由两个圆圈组成：下方为灰色的完整圆圈，上方为渐变色的另一个部分（或完整）圆圈。 因此，为了实作进度条，我们需要一个<code>ZStack</code>来覆盖两个视图：</p>
+<h3 id="%E5%AF%A6%E4%BD%9C%E5%9C%93%E5%BD%A2%E9%80%B2%E5%BA%A6%E6%A2%9D">实现圆形进度条</h3>
+<p>参考图 30.4，圆形进度条实际上由两个圆圈组成：下方为灰色的完整圆圈，上方为渐变色的另一个部分（或完整）圆圈。 因此，为了实现进度条，我们需要一个<code>ZStack</code>来覆盖两个视图：</p>
 <ol>
 <li>灰色的圆形视图</li>
 <li>位于 #1 上层的渐变色环形</li>
@@ -950,7 +950,7 @@
 <p>你可以使用内置的 <code>Circle</code> 视图创建圆形视图，如下所示：</p>
 <figure id="fig30.6"><img src="images/progressring/swiftui-progressring-6.png" alt="图 30.6. 绘制圆形视图"><figcaption>图 30.6. 绘制圆形视图</figcaption></figure>
 <p>我们使用 <code>stroke</code> 修饰器来绘制灰色圆圈的轮廓。 如图所示，<code>thickness</code> 属性用于控制轮廓的宽度， <code>width</code> 属性是圆的直径。 我故意突出框架，以便你可以看到厚度和宽度。</p>
-<p>接下来，我们将实作环形。 创建这种环形的一种方法是使用<code>Circle</code>。 我们已经在第 8 章讨论过画圆。这一次，让我向你展示另一种实现方式。 我们将使用<code>Shape</code>协议来创建一个客制化的环形。</p>
+<p>接下来，我们将实现环形。 创建这种环形的一种方法是使用<code>Circle</code>。 我们已经在第 8 章讨论过画圆。这一次，让我向你展示另一种实现方式。 我们将使用<code>Shape</code>协议来创建一个客制化的环形。</p>
 <p>在同一文件中，插入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RingShape</span>: <span class="hljs-title">Shape</span> </span>{
     <span class="hljs-keyword">var</span> progress: <span class="hljs-type">Double</span> = <span class="hljs-number">0.0</span>

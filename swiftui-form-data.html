@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-14-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-combine-%E8%88%87-environment-%E7%89%A9%E4%BB%B6%E9%80%B2%E8%A1%8C%E8%B3%87%E6%96%99%E5%85%B1%E4%BA%AB">第 14 章<br>使用 Combine 与 Environment 物件进行资料共享</h1>
-<p>在第 13 章中，你学到了使用 Form 元件来布局表单。不过，目前表单还没有功能，不论你选择哪个选项，清单视图都不会反映使用者偏好而有任何改变，这也是我们将在本章中讨论与实作的内容。我们将继续开发设定画面，并依照使用者的个人偏好更新餐厅清单， 使 App 的功能完善。</p>
+<p>在第 13 章中，你学到了使用 Form 元件来布局表单。不过，目前表单还没有功能，不论你选择哪个选项，清单视图都不会反映使用者偏好而有任何改变，这也是我们将在本章中讨论与实现的内容。我们将继续开发设定画面，并依照使用者的个人偏好更新餐厅清单， 使 App 的功能完善。</p>
 <p>具体而言，我们将在后面的小节讨论下列主题： </p>
 <ol>
 <li>如何使用枚举（enum）来组织代码。</li>
@@ -972,7 +972,7 @@
 </code></pre>
 <p>我来简短解释一下代码，在 <code>init</code>方法中，我们使用一些预设值来初始化预设系统。如果资料库中找不到使用者偏好，才会使用这些值。</p>
 <p>如前所述，你可以使用 <code>UserDefaults</code>，以键值对的形式储存设定。在上列的代码中， 我们为此目的声明了三个属性，以特定的键，从预设系统中载入对应的值，在didSet中，我们使用 <code>UserDefaults</code> 的 <code>set</code> 方法，来将值储存在使用者预设，这三个属性前面都标注 <code>@Published</code>，因此当值更新后，它会通知订阅者。</p>
-<p><code>settingStore</code> 准备好后，我们切换到 <code>SettingView.swift</code> 档来实作“Save”操作。首先， 在 <code>SettingView</code> 中为 <code>SettingStore</code> 声明一个属性。</p>
+<p><code>settingStore</code> 准备好后，我们切换到 <code>SettingView.swift</code> 档来实现“Save”操作。首先， 在 <code>SettingView</code> 中为 <code>SettingStore</code> 声明一个属性。</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>
 <p>而“储存”（Save ）按钮的程式更新如下： </p>
@@ -1037,11 +1037,11 @@
 <p>我来介绍三个关键字： </p>
 <ol>
 <li><strong>@EnvironmentObject</strong> - 以技术而言，这就是一个属性包裹器（ property wrapper ），不过，你可将此关键字视为一个特殊的标记，当你声明一个属性为环境物件时，SwiftUI 会监控该属性的值，并在有任何改变时，使对应的视图无效。@EnvironmentObject 的运作方式与 @State 几乎相同，不过属性被声明为环境物件时， 整个 App 中的所有视图皆可存取它。举例而言，如果你的App 有很多共享相同资料（例如：使用者设定）的视图，则环境物件在这种情况下可运作得很好，你不需要在视图间传送属性，就可以自动存取它。</li>
-<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协定。当你声明一个属性为环境物件时， 该属性的型别必须实作此协定。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？透过实作此协定，这个物件可以作为一个发布者，发出更改后的值。而那些监控值的订阅者将会收到通知。</li>
+<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协定。当你声明一个属性为环境物件时， 该属性的型别必须实现此协定。回到我们的问题：我们如何让清单视图知道使用者偏好已经变更？透过实现此协定，这个物件可以作为一个发布者，发出更改后的值。而那些监控值的订阅者将会收到通知。</li>
 <li><strong>@Published</strong> - 这是一个与  <code>ObservableObject</code> 一起使用的属性包裹器。当一个属性以 <code>@Publisher</code> 为前缀时，这表示发布者应该在值发生更改时通知所有订阅者。</li>
 </ol>
 <p>我知道这有点令人困惑。不过，当我们看完代码后，你将会更加了解。</p>
-<p>我们从 <code>SettingStore.swift</code> 开始。设定视图与清单视图需要监控使用者偏好的变化，因此 <code>SettingStore</code> 应该实作 <code>ObservableObject</code> 协定，并宣布 <code>defaults</code> 属性的变更。在 <code>Setting Store.swift</code> 档的开始处，我们必须先汇入 Combine 框架： </p>
+<p>我们从 <code>SettingStore.swift</code> 开始。设定视图与清单视图需要监控使用者偏好的变化，因此 <code>SettingStore</code> 应该实现 <code>ObservableObject</code> 协定，并宣布 <code>defaults</code> 属性的变更。在 <code>Setting Store.swift</code> 档的开始处，我们必须先汇入 Combine 框架： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">Combine</span>
 </code></pre>
 <p><code>SettingStore</code> 类别应该采用 <code>ObservableObject</code> 协定。更新类别声明，如下所示： </p>
@@ -1109,9 +1109,9 @@
 }
 </code></pre>
 <p>这里，我们调用 <code>environmentObject</code> 方法，将设定储存区注入至环境。现在，设定储存区的实例可用于 App 内的所有视图。换句话说，设定与清单视图皆可自动存取它了。</p>
-<h3 id="%E5%AF%A6%E4%BD%9C%E7%AF%A9%E9%81%B8%E9%81%B8%E9%A0%85">实作筛选选项</h3>
-<p>现在，我们已经实作了一个可以让所有视图存取的通用设定储存区。最棒的是，只要设定储存区中有任何更改，它会自动通知监控更新的视图。尽管你看不出任何的视觉差异，但是当你更新设定画面的选项时，设定储存区会将变更通知至清单视图。</p>
-<p>我们最终任务是实作筛选与排序选项，以只显示和使用者偏好相配的餐厅。我们从实作下列两个筛选选项来开始： </p>
+<h3 id="%E5%AF%A6%E4%BD%9C%E7%AF%A9%E9%81%B8%E9%81%B8%E9%A0%85">实现筛选选项</h3>
+<p>现在，我们已经实现了一个可以让所有视图存取的通用设定储存区。最棒的是，只要设定储存区中有任何更改，它会自动通知监控更新的视图。尽管你看不出任何的视觉差异，但是当你更新设定画面的选项时，设定储存区会将变更通知至清单视图。</p>
+<p>我们最终任务是实现筛选与排序选项，以只显示和使用者偏好相配的餐厅。我们从实现下列两个筛选选项来开始： </p>
 <ul>
 <li>只显示打卡过的餐厅（Show Check-in Only）。</li>
 <li>显示低于某个价位级别的餐厅（Show restaurants below a certain price level）。</li>
@@ -1132,11 +1132,11 @@
             }
 }
 </code></pre>
-<p>这里，我们首先调用刚才实作的 <code>shouldShowItem</code> 函数，来检查是否应该显示餐厅。</p>
+<p>这里，我们首先调用刚才实现的 <code>shouldShowItem</code> 函数，来检查是否应该显示餐厅。</p>
 <p>现在按 Play 在模拟器执行 App 并快速测试。在设定画面中，设定“Show Check-in Only”选项为“ON”， 并配置价位级别选项，以显示价位级别为 3（即$$$ ）或以下的餐厅，如图 14.4 所示。当你点击“Save”按钮后，清单视图应会自动更新（使用动画），并显示筛选后的纪录。</p>
 <figure id="fig14.4"><img src="images/formdata/swiftui-formdata-4.png" alt="图 14.4.　当你更改筛选偏好时，清单视图现在会更新其项目"><figcaption>图 14.4.　当你更改筛选偏好时，清单视图现在会更新其项目</figcaption></figure>
-<h3 id="%E5%AF%A6%E4%BD%9C%E6%8E%92%E5%BA%8F%E9%81%B8%E9%A0%85">实作排序选项</h3>
-<p>现在，我们已经完成筛选选项的实作，我们来继续处理排序选项。在 Swift 中，你可以使用 sort(by:) 方法对一个序列中的元素排序。当使用此方法时，你需要提供一个述词（predicate ）给它，在第一个元素应排在第二个元素之前，该述词会回传 <code>true</code>。</p>
+<h3 id="%E5%AF%A6%E4%BD%9C%E6%8E%92%E5%BA%8F%E9%81%B8%E9%A0%85">实现排序选项</h3>
+<p>现在，我们已经完成筛选选项的实现，我们来继续处理排序选项。在 Swift 中，你可以使用 sort(by:) 方法对一个序列中的元素排序。当使用此方法时，你需要提供一个述词（predicate ）给它，在第一个元素应排在第二个元素之前，该述词会回传 <code>true</code>。</p>
 <p>举例而言，要将 <code>restaurants</code> 数组依字母排序，则可以使用 <code>sort(by:)</code>方法，如下所示： </p>
 <pre><code class="lang-swift">restaurants.sorted(by: { $<span class="hljs-number">0</span>.name &lt; $<span class="hljs-number">1</span>.name })
 </code></pre>
@@ -1169,7 +1169,7 @@ restaurants.sorted(by: { $<span class="hljs-number">0</span>.isCheckIn &amp;&amp
 </code></pre>
 <p>如此，你可以测试 App，并变更排序偏好。当你更新排序选项时，这个清单视图将得到通知，并相应地重新排序餐厅。</p>
 <h3 id="%E4%B8%8B%E4%B8%80%E7%AB%A0%E7%9A%84%E4%B8%BB%E9%A1%8C">下一章的主题</h3>
-<p>你知道 SwiftUI 与 Combine 可帮助我们撰写出更好的代码吗？在本章最后两节中，我们并没有撰写很多的代码来实作筛选及排序选项。Combine 处理事件处理的繁重工作， 将它与 SwiftUI 搭配使用时，它的功能更加强大，并节省你开发实作来监控物件的状态变化与触发 UI 更新的时间。一切几乎是自动的，并由这两个新框架来负责。</p>
+<p>你知道 SwiftUI 与 Combine 可帮助我们撰写出更好的代码吗？在本章最后两节中，我们并没有撰写很多的代码来实现筛选及排序选项。Combine 处理事件处理的繁重工作， 将它与 SwiftUI 搭配使用时，它的功能更加强大，并节省你开发实现来监控物件的状态变化与触发 UI 更新的时间。一切几乎是自动的，并由这两个新框架来负责。</p>
 <p>在下一章中，我们将会继续透过“建立注册画面”来探索 Combine 。你将进一步了解 Combine 如何帮助你写出更简洁与模组化的代码。</p>
 <p>在本章所准备的范例档中，有完整的专案可供下载： </p>
 <ul>

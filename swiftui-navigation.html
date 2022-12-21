@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -878,13 +878,13 @@
                     
                         <h1 id="%E7%AC%AC-11-%E7%AB%A0-br-%E9%81%8B%E7%94%A8%E5%B0%8E%E8%A6%BD-ui-%E8%88%87%E5%B0%8E%E8%A6%BD%E5%88%97%E5%AE%A2%E8%A3%BD%E5%8C%96">第 11 章<br>运用导览 UI 与导览列客制化</h1>
 <p>在大多数的 App 中（尤其是以内容为基础的 App），你应该体验过导览介面。这类型的 UI 通常有一个包含资料清单的导览列，并且它让使用者点击内容时导览至细节视图。</p>
-<p>在 UIKit 中，我们可以使用 UINavigationController 来实作这类型的介面。在 SwiftUI 中，Apple 称其为“NavigationView”。由 iOS 16 开始，这个 “NavigationView” 以 “NavigationStack”取替。在本章中，我详细解说导览 UI 的实作，并教你如何进行一些自定义。和往常一样，我们将进行几个范例专案，以让你获得一些使用 NavigationStack 的实务经验。</p>
+<p>在 UIKit 中，我们可以使用 UINavigationController 来实现这类型的介面。在 SwiftUI 中，Apple 称其为“NavigationView”。由 iOS 16 开始，这个 “NavigationView” 以 “NavigationStack”取替。在本章中，我详细解说导览 UI 的实现，并教你如何进行一些自定义。和往常一样，我们将进行几个范例专案，以让你获得一些使用 NavigationStack 的实务经验。</p>
 <figure id="fig11.1"><img src="images/navigation/swiftui-navigation-1.jpg" alt="图 11.1.　范例专案的导览介面"><figcaption>图 11.1.　范例专案的导览介面</figcaption></figure>
 <h3 id="%E6%BA%96%E5%82%99%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">准备起始专案</h3>
-<p>让我们开始并实作一个我们之前使用导览 UI 建立的范例专案。那么，首先至下列网址下载起始专案：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationListStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationListStarter.zip</a> 。下载后开启专案，并看一下预览，你应该对于这个范例 App 非常熟悉，它只显示一个餐厅列表，如图 11.2 所示。</p>
+<p>让我们开始并实现一个我们之前使用导览 UI 建立的范例专案。那么，首先至下列网址下载起始专案：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUINavigationListStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUINavigationListStarter.zip</a> 。下载后开启专案，并看一下预览，你应该对于这个范例 App 非常熟悉，它只显示一个餐厅列表，如图 11.2 所示。</p>
 <figure id="fig11.2"><img src="images/navigation/swiftui-navigation-2.png" alt="图 11.2.　起始专案应显示一个简单的清单视图"><figcaption>图 11.2.　起始专案应显示一个简单的清单视图</figcaption></figure>
 <p>我们所要做的是，将这个清单视图嵌入至导览视图中。</p>
-<h3 id="%E5%AF%A6%E4%BD%9C%E5%B0%8E%E8%A6%BD%E8%A6%96%E5%9C%96">实作导览视图</h3>
+<h3 id="%E5%AF%A6%E4%BD%9C%E5%B0%8E%E8%A6%BD%E8%A6%96%E5%9C%96">实现导览视图</h3>
 <p>在旧版的 iOS，SwiftUI 框架提供一个名为 <code>NavigationView</code> 的视图来建立导览 UI。要将清单视图嵌入至<code>NavigationView</code> 中，你所需要做的是使用 <code>NavigationView</code> 包裹 List ，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationView</span> {
     <span class="hljs-type">List</span> {
@@ -949,7 +949,7 @@
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Press me for details&quot;</span>)
 }
 </code></pre>
-<p>你可在 <code>destination</code> 参数中指定目标视图，并在闭包中实作其外观。对于范例 App， 应该在点击任何一间餐厅时，导览至细节视图。在这个范例中，我们对每一列应用 <code>NavigationLink</code>。更新 <code>List</code> 视图如下： </p>
+<p>你可在 <code>destination</code> 参数中指定目标视图，并在闭包中实现其外观。对于范例 App， 应该在点击任何一间餐厅时，导览至细节视图。在这个范例中，我们对每一列应用 <code>NavigationLink</code>。更新 <code>List</code> 视图如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
     <span class="hljs-type">ForEach</span>(restaurants) { restaurant <span class="hljs-keyword">in</span>
         <span class="hljs-type">NavigationLink</span>(destination: <span class="hljs-type">RestaurantDetailView</span>(restaurant: restaurant)) {
@@ -1125,7 +1125,7 @@
 }
 </code></pre>
 <p>透过更新程式后，你应该在预览画布中看到一个空白的导览列。</p>
-<p>现在我们已经完成了细节视图的布局，是时候该回到 <code>ContentView.swift</code> 来实作导览， 更新 <code>ContentView</code> 结构如下： </p>
+<p>现在我们已经完成了细节视图的布局，是时候该回到 <code>ContentView.swift</code> 来实现导览， 更新 <code>ContentView</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
@@ -1194,7 +1194,7 @@
 </code></pre>
 <p>这个修饰器接收其他值，如 <code>.bottom</code> 与 <code>.leading</code>。如果你想要忽略整个安全区域，则可以直接使用<code>.ignoresSafeArea()</code>。透过将这个修饰器加到 <code>ScrollView</code>，我们可以隐藏导览列，并实现一个视觉上赏心悦目的细节视图。</p>
 <figure id="fig11.16"><img src="images/navigation/swiftui-navigation-16.png" alt="图 11.16.　应用这些修饰器至滚动视图"><figcaption>图 11.16.　应用这些修饰器至滚动视图</figcaption></figure>
-<p>现在谈到关于建立自己的“返回”按钮的第二个问题，这个问题比第一个问题更棘手。下面是我们要实作的内容： </p>
+<p>现在谈到关于建立自己的“返回”按钮的第二个问题，这个问题比第一个问题更棘手。下面是我们要实现的内容： </p>
 <ol>
 <li>隐藏原来的“返回”按钮。</li>
 <li>建立一个一般的按钮，然后将其指定为导览列的左侧按钮。</li>
@@ -1251,7 +1251,7 @@
         <a href="./swiftui-list.html" class="navigation navigation-prev " aria-label="Previous page: 动态列表、 ForEach 与 Identifiable 的使用方法"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./swiftui-modal.html" class="navigation navigation-next " aria-label="Next page: 强制回应视图、浮动按钮与提示的实作"><i class="fa fa-angle-right"></i></a>
+        <a href="./swiftui-modal.html" class="navigation navigation-next " aria-label="Next page: 强制回应视图、浮动按钮与提示的实现"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

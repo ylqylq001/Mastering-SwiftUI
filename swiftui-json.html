@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -881,7 +881,7 @@
 <p>在本章中，我们将讨论当使用 SwiftUI 框架建立 App 时如何使用 JSON。如果你对于不了解 JSON 的话，我建议看一下在《iOS 程式设计进阶攻略》一书中的 <a href="https://www.appcoda.com/intermediate-swift-tips/json.html" target="_blank">免费试阅章节</a> ，这里会详细解释在 Swift 中处理 JSON 的两种不同方法。</p>
 <figure id="fig21.1"><img src="images/json/swiftui-json-1.png" alt="图 21.1.　范例App"><figcaption>图 21.1.　范例App</figcaption></figure>
 <p>和往常一样，为了掌握 JSON 及其相关的 API 知识，你将建立一个简单的 JSON App， 该 App 利用 <a href="http://kiva.org" target="_blank">Kiva.org</a>.提供的 JSON API。若是你没有听过 Kiva， 这是一个非营利组织，其使命是透过借贷将人们联击在一起，以减轻贫困问题；Kiva 让每个人借出至少 25 美元，来帮助世界各地的人创造机会。Kiva 为开发者提供了免费的 Web API 来存取他们的资料。对于我们的范例 App，我们将调用一个免费的 Kiva API 来取得最近的募资借款，并在清单视图中显示，如图 21.1 所示。</p>
-<p>除此之外，我们将示范滑杆（Slider ）的用法，滑杆是SwiftUI 提供的众多内建 UI 控制元件之一。你将在 App 中实作一个资料筛选选项，以让使用者可以筛选清单中的贷款资料，如图 21.2 所示。</p>
+<p>除此之外，我们将示范滑杆（Slider ）的用法，滑杆是SwiftUI 提供的众多内建 UI 控制元件之一。你将在 App 中实现一个资料筛选选项，以让使用者可以筛选清单中的贷款资料，如图 21.2 所示。</p>
 <figure id="fig21.2"><img src="images/json/swiftui-json-2.png" alt="图 21.2.　滑杆控制元件"><figcaption>图 21.2.　滑杆控制元件</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-json-%E8%88%87-codable">了解 JSON 与 Codable</h3>
 <p>首先，JSON 格式是什么样子呢？如果你不了解 JSON，则开启浏览器，并指向下列由 Kiva 提供的 Web API：</p>
@@ -1076,7 +1076,7 @@
 }
 </code></pre>
 <p>和我们之前所做的类似，我们必须定义一个枚举 <code>CodingKeys</code>。对于 <code>country</code> 这个 case， 我们指定要映射<code>location</code> 键。而要处理巢状的 JSON 物件，我们需要定义另一个枚举，在上面的代码中，我们将其命名为<code>LocationKeys</code>，并声明与巢状物件的 <code>country</code> 键相符的 <code>country</code> 这个 case。</p>
-<p>因为它不是直接映射，我们需要实作 <code>Decodable</code>  协定的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 调用解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
+<p>因为它不是直接映射，我们需要实现 <code>Decodable</code>  协定的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 调用解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
 <p>要解码一个特定值，我们使用特定键（例如：.name ）和关联型别（例如：String.self ） 来调用 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 调用 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
 <p>以上为使用巢状物件来解码JSON 资料的方式。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E9%99%A3%E5%88%97">使用数组</h3>
@@ -1124,7 +1124,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B-kiva-%E8%B2%B8%E6%AC%BE-app">建立 Kiva 贷款 App</h3>
 <p>好的，你现在应该已经了解如何处理 JSON 解码，让我们开始建立一个范例 App，来看如何运用刚刚所学的技术。</p>
 <p>倘若你已经开启 Xcode，至选单并选择“File → New → Projects”来建立一个新专案。如往常一样，使用“App”模板，并将专案名称命名为“SwiftUIKivaLoan”或是你所喜爱的其他名称。</p>
-<p>我们将从建立模型类别来开始，该模型类别储存从 Kiva 取得的所有最新贷款资料。对于使用者介面的实作，我们将稍后处理。</p>
+<p>我们将从建立模型类别来开始，该模型类别储存从 Kiva 取得的所有最新贷款资料。对于使用者介面的实现，我们将稍后处理。</p>
 <h4 id="%E5%8F%96%E5%BE%97-kiva-%E6%9C%80%E6%96%B0%E7%9A%84%E8%B2%B8%E6%AC%BE%E8%B3%87%E6%96%99">取得 Kiva 最新的贷款资料</h4>
 <p>首先，使用“Swift File”模板来建立一个新档案，并将其命名为 <code>Loan.swift</code>。这个档案储存了采用 Codable 协定来进行 JSON 解码的 <code>Loan</code> 结构。</p>
 <p>在档案中插入下列的代码： </p>
@@ -1172,7 +1172,7 @@
 </code></pre>
 <p>代码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协定，除了<code>Codable</code> 协定之外，这个结构也采用了 <code>Identifiable</code> 协定，并具有预设为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制元件来呈现这些贷款资料， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协定的原因。</p>
 <p>接下来， 使用“Swift File”模板来建立另一个档案， 并将其命名为“LoanStore. swift”。这个类别是负责连接到 Kiva 的 Web API、解码  JSON 资料，并将资料储存在本地端。</p>
-<p>我们来逐步撰写 <code>LoanStore</code> 类别， 如此你就可以更加了解我是如何实作的。在 <code>LoanStore.swift</code> 中插入下列的代码： </p>
+<p>我们来逐步撰写 <code>LoanStore</code> 类别， 如此你就可以更加了解我是如何实现的。在 <code>LoanStore.swift</code> 中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span> </span>{
     <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
 }
@@ -1190,10 +1190,10 @@
 <p>如此，当 <code>loans</code> 变量有任何变动时，SwiftUI 将自动管理 UI 的更新。如果你已经忘记什么是 <code>ObservableObject</code>，则请再次阅读第 14 章。</p>
 <p>不过，当你加上 <code>@Published</code> 属性包裹器后，Xcode 就会显示一个错误讯息，如图 21.6 所示。<code>Decodable</code>（或Codable ）协定在 <code>@Published</code>上不好发挥作用。</p>
 <figure id="fig21.6"><img src="images/json/swiftui-json-6.png" alt="图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协定的错误讯息"><figcaption>图 21.6.　Xcode 指出 LoanStore 并没有遵循 Decodable 协定的错误讯息</figcaption></figure>
-<p>要修正这个错误，需要做一些额外的工作。当使用 <code>@Published</code> 属性包裹器时，我们需要手动实作 <code>Decodable</code>所需的方法。如果你研究文件（<a href="https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：" target="_blank">https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：</a> </p>
+<p>要修正这个错误，需要做一些额外的工作。当使用 <code>@Published</code> 属性包裹器时，我们需要手动实现 <code>Decodable</code>所需的方法。如果你研究文件（<a href="https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：" target="_blank">https://developer.apple.com/documentation/swift/decodable)），可以采用以下的方法：</a> </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>(from decoder: <span class="hljs-type">Decoder</span>) throws
 </code></pre>
-<p>实际上，在解码巢状的 JSON 物件时，我们已经实作这个方法，现在更新类别如下： </p>
+<p>实际上，在解码巢状的 JSON 物件时，我们已经实现这个方法，现在更新类别如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span>, <span class="hljs-title">ObservableObject</span> </span>{
     @<span class="hljs-type">Published</span> <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>] = []
 
@@ -1211,7 +1211,7 @@
     }
 }
 </code></pre>
-<p>我们加上 <code>CodingKeys</code> 枚举来明确指定要解码的键，然后我们实作自订的初始器来处理解码。</p>
+<p>我们加上 <code>CodingKeys</code> 枚举来明确指定要解码的键，然后我们实现自订的初始器来处理解码。</p>
 <p>好的，错误现在已经修正了，那下一步呢？</p>
 <h3 id="%E5%91%BC%E5%8F%AB-web-api">调用 Web API</h3>
 <p>到目前为止，我们只设定了 JSON 解码的所有内容，但我们尚未使用 Web API。现在于 <code>LoanStore</code> 类别中声明一个新变量，来储存 Kiva API 的URL： </p>
@@ -1266,8 +1266,8 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 }
 </code></pre>
 <p>当调用 Web API 时， 该操作是在背景伫列中执行。在此，<code>loans</code> 变量标记为 <code>@Published</code>，这意味着对于变量的任何修改，SwiftUI 将触发使用者介面的更新。而且， UI 更新需要在主伫列中执行，这就是我们使用<code>DispatchQueue.main.async</code> 包裹它的原因。</p>
-<h4 id="%E5%AF%A6%E4%BD%9C%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">实作使用者介面</h4>
-<p>现在，我们已经建立了用于取得贷款资料的类别，让我们继续进行使用者介面的实作。我猜想你可能忘了UI 的外观，请参考图 21.7，这是我们将要建立的 UI。</p>
+<h4 id="%E5%AF%A6%E4%BD%9C%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">实现使用者介面</h4>
+<p>现在，我们已经建立了用于取得贷款资料的类别，让我们继续进行使用者介面的实现。我猜想你可能忘了UI 的外观，请参考图 21.7，这是我们将要建立的 UI。</p>
 <figure id="fig21.7"><img src="images/json/swiftui-json-7.png" alt="图 21.7.　范例 App 的使用者介面"><figcaption>图 21.7.　范例 App 的使用者介面</figcaption></figure>
 <p>而且，我们将UI 分成三个视图，而不是在同一个档案中撰写UI 的代码： </p>
 <ul>
@@ -1315,7 +1315,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 </code></pre>
 <p>我们实例化一个虚构的贷款资料，并传送至单元格视图做渲染。只要你将预览设定为 <em>Selectable</em> 模式，你的预览面板看起来应该与图 21.8 类似。</p>
 <figure id="fig21.8"><img src="images/json/swiftui-json-8.png" alt="图 21.8.　贷款单元格视图"><figcaption>图 21.8.　贷款单元格视图</figcaption></figure>
-<p>现在回到 <code>ContentView.swift</code> 来实作清单视图，首先，声明一个名为 <code>loanStore</code> 的变量： </p>
+<p>现在回到 <code>ContentView.swift</code> 来实现清单视图，首先，声明一个名为 <code>loanStore</code> 的变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">ObservedObject</span> <span class="hljs-keyword">var</span> loanStore = <span class="hljs-type">LoanStore</span>()
 </code></pre>
 <p>由于我们要观察贷款商店的变化并更新UI，因此将 <code>loanStore</code> 标记为 <code>@ObservedObject</code> 属性包裹器。</p>
@@ -1342,7 +1342,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <p>现在，在预览中或模拟器上执行这个 App，你应该能够看到如图 21.9 所示的贷款纪录。</p>
 <figure id="fig21.9"><img src="images/json/swiftui-json-9.png" alt="图 21.9.　在清单视图中呈现贷款资料"><figcaption>图 21.9.　在清单视图中呈现贷款资料</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8%E6%BB%91%E6%A1%BF%E5%BB%BA%E7%AB%8B%E7%AF%A9%E9%81%B8%E5%99%A8%E8%A6%96%E5%9C%96">使用滑杆建立筛选器视图</h4>
-<p>在完成本章之前，我想要介绍如何实作一个筛选功能。这个筛选功能可让使用者定义最大贷款金额，并只显示低于该金额的那些纪录。图 21.7 为筛选器视图的范例，使用者可以使用滑杆来设定最大数量。</p>
+<p>在完成本章之前，我想要介绍如何实现一个筛选功能。这个筛选功能可让使用者定义最大贷款金额，并只显示低于该金额的那些纪录。图 21.7 为筛选器视图的范例，使用者可以使用滑杆来设定最大数量。</p>
 <p>同样的，为了让程式更有组织性，因此为筛选器视图建立一个新档案，并将其命名为 <code>LoanFilterView.swift</code>。</p>
 <p>现在更新 <code>LoanFilterView</code> 结构如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LoanFilterView</span>: <span class="hljs-title">View</span> </span>{
@@ -1394,7 +1394,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 </code></pre>
 <p>现在，你的预览应该如图 21.10 所示。</p>
 <figure id="fig21.10"><img src="images/json/swiftui-json-10.png" alt="图 21.10.　用于设定显示条件的筛选器视图"><figcaption>图 21.10.　用于设定显示条件的筛选器视图</figcaption></figure>
-<p>好的，我们已经实作了筛选器视图，但是我们尚未实作筛选纪录的实际逻辑。让我们增强 <code>LoanStore.swift</code> 的筛选功能。</p>
+<p>好的，我们已经实现了筛选器视图，但是我们尚未实现筛选纪录的实际逻辑。让我们增强 <code>LoanStore.swift</code> 的筛选功能。</p>
 <p>首先，声明以下的变量，该变量用来储存贷款纪录的复本，以作为筛选操作之用。</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> cachedLoans: [<span class="hljs-type">Loan</span>] = []
 </code></pre>

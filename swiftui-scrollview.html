@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -879,12 +879,12 @@
                         <h1 id="%E7%AC%AC-5-%E7%AB%A0-br-%E4%BA%86%E8%A7%A3%E6%BB%BE%E5%8B%95%E8%A6%96%E5%9C%96%E8%88%87%E5%BB%BA%E7%AB%8B%E8%BC%AA%E6%92%AD-ui">第 5 章<br>了解滚动视图与建立轮播 UI</h1>
 <p>从前一章中，我相信你现在应该了解如何使用堆叠建立一个复杂的UI。当然，在你能够熟练 SwiftUI 的运用之前，需要许多的练习才行。因此，在我们深入研究 ScrollView， 学习如何让视图滚动之前，我们先进行一个挑战，来作为本章的开始。你的任务是建立一个卡片视图（card view ），如图5.1 所示。</p>
 <figure id="fig5.1"><img src="images/scrollview/swiftui-scrollview-1.png" alt="图 5.1. 卡片视图"><figcaption>图 5.1. 卡片视图</figcaption></figure>
-<p>透过使用堆叠、图片与文字视图，你应该能够建立 UI。虽然我会逐步示范如何实作， 但请先花一些时间来思考如何完成这个任务，以及找出自己的解决方案。</p>
+<p>透过使用堆叠、图片与文字视图，你应该能够建立 UI。虽然我会逐步示范如何实现， 但请先花一些时间来思考如何完成这个任务，以及找出自己的解决方案。</p>
 <p>当你完成卡片视图的建立之后，我将与你讨论 <code>ScrollView</code>，并使用卡片视图建立一个可滚动的介面，图 5.2 即是完成后的 UI。</p>
 <figure id="fig5.2"><img src="images/scrollview/swiftui-scrollview-2.jpg" alt="图 5.2.　使用 ScrollView 建立一个滚动式UI"><figcaption>图 5.2.　使用 ScrollView 建立一个滚动式UI</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%8D%A1%E7%89%87%E5%BC%8F-ui">建立一个卡片式 UI</h3>
 <p>如果你还没有开启 Xcode，请开启它并使用 App  模板 （于 iOS 下）。来建立一个新专案。在下一个荧幕画面中，设定专案名称为“SwiftUIScrollView”（或是任何你喜欢的名称），并填入所需要的值。请确认已选取“Interface”选项中的“SwiftUI”。</p>
-<p>到目前为止，我们在 <code>ContentView.swift</code> 档中撰写使用者介面的代码，代码撰写在这里完全没有任何问题，不过我要介绍一个整理代码的较佳方式。为了实作卡片视图， 我们另外为它建立一个单独档案，在专案导览器中，于 <code>SwiftUIScrollView</code> 按右键，并选择“New File...”，如图 5.3 所示。</p>
+<p>到目前为止，我们在 <code>ContentView.swift</code> 档中撰写使用者介面的代码，代码撰写在这里完全没有任何问题，不过我要介绍一个整理代码的较佳方式。为了实现卡片视图， 我们另外为它建立一个单独档案，在专案导览器中，于 <code>SwiftUIScrollView</code> 按右键，并选择“New File...”，如图 5.3 所示。</p>
 <figure id="fig5.3"><img src="images/scrollview/swiftui-scrollview-3.png" alt="图 5.3. 建立一个新档案"><figcaption>图 5.3. 建立一个新档案</figcaption></figure>
 <p>如图 5.4 所示，在“User Interface”区块，选取“SwiftUI View”模板，然后点选“Next”来建立档案。将档案名称命名为 <code>CardView</code>，并将其储存在专案资料夹中。</p>
 <figure id="fig5.4"><img src="images/scrollview/swiftui-scrollview-4.png" alt="图 5.4　选取 SwiftUI View 模板"><figcaption>图 5.4　选取 SwiftUI View 模板</figcaption></figure>
@@ -893,7 +893,7 @@
 <h4 id="%E6%BA%96%E5%82%99%E5%9C%96%E7%89%87%E6%AA%94">准备图片档</h4>
 <p>现在，我们准备要撰写卡片视图的代码。但是，首先你需要准备图档，并将其汇入素材目录。如果你不想要准备自己的图片，则可以至 <a href="https://www.appcoda.com/resources/swiftui/SwiftUIScrollViewImages.zip" target="_blank">https://www.appcoda.com/resources/swiftui/SwiftUIScrollViewImages.zip</a> 下载范例图片档，将图片档解压缩后，选取 <code>Assets</code>，并所有图片其拖曳至素材目录。</p>
 <figure id="fig5.6"><img src="images/scrollview/swiftui-scrollview-6.png" alt="图 5.6　将图片档加入素材目录"><figcaption>图 5.6　将图片档加入素材目录</figcaption></figure>
-<h4 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">实作卡片视图</h4>
+<h4 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">实现卡片视图</h4>
 <p>现在切回 <code>CardView.swift</code> 档。若你再看一下图 5.1，这个卡片视图是由两个部分组成， 视图上部是图片，而视图下部是文字叙述。</p>
 <p>让我们从图片开始。我将使图片可调整大小，以缩放来填满荧幕，同时保持长宽比。你可以撰写代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span> </span>{
@@ -904,7 +904,7 @@
     }
 }
 </code></pre>
-<p>如果你忘记了这两个修饰器是什么，请返回并阅读有关 <code>Image</code> 物件的章节。接下来，我们来实作文字叙述部分，你可以撰写代码如下： </p>
+<p>如果你忘记了这两个修饰器是什么，请返回并阅读有关 <code>Image</code> 物件的章节。接下来，我们来实现文字叙述部分，你可以撰写代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span>(alignment: .leading) {
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;SwiftUI&quot;</span>)
         .font(.headline)
@@ -924,7 +924,7 @@
 <p>虽然你可在 <code>foregroundColor</code> 修饰器指定标准颜色，像是 <code>.black</code> 与 <code>.purple</code>，但 iOS 提供一套系统颜色，其中包含主色（ primary color ）、辅色（ secondary color ）、第三级色（ tertiary color ）等变化，透过使用此颜色变化，你的 App 可以轻松支援浅色模式与深色模式。举例而言，文字视图的主色预设设定为浅色模式的黑色。当 App 切换到深色模式， 主色将被调整为白色，这是由 iOS 自动调整，因此你无须另外编写写支援深色模式的代码，我们将在后面的章节中深入探讨深色模式。</p>
 <p>为了将图片与这些文字视图垂直排列，我们使用 <code>VStack</code> 来嵌入它们，目前的布局如图 5.7 所示。</p>
 <figure id="fig5.7"><img src="images/scrollview/swiftui-scrollview-7.png" alt="图 5.7.　将图片与文字视图嵌入到 VStack 中"><figcaption>图 5.7.　将图片与文字视图嵌入到 VStack 中</figcaption></figure>
-<p>还没有完成，尚有几件事情需要实作。首先，如果文字叙述区块要与图片的边缘对齐，该如何做呢？ </p>
+<p>还没有完成，尚有几件事情需要实现。首先，如果文字叙述区块要与图片的边缘对齐，该如何做呢？ </p>
 <p>依照我们所学，我们可以在一个 <code>HStack</code> 嵌入文字视图的 <code>VStack</code>，然后我们将使用一个留白（ <code>Spacer</code> ）来将<code>VStack</code> 往左推，我们来看看是否可行。</p>
 <p>如果你已经变更代码，如图 5.8 所示，这个文字视图的VStack 会对齐荧幕的左侧。</p>
 <figure id="fig5.8"><img src="images/scrollview/swiftui-scrollview-8.png" alt="图 5.8.　文字叙述的对齐"><figcaption>图 5.8.　文字叙述的对齐</figcaption></figure>
@@ -1013,7 +1013,7 @@
 </code></pre>
 <p>错误将可被修正，现在你已经建立了一个能接受不同图片及文字的弹性 <code>CardView</code>。</p>
 <h3 id="scrollview-%E7%9A%84%E4%BB%8B%E7%B4%B9">ScrollView 的介绍</h3>
-<p>再看一下图5.2，这就是我们要实作的使用者介面。首先，你可能认为我们可以使用一个 <code>VStack</code> 来嵌入四个卡片视图。你可以切换到  <code>ContentView.swift</code> ，于 body 内插入以下的程式：</p>
+<p>再看一下图5.2，这就是我们要实现的使用者介面。首先，你可能认为我们可以使用一个 <code>VStack</code> 来嵌入四个卡片视图。你可以切换到  <code>ContentView.swift</code> ，于 body 内插入以下的程式：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">CardView</span>(image: <span class="hljs-string">&quot;swiftui-button&quot;</span>, category: <span class="hljs-string">&quot;SwiftUI&quot;</span>, heading: <span class="hljs-string">&quot;Drawing a Border with Rounded Corners&quot;</span>, author: <span class="hljs-string">&quot;Simon Ng&quot;</span>)
     <span class="hljs-type">CardView</span>(image: <span class="hljs-string">&quot;macos-programming&quot;</span>, category: <span class="hljs-string">&quot;macOS&quot;</span>, heading: <span class="hljs-string">&quot;Building a Simple Editing App&quot;</span>, author: <span class="hljs-string">&quot;Gabriel Theodoropoulos&quot;</span>)

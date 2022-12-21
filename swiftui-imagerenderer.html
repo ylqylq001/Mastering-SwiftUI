@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-41-%E7%AB%A0-br-%E5%88%A9%E7%94%A8-imagerenderer-api-%E8%BC%95%E9%AC%86%E6%8A%8A-swiftui-%E8%A6%96%E5%9C%96%E8%BD%89%E6%8F%9B%E7%82%BA%E5%9C%96%E5%83%8F">第 41 章<br>利用 ImageRenderer API 轻松把 SwiftUI 视图转换为图像</h1>
-<p>iOS 16 为 SwiftUI 带来的另一个 API 就是 <code>ImageRenderer</code>。有了这个 API，我们可以轻松把 SwiftUI 视图转换为图像。这个实作十分简单，让我们利用想要转换为图像的视图，来实例化 <code>ImageRenderer</code> 的实例：</p>
+<p>iOS 16 为 SwiftUI 带来的另一个 API 就是 <code>ImageRenderer</code>。有了这个 API，我们可以轻松把 SwiftUI 视图转换为图像。这个实现十分简单，让我们利用想要转换为图像的视图，来实例化 <code>ImageRenderer</code> 的实例：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> renderer = <span class="hljs-type">ImageRenderer</span>(content: theView)
 </code></pre>
 <p>然后，我们就可以存取 <code>cgImage</code> 或 <code>uiImage</code> 属性，来取得转换后的图像。</p>
@@ -968,7 +968,7 @@
 </code></pre>
 <h3 id="%E5%88%A9%E7%94%A8-imagerenderer-%E6%8A%8A%E8%A6%96%E5%9C%96%E8%BD%89%E6%8F%9B%E7%82%BA%E5%9C%96%E5%83%8F">利用 ImageRenderer 把视图转换为图像</h3>
 <p>现在，我们可以把 Chart 视图转换为图像了。我们要添加一个名为 <em>Save to Photos</em> 的按钮，来把 Chart 视图图像储存到 Photo Album 中。</p>
-<p>让我们如此实作按钮：</p>
+<p>让我们如此实现按钮：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
 
     <span class="hljs-type">VStack</span>(spacing: <span class="hljs-number">20</span>) {

@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -883,7 +883,7 @@
 <h3 id="%E5%88%A9%E7%94%A8-datascannerviewcontroller-%E5%95%9F%E7%94%A8-live-text">利用 DataScannerViewController 启用 Live Text</h3>
 <p>在 WWDC 的 <a href="https://developer.apple.com/videos/play/wwdc2022-10025" target="_blank"><em>Capturing Machine-readable Codes and Text with VisionKit</em></a> Session 中，Apple 工程师展示了以下图片：</p>
 <figure id="fig39.1"><img src="images/livetext/swiftui-live-text-avfoundation.png" alt="图 39.1. AVfoundation 和 Vision 框架提供的 API"><figcaption>图 39.1. AVfoundation 和 Vision 框架提供的 API</figcaption></figure>
-<p>文本辨识 (Text Recognization) 不是 iOS 16 的新功能。在旧版本的 iOS 上，我们已经可以使用 AVFoundation 和 Vision 框架中的 API，来侦测和辨识文本。但是，实作起来十分复杂，尤其是对于那些刚接触 iOS 开发的人来说。</p>
+<p>文本辨识 (Text Recognization) 不是 iOS 16 的新功能。在旧版本的 iOS 上，我们已经可以使用 AVFoundation 和 Vision 框架中的 API，来侦测和辨识文本。但是，实现起来十分复杂，尤其是对于那些刚接触 iOS 开发的人来说。</p>
 <p>在新版本的 iOS 中，以上所有的步骤都被简化为 VisionKit 中的一个新类别 <code>DataScannerViewController</code>。我们在 App 内使用这个视图控制器，就可以自动显示有 Live Text 功能的相机 UI。</p>
 <p>要使用这个类别，让我们先汇入 <code>VisionKit</code> 框架，并检查设备是否支援资料扫描器功能：</p>
 <pre><code class="lang-swift"><span class="hljs-type">DataScannerViewController</span>.isSupported
@@ -918,7 +918,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> startScanning: <span class="hljs-type">Bool</span>
 @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> scanText: <span class="hljs-type">String</span>
 </code></pre>
-<p>让我们实作以下方法，来采用 <code>UIViewControllerRepresentable</code> 协定：</p>
+<p>让我们实现以下方法，来采用 <code>UIViewControllerRepresentable</code> 协定：</p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">makeUIViewController</span><span class="hljs-params">(context: Context)</span> -&gt; <span class="hljs-title">DataScannerViewController</span> </span>{
     <span class="hljs-keyword">let</span> controller = <span class="hljs-type">DataScannerViewController</span>(
                         recognizedDataTypes: [.text()],
@@ -939,14 +939,14 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 }
 </code></pre>
 <p>在 <code>makeUIViewController</code> 方法中，我们回传了一个 <code>DataScannerViewController</code>的实例。在 <code>updateUIViewController</code> 中，我们会根据 <code>startScanning</code> 的数值来开始或停止扫描。</p>
-<p>然后，我们要实作以下的 <code>DataScannerViewControllerDelegate</code> 方法，来撷取扫描到的文本。</p>
+<p>然后，我们要实现以下的 <code>DataScannerViewControllerDelegate</code> 方法，来撷取扫描到的文本。</p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">dataScanner</span><span class="hljs-params">(<span class="hljs-number">_</span> dataScanner: DataScannerViewController, didTapOn item: RecognizedItem)</span> </span>{
   .
   .
   .
 }
 </code></pre>
-<p>当使用者点击侦测到的文本时，就会调用这个方法，因此我们会这样实作它：</p>
+<p>当使用者点击侦测到的文本时，就会调用这个方法，因此我们会这样实现它：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coordinator</span>: <span class="hljs-title">NSObject</span>, <span class="hljs-title">DataScannerViewControllerDelegate</span> </span>{
     <span class="hljs-keyword">var</span> parent: <span class="hljs-type">DataScanner</span>
 

@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -879,11 +879,11 @@
                         <h1 id="%E7%AC%AC-26-%E7%AB%A0-br-%E5%89%B5%E5%BB%BA%E9%A1%9E%E4%BC%BCapp-store%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8B%95%E7%95%AB%E8%A6%96%E5%9C%96%E8%BD%89%E6%8F%9B">第 26 章<br>创建类似App Store使用的动画视图转换</h1>
 <p>相信你一定使用过 iPhone 内置的 <em>App Store</em> App。 在 <em>Today</em> 部分，它提供一系列的文章和App推荐。 而作为App开发者，最令我感兴趣的是它使用的动画视图转换效果。 正如图 26.1 显示，文章以卡片形式列出。 当你点击它时，卡片会弹出以显示全部内容。要关闭文章视图并返回列表视图，你只需点击关闭按钮 。 如果你不明白我的意思，我提议你立刻在 iPhone 上打开 <em>App Store</em> 试一试。</p>
 <figure id="fig26.1"><img src="images/appstore/swiftui-appstore-1.jpg" alt="图 26.1. App Store app"><figcaption>图 26.1. App Store app</figcaption></figure>
-<p>在本章中，我们将构建一个类似的列表视图并使用 SwiftUI 实作动画过渡。 透过建立范例App，你将学习以下技术：</p>
+<p>在本章中，我们将构建一个类似的列表视图并使用 SwiftUI 实现动画过渡。 透过建立范例App，你将学习以下技术：</p>
 <ul>
 <li>如何使用 GeometryReader 检测荧幕尺寸</li>
 <li>如何创建可变大变小的卡片视图（Card View）</li>
-<li>如何实作类似 App Store 内的视图转换动画效果</li>
+<li>如何实现类似 App Store 内的视图转换动画效果</li>
 </ul>
 <p>酷！让我们开始吧。</p>
 <h3 id="%E7%AF%84%E4%BE%8B-app-%E7%B0%A1%E4%BB%8B">范例 App 简介</h3>
@@ -891,7 +891,7 @@
 <figure id="fig26.2"><img src="images/appstore/swiftui-appstore-2.jpg" alt="图 26.2. 范例 App"><figcaption>图 26.2. 范例 App</figcaption></figure>
 <p>我们将由零开始建立App， 但是为了节省你一些时间，我已准备了一个Starter专案。 你可以从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAppStoreStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAppStoreStarter.zip</a> 下载它。 下载项目后，解压后并打开<code>SwiftUIAppStore.xcodeproj</code>查看一下。</p>
 <figure id="fig26.3"><img src="images/appstore/swiftui-appstore-3.png" alt="图 26.3. Starter 专案"><figcaption>图 26.3. Starter 专案</figcaption></figure>
-<p>这个Starter专案已经为了实作以下项目：</p>
+<p>这个Starter专案已经为了实现以下项目：</p>
 <ol>
 <li>它已经将所需的图像加进 Assets。</li>
 <li><code>ContentView.swift</code> 是 Xcode 自动生成的SwiftUI 视图。</li>
@@ -904,7 +904,7 @@
 <figure id="fig26.5"><img src="images/appstore/swiftui-appstore-5.png" alt="图 26.5. 在节录模式下的卡片视图"><figcaption>图 26.5. 在节录模式下的卡片视图</figcaption></figure>
 <p>让我们也看看卡片视图在完整内容模式下的外观。 如下图所示，卡片视图展开以全荧幕显示内容。 除此之外，图像变大了，副标题则被隐藏。 此外，关闭按钮会出现在屏幕上，让使用者关闭视图。 还有，这是一个可滚动的视图。</p>
 <figure id="fig26.6"><img src="images/appstore/swiftui-appstore-6.png" alt="图 26.6. 在完整内容模式下的外观"><figcaption>图 26.6. 在完整内容模式下的外观</figcaption></figure>
-<h3 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">实作卡片视图</h3>
+<h3 id="%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">实现卡片视图</h3>
 <p>现在你了解了此卡片视图的要求，让我们看看如何建立它。 我们将使用一个新文档来建立卡片视图。 在项目导航器中，右点 <em>View</em> 文件夹并选择 <em>New file...</em>。 选择 <em>SwiftUI View</em> 模板并将文件命名为 <code>ArticleCardView.swift</code>。</p>
 <p>首先，让我们从节录视图开始，它是覆盖在图像顶部的视图（图 26.5）。 将代码更新如下：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleExcerptView</span>: <span class="hljs-title">View</span> </span>{
@@ -972,7 +972,7 @@
 <p>因为想预览两种模式，我们建立两个节录视图。一个将<code>isShowContent</code>绑定设定为<code>false</code>，另一个则为<code>true</code>。 <code>sampleArticles</code> 数组是Starter专案附带的测试数据。</p>
 <p>我们不使用装置预览，而是在固定大小的矩形中预览 UI。 如果一切正常，你应该会在预览画面中看到节录视图。请确保你更改为 <em>Selectable</em> 模式以预览固定布局。</p>
 <figure id="fig26.7"><img src="images/appstore/swiftui-appstore-7.png" alt="图 26.7. 预览节录视图"><figcaption>图 26.7. 预览节录视图</figcaption></figure>
-<p>准备好节录视图后，让我们实作文章卡片视图。 像这样更新 <code>ArticleCardView</code> 结构：</p>
+<p>准备好节录视图后，让我们实现文章卡片视图。 像这样更新 <code>ArticleCardView</code> 结构：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArticleCardView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">let</span> category: <span class="hljs-type">String</span>
@@ -1091,7 +1091,7 @@
 <p>修改后，当 <code>isShowContent</code> 的值设定为 <code>true</code> 时，预览就会显示关闭按钮。</p>
 <figure id="fig26.12"><img src="images/appstore/swiftui-appstore-12.png" alt="图 26.12. 加入关闭按钮"><figcaption>图 26.12. 加入关闭按钮</figcaption></figure>
 <h3 id="%E6%A7%8B%E5%BB%BA%E5%88%97%E8%A1%A8%E8%A6%96%E5%9C%96">构建列表视图</h3>
-<p>现在我们已经实作了卡片视图的布局，让我们切换到 <code>ContentView.swift</code> 并创建列表视图。 在列表视图的最顶部，是带有标题和个人资料照片的顶部栏（Top Bar）。</p>
+<p>现在我们已经实现了卡片视图的布局，让我们切换到 <code>ContentView.swift</code> 并创建列表视图。 在列表视图的最顶部，是带有标题和个人资料照片的顶部栏（Top Bar）。</p>
 <figure id="fig26.13"><img src="images/appstore/swiftui-appstore-13.png" alt="图 26.13. 带有标题和个人资料照片的顶部栏"><figcaption>图 26.13. 带有标题和个人资料照片的顶部栏</figcaption></figure>
 <p>我相信你应该知道如何使用 <code>VStack</code> 和 <code>HStack</code> 来布局。 为了将代码整理得更好，我将在两个独立的结构中创建顶部栏和头像。 在 <code>ContentView.swift</code> 中插入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TopBarView</span> : <span class="hljs-title">View</span> </span>{
@@ -1235,7 +1235,7 @@
 <p>当卡片视图显示文章内容时，图像高度现在调整为荧幕高度的 70%。 你可以更改这个值以配合你的个人偏好。 现在回到 <code>ContentView.swift</code> 并测试更改， 特色图像在全内容模式下会变大。</p>
 <figure id="fig26.19"><img src="images/appstore/swiftui-appstore-19.png" alt="图 26.19. 特色图像在全内容模式下变大"><figcaption>图 26.19. 特色图像在全内容模式下变大</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>恭喜！你构建了一个类似于 App Store app 的动画。 在实作了这个示范 App 之后，我希望你了解如何创建复杂的视图动画，并了解如何使用 GeometryReader 来完善你的 UI。</p>
+<p>恭喜！你构建了一个类似于 App Store app 的动画。 在实现了这个示范 App 之后，我希望你了解如何创建复杂的视图动画，并了解如何使用 GeometryReader 来完善你的 UI。</p>
 <p>动画已成为手机 App UI 的重要部分。 如你所见，SwiftUI 让开发人员可以非常轻松地构建一些漂亮的动画和视图过渡效果。 当你开发下一个App时，不要忘记应用在本章中所学到的技术，来提升使用者体验。</p>
 <p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIAppStore.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIAppStore.zip</a></p>

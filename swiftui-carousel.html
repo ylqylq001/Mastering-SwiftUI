@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -879,10 +879,10 @@
                         <h1 id="%E7%AC%AC-27-%E7%AB%A0-br-%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%9C%96%E5%83%8F%E8%BC%AA%E6%92%AD%EF%BC%88image-carousel%EF%BC%89">第 27 章<br>如何建立图像轮播（Image Carousel）</h1>
 <p>Carousel （轮播）是你在大多数手机和 Web App中看到最常见的 UI 模式之一。 有些人称它为图像滑块（Image Slider）或旋转器（Rotator）。 但是，无论你如何称呼它，轮播的设计都旨在在有限的荧幕空间显示一组数据。 例如，图像轮播会显示数组或集合中的其中一个图片，使用者可以滑动荧幕来浏览图像集的其他图片。  Instagram 也有用这种轮播设计，当要显示多张图片时，使用者就要滑动荧幕来浏览图像集。 另外，你也可以在 Apple 的 Music App 和 App Store App 找到类似的轮播应用。</p>
 <figure id="fig27.1"><img src="images/carousel/swiftui-carousel-1.jpg" alt="图 27.1. Music, App Store 和 Instagram app 都有用轮播设计"><figcaption>图 27.1. Music, App Store 和 Instagram app 都有用轮播设计</figcaption></figure>
-<p>在本章中，你将学习如何实作图像轮播，当然是用 SwiftUI。有多种方法可以实现轮播，其中一种方法是整合 UIKit 内的 <code>UIPageViewController</code> 。 但是，我们将探讨另一种方法，并完全以 SwiftUI 框架来建立轮播。</p>
+<p>在本章中，你将学习如何实现图像轮播，当然是用 SwiftUI。有多种方法可以实现轮播，其中一种方法是整合 UIKit 内的 <code>UIPageViewController</code> 。 但是，我们将探讨另一种方法，并完全以 SwiftUI 框架来建立轮播。</p>
 <p>让我们开始吧。</p>
 <h3 id="%E6%97%85%E8%A1%8C%E7%AF%84%E4%BE%8B-app-%E7%B0%A1%E4%BB%8B">旅行范例 App 简介</h3>
-<p>像其他章节一样，我通过构建一个范例 App来引导你了解当中的技术问题。 今次的 App 以轮播形式显示不同的旅行目的地。 要浏览行程，用户可以向右滑动查看下一个目的地，或者向左滑动查看之前的行程。 为了使这个范例 App更具吸引力，使用者可以点击一个目的地来查看它的详细资料。 因此，除了实作轮播外，你还会学习一些动画技术。 图 27.2 显示了范例 App的一些荧幕截图。想知它实际的运作，你可以到 <a href="https://link.appcoda.com/carousel-demo" target="_blank">https://link.appcoda.com/carousel-demo</a> 上观看示范影片。</p>
+<p>像其他章节一样，我通过构建一个范例 App来引导你了解当中的技术问题。 今次的 App 以轮播形式显示不同的旅行目的地。 要浏览行程，用户可以向右滑动查看下一个目的地，或者向左滑动查看之前的行程。 为了使这个范例 App更具吸引力，使用者可以点击一个目的地来查看它的详细资料。 因此，除了实现轮播外，你还会学习一些动画技术。 图 27.2 显示了范例 App的一些荧幕截图。想知它实际的运作，你可以到 <a href="https://link.appcoda.com/carousel-demo" target="_blank">https://link.appcoda.com/carousel-demo</a> 上观看示范影片。</p>
 <figure id="fig27.2"><img src="images/carousel/swiftui-carousel-2.jpg" alt="图 27.2. 范例 App"><figcaption>图 27.2. 范例 App</figcaption></figure>
 <p>为了节省你的时间并专注于开发轮播，我已为建立了一个Starter项目。 请从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUICarouselStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUICarouselStarter.zip</a> 下载并解压档案。</p>
 <figure id="fig27.3"><img src="images/carousel/swiftui-carousel-3.png" alt="图 27.3. Starter 项目"><figcaption>图 27.3. Starter 项目</figcaption></figure>
@@ -894,7 +894,7 @@
 <li><code>TripCardView.swift</code> 已建立了卡片视图的 UI。 每个卡片视图都旨在显示目的地的图像。 <code>isShowDetails</code> 绑定控制文字标签的外观。 当 <code>isShowDetails</code> 设定为 true 时，标签将被隐藏。</li>
 </ol>
 <h3 id="%E6%BB%BE%E5%8B%95%E8%A6%96%E5%9C%96%E7%9A%84%E5%95%8F%E9%A1%8C">滚动视图的问题</h3>
-<p>那么，你将如何在 SwiftUI 中实作轮播呢？ 你或会想到使用滚动视图来创建轮播。 可能你会像这样在 <code>ContentView.swift</code> 中加入以下代码：</p>
+<p>那么，你将如何在 SwiftUI 中实现轮播呢？ 你或会想到使用滚动视图来创建轮播。 可能你会像这样在 <code>ContentView.swift</code> 中加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isCardTapped = <span class="hljs-built_in">false</span>
@@ -920,7 +920,7 @@
 <p>在上面的代码中，我们嵌入了一个带有水平 ScrollView 的 HStack 来创建图像滑块。 在 <code>HStack</code> 中，我们为每个行程创建一个 <code>TripCardView</code>。 为了更好地控制卡片大小，我们有两个 GeometryReader：<em>outerView</em> 和 <em>innerView</em>，其中<em>outerView</em>存放装置荧幕的大小，<em>innerView</em>包裹着卡片视图以控制其大小。 如果你不明白什么是<code>GeometryReader</code>，请先读第26章。</p>
 <p>这看起来很简单，对吧？ 如果你在预览画面中运行代码，它应该会产生一个水平滚动视图。 你可以滑动荧幕浏览所有卡片视图。</p>
 <figure id="fig27.4"><img src="images/carousel/swiftui-carousel-4.png" alt="图 27.4. 滑动荧幕浏览图片"><figcaption>图 27.4. 滑动荧幕浏览图片</figcaption></figure>
-<p>这是否意味着我们已经实作了轮播？ 还未。 有两个主要问题：</p>
+<p>这是否意味着我们已经实现了轮播？ 还未。 有两个主要问题：</p>
 <ol>
 <li>当前的设计并不支援分页（Paging）。 换句话说，你可以滑动荧幕以无间断地滚动内容。 滚动视图可以在任何位置停止。 举例，看一下图 27.4，使用者可以按制在两个卡片视图之间停止滚动。 这不是我们想要的特点， 当滚动停止，荧幕只会显示其中一个内容视图。</li>
 <li>当一个卡片视图被点击时，我们需要找出它的索引并在一个单独的视图中显示它的细节。 问题是要怎样得知使用者点击了哪个卡片视图？</li>
@@ -928,7 +928,7 @@
 <p>这两个问题都与内置的<code>ScrollView</code>有关。 UIKit 版本的滚动视图支持分页。 然而，Apple 并未将该功能引入 SwiftUI 框架的 <code>ScrollView</code>。 为了解决这个问题，我们需要构建我们自己的支持分页（Paging）的滚动视图。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-hstack-%E5%92%8C-draggesture-%E5%BB%BA%E7%AB%8B%E8%BC%AA%E6%92%AD">使用 HStack 和 DragGesture 建立轮播</h3>
 <p>起初，你可能认为很难开发我们自己的滚动视图。 但实际上，这并不难。 如果你了解 <code>HStack</code> 和 <code>DragGesture</code> 的用法，就可以构建一个支援分页的滚动视图。</p>
-<p>想法是将所有卡片视图（即行程）布局在水平堆栈（<code>HStack</code>）中。 <code>HStack</code> 要有足够长度以容纳所有卡片视图，但在任何时候只显示一个卡片视图。 在预设情况下，水平堆栈是不支援滚动的。 因此，我们需要将拖动手势识别器附加到堆栈视图并自行处理拖动。 图 27.5 以图解方式说明了如何实作水平滚动视图。</p>
+<p>想法是将所有卡片视图（即行程）布局在水平堆栈（<code>HStack</code>）中。 <code>HStack</code> 要有足够长度以容纳所有卡片视图，但在任何时候只显示一个卡片视图。 在预设情况下，水平堆栈是不支援滚动的。 因此，我们需要将拖动手势识别器附加到堆栈视图并自行处理拖动。 图 27.5 以图解方式说明了如何实现水平滚动视图。</p>
 <figure id="fig27.5"><img src="images/carousel/swiftui-carousel-5.png" alt="图 27.5. 了解如何使用 HStack 和 DragGesture 创建水平滚动视图"><figcaption>图 27.5. 了解如何使用 HStack 和 DragGesture 创建水平滚动视图</figcaption></figure>
 <h4 id="%E8%87%AA%E5%BB%BAscrollview">自建ScrollView</h4>
 <p>现在让我们看看如何将这个想法转化为代码。 请容忍一下，因为你需要多次更改代码。 我想将每一个步骤都展现出来。 打开 <code>Content.swift</code> 并像这样更新 <code>body</code>：</p>
@@ -977,7 +977,7 @@
 <p>想做得好一点，你可以为图像添加padding， 我认为这会使卡片视图看起来更好。 加入以下代码并将它附加到包裹卡片视图的<code>GeometryReader</code>（在<code>.frame（width：outerView.size.width，height：500）</code>之前）：</p>
 <pre><code class="lang-swift">.padding(.horizontal, <span class="hljs-keyword">self</span>.isCardTapped ? <span class="hljs-number">0</span> : <span class="hljs-number">20</span>)
 </code></pre>
-<p>虽然现在谈论详细视图的实作还是有点过早，但我们为<code>padding</code>添加了一个条件。 当使用者点击卡片视图时，水平填充将被删除。</p>
+<p>虽然现在谈论详细视图的实现还是有点过早，但我们为<code>padding</code>添加了一个条件。 当使用者点击卡片视图时，水平填充将被删除。</p>
 <figure id="fig27.11"><img src="images/carousel/swiftui-carousel-11.png" alt="图 27.11. 加入 padding"><figcaption>图 27.11. 加入 padding</figcaption></figure>
 <h3 id="%E8%AE%93%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E6%BB%BE%E5%8B%95">让卡片视图滚动</h3>
 <p>现在我们已经建立了一个能显示第一个卡片视图的水平堆栈，下一个问题是我们如何移动堆栈以显示特定卡片图？</p>
@@ -1047,7 +1047,7 @@
 <p>就是这样， SwiftUI 会自动为卡片视图的移动加入动画。 在预览画布中运行App以测试更改。 </p>
 <figure id="fig27.15"><img src="images/carousel/swiftui-carousel-15.png" alt="图 27.15. 加入动画效果"><figcaption>图 27.15. 加入动画效果</figcaption></figure>
 <h3 id="%E5%8A%A0%E5%85%A5%E6%A8%99%E9%A1%8C">加入标题</h3>
-<p>既然我们已经构建了图像轮播，现在就再为这 App 实作详细视图， 让我们由添加标题开始。</p>
+<p>既然我们已经构建了图像轮播，现在就再为这 App 实现详细视图， 让我们由添加标题开始。</p>
 <p>按Command键再点击外部视图（outerView）的<code>GeometryReader</code>并选择<em>embed in ZStack</em>。</p>
 <figure id="fig27.16"><img src="images/carousel/swiftui-carousel-16.png" alt="图 27.16. 选择 Embed in Stack"><figcaption>图 27.16. 选择 Embed in Stack</figcaption></figure>
 <p>接下来，在 <code>ZStack</code> 的开头插入以下代码：</p>
@@ -1068,7 +1068,7 @@
 <p>上面的代码应该不用解释吧，但我想特别指出两行代码。 <code>.opacity</code> 和 <code>.offset</code> 都是可有可无的。 <code>.opacity</code> 修饰器的目的是在点击卡片视图时隐藏标题，而<code>.offset</code>会进一步提升使用者体验。</p>
 <figure id="fig27.17"><img src="images/carousel/swiftui-carousel-17.png" alt="图 27.17. 加入标题"><figcaption>图 27.17. 加入标题</figcaption></figure>
 <h3 id="%E7%B7%B4%E7%BF%92%EF%BC%9A%E8%99%95%E7%90%86%E8%A9%B3%E7%B4%B0%E8%A6%96%E5%9C%96">练习：处理详细视图</h3>
-<p>让我们通过一个练习来开始详细视图的实作。 我假设你对 SwiftUI 有一定的经验，并且应该能够建立图 27.18 的详细视图。你可以建立一个名为<code>TripDetailView.swift</code>的文件并在那里编写代码。</p>
+<p>让我们通过一个练习来开始详细视图的实现。 我假设你对 SwiftUI 有一定的经验，并且应该能够建立图 27.18 的详细视图。你可以建立一个名为<code>TripDetailView.swift</code>的文件并在那里编写代码。</p>
 <figure id="fig27.18"><img src="images/carousel/swiftui-carousel-18.png" alt="图 27.18. 行程详细视图"><figcaption>图 27.18. 行程详细视图</figcaption></figure>
 <p>为简单起见，评级和描述都只是一些 hardcode 的资料。 <em>Book Now</em> 按钮也是如此，它不能运作的。 这个详细视图的框架大概就是这样：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TripDetailView</span>: <span class="hljs-title">View</span> </span>{
@@ -1082,7 +1082,7 @@
 }
 </code></pre>
 <p>请花一些时间来开发详细视图， 我将在后面的部分中介绍我的解决方案。</p>
-<h3 id="%E5%AF%A6%E4%BD%9C%E8%A1%8C%E7%A8%8B%E8%A9%B3%E7%B4%B0%E8%A6%96%E5%9C%96">实作行程详细视图</h3>
+<h3 id="%E5%AF%A6%E4%BD%9C%E8%A1%8C%E7%A8%8B%E8%A9%B3%E7%B4%B0%E8%A6%96%E5%9C%96">实现行程详细视图</h3>
 <p>你是否能够开发详细视图？ 我希望能完成这个练习。 让我讲解一下我的解决方案。 首先，使用 <em>SwiftUI View</em> 模板建立一个名为 <code>TripDetailView.swift</code> 的新文件。</p>
 <p>接下来，像这样写 <code>TripDetailView</code> 结构：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TripDetailView</span>: <span class="hljs-title">View</span> </span>{

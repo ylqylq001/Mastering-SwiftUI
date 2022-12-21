@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -887,7 +887,7 @@
 <ul>
 <li><strong>Transaction.swift</strong> - <code>Transaction</code> 结构代表电子钱包 App中的交易。每一笔交易有一个唯一的 ID、交易商、金额、日期与图示。除了 <code>Transaction</code> 结构之外，作为示范之用，我们还声明一个测试交易的数组。</li>
 <li><strong>Card.swift</strong> - 这个档案包含了 <code>Card</code> 的结构。<code>Card</code> 表示信用卡的资料，包含卡号、类型、有效日期、图片与客户姓名，除此之外，你可以在档案中找到一个测试信用卡的数组。需要注意的一点是，卡片图片中不包含任何的个人资讯，而只包含卡片品牌（例如： Visa ）。稍后，我们将为信用卡建立一个视图。</li>
-<li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始专案已经带有交易历史纪录视图的实作。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
+<li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始专案已经带有交易历史纪录视图的实现。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
 <li><strong>ContentView.swift</strong> - 这是 Xcode产生的预设 SwiftUI 视图。</li>
 </ul>
 <figure id="fig20.3"><img src="images/wallet/swiftui-wallet-3.png" alt="图 20.3.　使用.horizontal 建立水平滚动视图"><figcaption>图 20.3.　使用.horizontal 建立水平滚动视图</figcaption></figure>
@@ -939,7 +939,7 @@
 <p><code>testCards</code> 变量在 <code>Card.swift</code> 中定义，因此我们使用 <code>ForEach</code> 来逐一执行卡片，并调用 <code>previewDisplayName</code> 来设定预览的名称。Xcode 将如图 20.5 所示布局卡片。</p>
 <figure id="fig20.5"><img src="images/wallet/swiftui-wallet-5.png" alt="图 20.5.　预览卡片视图"><figcaption>图 20.5.　预览卡片视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%9B%BB%E5%AD%90%E9%8C%A2%E5%8C%85%E8%A6%96%E5%9C%96%E8%88%87%E5%8D%A1%E7%89%87%E5%BA%AB">建立电子钱包视图与卡片库</h3>
-<p>我们现在已经实作了卡片视图，让我们开始建立电子钱包视图。如果你忘记电子钱包视图的外观，请看一下图 20.6。在进行手势与动画之前，我们将先布局卡片库。</p>
+<p>我们现在已经实现了卡片视图，让我们开始建立电子钱包视图。如果你忘记电子钱包视图的外观，请看一下图 20.6。在进行手势与动画之前，我们将先布局卡片库。</p>
 <figure id="fig20.6"><img src="images/wallet/swiftui-wallet-6.png" alt="图 20.6　钱包视图"><figcaption>图 20.6　钱包视图</figcaption></figure>
 <p>在专案导览器中，你应该会看到 <code>ContentView.swift</code> 档。删除它，然后右键点选 <code>View</code> 资料夹，以建立一个新档案。在对话方块中，选取“SwiftUI View”作为模板，并将档案命名为 <code>WalletView.swift</code>。</p>
 <p>如果你预览 <code>WalletView</code>  或在模拟器中执行 App，Xcode 应该会显示一个错误，因为 <code>ContentView</code> 设定为初始视图，并且其被删除了。要修正这个错误，则开启 <code>SwiftUIWallet App.swift</code>，并将 <code>WindowGroup</code> 中下列这行代码： </p>
@@ -993,14 +993,14 @@
 </code></pre>
 <p>如果你在模拟器中执行这个 App 或直接预览 UI，则应该只看到卡片库中的最后一张卡片，如图 20.7 所示。</p>
 <figure id="fig20.7"><img src="images/wallet/swiftui-wallet-7.png" alt="图 20.7.　尝试显示卡片库"><figcaption>图 20.7.　尝试显示卡片库</figcaption></figure>
-<p>目前的实作有两个问题： </p>
+<p>目前的实现有两个问题： </p>
 <ol>
 <li><em>卡片现在彼此重叠了</em> - 我们需要找出一种方式来展开一副卡片。</li>
 <li><em>Discover卡应该是最后一张卡片</em> - 在 ZStack中，项目彼此堆叠在一起。放入 ZStack的第一个项目成为最低层，而最后一个项目成为最高层。如果你看一下 <code>Card.swift</code> 中的 <code>testCards</code> 数组，第一张卡片是 Visa 卡，最后一张卡片是 Discover 卡。</li>
 </ol>
 <p>那么，我们要如何修正这个问题呢？对于第一个问题，我们可以使用 <code>offset</code>修饰器来展开一副卡片。而对于第二个问题，我们显然可以更改每个 <code>CardView</code> 的 <code>zIndex</code>，以改变卡片的顺序。图 20.8 说明了这个解决方案是如何工作的。</p>
 <figure id="fig20.8"><img src="images/wallet/swiftui-wallet-8.png" alt="图 20.8.　了解zIndex 与偏移量"><figcaption>图 20.8.　了解zIndex 与偏移量</figcaption></figure>
-<p>我们先讨论一下 z-index。每张卡片的 z-index 是其在 <code>cards</code> 数组中索引的负值，如此最后一个项目拥有数组索引的最大值，也将会有最小的 z-index。对于实际的实作，我们将建立一个单独的函数来处理 z-index 的计算。在<code>WalletView</code> 中，插入下列的代码： </p>
+<p>我们先讨论一下 z-index。每张卡片的 z-index 是其在 <code>cards</code> 数组中索引的负值，如此最后一个项目拥有数组索引的最大值，也将会有最小的 z-index。对于实际的实现，我们将建立一个单独的函数来处理 z-index 的计算。在<code>WalletView</code> 中，插入下列的代码： </p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">zIndex</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Double</span> </span>{
     guard <span class="hljs-keyword">let</span> cardIndex = index(<span class="hljs-keyword">for</span>: card) <span class="hljs-keyword">else</span> {
         <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span>
@@ -1053,7 +1053,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isCardPresented = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>此变量指示卡片是否应显示在荧幕上。 在预设的情况下，它设置为<code>false</code>。 稍后，我们将此值设置为 <code>true</code> 以启动视图转换。</p>
-<p>每张卡片都是一个视图。要实作如图 20.10 所示的动画，我们需要将 <code>transition</code> 与 <code>animation</code> 修饰器加到<code>CardView</code> 上，如下所示： </p>
+<p>每张卡片都是一个视图。要实现如图 20.10 所示的动画，我们需要将 <code>transition</code> 与 <code>animation</code> 修饰器加到<code>CardView</code> 上，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">CardView</span>(card: card)
     .offset(<span class="hljs-keyword">self</span>.offset(<span class="hljs-keyword">for</span>: card))
     .padding(.horizontal, <span class="hljs-number">35</span>)
@@ -1093,7 +1093,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>更改后，点击 <em>Play</em> 按钮在模拟器中测试App，App启动时就会呈现动画。</p>
 <h3 id="%E8%99%95%E7%90%86%E9%BB%9E%E6%93%8A%E6%89%8B%E5%8B%A2%E5%8F%8A%E9%A1%AF%E7%A4%BA%E4%BA%A4%E6%98%93%E7%B4%80%E9%8C%84">处理点击手势及显示交易纪录</h3>
 <p>当使用者点击卡片时，App 会向上移动所选的卡片，并且显示历史交易纪录。对于其他没有选到的卡片，它们会被移出荧幕。</p>
-<p>要实作这个功能，我们还需要两个状态变量。在 <code>WalletView</code> 中声明这些变量： </p>
+<p>要实现这个功能，我们还需要两个状态变量。在 <code>WalletView</code> 中声明这些变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> isCardPressed = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> selectedCard: <span class="hljs-type">Card</span>?
 </code></pre>
@@ -1155,7 +1155,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 </ol>
 <figure id="fig20.12"><img src="images/wallet/swiftui-wallet-12.png" alt="图 20.12.　使用拖曳手势在卡片库上移动卡片"><figcaption>图 20.12.　使用拖曳手势在卡片库上移动卡片</figcaption></figure>
 <h4 id="%E8%99%95%E7%90%86%E9%95%B7%E6%8C%89%E8%88%87%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2">处理长按与拖曳手势</h4>
-<p>现在你应该了解我们将要做什么，我们来继续实作。如果你忘记我们如何使用 SwiftUI 处理手势，则请回头阅读第 17 章，该章已经讨论了我们将使用的大多数技术。</p>
+<p>现在你应该了解我们将要做什么，我们来继续实现。如果你忘记我们如何使用 SwiftUI 处理手势，则请回头阅读第 17 章，该章已经讨论了我们将使用的大多数技术。</p>
 <p>首先，在 <code>WalletView.swift</code> 中插入下列的代码，来建立 <code>DragState</code> 枚举，以使我们可以轻松追踪拖曳状态：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
     <span class="hljs-keyword">case</span> inactive

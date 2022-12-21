@@ -200,7 +200,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -260,7 +260,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -951,8 +951,8 @@
     .navigationTitle(<span class="hljs-string">&quot;Color&quot;</span>)
 }
 </code></pre>
-<p>我们还是会使用 <code>NavigationLinks</code> 来显示资料列表，并实作导览功能；不同之处是每个 <code>NavigationLink</code> 都连系着一个数值。更重要的是，我们添加了新的 <code>navigationDestination</code> 修饰符来捕捉数值的变化。当使用者选择特定的 link 时，<code>navigationDestination</code> 修饰符就会显示相应带有 <code>Color</code> 型别资料的目标视图。</p>
-<p>如果我们在预览中测试这个 App，你会发现它的操作方式与之前完全相同。但是，内部的实作已经使用了新的 <code>navigationDestination</code> 修饰符。</p>
+<p>我们还是会使用 <code>NavigationLinks</code> 来显示资料列表，并实现导览功能；不同之处是每个 <code>NavigationLink</code> 都连系着一个数值。更重要的是，我们添加了新的 <code>navigationDestination</code> 修饰符来捕捉数值的变化。当使用者选择特定的 link 时，<code>navigationDestination</code> 修饰符就会显示相应带有 <code>Color</code> 型别资料的目标视图。</p>
+<p>如果我们在预览中测试这个 App，你会发现它的操作方式与之前完全相同。但是，内部的实现已经使用了新的 <code>navigationDestination</code> 修饰符。</p>
 <h3 id="%E5%A4%9A%E5%80%8B-navigation-destination-%E4%BF%AE%E9%A3%BE%E5%99%A8">多个 Navigation Destination 修饰器</h3>
 <p>我们可以定义多于一个 <code>navigationDestination</code> 修饰符，来处理不同型别的 Navigation Link。在之前的范例中，我们只有一个 <code>navigationDestination</code> 修饰符来处理 <code>Color</code> 型别。现在，让我们为 <code>String</code> 型别设置另一组 Navigation Link：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(systemImages, id: \.<span class="hljs-keyword">self</span>) { systemImage <span class="hljs-keyword">in</span>

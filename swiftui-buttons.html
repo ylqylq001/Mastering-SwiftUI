@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -987,7 +987,7 @@
     .border(<span class="hljs-type">Color</span>.purple, width: <span class="hljs-number">5</span>)
 </code></pre>
 <p>这里我们设定前景色为“紫色”，然后在文字周围加入一些空白的间距。<code>border</code> 修饰器是用来定义边框的宽度与颜色，请自行更改 <code>width</code> 参数的值来查看效果。</p>
-<p>再举一个例子，例如：一位设计师向你展示如图 6.9 所示的按钮设计，你将如何利用目前所学的内容来实作它呢？在阅读到下一个段落之前，请自行花个几分钟来思考解决方案。</p>
+<p>再举一个例子，例如：一位设计师向你展示如图 6.9 所示的按钮设计，你将如何利用目前所学的内容来实现它呢？在阅读到下一个段落之前，请自行花个几分钟来思考解决方案。</p>
 <figure id="fig6.9"><img src="images/buttons/swiftui-buttons-9.png" alt="图 6.9　具有背景色及边框的按钮"><figcaption>图 6.9　具有背景色及边框的按钮</figcaption></figure>
 <p>那么，你所需要的代码如下：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
@@ -1054,7 +1054,7 @@
 <p>这里，我们将图片与文字控制元件皆嵌入在一个水平堆叠中，这将使垃圾桶图示与“Delete”文字并排。在<code>HStack</code> 中，修饰器设定了背景色、间距与按钮的圆角，图 6.13 显示了最后结果的按钮。</p>
 <figure id="fig6.13"><img src="images/buttons/swiftui-buttons-13.png" alt="图 6.13.　具有图示与文字的按钮"><figcaption>图 6.13.　具有图示与文字的按钮</figcaption></figure>
 <h3 id="%E6%A8%99%E7%B1%A4%E7%9A%84%E7%94%A8%E6%B3%95">标签的用法</h3>
-<p>SwiftUI 于 iOS 14 导入了一个新的视图称作 <code>Label</code>，可以将图片与文字并排，因此，你可以使用 <code>Label</code>  来替代 <code>HStack</code> 来实作同样的布局。</p>
+<p>SwiftUI 于 iOS 14 导入了一个新的视图称作 <code>Label</code>，可以将图片与文字并排，因此，你可以使用 <code>Label</code>  来替代 <code>HStack</code> 来实现同样的布局。</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Delete button tapped&quot;</span>)
 } label: {
@@ -1226,7 +1226,7 @@
     }
 }
 </code></pre>
-<p>该协定要求我们提供接受 <code>configuration</code> 参数的 <code>makeBody</code> 函数的实作，configuration 参数包含一个 <code>label</code> 属性，你可以应用修饰器来变更按钮的样式。在上列的代码中，我们只应用了之前所使用的同一个修饰器。</p>
+<p>该协定要求我们提供接受 <code>configuration</code> 参数的 <code>makeBody</code> 函数的实现，configuration 参数包含一个 <code>label</code> 属性，你可以应用修饰器来变更按钮的样式。在上列的代码中，我们只应用了之前所使用的同一个修饰器。</p>
 <p>因此，你如何将自订样式应用于按钮上呢？ SwiftUI 提供了一个名为 <code>.buttonStyle</code>的修饰器，让你可以应用按钮样式，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Delete button tapped&quot;</span>)
@@ -1259,7 +1259,7 @@
 <p>提示一下，<code>rotationEffect</code> 修饰器可以用来旋转按钮（或者其他视图）。</p>
 <h3 id="%E5%9C%A8-ios-15-%E4%B8%AD%E8%A8%AD%E7%BD%AE%E6%8C%89%E9%88%95%E6%A8%A3%E5%BC%8F">在 iOS 15 中设置按钮样式</h3>
 <figure id="fig6.25"><img src="images/buttons/swiftui-buttons-25.png" alt="图 6.25. 圆角按钮"><figcaption>图 6.25. 圆角按钮</figcaption></figure>
-<p>相信你已经知道如何实作如图 25 所示的按钮。在 iOS 15 中，Apple 为 <code>Button</code> 视图引入了许多修饰符。 要建立类似按钮，你可以编写如下代码：</p>
+<p>相信你已经知道如何实现如图 25 所示的按钮。在 iOS 15 中，Apple 为 <code>Button</code> 视图引入了许多修饰符。 要建立类似按钮，你可以编写如下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
 
 } label: {

@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -880,7 +880,7 @@
 <p>你曾在 Keynote 使用过瞬间移动动画（ magic move animation ）吗？藉由瞬间移动效果， 你可以轻松建立投影片间的平滑动画（ slick animation ）。Keynote 会自动分析两张投影片之间的物件，并自动渲染动画。同样，SwiftUI 也将瞬间移动动画带入应用程式开发中， 使用该框架的动画是自动且神奇的。当你定义一个视图的两个状态，SwiftUI 会找出其余的状态，接着以动画呈现两个状态之间的变化。</p>
 <p>SwiftUI 使你能够为单个视图的变化以及两个视图之间的转场来设定动画。SwiftUI 框架具有许多的内建动画，可建立不同的效果。</p>
 <h3 id="%E9%9A%B1%E5%BC%8F%E5%8B%95%E7%95%AB%E8%88%87%E9%A1%AF%E5%BC%8F%E5%8B%95%E7%95%AB">隐式动画与显式动画</h3>
-<p>SwiftUI 提供两种动画类型：隐式（ implicit ）与显式（ explicit ）。这两个方式可以让你为视图及视图转场设定动画。为了实作隐式动画，SwiftUI 框架提供一个名为 <code>animation</code> 的修饰器，你把这个修饰器加到要设定动画的视图上，并指定喜欢的动画类型。或者，你可以定义动画的持续时间与延迟时间，SwiftUI 会根据视图的状态变化来自动渲染动画。</p>
+<p>SwiftUI 提供两种动画类型：隐式（ implicit ）与显式（ explicit ）。这两个方式可以让你为视图及视图转场设定动画。为了实现隐式动画，SwiftUI 框架提供一个名为 <code>animation</code> 的修饰器，你把这个修饰器加到要设定动画的视图上，并指定喜欢的动画类型。或者，你可以定义动画的持续时间与延迟时间，SwiftUI 会根据视图的状态变化来自动渲染动画。</p>
 <p>显式动画对你要显示的动画提供更具局限性的控制，其并非将修饰器加到视图，而是在 <code>withAnimation()</code> 区块中，告诉 SwiftUI 若有什么的状态变化时，要绘制动画。</p>
 <p>仍是觉得有些困惑吗？没有关系，藉由几个范例，你就会更有概念了。</p>
 <h4 id="%E9%9A%B1%E5%BC%8F%E5%8B%95%E7%95%AB">隐式动画</h4>
@@ -892,7 +892,7 @@
 <li>心形图示的颜色会从白色变成红色。</li>
 <li>心形图示会比原来的大小大两倍。</li>
 </ol>
-<p>如果你使用SwiftUI 来实作可点击的圆形，以下为程式内容，你可以建立一个 Xcode 的新专案，并将程式插入至 <code>ContentView.swift</code> 来测试看看：</p>
+<p>如果你使用SwiftUI 来实现可点击的圆形，以下为程式内容，你可以建立一个 Xcode 的新专案，并将程式插入至 <code>ContentView.swift</code> 来测试看看：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> circleColorChanged = <span class="hljs-built_in">false</span>
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> heartColorChanged = <span class="hljs-built_in">false</span>
@@ -920,7 +920,7 @@
 }
 </code></pre>
 <p>我们定义三个状态变量来建立状态模型，初始值皆设定为“false”。为了建立圆形与心形，我们使用 <code>ZStack</code> 来将心形叠在圆形上，如图9.2 所示。SwiftUI 有个 <code>onTapGesture</code> 修饰器可以侦测，点击手势，你可以将它加在任何视图，使其可点击。在 <code>onTapGesture</code> 闭包中，我们切换状态，以改变视图的外观。</p>
-<figure id="fig9.2"><img src="images/animation/swiftui-animation-2.png" alt="图 9.2.　实作圆形与心形视图"><figcaption>图 9.2.　实作圆形与心形视图</figcaption></figure>
+<figure id="fig9.2"><img src="images/animation/swiftui-animation-2.png" alt="图 9.2.　实现圆形与心形视图"><figcaption>图 9.2.　实现圆形与心形视图</figcaption></figure>
 <p>在预览画布测试这个 App，则你点击视图时，圆形及心形图示的颜色会改变，但这些变化不会显示动画。</p>
 <p>要让这些变化显示动画效果，你只需将 <code>animation</code> 修饰器加到 <code>Circle</code> 与 <code>Image</code> 视图： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Circle</span>()
@@ -1155,9 +1155,9 @@
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.<span class="hljs-keyword">default</span>.delay(<span class="hljs-number">1.0</span>)
 </code></pre>
 <p>这会将动画延迟1 秒后开始。<code>delay</code> 函数也适用其他动画。</p>
-<p>透过混合搭配持续时间值与延迟时间值，你可以实作出一些有趣的动画，如图 9.8 所示的圆点下载指示器。</p>
+<p>透过混合搭配持续时间值与延迟时间值，你可以实现出一些有趣的动画，如图 9.8 所示的圆点下载指示器。</p>
 <figure id="fig9.8"><img src="images/animation/swiftui-animation-8.gif" alt="图 9.8.　圆点下载指示器r"><figcaption>图 9.8.　圆点下载指示器r</figcaption></figure>
-<p>这个指示器由五个点组成，每个点皆有放大缩小动画，不过各有不同的延迟时间。我们来看代码该如何实作： </p>
+<p>这个指示器由五个点组成，每个点皆有放大缩小动画，不过各有不同的延迟时间。我们来看代码该如何实现： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isLoading = <span class="hljs-built_in">false</span>
 
@@ -1185,9 +1185,9 @@
 <p>如果你没有调用 <code>delay</code> 函数来执行这个动画，则所有的点会同时缩放。但是，这不是我们想要的结果，每个点应独立调整大小，而不是全部同时放大/ 缩小，这也是为何我们调用 <code>delay</code> 函数的原因，并对每个点使用不同的延迟时间值。</p>
 <p>你可以更改持续时间值与延迟时间值来调整动画。</p>
 <h3 id="%E5%B0%87%E7%9F%A9%E5%BD%A2%E8%AE%8A%E5%BD%A2%E7%82%BA%E5%9C%93%E5%BD%A2">将矩形变形为圆形</h3>
-<p>有时，你可能需要将一个形状（例如：矩形）流畅地变形为另一个形状（例如：圆形）。这该如何实作呢？使用内建的形状与动画，你可以轻松建立如图 9.9 所示的变形。</p>
+<p>有时，你可能需要将一个形状（例如：矩形）流畅地变形为另一个形状（例如：圆形）。这该如何实现呢？使用内建的形状与动画，你可以轻松建立如图 9.9 所示的变形。</p>
 <figure id="fig9.9"><img src="images/animation/swiftui-animation-9.gif" alt="图 9.9.　将矩形变形为圆形"><figcaption>图 9.9.　将矩形变形为圆形</figcaption></figure>
-<p>将矩形变形为圆形的技巧是使用 <code>RoundedRectangle</code> 形状，并为圆角半径的变化设定动画。假设矩形的宽度与高度相同，当圆角半径设定为宽度的一半时，它会变为圆形。以下是变形按钮的实作： </p>
+<p>将矩形变形为圆形的技巧是使用 <code>RoundedRectangle</code> 形状，并为圆角半径的变化设定动画。假设矩形的宽度与高度相同，当圆角半径设定为宽度的一半时，它会变为圆形。以下是变形按钮的实现： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> recordBegin = <span class="hljs-built_in">false</span>
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> recording = <span class="hljs-built_in">false</span>
@@ -1368,7 +1368,7 @@
 }
 </code></pre>
 <h3 id="%E4%BD%9C%E6%A5%AD-2-%E8%A6%96%E5%9C%96%E8%BD%89%E5%A0%B4%E5%8B%95%E7%95%AB">作业 #2: 视图转场动画</h3>
-<p>你已经学会了如何实作视图转场，试着结合在第 5 章中建立的卡片视图专案，并建立如下所示的视图转场。当使用者点击卡片时，目前的视图将缩小并淡出，下一个视图将以放大动画显示在前面。</p>
+<p>你已经学会了如何实现视图转场，试着结合在第 5 章中建立的卡片视图专案，并建立如下所示的视图转场。当使用者点击卡片时，目前的视图将缩小并淡出，下一个视图将以放大动画显示在前面。</p>
 <figure id="fig9.17"><img src="images/animation/swiftui-animation-17.png" alt="图 9.17.　视图转场动画"><figcaption>图 9.17.　视图转场动画</figcaption></figure>
 <p>如果你不懂上述的动画， 则可以输入网址： <a href="https://www.appcoda.com/wp-content/uploads/2019/10/swiftui-view-animation.gif" target="_blank">https://www.appcoda.com/wp-content/uploads/2019/10/swiftui-view-animation.gif</a>，来看一下动画效果。</p>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
@@ -1394,7 +1394,7 @@
         </div>
 
         
-        <a href="./swiftui-path-shape.html" class="navigation navigation-prev " aria-label="Previous page: 实作路径(Path)与形状(Shape)来画线与圆饼图"><i class="fa fa-angle-left"></i></a>
+        <a href="./swiftui-path-shape.html" class="navigation navigation-prev " aria-label="Previous page: 实现路径(Path)与形状(Shape)来画线与圆饼图"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="./swiftui-list.html" class="navigation navigation-next " aria-label="Next page: 动态列表、 ForEach 与 Identifiable 的使用方法"><i class="fa fa-angle-right"></i></a>

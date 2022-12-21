@@ -5,7 +5,7 @@
         
         <meta charset=utf-8"UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>强制回应视图、浮动按钮与提示的实作 | 精通 SwiftUI - iOS 16 版</title>
+        <title>强制回应视图、浮动按钮与提示的实现 | 精通 SwiftUI - iOS 16 版</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.1">
@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -876,14 +876,14 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E7%AC%AC-12-%E7%AB%A0-br-%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96%E3%80%81%E6%B5%AE%E5%8B%95%E6%8C%89%E9%88%95%E8%88%87%E8%AD%A6%E5%91%8A%E6%8F%90%E7%A4%BA%E8%A6%96%E7%AA%97">第 12 章<br>实作强制回应视图、浮动按钮与警告提示视窗</h1>
+                        <h1 id="%E7%AC%AC-12-%E7%AB%A0-br-%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96%E3%80%81%E6%B5%AE%E5%8B%95%E6%8C%89%E9%88%95%E8%88%87%E8%AD%A6%E5%91%8A%E6%8F%90%E7%A4%BA%E8%A6%96%E7%AA%97">第 12 章<br>实现强制回应视图、浮动按钮与警告提示视窗</h1>
 <p>在前一章中，我们建立了一个导览介面，让使用者从内容视图导览至细节视图。视图转场动画很精巧，并且完全由iOS 负责。当使用者触发转场时，细节视图会流畅地从右至左滑动。导览 UI 只是常用的 UI 模式之一，在本章中，我将向你介绍另一个强制显示内容的设计技巧。</p>
 <p>对于 iPhone 的使用者，你应该非常熟悉强制回应视图了。强制回应视图的一种常见用途是显示输入表单，例如：行事历 App 为使用者显示一个强制回应视图来建立一个新事件。系统内建的提醒事项与联络人 App 也使用强制回应视图来要求使用者输入。</p>
 <figure id="fig12.1"><img src="images/modal/swiftui-modal-1.png" alt="图 12.1.　行事历、提醒事项与联络人 App 的强制回应视图范例"><figcaption>图 12.1.　行事历、提醒事项与联络人 App 的强制回应视图范例</figcaption></figure>
 <p>从使用者体验的角度来看，这个强制回应视图通常是透过点击按钮来触发。同样的， 强制回应视图的转场动画是由 iOS 所处理。当显示全荧幕的强制回应视图时，它会流畅地从画面底部向上滑动。</p>
 <p>如果你是 iOS 的长期使用者，你可能会发现如图 12.1 所示的强制回应视图的外观及感觉和平常不太一样。在 iOS 13 之前，显示强制回应视图时会覆盖整个画面，自 iOS 13 起，强制回应视图预设是以卡片式的形式显示，其不会覆盖全画面，而是部分覆盖了底层内容视图，你仍然可看到内容 / 父视图的顶部边缘。除了视觉变动之外，现在可从画面的任意位置向下滑动来解除强制回应视图。你不需要撰写任何一行代码，即可启动这个手势。它完全是内建且由 iOS 产生。当然，若是你想透过按钮来解除强制回应视图，则依然可以这样做。</p>
-<p>那么，我们将在本章中要实作什么呢？ </p>
-<p>我教你如何使用强制回应视图显示和在前一章中我们实作过的相同细节视图，虽然强制回应视图通常用于显示表单，这并不表示你不能使用它们来显示其他资讯。除了强制回应视图之外，你还将学习如何在细节视图中建立浮动按钮。虽然可透过滑动手势来解除强制回应视图，但我想提供一个“Close”按钮来供使用者解除细节视图。另外，我们也将研究警告提示视窗（Alert ），这是另一种强制回应视图。</p>
+<p>那么，我们将在本章中要实现什么呢？ </p>
+<p>我教你如何使用强制回应视图显示和在前一章中我们实现过的相同细节视图，虽然强制回应视图通常用于显示表单，这并不表示你不能使用它们来显示其他资讯。除了强制回应视图之外，你还将学习如何在细节视图中建立浮动按钮。虽然可透过滑动手势来解除强制回应视图，但我想提供一个“Close”按钮来供使用者解除细节视图。另外，我们也将研究警告提示视窗（Alert ），这是另一种强制回应视图。</p>
 <figure id="fig12.2"><img src="images/modal/swiftui-modal-2.jpg" alt="图 12.2.　使用强制回应视图来显示细节画面"><figcaption>图 12.2.　使用强制回应视图来显示细节画面</figcaption></figure>
 <p>我们在本章中有许多要讨论的内容。让我们开始吧 ！ </p>
 <h3 id="%E4%BA%86%E8%A7%A3-swiftui-%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8">了解 SwiftUI 的工作表</h3>
@@ -891,7 +891,7 @@
 <p>工作表（sheet ）的表现风格看起来为一张卡片，其部分覆盖了底层内容，并使所有未覆盖到的地方变暗，以防止与其互动。在目前卡片的后面可看见父视图或上一张卡片的顶部边缘，以帮助人们记住他们开启卡片时暂停的任务</p>
 <p>- Apple 的官方文件(<a href="https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/modality/" target="_blank">https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/modality/</a>)</p>
 </blockquote>
-<p>在深入钻研如何实作之前，让我先简要介绍一下强制回应视图的卡片式外观。在 SwiftUI 中，卡片外观是使用工作表的表现风格来实现，这是强制回应视图的预设表示风格。</p>
+<p>在深入钻研如何实现之前，让我先简要介绍一下强制回应视图的卡片式外观。在 SwiftUI 中，卡片外观是使用工作表的表现风格来实现，这是强制回应视图的预设表示风格。</p>
 <p>基本上，要显示强制回应视图，你可应用 <code>sheet</code> 修饰器，如下所示： </p>
 <pre><code class="lang-swift">.sheet(isPresented: $showModal) {
     <span class="hljs-type">DetailView</span>()
@@ -908,7 +908,7 @@
 <p>以上是背景资讯，我们来继续实际执行范例专案。首先，，请至
 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip</a>。 下载起始专案，下载后开启专案，并看一下预览，如图 12.3 所示。你应该非常熟悉范例 App 了，该 App 仍有一个导览列，但导览连结已被删除。</p>
 <figure id="fig12.3"><img src="images/modal/swiftui-modal-3.png" alt="图 12.3.　起始专案"><figcaption>图 12.3.　起始专案</figcaption></figure>
-<h3 id="%E4%BD%BF%E7%94%A8-ispresented-%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 isPresented 实作强制回应视图</h3>
+<h3 id="%E4%BD%BF%E7%94%A8-ispresented-%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 isPresented 实现强制回应视图</h3>
 <p>如前所述，<code>sheet</code> 修饰器提供我们两种显示模式的方式。我将展示这两种方法如何工作，我们从 <code>isPresented</code> 方法开始，对于这个方法，我们需要一个Bool 型别的状态变量来追踪强制回应视图的状态。在 <code>ContentView</code>中声明这个变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showDetailView = <span class="hljs-built_in">false</span>
 </code></pre>
@@ -916,7 +916,7 @@
 <p>当显示细节视图时，该视图需要我们传送所选的文章，因此我们也需要声明一个状态来储存使用者的选择。在<code>ContentView</code> 中，为此声明另一个状态变量如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> selectedArticle: <span class="hljs-type">Article</span>?
 </code></pre>
-<p>为了实作强制回应视图，我们将 <code>sheet</code> 修饰器加到 <code>List</code> 上，如下所示：</p>
+<p>为了实现强制回应视图，我们将 <code>sheet</code> 修饰器加到 <code>List</code> 上，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span>(articles) { article <span class="hljs-keyword">in</span>
         <span class="hljs-type">ArticleRow</span>(article: article)
@@ -961,7 +961,7 @@
 <p>现在于预览画布上执行这个 App。你应该能够以强制回应模式带出细节视图，如图 12.4 所示。</p>
 <p><em>注意：当你第一次打开模态视图时，它显示的是一个空白视图。 擦拭对话框以关闭它，然后选择另一篇文章（不是同一篇文章），App应该会显示正确的文章。 这是一个已知问题，我们将在后面的部分讨论如何改善。</em></p>
 <figure id="fig12.4"><img src="images/modal/swiftui-modal-4.png" alt="图 12.4. 以强制回应模式来显示细节视图"><figcaption>图 12.4. 以强制回应模式来显示细节视图</figcaption></figure>
-<h3 id="%E4%BD%BF%E7%94%A8-optional-%E7%B6%81%E5%AE%9A%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 Optional 绑定实作强制回应视图</h3>
+<h3 id="%E4%BD%BF%E7%94%A8-optional-%E7%B6%81%E5%AE%9A%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 Optional 绑定实现强制回应视图</h3>
 <p><code>sheet</code> 修饰器还提供另一种显示强制回应视图的方式。这里不使用布林值来控制强制回应视图的外观，这个修饰器让你使用一个 Optional 绑定来实现相同的目标。</p>
 <p>你可以将 <code>sheet</code> 修饰器替换为下列代码： </p>
 <pre><code class="lang-swift">.sheet(item: $selectedArticle) { article <span class="hljs-keyword">in</span>
@@ -984,8 +984,8 @@
 <p>强制回应视图具有向下滑动手势的内建支援。现在，你可以向下滑动视图来关闭它，我想这对于 iPhone 长期使用者而言很自然，因为如 Facebook 之类的 App 已使用这个手势来解除视图，但是新的使用者可能对此一无所知，我们最好开发一个“关闭”按钮作为解除强制回应视图的替代方式。</p>
 <figure id="fig12.5"><img src="images/modal/swiftui-modal-7.png" alt="图 12.5. 浮动按钮"><figcaption>图 12.5. 浮动按钮</figcaption></figure>
 <p>现在切换到 <code>ArticleDetailView.swift</code>， 我们将“关闭”按钮加入至视图中，如图 12.5  所示。</p>
-<p>你知道如何将按钮放在右上角吗？试着不直接遵循我的代码，而是提出自己的实作。</p>
-<p>好的，回到实作部分。</p>
+<p>你知道如何将按钮放在右上角吗？试着不直接遵循我的代码，而是提出自己的实现。</p>
+<p>好的，回到实现部分。</p>
 <p>和 <code>NavigationStack</code> 类似，我们可以使用 <code>dismiss</code> 环境值来解除模式。因此，首先在<code>ArticleDetailView</code> 中声明下列的变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.dismiss) <span class="hljs-keyword">var</span> dismiss
 </code></pre>
@@ -1013,10 +1013,10 @@
 )
 </code></pre>
 <p>如此，按钮将会覆盖在滚动视图上方，以浮动按钮的形式显示。即使你向下滚动视图，按钮也会停留在相同的位置。要将按钮放在右上角，这里我们使用 <code>HStack</code> 与 <code>VStack</code>， 然后加上 <code>Spacer</code> 作为辅助。要解除视图， 你可以调用  <code>dismiss()</code> 函数。</p>
-<figure id="fig12.6"><img src="images/modal/swiftui-modal-8.png" alt="图 12.9. 实作“关闭”按钮"><figcaption>图 12.9. 实作“关闭”按钮</figcaption></figure>
-<p>现在于模拟器中实作 App，或切换至 <code>ContentView</code>，并在画布中执行。你应该能点选“关闭”按钮来解除强制回应视图。</p>
+<figure id="fig12.6"><img src="images/modal/swiftui-modal-8.png" alt="图 12.9. 实现“关闭”按钮"><figcaption>图 12.9. 实现“关闭”按钮</figcaption></figure>
+<p>现在于模拟器中实现 App，或切换至 <code>ContentView</code>，并在画布中执行。你应该能点选“关闭”按钮来解除强制回应视图。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E8%AD%A6%E5%91%8A%E6%8F%90%E7%A4%BA%E8%A6%96%E7%AA%97">使用警告提示视窗</h3>
-<p>除了卡片式的强制回应视图，“警告提示视窗”（ Alert ）是另一种强制回应视图，当它显示时，整个画面会被锁住，如果你不选择其中一个选项，将会无法离开。图 12.7 为一个警告提示视窗的范例，这是我们将在范例专案中实作的内容，而我们所要做的是，当使用者点击“关闭”按钮后，显示一个警告提示视窗。</p>
+<p>除了卡片式的强制回应视图，“警告提示视窗”（ Alert ）是另一种强制回应视图，当它显示时，整个画面会被锁住，如果你不选择其中一个选项，将会无法离开。图 12.7 为一个警告提示视窗的范例，这是我们将在范例专案中实现的内容，而我们所要做的是，当使用者点击“关闭”按钮后，显示一个警告提示视窗。</p>
 <figure id="fig12.7"><img src="images/modal/swiftui-modal-9.png" alt="图 12.7　显示一个警告提示视窗"><figcaption>图 12.7　显示一个警告提示视窗</figcaption></figure>
 <p>在 SwiftUI 中，你可以使用 <code>Alert</code> 结构来建立一个警告提示视窗，下列是 <code>Alert</code> 的范例用法： </p>
 <pre><code class="lang-swift">.alert(<span class="hljs-string">&quot;Warning&quot;</span>, isPresented: $showAlert, actions: {
@@ -1074,8 +1074,8 @@
 }
 </code></pre>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>你已经学习了如何显示强制回应视图、实作浮动按钮以及显示警告提示视窗。iOS 持续鼓励使用者利用手势来与装置互动，并为常见手势提供内建支援。不需要撰写一行代码，即可让使用者在画面上向下滑动，以解除强制回应视图。</p>
-<p>强制回应视图与警告提示视窗的 API 设计非常相似，它监控状态变量，以确认是否触发强制回应视图（或警告提示视窗）。一旦你了解这个技术后，实作对你而言应该不困难了。</p>
+<p>你已经学习了如何显示强制回应视图、实现浮动按钮以及显示警告提示视窗。iOS 持续鼓励使用者利用手势来与装置互动，并为常见手势提供内建支援。不需要撰写一行代码，即可让使用者在画面上向下滑动，以解除强制回应视图。</p>
+<p>强制回应视图与警告提示视窗的 API 设计非常相似，它监控状态变量，以确认是否触发强制回应视图（或警告提示视窗）。一旦你了解这个技术后，实现对你而言应该不困难了。</p>
 <p>在本章所准备的范例档中，有完整的专案可供下载： </p>
 <ul>
 <li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModal.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModal.zip</a>)</li>

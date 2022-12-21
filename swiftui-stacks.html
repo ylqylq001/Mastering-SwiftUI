@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -941,7 +941,7 @@
 <figure id="fig4.7"><img src="images/stacks/swiftui-stacks-7.png" alt="图 4.7.　布局售价方案"><figcaption>图 4.7.　布局售价方案</figcaption></figure>
 <p>“Basic”与“Pro”元件是并排排列。使用 <code>HStack</code>，你可以水平布局视图。堆叠可以使用巢状结构，以致于你能够在堆叠视图之中放入另一个堆叠视图。由于售价方案区块位于标题视图的下方，因此我们会使用另外一个VStack 来嵌入一个垂直堆叠（即 Choose Your Plan ）与一个水平堆叠（即售价方案区块），如图 4.8 所示。</p>
 <figure id="fig4.8"><img src="images/stacks/swiftui-stacks-8.png" alt="图 4.8.　使用VStack 来嵌入其他堆叠视图"><figcaption>图 4.8.　使用VStack 来嵌入其他堆叠视图</figcaption></figure>
-<p>现在，你应该对如何使用 <code>VStack</code> 与 <code>HStack</code> 来实作 UI 有了一些基本观念，让我们进入代码部分。</p>
+<p>现在，你应该对如何使用 <code>VStack</code> 与 <code>HStack</code> 来实现 UI 有了一些基本观念，让我们进入代码部分。</p>
 <p>要将目前的 <code>VStack</code> 嵌入另外一个 <code>VStack</code>，你可以按住 command  键，并点选 <code>VStack</code> 关键字，这会带出一个显示所有可用选项的内容选单（content menu ），选择“Embed in VStack”来嵌入 <code>VStack</code>，如图 4.9 所示。</p>
 <figure id="fig4.9"><img src="images/stacks/swiftui-stacks-9.png" alt="图 4.9.　在VStack 嵌入"><figcaption>图 4.9.　在VStack 嵌入</figcaption></figure>
 <p>Xcode 将会产生嵌入到此堆叠的所需代码，你的代码应如下所示： </p>
@@ -967,7 +967,7 @@
 <p>Xcode 取出代码区块， 并建立一个名为 <code>ExtractedView</code> 的预设结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
 <figure id="fig4.11"><img src="images/stacks/swiftui-stacks-11.png" alt="图 4.11　取出子视图"><figcaption>图 4.11　取出子视图</figcaption></figure>
 <p>UI 现在仍然相同，不过请查看 <code>ContentView</code> 中的代码区块，现在它变得更为简洁且易于阅读。</p>
-<p>我们继续实作售价方案的UI。首先，建立“Basic”方案的UI，然后如下所示更新 <code>ContentView</code>： </p>
+<p>我们继续实现售价方案的UI。首先，建立“Basic”方案的UI，然后如下所示更新 <code>ContentView</code>： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">VStack</span> {
@@ -994,7 +994,7 @@
 </code></pre>
 <p>这里，我们只是在 <code>HeaderView</code> 下加入另一个 <code>VStack</code>。这个 <code>VStack</code> 是用来存放三个文字视图，以显示“Basic”方案。我将不再讨论有关 <code>padding</code>、<code>background</code> 与 <code>cornerRadius</code> 的详细内容，因为我们已经在前面的章节中已讨论过这些修饰器了。</p>
 <figure id="fig4.12"><img src="images/stacks/swiftui-stacks-12.png" alt="图 4.12　Basic 方案"><figcaption>图 4.12　Basic 方案</figcaption></figure>
-<p>接下来，我们将实作“Pro”方案的UI。这个“Pro”方案应该要放在“Basic”方案的旁边，因此你需要将“Basic”方案的 <code>VStack</code> 嵌入在 <code>HStack</code> 中。现在，按住 command 键不放，并点选 <code>VStack</code> 关键字，选择“Embed in HStack”，如图 4.13 所示。</p>
+<p>接下来，我们将实现“Pro”方案的UI。这个“Pro”方案应该要放在“Basic”方案的旁边，因此你需要将“Basic”方案的 <code>VStack</code> 嵌入在 <code>HStack</code> 中。现在，按住 command 键不放，并点选 <code>VStack</code> 关键字，选择“Embed in HStack”，如图 4.13 所示。</p>
 <figure id="fig4.13"><img src="images/stacks/swiftui-stacks-13.png" alt="图 4.13. Embed in HStack"><figcaption>图 4.13. Embed in HStack</figcaption></figure>
 <p>Xcode 应该建立 <code>HStack</code> 的代码，并在水平堆叠中嵌入所选的 <code>VStack</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">HStack</span> {

@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -977,8 +977,8 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre>
 <p>在 SwiftUI 中使用 Core Data 的技巧是将托管物件内容（managed object context）注入到环境中。 稍后，在 SwiftUI 视图中，我们可以轻松地从环境中读取 context 以进行下一步的操作。</p>
-<h3 id="%E5%AF%A6%E4%BD%9C-new-payment-view">实作 New Payment View</h3>
-<p>相信你已对模型层有一定了解，现在让我们看看如何实作每个视图。 <em>New Payment</em> 视图专为使用者建立新的交易（收入或支出）而设计。 打开 <code>PaymentFormView.swift</code> 看看， 您应该能够预览输入表单。</p>
+<h3 id="%E5%AF%A6%E4%BD%9C-new-payment-view">实现 New Payment View</h3>
+<p>相信你已对模型层有一定了解，现在让我们看看如何实现每个视图。 <em>New Payment</em> 视图专为使用者建立新的交易（收入或支出）而设计。 打开 <code>PaymentFormView.swift</code> 看看， 您应该能够预览输入表单。</p>
 <figure id="fig25.3"><img src="images/real-world-app/real-world-app-3.png" alt="图 25.3. Payment Form 视图"><figcaption>图 25.3. Payment Form 视图</figcaption></figure>
 <h4 id="form-%E7%9A%84%E4%BD%88%E5%B1%80">Form 的布局</h4>
 <p>让我先向您介绍表单的布局方式。 当开发 SwiftUI 介面时，时刻都要记着将一些常用的视图变得可以轻易重用。 由于大多数表单的文字栏都非常相似，我创建了一个通用的文本栏（即 <code>FormTextField</code>）：</p>
@@ -1267,7 +1267,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre>
 <p>要使用<code>PaymentFormView</code>，您必须提供一个<code>PaymentActivity</code>物件。 由于<code>PaymentActivity</code>是一个托管物件（managed object），我们需要从<code>PersistenceController</code>中读取<code>context</code>来创建一个。 一旦我们创建了 <code>PaymentActivity</code> 物件，就可以用它来预览 <code>PaymentFormView</code>。</p>
-<h3 id="%E5%AF%A6%E4%BD%9C%E4%BA%A4%E6%98%93%E6%B4%BB%E5%8B%95%E8%A9%B3%E7%B4%B0%E8%A6%96%E5%9C%96">实作交易活动详细视图</h3>
+<h3 id="%E5%AF%A6%E4%BD%9C%E4%BA%A4%E6%98%93%E6%B4%BB%E5%8B%95%E8%A9%B3%E7%B4%B0%E8%A6%96%E5%9C%96">实现交易活动详细视图</h3>
 <p>现在让我们讨论下一个视图并看看交易活动详细视图是如何实现的。 当使用者在 <em>Recent Transactions</em> 中选择一项交易活动时，此视图就会弹出来。 它显示交易的详细信息，例如数额和消费地点。 您可以打开 <code>PaymentDetailView.swift</code> 来查看 UI 的外观， 这样您会更了解详细视图。</p>
 <figure id="fig25.5"><img src="images/real-world-app/real-world-app-5.png" alt="图 25.5. 交易活动详细视图"><figcaption>图 25.5. 交易活动详细视图</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2">使用者介面</h4>

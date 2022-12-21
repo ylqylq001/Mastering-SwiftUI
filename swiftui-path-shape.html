@@ -5,7 +5,7 @@
         
         <meta charset=utf-8"UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>实作路径(Path)与形状(Shape)来画线与圆饼图 | 精通 SwiftUI - iOS 16 版</title>
+        <title>实现路径(Path)与形状(Shape)来画线与圆饼图 | 精通 SwiftUI - iOS 16 版</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.1">
@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -876,7 +876,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E7%AC%AC-8-%E7%AB%A0-br-%E5%AF%A6%E4%BD%9C%E8%B7%AF%E5%BE%91%E8%88%87%E5%BD%A2%E7%8B%80%E4%BE%86%E7%B9%AA%E8%A3%BD%E7%B7%9A%E6%A2%9D%E8%88%87%E5%9C%93%E9%A4%85%E5%9C%96">第 8 章<br>实作路径与形状来绘制线条与圆饼图</h1>
+                        <h1 id="%E7%AC%AC-8-%E7%AB%A0-br-%E5%AF%A6%E4%BD%9C%E8%B7%AF%E5%BE%91%E8%88%87%E5%BD%A2%E7%8B%80%E4%BE%86%E7%B9%AA%E8%A3%BD%E7%B7%9A%E6%A2%9D%E8%88%87%E5%9C%93%E9%A4%85%E5%9C%96">第 8 章<br>实现路径与形状来绘制线条与圆饼图</h1>
 <p>对于有经验的开发者，你可能已使用过 Core Graphics API 来绘制形状与物件。这是一个非常强大的框架，可于建立向量图。在 SwiftUI 中，它也提供几个向量绘图 API，可供开发者绘制线条与形状。</p>
 <p>在本章中，你将学习如何使用 <code>Path</code> 与内建的 <code>Shape</code>（如 <code>Circle</code> 与 <code>RoundedRectangle</code> ）， 来绘制线条、圆弧、圆饼图与环圈图。下列是我将要介绍的主题： </p>
 <ul>
@@ -1055,11 +1055,11 @@
 }
 .fill(<span class="hljs-type">Color</span>.green)
 </code></pre>
-<p>现在，我们来讨论一下 <code>Shape</code> 协定，这个协定非常简单，只有一个需求，当你使用它时，你必须实作下列函数： </p>
+<p>现在，我们来讨论一下 <code>Shape</code> 协定，这个协定非常简单，只有一个需求，当你使用它时，你必须实现下列函数： </p>
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-keyword">in</span> rect: CGRect)</span> -&gt; <span class="hljs-title">Path</span>
 </span></code></pre>
-<p>那么，我们何时需要使用 <code>Shape</code> 协定呢？试问你如何重新使用刚建立的 <code>Path</code> 呢？例如： 你想要建立一个圆顶（Dome）形状、大小弹性的按钮，该如何实作呢？ </p>
-<p>再看一下上列的代码，你以绝对座标与尺寸来建立一个路径。为了建立相同但大小可变的形状，则可以建立一个结构来采用 <code>Shape</code> 协定，并实作 <code>path(in:)</code> 函数。当 <code>path(in:)</code> 函数被框架调用时，你将获得 <code>rect</code> 的大小，然后可在 <code>rect</code> 中绘制路径。</p>
+<p>那么，我们何时需要使用 <code>Shape</code> 协定呢？试问你如何重新使用刚建立的 <code>Path</code> 呢？例如： 你想要建立一个圆顶（Dome）形状、大小弹性的按钮，该如何实现呢？ </p>
+<p>再看一下上列的代码，你以绝对座标与尺寸来建立一个路径。为了建立相同但大小可变的形状，则可以建立一个结构来采用 <code>Shape</code> 协定，并实现 <code>path(in:)</code> 函数。当 <code>path(in:)</code> 函数被框架调用时，你将获得 <code>rect</code> 的大小，然后可在 <code>rect</code> 中绘制路径。</p>
 <p>我们来了解如何建立圆顶形状，如此你便能更了解 <code>Shape</code> 协定。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Dome</span>: <span class="hljs-title">Shape</span> </span>{
     <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-keyword">in</span> rect: CGRect)</span> -&gt; <span class="hljs-title">Path</span> </span>{
@@ -1144,7 +1144,7 @@
 <p>为了显示完成百分比（ completion percentage），我们将一个文字视图叠在圆环的中间， 如图 8.16 所示。</p>
 <figure id="fig8.16"><img src="images/shape/swiftui-shape-16.png" alt="图 8.16.　绘制进度视图"><figcaption>图 8.16.　绘制进度视图</figcaption></figure>
 <h3 id="%E7%B9%AA%E8%A3%BD%E7%92%B0%E5%9C%88%E5%9C%96">绘制环圈图</h3>
-<p>最后要示范的是环圈图，如果你完全了解 <code>trim</code> 修饰器的用法，那么你可能已经知道我们将如何实作环圈图了。处理 <code>trim</code> 修饰器的值，我们可以将圆环切分成多段。</p>
+<p>最后要示范的是环圈图，如果你完全了解 <code>trim</code> 修饰器的用法，那么你可能已经知道我们将如何实现环圈图了。处理 <code>trim</code> 修饰器的值，我们可以将圆环切分成多段。</p>
 <p>这是我们用来建立环圈图的技巧，代码如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">Circle</span>()

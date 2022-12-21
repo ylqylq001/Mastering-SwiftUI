@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -958,7 +958,7 @@
     <span class="hljs-keyword">var</span> description: <span class="hljs-type">String</span>
 }
 </code></pre>
-<p>要让 <code>ShareLink</code> 可以分享这个物件，我们就要让 <code>Photo</code> 遵从 <code>Transferable</code> 协定，并实作 <code>transferRepresentation</code> 属性 (property)：</p>
+<p>要让 <code>ShareLink</code> 可以分享这个物件，我们就要让 <code>Photo</code> 遵从 <code>Transferable</code> 协定，并实现 <code>transferRepresentation</code> 属性 (property)：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Photo</span>: <span class="hljs-title">Transferable</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> transferRepresentation: some <span class="hljs-type">TransferRepresentation</span> {
         <span class="hljs-type">ProxyRepresentation</span>(exporting: \.image)

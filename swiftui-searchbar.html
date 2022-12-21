@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -881,12 +881,12 @@
 <p>你不仅可以学习如何建立搜寻栏视图，我们还将会和你讲解如何使用自订绑定。 之前我们讨论过绑定，但还没有向你展示如何建立自定义绑定。 当你需要为绑定（Binding）加入额外的程式逻辑时，自订绑定就特别有用。 另外，你也会学习如何在 SwiftUI 中关闭软体键盘。</p>
 <p>图 24.1 就是我们将要建立的搜索栏，外观与 UIKit 中的 UISearchBar 非常相似。 同样地，这个搜索栏也会有个 <em>Cancel</em> 按钮，当使用者开始输入搜寻文字时就会出现。</p>
 <figure id="fig24.1"><img src="images/searchbar/swiftui-searchbar-1.png" alt="图 24.1. 利用 SwiftUI 自己建立搜寻栏"><figcaption>图 24.1. 利用 SwiftUI 自己建立搜寻栏</figcaption></figure>
-<h3 id="%E5%AF%A6%E4%BD%9C%E6%90%9C%E5%B0%8B%E6%AC%84-ui">实作搜寻栏 UI</h3>
+<h3 id="%E5%AF%A6%E4%BD%9C%E6%90%9C%E5%B0%8B%E6%AC%84-ui">实现搜寻栏 UI</h3>
 <p>我们将会修改之前的项目转为我们自己建立的搜寻栏。 因此，请首先从 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListUISearchBar.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIToDoListUISearchBar.zip</a> 下载启动项目。 编译一次以确保它有效。 该App应该向你显示一个搜索栏，但是，该栏来自 UIKit。 我们将把它转换成一个完全使用 SwiftUI 构建的搜寻栏视图。</p>
 <p>打开<code>SearchBar.swift</code>，这是我们关注的文件。 我们将重写整段代码，但保持其名称不变。 我们仍然称它为“SearchBar”，它仍然接受搜寻文字的绑定作为参数。 对于调用者（即 ContentView），没有什么需要变更， 用法还是这样：</p>
 <pre><code class="lang-swift"><span class="hljs-type">SearchBar</span>(text: $searchText)
 </code></pre>
-<p>现在，让我们从 UI 开始做起。 如果你想挑战自己，请停止阅读并尝试自己实作搜寻栏 UI。 这个使用者介界非常简单。 它由一个文字栏、几个图标和取消按钮组成。</p>
+<p>现在，让我们从 UI 开始做起。 如果你想挑战自己，请停止阅读并尝试自己实现搜寻栏 UI。 这个使用者介界非常简单。 它由一个文字栏、几个图标和取消按钮组成。</p>
 <p>如果你不知道 UI 是如何建立的，就让我们一起写出来吧。 请将 <code>SearchBar.swift</code> 中的 <code>SearchBar</code> 结构改成这样：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SearchBar</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> text: <span class="hljs-type">String</span>

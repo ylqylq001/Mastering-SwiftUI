@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -877,13 +877,13 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-33-%E7%AB%A0-br-%E4%BD%BF%E7%94%A8-matchedgeometryeffect%E7%82%BA-app-%E5%BB%BA%E7%AB%8B%E7%B5%A2%E9%BA%97%E7%9A%84%E8%A6%96%E5%9C%96%E5%8B%95%E7%95%AB">第 33 章<br>使用 matchedGeometryEffect为 App 建立绚丽的视图动画</h1>
-<p>在 iOS 14 中，Apple 为 SwiftUI 框架引入了很多新功能，像是 LazyVGrid 以及 LazyHGrid。其中 <code>matchedGeometryEffect</code> 非常引人注目，这个功能让开发者只需要几行代码，就能够创造绚丽的视图动画。SwiftUI 框架已经让开发者可以简单地使用动画来呈现视图的变化，而 <code>matchedGeometryEffect</code> 修饰器 (modifier) 更将视图动画 (view animations) 的实作提升到另一个境界。</p>
+<p>在 iOS 14 中，Apple 为 SwiftUI 框架引入了很多新功能，像是 LazyVGrid 以及 LazyHGrid。其中 <code>matchedGeometryEffect</code> 非常引人注目，这个功能让开发者只需要几行代码，就能够创造绚丽的视图动画。SwiftUI 框架已经让开发者可以简单地使用动画来呈现视图的变化，而 <code>matchedGeometryEffect</code> 修饰器 (modifier) 更将视图动画 (view animations) 的实现提升到另一个境界。</p>
 <p>对所有手机 App 来说，我们经常需要在多个视图之间转换，因此一个令人喜欢的视图转换绝对可以提升整体的使用者体验。有了 <code>matchedGeometryEffect</code>，你只需要描述两个视图的外观，修饰器就会自动计算两个视图的差异，并且自动为大小和位置的变化加上动画。</p>
 <p>可能你会觉得十分困惑，但别担心，介绍完整个范例 App 之后，你就会明白我在说什么了。</p>
 <h3 id="%E9%87%8D%E6%BA%AB-swiftui-%E5%8B%95%E7%95%AB">重温 SwiftUI 动画</h3>
-<p>在我们开始介绍 <code>matchedGeometryEffect</code> 之前，让我们先来看一下如何使用 SwiftUI 来实作动画。下面的图片显示了一个视图开始和结束的状态。当你点击左边的圆形视图，它应该会变大且往上移动；相反地，当你点击右边的视图时，它就会回到原本的大小和位置。</p>
+<p>在我们开始介绍 <code>matchedGeometryEffect</code> 之前，让我们先来看一下如何使用 SwiftUI 来实现动画。下面的图片显示了一个视图开始和结束的状态。当你点击左边的圆形视图，它应该会变大且往上移动；相反地，当你点击右边的视图时，它就会回到原本的大小和位置。</p>
 <figure id="fig33.1"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-1.png" alt="图 33.1. 圆形视图开始状态 (左), 圆形视图结束状态 (右)"><figcaption>图 33.1. 圆形视图开始状态 (左), 圆形视图结束状态 (右)</figcaption></figure>
-<p>要实作这个可点击的圆形视图非常简单。开启一个新的 SwiftUI 专案后，如此更新 <code>ContentView</code> 结构：</p>
+<p>要实现这个可点击的圆形视图非常简单。开启一个新的 SwiftUI 专案后，如此更新 <code>ContentView</code> 结构：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> expand = <span class="hljs-built_in">false</span>
@@ -903,7 +903,7 @@
 <p>我们用一个状态变量 <code>expand</code>，来记录 <code>Circle</code> 视图目前的状态。当状态改变时，我们会透过 <code>.frame</code> 和 <code>.offset</code> 这两个修饰器，来修改视图框 (frame) 的大小和位移 (offset)。如果在预览画面中执行这个 App ，你应该可以在点击圆形视图时看到动画效果。</p>
 <figure id="fig33.2"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-2.gif" alt="图 33.2. 圆形视图的动画效果"><figcaption>图 33.2. 圆形视图的动画效果</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-matchedgeometryeffect-%E4%BF%AE%E9%A3%BE%E5%99%A8">了解 matchedGeometryEffect 修饰器</h3>
-<p>那么到底什么是 <code>matchedGeometryEffect</code> 呢？这个功能如何简化实作视图动画的步骤？让我们再来看一下第一张图片、以及圆形视图动画的代码。我们需要找出开始及结束状态时的确切数值差异。在这个例子当中，就是视图框的大小及位移。</p>
+<p>那么到底什么是 <code>matchedGeometryEffect</code> 呢？这个功能如何简化实现视图动画的步骤？让我们再来看一下第一张图片、以及圆形视图动画的代码。我们需要找出开始及结束状态时的确切数值差异。在这个例子当中，就是视图框的大小及位移。</p>
 <p>有了 <code>matchedGeometryEffect</code> 修饰器，你不再需要找出两个状态之间的差异了。你只需要描述两个视图：<em>一个是开始的状态，而另一个是结束的状态</em>，<code>matchedGeometryEffect</code> 会自动添加在两个视图之间大小和位置的差异。</p>
 <p>要使用 <code>matchedGeometryEffect</code> 建立跟之前一样的动画效果，你需要先声明一个命名空间 (namespace) 变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> shapeTransition
@@ -943,9 +943,9 @@
 <p>在这段代码中，我们建立了两个圆形视图，一个表示开始状态，而另一个表示结束状态。当它一开始被初始化之后，我们会得到一个 <code>Circle</code> 视图，位置置中以及宽度为 150 点。当 <code>expand</code> 状态变量从 <code>false</code> 变成 <code>true</code> 时， App 会显示另一个 <code>Circle</code> 视图，其位置是从中间往上 200 点以及宽度为 300 点。</p>
 <p>对于两个 <code>Circle</code> 视图，我们都添加了 <code>matchedGeometryEffect</code> 修饰器，并且指定了相同的 ID 和命名空间。透过这样的设定，SwiftUI 可以计算两个视图之间大小和位置的差异，并且添加视图转换。随着后续加上的 <code>animation</code> 修饰器，SwiftUI 框架会自动动画化视图转换。</p>
 <p>ID 以及命名空间的用途，是用来标记属于同一个转换的视图，所以两个 <code>Circle</code> 视图会使用相同的 ID 和命名空间。</p>
-<p>以上我们介绍了如何使用 <code>matchedGeometryEffect</code>，来实作两个视图之间的动画转换效果。如果你有使用过Keynote 的 Magic Move，这个新的修饰器跟 Magic Move非常类似。我建议你使用 iPhone 模拟器来执行这个 App，以便测试这个动画效果。在我写这篇文章时， Xcode  中有一个 bug，导致我们无法在预览画面测试这个动画效果。</p>
+<p>以上我们介绍了如何使用 <code>matchedGeometryEffect</code>，来实现两个视图之间的动画转换效果。如果你有使用过Keynote 的 Magic Move，这个新的修饰器跟 Magic Move非常类似。我建议你使用 iPhone 模拟器来执行这个 App，以便测试这个动画效果。在我写这篇文章时， Xcode  中有一个 bug，导致我们无法在预览画面测试这个动画效果。</p>
 <h3 id="%E5%BE%9E%E5%9C%93%E5%BD%A2%E8%AE%8A%E7%82%BA%E5%9C%93%E8%A7%92%E9%95%B7%E6%96%B9%E5%BD%A2">从圆形变为圆角长方形</h3>
-<p>现在，让我们来试试实作另一个视图转换动画。这一次，我们会将一个圆形变化成为一个圆角长方形 (rounded rectangle)。圆形位置于荧幕的上端，而圆角长方形则位于荧幕的底端。</p>
+<p>现在，让我们来试试实现另一个视图转换动画。这一次，我们会将一个圆形变化成为一个圆角长方形 (rounded rectangle)。圆形位置于荧幕的上端，而圆角长方形则位于荧幕的底端。</p>
 <figure id="fig33.3"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-3.png" alt="图 33.3. 圆形视图的开始状态 (左), 圆角长方形的结束状态 (右)"><figcaption>图 33.3. 圆形视图的开始状态 (左), 圆角长方形的结束状态 (右)</figcaption></figure>
 <p>我们可以使用刚刚学到的技巧，准备两个视图：一个圆形视图和一个圆角长方形视图，<code>matchedGeometryEffect</code> 修饰器就会处理视图转换的部分。现在，让我们将 <code>body</code> 变量的 <code>ContentView</code> 结构改成这样：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
@@ -1194,7 +1194,7 @@
 </code></pre>
 <p>App的运作和之前一样，但代码现在就更容易阅读。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>引进 <code>matchedGeometryEffect</code> 修饰器之后，视图动画的实作提升到了另一个层次。你可以用更少的代码来创造漂亮的视图动画。即便你是 SwiftUI 的新手，你也可以从这个新修饰器中得益，并且让你的 App 更棒。</p>
+<p>引进 <code>matchedGeometryEffect</code> 修饰器之后，视图动画的实现提升到了另一个层次。你可以用更少的代码来创造漂亮的视图动画。即便你是 SwiftUI 的新手，你也可以从这个新修饰器中得益，并且让你的 App 更棒。</p>
 <p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUIMatchedGeometry.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIMatchedGeometry.zip</a></p>
 

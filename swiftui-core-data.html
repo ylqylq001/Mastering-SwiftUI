@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -959,7 +959,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>这个范例App是一个普通 ToDo App的简化版本。 每个待办事项（或任务）具有三个属性：<em>name</em>、<em>priority</em> 和 <em>isComplete</em>（即事项的状态）。 这个类别采用了<code>ObservableObject</code> 协议。 这三个属性都用<code>@Published</code> 标记，当其中的值发生任何更改时就会自动通知订阅者。 稍后，在 ContentView 的实作中，SwiftUI 会不时观察数值的变化并相应地更新视图。 例如，当 <code>isComplete</code> 的值发生变化时，它会切换核取方块。</p>
+<p>这个范例App是一个普通 ToDo App的简化版本。 每个待办事项（或任务）具有三个属性：<em>name</em>、<em>priority</em> 和 <em>isComplete</em>（即事项的状态）。 这个类别采用了<code>ObservableObject</code> 协议。 这三个属性都用<code>@Published</code> 标记，当其中的值发生任何更改时就会自动通知订阅者。 稍后，在 ContentView 的实现中，SwiftUI 会不时观察数值的变化并相应地更新视图。 例如，当 <code>isComplete</code> 的值发生变化时，它会切换核取方块。</p>
 <p>这个类别也符合<code>Identifiable</code> 协议，这样<code>ToDoItem</code> 的每个实体（instance）都有一个独一无二的识别码。 稍后，我们将使用 <code>ForEach</code> 和 <code>List</code> 来显示待办事项。 这就是为什么我们需要采用协议并创建 <code>id</code> 属性。</p>
 <p>现在让我们转到视图并从<code>ContentView.swift</code> 开始。 假设你已经阅读了第 10 章，你应该理解大部分代码。 内容视图包含三个主要部分，它们嵌入在一个“ZStack”中：</p>
 <ol>
@@ -1063,7 +1063,7 @@ task.isComplete = isComplete
     }
 }
 </code></pre>
-<p>在代码中，我们实作了<code>makeBody</code>方法，这是协议的要求。 我们加入了一个图像视图，取决于切换的状态（即<code>configuration.isOn</code>），它将显示一个选框图像或一个圆形图像。 这就是如何自定义切换样式的方法。</p>
+<p>在代码中，我们实现了<code>makeBody</code>方法，这是协议的要求。 我们加入了一个图像视图，取决于切换的状态（即<code>configuration.isOn</code>），它将显示一个选框图像或一个圆形图像。 这就是如何自定义切换样式的方法。</p>
 <p>要使用 <code>CheckboxStyle</code>，请将 <code>toggleStyle</code> 修饰器附加到 <code>Toggle</code> 并指定核取方块样式，如下所示：</p>
 <pre><code class="lang-swift">.toggleStyle(<span class="hljs-type">CheckboxStyle</span>())
 </code></pre>
@@ -1314,7 +1314,7 @@ task.isComplete = isComplete
 <p>现在你可以在模拟器中运行App进行测试， 你应该能够添加新事项。 添加新事项后，它们应立即显示在列表视图中。 核取方块也应该可以用了，点一下就可以将相关事项画线。 最重要的是，所有改动现在都永久保存在装置内的数据库。 就算重新App，所有项目仍然存在。</p>
 <figure id="fig22.11"><img src="images/core-data/swiftui-core-data-11.png" alt="图 22.11. ToDo App 现在支援 Core Data"><figcaption>图 22.11. ToDo App 现在支援 Core Data</figcaption></figure>
 <h4 id="%E5%BE%9E%E6%95%B8%E6%93%9A%E5%BA%AB%E4%B8%AD%E5%88%AA%E9%99%A4%E9%A0%85%E7%9B%AE">从数据库中删除项目</h4>
-<p>既然我已经向你展示如何从数据库取出数据、更新和加入新项目，那么如何实作删除功能呢？ 我们将会为App添加一项功能 - 删除待办事项。</p>
+<p>既然我已经向你展示如何从数据库取出数据、更新和加入新项目，那么如何实现删除功能呢？ 我们将会为App添加一项功能 - 删除待办事项。</p>
 <p>在 <code>ContentView</code> 结构中，声明一个 <code>context</code> 变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.managedObjectContext) <span class="hljs-keyword">var</span> context
 </code></pre>

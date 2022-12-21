@@ -202,7 +202,7 @@
                         
                             <b>8.</b>
                         
-                        实作路径(Path)与形状(Shape)来画线与圆饼图
+                        实现路径(Path)与形状(Shape)来画线与圆饼图
                     </a>
                 
             
@@ -262,7 +262,7 @@
                         
                             <b>12.</b>
                         
-                        强制回应视图、浮动按钮与提示的实作
+                        强制回应视图、浮动按钮与提示的实现
                     </a>
                 
             
@@ -877,7 +877,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E7%AC%AC-7-%E7%AB%A0-br-%E4%BA%86%E8%A7%A3%E7%8B%80%E6%85%8B%E8%88%87%E7%B6%81%E5%AE%9A">第 7 章<br>了解状态与绑定</h1>
-<p>状态管理（state management）是每个开发者在应用程式开发中必须处理的事情。想像一下，你正在开发一个音乐播放器 App，当使用者点击“播放”按钮时，该按钮会变为“停止”按钮。在你的实作中，必须有一些方式来追踪应用程式状态，以让你知道何时变更按钮的外观。</p>
+<p>状态管理（state management）是每个开发者在应用程式开发中必须处理的事情。想像一下，你正在开发一个音乐播放器 App，当使用者点击“播放”按钮时，该按钮会变为“停止”按钮。在你的实现中，必须有一些方式来追踪应用程式状态，以让你知道何时变更按钮的外观。</p>
 <figure id="fig7.1"><img src="images/state/swiftui-state-1.png" alt="图 7.1.　“停止”与“播放”按钮"><figcaption>图 7.1.　“停止”与“播放”按钮</figcaption></figure>
 <p>在 SwiftUI 中，内建了一些状态管理的功能，特别是它导入了一个名为“@State”的属性包装器（ Property Wrapper ）。当你使用 <code>@State</code> 来标注一个属性时，SwiftUI 会自动将其储存在你的应用程式中的某处。此外，使用该属性的视图会自动监听属性值的变更，当状态改变时，SwiftUI 将重新计算这些视图，并更新应用程式的外观。</p>
 <p>听起来不错，不是吗？还是你对于状态管理觉得困惑？ </p>
@@ -898,7 +898,7 @@
 <figure id="fig7.3"><img src="images/state/swiftui-state-3.png" alt="图 7.3　预览“播放”按钮"><figcaption>图 7.3　预览“播放”按钮</figcaption></figure>
 <h3 id="%E6%8E%A7%E5%88%B6%E6%8C%89%E9%88%95%E7%9A%84%E7%8B%80%E6%85%8B">控制按钮的状态</h3>
 <p>按钮的动作现在是空的，我们要做的是当使用者点击按钮时，将按钮的外观从“播放”改为“停止”。显示“停止”按钮时，按钮的颜色也应变成红色。</p>
-<p>那么，我们要如何实作呢？显然的，我们需要一个变量来追踪按钮的状态。我们将其命名为 <code>isPlaying</code>，它是一个布林变量，指示 App 是否处于“播放”状态。如果将变量设定为“true”，则 App 应显示一个“停止”按钮；反之，App 显示一个“播放”按钮。代码如下所示： </p>
+<p>那么，我们要如何实现呢？显然的，我们需要一个变量来追踪按钮的状态。我们将其命名为 <code>isPlaying</code>，它是一个布林变量，指示 App 是否处于“播放”状态。如果将变量设定为“true”，则 App 应显示一个“停止”按钮；反之，App 显示一个“播放”按钮。代码如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     private <span class="hljs-keyword">var</span> isPlaying = <span class="hljs-built_in">false</span>
@@ -924,7 +924,7 @@
 <p>只能从视图的 body（或者从被它调用的函数）内部存取一个状态属性。由于这个缘故，你应该声明你的状态属性为 private，以防止你的视图的用户端存取它。</p>
 <p>- Apple 的官方文件 (<a href="https://developer.apple.com/documentation/swiftui/state" target="_blank">https://developer.apple.com/documentation/swiftui/state</a>)</p>
 </blockquote>
-<p>我们还没有实作按钮的动作。因此，修改代码如下： </p>
+<p>我们还没有实现按钮的动作。因此，修改代码如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     <span class="hljs-comment">// 在“播放”与“停止”按钮之间切换</span>
     <span class="hljs-keyword">self</span>.isPlaying.toggle()
@@ -1015,7 +1015,7 @@
         <a href="./swiftui-buttons.html" class="navigation navigation-prev " aria-label="Previous page: SwiftUI 按钮与渐层"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./swiftui-path-shape.html" class="navigation navigation-next " aria-label="Next page: 实作路径(Path)与形状(Shape)来画线与圆饼图"><i class="fa fa-angle-right"></i></a>
+        <a href="./swiftui-path-shape.html" class="navigation navigation-next " aria-label="Next page: 实现路径(Path)与形状(Shape)来画线与圆饼图"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
