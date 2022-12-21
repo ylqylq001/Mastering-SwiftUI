@@ -882,7 +882,7 @@
 <h3 id="searchable-%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">Searchable 的基本用法</h3>
 <p>为了讲解 <code>Searchable</code> 的用法，请从以下网址下载范例项目：<a href="https://www.appcoda.com/resources/swiftui4/SwiftUISearchableStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUISearchableStarter.zip</a>. </p>
 <figure id="fig37.1"><img src="images/searchable/searchable-1.png" alt="图 37.1. 范例项目"><figcaption>图 37.1. 范例项目</figcaption></figure>
-<p>范例的初始项目已经准备好了一个列表视图来显示一组文章。 之后，我们会加入一个用于过滤文章的搜寻栏。 要将搜寻栏添加到列表视图，你需要做的就是宣告一个状态变数（例如<code>searchText</code>）来存放搜寻文字并将<code>searchable</code>修饰器附加到<code>NavigationStack</code>，如下所示：</p>
+<p>范例的初始项目已经准备好了一个列表视图来显示一组文章。 之后，我们会加入一个用于过滤文章的搜寻栏。 要将搜寻栏添加到列表视图，你需要做的就是声明一个状态变数（例如<code>searchText</code>）来存放搜寻文字并将<code>searchable</code>修饰器附加到<code>NavigationStack</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     @<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> articles = sampleArticles

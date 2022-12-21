@@ -1127,7 +1127,7 @@
 <p>请先不要看解答，自己要开发自己的解决方案。</p>
 <h3 id="swiftui-%E4%B8%ADoptionals-%E7%9A%84%E8%99%95%E7%90%86">SwiftUI 中Optionals 的处理</h3>
 <p>你是否有试着提出作业的解决方案？这个“Team”方案的布局与“Basic &amp; Pro”方案很类似。你可以复制这两个方案的 <code>VStack</code>，并建立“Team”方案。但是，让我来介绍一个更优雅的解决方案。</p>
-<p>我们可以重新使用 <code>PricingView</code> 来建立“Team”方案。不过， 你可能会发现这个“Team”方案，有个图示位于标题上方。为了布局这个图示，我们需要修改 <code>PricingView</code> 来相容这个需求。因为这个图示并非售价方案强制性需要的，在 <code>PricingView</code> 中宣告一个 Optional： </p>
+<p>我们可以重新使用 <code>PricingView</code> 来建立“Team”方案。不过， 你可能会发现这个“Team”方案，有个图示位于标题上方。为了布局这个图示，我们需要修改 <code>PricingView</code> 来相容这个需求。因为这个图示并非售价方案强制性需要的，在 <code>PricingView</code> 中声明一个 Optional： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> icon: <span class="hljs-type">String</span>?
 </code></pre>
 <p>如果你对Swift 感到陌生的话，所谓的 Optional 是表示变数可能有值或没有值。这里我们定义一个名为<code>icon</code>的变数，其型别为 <code>String</code>。如果售价方案需要显示图示时，则预计会有调用者传递图片名称，否则此变数预设为<code>nil</code>（空值）。</p>

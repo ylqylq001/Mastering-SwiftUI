@@ -1161,7 +1161,7 @@
 <figure id="fig26.14"><img src="images/appstore/swiftui-appstore-14.png" alt="图 26.14. 显示文章列表"><figcaption>图 26.14. 显示文章列表</figcaption></figure>
 <h3 id="%E5%B0%87%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E6%93%B4%E5%B1%95%E5%88%B0%E5%85%A8%E8%9E%A2%E5%B9%95">将卡片视图扩展到全荧幕</h3>
 <p>现在到了最困难的部分。 如何将卡片视图从节录模式切换到完整内容模式？ 之前，我们将 <code>isShowContent</code> 参数设定为 <code>.constant(false)</code>。 要在这两种模式之间切换，每个卡片视图都应该有一个变数来存放其状态。</p>
-<p>因此，在 <code>ContentView</code> 中宣告以下状态变数：</p>
+<p>因此，在 <code>ContentView</code> 中声明以下状态变数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showContent = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>在预设情况下，所有卡片视图都处于摘录状态。 因此，<code>showContents</code> 变数的值被设置为 <code>false</code>。 稍后，当一张卡片被点击时，我们会将状态从 <code>false</code> 更改为 <code>true</code>。</p>

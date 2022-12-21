@@ -931,7 +931,7 @@
 <p>当你按住星形图片时，在侦测到长按事件之前，图片不会给使用者任何回应。显然地，我们可以采取一些措施来改善使用者体验，我想要做的是在使用者点击图片时给予即时回馈。任何形式的回馈都将有助于改善情况，例如：当使用者点击图片时，我们可将图片调暗一点，这只是让使用者知道我们的 App 捕捉到触控事件，并且正在进行工作。图 17.3 说明了动画如何工作。</p>
 <figure id="fig17.3"><img src="images/gestures/swiftui-gestures-3.png" alt="图 17.3.　点击图片时应用暗淡效果"><figcaption>图 17.3.　点击图片时应用暗淡效果</figcaption></figure>
 <p>要实作这个动画，其中一项任务是追踪手势的状态。在长按手势的执行期间，我们必须区分点击与长按事件，那么我们该如何做呢？ </p>
-<p>SwiftUI 提供一个名为 <code>@GestureState</code> 的属性包裹器，它可以方便地追踪手势的状态变化，并让开发者决定对应的动作。要实作我们刚才描述的动画，我们可以使 用 <code>@GestureState</code> 宣告一个属性： </p>
+<p>SwiftUI 提供一个名为 <code>@GestureState</code> 的属性包裹器，它可以方便地追踪手势的状态变化，并让开发者决定对应的动作。要实作我们刚才描述的动画，我们可以使 用 <code>@GestureState</code> 声明一个属性： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> longPressTap = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>这个手势状态变数表示“执行长按手势期间是否侦测到点击事件”。当你定义了变数后，你可以修改 <code>Image</code> 视图的代码，如下所示： </p>
@@ -986,7 +986,7 @@
 <p>在预览画布中执行专案，你可以拖曳图片，而当你放开图片时，它会返回原始位置。</p>
 <p>你知道为什么图片会回到它的起点吗？如前一节所述，使用 <code>@GestureState</code> 的优点是， 当手势结束时，它会重置属性值为原始值。因此，当你放开手指结束拖曳时，<code>dragOffset</code> 会重置为<code>.zero</code>，即原始位置。</p>
 <p>不过，如果你想让图片停留在拖曳的终点，该如何做呢？给自己几分钟的时间来思考如何实作。</p>
-<p>由于 <code>@GestureState</code> 属性包裹器将重置属性为原始值，我们需要另一个状态属性来储存最终的位置。因此，我们宣告一个新的状态属性如下： </p>
+<p>由于 <code>@GestureState</code> 属性包裹器将重置属性为原始值，我们需要另一个状态属性来储存最终的位置。因此，我们声明一个新的状态属性如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> position = <span class="hljs-type">CGSize</span>.zero
 </code></pre>
 <p>接下来，更新 <code>body</code> 变数如下： </p>
@@ -1076,7 +1076,7 @@
 <p>现在，你可以测试手势组合了。在预览画布中，使用 debug 来执行 App，如此你可以在主控台中看到讯息。你必须按住星形图片至少一秒钟，才能拖曳它。</p>
 <figure id="fig17.5"><img src="images/gestures/swiftui-gestures-5.gif" alt="图 17.5.　只有当使用者长按图片至少一秒时，才能开始拖曳"><figcaption>图 17.5.　只有当使用者长按图片至少一秒时，才能开始拖曳</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%88%89%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">使用枚举重构代码</h3>
-<p>编写拖曳状态的更好方式是使用枚举（Enum），这可让你将 <code>isPressed</code>与 <code>dragOffset</code> 状态结合为单个属性。我们宣告一个名为 <code>DragState</code> 的枚举： </p>
+<p>编写拖曳状态的更好方式是使用枚举（Enum），这可让你将 <code>isPressed</code>与 <code>dragOffset</code> 状态结合为单个属性。我们声明一个名为 <code>DragState</code> 的枚举： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
     <span class="hljs-keyword">case</span> inactive
     <span class="hljs-keyword">case</span> pressing
@@ -1142,13 +1142,13 @@
     }
 }
 </code></pre>
-<p>我们现在宣告一个 <code>dragState</code> 属性来追踪拖曳状态。预设上， 它设定为 <code>DragState. inactive</code>。代码几乎相同，除了它修改为使用<code>dragState</code> 而不是使用 <code>isPressed</code> 与 <code>dragOffset</code>。举例而言，对于 <code>.offset</code> 修饰器，我们从拖曳状态的相关值中取得拖曳偏移量。</p>
+<p>我们现在声明一个 <code>dragState</code> 属性来追踪拖曳状态。预设上， 它设定为 <code>DragState. inactive</code>。代码几乎相同，除了它修改为使用<code>dragState</code> 而不是使用 <code>isPressed</code> 与 <code>dragOffset</code>。举例而言，对于 <code>.offset</code> 修饰器，我们从拖曳状态的相关值中取得拖曳偏移量。</p>
 <p>代码的结果是相同的，但是使用枚举追踪手势的复杂状态是较好的作法。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%80%9A%E7%94%A8%E7%9A%84%E5%8F%AF%E6%8B%96%E6%9B%B3%E8%A6%96%E5%9C%96">建立通用的可拖曳视图</h3>
 <p>到目前为止，我们已建立了一个可拖曳的图片视图，若是我们想要建立可拖曳的文字视图呢？或者我们想要建立可拖曳的圆形呢？是否应复制并贴上所有的代码，来建立文字视图或圆形呢？ </p>
 <p>总是会有更好的方式来实作它，我们来看如何建立通用的可拖曳视图。</p>
 <p>在专案导览器中，右键点击 <code>SwiftUIGesture</code> 资料夹，选择“New File”，接着选取“SwiftUI View”模板，然后将档案命名为 <code>DraggableView</code>。</p>
-<p>宣告 <code>DragState</code> 枚举，并更新 <code>DraggableView</code>结构如下： </p>
+<p>声明 <code>DragState</code> 枚举，并更新 <code>DraggableView</code>结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DraggableState</span> </span>{
     <span class="hljs-keyword">case</span> inactive
     <span class="hljs-keyword">case</span> pressing
@@ -1212,7 +1212,7 @@
     }
 }
 </code></pre>
-<p>所有的代码都与你之前编写的代码非常相似。技巧是将 <code>DraggableView</code> 宣告为通用视图， 并建立一个<code>content</code> 属性，此属性接收任何视图，并且我们使用长按与拖曳手势为 <code>content</code> 视图提供支援。</p>
+<p>所有的代码都与你之前编写的代码非常相似。技巧是将 <code>DraggableView</code> 声明为通用视图， 并建立一个<code>content</code> 属性，此属性接收任何视图，并且我们使用长按与拖曳手势为 <code>content</code> 视图提供支援。</p>
 <p>现在，你可透过替换 <code>DraggableView_Previews</code>来测试这个通用视图，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DraggableView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {

@@ -1427,7 +1427,7 @@ private <span class="hljs-keyword">let</span> viewModel: <span class="hljs-type"
     }
 }
 </code></pre>
-<p>我们只需使用 <code>ZStack</code> 将文字覆盖在彩色矩形上。 利用类似的技巧，我们就可布局 <code>TotalBalanceCard</code> 和 <code>ExpenseCard</code>。 那么，我们如何计算收入、支出和总余额呢？ 我们在 <code>DashboardView</code> 的开头宣告了三个计算属性：</p>
+<p>我们只需使用 <code>ZStack</code> 将文字覆盖在彩色矩形上。 利用类似的技巧，我们就可布局 <code>TotalBalanceCard</code> 和 <code>ExpenseCard</code>。 那么，我们如何计算收入、支出和总余额呢？ 我们在 <code>DashboardView</code> 的开头声明了三个计算属性：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> totalIncome: <span class="hljs-type">Double</span> {
     <span class="hljs-keyword">let</span> total = paymentActivities
         .<span class="hljs-built_in">filter</span> {

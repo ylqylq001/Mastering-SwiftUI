@@ -885,7 +885,7 @@
 <figure id="fig20.2"><img src="images/wallet/swiftui-wallet-2.png" alt="图 20.2　起始专案绑定了信用卡图片"><figcaption>图 20.2　起始专案绑定了信用卡图片</figcaption></figure>
 <p>在专案导览器中，你应该会发现一些 <code>.swift</code> 档： </p>
 <ul>
-<li><strong>Transaction.swift</strong> - <code>Transaction</code> 结构代表电子钱包 App中的交易。每一笔交易有一个唯一的 ID、交易商、金额、日期与图示。除了 <code>Transaction</code> 结构之外，作为示范之用，我们还宣告一个测试交易的数组。</li>
+<li><strong>Transaction.swift</strong> - <code>Transaction</code> 结构代表电子钱包 App中的交易。每一笔交易有一个唯一的 ID、交易商、金额、日期与图示。除了 <code>Transaction</code> 结构之外，作为示范之用，我们还声明一个测试交易的数组。</li>
 <li><strong>Card.swift</strong> - 这个档案包含了 <code>Card</code> 的结构。<code>Card</code> 表示信用卡的资料，包含卡号、类型、有效日期、图片与客户姓名，除此之外，你可以在档案中找到一个测试信用卡的数组。需要注意的一点是，卡片图片中不包含任何的个人资讯，而只包含卡片品牌（例如： Visa ）。稍后，我们将为信用卡建立一个视图。</li>
 <li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始专案已经带有交易历史纪录视图的实作。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
 <li><strong>ContentView.swift</strong> - 这是 Xcode产生的预设 SwiftUI 视图。</li>
@@ -926,7 +926,7 @@
     }
 }
 </code></pre>
-<p>我们宣告一个 <code>card</code> 属性来带入卡片资料。为了在卡片图片上显示个人资料与卡号，我们使用 <code>overlay</code> 修饰器，并以垂直堆叠视图与水平堆叠视图来布局文字元件。</p>
+<p>我们声明一个 <code>card</code> 属性来带入卡片资料。为了在卡片图片上显示个人资料与卡号，我们使用 <code>overlay</code> 修饰器，并以垂直堆叠视图与水平堆叠视图来布局文字元件。</p>
 <p>要预览卡片，则更新 <code>CardView_Previews</code>结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -968,7 +968,7 @@
 }
 </code></pre>
 <p>代码非常简单，我们使用水平堆叠来布局标题与加号图片。</p>
-<p>接下来，是针对卡片库。首先，在 <code>WalletView</code> 结构中，为信用卡数组宣告一个属性： </p>
+<p>接下来，是针对卡片库。首先，在 <code>WalletView</code> 结构中，为信用卡数组声明一个属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> cards: [<span class="hljs-type">Card</span>] = testCards
 </code></pre>
 <p>为了示范，我们只将预设值设定为 <code>Card.swift</code> 档中定义的 <code>testCards</code>。要布局电子钱包视图，我们同时使用<code>VStack</code> 与 <code>ZStack</code>，更新 <code>body</code> 变数如下： </p>
@@ -1025,7 +1025,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 </code></pre>
 <p>当你更改后，Visa 卡片应该移到卡片库的最上方。</p>
 <p>接下来，我们修正第一个问题来展开卡片，每张卡片都应偏移一定的垂直距离。而这个距离是使用卡片的索引值来计算的。假设我们将预设的垂直偏移量设定为 50 点，最后一张卡片将会位移 200 点（50&#xD7;4）。</p>
-<p>现在，你应该了解我们将如何展开卡片了，我们来编写代码。在 <code>WalletView</code> 中宣告预设的垂直偏移量： </p>
+<p>现在，你应该了解我们将如何展开卡片了，我们来编写代码。在 <code>WalletView</code> 中声明预设的垂直偏移量： </p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> cardOffset: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">50.0</span>
 </code></pre>
 <p>接下来，建立一个名为 <code>offset(for:)</code>的新函数，用于计算给定卡片的垂直偏移量： </p>
@@ -1093,7 +1093,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>更改后，点击 <em>Play</em> 按钮在模拟器中测试App，App启动时就会呈现动画。</p>
 <h3 id="%E8%99%95%E7%90%86%E9%BB%9E%E6%93%8A%E6%89%8B%E5%8B%A2%E5%8F%8A%E9%A1%AF%E7%A4%BA%E4%BA%A4%E6%98%93%E7%B4%80%E9%8C%84">处理点击手势及显示交易纪录</h3>
 <p>当使用者点击卡片时，App 会向上移动所选的卡片，并且显示历史交易纪录。对于其他没有选到的卡片，它们会被移出荧幕。</p>
-<p>要实作这个功能，我们还需要两个状态变数。在 <code>WalletView</code> 中宣告这些变数： </p>
+<p>要实作这个功能，我们还需要两个状态变数。在 <code>WalletView</code> 中声明这些变数： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> isCardPressed = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> selectedCard: <span class="hljs-type">Card</span>?
 </code></pre>
@@ -1198,7 +1198,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
     }
 }
 </code></pre>
-<p>接下来，在 <code>WalletView</code> 中宣告一个状态变数，来持续追踪拖曳状态： </p>
+<p>接下来，在 <code>WalletView</code> 中声明一个状态变数，来持续追踪拖曳状态： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragState = <span class="hljs-type">DragState</span>.inactive
 </code></pre>
 <p>如果你之前阅读过第 17 章，那么你应该已经知道如何侦测长按与拖曳手势。然而，这次有点不同，我们需要同时处理点击手势、拖曳与长按手势。而且，如果侦测到长按手势，则 App 应该忽略点击手势。</p>

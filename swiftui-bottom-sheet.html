@@ -1142,7 +1142,7 @@
 <figure id="fig18.7"><img src="images/bottom-sheet/swiftui-bottom-sheet-7.png" alt="图 18.7.　调整细节视图的偏移量"><figcaption>图 18.7.　调整细节视图的偏移量</figcaption></figure>
 <h3 id="%E5%B8%B6%E5%87%BA%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">带出细节视图</h3>
 <p>现在，细节视图几乎快完成了。我们回到清单视图（即 <code>ContentView.swift</code> ），以在使用者选择餐厅时，带出细节视图。</p>
-<p>在 <code>ContentView</code> 结构，宣告两个状态变数： </p>
+<p>在 <code>ContentView</code> 结构，声明两个状态变数： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showDetail = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedRestaurant: <span class="hljs-type">Restaurant</span>?
 </code></pre>
@@ -1274,7 +1274,7 @@
 
 }
 </code></pre>
-<p>另外，宣告一个手势状态变数来追踪拖曳，以及宣告一个状态变数来储存底部表的位置偏移量：</p>
+<p>另外，声明一个手势状态变数来追踪拖曳，以及声明一个状态变数来储存底部表的位置偏移量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragState = <span class="hljs-type">DragState</span>.inactive
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> positionOffset: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0.0</span>
 </code></pre>
@@ -1318,16 +1318,16 @@
 <li><strong>界限值 #1</strong> - 当拖曳超过界限值，细节视图就会完全开启。</li>
 <li><strong>界限值 #2</strong> - 当拖曳移动低于界限值，细节视图将会关闭。</li>
 </ul>
-<p>现在，你应该知道了半开状态与全开状态的工作原理，让我们进入代码部分。首先，我们在<code>RestaurantDetailView.swift</code> 宣告另一个枚举来表示这两种视图状态： </p>
+<p>现在，你应该知道了半开状态与全开状态的工作原理，让我们进入代码部分。首先，我们在<code>RestaurantDetailView.swift</code> 声明另一个枚举来表示这两种视图状态： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">ViewState</span> </span>{
     <span class="hljs-keyword">case</span> full
     <span class="hljs-keyword">case</span> half
 }
 </code></pre>
-<p>在 <code>RestaurantDetailView</code>中，宣告另一个状态属性来储存目前的视图状态。预设上，它设定为半开状态：</p>
+<p>在 <code>RestaurantDetailView</code>中，声明另一个状态属性来储存目前的视图状态。预设上，它设定为半开状态：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> viewState = <span class="hljs-type">ViewState</span>.half
 </code></pre>
-<p>另外，为了解除视图本身，我们需要 <code>ContentView</code> 向我们传送其状态变数的绑定，因此宣告 <code>isShow</code> 变数如下： </p>
+<p>另外，为了解除视图本身，我们需要 <code>ContentView</code> 向我们传送其状态变数的绑定，因此声明 <code>isShow</code> 变数如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> isShow: <span class="hljs-type">Bool</span>
 </code></pre>
 <blockquote>
@@ -1436,7 +1436,7 @@
 </code></pre>
 <p>这里我们只是输出偏移量的值。在模拟器执行这个  App ，当你拖曳细节视图时，你应该会在中控台见到这个偏移量。</p>
 <p>现在你应该对于 PreferenceKey 的运作方式有基本观念，我们完成了这个实作，细节是图可以回到半开状态。</p>
-<p>宣告一个新状态变数来持续追踪滚动偏移量：</p>
+<p>声明一个新状态变数来持续追踪滚动偏移量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> scrollOffset: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0.0</span>
 </code></pre>
 <p>接着，更新  <code>.onPreferenceChange</code> 修饰器如下：</p>

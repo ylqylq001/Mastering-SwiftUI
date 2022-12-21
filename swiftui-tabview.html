@@ -950,7 +950,7 @@
 <p>标签视图会自动处理使用者的选择，当使用者点击其中一个项目标签视图就会切换至相关项目视图。 在某些情况，您可能希望以写程式方式切换到特定选项。 <code>TabView</code> 有另一个用于此目的的 <code>init</code> 方法。 该方法需要一个包含选项卡标签值的状态变数：</p>
 <pre><code class="lang-swift"><span class="hljs-type">TabView</span>(selection: $selection)
 </code></pre>
-<p>举例，在 ContentView 中宣告以下状态变数：</p>
+<p>举例，在 ContentView 中声明以下状态变数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selection = <span class="hljs-number">0</span>
 </code></pre>
 <p>这里我们将 <code>selection</code> 变数的原始值设定为<code>0</code>，这是第一个选项的标签值。 我们还没有为每个选项定义标签值。 因此，像这样更新代码并为每个选项附加 <code>tag</code> 修饰器：</p>

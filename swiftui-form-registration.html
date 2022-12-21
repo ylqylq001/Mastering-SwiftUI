@@ -1037,13 +1037,13 @@
 <p>最后，是“已经有帐号”的叙述文字，这个文字与“登入”按钮并不一定需要，我只是想模仿常见的注册表单。</p>
 <p>以上是我布局使用者注册画面的方式。如果你已试着做这个练习，或许可提出其他的解决方案，这完全没问题。我只是告诉你建立表单的其中一种方法，你可以使用它作为参考，并提出更好的实作方式。</p>
 <h3 id="%E4%BA%86%E8%A7%A3-combine">了解 Combine</h3>
-<p>在深入研究表单验证代码之前，我们先来了解更多关于 Combine 框架的背景资讯。如前一章所述，这个新框架提供了一个宣告式API，用于随着时间处理值。</p>
+<p>在深入研究表单验证代码之前，我们先来了解更多关于 Combine 框架的背景资讯。如前一章所述，这个新框架提供了一个声明式API，用于随着时间处理值。</p>
 <p>“随着时间处理值”是什么意思？这些值又是什么？ </p>
 <p>我们以注册表单为例。App 与使用者互动时，持续产生 UI 事件，假设使用者在文字栏位中输入的每个按键，都会触发一个事件，而这可以成为值的串流，如图 15.5 所示。</p>
 <figure id="fig15.5"><img src="images/registration/swiftui-registration-5.png" alt="图 15.5.　输入资料串流"><figcaption>图 15.5.　输入资料串流</figcaption></figure>
 <p>这些 UI 事件是框架所参照的一种类型的值。这些值的另一个例子是网路事件（例如： 从远端伺服器下载一个档案）。</p>
 <blockquote>
-<p>Combine 框架提供一个宣告式方法，供App 处理事件。你可以为给定的事件源建立单一处理链（chain），而不是实作多个委派回呼（delegate callback ）或完成处理闭包（completion handler closure ）。链的每一个部分都是一个Combine 运算子，对上一个步骤收到的元素执行不同的动作。</p>
+<p>Combine 框架提供一个声明式方法，供App 处理事件。你可以为给定的事件源建立单一处理链（chain），而不是实作多个委派回呼（delegate callback ）或完成处理闭包（completion handler closure ）。链的每一个部分都是一个Combine 运算子，对上一个步骤收到的元素执行不同的动作。</p>
 <p>- Apple 的官方文件 (<a href="https://developer.apple.com/documentation/combine/receiving_and_handling_events_with_combine" target="_blank">https://developer.apple.com/documentation/combine/receiving_and_handling_events_with_combine</a>)</p>
 </blockquote>
 <p>发布者与订阅者是框架的两个核心元素。使用 Combine，发布者传送事件，订阅者订阅，以从发布者接收值。同样的，我们以文字栏位为例。透过使用 Combine，使用者在文字栏位中输入的每个按键，都会触发一个值更改的事件。而对监控这些值感兴趣的订阅者，可以订阅接收这些事件，并进一步执行操作（例如：验证）。</p>

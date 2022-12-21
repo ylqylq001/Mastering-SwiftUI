@@ -921,7 +921,7 @@
 <h4 id="%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">卡片视图</h4>
 <p>首先，我们建立一个卡片视图。若是你想挑战自我，我强烈建议你在这里停下来并实作它，而无须遵循本节内容，否则请继续阅读。</p>
 <p>为了让代码更易编写，我们将在一个单独的档案中实作卡片视图。在专案导览器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
-<p><code>CardView</code> 是设计用来显示不同的照片与标题，因此宣告两个变数来储存这些资料：</p>
+<p><code>CardView</code> 是设计用来显示不同的照片与标题，因此声明两个变数来储存这些资料：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
 </code></pre>
@@ -1255,7 +1255,7 @@
 <figure id="fig19.11"><img src="images/triptinder/swiftui-trip-tinder-14.png" alt="图 19.11.　拖曳效果只应用在最上面的卡片"><figcaption>图 19.11.　拖曳效果只应用在最上面的卡片</figcaption></figure>
 <h3 id="%E9%A1%AF%E7%A4%BA%E5%BF%83%E5%BD%A2%E8%88%87-%C3%97-%E5%BD%A2%E5%9C%96%E7%A4%BA">显示心形与 &#xD7; 形图示</h3>
 <p>酷 ！拖曳现在可以运作了，不过它还没有完成。使用者应该能够向右/ 向左滑动，来丢弃最上面的卡片。而且，根据滑动的方向，卡片上应该显示一个图示（心形或 &#xD7; 形）。</p>
-<p>首先，我们在 <code>ContentView</code> 中宣告一个拖曳的界限值： </p>
+<p>首先，我们在 <code>ContentView</code> 中声明一个拖曳的界限值： </p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">let</span> dragThreshold: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">80.0</span>
 </code></pre>
 <p>当拖曳的位移超过界限值时，我们将在卡片上重叠一个图示（心形或&#xD7; 形）。另外， 如果使用者释放卡片，App 会从卡片库中删除这张卡片，并建立一张新卡片，将其放置于卡片库的末尾。</p>
@@ -1291,7 +1291,7 @@
     <span class="hljs-keyword">return</span> views
 }()
 </code></pre>
-<p>接下来，宣告另一个状态变数来追踪旅程的最后一个索引。假设卡片库第一次初始化时，我们显示储存在 <code>trips</code> 数组中的前两个旅程，最后一个索引设定为 <code>1</code>。</p>
+<p>接下来，声明另一个状态变数来追踪旅程的最后一个索引。假设卡片库第一次初始化时，我们显示储存在 <code>trips</code> 数组中的前两个旅程，最后一个索引设定为 <code>1</code>。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> lastIndex = <span class="hljs-number">1</span>
 </code></pre>
 <p>下面是用于删除及插入卡片视图的核心函数。定义一个名为 <code>moveCard</code> 新函数： </p>
@@ -1356,7 +1356,7 @@
 </code></pre>
 <p>之所以使用不对称转场，是因为我们只想在卡片视图被删除时，对转场设定动画。当一个新卡片视图插入卡片库时，则不应有动画。</p>
 <p>当卡片视图向荧幕右方丢弃时，使用 <code>trailingBottom</code> 转场，而当卡片视图向荧幕左方丢弃时，则使用<code>leadingBottom</code> 转场。</p>
-<p>接下来，宣告一个包含转场类型的状态属性，预设是设定 <code>trailingBottom</code>。</p>
+<p>接下来，声明一个包含转场类型的状态属性，预设是设定 <code>trailingBottom</code>。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> removalTransition = <span class="hljs-type">AnyTransition</span>.trailingBottom
 </code></pre>
 <p>现在，将 <code>.transition</code> 修饰器加到卡片视图。你可以将它放在 <code>.animation</code> 修饰器之后： </p>

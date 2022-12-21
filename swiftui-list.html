@@ -947,7 +947,7 @@
 <p>要使用 UIKit 建立表格，你需要建立一个表格视图或表格视图控制器，然后自订 Prototype Cell。另外，你还必须编写表格视图资料来源的代码，以提供资料。建立一个表格UI 需要很多的步骤，现在我们来看如何在 SwiftUI 中实作相同的表格视图。</p>
 <p>首先，我们至下列网址来下载图片素材：<a href="https://www.appcoda.com/resources/swiftui/SwiftUISimpleTableImages.zip" target="_blank">https://www.appcoda.com/resources/swiftui/SwiftUISimpleTableImages.zip</a> 然后将 zip 档解压缩，并把所有图片汇入素材目录，如图 10.5 所示。</p>
 <figure id="fig10.5"><img src="images/list/swiftui-list-5.png" alt="图 10.5.　汇入图片至素材目录"><figcaption>图 10.5.　汇入图片至素材目录</figcaption></figure>
-<p>现在，切换到 <code>ContentView.swift</code> 来编写 UI 的代码。首先，我们在 <code>ContentView</code> 中宣告两个数组，这些数组是用来储存餐厅名称与图片。下列是完整的代码： </p>
+<p>现在，切换到 <code>ContentView.swift</code> 来编写 UI 的代码。首先，我们在 <code>ContentView</code> 中声明两个数组，这些数组是用来储存餐厅名称与图片。下列是完整的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> restaurantNames = [<span class="hljs-string">&quot;Cafe Deadend&quot;</span>, <span class="hljs-string">&quot;Homei&quot;</span>, <span class="hljs-string">&quot;Teakha&quot;</span>, <span class="hljs-string">&quot;Cafe Loisl&quot;</span>, <span class="hljs-string">&quot;Petite Oyster&quot;</span>, <span class="hljs-string">&quot;For Kee Restaurant&quot;</span>, <span class="hljs-string">&quot;Po&apos;s Atelier&quot;</span>, <span class="hljs-string">&quot;Bourke Street Bakery&quot;</span>, <span class="hljs-string">&quot;Haigh&apos;s Chocolate&quot;</span>, <span class="hljs-string">&quot;Palomino Espresso&quot;</span>, <span class="hljs-string">&quot;Upstate&quot;</span>, <span class="hljs-string">&quot;Traif&quot;</span>, <span class="hljs-string">&quot;Graham Avenue Meats And Deli&quot;</span>, <span class="hljs-string">&quot;Waffle &amp; Wolf&quot;</span>, <span class="hljs-string">&quot;Five Leaves&quot;</span>, <span class="hljs-string">&quot;Cafe Lore&quot;</span>, <span class="hljs-string">&quot;Confessional&quot;</span>, <span class="hljs-string">&quot;Barrafina&quot;</span>, <span class="hljs-string">&quot;Donostia&quot;</span>, <span class="hljs-string">&quot;Royal Oak&quot;</span>, <span class="hljs-string">&quot;CASK Pub and Kitchen&quot;</span>]
@@ -1073,7 +1073,7 @@
 <h3 id="%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">重构代码</h3>
 <p>代码运作正常，不过将代码重构，让它变得更好，始终是一件好事。你已经学过如何取出视图，现在我们将取出 <code>HStack</code> 至一个单独的结构中。按住键不放， 并点击 <code>HStack</code>， 选择“Extract subview”来取出代码， 并将结构重新命名为 <code>BasicImageRow</code>。</p>
 <figure id="fig10.10"><img src="images/list/swiftui-list-10.png" alt="图 10.10.　取出子视图"><figcaption>图 10.10.　取出子视图</figcaption></figure>
-<p>当你更改后，Xcode 会立即显示一个错误。由于取出的子视图没有 <code>restaurant</code> 属性，因此像这样更新<code>BasicImageRow</code> 结构，以宣告 <code>restaurant</code> 属性： </p>
+<p>当你更改后，Xcode 会立即显示一个错误。由于取出的子视图没有 <code>restaurant</code> 属性，因此像这样更新<code>BasicImageRow</code> 结构，以声明 <code>restaurant</code> 属性： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BasicImageRow</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> restaurant: <span class="hljs-type">Restaurant</span>
 

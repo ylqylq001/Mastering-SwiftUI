@@ -1264,7 +1264,7 @@
 </code></pre>
 <p>在上列的代码中，我们使用 <code>VStack</code> 垂直布局两个矩形。而我要做的是让这个堆叠可以点击。首先，要隐藏紫色矩形，只有当使用者点击绿色矩形（也就是Show details ）时才会显示。</p>
 <figure id="fig9.11"><img src="images/animation/swiftui-animation-11.png" alt="图 9.11.　垂直布局两个矩形"><figcaption>图 9.11.　垂直布局两个矩形</figcaption></figure>
-<p>为此，我们需要宣告一个状态变数来决定是否显示紫色矩形。将下列这行代码插入 <code>ContentView</code> 中： </p>
+<p>为此，我们需要声明一个状态变数来决定是否显示紫色矩形。将下列这行代码插入 <code>ContentView</code> 中： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> show = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>接下来，我们将紫色矩形包裹在 <code>if</code> 叙述中，如下所示：</p>

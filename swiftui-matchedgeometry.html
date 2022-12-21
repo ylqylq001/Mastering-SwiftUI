@@ -905,7 +905,7 @@
 <h3 id="%E4%BA%86%E8%A7%A3-matchedgeometryeffect-%E4%BF%AE%E9%A3%BE%E5%99%A8">了解 matchedGeometryEffect 修饰器</h3>
 <p>那么到底什么是 <code>matchedGeometryEffect</code> 呢？这个功能如何简化实作视图动画的步骤？让我们再来看一下第一张图片、以及圆形视图动画的代码。我们需要找出开始及结束状态时的确切数值差异。在这个例子当中，就是视图框的大小及位移。</p>
 <p>有了 <code>matchedGeometryEffect</code> 修饰器，你不再需要找出两个状态之间的差异了。你只需要描述两个视图：<em>一个是开始的状态，而另一个是结束的状态</em>，<code>matchedGeometryEffect</code> 会自动添加在两个视图之间大小和位置的差异。</p>
-<p>要使用 <code>matchedGeometryEffect</code> 建立跟之前一样的动画效果，你需要先宣告一个命名空间 (namespace) 变数：</p>
+<p>要使用 <code>matchedGeometryEffect</code> 建立跟之前一样的动画效果，你需要先声明一个命名空间 (namespace) 变数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> shapeTransition
 </code></pre>
 <p>然后，如此重写 <code>body</code> 的部分：</p>
@@ -992,7 +992,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8%E5%8B%95%E7%95%AB%E8%BD%89%E6%8F%9B%E4%BE%86%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%A6%96%E5%9C%96">使用动画转换来交换两个视图</h3>
 <p>现在你应该对 <code>matchedGeometryEffect</code> 有了基础的认识，让我们继续来看看它如何帮助我们建立一些绚丽的动画。在这个范例中，我们会交换两个圆形视图的位置，并且套用修饰器来建立顺畅的视图转换。</p>
 <figure id="fig33.6"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-6.gif" alt="图 33.6. 交换两个视图的位置"><figcaption>图 33.6. 交换两个视图的位置</figcaption></figure>
-<p>我们会使用一个状态变数，来储存交换的状态，并建立一个命名空间变数给 <code>matchedGeometryEffect</code> 来使用。让我们在 <code>ContentView</code> 宣告这些参数：</p>
+<p>我们会使用一个状态变数，来储存交换的状态，并建立一个命名空间变数给 <code>matchedGeometryEffect</code> 来使用。让我们在 <code>ContentView</code> 声明这些参数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> <span class="hljs-built_in">swap</span> = <span class="hljs-built_in">false</span>
 
 @<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> dotTransition
@@ -1073,10 +1073,10 @@
 <li>一个是显示较小图像和文章节录的视图。</li>
 <li>另一个是扩展为全荧幕的视图，显示精选照片和全文。</li>
 </ol>
-<p>首先，宣告一个状态变数来控制视图模式的状态：</p>
+<p>首先，声明一个状态变数来控制视图模式的状态：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showDetail = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>当 <code>showDetail</code> 设定为 false 时，App就会显示具有较小图像的文章视图。 如果为 true，则将显示整个画面的文章视图。 要使用 <code>matchedGeometryEffect</code> 修饰器，我们必须宣告一个<code>namespace</code>变数：</p>
+<p>当 <code>showDetail</code> 设定为 false 时，App就会显示具有较小图像的文章视图。 如果为 true，则将显示整个画面的文章视图。 要使用 <code>matchedGeometryEffect</code> 修饰器，我们必须声明一个<code>namespace</code>变数：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> articleTransition
 </code></pre>
 <p>接下来，像这样更新 <code>body</code> 变数：</p>
@@ -1152,17 +1152,17 @@
 <p>参考前面的例子，我们可以将两个不同的堆栈视图分成为子视图让代码整理得更好。 但问题是我们如何在视图之间传递<code>@Namespace</code> 变数， 让我们可以怎样做。</p>
 <p>首先，按住command键并单击第一个堆栈视图的<code>VStack</code>。 从选单中选择 <em>Extract Subview</em> 并将子视图命名为<code>ArticleExcerptView</code>。</p>
 <figure id="fig33.10"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-10.png" alt="图 33.10. 将堆栈视图分成为子视图"><figcaption>图 33.10. 将堆栈视图分成为子视图</figcaption></figure>
-<p>你应该会在 <code>ArticleExcerptView</code> 结构中看到很多错误，说缺少namespace 和 <code>showDetail</code> 变数。 要改正 <code>showDetail</code> 变数的错误，你可以在 <code>ArticleExcerptView</code> 中宣告一个绑定，如下所示：</p>
+<p>你应该会在 <code>ArticleExcerptView</code> 结构中看到很多错误，说缺少namespace 和 <code>showDetail</code> 变数。 要改正 <code>showDetail</code> 变数的错误，你可以在 <code>ArticleExcerptView</code> 中声明一个绑定，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> showDetail: <span class="hljs-type">Bool</span>
 </code></pre>
-<p>要从另一个视图接受namespace，诀窍是宣告一个具有 <code>Namespace.ID</code> 类型的变数，如下所示：</p>
+<p>要从另一个视图接受namespace，诀窍是声明一个具有 <code>Namespace.ID</code> 类型的变数，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> articleTransition: <span class="hljs-type">Namespace</span>.<span class="hljs-type">ID</span>
 </code></pre>
 <p>现在应该可以修复 <code>ArticleExcerptView</code> 中的所有错误。 回到 <code>ContentView</code> 并将 <code>ArticleExcerptView()</code> 替换为：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ArticleExcerptView</span>(showDetail: $showDetail, articleTransition: articleTransition)
 </code></pre>
 <p>我们将绑定传给<code>showDetail</code>，并将namespace变数传递给子视图。 这就是你在不同视图之间共享namespace的方式。 重复以上的程序将 <code>ScrollView</code> 抽出到另一个子视图中，并将子视图命名为<code>ArticleDetailView</code>。</p>
-<p>另外，你需要在 <code>ArticleDetailView</code> 中宣告以下变数和绑定以解决所有错误：</p>
+<p>另外，你需要在 <code>ArticleDetailView</code> 中声明以下变数和绑定以解决所有错误：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> showDetail: <span class="hljs-type">Bool</span>
 
 <span class="hljs-keyword">var</span> articleTransition: <span class="hljs-type">Namespace</span>.<span class="hljs-type">ID</span>

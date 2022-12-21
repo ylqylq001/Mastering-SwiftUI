@@ -1019,7 +1019,7 @@
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">actionSheet</span><span class="hljs-generics">&lt;T&gt;</span><span class="hljs-params">(item: Binding&lt;T?&gt;, content: <span class="hljs-params">(T)</span> -&gt; ActionSheet)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> <span class="hljs-title">where</span> <span class="hljs-title">T</span> : <span class="hljs-title">Identifiable</span>
 </span></code></pre>
 <p>我们将使用这两个方法来显示动作表，你将可了解何时使用哪个方法。</p>
-<p>于第一种方法，我们需要一个布林变数来表示动作的状态，以及一个 <code>Restaurant</code> 型别的变数来储存所选的餐厅。因此，在 <code>ContentView</code>中宣告这两个变数： </p>
+<p>于第一种方法，我们需要一个布林变数来表示动作的状态，以及一个 <code>Restaurant</code> 型别的变数来储存所选的餐厅。因此，在 <code>ContentView</code>中声明这两个变数： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showActionSheet = <span class="hljs-built_in">false</span>
 
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedRestaurant: <span class="hljs-type">Restaurant</span>?

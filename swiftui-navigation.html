@@ -1070,7 +1070,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">建立细节视图</h3>
 <p>你完成作业了吗？细节视图比我们之前建立的视图更复杂，我们来看看如何建立它。</p>
 <p>为了让代码更易编写，我们将为它建立一个单独的档案，而不是在 ContentView.swift 档中建立细节视图。在专案导览器中，右键点击 <code>SwiftUINavigation</code> 资料夹，选择“New File...”，接着选取“SwiftUI View”模板，并将档案命名为“ArticleDetailView.swift”。</p>
-<p>由于细节视图将显示文章的详细资讯，我们需要这个属性来让调用者传送文章。因此，在 <code>ArticleDetailView</code> 中宣告一个 <code>article</code> 属性： </p>
+<p>由于细节视图将显示文章的详细资讯，我们需要这个属性来让调用者传送文章。因此，在 <code>ArticleDetailView</code> 中声明一个 <code>article</code> 属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> article: <span class="hljs-type">Article</span>
 </code></pre>
 <p>接着，更新 <code>body</code> 如下，以布局细节视图： </p>
@@ -1219,7 +1219,7 @@
 <figure id="fig11.17"><img src="images/navigation/swiftui-navigation-17.png" alt="图 11.17.　建立我们自己的“返回”按钮"><figcaption>图 11.17.　建立我们自己的“返回”按钮</figcaption></figure>
 <p>你可能发现按钮的 <code>action</code> 闭包被留空。“返回”按钮已经布局得不错了，但问题是它不能运作。</p>
 <p>原来的“返回”按钮是由 <code>NavigationView</code> 渲染，可以自动导览回前一个画面。问题来了，我们该如何编写代码来触发这个操作呢？感谢 SwiftUI 框架所内建的环境值（environment value ），你可以引用一个名为<code>dismiss</code> 环境绑定（environment binding ），来导览至前一个画面。</p>
-<p>现在，在 <code>ArticleDetailView</code> 宣告一个 <code>dismiss</code> 变数来取得环境值： </p>
+<p>现在，在 <code>ArticleDetailView</code> 声明一个 <code>dismiss</code> 变数来取得环境值： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.dismiss) <span class="hljs-keyword">var</span> dismiss
 </code></pre>
 <p>接下来，在我们的客制化“返回”按钮的 <code>action</code> 中，插入下列这行代码： </p>

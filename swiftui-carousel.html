@@ -983,7 +983,7 @@
 <p>现在我们已经建立了一个能显示第一个卡片视图的水平堆栈，下一个问题是我们如何移动堆栈以显示特定卡片图？</p>
 <p>这只是简单的数学！ 卡片视图的宽度等于荧幕的宽度。 假设荧幕宽度为 300 点，我们要显示第三个卡片视图，我们可以将堆栈向左移动 600 点（300 x 2）。 图 27.12 显示了结果。</p>
 <figure id="fig27.12"><img src="images/carousel/swiftui-carousel-12.png" alt="图 27.12. 将堆栈向左移动"><figcaption>图 27.12. 将堆栈向左移动</figcaption></figure>
-<p>要将上面的描述翻译成代码，我们首先宣告一个状态变数来存放显示于荧幕卡片视图的索引：</p>
+<p>要将上面的描述翻译成代码，我们首先声明一个状态变数来存放显示于荧幕卡片视图的索引：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> currentTripIndex = <span class="hljs-number">2</span>
 </code></pre>
 <p>在预设情况下，我想显示第三张卡片视图。 这就是我将 <code>currentTripIndex</code> 变数设定为 2 的原因。你可以更改它为其他值。</p>
@@ -1002,7 +1002,7 @@
 <li>当拖动距离超过一定数值时，堆栈会根据拖动方向移动到下一个或上一个卡片视图。</li>
 <li>否则，堆栈视图返回原本的位置并显示当前卡片视图。</li>
 </ol>
-<p>要将上面的描述翻译成代码，我们首先宣告一个变数来保存拖动的偏移值：</p>
+<p>要将上面的描述翻译成代码，我们首先声明一个变数来保存拖动的偏移值：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragOffset: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0</span>
 </code></pre>
 <p>接下来，我们将<code>.gesture</code>修饰器附加到<code>HStack</code>并像这样初始化<code>DragGesture</code>：</p>

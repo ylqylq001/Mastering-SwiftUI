@@ -911,7 +911,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8-lazyvgrid-%E4%BE%86%E5%89%B5%E5%BB%BA%E5%9E%82%E7%9B%B4-grid">使用 LazyVGrid 来创建垂直 Grid</h3>
 <p>对 Grid 布局有一些基本了解之后，让我们开始编写代码吧！我们将从构建一个 3 列的网格(Grid)开始。打开 Xcode 并使用 <em>App</em> 模板创建一个新项目。 请确保选择 <em>SwiftUI</em> 作为界面选项。 将项目命名为 <em>SwiftUIGridLayout</em> 或你喜欢的名称。</p>
 <figure id="fig29.2"><img src="images/gridlayout/swiftui-gridlayout-2.png" alt="图 29.2. 使用 App 模板创建一个新项目"><figcaption>图 29.2. 使用 App 模板创建一个新项目</figcaption></figure>
-<p>之后，在 <code>ContentView.swift</code> 内，宣告以下变数 (variable)：</p>
+<p>之后，在 <code>ContentView.swift</code> 内，声明以下变数 (variable)：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> symbols = [<span class="hljs-string">&quot;keyboard&quot;</span>, <span class="hljs-string">&quot;hifispeaker.fill&quot;</span>, <span class="hljs-string">&quot;printer.fill&quot;</span>, <span class="hljs-string">&quot;tv.fill&quot;</span>, <span class="hljs-string">&quot;desktopcomputer&quot;</span>, <span class="hljs-string">&quot;headphones&quot;</span>, <span class="hljs-string">&quot;tv.music.note&quot;</span>, <span class="hljs-string">&quot;mic&quot;</span>, <span class="hljs-string">&quot;plus.bubble&quot;</span>, <span class="hljs-string">&quot;video&quot;</span>]
 
 private <span class="hljs-keyword">var</span> colors: [<span class="hljs-type">Color</span>] = [.yellow, .purple, .green]
@@ -1001,7 +1001,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <span class="hljs-keyword">let</span> samplePhotos = (<span class="hljs-number">1</span>...<span class="hljs-number">20</span>).<span class="hljs-built_in">map</span> { <span class="hljs-type">Photo</span>(name: <span class="hljs-string">&quot;coffee-<span class="hljs-subst">\($<span class="hljs-number">0</span>)</span>&quot;</span>) }
 </code></pre>
 <p>图像包中有 20 张咖啡照片，因此我们初始化了一个包含 20 个<code>Photo</code>实体的数组。 准备好数据模型后，让我们切换到 <code>ContentView.swift</code> 来构建网格。</p>
-<p>首先，宣告一个 <code>gridLayout</code> 变数来定义我们首选的网格布局：</p>
+<p>首先，声明一个 <code>gridLayout</code> 变数来定义我们首选的网格布局：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout: [<span class="hljs-type">GridItem</span>] = [ <span class="hljs-type">GridItem</span>() ]
 </code></pre>
 <p>在预设情况下，我们希望显示一个列表视图。 除了使用 <code>List</code>，你实际上还可以使用 <code>LazyVGrid</code> 来构建列表视图。 我们通过使用一个网格项定义 <code>gridLayout</code> 来做到这一点。 通过告诉 <code>LazyVGrid</code> 使用单列网格布局，它将像列表视图一样排列项目。 在 <code>body</code> 中插入以下代码以创建网格视图：</p>
@@ -1077,7 +1077,7 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 </code></pre>
 <p><code>Cafe</code> 结构是不言自明的。 它有一个用于存储咖啡照片的<code>image</code> 属性和用于存储咖啡照片列表的<code>coffeePhotos</code> 属性。 在上面的代码中，我们还创建了一个<code>Cafe</code> 数组。 对于每个咖啡馆，我们随机挑选一些咖啡照片。 如果你有其他喜欢的图像，请随时修改代码。</p>
 <p>让我们创建一个新档案来实现这个网格视图。 右键单击 <em>SwiftUIPhotoGrid</em> 并选择 <em>New File...</em>。 选择 <em>SwiftUI View</em> 模板并将文件命名为 <em>MultiGridView</em>。</p>
-<p>与前面的实现类似，让我们宣告了一个 <code>gridLayout</code> 变数来储存当前的网格布局：</p>
+<p>与前面的实现类似，让我们声明了一个 <code>gridLayout</code> 变数来储存当前的网格布局：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> gridLayout = [ <span class="hljs-type">GridItem</span>() ]
 </code></pre>
 <p>在预设的情况下，我们的网格使用一个 <code>GridItem</code> 进行初始化。 接下来，在 <code>body</code> 中加入以下代码以创建具有单列的垂直网格：</p>
