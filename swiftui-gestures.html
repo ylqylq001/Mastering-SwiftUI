@@ -895,7 +895,7 @@
 }
 </code></pre>
 <p>如果你想要测试代码，则使用 “App”模板来建立一个新专案， 并确认你有选取 “Interface ”选项中的“SwiftUI”，然后在ContentView.swift 中贴上代码。</p>
-<p>透过修改上列的代码，并导入一个状态变数，我们可以在星形图片被点击时，建立一个简单的缩放动画。下列为更新后的代码： </p>
+<p>透过修改上列的代码，并导入一个状态变量，我们可以在星形图片被点击时，建立一个简单的缩放动画。下列为更新后的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isPressed = <span class="hljs-built_in">false</span>
 
@@ -934,7 +934,7 @@
 <p>SwiftUI 提供一个名为 <code>@GestureState</code> 的属性包裹器，它可以方便地追踪手势的状态变化，并让开发者决定对应的动作。要实作我们刚才描述的动画，我们可以使 用 <code>@GestureState</code> 声明一个属性： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> longPressTap = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>这个手势状态变数表示“执行长按手势期间是否侦测到点击事件”。当你定义了变数后，你可以修改 <code>Image</code> 视图的代码，如下所示： </p>
+<p>这个手势状态变量表示“执行长按手势期间是否侦测到点击事件”。当你定义了变量后，你可以修改 <code>Image</code> 视图的代码，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
     .font(.system(size: <span class="hljs-number">200</span>))
     .opacity(longPressTap ? <span class="hljs-number">0.4</span> : <span class="hljs-number">1.0</span>)
@@ -982,14 +982,14 @@
     }
 }
 </code></pre>
-<p>要识别拖曳手势，你初始化一个 <code>DragGesture</code> 实例，并监听更新。在 <code>update</code> 函数中，我们传送一个手势状态属性来追踪拖曳事件。与长按手势类似，<code>update</code> 函数的闭包接收三个参数。在这个范例中，value 参数储存拖曳的目前资料（包含移动），这就是为什么我们将 <code>state</code> 变数（实际上是 <code>dragOffset</code> ）设定为<code>value.translation</code>的缘故。</p>
+<p>要识别拖曳手势，你初始化一个 <code>DragGesture</code> 实例，并监听更新。在 <code>update</code> 函数中，我们传送一个手势状态属性来追踪拖曳事件。与长按手势类似，<code>update</code> 函数的闭包接收三个参数。在这个范例中，value 参数储存拖曳的目前资料（包含移动），这就是为什么我们将 <code>state</code> 变量（实际上是 <code>dragOffset</code> ）设定为<code>value.translation</code>的缘故。</p>
 <p>在预览画布中执行专案，你可以拖曳图片，而当你放开图片时，它会返回原始位置。</p>
 <p>你知道为什么图片会回到它的起点吗？如前一节所述，使用 <code>@GestureState</code> 的优点是， 当手势结束时，它会重置属性值为原始值。因此，当你放开手指结束拖曳时，<code>dragOffset</code> 会重置为<code>.zero</code>，即原始位置。</p>
 <p>不过，如果你想让图片停留在拖曳的终点，该如何做呢？给自己几分钟的时间来思考如何实作。</p>
 <p>由于 <code>@GestureState</code> 属性包裹器将重置属性为原始值，我们需要另一个状态属性来储存最终的位置。因此，我们声明一个新的状态属性如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> position = <span class="hljs-type">CGSize</span>.zero
 </code></pre>
-<p>接下来，更新 <code>body</code> 变数如下： </p>
+<p>接下来，更新 <code>body</code> 变量如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;star.circle.fill&quot;</span>)
         .font(.system(size: <span class="hljs-number">100</span>))

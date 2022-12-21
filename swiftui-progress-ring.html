@@ -942,11 +942,11 @@
 <li>灰色的圆形视图</li>
 <li>位于 #1 上层的渐变色环形</li>
 </ol>
-<p>现在打开 <code>ProgressRingView.swift</code> 并声明以下变数：</p>
+<p>现在打开 <code>ProgressRingView.swift</code> 并声明以下变量：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> thickness: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">30.0</span>
 <span class="hljs-keyword">var</span> width: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">250.0</span>
 </code></pre>
-<p>由于这个圆形进度条应该支援各种大小，上面的变数都有一个预设值。 顾名思义，<code>thickness</code> 变数控制进度条的粗细，而 <code>width</code> 变数储存圆的直径。</p>
+<p>由于这个圆形进度条应该支援各种大小，上面的变量都有一个预设值。 顾名思义，<code>thickness</code> 变量控制进度条的粗细，而 <code>width</code> 变量储存圆的直径。</p>
 <p>你可以使用内置的 <code>Circle</code> 视图创建圆形视图，如下所示：</p>
 <figure id="fig30.6"><img src="images/progressring/swiftui-progressring-6.png" alt="图 30.6. 绘制圆形视图"><figcaption>图 30.6. 绘制圆形视图</figcaption></figure>
 <p>我们使用 <code>stroke</code> 修饰器来绘制灰色圆圈的轮廓。 如图所示，<code>thickness</code> 属性用于控制轮廓的宽度， <code>width</code> 属性是圆的直径。 我故意突出框架，以便你可以看到厚度和宽度。</p>
@@ -971,7 +971,7 @@
 </code></pre>
 <p>我们通过采用<code>Shape</code>协议创建了一个<code>RingShape</code>结构， 在结构中声明了两个属性。 <code>progress</code> 属性允许用户指定进度百分比，手 <code>thickness</code> 属性，类似于 <code>ProgressRingView</code> 中的属性，可让你控制环的宽度。</p>
 <p>要绘制圆环，我们使用 <code>addArc</code> 方法，然后使用 <code>strokedPath</code>。 弧的半径可以通过将框架的宽度（或高度）除以 2 来计算。起始角度当前设定为零度。 而结束角度（ending angle），我们就将 360 乘以进度值来计算。 例如，如果我们将 <code>progress</code> 设定为 0.5，就会绘制一个半环（从 0 到 180 度）。</p>
-<p>要使用 <code>RingShape</code>，你可以像这样更新 <code>body</code> 变数：</p>
+<p>要使用 <code>RingShape</code>，你可以像这样更新 <code>body</code> 变量：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ZStack</span> {
     <span class="hljs-type">Circle</span>()
         .stroke(<span class="hljs-type">Color</span>(.systemGray6), lineWidth: thickness)
@@ -1015,11 +1015,11 @@
 <p>完成修改后，圆形进度条就即时显示渐变效果。</p>
 <figure id="fig30.10"><img src="images/progressring/swiftui-progressring-10.png" alt="图 30.10. 带有渐变的圆形进度条"><figcaption>图 30.10. 带有渐变的圆形进度条</figcaption></figure>
 <h3 id="%E6%94%B9%E8%AE%8A%E9%80%B2%E5%BA%A6">改变进度</h3>
-<p>进度百分比现在固定为 0.5。 不用多说，你也知道我们需要为此建立一个变数以使其可以随时调整。 在 <code>ProgressRingView</code> 中，声明一个名为 <code>progress</code> 的变数，如下所示：</p>
+<p>进度百分比现在固定为 0.5。 不用多说，你也知道我们需要为此建立一个变量以使其可以随时调整。 在 <code>ProgressRingView</code> 中，声明一个名为 <code>progress</code> 的变量，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> progress: <span class="hljs-type">Double</span>
 </code></pre>
-<p>我们开发的 <code>ProgressRingView</code> 是能够让使用者控制进度百分比。 因此，进度是应该由使用者提供。 这就是为什么 <code>progress</code> 被标记为绑定变数的原因。</p>
-<p>要使用该变数，我们可以相应地更新以下代码：</p>
+<p>我们开发的 <code>ProgressRingView</code> 是能够让使用者控制进度百分比。 因此，进度是应该由使用者提供。 这就是为什么 <code>progress</code> 被标记为绑定变量的原因。</p>
+<p>要使用该变量，我们可以相应地更新以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">RingShape</span>(progress: progress, thickness: thickness)
     .fill(<span class="hljs-type">AngularGradient</span>(gradient: gradient, center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(<span class="hljs-number">360</span> * progress + startAngle)))
 </code></pre>
@@ -1038,10 +1038,10 @@
 <h3 id="%E4%BD%BF%E7%94%A8-animatable-%E7%82%BA%E7%92%B0%E5%BD%A2%E8%A8%AD%E7%BD%AE%E5%8B%95%E7%95%AB">使用 Animatable 为环形设置动画</h3>
 <p>圆形进度条看起来做得不错，那就让我们试一试创建一个如图 30.12 所示的范列。该图有三个用于调整进度的按钮。 当任何一个按钮被点击时，进度条会逐渐增加（或减少）到指定的百分比。 例如，当前进度设置为 0。当点击“50%”按钮时，进度条会从 0% 逐渐上升到 50%。</p>
 <figure id="fig30.12"><img src="images/progressring/swiftui-progressring-12.png" alt="图 12. 圆形进度条示范"><figcaption>图 12. 圆形进度条示范</figcaption></figure>
-<p>现在让我们切换到 <code>ContentView.swift</code> 来创建这个示范App。 首先，声明一个状态变数来存放进度，如下所示：</p>
+<p>现在让我们切换到 <code>ContentView.swift</code> 来创建这个示范App。 首先，声明一个状态变量来存放进度，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> progress = <span class="hljs-number">0.0</span>
 </code></pre>
-<p>然后在 <code>body</code> 变数中插入以下代码来建立 UI：</p>
+<p>然后在 <code>body</code> 变量中插入以下代码来建立 UI：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">ProgressRingView</span>(progress: $progress)
 

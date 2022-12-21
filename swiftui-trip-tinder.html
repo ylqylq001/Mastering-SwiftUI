@@ -921,11 +921,11 @@
 <h4 id="%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">卡片视图</h4>
 <p>首先，我们建立一个卡片视图。若是你想挑战自我，我强烈建议你在这里停下来并实作它，而无须遵循本节内容，否则请继续阅读。</p>
 <p>为了让代码更易编写，我们将在一个单独的档案中实作卡片视图。在专案导览器中，使用“SwiftUI View”模板来建立新档，并将其命名为 <code>CardView.swift</code>。</p>
-<p><code>CardView</code> 是设计用来显示不同的照片与标题，因此声明两个变数来储存这些资料：</p>
+<p><code>CardView</code> 是设计用来显示不同的照片与标题，因此声明两个变量来储存这些资料：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
 </code></pre>
-<p>主荧幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协定，并导入一个 <code>id</code> 变数，如下所示： </p>
+<p>主荧幕将显示一副卡片视图。稍后，我们将使用 <code>ForEach</code> 来逐一执行卡片视图数组并显示它们。如果你还记得<code>ForEach</code> 的用法，那么 SwiftUI 需要知道如何唯一识别数组中的每个项目。因此，我们将使 <code>CardView</code> 遵循<code>Identifiable</code> 协定，并导入一个 <code>id</code> 变量，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView</span>: <span class="hljs-title">View</span>, <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">let</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span>
@@ -937,7 +937,7 @@
 }
 </code></pre>
 <p>如果您忘记什么是 <code>Identifiable</code> 协定，则请参考第 10 章。</p>
-<p>现在，我们继续实作卡片视图，并更新 <code>body</code> 变数如下： </p>
+<p>现在，我们继续实作卡片视图，并更新 <code>body</code> 变量如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">Image</span>(image)
         .resizable()
@@ -1090,7 +1090,7 @@
     }
 }
 </code></pre>
-<p>在上面的代码中，我们初始化一个包含所有旅程的 <code>cardViews</code> 数组（其在 <code>Trip.swift</code> 档中定义）。在body 变数中，我们逐一执行所有的卡片视图，并将它们包裹在 <code>ZStack</code> 中来相互重叠。</p>
+<p>在上面的代码中，我们初始化一个包含所有旅程的 <code>cardViews</code> 数组（其在 <code>Trip.swift</code> 档中定义）。在body 变量中，我们逐一执行所有的卡片视图，并将它们包裹在 <code>ZStack</code> 中来相互重叠。</p>
 <p>预览画布应该会显示相同的UI，但使用另一张图片，如图19.8 所示。</p>
 <figure id="fig19.8"><img src="images/triptinder/swiftui-trip-tinder-8.png" alt="图 19.8.　建立卡片视图库"><figcaption>图 19.8.　建立卡片视图库</figcaption></figure>
 <p>为什么它会显示另一张图片呢？如果你引用在 <code>Trip.swift</code> 中定义的 <code>trips</code> 数组，图片是数组的最后一个元素。在<code>ForEach</code> 区块中，第一个旅程是放在卡片库的最下面，如此最后一个旅程便成为卡片库的最上面照片。</p>
@@ -1175,7 +1175,7 @@
 
 }
 </code></pre>
-<p>再一次，如果你不了解什么是枚举，则请在此处停止，并复习一下有关手势的章节。接下来，我们定义一个<code>@GestureState</code> 变数来储存拖曳状态，预设上设定为“inactive”： </p>
+<p>再一次，如果你不了解什么是枚举，则请在此处停止，并复习一下有关手势的章节。接下来，我们定义一个<code>@GestureState</code> 变量来储存拖曳状态，预设上设定为“inactive”： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragState = <span class="hljs-type">DragState</span>.inactive
 </code></pre>
 <p>现在，更新 <code>body</code> 的部分如下： </p>
@@ -1217,7 +1217,7 @@
     }
 }
 </code></pre>
-<p>基本上，我们将应用在手势章节中所学的知识来实作拖曳。<code>.gesture</code> 修饰器有两个手势识别器：长按与拖曳。当侦测到拖曳手势时，我们更新 <code>dragState</code> 变数，并储存拖曳的位移量。</p>
+<p>基本上，我们将应用在手势章节中所学的知识来实作拖曳。<code>.gesture</code> 修饰器有两个手势识别器：长按与拖曳。当侦测到拖曳手势时，我们更新 <code>dragState</code> 变量，并储存拖曳的位移量。</p>
 <p><code>offset</code>、<code>scaleEffect</code>、<code>rotationEffect</code> 与 <code>animation</code> 修饰器的结合， 可建立拖曳效果。拖曳是透过更新卡片视图的 <code>offset</code>来实现。当卡片视图处于拖曳状态时，我们会使用 <code>scaleEffect</code> 将它缩小一点，并应用<code>rotationEffect</code> 修饰器将它旋转特定角度。动画设定为 <code>interpolatingSpring</code>，但你可以自由尝试其他动画。</p>
 <p>我们还对 <code>BottomBarMenu</code> 做一些代码更改。当使用者拖曳卡片视图时，我想要隐藏底部列，因此我们应用 <code>.opacity</code> 修饰器，并且当它在拖曳状态时，设定它的值为“0”。</p>
 <p>进行更改后，在预览画布中执行专案来测试它。你应该能够拖曳卡片并四处移动。而当你释放卡片时，卡片会回到原来的位置，如图 19.10 所示。</p>
@@ -1291,7 +1291,7 @@
     <span class="hljs-keyword">return</span> views
 }()
 </code></pre>
-<p>接下来，声明另一个状态变数来追踪旅程的最后一个索引。假设卡片库第一次初始化时，我们显示储存在 <code>trips</code> 数组中的前两个旅程，最后一个索引设定为 <code>1</code>。</p>
+<p>接下来，声明另一个状态变量来追踪旅程的最后一个索引。假设卡片库第一次初始化时，我们显示储存在 <code>trips</code> 数组中的前两个旅程，最后一个索引设定为 <code>1</code>。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> lastIndex = <span class="hljs-number">1</span>
 </code></pre>
 <p>下面是用于删除及插入卡片视图的核心函数。定义一个名为 <code>moveCard</code> 新函数： </p>

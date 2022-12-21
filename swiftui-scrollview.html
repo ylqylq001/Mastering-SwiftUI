@@ -970,13 +970,13 @@
 <p>除了边框之外，我们也在顶部、左侧、右侧分别加入了一些间距。现在，你应该已经建立好卡片视图的布局，如图 5.10 所示。</p>
 <figure id="fig5.10"><img src="images/scrollview/swiftui-scrollview-10.png" alt="图 5.10. 加入边框与圆角"><figcaption>图 5.10. 加入边框与圆角</figcaption></figure>
 <h4 id="%E8%AE%93%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E6%9B%B4%E5%85%B7%E5%BD%88%E6%80%A7">让卡片视图更具弹性</h4>
-<p>虽然目前卡片视图看起来没问题，但我们将图片与文字写死（ Hard Code）在程式中， 为了让它更具弹性，我们要重构代码。首先，在 <code>CardView</code> 声明 image、category、heading 与author 这些变数： </p>
+<p>虽然目前卡片视图看起来没问题，但我们将图片与文字写死（ Hard Code）在程式中， 为了让它更具弹性，我们要重构代码。首先，在 <code>CardView</code> 声明 image、category、heading 与author 这些变量： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
 <span class="hljs-keyword">var</span> category: <span class="hljs-type">String</span>
 <span class="hljs-keyword">var</span> heading: <span class="hljs-type">String</span>
 <span class="hljs-keyword">var</span> author: <span class="hljs-type">String</span>
 </code></pre>
-<p>接下来，将 <code>Image</code> 与 <code>Text</code> 视图的值以下列变数替代： </p>
+<p>接下来，将 <code>Image</code> 与 <code>Text</code> 视图的值以下列变量替代： </p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">Image</span>(image)
         .resizable()
@@ -1002,7 +1002,7 @@
     .padding()
 }
 </code></pre>
-<p>更改完成后，你将在 <code>CardView_Previews</code> 结构中看到一个错误，如图 5.11 所示。这是因为我们在 <code>CardView</code> 导入了一些变数，当使用它时，必须指定参数给它。</p>
+<p>更改完成后，你将在 <code>CardView_Previews</code> 结构中看到一个错误，如图 5.11 所示。这是因为我们在 <code>CardView</code> 导入了一些变量，当使用它时，必须指定参数给它。</p>
 <figure id="fig5.11"><img src="images/scrollview/swiftui-scrollview-11.png" alt="图 5.11. 调用 CardView 时缺少参数"><figcaption>图 5.11. 调用 CardView 时缺少参数</figcaption></figure>
 <p>因此，以下列代码来取代： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CardView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{

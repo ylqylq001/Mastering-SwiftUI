@@ -1123,7 +1123,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     }
 }
 </code></pre>
-<p><code>TextEditor</code> 的用法与<code>TextField</code> 非常相似。 您只需将 String 变数绑定传递给<code>TextEditor</code>即可。 就像任何其他 SwiftUI 视图一样，您可以应用视图修饰器来设置其外观样式。 </p>
+<p><code>TextEditor</code> 的用法与<code>TextField</code> 非常相似。 您只需将 String 变量绑定传递给<code>TextEditor</code>即可。 就像任何其他 SwiftUI 视图一样，您可以应用视图修饰器来设置其外观样式。 </p>
 <p>在表格的最后，就是 <em>Save</em> 按钮。 在预设的情况下，此按钮是不能用的。 使用者要填写所有必填表格栏时，这个 <em>Save</em> 按钮才可使用。 <code>disabled</code> 修饰器就是用于控制按钮的状态：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
     <span class="hljs-keyword">self</span>.save()
@@ -1218,10 +1218,10 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <p>这个类别遵从<code>ObservableObject</code>。 所有属性都以<code>@Published</code>标注，因为我们想在数值发生变化时通知订阅者并相应地执行验证。</p>
 <p>每当使用者输入表格栏时，此视图模型就会执行验证代码并更新结果，以及通知订阅者。</p>
 <p>那么，谁是订阅者？</p>
-<p>如果你回到 <code>PaymentFormView.swift</code>，你应该注意到我们已经用 <code>@ObservedObject</code> 标注了一个名为 <code>paymentFormViewModel</code> 的变数：</p>
+<p>如果你回到 <code>PaymentFormView.swift</code>，你应该注意到我们已经用 <code>@ObservedObject</code> 标注了一个名为 <code>paymentFormViewModel</code> 的变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">ObservedObject</span> private <span class="hljs-keyword">var</span> paymentFormViewModel: <span class="hljs-type">PaymentFormViewModel</span>
 </code></pre>
-<p><code>PaymentFormView</code> 会侦测视图模型的变化。 当任何验证变数（例如 <code>isNameValid</code>）更新时，<code>PaymentFormView</code> 就会收到通知，视图相应地显示验证错误。</p>
+<p><code>PaymentFormView</code> 会侦测视图模型的变化。 当任何验证变量（例如 <code>isNameValid</code>）更新时，<code>PaymentFormView</code> 就会收到通知，视图相应地显示验证错误。</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> !paymentFormViewModel.isNameValid {
     <span class="hljs-type">ValidationErrorText</span>(text: <span class="hljs-string">&quot;Please enter the payment name&quot;</span>)
 }
@@ -1454,7 +1454,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     <span class="hljs-keyword">return</span> totalIncome - totalExpense
 }
 </code></pre>
-<p><code>paymentActivities</code> 变数存放了所有交易活动。要计算总收入的话，我们首先使用 <code>filter</code> 函数过滤那些交易为 <code>.income</code> ，然后使用 <code>reduce</code> 函数计算总收入。 只要使用相同的技巧就可计算出总支出。 Swift 的高阶函数非常好用。 如果您不知道如何使用 filter 和 reduce，您可以读一读这篇教学文（<a href="https://www.appcoda. com/higher-order-functions-swift/" target="_blank">https://www.appcoda.com/higher-order-functions-swift/</a>)。</p>
+<p><code>paymentActivities</code> 变量存放了所有交易活动。要计算总收入的话，我们首先使用 <code>filter</code> 函数过滤那些交易为 <code>.income</code> ，然后使用 <code>reduce</code> 函数计算总收入。 只要使用相同的技巧就可计算出总支出。 Swift 的高阶函数非常好用。 如果您不知道如何使用 filter 和 reduce，您可以读一读这篇教学文（<a href="https://www.appcoda. com/higher-order-functions-swift/" target="_blank">https://www.appcoda.com/higher-order-functions-swift/</a>)。</p>
 <h4 id="%E6%9C%80%E8%BF%91%E7%9A%84%E4%BA%A4%E6%98%93">最近的交易</h4>
 <p>UI 的最后一部分是最近交易的列表。 由于所有行的布局都一样（支付类型的图标除外），我们为交易行创建一个通用视图，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TransactionCellView</span>: <span class="hljs-title">View</span> </span>{
@@ -1531,7 +1531,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 </code></pre>
 <p>当使用者按住其中一行时，它会显示一个包含删除和编辑选项的内容选单（Context Menu）。 选择编辑选项时，App将使用所选的交易创建<code>PaymentFormView</code>。 对于删除动作，我们透过 Core Data 从数据库中完全删除交易记录。</p>
 <figure id="fig25.7"><img src="images/real-world-app/real-world-app-7.png" alt="图 25.7. 内容选单"><figcaption>图 25.7. 内容选单</figcaption></figure>
-<p>不知你没有注意到 <code>paymentDataForView</code> 变数？ 列表视图并没有使用 <code>paymentActivities</code>，而是显示存放在 <code>paymentDataForView</code> 中的项目。 为什么是这样？</p>
+<p>不知你没有注意到 <code>paymentDataForView</code> 变量？ 列表视图并没有使用 <code>paymentActivities</code>，而是显示存放在 <code>paymentDataForView</code> 中的项目。 为什么是这样？</p>
 <p>在 <em>Recent Transactions</em> 部分，App为使用者提供了三个选项来过滤交易活动，包括全部（All）、收入（Income）和支出（Expense）。 例如，如果选择了 <em>expense</em> 选项，就仅显示与与支出相关的交易。</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> paymentDataForView: [<span class="hljs-type">PaymentActivity</span>] {
 
@@ -1699,7 +1699,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 <li><em>keyboardWillHideNotification</em> - 当键盘即将消失时发送此通知</li>
 </ul>
 <p>那么，我们如何利用这些通知来向上滚动表格呢？ 当App收到 <em>keyboardWillShowNotification</em> 时，它会向表格添加 padding 使其向上移动。 相反，当收到 <em>keyboardWillHideNotification</em> 时，我们就将padding设定为零。</p>
-<p>在上面的代码，我们有一个状态变数来存放键盘的高度。 通过使用 Combine 框架，我们有一个发布者，当侦测到 <em>keyboardWillShowNotification</em> 就会立即发布键盘的当前高度。 此外，我们还有另一个发布者聆听 <em>keyboardWillHideNotification</em> 并发出<code>0</code>值。 对于这两个发布者，我们使用内置的 <code>assign</code> 将这些发布者发出的值传给 <code>currentHeight</code> 变数。</p>
+<p>在上面的代码，我们有一个状态变量来存放键盘的高度。 通过使用 Combine 框架，我们有一个发布者，当侦测到 <em>keyboardWillShowNotification</em> 就会立即发布键盘的当前高度。 此外，我们还有另一个发布者聆听 <em>keyboardWillHideNotification</em> 并发出<code>0</code>值。 对于这两个发布者，我们使用内置的 <code>assign</code> 将这些发布者发出的值传给 <code>currentHeight</code> 变量。</p>
 <p>这就是移动键盘的方式和原理。 但是为什么我们需要有 <code>View</code> 扩展呢？</p>
 <p>该代码无需扩展也可运作。 您可以将代码写成这样来处理键盘事件：</p>
 <pre><code class="lang-swift">.modifier(<span class="hljs-type">KeyboardAdaptive</span>())

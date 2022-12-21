@@ -919,7 +919,7 @@
     }
 }
 </code></pre>
-<p>我们定义三个状态变数来建立状态模型，初始值皆设定为“false”。为了建立圆形与心形，我们使用 <code>ZStack</code> 来将心形叠在圆形上，如图9.2 所示。SwiftUI 有个 <code>onTapGesture</code> 修饰器可以侦测，点击手势，你可以将它加在任何视图，使其可点击。在 <code>onTapGesture</code> 闭包中，我们切换状态，以改变视图的外观。</p>
+<p>我们定义三个状态变量来建立状态模型，初始值皆设定为“false”。为了建立圆形与心形，我们使用 <code>ZStack</code> 来将心形叠在圆形上，如图9.2 所示。SwiftUI 有个 <code>onTapGesture</code> 修饰器可以侦测，点击手势，你可以将它加在任何视图，使其可点击。在 <code>onTapGesture</code> 闭包中，我们切换状态，以改变视图的外观。</p>
 <figure id="fig9.2"><img src="images/animation/swiftui-animation-2.png" alt="图 9.2.　实作圆形与心形视图"><figcaption>图 9.2.　实作圆形与心形视图</figcaption></figure>
 <p>在预览画布测试这个 App，则你点击视图时，圆形及心形图示的颜色会改变，但这些变化不会显示动画。</p>
 <p>要让这些变化显示动画效果，你只需将 <code>animation</code> 修饰器加到 <code>Circle</code> 与 <code>Image</code> 视图： </p>
@@ -1046,7 +1046,7 @@
     }
 }
 </code></pre>
-<p><code>rotationEffect</code> 修饰器带入旋转角度，在上列的代码中，我们有一个状态变数来控制下载状态。当它设定为true 时，这个旋转角度设定为 360 度以旋转圆环。在 <code>animation</code> 修饰器中，我们指定使用预设动画，不过还有些不同，我们告诉 SwiftUI 要一次又一次重复相同的动画，这就是建立下载动画的诀窍。</p>
+<p><code>rotationEffect</code> 修饰器带入旋转角度，在上列的代码中，我们有一个状态变量来控制下载状态。当它设定为true 时，这个旋转角度设定为 360 度以旋转圆环。在 <code>animation</code> 修饰器中，我们指定使用预设动画，不过还有些不同，我们告诉 SwiftUI 要一次又一次重复相同的动画，这就是建立下载动画的诀窍。</p>
 <p><strong>*备注</strong>: 如果在预览画布中看不到动画，请在模拟器中运行App再试一试。*</p>
 <p>如果你想要更改动画的速度，则可以使用线性动画，并指定持续时间，如下所示：</p>
 <pre><code class="lang-swift">.animation(.linear(duration: <span class="hljs-number">5</span>).repeatForever(autoreverses: <span class="hljs-built_in">false</span>), value: isLoading)
@@ -1116,7 +1116,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%80%B2%E5%BA%A6%E6%8C%87%E7%A4%BA%E5%99%A8">建立进度指示器</h3>
 <p>下载指示器向使用者提供一些回馈，其表示 App 正在处理某些事情。不过，它并没有显示实际进度，如果你需要为使用者提供关于任务进度的更多资讯，则可能需要建立一个如图 9.7 所示的进度指示器。</p>
 <figure id="fig9.7"><img src="images/animation/swiftui-animation-7.gif" alt="图 9.7.　进度指示器"><figcaption>图 9.7.　进度指示器</figcaption></figure>
-<p>建立进度指示器的方式与下载指示器非常相似。不过，你需要使用状态变数来追踪进度。以下是建立进度指示器的代码片段： </p>
+<p>建立进度指示器的方式与下载指示器非常相似。不过，你需要使用状态变量来追踪进度。以下是建立进度指示器的代码片段： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> progress: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">0.0</span>
 
@@ -1149,7 +1149,7 @@
     }
 }
 </code></pre>
-<p>这里的状态变数不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在真实世界的应用程式中，你可以更新 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒更新一次。</p>
+<p>这里的状态变量不是使用布林值，而是我们使用浮点数来储存状态。为了显示进度， 我们以进度值来设定 <code>trim</code> 修饰器。在真实世界的应用程式中，你可以更新 <code>progress</code> 的值来显示操作的实际进度。为了示范，我们只启用一个计时器，其每半秒更新一次。</p>
 <h3 id="%E5%BB%B6%E9%81%B2%E5%8B%95%E7%95%AB">延迟动画</h3>
 <p>SwiftUI 框架不只让你可以控制动画的持续时间，你可以透过 <code>delay</code> 函数来延迟动画， 如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.<span class="hljs-keyword">default</span>.delay(<span class="hljs-number">1.0</span>)
@@ -1224,9 +1224,9 @@
     }
 }
 </code></pre>
-<p>这里有两个状态变数：<code>recordBegin</code> 与 <code>recording</code>，其是控制两个单独的动画。第一个变数控制按钮的变形，如前所述，我们使用圆角半径来实现这个变形。矩形的宽度原先是设定为“250 点”，当使用者点击矩形来触发变形时，这个框架的宽度会变为“60 点”。随着改变，圆角半径变成“30 点”，也就是宽度的一半。</p>
+<p>这里有两个状态变量：<code>recordBegin</code> 与 <code>recording</code>，其是控制两个单独的动画。第一个变量控制按钮的变形，如前所述，我们使用圆角半径来实现这个变形。矩形的宽度原先是设定为“250 点”，当使用者点击矩形来触发变形时，这个框架的宽度会变为“60 点”。随着改变，圆角半径变成“30 点”，也就是宽度的一半。</p>
 <p>这就是我们将矩形变形为圆形的方法，而且SwiftUI 会自动渲染此变形的动画。</p>
-<p>另一方面，<code>recording</code> 状态变数处理了麦克风图片的缩放。当它为录音状态时，我们将缩放比例从“1”更改为“0.7”，藉由重复执行相同的动画，即可建立放大及缩小的动画。</p>
+<p>另一方面，<code>recording</code> 状态变量处理了麦克风图片的缩放。当它为录音状态时，我们将缩放比例从“1”更改为“0.7”，藉由重复执行相同的动画，即可建立放大及缩小的动画。</p>
 <p>请注意，以上的代码使用显式方法来对视图设定动画。这不是强制性的，依照自己的喜好，你也可以使用隐式动画方法来获得相同的结果。</p>
 <h3 id="%E4%BA%86%E8%A7%A3%E8%BD%89%E5%A0%B4">了解转场</h3>
 <p>到目前为止，我们已经讨论了对视图层次（view hierarchy ）中已存在的视图设定动画。我们建立动画来放大和缩小视图，或者对视图大小设定动画。</p>
@@ -1264,7 +1264,7 @@
 </code></pre>
 <p>在上列的代码中，我们使用 <code>VStack</code> 垂直布局两个矩形。而我要做的是让这个堆叠可以点击。首先，要隐藏紫色矩形，只有当使用者点击绿色矩形（也就是Show details ）时才会显示。</p>
 <figure id="fig9.11"><img src="images/animation/swiftui-animation-11.png" alt="图 9.11.　垂直布局两个矩形"><figcaption>图 9.11.　垂直布局两个矩形</figcaption></figure>
-<p>为此，我们需要声明一个状态变数来决定是否显示紫色矩形。将下列这行代码插入 <code>ContentView</code> 中： </p>
+<p>为此，我们需要声明一个状态变量来决定是否显示紫色矩形。将下列这行代码插入 <code>ContentView</code> 中： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> show = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>接下来，我们将紫色矩形包裹在 <code>if</code> 叙述中，如下所示：</p>
@@ -1287,7 +1287,7 @@
     }
 }
 </code></pre>
-<p>当使用者点击堆叠时，我们切换为 <code>show</code> 变数来显示紫色矩形。如果你在模拟器或预览画布中执行这个 App，则应该只会看到绿色矩形，如图 9.12 所示。点击它会显示紫色矩形，而你应可看到一个平滑的淡入与淡出的转场效果。</p>
+<p>当使用者点击堆叠时，我们切换为 <code>show</code> 变量来显示紫色矩形。如果你在模拟器或预览画布中执行这个 App，则应该只会看到绿色矩形，如图 9.12 所示。点击它会显示紫色矩形，而你应可看到一个平滑的淡入与淡出的转场效果。</p>
 <figure id="fig9.12"><img src="images/animation/swiftui-animation-12.png" alt="图 9.12.　预设的转场效果"><figcaption>图 9.12.　预设的转场效果</figcaption></figure>
 <p>如前所述，如果你没有指定想使用的转场效果，SwiftUI 将渲染淡入淡出转场。要使用其他的转场效果，则在紫色矩形中加入 <code>transition</code> 修饰器，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> show {

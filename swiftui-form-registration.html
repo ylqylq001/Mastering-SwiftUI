@@ -1220,11 +1220,11 @@ $password
 }
 </code></pre>
 <p>以上的代码几乎与前面章节的代码相同。要使用 Combine，你需要先汇入 Combine 框架。在 <code>init()</code> 方法中，我们初始化所有的订阅者来监听文字栏位的值的变更，并执行相应的验证。</p>
-<p>代码与我们之前讨论的代码几乎相同，但你可能注意到一件事，即 <code>cancellableSet</code> 变数。对于每一个订阅者，我们在最后调用 <code>store</code> 函数。</p>
+<p>代码与我们之前讨论的代码几乎相同，但你可能注意到一件事，即 <code>cancellableSet</code> 变量。对于每一个订阅者，我们在最后调用 <code>store</code> 函数。</p>
 <p>这些是什么呢？ </p>
 <p><code>assign</code> 函数建立订阅者，并回传一个可取消的实例。你可以使用该实例在适当的时间取消订阅。<code>store</code> 函数可让我们将可取消的的参照储存到一个集合中，以便稍后的清理。如果你不储存这个参照，则 App 可能出现记忆体泄漏的问题。</p>
 <p>那么，这个范例何时会进行清理呢？由于 <code>cancellableSet</code> 被定义为该类别的属性，因此当类别被取消初始化时，将会对订阅进行清理及取消。</p>
-<p>现在切换回 <code>ContentView.swift</code>，并更新 UI 控制元件。首先，将下列的状态变数： </p>
+<p>现在切换回 <code>ContentView.swift</code>，并更新 UI 控制元件。首先，将下列的状态变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> username = <span class="hljs-string">&quot;&quot;</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> password = <span class="hljs-string">&quot;&quot;</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> passwordConfirm = <span class="hljs-string">&quot;&quot;</span>

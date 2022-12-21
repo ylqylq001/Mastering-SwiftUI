@@ -1219,7 +1219,7 @@
 <figure id="fig11.17"><img src="images/navigation/swiftui-navigation-17.png" alt="图 11.17.　建立我们自己的“返回”按钮"><figcaption>图 11.17.　建立我们自己的“返回”按钮</figcaption></figure>
 <p>你可能发现按钮的 <code>action</code> 闭包被留空。“返回”按钮已经布局得不错了，但问题是它不能运作。</p>
 <p>原来的“返回”按钮是由 <code>NavigationView</code> 渲染，可以自动导览回前一个画面。问题来了，我们该如何编写代码来触发这个操作呢？感谢 SwiftUI 框架所内建的环境值（environment value ），你可以引用一个名为<code>dismiss</code> 环境绑定（environment binding ），来导览至前一个画面。</p>
-<p>现在，在 <code>ArticleDetailView</code> 声明一个 <code>dismiss</code> 变数来取得环境值： </p>
+<p>现在，在 <code>ArticleDetailView</code> 声明一个 <code>dismiss</code> 变量来取得环境值： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.dismiss) <span class="hljs-keyword">var</span> dismiss
 </code></pre>
 <p>接下来，在我们的客制化“返回”按钮的 <code>action</code> 中，插入下列这行代码： </p>

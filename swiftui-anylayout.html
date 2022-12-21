@@ -920,13 +920,13 @@
     }
 }
 </code></pre>
-<p>我们定义了一个 layout 变数，来保存 <code>AnyLayout</code> 的实例。这个 layout 会根据 <code>changeLayout</code> 的数值，来切换水平和垂直 layout。<code>HStackLayout</code>（或 <code>VStackLayout</code>）的行为与 <code>HStack</code>（或 <code>VStack</code>）类似；但因为它符合 <code>Layout</code> 协定，我们就可以在 conditional layout 中使用它。</p>
+<p>我们定义了一个 layout 变量，来保存 <code>AnyLayout</code> 的实例。这个 layout 会根据 <code>changeLayout</code> 的数值，来切换水平和垂直 layout。<code>HStackLayout</code>（或 <code>VStackLayout</code>）的行为与 <code>HStack</code>（或 <code>VStack</code>）类似；但因为它符合 <code>Layout</code> 协定，我们就可以在 conditional layout 中使用它。</p>
 <p>我们还可以把动画附加到 layout，来动画化布局的改变。现在，当我们点击堆叠视图时，它就会切换垂直或水平布局。</p>
 <h2 id="%E6%A0%B9%E6%93%9A%E8%A3%9D%E7%BD%AE%E7%9A%84%E6%96%B9%E5%90%91%E5%88%87%E6%8F%9B-layout">根据装置的方向切换 layout</h2>
-<p>现在，范例 App 让使用者点击堆叠视图来切换 layout。在某些 App 中，我们可能会想根据装置方向和荧幕大小来切换 layout。在这个情况下，就可以利用 <code>.horizontalSizeClass</code> 变数来捕捉装置方向的改变。</p>
+<p>现在，范例 App 让使用者点击堆叠视图来切换 layout。在某些 App 中，我们可能会想根据装置方向和荧幕大小来切换 layout。在这个情况下，就可以利用 <code>.horizontalSizeClass</code> 变量来捕捉装置方向的改变。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.horizontalSizeClass) <span class="hljs-keyword">var</span> horizontalSizeClass
 </code></pre>
-<p>然后，让我们如此更新 <code>layout</code> 变数：</p>
+<p>然后，让我们如此更新 <code>layout</code> 变量：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> layout = horizontalSizeClass == .regular ? <span class="hljs-type">AnyLayout</span>(<span class="hljs-type">HStackLayout</span>()) : <span class="hljs-type">AnyLayout</span>(<span class="hljs-type">VStackLayout</span>())
 </code></pre>
 <p>举个例子，如果我们把 iPhone 14 Pro Max 转为横向，layout 就会切换为横向堆叠视图。</p>

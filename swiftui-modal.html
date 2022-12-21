@@ -909,11 +909,11 @@
 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip</a>。 下载起始专案，下载后开启专案，并看一下预览，如图 12.3 所示。你应该非常熟悉范例 App 了，该 App 仍有一个导览列，但导览连结已被删除。</p>
 <figure id="fig12.3"><img src="images/modal/swiftui-modal-3.png" alt="图 12.3.　起始专案"><figcaption>图 12.3.　起始专案</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-ispresented-%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 isPresented 实作强制回应视图</h3>
-<p>如前所述，<code>sheet</code> 修饰器提供我们两种显示模式的方式。我将展示这两种方法如何工作，我们从 <code>isPresented</code> 方法开始，对于这个方法，我们需要一个Bool 型别的状态变数来追踪强制回应视图的状态。在 <code>ContentView</code>中声明这个变数：</p>
+<p>如前所述，<code>sheet</code> 修饰器提供我们两种显示模式的方式。我将展示这两种方法如何工作，我们从 <code>isPresented</code> 方法开始，对于这个方法，我们需要一个Bool 型别的状态变量来追踪强制回应视图的状态。在 <code>ContentView</code>中声明这个变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showDetailView = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>预设情况下，它设定为 <code>false</code>。当点击其中一列时，该变数的值将会设定为 <code>true</code>。稍后， 我们会在代码中做这个变更。</p>
-<p>当显示细节视图时，该视图需要我们传送所选的文章，因此我们也需要声明一个状态来储存使用者的选择。在<code>ContentView</code> 中，为此声明另一个状态变数如下： </p>
+<p>预设情况下，它设定为 <code>false</code>。当点击其中一列时，该变量的值将会设定为 <code>true</code>。稍后， 我们会在代码中做这个变更。</p>
+<p>当显示细节视图时，该视图需要我们传送所选的文章，因此我们也需要声明一个状态来储存使用者的选择。在<code>ContentView</code> 中，为此声明另一个状态变量如下： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> selectedArticle: <span class="hljs-type">Article</span>?
 </code></pre>
 <p>为了实作强制回应视图，我们将 <code>sheet</code> 修饰器加到 <code>List</code> 上，如下所示：</p>
@@ -935,7 +935,7 @@
 }
 </code></pre>
 <p>强制回应视图的显示取决于 <code>showDetailView</code> 属性的值，这就是为何我们在 <code>isPresented</code> 参数中指定它的原因。该 <code>sheet</code> 修饰器的闭包声明要显示的视图布局。这里我们将显示 <code>ArticleDetailView</code>。</p>
-<p>最后一个问题是我们如何侦测触控呢？当建立导览UI 时，我们利用 <code>NavigationLink</code> 来处理触控， 然而此特殊按钮是为导览介面所设计。在 SwiftUI 中， 有一个名为 <code>onTapGesture</code> 的处理器，可以用来识别触控手势，因此你可以将此处理器加到每个 <code>ArticleRow</code> 来侦测使用者的触控。现在修改 <code>body</code> 变数中的 <code>NavigationStack</code>，如下所示： </p>
+<p>最后一个问题是我们如何侦测触控呢？当建立导览UI 时，我们利用 <code>NavigationLink</code> 来处理触控， 然而此特殊按钮是为导览介面所设计。在 SwiftUI 中， 有一个名为 <code>onTapGesture</code> 的处理器，可以用来识别触控手势，因此你可以将此处理器加到每个 <code>ArticleRow</code> 来侦测使用者的触控。现在修改 <code>body</code> 变量中的 <code>NavigationStack</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span>(articles) { article <span class="hljs-keyword">in</span>
         <span class="hljs-type">ArticleRow</span>(article: article)
@@ -957,7 +957,7 @@
     .navigationTitle(<span class="hljs-string">&quot;Your Reading&quot;</span>)
 }
 </code></pre>
-<p>在 <code>onTapGesture</code> 的闭包中，我们将 <code>showDetailView</code> 设定为 <code>true</code>，这是用于触发强制回应视图的显示。我们也将所选的文章储存在 <code>selectedArticle</code> 变数中。</p>
+<p>在 <code>onTapGesture</code> 的闭包中，我们将 <code>showDetailView</code> 设定为 <code>true</code>，这是用于触发强制回应视图的显示。我们也将所选的文章储存在 <code>selectedArticle</code> 变量中。</p>
 <p>现在于预览画布上执行这个 App。你应该能够以强制回应模式带出细节视图，如图 12.4 所示。</p>
 <p><em>注意：当你第一次打开模态视图时，它显示的是一个空白视图。 擦拭对话框以关闭它，然后选择另一篇文章（不是同一篇文章），App应该会显示正确的文章。 这是一个已知问题，我们将在后面的部分讨论如何改善。</em></p>
 <figure id="fig12.4"><img src="images/modal/swiftui-modal-4.png" alt="图 12.4. 以强制回应模式来显示细节视图"><figcaption>图 12.4. 以强制回应模式来显示细节视图</figcaption></figure>
@@ -970,7 +970,7 @@
 </code></pre>
 <p>在这种情况下，<code>sheet</code> 修饰器需要你传送一个 Optional 绑定。这里我们指定为 <code>selectedArticle</code> 绑定，这表示只有当所选的文章有值，iOS 才会带出强制回应视图。闭包中的代码指定强制回应视图的外观，但它和我们之前所撰写的有些不同。</p>
 <p>对于这个方法，<code>sheet</code> 修饰器将闭包中所选的文章传送给我们。article 参数包含了所选的文章，且该文章确保有一个值，这就是为何我们可以使用它来初始化 <code>ArticleDetailView</code>。</p>
-<p>由于我们不再使用 <code>showDetailView</code> 变数，因此你可以删除下列这行代码： </p>
+<p>由于我们不再使用 <code>showDetailView</code> 变量，因此你可以删除下列这行代码： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showDetailView = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>另外，从 <code>.onTapGesture</code> 闭包中删除 <code>self.showDetailView = true</code>:</p>
@@ -986,7 +986,7 @@
 <p>现在切换到 <code>ArticleDetailView.swift</code>， 我们将“关闭”按钮加入至视图中，如图 12.5  所示。</p>
 <p>你知道如何将按钮放在右上角吗？试着不直接遵循我的代码，而是提出自己的实作。</p>
 <p>好的，回到实作部分。</p>
-<p>和 <code>NavigationStack</code> 类似，我们可以使用 <code>dismiss</code> 环境值来解除模式。因此，首先在<code>ArticleDetailView</code> 中声明下列的变数： </p>
+<p>和 <code>NavigationStack</code> 类似，我们可以使用 <code>dismiss</code> 环境值来解除模式。因此，首先在<code>ArticleDetailView</code> 中声明下列的变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.dismiss) <span class="hljs-keyword">var</span> dismiss
 </code></pre>
 <p>对于“关闭”按钮，我们可以将 <code>overlay</code> 修饰器加到滚动视图上（在<code>ignoresSafeArea</code>之前添加），如下所示： </p>
@@ -1051,7 +1051,7 @@
 })
 </code></pre>
 <p>除了主按钮具有 <code>action</code> 参数之外，它和先前的代码类似。这个警告提示视窗询问使用者是否已阅读完文章，若是使用者选择“是”（ Yes ），它会继续关掉强制回应视图，否则强制回应视图将保持开启。</p>
-<p>现在，我们已有了建立警告提示视窗的代码，问题是如何触发警告提示视窗的显示呢？ SwiftUI 提供一个可加到任何视图的 <code>alert</code> 修饰器。同样的，你使用一个布林变数来控制警告提示视窗的显示，因此在 <code>ArticleDetailView</code>中声明一个状态变数： </p>
+<p>现在，我们已有了建立警告提示视窗的代码，问题是如何触发警告提示视窗的显示呢？ SwiftUI 提供一个可加到任何视图的 <code>alert</code> 修饰器。同样的，你使用一个布林变量来控制警告提示视窗的显示，因此在 <code>ArticleDetailView</code>中声明一个状态变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showAlert = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>接下来，将以上的 <code>alert</code> 修饰器加到 <code>ScrollView</code> 上。 </p>
@@ -1075,7 +1075,7 @@
 </code></pre>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>你已经学习了如何显示强制回应视图、实作浮动按钮以及显示警告提示视窗。iOS 持续鼓励使用者利用手势来与装置互动，并为常见手势提供内建支援。不需要撰写一行代码，即可让使用者在画面上向下滑动，以解除强制回应视图。</p>
-<p>强制回应视图与警告提示视窗的 API 设计非常相似，它监控状态变数，以确认是否触发强制回应视图（或警告提示视窗）。一旦你了解这个技术后，实作对你而言应该不困难了。</p>
+<p>强制回应视图与警告提示视窗的 API 设计非常相似，它监控状态变量，以确认是否触发强制回应视图（或警告提示视窗）。一旦你了解这个技术后，实作对你而言应该不困难了。</p>
 <p>在本章所准备的范例档中，有完整的专案可供下载： </p>
 <ul>
 <li>范例专案 (<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModal.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModal.zip</a>)</li>

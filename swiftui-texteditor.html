@@ -880,7 +880,7 @@
 <p>SwiftUI 的第一个版本（随 iOS 13 推出）没有提供用于支援多行文字输入的文本视图（Text View）。 如要使用的话，就需要从 UIKit 框架中借用 <code>UITextView</code> ，并通过采用 <code>UIViewRepresentable</code> 协议使其可用于你的 SwiftUI 项目。 自 iOS 14 开始，Apple 为 SwiftUI 框架引入了一个名为<code>TextEditor</code>的新组件。 这个 <code>TextEditor</code> 使开发者能够在App中显示和编辑多行文字。 在 iOS 16 中，Apple 进一步改进了内置的 <code>TextField</code> 以支持多行输入。</p>
 <p>在本章中，我们将详细讲解如何使用 <code>TextEditor</code> 以支援多行文字输入。</p>
 <h3 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-texteditor">如何使用 TextEditor</h3>
-<p><code>TextEditor</code> 的使用方法并不复杂，可以说是非常容易。 你只需要一个状态变数来存放输入文字。 然后，在视图的<code>body</code>中建立 <code>TextEditor</code> 就可以了。下面是范例代码：</p>
+<p><code>TextEditor</code> 的使用方法并不复杂，可以说是非常容易。 你只需要一个状态变量来存放输入文字。 然后，在视图的<code>body</code>中建立 <code>TextEditor</code> 就可以了。下面是范例代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> inputText = <span class="hljs-string">&quot;&quot;</span>
 
@@ -889,7 +889,7 @@
     }
 }
 </code></pre>
-<p>要使用 <code>TextEditor</code>，你需要传一个 <code>inputText</code> 的绑定，以便状态变数可以储存使用者的文字输入。</p>
+<p>要使用 <code>TextEditor</code>，你需要传一个 <code>inputText</code> 的绑定，以便状态变量可以储存使用者的文字输入。</p>
 <p>你可以像任何 SwiftUI 视图一样客制编辑器的样式。举例，以下代码可以更改字体类型并调整文本编辑器的行距：</p>
 <pre><code class="lang-swift"><span class="hljs-type">TextEditor</span>(text: $inputText)
     .font(.title)
@@ -926,7 +926,7 @@
     }
 }
 </code></pre>
-<p>在上面的代码中，我们声明了一个 state 属性来储存字数。 另外，我们在 <code>onChange()</code> 修饰器中指定监测 <code>inputText</code> 的变化。 每当使用者输入文字时， <code>onChange()</code> 修饰符内的代码就会被执行。 在闭包中，我们计算 <code>inputText</code> 中的单词总数并相应地更新 <code>wordCount</code> 变数。</p>
+<p>在上面的代码中，我们声明了一个 state 属性来储存字数。 另外，我们在 <code>onChange()</code> 修饰器中指定监测 <code>inputText</code> 的变化。 每当使用者输入文字时， <code>onChange()</code> 修饰符内的代码就会被执行。 在闭包中，我们计算 <code>inputText</code> 中的单词总数并相应地更新 <code>wordCount</code> 变量。</p>
 <p>如果你在模拟器中运行App，应该会看到一个纯文字编辑器。试试输入几字，编辑器就会实时显示字数。</p>
 <figure id="fig32.2"><img src="images/texteditor/swiftui-texteditor-2.png" alt="图 32.2. 利用 onChange() 侦测文字输入并显示字数"><figcaption>图 32.2. 利用 onChange() 侦测文字输入并显示字数</figcaption></figure>
 <h3 id="%E6%94%AF%E6%8F%B4%E5%A4%9A%E8%A1%8C%E8%BC%B8%E5%85%A5%E3%80%81%E5%8F%AF%E6%93%B4%E5%B1%95%E7%9A%84%E6%96%87%E5%AD%97%E6%AC%84">支援多行输入、可扩展的文字栏</h3>

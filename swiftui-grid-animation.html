@@ -884,10 +884,10 @@
 <figure id="fig34.1"><img src="images/gridanimation/swiftui-gridanimation-1.jpg" alt="图 34.1. 范例 App"><figcaption>图 34.1. 范例 App</figcaption></figure>
 <p>我们将实作这个范例App，并会使用 <code>matchedGeometryEffect</code> 修饰符加入绚丽的过场动画。 开始之前，请到 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIGridViewAnimationStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIGridViewAnimationStarter.zip</a> 下载Starter项目。 该项目已包含样本数据和图像。</p>
 <h3 id="%E6%A7%8B%E5%BB%BA%E7%85%A7%E7%89%87%E7%B6%B2%E6%A0%BC%EF%BC%88photo-grid%EF%BC%89">构建照片网格（Photo Grid）</h3>
-<p>首先，让我们建立照片网格。 在 <code>ContentView</code> 结构体中，声明一个状态变数，如下所示：</p>
+<p>首先，让我们建立照片网格。 在 <code>ContentView</code> 结构体中，声明一个状态变量，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> photoSet = samplePhotos
 </code></pre>
-<p><code>在Starter项目中，我已经预先准备好 samplePhotos</code> 常数用于存放示范照片。而 <code>photoSet</code> 被定义为状态变数，主要原因是，随着使用者的选择，我们会更新它存放的照片。</p>
+<p><code>在Starter项目中，我已经预先准备好 samplePhotos</code> 常数用于存放示范照片。而 <code>photoSet</code> 被定义为状态变量，主要原因是，随着使用者的选择，我们会更新它存放的照片。</p>
 <p>为了用网格形式布局照片，我们会使用<code>LazyVGrid</code>组件。 在 <code>body</code> 中加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span> {
     <span class="hljs-type">ScrollView</span> {
@@ -931,10 +931,10 @@
 <p>这就会建立一个可滚动的矩形区域来存放选定的照片。 当然，它现在还没有任何相片，只是一个空白区。</p>
 <figure id="fig34.3"><img src="images/gridanimation/swiftui-gridanimation-3.png" alt="图 34.3. 添加灰色区域"><figcaption>图 34.3. 添加灰色区域</figcaption></figure>
 <h3 id="%E8%99%95%E7%90%86%E4%BD%BF%E7%94%A8%E8%80%85%E6%89%80%E9%81%B8%E7%9A%84%E7%85%A7%E7%89%87">处理使用者所选的照片</h3>
-<p>选择照片后，我们会将其从照片网格中移除并将它加入到 Dock 中。 为了处理使用者所选的照片，我们将创建一个状态变数来存放所选照片。 在 <code>ContentView</code> 中加入以下代码来声明变数：</p>
+<p>选择照片后，我们会将其从照片网格中移除并将它加入到 Dock 中。 为了处理使用者所选的照片，我们将创建一个状态变量来存放所选照片。 在 <code>ContentView</code> 中加入以下代码来声明变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedPhotos: [<span class="hljs-type">Photo</span>] = []
 </code></pre>
-<p><code>photoSet</code> 中的每张照片都有自己的ID，而类型是 <code>UUID</code> 。 要储存当前选定的照片，请声明另一个 <code>UUID</code> 类型的状态变数：</p>
+<p><code>photoSet</code> 中的每张照片都有自己的ID，而类型是 <code>UUID</code> 。 要储存当前选定的照片，请声明另一个 <code>UUID</code> 类型的状态变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedPhotoId: <span class="hljs-type">UUID</span>?
 </code></pre>
 <p>要侦测照片选择，请将 <code>onTapGesture</code> 修饰器附加到 <code>LazyVGrid</code> 的 <code>Image</code> 组件，如下所示：</p>
@@ -952,7 +952,7 @@
         }
     }
 </code></pre>
-<p>在 <code>onTapGesture</code> 中，我们将所选照片添加到 <code>selectedPhotos</code> 数组并更新 <code>selectedPhotoId</code>。 此外，我们从 <code>photoSet</code> 中删除所选择的照片。 由于 <code>photoSet</code> 是一个状态变数，一旦从数组中删除选定的照片，它就会自动从网格中删除。</p>
+<p>在 <code>onTapGesture</code> 中，我们将所选照片添加到 <code>selectedPhotos</code> 数组并更新 <code>selectedPhotoId</code>。 此外，我们从 <code>photoSet</code> 中删除所选择的照片。 由于 <code>photoSet</code> 是一个状态变量，一旦从数组中删除选定的照片，它就会自动从网格中删除。</p>
 <p>App 会将所选的照片添加到Dock中。 因此，像这样更新 Dock 的 <code>ScrollView</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ScrollView</span>(.horizontal, showsIndicators: <span class="hljs-built_in">false</span>) {
     <span class="hljs-type">LazyHGrid</span>(rows: [ <span class="hljs-type">GridItem</span>() ]) {
@@ -978,7 +978,7 @@
 <figure id="fig34.4"><img src="images/gridanimation/swiftui-gridanimation-4.png" alt="图 34.4. 将所选照片添加到 Dock"><figcaption>图 34.4. 将所选照片添加到 Dock</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-matchedgeometryeffect-%E8%A8%AD%E7%BD%AE%E9%81%8E%E5%A0%B4%E5%8B%95%E7%95%AB">使用 MatchedGeometryEffect 设置过场动画</h3>
 <p>现在 App 的图片选择效果已很不错，但我们可以通过建立动画再进一步提升使用者体验。 目前，所选照片会立即出现在 Dock 中。 我想要做的为这个选择动作加入动画。 选择后，照片应该看起来像是从照片网格飞到 Dock。</p>
-<p>要做出这种类型的动画，最简单就是使用 <code>matchedGeometryEffect</code> 修饰器。 首先，在 <code>ContentView</code> 中，声明一个Namespace变数：</p>
+<p>要做出这种类型的动画，最简单就是使用 <code>matchedGeometryEffect</code> 修饰器。 首先，在 <code>ContentView</code> 中，声明一个Namespace变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Namespace</span> private <span class="hljs-keyword">var</span> photoTransition
 </code></pre>
 <p>接下来，将 <code>.matchedGeometryEffect</code> 修饰器附加到两个 <code>Image</code> 视图：</p>

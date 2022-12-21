@@ -1068,7 +1068,7 @@
 </code></pre>
 <p>藉由使用 <code>@Published</code> 属性包裹器，发布者将在属性的值发生变化时通知订阅者（例如：<code>displayOrder</code> 的更新）。</p>
 <p>如你所见，使用 Combine 通知变更的值非常容易。实际上，我们还没有编写任何新代码，只有采用所需的协定，并插入一个标记。</p>
-<p>现在，我们切换至 <code>SettingView.swift</code>。<code>settingStore</code> 现在应该声明为环境物件，以让我们可以与其他视图共享资料。更新 <code>settingStore</code> 变数，如下所示： </p>
+<p>现在，我们切换至 <code>SettingView.swift</code>。<code>settingStore</code> 现在应该声明为环境物件，以让我们可以与其他视图共享资料。更新 <code>settingStore</code> 变量，如下所示： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">EnvironmentObject</span> <span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>
 <p>你不需要更新和“Save”按钮有关的代码。不过，当你设定一个新值至设定储存区时（例如：更新<code>showCheckInOnly</code>，从 true 改为 false ），此更新将会发布，并让所有订阅者知道。</p>

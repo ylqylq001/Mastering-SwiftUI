@@ -955,7 +955,7 @@
 <li>当建立<code>UISearchBar</code>时，我们并没有使用预设外观，而是使用最简单（<code>.minimal</code>）的样式，并停用自动大写和更新其占位符的文字。</li>
 <li>我们添加了一个绑定来存放使用者于搜寻栏位中的搜寻文字。 <code>makeUIView</code> 方法负责建立和初始化视图，而 <code>updateUIView</code> 方法则负责更新 UIKit 视图的状态。 每当 SwiftUI 中的状态发生变化时，框架都会自动调用 <code>updateUIView</code> 方法来更新视图的配置。 在这种情况下，每当你在 SwiftUI 中更新搜索文字时，都会调用该方法并更新<code>UISearchBar</code>的<code>text</code>。</li>
 </ol>
-<p>现在切换到<code>ContentView.swift</code>。 声明一个状态变数来存放搜索文字：</p>
+<p>现在切换到<code>ContentView.swift</code>。 声明一个状态变量来存放搜索文字：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> searchText = <span class="hljs-string">&quot;&quot;</span>
 </code></pre>
 <p>要显示搜索栏，请在 <code>List</code> 之前加入以下代码：</p>
@@ -1112,7 +1112,7 @@
 }
 </code></pre>
 <p>看一下 <code>body</code> 和 <code>deleteTask</code>。 两者都和以前完全一样。 我们只是将相关代码转移至<code>FilteredList</code>。主要是修改了 <code>init</code> 方法和读取请求。</p>
-<p>我们声明了一个名为 <code>fetchRequest</code> 的变数来存放读取请求，并声明另一个名为 <code>todoItems</code> 的变数来储存读取的结果。 读取的结果实际上是从读取请求的 <code>wrappedValue</code> 属性中所获得的。</p>
+<p>我们声明了一个名为 <code>fetchRequest</code> 的变量来存放读取请求，并声明另一个名为 <code>todoItems</code> 的变量来储存读取的结果。 读取的结果实际上是从读取请求的 <code>wrappedValue</code> 属性中所获得的。</p>
 <p>现在让我们深入研究 <code>init</code> 方法。 这个自订的 <code>init</code> 方法接受搜寻文字作为参数。 更明确一点说，它应是搜寻文字的绑定。 这个也是我们需要建立自订 <code>init</code> 的原因，让我们能根据不同的搜寻文字建立不同的读取请求。</p>
 <p><code>init</code> 方法的第一行是储存搜寻文字的绑定。 要指出绑定，请如下所示使用下划线：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">self</span>._searchText = searchText
@@ -1128,7 +1128,7 @@
 </code></pre>
 <p>如你所见，其用法与 <code>@FetchRequest</code> 属性包装器的用法非常相似。</p>
 <p>酷！ 我们现在有一个 <code>FilteredList</code> 可以处理具有不同述词的读取请求。 现在让我们修改 <code>ContentView</code> 结构以使用这个新的 <code>FilteredList</code>。</p>
-<p>由于我们已将读取请求移至<code>FilteredList</code>，因此我们可以删除以下变数：</p>
+<p>由于我们已将读取请求移至<code>FilteredList</code>，因此我们可以删除以下变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.managedObjectContext) <span class="hljs-keyword">var</span> context
 
 @<span class="hljs-type">FetchRequest</span>(
@@ -1151,7 +1151,7 @@
 <p>改为:</p>
 <pre><code class="lang-swift"><span class="hljs-type">FilteredList</span>($searchText)
 </code></pre>
-<p>这里我们使用<code>FilteredList</code> 来渲染列表视图。 我们传递<code>searchText</code> 的绑定来执行搜寻。 由于<code>searchText</code> 是一个状态变数，任何有关搜寻文字的更改都会触发<code>FilteredList</code> 的更新。 实际上，当使用者输入搜寻文字时，App会建立一个不同的述词以取得一组新的待办事项。</p>
+<p>这里我们使用<code>FilteredList</code> 来渲染列表视图。 我们传递<code>searchText</code> 的绑定来执行搜寻。 由于<code>searchText</code> 是一个状态变量，任何有关搜寻文字的更改都会触发<code>FilteredList</code> 的更新。 实际上，当使用者输入搜寻文字时，App会建立一个不同的述词以取得一组新的待办事项。</p>
 <p>接下来，删除以下代码，因为它已在<code>FilteredList</code>中：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// If there is no data, show an empty view</span>
 <span class="hljs-keyword">if</span> todoItems.<span class="hljs-built_in">count</span> == <span class="hljs-number">0</span> {

@@ -961,7 +961,7 @@
     }
 }
 </code></pre>
-<p>两个数组具有相同项目数，<code>restaurantNames</code>  数组储存餐厅名称，<code>restaurantImages</code> 变数储存你刚汇入的图片名称。要建立如图 10.4 所示的清单视图，你只需要更新 <code>body</code> 变数如下： :</p>
+<p>两个数组具有相同项目数，<code>restaurantNames</code>  数组储存餐厅名称，<code>restaurantImages</code> 变量储存你刚汇入的图片名称。要建立如图 10.4 所示的清单视图，你只需要更新 <code>body</code> 变量如下： :</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">List</span>(restaurantNames.<span class="hljs-built_in">indices</span>, id: \.<span class="hljs-keyword">self</span>) { index <span class="hljs-keyword">in</span>
         <span class="hljs-type">HStack</span> {
@@ -986,7 +986,7 @@
     <span class="hljs-keyword">var</span> image: <span class="hljs-type">String</span>
 }
 </code></pre>
-<p>使用这个结构，我们可以将 <code>restaurantNames</code> 与 <code>restaurantImages</code> 数组合并为一个数组。现在删除<code>restaurantNames</code> 与 <code>restaurantImages</code> 变数，并以 <code>ContentView</code>中的这个变数来代替： </p>
+<p>使用这个结构，我们可以将 <code>restaurantNames</code> 与 <code>restaurantImages</code> 数组合并为一个数组。现在删除<code>restaurantNames</code> 与 <code>restaurantImages</code> 变量，并以 <code>ContentView</code>中的这个变量来代替： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> restaurants = [ <span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Cafe Deadend&quot;</span>, image: <span class="hljs-string">&quot;cafedeadend&quot;</span>),
                <span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Homei&quot;</span>, image: <span class="hljs-string">&quot;homei&quot;</span>),
                <span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;Teakha&quot;</span>, image: <span class="hljs-string">&quot;teakha&quot;</span>),
@@ -1010,8 +1010,8 @@
                <span class="hljs-type">Restaurant</span>(name: <span class="hljs-string">&quot;CASK Pub and Kitchen&quot;</span>, image: <span class="hljs-string">&quot;caskpubkitchen&quot;</span>)
 ]
 </code></pre>
-<p>如果你是 Swift 新手，这里做个解释，数组的每一个项目表示一笔特定餐厅的纪录。当你进行更改后，你将会在Xcode 中见到一个错误，其指出遗失了<code>restaurantNames</code> 变数， 这很正常，因为我们刚才删除这个变数了。</p>
-<p>现在更新 <code>body</code> 变数如下： </p>
+<p>如果你是 Swift 新手，这里做个解释，数组的每一个项目表示一笔特定餐厅的纪录。当你进行更改后，你将会在Xcode 中见到一个错误，其指出遗失了<code>restaurantNames</code> 变量， 这很正常，因为我们刚才删除这个变量了。</p>
+<p>现在更新 <code>body</code> 变量如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
     <span class="hljs-type">List</span>(restaurants, id: \.name) { restaurant <span class="hljs-keyword">in</span>
         <span class="hljs-type">HStack</span> {

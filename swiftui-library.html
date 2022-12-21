@@ -909,7 +909,7 @@
     <span class="hljs-keyword">return</span> formatter.string(from: <span class="hljs-type">NSNumber</span>(value: progress)) ?? <span class="hljs-string">&quot;&quot;</span>
 }
 </code></pre>
-<p>由于 <code>progress</code> 变数是一个状态变数，所以每当 <code>progress</code> 的值发生变化时，<code>progressText</code> 都会自动更新。 但是，解决方案存在一个问题，就是文字的动画效果不太好。</p>
+<p>由于 <code>progress</code> 变量是一个状态变量，所以每当 <code>progress</code> 的值发生变化时，<code>progressText</code> 都会自动更新。 但是，解决方案存在一个问题，就是文字的动画效果不太好。</p>
 <p>如果你在 <code>ProgressRingView.swift</code> 中更改了代码，则可以返回 <code>ContentView.swift</code> 查看结果。 此App确实显示了进度标签，但是当你将进度从一个值改为另一个值时，进度标签会立即使用淡出的动画效果来显示新值。</p>
 <p>这不是我们所寄望的结果。 进度标签不应直接从一个值（例如 100%）跳转到另一个值（例如 50%）。 我们期望进度标签跟随进度条的动画并逐步更新其值，如下所示：</p>
 <p>100 -&gt; 99 -&gt; 98 -&gt; 97 -&gt; 96 ... ... ... ... ... ... ... ... ... ... 53 -&gt; 52 -&gt; 51 -&gt; 50</p>

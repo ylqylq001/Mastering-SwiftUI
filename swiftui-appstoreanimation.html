@@ -957,7 +957,7 @@
     }
 }
 </code></pre>
-<p><code>ArticleExcerptView</code> 能灵活地显示不同的内容。 因此，我们定义了上面的变数。 如前所述，卡片视图应该能够在 <em>excerpt</em> 和 <em>full content</em> 模式之间切换。 那个绑定变数（即<code>isShowContent</code>）就是用于控制内容的模式。 当它的值设定为 <code>false</code> 时，它处于节录模式。 相反，当它为 <code>true</code> 时，它处于完整内容模式。 副标题要在 <code>isShowContent</code> 设定为 <code>true</code> 时才会出现。</p>
+<p><code>ArticleExcerptView</code> 能灵活地显示不同的内容。 因此，我们定义了上面的变量。 如前所述，卡片视图应该能够在 <em>excerpt</em> 和 <em>full content</em> 模式之间切换。 那个绑定变量（即<code>isShowContent</code>）就是用于控制内容的模式。 当它的值设定为 <code>false</code> 时，它处于节录模式。 相反，当它为 <code>true</code> 时，它处于完整内容模式。 副标题要在 <code>isShowContent</code> 设定为 <code>true</code> 时才会出现。</p>
 <p>其实有多种方法来布局节录视图。 在上面的代码，我们创建一个 <code>Rectangle</code> 视图并用标题和子标题覆盖它。 你应该非常熟悉那些附加到<code>Text</code>视图的修饰器， 但是 <code>minimumScaleFactor</code> 修饰器值得一提。 通过此修饰器，系统会跟据可用空间的大小自动将字体缩小。 例如，如果标题包含太多文字，iOS 会将它缩小 10%。</p>
 <h4 id="%E9%A0%90%E8%A6%BD%E4%BD%BF%E7%94%A8%E8%80%85%E7%95%8C%E9%9D%A2">预览使用者界面</h4>
 <p>要预览节录视图，你可以像这样修改预览代码：</p>
@@ -1160,16 +1160,16 @@
 <p>我们在 <code>ScrollView</code> 中嵌入了一个 <code>VStack</code> 来创建垂直滚动视图。 在代码中，我们传送给<code>ForEach</code>一个<code>sampleArticles</code>数组，并为每篇文章创建一个<code>ArticleCardView</code>。 如果你的代码能正常运作，预览画面应该会向显示文章列表。</p>
 <figure id="fig26.14"><img src="images/appstore/swiftui-appstore-14.png" alt="图 26.14. 显示文章列表"><figcaption>图 26.14. 显示文章列表</figcaption></figure>
 <h3 id="%E5%B0%87%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E6%93%B4%E5%B1%95%E5%88%B0%E5%85%A8%E8%9E%A2%E5%B9%95">将卡片视图扩展到全荧幕</h3>
-<p>现在到了最困难的部分。 如何将卡片视图从节录模式切换到完整内容模式？ 之前，我们将 <code>isShowContent</code> 参数设定为 <code>.constant(false)</code>。 要在这两种模式之间切换，每个卡片视图都应该有一个变数来存放其状态。</p>
-<p>因此，在 <code>ContentView</code> 中声明以下状态变数：</p>
+<p>现在到了最困难的部分。 如何将卡片视图从节录模式切换到完整内容模式？ 之前，我们将 <code>isShowContent</code> 参数设定为 <code>.constant(false)</code>。 要在这两种模式之间切换，每个卡片视图都应该有一个变量来存放其状态。</p>
+<p>因此，在 <code>ContentView</code> 中声明以下状态变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showContent = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>在预设情况下，所有卡片视图都处于摘录状态。 因此，<code>showContents</code> 变数的值被设置为 <code>false</code>。 稍后，当一张卡片被点击时，我们会将状态从 <code>false</code> 更改为 <code>true</code>。</p>
-<p>我们还需要一个变数来储存所选卡片的索引。 再声明一个状态变数：</p>
+<p>在预设情况下，所有卡片视图都处于摘录状态。 因此，<code>showContents</code> 变量的值被设置为 <code>false</code>。 稍后，当一张卡片被点击时，我们会将状态从 <code>false</code> 更改为 <code>true</code>。</p>
+<p>我们还需要一个变量来储存所选卡片的索引。 再声明一个状态变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedArticleIndex: <span class="hljs-type">Int</span>?
 </code></pre>
 <p>它被定义为可选的（optional），因为最初并没有选择卡片视图。</p>
-<p>现在，修改 <code>ArticleCardView</code> 的初始化代码。 我们不再使用 <code>.constant(false)</code>，而是将状态变数的绑定传递给它（即 <code>self.$showContents[index]</code>）：</p>
+<p>现在，修改 <code>ArticleCardView</code> 的初始化代码。 我们不再使用 <code>.constant(false)</code>，而是将状态变量的绑定传递给它（即 <code>self.$showContents[index]</code>）：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ArticleCardView</span>(category: sampleArticles[index].category, headline: sampleArticles[index].headline, subHeadline: sampleArticles[index].subHeadline, image: sampleArticles[index].image, content: sampleArticles[index].content, isShowContent: $showContent)
 </code></pre>
 <h4 id="%E8%99%95%E7%90%86%E9%BB%9E%E6%93%8A%E6%89%8B%E5%8B%A2">处理点击手势</h4>
@@ -1181,7 +1181,7 @@
     }
 }
 </code></pre>
-<p>当检测到点击手势时，我们将<code>showContent</code>变数从<code>false</code>更改为<code>true</code>。 同时，我们保存所选卡片视图的索引。</p>
+<p>当检测到点击手势时，我们将<code>showContent</code>变量从<code>false</code>更改为<code>true</code>。 同时，我们保存所选卡片视图的索引。</p>
 <p>让我们快速测试一下App！当你在预览画面中运行App时，点击任何卡片视图就可以测试到结果。 虽然它没有像预期般运作，但卡片视图应该显示文章的内容并隐藏子标题。 此外，你应该能点击关闭按钮以返回节录模式。 如果看不到内容，请向上拖动卡片视图以显示它。</p>
 <figure id="fig26.15"><img src="images/appstore/swiftui-appstore-15.png" alt="图 26.15. 测试App"><figcaption>图 26.15. 测试App</figcaption></figure>
 <h4 id="%E5%88%A9%E7%94%A8-matchedgeometryeffect-%E8%A3%BD%E4%BD%9C%E9%81%8E%E5%A0%B4%E5%8B%95%E7%95%AB">利用 MatchedGeometryEffect 制作过场动画</h4>
@@ -1217,7 +1217,7 @@
 <p>当App显示卡片视图的全部内容时，我们将滚动视图的不透明度设置为 <code>0</code>。 再次测试App。 卡片视图应正确显示完整内容。</p>
 <figure id="fig26.18"><img src="images/appstore/swiftui-appstore-18.png" alt="图 26.18. 选择卡片时, App会隐藏列表视图"><figcaption>图 26.18. 选择卡片时, App会隐藏列表视图</figcaption></figure>
 <p>我们需要做的最后一件事是设置过场动画。 如本节初所述，我们可以利用 <code>matchedGeometryEffect</code> 修饰器让 SwiftUI 渲染过渡动画。</p>
-<p>要使用修饰器，我们首先必须定义一个命名空间变数：</p>
+<p>要使用修饰器，我们首先必须定义一个命名空间变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Namespace</span> <span class="hljs-keyword">var</span> nsArticle
 </code></pre>
 <p>接下来，将 <code>matchedGeometryEffect</code> 修饰器附加到 <code>ForEach</code> 中的 <code>ArticleCardView</code>：</p>
