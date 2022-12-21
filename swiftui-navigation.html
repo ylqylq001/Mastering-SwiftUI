@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -1054,7 +1054,7 @@
     }
 }
 </code></pre>
-<p>SwiftUI 内建的环境值很广泛。要解除目前视图，并返回至前一个视图。我们取得  <code>.dismiss</code> 环境值，然后调用 <code>dismiss()</code> 函数。请注意 <code>.dismiss</code> 是 iOS 15（或以上）新加入的环境值，如果你的 App 要支援比较旧的iOS 版本，你可以使用另一个环境值（即 <code>.presentationMode</code>）：</p>
+<p>SwiftUI 内建的环境值很广泛。要解除目前视图，并返回至前一个视图。我们取得  <code>.dismiss</code> 环境值，然后调用 <code>dismiss()</code> 函数。请注意 <code>.dismiss</code> 是 iOS 15（或以上）新加入的环境值，如果你的 App 要支持比较旧的iOS 版本，你可以使用另一个环境值（即 <code>.presentationMode</code>）：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Environment</span>(\.presentationMode) <span class="hljs-keyword">var</span> presentationMode
 </code></pre>
 <p>之后，你可以利用以下代码调用<code>presentationMode</code> 的 <code>dismiss()</code> 函数：</p>

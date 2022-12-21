@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -920,7 +920,7 @@
 </code></pre>
 <p>首先，为什么我对栏位要求文字建立一个单独视图（如图 15.3 所示）？如果你检视任何一个栏位要求文字，它都有一个图示及一个叙述。我们无须从头开始建立每一个栏位要求文字，我们可以将代码一般化，并为其建立一个通用的代码。</p>
 <figure id="fig15.3"><img src="images/registration/swiftui-registration-3.png" alt="图 15.3　范例文字栏位及其要求文字"><figcaption>图 15.3　范例文字栏位及其要求文字</figcaption></figure>
-<p><code>RequirementText</code> 视图有四个属性，包括 <code>iconName</code>、<code>iconColor</code>、<code>text</code>与  <code>isStrikeThrough</code>。它足以弹性支援栏位要求文字的不同样式，如果你接受预设的图示与颜色，则可建立如下的栏位要求文字： </p>
+<p><code>RequirementText</code> 视图有四个属性，包括 <code>iconName</code>、<code>iconColor</code>、<code>text</code>与  <code>isStrikeThrough</code>。它足以弹性支持栏位要求文字的不同样式，如果你接受预设的图示与颜色，则可建立如下的栏位要求文字： </p>
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>)
 </code></pre>
 <p>这将渲染如图 15.3 所示的栏位要求文字。在某些情况下，应要划掉栏位要求文字，并显示不同的图示或颜色。代码可撰写如下： </p>

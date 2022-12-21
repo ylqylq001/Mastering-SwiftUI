@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -922,13 +922,13 @@
 <figure id="fig27.4"><img src="images/carousel/swiftui-carousel-4.png" alt="图 27.4. 滑动荧幕浏览图片"><figcaption>图 27.4. 滑动荧幕浏览图片</figcaption></figure>
 <p>这是否意味着我们已经实现了轮播？ 还未。 有两个主要问题：</p>
 <ol>
-<li>当前的设计并不支援分页（Paging）。 换句话说，你可以滑动荧幕以无间断地滚动内容。 滚动视图可以在任何位置停止。 举例，看一下图 27.4，使用者可以按制在两个卡片视图之间停止滚动。 这不是我们想要的特点， 当滚动停止，荧幕只会显示其中一个内容视图。</li>
+<li>当前的设计并不支持分页（Paging）。 换句话说，你可以滑动荧幕以无间断地滚动内容。 滚动视图可以在任何位置停止。 举例，看一下图 27.4，使用者可以按制在两个卡片视图之间停止滚动。 这不是我们想要的特点， 当滚动停止，荧幕只会显示其中一个内容视图。</li>
 <li>当一个卡片视图被点击时，我们需要找出它的索引并在一个单独的视图中显示它的细节。 问题是要怎样得知使用者点击了哪个卡片视图？</li>
 </ol>
 <p>这两个问题都与内置的<code>ScrollView</code>有关。 UIKit 版本的滚动视图支持分页。 然而，Apple 并未将该功能引入 SwiftUI 框架的 <code>ScrollView</code>。 为了解决这个问题，我们需要构建我们自己的支持分页（Paging）的滚动视图。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-hstack-%E5%92%8C-draggesture-%E5%BB%BA%E7%AB%8B%E8%BC%AA%E6%92%AD">使用 HStack 和 DragGesture 建立轮播</h3>
-<p>起初，你可能认为很难开发我们自己的滚动视图。 但实际上，这并不难。 如果你了解 <code>HStack</code> 和 <code>DragGesture</code> 的用法，就可以构建一个支援分页的滚动视图。</p>
-<p>想法是将所有卡片视图（即行程）布局在水平堆栈（<code>HStack</code>）中。 <code>HStack</code> 要有足够长度以容纳所有卡片视图，但在任何时候只显示一个卡片视图。 在预设情况下，水平堆栈是不支援滚动的。 因此，我们需要将拖动手势识别器附加到堆栈视图并自行处理拖动。 图 27.5 以图解方式说明了如何实现水平滚动视图。</p>
+<p>起初，你可能认为很难开发我们自己的滚动视图。 但实际上，这并不难。 如果你了解 <code>HStack</code> 和 <code>DragGesture</code> 的用法，就可以构建一个支持分页的滚动视图。</p>
+<p>想法是将所有卡片视图（即行程）布局在水平堆栈（<code>HStack</code>）中。 <code>HStack</code> 要有足够长度以容纳所有卡片视图，但在任何时候只显示一个卡片视图。 在预设情况下，水平堆栈是不支持滚动的。 因此，我们需要将拖动手势识别器附加到堆栈视图并自行处理拖动。 图 27.5 以图解方式说明了如何实现水平滚动视图。</p>
 <figure id="fig27.5"><img src="images/carousel/swiftui-carousel-5.png" alt="图 27.5. 了解如何使用 HStack 和 DragGesture 创建水平滚动视图"><figcaption>图 27.5. 了解如何使用 HStack 和 DragGesture 创建水平滚动视图</figcaption></figure>
 <h4 id="%E8%87%AA%E5%BB%BAscrollview">自建ScrollView</h4>
 <p>现在让我们看看如何将这个想法转化为代码。 请容忍一下，因为你需要多次更改代码。 我想将每一个步骤都展现出来。 打开 <code>Content.swift</code> 并像这样更新 <code>body</code>：</p>
@@ -1203,7 +1203,7 @@
 <p>我将垂直 offset 设定为卡片视图高度的 30%， 你可以自由更改该值。 现在再次执行App，你应该会看到更流畅的动画。</p>
 <figure id="fig27.22"><img src="images/carousel/swiftui-carousel-22.png" alt="图 27.22. 在 TripCardView 添加offset修饰器"><figcaption>图 27.22. 在 TripCardView 添加offset修饰器</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>酷！ 你已经构建了一个支援分页的客制化滚动视图，并学习了如何加入过场动画。 该技术不限于图像轮播。 实际上，你可以修改代码以建立一组onboarding screens。 我希望你喜欢本章所介绍的东西，并将它应用到你的下一个App。</p>
+<p>酷！ 你已经构建了一个支持分页的客制化滚动视图，并学习了如何加入过场动画。 该技术不限于图像轮播。 实际上，你可以修改代码以建立一组onboarding screens。 我希望你喜欢本章所介绍的东西，并将它应用到你的下一个App。</p>
 <p>在本章所准备的范例档中，有最后完整的 Xcode 专案，可供你下载参考：</p>
 <p><a href="https://www.appcoda.com/resources/swiftui4/SwiftUICarousel.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUICarousel.zip</a></p>
 

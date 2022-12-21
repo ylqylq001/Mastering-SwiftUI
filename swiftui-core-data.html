@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -1312,7 +1312,7 @@ task.isComplete = isComplete
 <p>每当切换发生更改时，<code>todoItem</code> 的 <code>isComplete</code> 属性都会更新。 但是，我们如何将它保存到数据库呢？ 回想一下 <code>todoItem</code> 已符合 <code>ObservableObject</code>，这意味着它有一个发布者来广播值的变化。</p>
 <p><code>onChange</code> 修饰器则监听这些变化（比如<code>isComplete</code> 的变化），并通过调用<code>context</code>的 <code>save()</code> 方法将它们保存到数据库中。</p>
 <p>现在你可以在模拟器中运行App进行测试， 你应该能够添加新事项。 添加新事项后，它们应立即显示在列表视图中。 核取方块也应该可以用了，点一下就可以将相关事项画线。 最重要的是，所有改动现在都永久保存在装置内的数据库。 就算重新App，所有项目仍然存在。</p>
-<figure id="fig22.11"><img src="images/core-data/swiftui-core-data-11.png" alt="图 22.11. ToDo App 现在支援 Core Data"><figcaption>图 22.11. ToDo App 现在支援 Core Data</figcaption></figure>
+<figure id="fig22.11"><img src="images/core-data/swiftui-core-data-11.png" alt="图 22.11. ToDo App 现在支持 Core Data"><figcaption>图 22.11. ToDo App 现在支持 Core Data</figcaption></figure>
 <h4 id="%E5%BE%9E%E6%95%B8%E6%93%9A%E5%BA%AB%E4%B8%AD%E5%88%AA%E9%99%A4%E9%A0%85%E7%9B%AE">从数据库中删除项目</h4>
 <p>既然我已经向你展示如何从数据库取出数据、更新和加入新项目，那么如何实现删除功能呢？ 我们将会为App添加一项功能 - 删除待办事项。</p>
 <p>在 <code>ContentView</code> 结构中，声明一个 <code>context</code> 变量：</p>

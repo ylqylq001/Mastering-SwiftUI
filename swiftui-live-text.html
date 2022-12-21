@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -885,10 +885,10 @@
 <figure id="fig39.1"><img src="images/livetext/swiftui-live-text-avfoundation.png" alt="图 39.1. AVfoundation 和 Vision 框架提供的 API"><figcaption>图 39.1. AVfoundation 和 Vision 框架提供的 API</figcaption></figure>
 <p>文本辨识 (Text Recognization) 不是 iOS 16 的新功能。在旧版本的 iOS 上，我们已经可以使用 AVFoundation 和 Vision 框架中的 API，来侦测和辨识文本。但是，实现起来十分复杂，尤其是对于那些刚接触 iOS 开发的人来说。</p>
 <p>在新版本的 iOS 中，以上所有的步骤都被简化为 VisionKit 中的一个新类别 <code>DataScannerViewController</code>。我们在 App 内使用这个视图控制器，就可以自动显示有 Live Text 功能的相机 UI。</p>
-<p>要使用这个类别，让我们先汇入 <code>VisionKit</code> 框架，并检查设备是否支援资料扫描器功能：</p>
+<p>要使用这个类别，让我们先汇入 <code>VisionKit</code> 框架，并检查设备是否支持资料扫描器功能：</p>
 <pre><code class="lang-swift"><span class="hljs-type">DataScannerViewController</span>.isSupported
 </code></pre>
-<p>Live Text API 只支援 2018 年后推出、有 Neural Engine 的设备。另外，我们也要检查 availability，来确保使用者批准 App 使用资料扫描器：</p>
+<p>Live Text API 只支持 2018 年后推出、有 Neural Engine 的设备。另外，我们也要检查 availability，来确保使用者批准 App 使用资料扫描器：</p>
 <pre><code class="lang-swift"><span class="hljs-type">DataScannerViewController</span>.isAvailable
 </code></pre>
 <p>通过两项检查后，我们就可以开始扫描了。让我们看看以下范例代码，来启用有 Live Text 功能的相机：</p>
@@ -904,7 +904,7 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
 </code></pre>
 <p>我们只需要创建一个 <code>DataScannerViewController</code> 实例，并指定要辨识的资料型别即可。在范例中，我们要辨识的是文本，因此我们会把资料型别指定为 <code>.text()</code>。准备好实例之后，我们就可以调用 <code>startScanning()</code> 方法来开始扫描。</p>
 <h3 id="%E5%9C%A8-swiftui-%E4%BD%BF%E7%94%A8-datascannerviewcontroller">在 SwiftUI 使用 DataScannerViewController</h3>
-<p><code>DataScannerViewController</code> 类别现时只支援 UIKit，因此在 SwiftUI 我们需要多做几个步骤。我们需要采用 <code>UIViewControllerRepresentable</code> 协定，才可以在 SwiftUI 专案中使用这个类别。在这个情况下，让我们创建一个新的 <code>DataScanner</code>结构：</p>
+<p><code>DataScannerViewController</code> 类别现时只支持 UIKit，因此在 SwiftUI 我们需要多做几个步骤。我们需要采用 <code>UIViewControllerRepresentable</code> 协定，才可以在 SwiftUI 专案中使用这个类别。在这个情况下，让我们创建一个新的 <code>DataScanner</code>结构：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> <span class="hljs-type">SwiftUI</span>
 <span class="hljs-keyword">import</span> <span class="hljs-type">VisionKit</span>
 
@@ -999,11 +999,11 @@ present(dataScanner, animated: <span class="hljs-built_in">true</span>) {
     }
 }
 </code></pre>
-<p>我们在 App 启动时就开始启用资料扫描器，但在此之前，我们需要调用 <code>DataScannerViewController.isSupported</code> 和 <code>DataScannerViewController.isAvailable</code>，来确保设备支援 Live Text。</p>
+<p>我们在 App 启动时就开始启用资料扫描器，但在此之前，我们需要调用 <code>DataScannerViewController.isSupported</code> 和 <code>DataScannerViewController.isAvailable</code>，来确保设备支持 Live Text。</p>
 <p>这个范例 App 差不多完成了。因为 Live Text 需要相机的访问权限，所以我们要到专案配置，在 <code>Info.plist</code> 档案中添加 <em>Privacy – Camera Usage Description</em>Key，并说明 App 需要访问相机的原因。</p>
 <figure id="fig39.3"><img src="images/livetext/swiftui-live-text-camera-access.png" alt="图 39.3. 添加 key 以启用相机访问"><figcaption>图 39.3. 添加 key 以启用相机访问</figcaption></figure>
 <p>完成后，我们可以在真实的 iOS 设备上测试 App 的 Live Text 功能。</p>
-<p>Live Text 除了支援英语外，还支援法语、意大利语、德语、西班牙语、中文、葡萄牙语、日语、和韩语。</p>
+<p>Live Text 除了支持英语外，还支持法语、意大利语、德语、西班牙语、中文、葡萄牙语、日语、和韩语。</p>
 <figure id="fig39.4"><img src="images/livetext/swiftui-live-text-demo-chinese.png" alt="图 39.4. App 示范"><figcaption>图 39.4. App 示范</figcaption></figure>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
 <p>很高兴看到 Apple 向 iOS 开发人员开放实时文本功能。 虽然新的<code>DataScannerViewController</code>不是专门为 SwiftUI 设计的，但我们可以轻松地将其移植到我们的 Swift 项目中，并将实时文本功能整合到我们自己的应用程序中。 如果你打算发布下一个App更新，请考虑加入这一个功能，它肯定能提升用户体验。</p>

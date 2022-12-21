@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -1656,7 +1656,7 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
 <p>在 <code>PaymentFormView.swift</code> ，我们添加了以下修饰器：</p>
 <pre><code class="lang-swift">.keyboardAdaptive()
 </code></pre>
-<p>这是一个自订的视图修饰器，为处理软体键盘而开发。 在 iOS 14以上版本，是不再需要此修饰器，但我特意添加了它，因为如果你的App要支援 iOS 13，就可能需要它。</p>
+<p>这是一个自订的视图修饰器，为处理软体键盘而开发。 在 iOS 14以上版本，是不再需要此修饰器，但我特意添加了它，因为如果你的App要支持 iOS 13，就可能需要它。</p>
 <p>在 iOS 13 上，软体键盘在未应用修饰器的情况下会遮掩部分表格。 举例，如果您尝试点击备忘录栏，它会完全隐藏在键盘后面。 相反，如果将修饰器附加到滚动视图，当键盘出现时，表格会自动向上移动。 在 iOS 14 上，系统本身会自动处理软体键盘的位置，防止它遮掩文字栏。</p>
 <figure id="fig25.8"><img src="images/real-world-app/real-world-app-8.png" alt="图 25.8. 没使用 keyboardAdaptive (left), 使用了 keyboardAdaptive"><figcaption>图 25.8. 没使用 keyboardAdaptive (left), 使用了 keyboardAdaptive</figcaption></figure>
 <p>现在让我们看看代码（<code>KeyboardAdaptive.swift</code>），以了解如何处理键盘事件：</p>

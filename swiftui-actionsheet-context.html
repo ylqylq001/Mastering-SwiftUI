@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -912,7 +912,7 @@
 <figure id="fig16.3"><img src="images/actionsheet/swiftui-actionsheet-3.png" alt="图 16.3.　从清单中删除项目"><figcaption>图 16.3.　从清单中删除项目</figcaption></figure>
 <p>如果你之前使用过 UIKit 编写相同的功能，我相信你会对 SwiftUI 感到惊讶。只需要几行代码与一个关键字，你便已实现了“滑动删除”功能。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%85%A7%E5%AE%B9%E9%81%B8%E5%96%AE">建立内容选单</h3>
-<p>接下来，我们来讨论内容选单（Context Menu）。如前所述，内容选单类似于 3D Touch 的预览（peek ）及弹出（pop ），有个明显的差别在于，这个功能适用于所有执行 iOS 13 与之后版本的装置，即使该装置不支援 3D Touch 也可以。要带出内容选单，人们需要使用长按的手势，而若是装置使用 3D Touch，则使用压力触控。</p>
+<p>接下来，我们来讨论内容选单（Context Menu）。如前所述，内容选单类似于 3D Touch 的预览（peek ）及弹出（pop ），有个明显的差别在于，这个功能适用于所有执行 iOS 13 与之后版本的装置，即使该装置不支持 3D Touch 也可以。要带出内容选单，人们需要使用长按的手势，而若是装置使用 3D Touch，则使用压力触控。</p>
 <p>SwiftUI 使得内容选单的实现变得非常简单，你只需要将contextMenu 容器加到视图， 并设定它的选单项目即可。</p>
 <p>在我们的范例 App 中，我们想在人们长按任何一列时触发内容选单。而在选单中，它提供了“删除”（Delete ）与“最爱”（Favorite ）等两个动作按钮，供使用者选择。当选择后，“删除”（Delete ）按钮将从清单中删除该列，“最爱”（Favorite ）按钮将以星号标记所选的列。</p>
 <p>要在内容选单中显示这两个项目，我们可以将 <code>contextMenu</code> 加到清单中的每一列，如下所示： </p>

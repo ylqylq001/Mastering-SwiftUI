@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -878,7 +878,7 @@
                     
                         <h1 id="%E7%AC%AC-17-%E7%AB%A0-br-%E4%BA%86%E8%A7%A3%E6%89%8B%E5%8B%A2">第 17 章<br>了解手势</h1>
 <p>在前面的章节中，你已经对使用 SwiftUI 建立手势有所了解。我们使用 <code>onTapGesture</code> 修饰器来处理使用者的触控，并做出相对的回应。而在本章中，我们更深入了解如何在 SwiftUI 中处理各种类型的手势。</p>
-<p>这个框架提供一些内建手势， 例如： 我们之前使用过的点击手势。除此之外， “DragGesture”、“MagnificationGesture”与“LongPressGesture”等都是现成可用的手势。我们将研究其中几个手势，并看看如何在 SwiftUI 中使用。最重要的是，你将学习如何建立一个可以支援拖曳手势的通用视图。</p>
+<p>这个框架提供一些内建手势， 例如： 我们之前使用过的点击手势。除此之外， “DragGesture”、“MagnificationGesture”与“LongPressGesture”等都是现成可用的手势。我们将研究其中几个手势，并看看如何在 SwiftUI 中使用。最重要的是，你将学习如何建立一个可以支持拖曳手势的通用视图。</p>
 <figure id="fig17.1"><img src="images/gestures/swiftui-gestures-1.gif" alt="图 17.1.　范例展示可拖曳视图"><figcaption>图 17.1.　范例展示可拖曳视图</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%89%8B%E5%8B%A2%E4%BF%AE%E9%A3%BE%E5%99%A8">使用手势修饰器</h3>
 <p>要使用  框架识别特定手势，你需要做的就是使用 <code>.gesture</code> 修饰器将手势识别器加到视图上。下面是使用 <code>.gesture</code> 修饰器加到 <code>TapGesture</code> 的范例代码片段： </p>
@@ -961,7 +961,7 @@
 <p>更改代码后，在预览画布中执行专案来进行测试。当你点击图片时，图片会立即变暗，而持续按住一秒后，图片会自己调整尺寸。</p>
 <p>当使用者放开手指时，图片的不透明度会自动重置为正常状态，你是否想知道为什么呢？这是 <code>@GestureState</code> 的优点，当手势结束时，它会自动将手势状态属性的值设定为初始值，而在我们的范例中为 <code>false</code>。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2">使用拖曳手势</h3>
-<p>现在你应该了解如何使用 <code>.gesture</code> 修饰器与 <code>@GestureState</code>，我们来看另一个常见的“拖曳”手势。我们要做的是，修改现有的代码来支援拖曳手势，让使用者拖曳星形图片来移动它。</p>
+<p>现在你应该了解如何使用 <code>.gesture</code> 修饰器与 <code>@GestureState</code>，我们来看另一个常见的“拖曳”手势。我们要做的是，修改现有的代码来支持拖曳手势，让使用者拖曳星形图片来移动它。</p>
 <p>现在更换 <code>ContentView</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragOffset = <span class="hljs-type">CGSize</span>.zero
@@ -1212,7 +1212,7 @@
     }
 }
 </code></pre>
-<p>所有的代码都与你之前编写的代码非常相似。技巧是将 <code>DraggableView</code> 声明为通用视图， 并建立一个<code>content</code> 属性，此属性接收任何视图，并且我们使用长按与拖曳手势为 <code>content</code> 视图提供支援。</p>
+<p>所有的代码都与你之前编写的代码非常相似。技巧是将 <code>DraggableView</code> 声明为通用视图， 并建立一个<code>content</code> 属性，此属性接收任何视图，并且我们使用长按与拖曳手势为 <code>content</code> 视图提供支持。</p>
 <p>现在，你可透过替换 <code>DraggableView_Previews</code>来测试这个通用视图，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DraggableView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1224,7 +1224,7 @@
     }
 }
 </code></pre>
-<p>在代码中，我们初始化一个 <code>DraggableView</code>，并提供我们自己的内容（即星形图片）。在这个范例中，你应该完成支援长按与拖曳手势的相同星形图片。</p>
+<p>在代码中，我们初始化一个 <code>DraggableView</code>，并提供我们自己的内容（即星形图片）。在这个范例中，你应该完成支持长按与拖曳手势的相同星形图片。</p>
 <p>那么，如果我们要建立一个可拖曳的文字视图呢？你可以将代码片段替换为下列代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">DraggableView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1257,7 +1257,7 @@
 <div style="page-break-after: always;"></div>
 
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
-<p>SwiftUI 框架让手势处理变得非常容易。正如你在本章所学到的内容，这个框架提供几个可以立即使用的手势识别器。要使视图支援某个类型的手势，你需要做的是将其加上 <code>.gesture</code> 修饰器。组合多个手势从未如此简单。</p>
+<p>SwiftUI 框架让手势处理变得非常容易。正如你在本章所学到的内容，这个框架提供几个可以立即使用的手势识别器。要使视图支持某个类型的手势，你需要做的是将其加上 <code>.gesture</code> 修饰器。组合多个手势从未如此简单。</p>
 <p>为行动应用程式建立手势驱动的使用者介面，是一种日益增长的趋势。藉由易于使用的 API，试着使用一些有用的手势来增强 App 的功能，以使你的使用者满意。</p>
 <p>在本章所准备的范例档中，有完整的专案可以下载： </p>
 <ul>

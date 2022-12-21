@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -992,8 +992,8 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <h2 id="%E5%B0%87-pdf-%E6%AA%94%E5%8A%A0%E8%87%B3-files-app">将 PDF 档加至 Files app</h2>
 <p>你可能会发现我们无法在 <em>Files</em> App 中找到 PDF 文件。如果我们想 PDF 文件可用于内置的 <em>Files</em> App，我们就需要在 <code>Info.plist</code> 中更改一些设置。让我们切换到 <code>Info.plist</code> 并添加以下的 key：</p>
 <ul>
-<li><code>UIFileSharingEnabled</code> - 让 App 支援 iTunes 文件分享</li>
-<li><code>LSSupportsOpeningDocumentsInPlace</code> - 支援在本地打开文件</li>
+<li><code>UIFileSharingEnabled</code> - 让 App 支持 iTunes 文件分享</li>
+<li><code>LSSupportsOpeningDocumentsInPlace</code> - 支持在本地打开文件</li>
 </ul>
 <p>然后，把 key 的值设置为 <em>Yes</em>。启用了这两个选项后，让我们再在模拟器上执行 App。接着，打开 <em>Files</em> App 并导航到 <em>On My iPhone</em> 位置，你应该会看到 App 的资料夹，而 PDF 文件就在资料夹中。</p>
 <figure id="fig42.4"><img src="images/pdfdoc/swiftui-imagerenderer-pdf-files-app.png" alt="图 42.4. 储存 PDF 档至 Files app"><figcaption>图 42.4. 储存 PDF 档至 Files app</figcaption></figure>

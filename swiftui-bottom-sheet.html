@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -1102,7 +1102,7 @@
     }
 }
 </code></pre>
-<p>细节视图现在看起来不错，不过有个问题是偏移量设定为固定值。由于 App 将支援多个装置或荧幕大小，因此偏移量应该能够自动调整。</p>
+<p>细节视图现在看起来不错，不过有个问题是偏移量设定为固定值。由于 App 将支持多个装置或荧幕大小，因此偏移量应该能够自动调整。</p>
 <p>我想要做的是将偏移量设定为荧幕高度的一半，那么如何才能知道装置的荧幕大小呢？ 在 SwiftUI 中，它提供一个名为“GeometryReader”的容器视图，可以让你存取父视图（parent view ）的大小与位置。因此，要取得荧幕高度，你所需要做的是使用 <code>GeometryReader</code> 包裹 <code>VStack</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RestaurantDetailView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">let</span> restaurant: <span class="hljs-type">Restaurant</span>
@@ -1185,7 +1185,7 @@
     }
 }
 </code></pre>
-<p>我们还加入 <code>transition</code> 修饰器至细节视图，如此就可使用 <code>move</code> 转场类型。<code>selectedRestaurant</code> 属性被定义为可选属性，这表示它可以有值或是 nil。在存取属性值之前，需要检查 <code>selectedRestaurant</code> 是否有值，因此，我们使用 <code>if let</code> 来进行确认，同时提醒一下，此  <code>if let</code> 运算符只支援 iOS 14 （或以上的）版本。</p>
+<p>我们还加入 <code>transition</code> 修饰器至细节视图，如此就可使用 <code>move</code> 转场类型。<code>selectedRestaurant</code> 属性被定义为可选属性，这表示它可以有值或是 nil。在存取属性值之前，需要检查 <code>selectedRestaurant</code> 是否有值，因此，我们使用 <code>if let</code> 来进行确认，同时提醒一下，此  <code>if let</code> 运算符只支持 iOS 14 （或以上的）版本。</p>
 <p>现在，如果在预览画布中执行这个 App，当你选择一间餐厅时，它已经可以带出细节视图。尽管如此，底部表的实现还尚未完成。</p>
 <p>首先，当底部表启用时，不会阻止清单视图与使用者互动，实际上清单视图应该变暗，以表示它位于下面一层。</p>
 <p>为了实现它，我们可以建立一个空视图，并将它放在清单视图与细节视图之间。在 <code>ContentView.swift</code> 档中插入下列的代码来建立空视图： </p>
@@ -1245,8 +1245,8 @@
 </code></pre>
 <p>现在，在预览画布中再次执行这个 App。当显示细节视图时，你应该会看到一个不错的动画效果。</p>
 <figure id="fig18.9"><img src="images/bottom-sheet/swiftui-bottom-sheet-9.gif" alt="图 18.9.　加入动画至底部表"><figcaption>图 18.9.　加入动画至底部表</figcaption></figure>
-<h3 id="%E5%8A%A0%E5%85%A5%E6%89%8B%E5%8B%A2%E6%94%AF%E6%8F%B4">加入手势支援</h3>
-<p>现在，我们有了一个未完成的底部表，下一步是使它能在支援手势的情况下展开。如本章开头所述，使用者可以向上滑动视图来展开它，或是向下滑动视图来最小化。</p>
+<h3 id="%E5%8A%A0%E5%85%A5%E6%89%8B%E5%8B%A2%E6%94%AF%E6%8F%B4">加入手势支持</h3>
+<p>现在，我们有了一个未完成的底部表，下一步是使它能在支持手势的情况下展开。如本章开头所述，使用者可以向上滑动视图来展开它，或是向下滑动视图来最小化。</p>
 <p>由于你已经在前一章中学过拖曳手势的工作原理，我们会应用类似的技术来建立展开式细节视图。不过，这个展开式底部表的拖曳手势的实现会比以前更加复杂。</p>
 <p>在 <code>RestaurantDetailView.swift</code> 中，首先定义一个枚举来表示拖曳状态： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
@@ -1289,7 +1289,7 @@
 <p>最后，像这样修改 <code>VStack</code> 的 <code>.offset</code> 修饰器来移动细节视图： </p>
 <pre><code class="lang-swift">.offset(y: geometry.size.height/<span class="hljs-number">2</span> + <span class="hljs-keyword">self</span>.dragState.translation.height + <span class="hljs-keyword">self</span>.positionOffset)
 </code></pre>
-<p>在计算偏移量时，将考虑到拖曳的位移与位置偏移量，而不是固定值，这就是我们如何启用细节视图来支援拖曳手势的方式。</p>
+<p>在计算偏移量时，将考虑到拖曳的位移与位置偏移量，而不是固定值，这就是我们如何启用细节视图来支持拖曳手势的方式。</p>
 <p>如果你在预览画布中测试细节视图，则应该能够拖曳横列来滑动视图。不过，透过拖曳内容视图来向上/ 向下滑动视图几乎是不可能的。</p>
 <figure id="fig18.10"><img src="images/bottom-sheet/swiftui-bottom-sheet-10.png" alt="图 18.10.　拖曳细节视图的内容部分不会使视图向上滑动"><figcaption>图 18.10.　拖曳细节视图的内容部分不会使视图向上滑动</figcaption></figure>
 <p>为什么我们不能拖曳内容视图来展开细节视图呢？</p>
@@ -1461,7 +1461,7 @@
 <figure id="fig18.15"><img src="images/bottom-sheet/swiftui-bottom-sheet-15.png" alt="图 8.15. 在完全展开状态下滚动视图"><figcaption>图 8.15. 在完全展开状态下滚动视图</figcaption></figure>
 <h3 id="%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%B5%90">本章小结</h3>
 <p>本章的篇幅很多，但我希望你喜欢它。在本章中，我们将利用你到目前为止所学到的知识来建立展开式底部表。当建立底部表时，我尽力记录了我解决问题的思考过程，我真的希望这可以帮助你了解我的解决方案与代码。</p>
-<p>SwiftUI 的其中一项优势是，它鼓励你建立模组化的 UI 元件。这部分我们还没有做，但是你可能会发现透过使用我在上一章中所介绍的技术，可以很容易将这个餐厅细节视图转换为支援各种类型内容的通用底部表。</p>
+<p>SwiftUI 的其中一项优势是，它鼓励你建立模组化的 UI 元件。这部分我们还没有做，但是你可能会发现透过使用我在上一章中所介绍的技术，可以很容易将这个餐厅细节视图转换为支持各种类型内容的通用底部表。</p>
 <p>因此，请尝试自行建立通用的底部表，并将其作为你的专案中的共享元件。</p>
 <p>在本章所准备的范例档中，有完整的专案与作业解答可以下载： </p>
 <ul>

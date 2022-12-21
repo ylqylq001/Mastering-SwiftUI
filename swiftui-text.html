@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -910,7 +910,7 @@
 </code></pre>
 <p>这个功能是一样的，不过我相信你会发现到以上的程式更容易阅读。我们将继续在本书中使用这样的程式写法。</p>
 <p> <code>font</code> 修饰器可以让你变更字体属性。在上面的程式中，我们指定使用 <em>title</em> 字体以放大文字。SwiftUI 内有几个内建的字体样式，包括 <em>title</em> 、 <em>largeTitle</em> 、<em>body</em> 等等。如果你想要加大字体大小，则可以将 <code>.title</code> 改成 <code>.largeTitle</code> 。</p>
-<p><em>提示：你可以参考这份文件（<a href="https://developer.apple.com/documentation/swiftui/font）来找出所有" target="_blank">https://developer.apple.com/documentation/swiftui/font）来找出所有</a> <code>font</code> 修饰器所支援的值。</em></p>
+<p><em>提示：你可以参考这份文件（<a href="https://developer.apple.com/documentation/swiftui/font）来找出所有" target="_blank">https://developer.apple.com/documentation/swiftui/font）来找出所有</a> <code>font</code> 修饰器所支持的值。</em></p>
 <figure id="fig2.5"><img src="images/text/swiftui-text-5.png" alt="图 5. 变更字体样式"><figcaption>图 5. 变更字体样式</figcaption></figure>
 <p>你也可以使用  <code>font</code> 修饰器来指定字体设计，譬如说，你想要字体圆润。你可以将修饰器撰写如下：</p>
 <pre><code class="lang-swift">.font(.system(.largeTitle, design: .rounded))
@@ -931,7 +931,7 @@
 <p>按住 command 键不放，并点选文字来带出弹出选单， 选取 <em>Show SwiftUI Inspector</em> ，然后你可以编辑 text/font 属性。 最棒的是，当你更改字体属性时，代码也会自动更新。</p>
 <figure id="fig2.8"><img src="images/text/swiftui-text-8.png" alt="图 8. 使用 Inspect 功能来编辑文字属性"><figcaption>图 8. 使用 Inspect 功能来编辑文字属性</figcaption></figure>
 <h3 id="%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E8%99%95%E7%90%86">多行文字的处理</h3>
-<p><code>Text</code> 预设支援多行文字，所以它可以显示一段文字，而不需要使用任何其他修饰器，将程式以下面这段替换：</p>
+<p><code>Text</code> 预设支持多行文字，所以它可以显示一段文字，而不需要使用任何其他修饰器，将程式以下面这段替换：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma—which is living with the results of other people’s thinking. Don’t let the noise of others’ opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition.&quot;</span>)
     .fontWeight(.bold)
     .font(.title)
@@ -1004,7 +1004,7 @@
 <blockquote>
 <p>Markdown 是一种简洁的标记语言，可用于将格式元素添加到纯文本文档中。 Markdown 由 <a href="https://daringfireball.net/projects/markdown/" target="_blank">John Gruber</a> 于 2004 年开发，现已成为世界上最受欢迎的标记语言之一。</p>
 </blockquote>
-<p>SwiftUI 内置了对 Markdown 的支援。 如果你不知道 Markdown 是什么，它可让你轻松使用易于阅读的格式设置文字的样式。 要了解有关 Markdown 的资讯，可以阅读这本指南 (<a href="https://www.markdownguide.org/getting-started/)。" target="_blank">https://www.markdownguide.org/getting-started/)。</a></p>
+<p>SwiftUI 内置了对 Markdown 的支持。 如果你不知道 Markdown 是什么，它可让你轻松使用易于阅读的格式设置文字的样式。 要了解有关 Markdown 的资讯，可以阅读这本指南 (<a href="https://www.markdownguide.org/getting-started/)。" target="_blank">https://www.markdownguide.org/getting-started/)。</a></p>
 <p>要使用 Markdown 设置文字样式，你只需要以 Markdown 编写文字。 <code>Text</code> 视图会自动呈现文本。 以下是一个例子：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;**This is how you bold a text**. *This is how you make text italic.* You can [click this link](https://www.appcoda.com) to go to appcoda.com&quot;</span>)
     .font(.title)

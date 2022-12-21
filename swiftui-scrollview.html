@@ -562,7 +562,7 @@
                         
                             <b>32.</b>
                         
-                        使用 TextEditor 支援多行文字输入
+                        使用 TextEditor 支持多行文字输入
                     </a>
                 
             
@@ -921,7 +921,7 @@
 </code></pre>
 <p>显然的，你需要使用 <code>Text</code> 来建立文字视图。由于我们在叙述中实际上有三个垂直排列的文字视图，因此我们使用一个 <code>VStack</code> 来嵌入它们。对于 <code>VStack</code>，我们指定对齐方式为 <code>.leading</code>，这会将文字视图对齐堆叠视图的左侧。</p>
 <p>这些文字的修饰器皆在有关 <code>Text</code> 物件的章节讨论过。如果你对任何修饰器有疑问的话，可以回去参考。但是，这里会特别提到有关 <code>.primary</code> 与 <code>.secondary</code> 颜色。</p>
-<p>虽然你可在 <code>foregroundColor</code> 修饰器指定标准颜色，像是 <code>.black</code> 与 <code>.purple</code>，但 iOS 提供一套系统颜色，其中包含主色（ primary color ）、辅色（ secondary color ）、第三级色（ tertiary color ）等变化，透过使用此颜色变化，你的 App 可以轻松支援浅色模式与深色模式。举例而言，文字视图的主色预设设定为浅色模式的黑色。当 App 切换到深色模式， 主色将被调整为白色，这是由 iOS 自动调整，因此你无须另外编写写支援深色模式的代码，我们将在后面的章节中深入探讨深色模式。</p>
+<p>虽然你可在 <code>foregroundColor</code> 修饰器指定标准颜色，像是 <code>.black</code> 与 <code>.purple</code>，但 iOS 提供一套系统颜色，其中包含主色（ primary color ）、辅色（ secondary color ）、第三级色（ tertiary color ）等变化，透过使用此颜色变化，你的 App 可以轻松支持浅色模式与深色模式。举例而言，文字视图的主色预设设定为浅色模式的黑色。当 App 切换到深色模式， 主色将被调整为白色，这是由 iOS 自动调整，因此你无须另外编写写支持深色模式的代码，我们将在后面的章节中深入探讨深色模式。</p>
 <p>为了将图片与这些文字视图垂直排列，我们使用 <code>VStack</code> 来嵌入它们，目前的布局如图 5.7 所示。</p>
 <figure id="fig5.7"><img src="images/scrollview/swiftui-scrollview-7.png" alt="图 5.7.　将图片与文字视图嵌入到 VStack 中"><figcaption>图 5.7.　将图片与文字视图嵌入到 VStack 中</figcaption></figure>
 <p>还没有完成，尚有几件事情需要实现。首先，如果文字叙述区块要与图片的边缘对齐，该如何做呢？ </p>
@@ -1029,7 +1029,7 @@
 <p>你的任务是加入标题（ header ）至目前的滚动视图（ scroll view ）中，结果如图 5.14 所示。如果你完全暸解了  <code>Vstack</code>与  <code>Hstack</code>，你应该有能力建立这个布局。</p>
 <figure id="fig5.14"><img src="images/scrollview/swiftui-scrollview-14.png" alt="图 5.14. 作业#1"><figcaption>图 5.14. 作业#1</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%B0%B4%E5%B9%B3-scrollview-%E5%BB%BA%E7%AB%8B%E8%BC%AA%E6%92%AD%E5%BC%8F-ui">使用水平 ScrollView 建立轮播式 UI</h3>
-<p>预设上，<code>ScrollView</code> 允许你以垂直方向滚动内容。另外，它还支援水平方向的可滚动内容。我们来了解如何进行一些修改，以将目前的布局转换为轮播（carousel ）UI。</p>
+<p>预设上，<code>ScrollView</code> 允许你以垂直方向滚动内容。另外，它还支持水平方向的可滚动内容。我们来了解如何进行一些修改，以将目前的布局转换为轮播（carousel ）UI。</p>
 <p>更新 <code>ContentView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
