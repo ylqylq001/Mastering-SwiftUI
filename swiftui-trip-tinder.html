@@ -1140,7 +1140,7 @@
 <p>更改代码之后，UI 看起来应该完全相同。但在底层架构中，你应该在卡片库中只看到两个卡片视图。</p>
 <h3 id="%E5%AF%A6%E4%BD%9C%E6%BB%91%E5%8B%95%E5%8B%95%E4%BD%9C">实作滑动动作</h3>
 <p>在动态建立新的卡片视图之前，我们必须先实作滑动功能。如果你忘记湍如何处理手势，请再阅读第17 章及第18 章。我们将会重新使用前面讨论的一些代码。</p>
-<p>首先，在 <code>ContentView</code> 中定义 <code>DragState</code>列举，它表示可能的拖曳状态： </p>
+<p>首先，在 <code>ContentView</code> 中定义 <code>DragState</code>枚举，它表示可能的拖曳状态： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
     <span class="hljs-keyword">case</span> inactive
     <span class="hljs-keyword">case</span> pressing
@@ -1175,7 +1175,7 @@
 
 }
 </code></pre>
-<p>再一次，如果你不了解什么是列举，则请在此处停止，并复习一下有关手势的章节。接下来，我们定义一个<code>@GestureState</code> 变数来储存拖曳状态，预设上设定为“inactive”： </p>
+<p>再一次，如果你不了解什么是枚举，则请在此处停止，并复习一下有关手势的章节。接下来，我们定义一个<code>@GestureState</code> 变数来储存拖曳状态，预设上设定为“inactive”： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">GestureState</span> private <span class="hljs-keyword">var</span> dragState = <span class="hljs-type">DragState</span>.inactive
 </code></pre>
 <p>现在，更新 <code>body</code> 的部分如下： </p>

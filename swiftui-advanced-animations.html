@@ -1156,7 +1156,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <figure id="fig20.12"><img src="images/wallet/swiftui-wallet-12.png" alt="图 20.12.　使用拖曳手势在卡片库上移动卡片"><figcaption>图 20.12.　使用拖曳手势在卡片库上移动卡片</figcaption></figure>
 <h4 id="%E8%99%95%E7%90%86%E9%95%B7%E6%8C%89%E8%88%87%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2">处理长按与拖曳手势</h4>
 <p>现在你应该了解我们将要做什么，我们来继续实作。如果你忘记我们如何使用 SwiftUI 处理手势，则请回头阅读第 17 章，该章已经讨论了我们将使用的大多数技术。</p>
-<p>首先，在 <code>WalletView.swift</code> 中插入下列的代码，来建立 <code>DragState</code> 列举，以使我们可以轻松追踪拖曳状态：</p>
+<p>首先，在 <code>WalletView.swift</code> 中插入下列的代码，来建立 <code>DragState</code> 枚举，以使我们可以轻松追踪拖曳状态：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
     <span class="hljs-keyword">case</span> inactive
     <span class="hljs-keyword">case</span> pressing(index: <span class="hljs-type">Int</span>? = <span class="hljs-built_in">nil</span>)

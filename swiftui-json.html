@@ -1010,7 +1010,7 @@
 &quot;&quot;&quot;
 </code></pre>
 <p>如你所见，<code>amount</code> 这个键现在改为 <code>loan_amount</code>。为了解码 JSON 资料，你可以将属性名称从 <code>amount</code> 改为<code>loan_amount</code>。不过，我们真的想要保留名称 <code>amount</code>，在这种的情况下，我们如何定义映射呢？ </p>
-<p>要定义键与属性名称之间的映射，你需要宣告一个名为“CodingKeys”的列举， <code>CodingKeys</code> 列举具有一个    <code>String</code> 型别的原始值，并遵循 <code>CodingKey</code> 协定。</p>
+<p>要定义键与属性名称之间的映射，你需要宣告一个名为“CodingKeys”的枚举， <code>CodingKeys</code> 枚举具有一个    <code>String</code> 型别的原始值，并遵循 <code>CodingKey</code> 协定。</p>
 <p>现在，更新 <code>Loan</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Codable</span> </span>{
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1026,7 +1026,7 @@
     }
 }
 </code></pre>
-<p>在列举中，你定义了模型的所有属性名称，以及其在 JSON 资料中的对应键。例如：<code>amount</code> 定义为映射<code>loan_amount</code> 这个键，如果属性名称与 JSON 资料的键相同，则可以省略这个指定。</p>
+<p>在枚举中，你定义了模型的所有属性名称，以及其在 JSON 资料中的对应键。例如：<code>amount</code> 定义为映射<code>loan_amount</code> 这个键，如果属性名称与 JSON 资料的键相同，则可以省略这个指定。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%B7%A2%E7%8B%80-json-%E7%89%A9%E4%BB%B6">使用巢状 JSON 物件</h3>
 <p>现在，你应该了解基础知识了，让我们深入研究并解码一个更切合实际的 JSON 回应。首先，更新 <code>json</code> 变数如下： </p>
 <pre><code class="lang-swift">let json = &quot;&quot;&quot;
@@ -1075,7 +1075,7 @@
     }
 }
 </code></pre>
-<p>和我们之前所做的类似，我们必须定义一个列举 <code>CodingKeys</code>。对于 <code>country</code> 这个 case， 我们指定要映射<code>location</code> 键。而要处理巢状的 JSON 物件，我们需要定义另一个列举，在上面的代码中，我们将其命名为<code>LocationKeys</code>，并宣告与巢状物件的 <code>country</code> 键相符的 <code>country</code> 这个 case。</p>
+<p>和我们之前所做的类似，我们必须定义一个枚举 <code>CodingKeys</code>。对于 <code>country</code> 这个 case， 我们指定要映射<code>location</code> 键。而要处理巢状的 JSON 物件，我们需要定义另一个枚举，在上面的代码中，我们将其命名为<code>LocationKeys</code>，并宣告与巢状物件的 <code>country</code> 键相符的 <code>country</code> 这个 case。</p>
 <p>因为它不是直接映射，我们需要实作 <code>Decodable</code>  协定的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 呼叫解码器的 <code>container</code> 方法，以取得与指定的编码键相关的资料，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
 <p>要解码一个特定值，我们使用特定键（例如：.name ）和关联型别（例如：String.self ） 来呼叫 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 呼叫 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
 <p>以上为使用巢状物件来解码JSON 资料的方式。</p>
@@ -1211,7 +1211,7 @@
     }
 }
 </code></pre>
-<p>我们加上 <code>CodingKeys</code> 列举来明确指定要解码的键，然后我们实作自订的初始器来处理解码。</p>
+<p>我们加上 <code>CodingKeys</code> 枚举来明确指定要解码的键，然后我们实作自订的初始器来处理解码。</p>
 <p>好的，错误现在已经修正了，那下一步呢？</p>
 <h3 id="%E5%91%BC%E5%8F%AB-web-api">呼叫 Web API</h3>
 <p>到目前为止，我们只设定了 JSON 解码的所有内容，但我们尚未使用 Web API。现在于 <code>LoanStore</code> 类别中宣告一个新变数，来储存 Kiva API 的URL： </p>

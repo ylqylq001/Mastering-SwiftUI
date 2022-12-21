@@ -1248,7 +1248,7 @@
 <h3 id="%E5%8A%A0%E5%85%A5%E6%89%8B%E5%8B%A2%E6%94%AF%E6%8F%B4">加入手势支援</h3>
 <p>现在，我们有了一个未完成的底部表，下一步是使它能在支援手势的情况下展开。如本章开头所述，使用者可以向上滑动视图来展开它，或是向下滑动视图来最小化。</p>
 <p>由于你已经在前一章中学过拖曳手势的工作原理，我们会应用类似的技术来建立展开式细节视图。不过，这个展开式底部表的拖曳手势的实作会比以前更加复杂。</p>
-<p>在 <code>RestaurantDetailView.swift</code> 中，首先定义一个列举来表示拖曳状态： </p>
+<p>在 <code>RestaurantDetailView.swift</code> 中，首先定义一个枚举来表示拖曳状态： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DragState</span> </span>{
     <span class="hljs-keyword">case</span> inactive
     <span class="hljs-keyword">case</span> pressing
@@ -1318,7 +1318,7 @@
 <li><strong>界限值 #1</strong> - 当拖曳超过界限值，细节视图就会完全开启。</li>
 <li><strong>界限值 #2</strong> - 当拖曳移动低于界限值，细节视图将会关闭。</li>
 </ul>
-<p>现在，你应该知道了半开状态与全开状态的工作原理，让我们进入代码部分。首先，我们在<code>RestaurantDetailView.swift</code> 宣告另一个列举来表示这两种视图状态： </p>
+<p>现在，你应该知道了半开状态与全开状态的工作原理，让我们进入代码部分。首先，我们在<code>RestaurantDetailView.swift</code> 宣告另一个枚举来表示这两种视图状态： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">ViewState</span> </span>{
     <span class="hljs-keyword">case</span> full
     <span class="hljs-keyword">case</span> half

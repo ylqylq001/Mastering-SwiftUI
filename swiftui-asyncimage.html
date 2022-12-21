@@ -923,7 +923,7 @@
 <p>如果你需要更精准操作非同步下载，<code>AsyncImage</code> 视图提供了另一个<code>init</code>函数：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">init</span>(url: <span class="hljs-type">URL</span>?, scale: <span class="hljs-type">CGFloat</span>, transaction: <span class="hljs-type">Transaction</span>, content: (<span class="hljs-type">AsyncImagePhase</span>) -&gt; <span class="hljs-type">Content</span>
 </code></pre>
-<p><code>AsyncImagePhase</code> 是一个列举 (enum)，用于跟踪下载操作的当前阶段。 你可以针对每个阶段提供详细的实作，包括<em>empty</em>、<em>failure</em> 和<em>success</em>。</p>
+<p><code>AsyncImagePhase</code> 是一个枚举 (enum)，用于跟踪下载操作的当前阶段。 你可以针对每个阶段提供详细的实作，包括<em>empty</em>、<em>failure</em> 和<em>success</em>。</p>
 <p>看看以下范例代码片段：</p>
 <pre><code class="lang-swift"><span class="hljs-type">AsyncImage</span>(url: <span class="hljs-type">URL</span>(string: imageURL)) { phase <span class="hljs-keyword">in</span>
     <span class="hljs-keyword">switch</span> phase {
