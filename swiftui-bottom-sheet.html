@@ -881,7 +881,7 @@
 <p>最近“底部表”（bottom sheet ）越来越受欢迎，你可以在 Facebook 与 Uber 等知名 App 中找到这个功能，它更像是动作表（action sheet ）的加强版，底部表会从屏幕底部向上滑动，并覆盖在原始视图的上面，来提供上下文信息（contextual information ）或者可供使用者选择的其他选项。举例而言，当你将照片储存在 Instagram 的照片集中，该 App 会显示一个底部表，以选择照片集。而在 Facebook App 中，当点选贴文的“⋯”（ellipsis ）按钮，它会显示带有其他的动作项目表。Uber App 也使用底部表来显示所选择的行程价格。</p>
 <p>底部表的大小取决于想要显示的上下文信息。在某些情况下，底部表往往较大（也称为“背幕”（backdrop ）），占据了屏幕的 80~90%。通常，使用者可以使用拖曳手势与表互动。你可以向上滑动来展开它，或者向下滑动来最小化或解除表。</p>
 <figure id="fig18.1"><img src="images/bottom-sheet/swiftui-bottom-sheet-1.jpg" alt="图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表"><figcaption>图 18.1.　Uber、Facebook 与Instagram 皆于App 中使用底部表</figcaption></figure>
-<p>在本章中，我们将使用 SwiftUI 手势建立类似的展开式底部表（expandable bottom sheet ）。示例 App 在主视图中显示餐厅清单，当使用者点击其中一笔餐厅纪录时，该 App 会带出一个底部表来显示餐厅的详细资讯。你可以向上滑动来展开表，而要解除表则是向下滑动，如图 18.2 所示</p>
+<p>在本章中，我们将使用 SwiftUI 手势建立类似的展开式底部表（expandable bottom sheet ）。示例 App 在主视图中显示餐厅清单，当使用者点击其中一笔餐厅纪录时，该 App 会弹出一个底部表来显示餐厅的详细资讯。你可以向上滑动来展开表，而要解除表则是向下滑动，如图 18.2 所示</p>
 <figure id="fig18.2"><img src="images/bottom-sheet/swiftui-bottom-sheet-2.png" alt="图 18.2.　建立一个展开式底部表"><figcaption>图 18.2.　建立一个展开式底部表</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3%E8%B5%B7%E5%A7%8B%E5%B0%88%E6%A1%88">了解起始项目</h3>
 <p>为了节省你从头建立示例App 的时间，我已经为你准备好起始项目。你可以至</p>
@@ -1140,8 +1140,8 @@
 <p>要正确计算全屏幕的尺寸，我们加入 <code>edgesIgnoringSafeArea</code>修饰器，并设定其参数为 <code>.all</code>，以完全忽略安全区域。</p>
 <p>现在，在预览画布中再次执行这个 App。你应该会有一个底部表，而它占了屏幕大小的一半，如图 18.7 所示。</p>
 <figure id="fig18.7"><img src="images/bottom-sheet/swiftui-bottom-sheet-7.png" alt="图 18.7.　调整细节视图的偏移量"><figcaption>图 18.7.　调整细节视图的偏移量</figcaption></figure>
-<h3 id="%E5%B8%B6%E5%87%BA%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">带出细节视图</h3>
-<p>现在，细节视图几乎快完成了。我们回到清单视图（即 <code>ContentView.swift</code> ），以在使用者选择餐厅时，带出细节视图。</p>
+<h3 id="%E5%B8%B6%E5%87%BA%E7%B4%B0%E7%AF%80%E8%A6%96%E5%9C%96">弹出细节视图</h3>
+<p>现在，细节视图几乎快完成了。我们回到清单视图（即 <code>ContentView.swift</code> ），以在使用者选择餐厅时，弹出细节视图。</p>
 <p>在 <code>ContentView</code> 结构，声明两个状态变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showDetail = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedRestaurant: <span class="hljs-type">Restaurant</span>?
@@ -1186,7 +1186,7 @@
 }
 </code></pre>
 <p>我们还加入 <code>transition</code> 修饰器至细节视图，如此就可使用 <code>move</code> 转场类型。<code>selectedRestaurant</code> 属性被定义为可选属性，这表示它可以有值或是 nil。在存取属性值之前，需要检查 <code>selectedRestaurant</code> 是否有值，因此，我们使用 <code>if let</code> 来进行确认，同时提醒一下，此  <code>if let</code> 运算符只支持 iOS 14 （或以上的）版本。</p>
-<p>现在，如果在预览画布中执行这个 App，当你选择一间餐厅时，它已经可以带出细节视图。尽管如此，底部表的实现还尚未完成。</p>
+<p>现在，如果在预览画布中执行这个 App，当你选择一间餐厅时，它已经可以弹出细节视图。尽管如此，底部表的实现还尚未完成。</p>
 <p>首先，当底部表启用时，不会阻止清单视图与使用者互动，实际上清单视图应该变暗，以表示它位于下面一层。</p>
 <p>为了实现它，我们可以建立一个空视图，并将它放在清单视图与细节视图之间。在 <code>ContentView.swift</code> 档中插入下列的代码来建立空视图： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BlankView</span> : <span class="hljs-title">View</span> </span>{
@@ -1232,7 +1232,7 @@
 .edgesIgnoringSafeArea(.all)
 </code></pre>
 <p>在代码中，我们使用 <code>interpolatingSpring</code>  动画，刚性（stiffness ）、阻尼（damping ） 与初速度（initial velocity ）的值是可以更改的。你可以使用这些值来找到适合你的App 的最佳动画。</p>
-<p>此外，我还想在细节视图中加入一个精巧的动画，如此当我们带出细节视图时，它会稍微向上移动。回到<code>ContentView.swift</code>，在导航视图中加入 <code>.offset</code> 与 <code>.animation</code>修饰器： </p>
+<p>此外，我还想在细节视图中加入一个精巧的动画，如此当我们弹出细节视图时，它会稍微向上移动。回到<code>ContentView.swift</code>，在导航视图中加入 <code>.offset</code> 与 <code>.animation</code>修饰器： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationView</span> {
     <span class="hljs-type">List</span> {
         ...
@@ -1304,7 +1304,7 @@
 <p>目前实现的另一个问题是，即使使用者将视图一直滑动到状态列，细节视图也无法保持完全开启。拖曳结束后，它会反弹回半开状态。反之，即使你将细节视图向下滑动到屏幕尾端，也无法关闭细节视图。</p>
 <p>我们该如何处理这些问题呢？ </p>
 <h3 id="%E5%8D%8A%E9%96%8B%E7%8B%80%E6%85%8B%E6%99%82%E7%9A%84%E8%99%95%E7%90%86%E6%96%B9%E5%BC%8F">半开状态时的处理方式</h3>
-<p>我们先处理在半开状态时会碰到的问题。细节视图带出时会以半开作为默认状态，这个状态下会出现以下两种情况：</p>
+<p>我们先处理在半开状态时会碰到的问题。细节视图弹出时会以半开作为默认状态，这个状态下会出现以下两种情况：</p>
 <ol>
 <li><p>使用者选择向上滚动视图让它全开，不过使用者可能会向上拖曳一点，接着向下拖曳来取消动作。</p>
 </li>
@@ -1405,7 +1405,7 @@
 <pre><code class="lang-swift">.coordinateSpace(name: <span class="hljs-string">&quot;scrollview&quot;</span>)
 </code></pre>
 <p>你可能想知道，为何我们必须使用自己的座标空间，而非使用  <code>.global</code> 。请再次参考图 8.13，红色线是参考点，也就是偏移值为 0 的位置， 通过座标空间的定义，就可以达成滚动视图的规范。</p>
-<p>现在于模拟器中执行 App，带出细节视图，并完全展开它。当你拖曳视图时你便可以见到这个拖曳偏移量，如图 8.14 所示，当你拖曳距离顶部列越远时，偏移量会越大。</p>
+<p>现在于模拟器中执行 App，弹出细节视图，并完全展开它。当你拖曳视图时你便可以见到这个拖曳偏移量，如图 8.14 所示，当你拖曳距离顶部列越远时，偏移量会越大。</p>
 <figure id="fig18.14"><img src="images/bottom-sheet/swiftui-bottom-sheet-14.jpg" alt="图 8.14. 在不同方向拖曳滚动视图。"><figcaption>图 8.14. 在不同方向拖曳滚动视图。</figcaption></figure>
 <h3 id="preferencekey-%E7%9A%84%E4%BB%8B%E7%B4%B9">PreferenceKey 的介绍</h3>
 <p>现在我们已经找到滚动偏移量取得方式，接下的问题是如何让它的父视图知道偏移量，以利进一步处理。 SwiftUI 框架提供了一个  <code>PreferenceKey</code> 协议，可以让你很容易地从子视图传递数据至它的父视图。</p>

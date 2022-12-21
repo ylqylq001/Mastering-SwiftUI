@@ -961,7 +961,7 @@
 <p>更改后，你应该会在预览列看到进度标签。 要测试动画，请在 iPhone 模拟器上运行App或在 <code>ContentView.swift</code> 中执行App。 当你更改进度时，进度文字已经带有动画。</p>
 <figure id="fig31.3"><img src="images/librarycontentprovider/swiftui-library-3.png" alt="图 31.3. 应用客制化修饰符"><figcaption>图 31.3. 应用客制化修饰符</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-librarycontentprovider">使用 LibraryContentProvider</h3>
-<p>从 Xcode 12 开始，Apple 在 SwiftUI 框架添加了一项功能，允许开发者将任何客制化视图加到 View 图库中。 如果你忘记了 View 图库是什么，只需按 <em>command-shift-L</em> 即可把它带出来。 该图库可让你轻松找寻所有可用的 UI 组件。 你可以从库中拖动组件并将其直接添加到App UI。</p>
+<p>从 Xcode 12 开始，Apple 在 SwiftUI 框架添加了一项功能，允许开发者将任何客制化视图加到 View 图库中。 如果你忘记了 View 图库是什么，只需按 <em>command-shift-L</em> 即可把它弹出来。 该图库可让你轻松找寻所有可用的 UI 组件。 你可以从库中拖动组件并将其直接添加到App UI。</p>
 <figure id="fig31.4"><img src="images/librarycontentprovider/swiftui-library-4.png" alt="图 4. 视图库"><figcaption>图 4. 视图库</figcaption></figure>
 <p>Xcode 允许开发者使用名为<code>LibraryContentProvider</code>的协议将客制化视图添加到图库中。 要将客制化视图视图添加到视图库，你需要建立一个符合 <code>LibraryContentProvider</code> 协议的新结构。</p>
 <p>例如，要将进度环视图共享到视图库，我们可以在 <code>ProgressRingView.swift</code> 中创建一个名为 <code>ProgressBar_Library</code> 的结构，如下所示：</p>

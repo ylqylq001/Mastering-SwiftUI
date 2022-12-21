@@ -879,7 +879,7 @@
                         <h1 id="%E7%AC%AC-20-%E7%AB%A0-br-%E5%BB%BA%E7%AB%8B%E5%A6%82-apple-wallet-%E7%9A%84%E5%8B%95%E7%95%AB%E8%88%87%E8%A6%96%E5%9C%96%E8%BD%89%E5%A0%B4">第 20 章<br>建立如 Apple Wallet 的动画与视图转场</h1>
 <p>你使用过 Apple 电子钱包 App 吗？我相信应该有，在上一章中，我们建立了一个如 Tinder UI 的简单 App，而本章要做的是建立一个动态 UI，类似于你在电子钱包 App 中看到的 UI。当你在电子钱包 App 中长按信用卡时，则可使用拖曳手势来重新排列卡片。如果你没有使用过这个 App，请开启电子钱包快速浏览一下，或者你可以访问这个URL （<a href="https://link.appcoda.com/swiftui-wallet" target="_blank">https://link.appcoda.com/swiftui-wallet</a>）来了解我们将建立的动画。</p>
 <figure id="fig20.1"><img src="images/wallet/swiftui-wallet-1.png" alt="图 20.1.　建立如电子钱包的动画与视图转场"><figcaption>图 20.1.　建立如电子钱包的动画与视图转场</figcaption></figure>
-<p>在电子钱包 App 中，点击其中一张信用卡，就会带出交易历史纪录。我们还建立一个类似的动画，以让你更了解视图转场与水平滚动视图。</p>
+<p>在电子钱包 App 中，点击其中一张信用卡，就会弹出交易历史纪录。我们还建立一个类似的动画，以让你更了解视图转场与水平滚动视图。</p>
 <h3 id="%E5%B0%88%E6%A1%88%E6%BA%96%E5%82%99">项目准备</h3>
 <p>为了让你专注于学习动画与视图转场，你可以从起始项目开始(<a href="https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIWalletStarter.zip</a>)。这个起始项目已经绑定了所需的信用卡图片，并且带有内建的交易历史纪录视图，如果想要使用自己的图片，请在素材目录中替换它们，如图20.2 所示。</p>
 <figure id="fig20.2"><img src="images/wallet/swiftui-wallet-2.png" alt="图 20.2　起始项目绑定了信用卡图片"><figcaption>图 20.2　起始项目绑定了信用卡图片</figcaption></figure>
@@ -1135,7 +1135,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 }
 </code></pre>
 <p>我们加入了一个 <code>if</code> 语句来检查卡片是否被选中。如果给定的卡片是使用者选择的卡片， 则我们将偏移量设定为<code>.zero</code>。对于所选卡片正下方的那些卡片，我们也将向上移动， 这就是为什么我们将偏移量设定为 <code>.zero</code>。而其余的卡片，我们将它们移出屏幕，因此垂直偏移量设定为 <code>1400 点</code>。</p>
-<p>现在，我们已经准备好编写用于带出交易历史纪录视图的代码。正如一开始所述， 起始项目已经提供这个交易历史纪录视图。因此，你不需要自己建立它。</p>
+<p>现在，我们已经准备好编写用于弹出交易历史纪录视图的代码。正如一开始所述， 起始项目已经提供这个交易历史纪录视图。因此，你不需要自己建立它。</p>
 <p>藉由 <code>isCardPressed</code> 状态变量，我们可以使用它来确定是否显示交易历史纪录视图。在 <code>Spacer()</code> 前面插入下列代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> isCardPressed {
     <span class="hljs-type">TransactionHistoryView</span>(transactions: testTransactions)
@@ -1148,7 +1148,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <h3 id="%E4%BD%BF%E7%94%A8%E6%8B%96%E6%9B%B3%E6%89%8B%E5%8B%A2%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E5%8D%A1%E7%89%87">使用拖曳手势重新排列卡片</h3>
 <p>现在，来到本章的核心部分，我们来看如何让使用者以拖曳手势重新排列卡片库。首先，我详细描述此功能的工作原理： </p>
 <ol>
-<li>要开始拖曳动作，使用者必须长按卡片。简单的点击将只会带出交易历史纪录。</li>
+<li>要开始拖曳动作，使用者必须长按卡片。简单的点击将只会弹出交易历史纪录。</li>
 <li>当使用者成功按住卡片后，App会将卡片向上移动一点。这是我们想要给使用者的一种回馈，告诉使用者已经准备好可任意拖曳卡片了。</li>
 <li>当使用者拖曳卡片时，使用者应该能在卡片库中移动它。</li>
 <li>使用者在某个位置放开卡片后，App会修改卡片库中的所有卡片位置。</li>
