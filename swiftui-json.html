@@ -1170,7 +1170,7 @@
     }
 }
 </code></pre>
-<p>代码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协议，除了<code>Codable</code> 协议之外，这个结构也采用了 <code>Identifiable</code> 协议，并具有预设为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制组件来呈现这些贷款资料， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协议的原因。</p>
+<p>代码与我们在前一节中所讨论的几乎相同。我们只是使用扩展（extension ）来采用 <code>Codable</code> 协议，除了<code>Codable</code> 协议之外，这个结构也采用了 <code>Identifiable</code> 协议，并具有默认为 <code>UUID()</code> 的id 属性。稍后，我们将会使用 SwiftUI 的 <code>List</code> 控制组件来呈现这些贷款资料， 这就是为什么我们让这个结构采用 <code>Identifiable</code> 协议的原因。</p>
 <p>接下来， 使用“Swift File”模板来建立另一个档案， 并将其命名为“LoanStore. swift”。这个类别是负责连接到 Kiva 的 Web API、解码  JSON 资料，并将资料储存在本地端。</p>
 <p>我们来逐步撰写 <code>LoanStore</code> 类别， 如此你就可以更加了解我是如何实现的。在 <code>LoanStore.swift</code> 中插入下列的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoanStore</span>: <span class="hljs-title">Decodable</span> </span>{
@@ -1413,7 +1413,7 @@ func parseJsonData(data: Data) -&gt; [Loan] {
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> filterEnabled = <span class="hljs-built_in">false</span>
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> maximumLoanAmount = <span class="hljs-number">10000.0</span>
 </code></pre>
-<p><code>filterEnabled</code> 变量储存筛选器视图的目前状态。预设是设定为“false”，表示没有显示筛选器视 图。<code>maximumLoanAmount</code> 储存用于显示的最大贷款金额，任何大于该限额的贷款纪录都将被隐藏。</p>
+<p><code>filterEnabled</code> 变量储存筛选器视图的目前状态。默认是设定为“false”，表示没有显示筛选器视 图。<code>maximumLoanAmount</code> 储存用于显示的最大贷款金额，任何大于该限额的贷款纪录都将被隐藏。</p>
 <p>接下来，将 <code>NavigationView</code> 的代码更新如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">VStack</span> {

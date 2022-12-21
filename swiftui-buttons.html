@@ -896,7 +896,7 @@
 <p>好的，让我们从基础开始，使用 SwiftUI 来建立一个简单的按钮。首先开启Xcode， 并使用“App”模板建立一个新项目。接着于下一个画面输入项目的名称，我将它设定为“SwiftUIButton”，不过你可以自由使用其他的名称。你只需确保于 Interface 选项下已选取“ SwiftUI”即可，如图 6.1 所示。</p>
 <figure id="fig6.1"><img src="images/buttons/swiftui-buttons-1.png" alt="图 6.1. 建立一个新项目"><figcaption>图 6.1. 建立一个新项目</figcaption></figure>
 <p>当你储存项目后，Xcode 应会载入 <code>ContentView.swift</code> 档，并在设计划布中显示一个预览画面，如图 6.2 所示。</p>
-<figure id="fig6.2"><img src="images/buttons/swiftui-buttons-2.png" alt="图 6.2　预览预设的内容视图"><figcaption>图 6.2　预览预设的内容视图</figcaption></figure>
+<figure id="fig6.2"><img src="images/buttons/swiftui-buttons-2.png" alt="图 6.2　预览默认的内容视图"><figcaption>图 6.2　预览默认的内容视图</figcaption></figure>
 <p>使用 SwiftUI 建立按钮非常简单。基本上，你可以使用下列的代码片段来建立按钮： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {
     <span class="hljs-comment">// 所需执行的内容</span>
@@ -1271,7 +1271,7 @@
 .controlSize(.large)
 </code></pre>
 <p><code>tint</code> 修饰器指定按钮的颜色。 通过应用<code>.borderedProminent</code> 样式，iOS 将按钮呈现为紫色背景并以白色显示文字。 <code>.buttonBorderShape</code> 修饰器可让你设置按钮的边框形状。 在这里，我们将它设置为 <code>.roundedRectangle</code> 使按钮变圆角。</p>
-<p><code>.controlSize</code> 允许你更改按钮的大小。 预设大小为 <code>.regular</code>。 其他有效值包括 <code>.large</code>、<code>.small</code> 和 <code>.mini</code> 。 下图显示了按钮在不同尺寸下的外观。</p>
+<p><code>.controlSize</code> 允许你更改按钮的大小。 默认大小为 <code>.regular</code>。 其他有效值包括 <code>.large</code>、<code>.small</code> 和 <code>.mini</code> 。 下图显示了按钮在不同尺寸下的外观。</p>
 <figure id="fig6.26"><img src="images/buttons/swiftui-buttons-26.png" alt="图 6.26. 不同控件大小的按钮"><figcaption>图 6.26. 不同控件大小的按钮</figcaption></figure>
 <p>除了使用<code>.roundedRectangle</code>，SwiftUI 还提供了另一种名为<code>.capsule</code>的边框形状，供开发者创建胶囊形状按钮。</p>
 <figure id="fig6.27"><img src="images/buttons/swiftui-buttons-27.png" alt="图 6.27. 使用胶囊形状"><figcaption>图 6.27. 使用胶囊形状</figcaption></figure>

@@ -946,7 +946,7 @@
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> thickness: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">30.0</span>
 <span class="hljs-keyword">var</span> width: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">250.0</span>
 </code></pre>
-<p>由于这个圆形进度条应该支持各种大小，上面的变量都有一个预设值。 顾名思义，<code>thickness</code> 变量控制进度条的粗细，而 <code>width</code> 变量储存圆的直径。</p>
+<p>由于这个圆形进度条应该支持各种大小，上面的变量都有一个默认值。 顾名思义，<code>thickness</code> 变量控制进度条的粗细，而 <code>width</code> 变量储存圆的直径。</p>
 <p>你可以使用内置的 <code>Circle</code> 视图创建圆形视图，如下所示：</p>
 <figure id="fig30.6"><img src="images/progressring/swiftui-progressring-6.png" alt="图 30.6. 绘制圆形视图"><figcaption>图 30.6. 绘制圆形视图</figcaption></figure>
 <p>我们使用 <code>stroke</code> 修饰器来绘制灰色圆圈的轮廓。 如图所示，<code>thickness</code> 属性用于控制轮廓的宽度， <code>width</code> 属性是圆的直径。 我故意突出框架，以便你可以看到厚度和宽度。</p>
@@ -1073,7 +1073,7 @@
     .padding()
 }
 </code></pre>
-<p>在预览画布中，你应该有如下图所示的内容。 进度条只显示下方的灰色圆圈，主要原因是进度值预设为零。 单击 <em>Play</em> 按钮运行App，尝试点击不同的按钮以查看进度条如何变化。</p>
+<p>在预览画布中，你应该有如下图所示的内容。 进度条只显示下方的灰色圆圈，主要原因是进度值默认为零。 单击 <em>Play</em> 按钮运行App，尝试点击不同的按钮以查看进度条如何变化。</p>
 <figure id="fig30.13"><img src="images/progressring/swiftui-progressring-13.png" alt="图 30.13. 示范App UI"><figcaption>图 30.13. 示范App UI</figcaption></figure>
 <p>Does it work up to your expections? I think not. When you tap the 50% button, the progress bar instantly fills half of the ring without any animation. This isn&apos;t what we expect.</p>
 <p>App 的运作是否符合你的期望？ 我想不是。 当你点击 50% 按钮时，进度条会立即填满圆的一半，而没有带任何动画。 这当然不是我们所期望的效果。</p>
@@ -1089,7 +1089,7 @@
 <p>SwiftUI 带有一个名为<code>Animatable</code>的协议。 对于支持动画的视图，你可以采用协议并提供 <code>animatableData</code> 属性。 这个属性告诉 SwiftUI 视图有哪些数据可以动画化。</p>
 <p>在第 9 章中，我介绍了 SwiftUI 动画的基础知识。 你可以使用 <code>.scaleEffect</code> 轻松为视图的大小变化或使用 <code>.offset</code> 动画位置变化加入动画。 可能对于你来说，所有这些动画都是自动运行的。 但在这些动画背后，Apple 的工程师实际上采用了<code>Animatablew</code>协议，并为<code>CGSize</code>和<code>CGPoint</code>提供了动画数据。</p>
 <p>那么，为什么 <code>RingShape</code> 不能将进度动画化呢？</p>
-<p><code>RingShape</code> 结构符合 <code>Shape</code> 协议。 如果你查看它的API文件，<code>Shape</code> 采用了 <code>Animatable</code> 协议并提供了预设实现（default implementation）。 然而，<code>animatableData</code> 属性的预设实现是返回 <code>EmptyAnimatableData</code> 的实体（instance），这意味着没有动画数据。 这就是为什么 <code>ProgressRingView</code> 的进度变化没有带动画。</p>
+<p><code>RingShape</code> 结构符合 <code>Shape</code> 协议。 如果你查看它的API文件，<code>Shape</code> 采用了 <code>Animatable</code> 协议并提供了默认实现（default implementation）。 然而，<code>animatableData</code> 属性的默认实现是返回 <code>EmptyAnimatableData</code> 的实体（instance），这意味着没有动画数据。 这就是为什么 <code>ProgressRingView</code> 的进度变化没有带动画。</p>
 <p>要解决此问题并使进度可动画化，你需要做的就是覆载（override）原本的实现并提供可动画化的值。 回到 <code>RingShape</code> 结构，在 <code>path</code> 函数之前加入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> animatableData: <span class="hljs-type">Double</span> {
     <span class="hljs-keyword">get</span> { progress }

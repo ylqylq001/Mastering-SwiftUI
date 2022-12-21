@@ -970,7 +970,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Saving PDF to <span class="hljs-subst">\(renderedUrl.path()</span>)&quot;</span>)
 }
 </code></pre>
-<p>在代码的前两行，我们检索了使用者的文档目录，并设置 PDF 文件的文件路径（即 <code>line chart.pdf</code>）。然后，我们创建了 <code>CGContext</code> 的实例，并把 <code>mediaBox</code>参数设置为 nil。在这种情况下，Core Graphics 会使用预设页面大小 8.5 x 11 inches（612 x 792 points）。</p>
+<p>在代码的前两行，我们检索了使用者的文档目录，并设置 PDF 文件的文件路径（即 <code>line chart.pdf</code>）。然后，我们创建了 <code>CGContext</code> 的实例，并把 <code>mediaBox</code>参数设置为 nil。在这种情况下，Core Graphics 会使用默认页面大小 8.5 x 11 inches（612 x 792 points）。</p>
 <p><code>renderer</code> 闭包会接收两个参数：视图当前的大小、和将视图渲染到 <code>CGContext</code> 的函数。让我们调用上下文的 <code>beginPDFPage</code> 方法，来打开 PDF 页面。<code>renderer</code> 方法会绘制 Chart 视图。请记住，我们需要关闭 PDF 文件才能完成整个操作。</p>
 <p>让我们要创建一个 <code>PDF</code> 按钮，来调用这个 <code>exportPDF</code> 方法：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span> {

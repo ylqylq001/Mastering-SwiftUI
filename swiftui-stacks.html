@@ -924,7 +924,7 @@
 </code></pre>
 <p>当你在 <code>VStack</code> 嵌入视图，视图将会垂直排列，如图 4.5 所示。</p>
 <figure id="fig4.5"><img src="images/stacks/swiftui-stacks-5.png" alt="图 4.5.　使用VStack 来结合两个文字视图"><figcaption>图 4.5.　使用VStack 来结合两个文字视图</figcaption></figure>
-<p>预设上，嵌入堆叠的视图是对齐中心位置。当要将两个视图靠左对齐时，你可以指定 <code>alignment</code> 参数，并将其值设定为 <code>.leading</code>，如下所示： </p>
+<p>默认上，嵌入堆叠的视图是对齐中心位置。当要将两个视图靠左对齐时，你可以指定 <code>alignment</code> 参数，并将其值设定为 <code>.leading</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">VStack</span>(alignment: .leading, spacing: <span class="hljs-number">2</span>) {
     <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Choose&quot;</span>)
         .font(.system(.largeTitle, design: .rounded))
@@ -964,7 +964,7 @@
 <p>在我们继续布局这个 UI 之前，让我教你一些整理代码的技巧。当你要建立一个包含好几个组件的复杂 UI 时，在 <code>ContentView</code> 内的代码最后会变成一个大而冗长的代码区块，而难以检视与除错，因此较佳的作法是将代码分拆成小块，如此代码才能更易阅读与维护。</p>
 <p>Xcode 内建了重构 SwiftUI 代码的功能。现在按住 command 键不放，并点选包含文字视图的 VStack（即是第 13 行），然后选择“Extract Subview”来取出代码，如图 4.10 所示。</p>
 <figure id="fig4.10"><img src="images/stacks/swiftui-stacks-10.png" alt="图 4.10.　取出子视图"><figcaption>图 4.10.　取出子视图</figcaption></figure>
-<p>Xcode 取出代码区块， 并建立一个名为 <code>ExtractedView</code> 的预设结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
+<p>Xcode 取出代码区块， 并建立一个名为 <code>ExtractedView</code> 的默认结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
 <figure id="fig4.11"><img src="images/stacks/swiftui-stacks-11.png" alt="图 4.11　取出子视图"><figcaption>图 4.11　取出子视图</figcaption></figure>
 <p>UI 现在仍然相同，不过请查看 <code>ContentView</code> 中的代码区块，现在它变得更为简洁且易于阅读。</p>
 <p>我们继续实现售价方案的UI。首先，建立“Basic”方案的UI，然后如下所示更新 <code>ContentView</code>： </p>
@@ -1130,7 +1130,7 @@
 <p>我们可以重新使用 <code>PricingView</code> 来建立“Team”方案。不过， 你可能会发现这个“Team”方案，有个图示位于标题上方。为了布局这个图示，我们需要修改 <code>PricingView</code> 来相容这个需求。因为这个图示并非售价方案强制性需要的，在 <code>PricingView</code> 中声明一个 Optional： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> icon: <span class="hljs-type">String</span>?
 </code></pre>
-<p>如果你对Swift 感到陌生的话，所谓的 Optional 是表示变量可能有值或没有值。这里我们定义一个名为<code>icon</code>的变量，其型别为 <code>String</code>。如果售价方案需要显示图示时，则预计会有调用者传递图片名称，否则此变量预设为<code>nil</code>（空值）。</p>
+<p>如果你对Swift 感到陌生的话，所谓的 Optional 是表示变量可能有值或没有值。这里我们定义一个名为<code>icon</code>的变量，其型别为 <code>String</code>。如果售价方案需要显示图示时，则预计会有调用者传递图片名称，否则此变量默认为<code>nil</code>（空值）。</p>
 <p>那么，如何在SwiftUI 中处理Optional 呢？在Swift 中，我们有两个方法处理 Optional。其中一种方式是检查 Optional 是否具有一个非空值。例如：我们要在显示图片之前检查 <code>icon</code> 是否有一个值，我们可以将代码撰写如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> icon != <span class="hljs-built_in">nil</span> {
 

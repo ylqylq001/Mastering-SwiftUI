@@ -888,7 +888,7 @@
 <li><strong>Transaction.swift</strong> - <code>Transaction</code> 结构代表电子钱包 App中的交易。每一笔交易有一个唯一的 ID、交易商、金额、日期与图示。除了 <code>Transaction</code> 结构之外，作为示范之用，我们还声明一个测试交易的数组。</li>
 <li><strong>Card.swift</strong> - 这个档案包含了 <code>Card</code> 的结构。<code>Card</code> 表示信用卡的资料，包含卡号、类型、有效日期、图片与客户姓名，除此之外，你可以在档案中找到一个测试信用卡的数组。需要注意的一点是，卡片图片中不包含任何的个人资讯，而只包含卡片品牌（例如： Visa ）。稍后，我们将为信用卡建立一个视图。</li>
 <li><strong>TransactionHistoryView.swift</strong> - 这是图 20.1中显示的交易历史纪录，起始项目已经带有交易历史纪录视图的实现。我们在水平滚动视图中显示交易，你之前已经使用过垂直滚动视图，而建立水平视图的技巧是在滚动视图初始化期间传送 <code>.horizontal</code> 值。请看一下图 20.3 或 Swift 档来了解详细资讯 。</li>
-<li><strong>ContentView.swift</strong> - 这是 Xcode产生的预设 SwiftUI 视图。</li>
+<li><strong>ContentView.swift</strong> - 这是 Xcode产生的默认 SwiftUI 视图。</li>
 </ul>
 <figure id="fig20.3"><img src="images/wallet/swiftui-wallet-3.png" alt="图 20.3.　使用.horizontal 建立水平滚动视图"><figcaption>图 20.3.　使用.horizontal 建立水平滚动视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E7%AB%8B%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">建立卡片视图</h3>
@@ -971,7 +971,7 @@
 <p>接下来，是针对卡片库。首先，在 <code>WalletView</code> 结构中，为信用卡数组声明一个属性： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> cards: [<span class="hljs-type">Card</span>] = testCards
 </code></pre>
-<p>为了示范，我们只将预设值设定为 <code>Card.swift</code> 档中定义的 <code>testCards</code>。要布局电子钱包视图，我们同时使用<code>VStack</code> 与 <code>ZStack</code>，更新 <code>body</code> 变量如下： </p>
+<p>为了示范，我们只将默认值设定为 <code>Card.swift</code> 档中定义的 <code>testCards</code>。要布局电子钱包视图，我们同时使用<code>VStack</code> 与 <code>ZStack</code>，更新 <code>body</code> 变量如下： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
    <span class="hljs-type">VStack</span> {
 
@@ -1024,8 +1024,8 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
     .zIndex(<span class="hljs-keyword">self</span>.zIndex(<span class="hljs-keyword">for</span>: card))
 </code></pre>
 <p>当你更改后，Visa 卡片应该移到卡片库的最上方。</p>
-<p>接下来，我们修正第一个问题来展开卡片，每张卡片都应偏移一定的垂直距离。而这个距离是使用卡片的索引值来计算的。假设我们将预设的垂直偏移量设定为 50 点，最后一张卡片将会位移 200 点（50&#xD7;4）。</p>
-<p>现在，你应该了解我们将如何展开卡片了，我们来编写代码。在 <code>WalletView</code> 中声明预设的垂直偏移量： </p>
+<p>接下来，我们修正第一个问题来展开卡片，每张卡片都应偏移一定的垂直距离。而这个距离是使用卡片的索引值来计算的。假设我们将默认的垂直偏移量设定为 50 点，最后一张卡片将会位移 200 点（50&#xD7;4）。</p>
+<p>现在，你应该了解我们将如何展开卡片了，我们来编写代码。在 <code>WalletView</code> 中声明默认的垂直偏移量： </p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> cardOffset: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">50.0</span>
 </code></pre>
 <p>接下来，建立一个名为 <code>offset(for:)</code>的新函数，用于计算给定卡片的垂直偏移量： </p>
@@ -1052,7 +1052,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>首先，我们需要一种触发过渡动画的方法， 先在 <code>CardView</code> 的开头声明一个状态变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isCardPresented = <span class="hljs-built_in">false</span>
 </code></pre>
-<p>此变量指示卡片是否应显示在荧幕上。 在预设的情况下，它设置为<code>false</code>。 稍后，我们将此值设置为 <code>true</code> 以启动视图转换。</p>
+<p>此变量指示卡片是否应显示在荧幕上。 在默认的情况下，它设置为<code>false</code>。 稍后，我们将此值设置为 <code>true</code> 以启动视图转换。</p>
 <p>每张卡片都是一个视图。要实现如图 20.10 所示的动画，我们需要将 <code>transition</code> 与 <code>animation</code> 修饰器加到<code>CardView</code> 上，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-type">CardView</span>(card: card)
     .offset(<span class="hljs-keyword">self</span>.offset(<span class="hljs-keyword">for</span>: card))
@@ -1061,7 +1061,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
     .transition(<span class="hljs-type">AnyTransition</span>.slide.combined(with: .move(edge: .leading)).combined(with: .opacity))
     .animation(<span class="hljs-keyword">self</span>.transitionAnimation(<span class="hljs-keyword">for</span>: card), value: isCardPresented)
 </code></pre>
-<p>对于转场，我们将预设的滑动转场与移动转场结合在一起。如前所述，若是没有 <code>animation</code> 修饰器，则转场将不会动画化，这就是为何我们还要加入 <code>animation</code> 修饰器的缘故。由于每张卡片都有自己的动画，我们建立一个名为 <code>transitionAnimation(for:)</code> 函数来计算动画。插入下列的代码来建立函数： </p>
+<p>对于转场，我们将默认的滑动转场与移动转场结合在一起。如前所述，若是没有 <code>animation</code> 修饰器，则转场将不会动画化，这就是为何我们还要加入 <code>animation</code> 修饰器的缘故。由于每张卡片都有自己的动画，我们建立一个名为 <code>transitionAnimation(for:)</code> 函数来计算动画。插入下列的代码来建立函数： </p>
 <pre><code class="lang-swift">private <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">transitionAnimation</span><span class="hljs-params">(<span class="hljs-keyword">for</span> card: Card)</span> -&gt; <span class="hljs-title">Animation</span> </span>{
     <span class="hljs-keyword">var</span> delay = <span class="hljs-number">0.0</span>
 
@@ -1291,7 +1291,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
         <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span>
     }
 
-    <span class="hljs-comment">// 卡片的预设 z-index 设定为卡片索引值的负值，</span>
+    <span class="hljs-comment">// 卡片的默认 z-index 设定为卡片索引值的负值，</span>
     <span class="hljs-comment">// 因此第一张卡片具有最大的 z-index</span>
     <span class="hljs-keyword">let</span> defaultZIndex = -<span class="hljs-type">Double</span>(cardIndex)
 
@@ -1302,11 +1302,11 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
         <span class="hljs-keyword">return</span> defaultZIndex + <span class="hljs-type">Double</span>(dragState.translation.height/<span class="hljs-type">Self</span>.cardOffset)
     }
 
-    <span class="hljs-comment">// 否则我们回传预设的 z-index</span>
+    <span class="hljs-comment">// 否则我们回传默认的 z-index</span>
     <span class="hljs-keyword">return</span> defaultZIndex
 }
 </code></pre>
-<p>预设的 z-index 仍设定为卡片索引值的负值。对于拖曳的卡片，当使用者在卡片库上拖曳时，我们需要计算一个新的 z-index。更新后的 z-index 是根据位移的高度与卡片的预设偏移量（即 50 点）来计算。</p>
+<p>默认的 z-index 仍设定为卡片索引值的负值。对于拖曳的卡片，当使用者在卡片库上拖曳时，我们需要计算一个新的 z-index。更新后的 z-index 是根据位移的高度与卡片的默认偏移量（即 50 点）来计算。</p>
 <p>执行 App 并尝试再次拖曳 Visa 卡片。现在，当你拖曳卡片时，z-index 会不断更新。</p>
 <figure id="fig20.14"><img src="images/wallet/swiftui-wallet-14.png" alt="图 20.14.　将 Visa 卡移到后面"><figcaption>图 20.14.　将 Visa 卡移到后面</figcaption></figure>
 <h4 id="%E6%9B%B4%E6%96%B0%E5%8D%A1%E7%89%87%E5%BA%AB">更新卡片库</h4>
@@ -1329,7 +1329,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 
 }
 </code></pre>
-<p>当你将卡片拖曳到相邻的卡片上时，一旦拖曳的位移量大于预设的偏移量，我们便需要更新 z-index。图 20.15 显示了拖曳的预期行为。</p>
+<p>当你将卡片拖曳到相邻的卡片上时，一旦拖曳的位移量大于默认的偏移量，我们便需要更新 z-index。图 20.15 显示了拖曳的预期行为。</p>
 <figure id="fig20.15"><img src="images/wallet/swiftui-wallet-15.png" alt="图 20.15.　在相邻卡片之间拖曳万事达卡"><figcaption>图 20.15.　在相邻卡片之间拖曳万事达卡</figcaption></figure>
 <p>这是我们计算更新后的 z-index 的公式： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> newIndex = draggingCardIndex + <span class="hljs-type">Int</span>(-dragOffset.height / <span class="hljs-type">Self</span>.cardOffset)

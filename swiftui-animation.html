@@ -955,7 +955,7 @@
 }
 </code></pre>
 <p>其工作原理是完全相同的，SwiftUI 寻找嵌入在 <code>ZStack</code> 中所有的状态变化，并建立动画。</p>
-<p>在示例中，我们使用预设动画。SwiftUI 提供许多内建动画供你选择，包括 <code>linear</code>、<code>easeIn</code>、<code>easeOut</code>、<code>easeInOut</code> 与 <code>spring</code>。“线性动画”（linear animation ）是以线性速度来呈现变化，而“缓动动画”（easing animation ）则是速度会做变化。详细内容可以参考 www.easings.net 来了解每个 ease 函数的差异。</p>
+<p>在示例中，我们使用默认动画。SwiftUI 提供许多内建动画供你选择，包括 <code>linear</code>、<code>easeIn</code>、<code>easeOut</code>、<code>easeInOut</code> 与 <code>spring</code>。“线性动画”（linear animation ）是以线性速度来呈现变化，而“缓动动画”（easing animation ）则是速度会做变化。详细内容可以参考 www.easings.net 来了解每个 ease 函数的差异。</p>
 <p>要使用其他的动画，你只需要在 <code>animation</code> 修饰器中设定特定的动画。例如：你想要使用 <code>spring</code> 动画，则可以将 <code>.default</code> 更改如下： </p>
 <pre><code class="lang-swift">.animation(.spring(response: <span class="hljs-number">0.3</span>, dampingFraction: <span class="hljs-number">0.3</span>, blendDuration: <span class="hljs-number">0.3</span>), value: circleColorChanged)
 </code></pre>
@@ -980,7 +980,7 @@
     }
 }
 </code></pre>
-<p>我们不再使用 <code>animation</code> 修饰器，而是使用 <code>withAnimation</code> 包裹在 <code>onTapGesture</code> 中。<code>withAnimation</code> 调用带入一个动画参数，这里我们指定使用预设动画。</p>
+<p>我们不再使用 <code>animation</code> 修饰器，而是使用 <code>withAnimation</code> 包裹在 <code>onTapGesture</code> 中。<code>withAnimation</code> 调用带入一个动画参数，这里我们指定使用默认动画。</p>
 <p>当然，你可更新 <code>withAnimation</code>，以将动画变更为弹簧动画，如下所示： </p>
 <pre><code class="lang-swift">withAnimation(.spring(response: <span class="hljs-number">0.3</span>, dampingFraction: <span class="hljs-number">0.3</span>, blendDuration: <span class="hljs-number">0.3</span>)) {
     <span class="hljs-keyword">self</span>.circleColorChanged.toggle()
@@ -1046,7 +1046,7 @@
     }
 }
 </code></pre>
-<p><code>rotationEffect</code> 修饰器带入旋转角度，在上列的代码中，我们有一个状态变量来控制下载状态。当它设定为true 时，这个旋转角度设定为 360 度以旋转圆环。在 <code>animation</code> 修饰器中，我们指定使用预设动画，不过还有些不同，我们告诉 SwiftUI 要一次又一次重复相同的动画，这就是建立下载动画的诀窍。</p>
+<p><code>rotationEffect</code> 修饰器带入旋转角度，在上列的代码中，我们有一个状态变量来控制下载状态。当它设定为true 时，这个旋转角度设定为 360 度以旋转圆环。在 <code>animation</code> 修饰器中，我们指定使用默认动画，不过还有些不同，我们告诉 SwiftUI 要一次又一次重复相同的动画，这就是建立下载动画的诀窍。</p>
 <p><strong>*备注</strong>: 如果在预览画布中看不到动画，请在模拟器中运行App再试一试。*</p>
 <p>如果你想要更改动画的速度，则可以使用线性动画，并指定持续时间，如下所示：</p>
 <pre><code class="lang-swift">.animation(.linear(duration: <span class="hljs-number">5</span>).repeatForever(autoreverses: <span class="hljs-built_in">false</span>), value: isLoading)
@@ -1177,7 +1177,7 @@
     }
 }
 </code></pre>
-<p>我们先使用一个 <code>HStack</code> 来水平布局这些圆形，由于这五个圆形（也就是点）皆有相同的大小与颜色，因此我们使用 <code>ForEach</code> 来建立这些圆形。<code>scaleEffect</code> 修饰器是用来缩放圆形的大小，预设是设定为“1”，也就是原来的大小。当开始载入时，该值会更新为“0”， 这将会缩小此点。</p>
+<p>我们先使用一个 <code>HStack</code> 来水平布局这些圆形，由于这五个圆形（也就是点）皆有相同的大小与颜色，因此我们使用 <code>ForEach</code> 来建立这些圆形。<code>scaleEffect</code> 修饰器是用来缩放圆形的大小，默认是设定为“1”，也就是原来的大小。当开始载入时，该值会更新为“0”， 这将会缩小此点。</p>
 <p>用于渲染动画的代码看起来有些复杂，我们来分拆它并逐步研究： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Animation</span>.linear(duration: <span class="hljs-number">0.6</span>).repeatForever().delay(<span class="hljs-number">0.2</span> * <span class="hljs-type">Double</span>(index))
 </code></pre>
@@ -1230,7 +1230,7 @@
 <p>请注意，以上的代码使用显式方法来对视图设定动画。这不是强制性的，依照自己的喜好，你也可以使用隐式动画方法来获得相同的结果。</p>
 <h3 id="%E4%BA%86%E8%A7%A3%E8%BD%89%E5%A0%B4">了解转场</h3>
 <p>到目前为止，我们已经讨论了对视图层次（view hierarchy ）中已存在的视图设定动画。我们建立动画来放大和缩小视图，或者对视图大小设定动画。</p>
-<p>SwiftUI 让开发者不只是做出前述的动画，你可以定义如何从视图层次中插入或移除视图，而在 SwiftUI 中，这就是所谓的“转场”（ transition ）。框架预设是使用淡入（ fade in ）与淡出（ fade out ）转场。不过它内建了几个现成的转场效果，如滑动（ slide ）、移动（ move）、不透明度（opacity ）等。当然，你可以开发自己的转场效果，也可以简单的混合搭配各种类型的转场，以建立所需的转场效果。</p>
+<p>SwiftUI 让开发者不只是做出前述的动画，你可以定义如何从视图层次中插入或移除视图，而在 SwiftUI 中，这就是所谓的“转场”（ transition ）。框架默认是使用淡入（ fade in ）与淡出（ fade out ）转场。不过它内建了几个现成的转场效果，如滑动（ slide ）、移动（ move）、不透明度（opacity ）等。当然，你可以开发自己的转场效果，也可以简单的混合搭配各种类型的转场，以建立所需的转场效果。</p>
 <figure id="fig9.10"><img src="images/animation/swiftui-animation-10.gif" alt="图 9.10.　使用 SwiftUI 建立的转场示例"><figcaption>图 9.10.　使用 SwiftUI 建立的转场示例</figcaption></figure>
 <h4 id="%E5%BB%BA%E7%AB%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E8%BD%89%E5%A0%B4">建立简单的转场</h4>
 <p>我们来看一个简单的示例，以更加了解转场的含义以及动画如何运作。建立一个名为 <code>SwiftUITransition</code> 的新项目，并更新 <code>ContentView</code> 如下： </p>
@@ -1288,7 +1288,7 @@
 }
 </code></pre>
 <p>当使用者点击堆叠时，我们切换为 <code>show</code> 变量来显示紫色矩形。如果你在模拟器或预览画布中执行这个 App，则应该只会看到绿色矩形，如图 9.12 所示。点击它会显示紫色矩形，而你应可看到一个平滑的淡入与淡出的转场效果。</p>
-<figure id="fig9.12"><img src="images/animation/swiftui-animation-12.png" alt="图 9.12.　预设的转场效果"><figcaption>图 9.12.　预设的转场效果</figcaption></figure>
+<figure id="fig9.12"><img src="images/animation/swiftui-animation-12.png" alt="图 9.12.　默认的转场效果"><figcaption>图 9.12.　默认的转场效果</figcaption></figure>
 <p>如前所述，如果你没有指定想使用的转场效果，SwiftUI 将渲染淡入淡出转场。要使用其他的转场效果，则在紫色矩形中加入 <code>transition</code> 修饰器，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">if</span> show {
     <span class="hljs-type">RoundedRectangle</span>(cornerRadius: <span class="hljs-number">10</span>)

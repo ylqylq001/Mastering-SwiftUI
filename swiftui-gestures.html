@@ -1142,7 +1142,7 @@
     }
 }
 </code></pre>
-<p>我们现在声明一个 <code>dragState</code> 属性来追踪拖曳状态。预设上， 它设定为 <code>DragState. inactive</code>。代码几乎相同，除了它修改为使用<code>dragState</code> 而不是使用 <code>isPressed</code> 与 <code>dragOffset</code>。举例而言，对于 <code>.offset</code> 修饰器，我们从拖曳状态的相关值中取得拖曳偏移量。</p>
+<p>我们现在声明一个 <code>dragState</code> 属性来追踪拖曳状态。默认上， 它设定为 <code>DragState. inactive</code>。代码几乎相同，除了它修改为使用<code>dragState</code> 而不是使用 <code>isPressed</code> 与 <code>dragOffset</code>。举例而言，对于 <code>.offset</code> 修饰器，我们从拖曳状态的相关值中取得拖曳偏移量。</p>
 <p>代码的结果是相同的，但是使用枚举追踪手势的复杂状态是较好的作法。</p>
 <h3 id="%E5%BB%BA%E7%AB%8B%E9%80%9A%E7%94%A8%E7%9A%84%E5%8F%AF%E6%8B%96%E6%9B%B3%E8%A6%96%E5%9C%96">建立通用的可拖曳视图</h3>
 <p>到目前为止，我们已建立了一个可拖曳的图片视图，若是我们想要建立可拖曳的文字视图呢？或者我们想要建立可拖曳的圆形呢？是否应复制并贴上所有的代码，来建立文字视图或圆形呢？ </p>

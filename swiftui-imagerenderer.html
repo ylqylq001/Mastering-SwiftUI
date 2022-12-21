@@ -1012,7 +1012,7 @@ private <span class="hljs-func"><span class="hljs-keyword">func</span> <span cla
 <p>现在，当我们点击 <em>Share</em> 按钮，App 就会撷取折线图，并让我们以图像形式分享图表。</p>
 <figure id="fig41.3"><img src="images/imagerenderer/swiftui-imagerenderer-sharesheet.png" alt="图 41.3. 显示 share sheet"><figcaption>图 41.3. 显示 share sheet</figcaption></figure>
 <h3 id="%E8%AA%BF%E6%95%B4%E5%9C%96%E5%83%8F%E6%AF%94%E4%BE%8B">调整图像比例</h3>
-<p>你可能会发现渲染图像的解析度有点低。<code>ImageRenderer</code> 类别有一个 <code>scale</code> 属性，用来调整渲染图像的比例。在预设情况下，这个属性的值是 1.0。如果我们想提高图像的解析度，可以将它设置为 <code>2.0</code> 或 <code>3.0</code>。或者，我们可以将值设置为荧幕比例：</p>
+<p>你可能会发现渲染图像的解析度有点低。<code>ImageRenderer</code> 类别有一个 <code>scale</code> 属性，用来调整渲染图像的比例。在默认情况下，这个属性的值是 1.0。如果我们想提高图像的解析度，可以将它设置为 <code>2.0</code> 或 <code>3.0</code>。或者，我们可以将值设置为荧幕比例：</p>
 <pre><code class="lang-swift">renderer.scale = <span class="hljs-type">UIScreen</span>.main.scale
 </code></pre>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>

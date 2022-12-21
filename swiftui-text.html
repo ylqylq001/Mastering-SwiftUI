@@ -883,7 +883,7 @@
 <p>首先，开启  Xcode 并使用 <em>Single View App</em>  模板来建立一个新项目，输入项目名称，我设定为 <em>SwiftUIText</em> ，不过你可以使用任何的名称。在组织名称（ organization name），你可以设定为你的公司或组织的名字。组织识别码（organization identifier）是 App  的唯一识别码，这里我使用 <em>com.appcoda</em>，不过这里需要填入你自己的内容，如果你有一个网站，则可以将网域名称以倒过来写的方式作为设定。要使用 SwiftUI 的话，则需要在User Interface选项勾选 <em>SwiftUI</em> ，点选  <em>Next</em> 并选取一个资料夹来建立项目。</p>
 <figure id="fig2.1"><img src="images/text/swiftui-text-1.png" alt="图 1. 建立一个新项目"><figcaption>图 1. 建立一个新项目</figcaption></figure>
 <p>储存完项目之后，Xcode 即会载入 <code>ContentView.swift</code>  档，并显示一个设计划布（ design canvas ）与预览画布（preview canvas）。如果你没有见到这个画布，你可以至  Xcode 选单，并选取  <em>Editor</em> &gt; <em>Canvas</em> 来启用它。</p>
-<p>Xcode 预设会在  <code>ContentView.swift</code> 上建立一些  SwiftUI 代码。在 Xcode 14，这个预览画布会自动渲染（render）App 预览画面。Xcode 会依照你在模拟器选项（例如 iPhone 13 Pro）中的选择来将预览画面渲染在模拟器中。在旧版的 Xcode，你必须点选 <em>Resume</em>  按钮才能看到这个预览画面。</p>
+<p>Xcode 默认会在  <code>ContentView.swift</code> 上建立一些  SwiftUI 代码。在 Xcode 14，这个预览画布会自动渲染（render）App 预览画面。Xcode 会依照你在模拟器选项（例如 iPhone 13 Pro）中的选择来将预览画面渲染在模拟器中。在旧版的 Xcode，你必须点选 <em>Resume</em>  按钮才能看到这个预览画面。</p>
 <p>为了让程式编辑器与画布能显示，你可以隐藏项目导览器（project navigator ）与工具面板来释放更多空间。</p>
 <figure id="fig2.2"><img src="images/text/swiftui-text-2.png" alt="图 2. 程式编辑器与画布"><figcaption>图 2. 程式编辑器与画布</figcaption></figure>
 <h3 id="%E7%B0%A1%E5%96%AE%E6%96%87%E5%AD%97%E7%9A%84%E5%91%88%E7%8F%BE">简单文字的呈现</h3>
@@ -927,11 +927,11 @@
 </code></pre>
 <p><code>foregroundColor</code> 修饰器接收 <code>颜色</code> 的值。这里我们指定使用  <code>.green</code>，这个值是内建颜色，你也可以使用其他像是 <code>.red</code> 、<code>.purple</code> 等内建颜色值。</p>
 <figure id="fig2.7"><img src="images/text/swiftui-text-7.png" alt="图 7. 变更字体颜色"><figcaption>图 7. 变更字体颜色</figcaption></figure>
-<p>虽然我们比较喜欢使用代码自订一个控制组件的属性，你也可以使用设计划布来编辑。在预设情况下，预览在 <em>Live</em> 模式下运行。 要编辑视图的属性，你必须首先切换到 <em>Selectable</em> 模式。</p>
+<p>虽然我们比较喜欢使用代码自订一个控制组件的属性，你也可以使用设计划布来编辑。在默认情况下，预览在 <em>Live</em> 模式下运行。 要编辑视图的属性，你必须首先切换到 <em>Selectable</em> 模式。</p>
 <p>按住 command 键不放，并点选文字来带出弹出选单， 选取 <em>Show SwiftUI Inspector</em> ，然后你可以编辑 text/font 属性。 最棒的是，当你更改字体属性时，代码也会自动更新。</p>
 <figure id="fig2.8"><img src="images/text/swiftui-text-8.png" alt="图 8. 使用 Inspect 功能来编辑文字属性"><figcaption>图 8. 使用 Inspect 功能来编辑文字属性</figcaption></figure>
 <h3 id="%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E8%99%95%E7%90%86">多行文字的处理</h3>
-<p><code>Text</code> 预设支持多行文字，所以它可以显示一段文字，而不需要使用任何其他修饰器，将程式以下面这段替换：</p>
+<p><code>Text</code> 默认支持多行文字，所以它可以显示一段文字，而不需要使用任何其他修饰器，将程式以下面这段替换：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma—which is living with the results of other people’s thinking. Don’t let the noise of others’ opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition.&quot;</span>)
     .fontWeight(.bold)
     .font(.title)
@@ -945,16 +945,16 @@
 <p>在某些情况下，想要限制固定的行数的话，你可以使用 <code>lineLimit</code>  修饰器。以下为例：</p>
 <pre><code class="lang-swift">.lineLimit(<span class="hljs-number">3</span>)
 </code></pre>
-<p>系统预设设定是截断字尾。要修改文字的截断模式，你可以使用<code>truncationMode</code> 修饰器，并设定它的值为  <code>.head</code> 或  <code>.middle</code> ，如下所示：</p>
+<p>系统默认设定是截断字尾。要修改文字的截断模式，你可以使用<code>truncationMode</code> 修饰器，并设定它的值为  <code>.head</code> 或  <code>.middle</code> ，如下所示：</p>
 <pre><code class="lang-swift">.truncationMode(.head)
 </code></pre>
 <p>变更完成之后，你的文字会如下图所示。</p>
 <figure id="fig2.10"><img src="images/text/swiftui-text-10.png" alt="图 10. 使用 .head 截断模式"><figcaption>图 10. 使用 .head 截断模式</figcaption></figure>
-<p>先前我提到  <code>Text</code> 控制预设是显示多行文字。理由是  SwiftUI  框架预设  <code>lineLimit</code> 修饰器 为  <code>nil</code> 的值，你可以将 <code>.lineLimit</code>  设定为 <code>nil</code> 来看一下结果：</p>
+<p>先前我提到  <code>Text</code> 控制默认是显示多行文字。理由是  SwiftUI  框架默认  <code>lineLimit</code> 修饰器 为  <code>nil</code> 的值，你可以将 <code>.lineLimit</code>  设定为 <code>nil</code> 来看一下结果：</p>
 <pre><code class="lang-swift">.lineLimit(<span class="hljs-built_in">nil</span>)
 </code></pre>
 <h3 id="%E8%A8%AD%E5%AE%9A%E9%96%93%E8%B7%9D%E8%88%87%E8%A1%8C%E8%B7%9D">设定间距与行距</h3>
-<p>一般预设的行距对大部分的情况而言已经够用。如果你想要改预设的设定，你可以使用 <code>lineSpacing</code>  修饰器来调整间距。</p>
+<p>一般默认的行距对大部分的情况而言已经够用。如果你想要改默认的设定，你可以使用 <code>lineSpacing</code>  修饰器来调整间距。</p>
 <pre><code class="lang-swift">.lineSpacing(<span class="hljs-number">10</span>)
 </code></pre>
 <p>如你所见，文字太靠近边缘的左侧与右侧。要赋予更多间距，你可以使用  <code>padding</code> 修饰器，为文字的每一边增加一些间距。在 <code>lineSpacing</code> 修饰器后面插入以下这行程式：</p>
@@ -968,7 +968,7 @@
 </code></pre>
 <p>如果你在 <code>padding()</code> 后面插入以上这行程式，你将会见到文字旋转 45 度。</p>
 <figure id="fig2.12"><img src="images/text/swiftui-text-12.png" alt="图 12. 旋转文字"><figcaption>图 12. 旋转文字</figcaption></figure>
-<p>预设，旋转动作会以文字视图为中心来旋转，如果你想要将文字以特定点来旋转（譬如左上角），程式的写法如下：</p>
+<p>默认，旋转动作会以文字视图为中心来旋转，如果你想要将文字以特定点来旋转（譬如左上角），程式的写法如下：</p>
 <pre><code class="lang-swift">.rotationEffect(.degrees(<span class="hljs-number">20</span>), anchor: <span class="hljs-type">UnitPoint</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>))
 </code></pre>
 <p>我们另外传入 <code>anchor</code>  参数来指定旋转点。</p>
@@ -984,7 +984,7 @@
 <p>这个  <code>shadow</code>  修饰器将会对文字应用阴影效果，你只需要指定颜色与阴影半径。另外，你也可以告诉系统 <code>x</code> 与 <code>y</code> 值来指定阴影位置</p>
 <figure id="fig2.15"><img src="images/text/swiftui-text-15.png" alt="图 15. 应用阴影效果"><figcaption>图 15. 应用阴影效果</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82%E5%AD%97%E9%AB%94">使用自订字体</h3>
-<p>在预设情况下，所有文字都是使用系统字体显示的。 假设你在 Google Fonts 上找到了一种免费字体（例如 <a href="https://fonts.google.com/specimen/Nunito）。那如何在" target="_blank">https://fonts.google.com/specimen/Nunito）。那如何在</a> App 中使用自订字体？</p>
+<p>在默认情况下，所有文字都是使用系统字体显示的。 假设你在 Google Fonts 上找到了一种免费字体（例如 <a href="https://fonts.google.com/specimen/Nunito）。那如何在" target="_blank">https://fonts.google.com/specimen/Nunito）。那如何在</a> App 中使用自订字体？</p>
 <p>假设你已经下载了字体档案，跟着就要将字体档加到你的 Xcode 项目中。 方法很简单，只要将字体档拖到项目导览器中并将它们放进 <em>SwiftUIText</em> 文件夹下。 在这个演示，我只添加了常规字体档（即 Nunito-Regular.ttf）。 如需使用粗体或斜体，请添加相应的档案。</p>
 <figure id="fig2.16"><img src="images/text/swiftui-text-16.png" alt="图 16. 将字体档加到你的 Xcode 项目中"><figcaption>图 16. 将字体档加到你的 Xcode 项目中</figcaption></figure>
 <p>添加字体后，Xcode 即显示一个选项框。 请确保你选取 “Copy items if needed”和 <em>SwiftUIText</em> target。</p>

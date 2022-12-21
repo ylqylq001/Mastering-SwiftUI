@@ -935,7 +935,7 @@
 }
 </code></pre>
 <p>这是在 SwiftUI 中建立选择器容器的方式。你必须提供两个值，包括所选的绑定（即 <code>$selectedOrder</code>）以及描述选项用途的文字标签。在闭包中，以 <code>Text</code> 的形式显示可用选项。</p>
-<p>在画布中，你应该会看到“Display Order”（显示顺序）设定为“Alphabetical”，如图13.5 所示，这是因为<code>selectedOrder</code> 预设为“0”。如果你点选“Play”按钮来测试视图， 点击该选项会将带你到下一个画面，其画面显示了所有的可用选项，你可以选择任何一个选项（例如：Show Favorite First ）进行测试。当你回到设定画面，“Display Order”会出现你刚才的选择，这便是 <code>@State</code> 关键字的强大之处，它自动监控变化，并帮助你储存选择的状态。</p>
+<p>在画布中，你应该会看到“Display Order”（显示顺序）设定为“Alphabetical”，如图13.5 所示，这是因为<code>selectedOrder</code> 默认为“0”。如果你点选“Play”按钮来测试视图， 点击该选项会将带你到下一个画面，其画面显示了所有的可用选项，你可以选择任何一个选项（例如：Show Favorite First ）进行测试。当你回到设定画面，“Display Order”会出现你刚才的选择，这便是 <code>@State</code> 关键字的强大之处，它自动监控变化，并帮助你储存选择的状态。</p>
 <figure id="fig13.5"><img src="images/form/swiftui-form-5.png" alt="图 13.5.　对“Display Order”选项使用选择器视图"><figcaption>图 13.5.　对“Display Order”选项使用选择器视图</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%88%87%E6%8F%9B%E9%96%8B%E9%97%9C">使用切换开关</h3>
 <p>接下来，我们进入设定筛选偏好的输入。首先，我们实现一个“切换”（或开关）来启用/ 禁用“Show Check-in Only”的筛选。“切换”有两个状态：“ON”或“OFF”，这对于提示使用者在两个互斥选项中选择特别有用。</p>
@@ -958,7 +958,7 @@
 <p>要在 SwiftUI 中实现步进器，我们首先需要一个状态变量来存放步进器的目前值。在本例中，这个变量储存使用者选择的价位级别。在 <code>SettingView</code> 中声明状态变量，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> maxPriceLevel = <span class="hljs-number">5</span>
 </code></pre>
-<p>我们预设 <code>maxPriceLevel</code> 为“5”，现在 FILTER PREFERENCE 的区块更新如下： </p>
+<p>我们默认 <code>maxPriceLevel</code> 为“5”，现在 FILTER PREFERENCE 的区块更新如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Section</span>(header: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;FILTER PREFERENCE&quot;</span>)) {
     <span class="hljs-type">Toggle</span>(isOn: $showCheckInOnly) {
         <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Show Check-in Only&quot;</span>)

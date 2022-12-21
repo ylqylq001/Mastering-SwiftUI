@@ -1124,7 +1124,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre>
 <p><code>TextEditor</code> 的用法与<code>TextField</code> 非常相似。 您只需将 String 变量绑定传递给<code>TextEditor</code>即可。 就像任何其他 SwiftUI 视图一样，您可以应用视图修饰器来设置其外观样式。 </p>
-<p>在表格的最后，就是 <em>Save</em> 按钮。 在预设的情况下，此按钮是不能用的。 使用者要填写所有必填表格栏时，这个 <em>Save</em> 按钮才可使用。 <code>disabled</code> 修饰器就是用于控制按钮的状态：</p>
+<p>在表格的最后，就是 <em>Save</em> 按钮。 在默认的情况下，此按钮是不能用的。 使用者要填写所有必填表格栏时，这个 <em>Save</em> 按钮才可使用。 <code>disabled</code> 修饰器就是用于控制按钮的状态：</p>
 <pre><code class="lang-swift"><span class="hljs-type">Button</span>(action: {
     <span class="hljs-keyword">self</span>.save()
     <span class="hljs-keyword">self</span>.presentationMode.wrappedValue.dismiss()

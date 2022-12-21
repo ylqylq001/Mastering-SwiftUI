@@ -921,10 +921,10 @@
 <p>首先，从 <code>SettingView</code> 删除下列这行代码： </p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> displayOrders = [ <span class="hljs-string">&quot;Alphabetical&quot;</span>, <span class="hljs-string">&quot;Show Favorite First&quot;</span>, <span class="hljs-string">&quot;Show Check-in First&quot;</span>]
 </code></pre>
-<p>接下来，更新 <code>selectedOrder</code> 的预设值为 <code>DisplayOrderType.alphabetical</code>，如下所示： </p>
+<p>接下来，更新 <code>selectedOrder</code> 的默认值为 <code>DisplayOrderType.alphabetical</code>，如下所示： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedOrder = <span class="hljs-type">DisplayOrderType</span>.alphabetical
 </code></pre>
-<p>这里，我们预设显示顺序为依字母排列（alphabetical ），如果你与先前的值（即“0”） 进行比较，转换为使用枚举后，代码更易于阅读了。接下来，你还需要在“Sort Preference”区块更改代码，具体而言，我们更新<code>ForEach</code> 回圈中的代码： </p>
+<p>这里，我们默认显示顺序为依字母排列（alphabetical ），如果你与先前的值（即“0”） 进行比较，转换为使用枚举后，代码更易于阅读了。接下来，你还需要在“Sort Preference”区块更改代码，具体而言，我们更新<code>ForEach</code> 回圈中的代码： </p>
 <pre><code class="lang-swift"><span class="hljs-type">Section</span>(header: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;SORT PREFERENCE&quot;</span>)) {
     <span class="hljs-type">Picker</span>(selection: $selectedOrder, label: <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Display order&quot;</span>)) {
         <span class="hljs-type">ForEach</span>(<span class="hljs-type">DisplayOrderType</span>.allCases, id: \.<span class="hljs-keyword">self</span>) {
@@ -937,8 +937,8 @@
 <p>由于我们在 <code>DisplayOrder</code> 枚举中采用 <code>CaseIterable</code> 协议，因此我们可存取 <code>allCases</code> 属性（该属性包含所有枚举情况的数组）来找出所有的显示顺序。</p>
 <p>现在，你可以再次测试设定画面，它应该可正常运作且外观相同，不过底层代码更易于管理及阅读了。</p>
 <h3 id="%E5%9C%A8-userdefaults-%E5%84%B2%E5%AD%98%E4%BD%BF%E7%94%A8%E8%80%85%E5%81%8F%E5%A5%BD">在 UserDefaults 储存使用者偏好</h3>
-<p>目前，App 还不能永久储存使用者偏好。每当你重新启动这个 App 时，设定画面都会重置为预设设定。</p>
-<p>有多种储存设定的方式。要储存少量资料（如 iOS 的使用者设定），内建的预设资料库是方案之一。此预设系统让App 以键值对的形式来储存使用者偏好。要和这个预设资料库互动，你可以使用一个名为 <code>UserDefaults</code>的可程式化介面（programmatic interface ）。</p>
+<p>目前，App 还不能永久储存使用者偏好。每当你重新启动这个 App 时，设定画面都会重置为默认设定。</p>
+<p>有多种储存设定的方式。要储存少量资料（如 iOS 的使用者设定），内建的默认资料库是方案之一。此默认系统让App 以键值对的形式来储存使用者偏好。要和这个默认资料库互动，你可以使用一个名为 <code>UserDefaults</code>的可程式化介面（programmatic interface ）。</p>
 <p>在 <code>SettingStore.swift</code> 档中，我们将会建立一个 <code>SettingStore</code> 类别，以提供一些方便的方法来储存及载入使用者偏好，在 <code>SettingStore.swift</code> 中插入下列的代码片段： </p>
 <pre><code class="lang-swift">final <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SettingStore</span> </span>{
 
@@ -970,8 +970,8 @@
 
 }
 </code></pre>
-<p>我来简短解释一下代码，在 <code>init</code>方法中，我们使用一些预设值来初始化预设系统。如果资料库中找不到使用者偏好，才会使用这些值。</p>
-<p>如前所述，你可以使用 <code>UserDefaults</code>，以键值对的形式储存设定。在上列的代码中， 我们为此目的声明了三个属性，以特定的键，从预设系统中载入对应的值，在didSet中，我们使用 <code>UserDefaults</code> 的 <code>set</code> 方法，来将值储存在使用者预设，这三个属性前面都标注 <code>@Published</code>，因此当值更新后，它会通知订阅者。</p>
+<p>我来简短解释一下代码，在 <code>init</code>方法中，我们使用一些默认值来初始化默认系统。如果资料库中找不到使用者偏好，才会使用这些值。</p>
+<p>如前所述，你可以使用 <code>UserDefaults</code>，以键值对的形式储存设定。在上列的代码中， 我们为此目的声明了三个属性，以特定的键，从默认系统中载入对应的值，在didSet中，我们使用 <code>UserDefaults</code> 的 <code>set</code> 方法，来将值储存在使用者默认，这三个属性前面都标注 <code>@Published</code>，因此当值更新后，它会通知订阅者。</p>
 <p><code>settingStore</code> 准备好后，我们切换到 <code>SettingView.swift</code> 档来实现“Save”操作。首先， 在 <code>SettingView</code> 中为 <code>SettingStore</code> 声明一个属性。</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> settingStore: <span class="hljs-type">SettingStore</span>
 </code></pre>
@@ -995,7 +995,7 @@
     <span class="hljs-keyword">self</span>.maxPriceLevel = <span class="hljs-keyword">self</span>.settingStore.maxPriceLevel
 }
 </code></pre>
-<p>当视图出现时，<code>onAppear</code> 修饰器会被调用，因此我们在它的闭包中从预设系统载入使用者设定。</p>
+<p>当视图出现时，<code>onAppear</code> 修饰器会被调用，因此我们在它的闭包中从默认系统载入使用者设定。</p>
 <p>在测试其变化之前，你必须更新 <code>SettingView_Previews</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SettingView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1027,11 +1027,11 @@
 <p>接着，将这行代码更改为下列代码，来修正错误： </p>
 <pre><code class="lang-swift"><span class="hljs-type">ContentView</span>(settingStore: settingStore)
 </code></pre>
-<p>现在，你应该能够执行 App，并进行设定了。当你储存设定之后，它将永久储存在本地预设系统中。你可尝试停止 App，然后再次启动它，储存的设定应已载入至设定画面中，如图 14.3 所示。</p>
+<p>现在，你应该能够执行 App，并进行设定了。当你储存设定之后，它将永久储存在本地默认系统中。你可尝试停止 App，然后再次启动它，储存的设定应已载入至设定画面中，如图 14.3 所示。</p>
 <figure id="fig14.3"><img src="images/formdata/swiftui-formdata-3.png" alt="图 14.3.　设定画面应该已载入你的使用者偏好"><figcaption>图 14.3.　设定画面应该已载入你的使用者偏好</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-environmentobject-%E5%9C%A8%E8%A6%96%E5%9C%96%E9%96%93%E5%85%B1%E4%BA%AB%E8%B3%87%E6%96%99">使用 @EnvironmentObject 在视图间共享资料</h3>
-<p>现在，使用者偏好已经储存在本地预设系统中，但是清单视图并没有依照使用者设定来变更。同样的，有多种方式可以解决这个问题。</p>
-<p>我们概括说明一下目前的情形，当使用者在设定画面中点击“Save”按钮，我们储存所选的选项至本地预设系统中，然后关闭设定画面，App 将带使用者回到清单视图。因此， 我们指示清单视图来重新载入设定，或者清单视图能够监控预设系统的变更，并触发清单的更新。</p>
+<p>现在，使用者偏好已经储存在本地默认系统中，但是清单视图并没有依照使用者设定来变更。同样的，有多种方式可以解决这个问题。</p>
+<p>我们概括说明一下目前的情形，当使用者在设定画面中点击“Save”按钮，我们储存所选的选项至本地默认系统中，然后关闭设定画面，App 将带使用者回到清单视图。因此， 我们指示清单视图来重新载入设定，或者清单视图能够监控默认系统的变更，并触发清单的更新。</p>
 <p>随着 SwiftUI 的推出，Apple 还发布了一个名为“Combine”的新框架，根据Apple 的说法，这个框架提供一个声明式 API 来随着时间推移处理值。在此示例的内容中，Combine 让你轻松监控单一物件，并取得变更通知。与SwiftUI 一起使用时，我们甚至可不撰写一行代码，就触发视图更新，一切都由 SwiftUI 与 Combine 在幕后处理。</p>
 <p>那么，清单视图如何知道使用者偏好已被修改，并触发更新呢？ </p>
 <p>我来介绍三个关键字： </p>

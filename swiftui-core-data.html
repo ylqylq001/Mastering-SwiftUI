@@ -893,7 +893,7 @@
 <h3 id="core-data-%E4%BB%8B%E7%B4%B9">Core Data 介绍</h3>
 <p>在我们查看 ToDo App的Starter项目之前，让我向你简单介绍一下 Core Data 以及你将如何在 SwiftUI 项目中使用它。 </p>
 <h4 id="%E4%BB%80%E9%BA%BC%E6%98%AF-core-data">什么是 Core Data?</h4>
-<p>首先，不要将 Core Data 框架与数据库混淆。 Core Data 不是数据库。 它只是一个供开发人员管理持久存储上的数据并与之交互的框架。 尽管 SQLite 数据库是 iOS 上 Core Data 的预设持久性储存器（ Persistent Storage ），但持久性储存器不限于数据库。 例如，你还可以利用 Core Data 来管理档案库文件（例如 XML）中的数据。</p>
+<p>首先，不要将 Core Data 框架与数据库混淆。 Core Data 不是数据库。 它只是一个供开发人员管理持久存储上的数据并与之交互的框架。 尽管 SQLite 数据库是 iOS 上 Core Data 的默认持久性储存器（ Persistent Storage ），但持久性储存器不限于数据库。 例如，你还可以利用 Core Data 来管理档案库文件（例如 XML）中的数据。</p>
 <p>Core Data 框架只是将开发人员与永久存储的内部细节屏蔽开来。 以 SQLite 数据库为例， 你不需要知道如何连接到数据库，也不需要了解 SQL 来检索数据记录。 你只需要弄清楚如何使用Core Data API，例如 <code>NSManagedObjectContext</code> 和托管物件模型（Managed Object Model）。</p>
 <p>这看起来有点复杂，是吧？不用担心。 在我们将 ToDo App从数组转换为 Core Data 之后，你就会明白我的意思。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-core-data-%E6%A8%A1%E6%9D%BF">使用 Core Data 模板</h3>
@@ -1197,7 +1197,7 @@ task.isComplete = isComplete
 }
 </code></pre>
 <p>要将这个Enum保存到数据库中，我们必须存储它的原始值，它是一个整数。 这就是我们使用 <em>Integer 32</em> 类型并将属性命名为 <em>priorityNum</em> 以避免命名冲突的原因。</p>
-<p>在预设的情况下，Xcode 会自动生成这个 <code>ToDoItem</code> 实体的模型类。 但是，我更喜欢手动建立这个类型，以便有更好地控制。 因此，选择 <code>ToDoItem</code> 实体并打开 <em>Data Model Inspector</em>。 如果你看不到检查器，请转到菜单并选择 <em>View</em> &gt; <em>Inspectors</em> &gt; <em>Show Data Model Inspector</em>。 在 <em>Class</em> 部分，将 <em>Module</em> 设置为 <em>Current Product Module</em>，将 <em>Codegen</em> 设置为 <em>Manual/None</em>。 这将禁止Xcode 自动生成代码。</p>
+<p>在默认的情况下，Xcode 会自动生成这个 <code>ToDoItem</code> 实体的模型类。 但是，我更喜欢手动建立这个类型，以便有更好地控制。 因此，选择 <code>ToDoItem</code> 实体并打开 <em>Data Model Inspector</em>。 如果你看不到检查器，请转到菜单并选择 <em>View</em> &gt; <em>Inspectors</em> &gt; <em>Show Data Model Inspector</em>。 在 <em>Class</em> 部分，将 <em>Module</em> 设置为 <em>Current Product Module</em>，将 <em>Codegen</em> 设置为 <em>Manual/None</em>。 这将禁止Xcode 自动生成代码。</p>
 <figure id="fig22.8"><img src="images/core-data/swiftui-core-data-8.png" alt="图 8. 禁用代码生成"><figcaption>图 8. 禁用代码生成</figcaption></figure>
 <p>如你所见，到目前为止我们开发的所有内容都不需要你具备数据库编程知识。 没有 SQL，没有数据库表。 你处理的所有事情都是基于对象的， 这就是 Core Data 的美妙之处。</p>
 <h4 id="%E5%AE%9A%E7%BE%A9%E6%A8%A1%E5%9E%8B%E9%A1%9E%E5%88%A5">定义模型类别</h4>

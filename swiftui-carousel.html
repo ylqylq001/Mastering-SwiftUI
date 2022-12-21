@@ -889,7 +889,7 @@
 <p>Starter项目具有以下特点：</p>
 <ol>
 <li>它已包含所需的图像并加至Assets 中。</li>
-<li><code>ContentView.swift</code> 是 Xcode 自动建立的预设视图。</li>
+<li><code>ContentView.swift</code> 是 Xcode 自动建立的默认视图。</li>
 <li><code>Trip.swift</code> 包含 <code>Trip</code> 结构，它代表App内的旅行目的地。 出于测试目的，该文件还包含一些测试数据（<code>sampleTrips</code>）。 你可以随便修改这些测试资料。</li>
 <li><code>TripCardView.swift</code> 已建立了卡片视图的 UI。 每个卡片视图都旨在显示目的地的图像。 <code>isShowDetails</code> 绑定控制文字标签的外观。 当 <code>isShowDetails</code> 设定为 true 时，标签将被隐藏。</li>
 </ol>
@@ -928,7 +928,7 @@
 <p>这两个问题都与内置的<code>ScrollView</code>有关。 UIKit 版本的滚动视图支持分页。 然而，Apple 并未将该功能引入 SwiftUI 框架的 <code>ScrollView</code>。 为了解决这个问题，我们需要构建我们自己的支持分页（Paging）的滚动视图。</p>
 <h3 id="%E4%BD%BF%E7%94%A8-hstack-%E5%92%8C-draggesture-%E5%BB%BA%E7%AB%8B%E8%BC%AA%E6%92%AD">使用 HStack 和 DragGesture 建立轮播</h3>
 <p>起初，你可能认为很难开发我们自己的滚动视图。 但实际上，这并不难。 如果你了解 <code>HStack</code> 和 <code>DragGesture</code> 的用法，就可以构建一个支持分页的滚动视图。</p>
-<p>想法是将所有卡片视图（即行程）布局在水平堆栈（<code>HStack</code>）中。 <code>HStack</code> 要有足够长度以容纳所有卡片视图，但在任何时候只显示一个卡片视图。 在预设情况下，水平堆栈是不支持滚动的。 因此，我们需要将拖动手势识别器附加到堆栈视图并自行处理拖动。 图 27.5 以图解方式说明了如何实现水平滚动视图。</p>
+<p>想法是将所有卡片视图（即行程）布局在水平堆栈（<code>HStack</code>）中。 <code>HStack</code> 要有足够长度以容纳所有卡片视图，但在任何时候只显示一个卡片视图。 在默认情况下，水平堆栈是不支持滚动的。 因此，我们需要将拖动手势识别器附加到堆栈视图并自行处理拖动。 图 27.5 以图解方式说明了如何实现水平滚动视图。</p>
 <figure id="fig27.5"><img src="images/carousel/swiftui-carousel-5.png" alt="图 27.5. 了解如何使用 HStack 和 DragGesture 创建水平滚动视图"><figcaption>图 27.5. 了解如何使用 HStack 和 DragGesture 创建水平滚动视图</figcaption></figure>
 <h4 id="%E8%87%AA%E5%BB%BAscrollview">自建ScrollView</h4>
 <p>现在让我们看看如何将这个想法转化为代码。 请容忍一下，因为你需要多次更改代码。 我想将每一个步骤都展现出来。 打开 <code>Content.swift</code> 并像这样更新 <code>body</code>：</p>
@@ -966,11 +966,11 @@
 <p>那么，我们如何才能显示数组的第一项而不是中间（第 7 个）项？ 诀窍是将<code>.frame</code>修饰器附加到<code>HStack</code>，对齐设定为<code>.leading</code>，如下所示：</p>
 <pre><code class="lang-swift">.frame(width: outerView.size.width, height: outerView.size.height, alignment: .leading)
 </code></pre>
-<p>SwiftUI 预设的对齐方式为<code>.center</code>。 这就是为什么水平视图的第 7 个项目会显示在荧幕上的原因。 将<code>alignment</code>更改为 <code>.leading</code> 后，你就会看到第一张图。</p>
+<p>SwiftUI 默认的对齐方式为<code>.center</code>。 这就是为什么水平视图的第 7 个项目会显示在荧幕上的原因。 将<code>alignment</code>更改为 <code>.leading</code> 后，你就会看到第一张图。</p>
 <figure id="fig27.9"><img src="images/carousel/swiftui-carousel-9.png" alt="图 27.9. 现在显示第一张图"><figcaption>图 27.9. 现在显示第一张图</figcaption></figure>
 <p>如果你想了解<code>alignment</code>如何影响水平堆栈视图，可以将其值更改为 <code>.center</code> 或 <code>.trailing</code> 试一下。 图 27.10 显示了堆栈视图在不同对齐设置下的样子。</p>
 <figure id="fig27.10"><img src="images/carousel/swiftui-carousel-10.png" alt="图 27.10. 堆栈视图在不同对齐设置下的样子"><figcaption>图 27.10. 堆栈视图在不同对齐设置下的样子</figcaption></figure>
-<p>你是否注意到每个卡片视图之间的差距？ 这也与<code>HStack</code>的预设值有关。 要减少间距，你可以更新 <code>HStack</code> 并将<code>spacing</code>参数设定为<code>0</code>，如下所示：</p>
+<p>你是否注意到每个卡片视图之间的差距？ 这也与<code>HStack</code>的默认值有关。 要减少间距，你可以更新 <code>HStack</code> 并将<code>spacing</code>参数设定为<code>0</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">HStack</span>(spacing: <span class="hljs-number">0</span>)
 </code></pre>
 <h4 id="%E5%8A%A0%E5%85%A5-padding">加入 padding</h4>
@@ -986,7 +986,7 @@
 <p>要将上面的描述翻译成代码，我们首先声明一个状态变量来存放显示于荧幕卡片视图的索引：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> currentTripIndex = <span class="hljs-number">2</span>
 </code></pre>
-<p>在预设情况下，我想显示第三张卡片视图。 这就是我将 <code>currentTripIndex</code> 变量设定为 2 的原因。你可以更改它为其他值。</p>
+<p>在默认情况下，我想显示第三张卡片视图。 这就是我将 <code>currentTripIndex</code> 变量设定为 2 的原因。你可以更改它为其他值。</p>
 <p>要将堆栈向左移动，我们可以将 <code>.offset</code> 修饰器附加到 <code>HStack</code>，如下所示：</p>
 <pre><code class="lang-swift">.offset(x: -<span class="hljs-type">CGFloat</span>(<span class="hljs-keyword">self</span>.currentTripIndex) * outerView.size.width)
 </code></pre>

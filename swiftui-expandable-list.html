@@ -946,7 +946,7 @@
 <figure id="fig28.2"><img src="images/expandablelist/swiftui-expandablelist-2.png" alt="图 28.2. 展开式列表视图"><figcaption>图 28.2. 展开式列表视图</figcaption></figure>
 <p>要测试App，请在模拟器或预览画布中运行它。 您可以点击披露指示器以显示子菜单。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E6%99%AE%E9%80%9A%E5%88%97%E8%A1%A8%E6%A8%A3%E5%BC%8F">使用普通列表样式</h3>
-<p>在 iOS 15 中，Apple 将列表视图的预设样式设置为 Inset Grouped，其中分组的部分以圆角嵌入。 如果要将其切换回普通列表样式，可以将 <code>.listStyle</code> 修饰器附加到 <code>List</code> 视图并将其值设置为 <code>.plain</code>，如下所示：</p>
+<p>在 iOS 15 中，Apple 将列表视图的默认样式设置为 Inset Grouped，其中分组的部分以圆角嵌入。 如果要将其切换回普通列表样式，可以将 <code>.listStyle</code> 修饰器附加到 <code>List</code> 视图并将其值设置为 <code>.plain</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span> {
   ...
 }
@@ -1035,7 +1035,7 @@
 </code></pre>
 <p>公开组视图有两个参数：<em>label</em> 和 <em>content</em>。 在上面的代码中，我们在 <code>label</code> 参数中指定了问题，在 <code>content</code> 参数中指定了答案。 图 28.6 显示了结果。</p>
 <figure id="fig28.6"><img src="images/expandablelist/swiftui-expandablelist-6.gif" alt="图 28.6. 利用 DisclosureGroup 显示和隐藏内容"><figcaption>图 28.6. 利用 DisclosureGroup 显示和隐藏内容</figcaption></figure>
-<p>在预设的情况下，公开组视图处于隐藏模式。 要显示内容视图，请点击显示指示器（&gt;）以将显示组视图切换到“展开”状态。</p>
+<p>在默认的情况下，公开组视图处于隐藏模式。 要显示内容视图，请点击显示指示器（&gt;）以将显示组视图切换到“展开”状态。</p>
 <p>另外，您可以通过传一个绑定来控制 <code>DisclosureGroup</code> 的状态，该绑定直接控制披露指示器的状态（展开或折叠），如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">FaqView</span>: <span class="hljs-title">View</span> </span>{
     @<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showContent = <span class="hljs-built_in">true</span>

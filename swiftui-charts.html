@@ -918,7 +918,7 @@
 </code></pre>
 <p>我们为图表数据创建了两个数组（<code>weekdays</code>和<code>steps</code>）。 在 <code>Chart</code> 视图中，我们读取 <code>weekdays</code> 数组并显示图表数据。 如果你已在 Xcode 项目中输入代码，预览部分应该呈现如图 38.2 所示的条形图。</p>
 <figure id="fig38.2"><img src="images/charts/swiftui-charts-2.png" alt="图 38.2. 利用数组储存图表数据"><figcaption>图 38.2. 利用数组储存图表数据</figcaption></figure>
-<p>在预设情况下，Charts API 会以相同颜色呈现所有长方体。如果我们想把每个长方体设置为不同的颜色，可以将 <code>foregroundStyle</code> 修饰符附加到 <code>BarMark</code> 视图：</p>
+<p>在默认情况下，Charts API 会以相同颜色呈现所有长方体。如果我们想把每个长方体设置为不同的颜色，可以将 <code>foregroundStyle</code> 修饰符附加到 <code>BarMark</code> 视图：</p>
 <pre><code class="lang-swift">.foregroundStyle(by: .value(<span class="hljs-string">&quot;Day&quot;</span>, weekdays[index]))
 </code></pre>
 <p>如果我们想为所有长方体添加注释，可以使用 <code>annotation</code> 修饰器：</p>

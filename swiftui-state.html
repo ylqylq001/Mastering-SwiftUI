@@ -915,7 +915,7 @@
     }
 }
 </code></pre>
-<p>我们参照 <code>isPlaying</code> 变量的值来变更图片的名称与颜色。如果更新在你的项目中的代码，则应该会在预览画布中看到一个“播放”按钮。不过，若是你将 <code>isPlaying</code> 的预设值设定为 <code>true</code>，则会见到一个“停止”按钮。</p>
+<p>我们参照 <code>isPlaying</code> 变量的值来变更图片的名称与颜色。如果更新在你的项目中的代码，则应该会在预览画布中看到一个“播放”按钮。不过，若是你将 <code>isPlaying</code> 的默认值设定为 <code>true</code>，则会见到一个“停止”按钮。</p>
 <p>现在的问题是，App 如何监听状态（即 <code>isPlaying</code> ）的变化，并自动更新按钮呢？使用 SwiftUI，你需要做的是在 <code>isPlaying</code> 属性前面加上 <code>@State</code>。</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> isPlaying = <span class="hljs-built_in">false</span>
 </code></pre>

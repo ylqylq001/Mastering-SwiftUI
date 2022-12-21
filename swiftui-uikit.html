@@ -952,7 +952,7 @@
 </code></pre>
 <p>该代码与上一节中显示的代码类似，但有以下区别：</p>
 <ol>
-<li>当建立<code>UISearchBar</code>时，我们并没有使用预设外观，而是使用最简单（<code>.minimal</code>）的样式，并停用自动大写和更新其占位符的文字。</li>
+<li>当建立<code>UISearchBar</code>时，我们并没有使用默认外观，而是使用最简单（<code>.minimal</code>）的样式，并停用自动大写和更新其占位符的文字。</li>
 <li>我们添加了一个绑定来存放使用者于搜寻栏位中的搜寻文字。 <code>makeUIView</code> 方法负责建立和初始化视图，而 <code>updateUIView</code> 方法则负责更新 UIKit 视图的状态。 每当 SwiftUI 中的状态发生变化时，框架都会自动调用 <code>updateUIView</code> 方法来更新视图的配置。 在这种情况下，每当你在 SwiftUI 中更新搜索文字时，都会调用该方法并更新<code>UISearchBar</code>的<code>text</code>。</li>
 </ol>
 <p>现在切换到<code>ContentView.swift</code>。 声明一个状态变量来存放搜索文字：</p>

@@ -900,11 +900,11 @@
 </code></pre>
 <p>SwiftUI 会自动为你加入搜寻栏，并将其放在导航栏标题下方。 如果找不到搜寻栏，请尝试执行App并向下拖动列表视图。 这样搜寻框就应该出现。</p>
 <figure id="fig37.2"><img src="images/searchable/searchable-2.png" alt="图 37.2. searchable 修饰器自动为你加入搜寻栏"><figcaption>图 37.2. searchable 修饰器自动为你加入搜寻栏</figcaption></figure>
-<p>在预设情况下，它显示 <em>Search</em> 作为占位符。 如果你想更改它，你可以像这样编写<code>.searchable</code>修饰器并使用你指定的占位符：</p>
+<p>在默认情况下，它显示 <em>Search</em> 作为占位符。 如果你想更改它，你可以像这样编写<code>.searchable</code>修饰器并使用你指定的占位符：</p>
 <pre><code class="lang-swift">.searchable(text: $searchText, prompt: <span class="hljs-string">&quot;Search articles...&quot;</span>)
 </code></pre>
 <h3 id="%E6%90%9C%E5%B0%8B%E6%AC%84%E4%BD%8D%E7%BD%AE">搜寻栏位置</h3>
-<p><code>.searchable</code> 修饰器有一个 <code>placement</code> 参数，用于指定搜寻栏的位置。 在预设的情况下，它设置为<code>.automatic</code>。 就 iPhone 而言，搜寻栏会显示于导航栏标题下方。 当你向上滚动列表视图时，搜寻栏就会自动隐藏。</p>
+<p><code>.searchable</code> 修饰器有一个 <code>placement</code> 参数，用于指定搜寻栏的位置。 在默认的情况下，它设置为<code>.automatic</code>。 就 iPhone 而言，搜寻栏会显示于导航栏标题下方。 当你向上滚动列表视图时，搜寻栏就会自动隐藏。</p>
 <p>如果想永久显示搜寻栏，可以更改 <code>.searchable</code> 修饰器并提供 <code>placement</code> 参数，如下所示：</p>
 <pre><code class="lang-swift">.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
 </code></pre>

@@ -946,7 +946,7 @@
 <pre><code class="lang-swift"><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;paris&quot;</span>)
     .resizable()
 </code></pre>
-<p>预设上，图片大小调整是使用“延伸”（stretch ）模式。这表示原始图片将会被放大到填满整个荧幕画面（除了顶部与底部区域之外），如图 3.7 所示。</p>
+<p>默认上，图片大小调整是使用“延伸”（stretch ）模式。这表示原始图片将会被放大到填满整个荧幕画面（除了顶部与底部区域之外），如图 3.7 所示。</p>
 <figure id="fig3.7"><img src="images/images/swiftui-images-7.png" alt="图 3.7. 以resizable 修饰器调整图片大小"><figcaption>图 3.7. 以resizable 修饰器调整图片大小</figcaption></figure>
 <p>技术上而言，这个图片填满了整个 iOS 所定义的安全区域（Safe Area ）。安全区域的观念已经存在一段颇长的时间了，定义为安全布局UI 组件的视图区域。举例而言，如图 3.7 所示，这个安全区域不包含顶部列（Top Bar ）（也就是状态列）与底部列（Bottom Bar ） 的区域。安全区域可以避免你不小心隐藏了系统 UI 组件，例如：状态列（Status Bar ）、导览列（Navigation Bar ）与标签列（Tab Bar ）。</p>
 <p>既然我们正好说到这件事， 若是你想要显示全荧幕图片， 你可以设定 <code>ignoringSafeArea</code> 修饰器来忽略安全区域，如图 3.8 所示。 </p>
@@ -1033,7 +1033,7 @@
 
     )
 </code></pre>
-<p>在 <code>overlay</code> 修饰器，你只需要建立一个 <code>Text</code> 视图，而这个文字视图将会作为图片上的重叠物件。我相信你已经熟悉了 <code>Text</code> 视图的修饰器，我们在前面的章节已经有介绍过。我们只是变更字型与颜色，除此之外，我们加入了间距与背景颜色。另外，要特别说明的是 <code>alignment</code> 参数，对于 <code>overlay</code> 修饰器，你可以提供一个可选值（Optional Value ）来调整视图的对齐。预设是置中对齐，这里我们想要将文字重叠于图片之上，如图 3.16 所示。你可以自己将值变更为“.center”或者“.bottom”，来看看结果为何。</p>
+<p>在 <code>overlay</code> 修饰器，你只需要建立一个 <code>Text</code> 视图，而这个文字视图将会作为图片上的重叠物件。我相信你已经熟悉了 <code>Text</code> 视图的修饰器，我们在前面的章节已经有介绍过。我们只是变更字型与颜色，除此之外，我们加入了间距与背景颜色。另外，要特别说明的是 <code>alignment</code> 参数，对于 <code>overlay</code> 修饰器，你可以提供一个可选值（Optional Value ）来调整视图的对齐。默认是置中对齐，这里我们想要将文字重叠于图片之上，如图 3.16 所示。你可以自己将值变更为“.center”或者“.bottom”，来看看结果为何。</p>
 <figure id="fig3.16"><img src="images/images/swiftui-images-16.png" alt="图3.16　在目前的图片上应用重叠"><figcaption>图3.16　在目前的图片上应用重叠</figcaption></figure>
 <h3 id="%E4%BB%A5%E9%87%8D%E7%96%8A%E4%BE%86%E4%BD%BF%E5%9C%96%E7%89%87%E8%AE%8A%E6%9A%97">以重叠来使图片变暗</h3>
 <p>你不止可以重叠图片或文字在另一张图片上，你也可以应用重叠来使图片变暗。将 <code>Image</code> 程式以下列程式替代，并看一下效果： </p>

@@ -1304,7 +1304,7 @@
 <p>目前实现的另一个问题是，即使使用者将视图一直滑动到状态列，细节视图也无法保持完全开启。拖曳结束后，它会反弹回半开状态。反之，即使你将细节视图向下滑动到荧幕尾端，也无法关闭细节视图。</p>
 <p>我们该如何处理这些问题呢？ </p>
 <h3 id="%E5%8D%8A%E9%96%8B%E7%8B%80%E6%85%8B%E6%99%82%E7%9A%84%E8%99%95%E7%90%86%E6%96%B9%E5%BC%8F">半开状态时的处理方式</h3>
-<p>我们先处理在半开状态时会碰到的问题。细节视图带出时会以半开作为预设状态，这个状态下会出现以下两种情况：</p>
+<p>我们先处理在半开状态时会碰到的问题。细节视图带出时会以半开作为默认状态，这个状态下会出现以下两种情况：</p>
 <ol>
 <li><p>使用者选择向上滚动视图让它全开，不过使用者可能会向上拖曳一点，接着向下拖曳来取消动作。</p>
 </li>
@@ -1324,7 +1324,7 @@
     <span class="hljs-keyword">case</span> half
 }
 </code></pre>
-<p>在 <code>RestaurantDetailView</code>中，声明另一个状态属性来储存目前的视图状态。预设上，它设定为半开状态：</p>
+<p>在 <code>RestaurantDetailView</code>中，声明另一个状态属性来储存目前的视图状态。默认上，它设定为半开状态：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> viewState = <span class="hljs-type">ViewState</span>.half
 </code></pre>
 <p>另外，为了解除视图本身，我们需要 <code>ContentView</code> 向我们传送其状态变量的绑定，因此声明 <code>isShow</code> 变量如下： </p>
@@ -1420,7 +1420,7 @@
     }
 }
 </code></pre>
-<p>这个协议有两个必要的实现内容，首先，你必须定义预设值，以我们这个实现而言预设值为零。第二，你必须实现 <code>reduce</code> 函数来将所有偏移量值合并成一个。</p>
+<p>这个协议有两个必要的实现内容，首先，你必须定义默认值，以我们这个实现而言默认值为零。第二，你必须实现 <code>reduce</code> 函数来将所有偏移量值合并成一个。</p>
 <p>接下来，你可以修改前一节所建立的 <code>GeometryReader</code>，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-type">GeometryReader</span> { scrollViewProxy <span class="hljs-keyword">in</span>
     <span class="hljs-type">Color</span>.clear.preference(key: <span class="hljs-type">ScrollOffsetKey</span>.<span class="hljs-keyword">self</span>, value: scrollViewProxy.frame(<span class="hljs-keyword">in</span>: .named(<span class="hljs-string">&quot;scrollview&quot;</span>)).minY)

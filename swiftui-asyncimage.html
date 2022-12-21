@@ -917,7 +917,7 @@
 .cornerRadius(<span class="hljs-number">20</span>)
 </code></pre>
 <p>在上面的代码中，<code>AsyncImage</code> 提供了下载好的图像。然后，我们应用 <code>resizable()</code> 和 <code>scaledToFill()</code> 修饰符来调整图像尺寸，并把 <code>AsyncImage</code> 视图的尺寸限制为 300&#xD7;500 points。</p>
-<p><code>placeholder</code> 参数让我们可以创建自己的占位符，来取代预设的占位符。在以下示例中，我们把占位符设置为浅紫色。</p>
+<p><code>placeholder</code> 参数让我们可以创建自己的占位符，来取代默认的占位符。在以下示例中，我们把占位符设置为浅紫色。</p>
 <figure id="fig36.3"><img src="images/asyncimage/asyncimage-3.png" alt="图 36.3. 自订占位符"><figcaption>图 36.3. 自订占位符</figcaption></figure>
 <h3 id="%E8%99%95%E7%90%86%E9%9D%9E%E5%90%8C%E6%AD%A5%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%8D%E5%90%8C%E9%9A%8E%E6%AE%B5-phase">处理非同步操作的不同阶段 (Phase)</h3>
 <p>如果你需要更精准操作非同步下载，<code>AsyncImage</code> 视图提供了另一个<code>init</code>函数：</p>
