@@ -896,7 +896,7 @@
 <p>我知道这两个组件对你而言比较陌生，不过在观看解答之前，试着尽力建立表单。</p>
 <p>那么，你能建立表单吗？即使你无法完成这个练习，也没有关系，现在至 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistrationUI.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIFormRegistrationUI.zip</a> 。来下载这个项目。我将会介绍我的做法让你参考。</p>
 <figure id="fig15.2"><img src="images/registration/swiftui-registration-2.png" alt="图 15.2　起始项目"><figcaption>图 15.2　起始项目</figcaption></figure>
-<p>开启 <code>ContentView.swift</code> 档，并预览画布中的布局，你渲染的视图应该如图 15.2 所示。现在，我们简要检视一下代码，并从 <code>RequirementText</code> 视图开始。</p>
+<p>开启 <code>ContentView.swift</code> 档，并预览画布中的布局，你渲染的视图应该如图 15.2 所示。现在，我们简要检查一下代码，并从 <code>RequirementText</code> 视图开始。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RequirementText</span>: <span class="hljs-title">View</span> </span>{
 
     <span class="hljs-keyword">var</span> iconName = <span class="hljs-string">&quot;xmark.square&quot;</span>
@@ -918,7 +918,7 @@
     }
 }
 </code></pre>
-<p>首先，为什么我对栏位要求文字建立一个单独视图（如图 15.3 所示）？如果你检视任何一个栏位要求文字，它都有一个图示及一个叙述。我们无须从头开始建立每一个栏位要求文字，我们可以将代码一般化，并为其建立一个通用的代码。</p>
+<p>首先，为什么我对栏位要求文字建立一个单独视图（如图 15.3 所示）？如果你检查任何一个栏位要求文字，它都有一个图示及一个叙述。我们无须从头开始建立每一个栏位要求文字，我们可以将代码一般化，并为其建立一个通用的代码。</p>
 <figure id="fig15.3"><img src="images/registration/swiftui-registration-3.png" alt="图 15.3　示例文字栏位及其要求文字"><figcaption>图 15.3　示例文字栏位及其要求文字</figcaption></figure>
 <p><code>RequirementText</code> 视图有四个属性，包括 <code>iconName</code>、<code>iconColor</code>、<code>text</code>与  <code>isStrikeThrough</code>。它足以弹性支持栏位要求文字的不同样式，如果你接受默认的图示与颜色，则可建立如下的栏位要求文字： </p>
 <pre><code class="lang-swift"><span class="hljs-type">RequirementText</span>(text: <span class="hljs-string">&quot;A minimum of 4 characters&quot;</span>)
@@ -928,7 +928,7 @@
 </code></pre>
 <p>你可指定一个不同的系统图示名称、颜色，并将 <code>isStrikeThrough</code> 选项设定为 <code>true</code>，这可让你建立如图 15.4 所示的栏位要求文字。</p>
 <figure id="fig15.4"><img src="images/registration/swiftui-registration-4.png" alt="图 15.4.　栏位要求文字被划掉"><figcaption>图 15.4.　栏位要求文字被划掉</figcaption></figure>
-<p>现在，你应该了解 <code>RequirementText</code> 视图的工作原理，以及为何建立它。我们来看一下FormField 视图。同样的，如果你检视所有的文字栏位，它们都有一个共同的样式，即圆体字型样式的文字栏位，这就是为何我取出一些通用代码，并建立 <code>FormField</code> 视图的原因。</p>
+<p>现在，你应该了解 <code>RequirementText</code> 视图的工作原理，以及为何建立它。我们来看一下FormField 视图。同样的，如果你检查所有的文字栏位，它们都有一个共同的样式，即圆体字型样式的文字栏位，这就是为何我取出一些通用代码，并建立 <code>FormField</code> 视图的原因。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">FormField</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> fieldName = <span class="hljs-string">&quot;&quot;</span>
     @<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> fieldValue: <span class="hljs-type">String</span>
@@ -1111,7 +1111,7 @@
     .assign(to: \.isUsernameLengthValid, on: <span class="hljs-keyword">self</span>)
 </code></pre>
 <p>Combine 框架提供两个内建的订阅者：“sink”与“assign”。 <code>sink</code> 建立一个通用订阅者来接收值，<code>assign</code> 则让你建立另一种类型的订阅者，用于修改物件的特定属性。举例而言，它将验证结果（true/false ）指定给 <code>isUsernameLengthValid</code>。</p>
-<p>我将深入说明并逐行检视上列的代码。<code>$username</code> 是我们想要监听的变更值的来源。由于我们订阅 UI 事件的变化，因此调用 <code>receive(on:)</code> 函数来确保订阅者在主执行绪（即 <code>RunLoop.main</code> ）上接收到值。</p>
+<p>我将深入说明并逐行检查上列的代码。<code>$username</code> 是我们想要监听的变更值的来源。由于我们订阅 UI 事件的变化，因此调用 <code>receive(on:)</code> 函数来确保订阅者在主执行绪（即 <code>RunLoop.main</code> ）上接收到值。</p>
 <p>发布者传送的值是使用者所输入的使用者名称，不过订阅者感兴趣的是使用者名称的长度是否能够满足最低要求。这里，<code>map</code> 函数被认为是Combine 中的运算子，它接受输入、处理输入，并将输入转换为订阅者所期望的内容，因此我们在上列的代码中做了下列事情：</p>
 <ol>
 <li>我们将使用者名称作为输入。</li>

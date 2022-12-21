@@ -961,7 +961,7 @@
 }
 </code></pre>
 <h4 id="%E5%8F%96%E5%87%BA%E8%A6%96%E5%9C%96">取出视图</h4>
-<p>在我们继续布局这个 UI 之前，让我教你一些整理代码的技巧。当你要建立一个包含好几个组件的复杂 UI 时，在 <code>ContentView</code> 内的代码最后会变成一个大而冗长的代码区块，而难以检视与除错，因此较佳的做法是将代码分拆成小块，如此代码才能更易阅读与维护。</p>
+<p>在我们继续布局这个 UI 之前，让我教你一些整理代码的技巧。当你要建立一个包含好几个组件的复杂 UI 时，在 <code>ContentView</code> 内的代码最后会变成一个大而冗长的代码区块，而难以检查与除错，因此较佳的做法是将代码分拆成小块，如此代码才能更易阅读与维护。</p>
 <p>Xcode 内建了重构 SwiftUI 代码的功能。现在按住 command 键不放，并点选包含文字视图的 VStack（即是第 13 行），然后选择“Extract Subview”来取出代码，如图 4.10 所示。</p>
 <figure id="fig4.10"><img src="images/stacks/swiftui-stacks-10.png" alt="图 4.10.　取出子视图"><figcaption>图 4.10.　取出子视图</figcaption></figure>
 <p>Xcode 取出代码区块， 并建立一个名为 <code>ExtractedView</code> 的默认结构， 输入 <code>HeaderView</code> 来为它命名更合适的名称（详细资讯请参考图 4.11）。</p>
