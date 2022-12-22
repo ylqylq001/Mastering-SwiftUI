@@ -890,7 +890,7 @@
 <figure id="fig8.1"><img src="images/shape/swiftui-shape-1.png" alt="图 8.1.　示例形状与图形"><figcaption>图 8.1.　示例形状与图形</figcaption></figure>
 <h3 id="%E4%BA%86%E8%A7%A3-path">了解 Path</h3>
 <p>在 SwiftUI 中，你可使用 Path 绘制线条与形状。如果你参考 Apple 的文件 (<a href="https://developer.apple.com/documentation/swiftui/path" target="_blank">https://developer.apple.com/documentation/swiftui/path</a>) ， <code>Path</code> 是一个包含 2D 形状轮廓的结构，基本上，线条与形状是以路径逐步描绘。以图 8.2 为例，这是我们要在屏幕上绘制的矩形。</p>
-<figure id="fig8.2"><img src="images/shape/swiftui-shape-2.png" alt="图 8.2　具有座标的矩形"><figcaption>图 8.2　具有座标的矩形</figcaption></figure>
+<figure id="fig8.2"><img src="images/shape/swiftui-shape-2.png" alt="图 8.2　具有坐标的矩形"><figcaption>图 8.2　具有坐标的矩形</figcaption></figure>
 <p>请叙说你要如何逐步绘制正方形呢？你可能会提供下列的描述： </p>
 <ol>
 <li>移动至点( 20, 20)。</li>
@@ -908,7 +908,7 @@
 }
 .fill(.green)
 </code></pre>
-<p>这里初始化一个 <code>Path</code>，并在闭包中提供详细的说明。你可以调用 <code>move(to:)</code> 方法移动至一个特定的座标。要从目前的点画一条线到特定的点，则可以调用 <code>addLine(to:)</code> 方法。默认上，iOS 会以默认的前景色（即黑色）来填满路径，若填满其他颜色，则可以使用 <code>.fill</code> 修饰器，并设定为其颜色。</p>
+<p>这里初始化一个 <code>Path</code>，并在闭包中提供详细的说明。你可以调用 <code>move(to:)</code> 方法移动至一个特定的坐标。要从目前的点画一条线到特定的点，则可以调用 <code>addLine(to:)</code> 方法。默认上，iOS 会以默认的前景色（即黑色）来填满路径，若填满其他颜色，则可以使用 <code>.fill</code> 修饰器，并设定为其颜色。</p>
 <p>你可以使用 “App”模板建立一个新项目来测试代码。将项目命名为 <code>SwiftUIShape</code>（或你喜欢的任何名称），然后在 <code>body</code> 输入上列的代码片段，预览画布即会显示出一个绿色矩形，如图 8.3 所示。</p>
 <figure id="fig8.3"><img src="images/shape/swiftui-shape-3.png" alt="图 8.3.　使用路径绘制一个矩形"><figcaption>图 8.3.　使用路径绘制一个矩形</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8stroke-%E7%B9%AA%E8%A3%BD%E9%82%8A%E6%A1%86">使用Stroke 绘制边框</h3>
@@ -1059,7 +1059,7 @@
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-keyword">in</span> rect: CGRect)</span> -&gt; <span class="hljs-title">Path</span>
 </span></code></pre>
 <p>那么，我们何时需要使用 <code>Shape</code> 协议呢？试问你如何重新使用刚建立的 <code>Path</code> 呢？例如： 你想要建立一个圆顶（Dome）形状、大小弹性的按钮，该如何实现呢？ </p>
-<p>再看一下上列的代码，你以绝对座标与尺寸来建立一个路径。为了建立相同但大小可变的形状，则可以建立一个结构来采用 <code>Shape</code> 协议，并实现 <code>path(in:)</code> 函数。当 <code>path(in:)</code> 函数被框架调用时，你将获得 <code>rect</code> 的大小，然后可在 <code>rect</code> 中绘制路径。</p>
+<p>再看一下上列的代码，你以绝对坐标与尺寸来建立一个路径。为了建立相同但大小可变的形状，则可以建立一个结构来采用 <code>Shape</code> 协议，并实现 <code>path(in:)</code> 函数。当 <code>path(in:)</code> 函数被框架调用时，你将获得 <code>rect</code> 的大小，然后可在 <code>rect</code> 中绘制路径。</p>
 <p>我们来了解如何建立圆顶形状，如此你便能更了解 <code>Shape</code> 协议。</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Dome</span>: <span class="hljs-title">Shape</span> </span>{
     <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-keyword">in</span> rect: CGRect)</span> -&gt; <span class="hljs-title">Path</span> </span>{

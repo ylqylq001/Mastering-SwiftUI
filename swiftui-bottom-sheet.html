@@ -1400,11 +1400,11 @@
 }
 .frame(height: <span class="hljs-number">0</span>)
 </code></pre>
-<p>这不是最后的代码，我只是想要告诉你如何使用 <code>GeometryReader</code> 来读取滚动偏移量。<code>GeometryReader</code> 的闭包中，我们可以使用 <code>scrollViewProxy</code>，调用 <code>frame</code> 函数并取得 <code>minY</code>的值来计算偏移量。在调用 <code>frame</code> 函数时，必须传递你期望的座标空间。这里我们自己定义规范滚动视图的座标空间。</p>
-<p>为了定义自己的座标空间，如下，加上 <code>.coordinateSpace</code> 修饰器至 <code>ScrollView</code>：</p>
+<p>这不是最后的代码，我只是想要告诉你如何使用 <code>GeometryReader</code> 来读取滚动偏移量。<code>GeometryReader</code> 的闭包中，我们可以使用 <code>scrollViewProxy</code>，调用 <code>frame</code> 函数并取得 <code>minY</code>的值来计算偏移量。在调用 <code>frame</code> 函数时，必须传递你期望的坐标空间。这里我们自己定义规范滚动视图的坐标空间。</p>
+<p>为了定义自己的坐标空间，如下，加上 <code>.coordinateSpace</code> 修饰器至 <code>ScrollView</code>：</p>
 <pre><code class="lang-swift">.coordinateSpace(name: <span class="hljs-string">&quot;scrollview&quot;</span>)
 </code></pre>
-<p>你可能想知道，为何我们必须使用自己的座标空间，而非使用  <code>.global</code> 。请再次参考图 8.13，红色线是参考点，也就是偏移值为 0 的位置， 通过座标空间的定义，就可以达成滚动视图的规范。</p>
+<p>你可能想知道，为何我们必须使用自己的坐标空间，而非使用  <code>.global</code> 。请再次参考图 8.13，红色线是参考点，也就是偏移值为 0 的位置， 通过坐标空间的定义，就可以达成滚动视图的规范。</p>
 <p>现在于模拟器中运行 App，弹出细节视图，并完全展开它。当你拖曳视图时你便可以见到这个拖曳偏移量，如图 8.14 所示，当你拖曳距离顶部列越远时，偏移量会越大。</p>
 <figure id="fig18.14"><img src="images/bottom-sheet/swiftui-bottom-sheet-14.jpg" alt="图 8.14. 在不同方向拖曳滚动视图。"><figcaption>图 8.14. 在不同方向拖曳滚动视图。</figcaption></figure>
 <h3 id="preferencekey-%E7%9A%84%E4%BB%8B%E7%B4%B9">PreferenceKey 的介绍</h3>
