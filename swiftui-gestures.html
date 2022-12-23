@@ -1069,7 +1069,7 @@
 </code></pre>
 <p>你应该对部分代码片段非常熟悉，因为我们结合已建立的长按手势与拖曳手势。</p>
 <p>我来逐行解释一下 <code>.gesture</code> 修饰器。我们要求使用者在开始拖曳之前，至少长按图片一秒钟，因此我们从建立<code>LongPressGesture</code> 来开始，与我们之前所实现的内容类似，我们有一个 <code>isPressed</code> 手势状态属性，当某人点击图片时，我们将修改图片的不透明度。</p>
-<p><code>sequenced</code> 关键字可将长按与拖曳手势连结在一起。我们告诉 SwiftUI，<code>LongPressGesture</code> 应该在<code>DragGesture</code> 之前发生。</p>
+<p><code>sequenced</code> 关键字可将长按与拖曳手势链接在一起。我们告诉 SwiftUI，<code>LongPressGesture</code> 应该在<code>DragGesture</code> 之前发生。</p>
 <p><code>updating</code> 与 <code>onEnded</code> 函数中的代码看起来非常相似，不过 <code>value</code> 参数现在实际上包含了两个手势（即长按与拖曳），这就是为何我们使用 <code>switch</code> 叙述来区分手势。你可以使用 <code>.first</code> 与 <code>.second</code> case 来找出要处理的手势。由于我们应该要在拖曳手势之前识别长按手势，因此这里的第一个手势是长按手势。在代码中，我们只印出“点击”（Tapping ）信息供你参考。</p>
 <p>当长按手势确认之后，我们会进到 <code>.second</code>  case。在这里，我们取出拖曳数据，并以对应的位移来修改<code>dragOffset</code>。</p>
 <p>当拖曳结束后，将调用 <code>onEnded</code> 函数。同样的，我们通过计算拖曳数据（也就是 <code>.second</code> case ）来修改最终的位置。</p>
