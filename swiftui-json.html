@@ -947,7 +947,7 @@
 </code></pre>
 <p>这将格式化 JSON 回应，并将其储存到文字档中。</p>
 <p>现在你对 JSON 有一些了解了，我们如何在 Swift 中解析 JSON 数据呢？从 Swift 4 开始， Apple 导入一个编码及解码 JSON 数据的新方式，即采用了一个名为 <code>Codable</code>的协议。</p>
-<p><code>Codable</code> 为开发者提供一个不同的方式来解码（或编码）JSON，从而简化了整个过程。只要你的型别遵守<code>Codable</code> 协议以及新的 <code>JSONDecoder</code>，你就能够将 JSON 数据解码到你指定的实例（instance ）中。</p>
+<p><code>Codable</code> 为开发者提供一个不同的方式来解码（或编码）JSON，从而简化了整个过程。只要你的类型遵守<code>Codable</code> 协议以及新的 <code>JSONDecoder</code>，你就能够将 JSON 数据解码到你指定的实例（instance ）中。</p>
 <p>图 21.3 说明了使用 <code>JSONDecoder</code>，将示例借贷数据解码为一个 <code>Loan</code> 实例。</p>
 <figure id="fig21.3"><img src="images/json/swiftui-json-3.png" alt="图 21.3.　JSONDecoder 解码 JSON 数据，并将其转换为一个 Loan 实例"><figcaption>图 21.3.　JSONDecoder 解码 JSON 数据，并将其转换为一个 Loan 实例</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-jsondecoder-%E8%88%87-codable">使用 JSONDecoder 与 Codable</h3>
@@ -993,7 +993,7 @@
 <p>让我们再次研究代码片段。我们实例化一个 <code>JSONDecoder</code> 实例，然后将 JSON 字串转换为 <code>Loan</code>。而魔法发生在下列这行代码中： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
 </code></pre>
-<p>你只需要调用解码器的 <code>decode</code> 方法来对 JSON 数据解码，并指定要解码的值的型别（即 <code>Loan.self</code> ）。解码器会自动解析 JSON 数据，并将其转换为一个 <code>Loan</code> 物件。</p>
+<p>你只需要调用解码器的 <code>decode</code> 方法来对 JSON 数据解码，并指定要解码的值的类型（即 <code>Loan.self</code> ）。解码器会自动解析 JSON 数据，并将其转换为一个 <code>Loan</code> 物件。</p>
 <p>很酷，是吧？ </p>
 <h3 id="%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1">使用自定义属性名称</h3>
 <p>现在，让我们进入更复杂的内容。如果属性名称与 JSON 的键不同的话，该怎么办？你如何定义映射（mapping ）呢？ </p>
@@ -1010,7 +1010,7 @@
 &quot;&quot;&quot;
 </code></pre>
 <p>如你所见，<code>amount</code> 这个键现在改为 <code>loan_amount</code>。为了解码 JSON 数据，你可以将属性名称从 <code>amount</code> 改为<code>loan_amount</code>。不过，我们真的想要保留名称 <code>amount</code>，在这种的情况下，我们如何定义映射呢？ </p>
-<p>要定义键与属性名称之间的映射，你需要声明一个名为“CodingKeys”的枚举， <code>CodingKeys</code> 枚举具有一个    <code>String</code> 型别的原始值，并遵守 <code>CodingKey</code> 协议。</p>
+<p>要定义键与属性名称之间的映射，你需要声明一个名为“CodingKeys”的枚举， <code>CodingKeys</code> 枚举具有一个    <code>String</code> 类型的原始值，并遵守 <code>CodingKey</code> 协议。</p>
 <p>现在，修改 <code>Loan</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Loan</span>: <span class="hljs-title">Codable</span> </span>{
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
@@ -1077,7 +1077,7 @@
 </code></pre>
 <p>和我们之前所做的类似，我们必须定义一个枚举 <code>CodingKeys</code>。对于 <code>country</code> 这个 case， 我们指定要映射<code>location</code> 键。而要处理巢状的 JSON 物件，我们需要定义另一个枚举，在上面的代码中，我们将其命名为<code>LocationKeys</code>，并声明与巢状物件的 <code>country</code> 键相符的 <code>country</code> 这个 case。</p>
 <p>因为它不是直接映射，我们需要实现 <code>Decodable</code>  协议的初始器，来处理所有属性的解码。在 <code>init</code>方法中，我们首先使用 <code>CodingKeys.self</code> 调用解码器的 <code>container</code> 方法，以取得与指定的编码键相关的数据，即<code>name</code>、<code>location</code>、<code>use</code>与 <code>amount</code>。</p>
-<p>要解码一个特定值，我们使用特定键（例如：.name ）和关联型别（例如：String.self ） 来调用 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 调用 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
+<p>要解码一个特定值，我们使用特定键（例如：.name ）和关联类型（例如：String.self ） 来调用 <code>decode</code> 方法。<code>name</code>、<code>use</code> 与 <code>amount</code> 的解码非常简单。对于 <code>country</code>属性，解码有点棘手，我们必须使用<code>LocationKeys.self</code> 调用 <code>nestedContainer</code> 方法，来取得巢状的 JSON 物件。从回传的值，我们进一步解码<code>country</code>的值。</p>
 <p>以上为使用巢状物件来解码JSON 数据的方式。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E9%99%A3%E5%88%97">使用数组</h3>
 <p>从 Kiva API 所回传的 JSON 数据中，通常不只一笔贷款，多笔贷款以数组的形式建构， 现在我们来看如何使用Codable 解码 JSON 物件的数组。</p>
@@ -1110,7 +1110,7 @@
     <span class="hljs-keyword">var</span> loans: [<span class="hljs-type">Loan</span>]
 }
 </code></pre>
-<p>该 <code>LoanStore</code> 只有一个 <code>loans</code> 属性，它与 JSON 数据的 <code>loans</code> 键相符。并且，其型别定义为 <code>Loan</code> 的数组。</p>
+<p>该 <code>LoanStore</code> 只有一个 <code>loans</code> 属性，它与 JSON 数据的 <code>loans</code> 键相符。并且，其类型定义为 <code>Loan</code> 的数组。</p>
 <p>要解码贷款数据，将下列这行代码： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> loan = try decoder.decode(<span class="hljs-type">Loan</span>.<span class="hljs-keyword">self</span>, from: jsonData)
 </code></pre>
@@ -1178,7 +1178,7 @@
 }
 </code></pre>
 <p>稍后，解码器将解码 <code>loans</code>  JSON 物件，并将其储存至 <code>LoanStore</code> 的 <code>loans</code> 数组中，这就是为什么我们建立上述 <code>LoanStore</code> 的原因。代码看起来与我们之前建立的 <code>LoanStore</code> 结构非常相似，但是它采用 <code>Decodable</code> 协议而不是<code>Codable</code> 协议。</p>
-<p>如果你研究 <code>Codable</code> 的文件，它只是一个协议组成的型别别名： </p>
+<p>如果你研究 <code>Codable</code> 的文件，它只是一个协议组成的类型别名： </p>
 <pre><code class="lang-swift"><span class="hljs-keyword">typealias</span> <span class="hljs-type">Codable</span> = <span class="hljs-type">Decodable</span> &amp; <span class="hljs-type">Encodable</span>
 </code></pre>
 <p><code>Decodable</code> 与 <code>Encodable</code> 是你需要实际使用的两个协议。由于<code>LoanStore</code> 只有负责处理 JSON 解码，因此我们采用 <code>Decodable</code> 协议。</p>

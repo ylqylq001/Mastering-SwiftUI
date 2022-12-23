@@ -932,7 +932,7 @@
 <p>以上的代码会建立一个导航视图，来显示构建一个 master-detail 流程。当使用者选择了一个项目，App 就会导航到 detail 视图，并显示 color 视图。</p>
 <figure id="fig46.2"><img src="images/navigationstack/swiftui-navigationstack-2.png" alt="图 46.2. 一个 master-detail 导航视图"><figcaption>图 46.2. 一个 master-detail 导航视图</figcaption></figure>
 <h3 id="%E5%BB%BA%E5%9F%BA%E6%96%BC%E6%95%B8%E5%80%BC%E7%9A%84-navigation-links">建基于数值的 Navigation Links</h3>
-<p><code>NavigationStack</code> 引入了一个新修饰符 <code>navigationDestination</code>，用来把目标视图与呈现的数据型别连系。我们可以这样重新编写上一节的代码：</p>
+<p><code>NavigationStack</code> 引入了一个新修饰符 <code>navigationDestination</code>，用来把目标视图与呈现的数据类型连系。我们可以这样重新编写上一节的代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationStack</span> {
     <span class="hljs-type">List</span>(bgColors, id: \.<span class="hljs-keyword">self</span>) { bgColor <span class="hljs-keyword">in</span>
 
@@ -951,10 +951,10 @@
     .navigationTitle(<span class="hljs-string">&quot;Color&quot;</span>)
 }
 </code></pre>
-<p>我们还是会使用 <code>NavigationLinks</code> 来显示数据列表，并实现导航功能；不同之处是每个 <code>NavigationLink</code> 都连系着一个数值。更重要的是，我们添加了新的 <code>navigationDestination</code> 修饰符来捕捉数值的变化。当使用者选择特定的 link 时，<code>navigationDestination</code> 修饰符就会显示相应带有 <code>Color</code> 型别数据的目标视图。</p>
+<p>我们还是会使用 <code>NavigationLinks</code> 来显示数据列表，并实现导航功能；不同之处是每个 <code>NavigationLink</code> 都连系着一个数值。更重要的是，我们添加了新的 <code>navigationDestination</code> 修饰符来捕捉数值的变化。当使用者选择特定的 link 时，<code>navigationDestination</code> 修饰符就会显示相应带有 <code>Color</code> 类型数据的目标视图。</p>
 <p>如果我们在预览中测试这个 App，你会发现它的操作方式与之前完全相同。但是，内部的实现已经使用了新的 <code>navigationDestination</code> 修饰符。</p>
 <h3 id="%E5%A4%9A%E5%80%8B-navigation-destination-%E4%BF%AE%E9%A3%BE%E5%99%A8">多个 Navigation Destination 修饰器</h3>
-<p>我们可以定义多于一个 <code>navigationDestination</code> 修饰符，来处理不同型别的 Navigation Link。在之前的示例中，我们只有一个 <code>navigationDestination</code> 修饰符来处理 <code>Color</code> 型别。现在，让我们为 <code>String</code> 型别设置另一组 Navigation Link：</p>
+<p>我们可以定义多于一个 <code>navigationDestination</code> 修饰符，来处理不同类型的 Navigation Link。在之前的示例中，我们只有一个 <code>navigationDestination</code> 修饰符来处理 <code>Color</code> 类型。现在，让我们为 <code>String</code> 类型设置另一组 Navigation Link：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(systemImages, id: \.<span class="hljs-keyword">self</span>) { systemImage <span class="hljs-keyword">in</span>
 
     <span class="hljs-type">NavigationLink</span>(value: systemImage) {
@@ -967,7 +967,7 @@
 <p><code>systemImages</code> 变量会储存系统图像名称的数组 (array)。</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> systemImages: [<span class="hljs-type">String</span>] = [ <span class="hljs-string">&quot;trash&quot;</span>, <span class="hljs-string">&quot;cloud&quot;</span>, <span class="hljs-string">&quot;bolt&quot;</span> ]
 </code></pre>
-<p>在这个示例中，我们有两个型别的 Navigation Link，一个是 <code>Color</code>，另一个是 <code>String</code> 型别。让我们把另一个 <code>navigationDestination</code> 修饰器嵌入到堆叠中，来处理 <code>String</code> 型别的导航：</p>
+<p>在这个示例中，我们有两个类型的 Navigation Link，一个是 <code>Color</code>，另一个是 <code>String</code> 类型。让我们把另一个 <code>navigationDestination</code> 修饰器嵌入到堆叠中，来处理 <code>String</code> 类型的导航：</p>
 <pre><code class="lang-swift">.navigationDestination(<span class="hljs-keyword">for</span>: <span class="hljs-type">String</span>.<span class="hljs-keyword">self</span>) { systemImage <span class="hljs-keyword">in</span>
     <span class="hljs-type">Image</span>(systemName: systemImage)
         .font(.system(size: <span class="hljs-number">100.0</span>))

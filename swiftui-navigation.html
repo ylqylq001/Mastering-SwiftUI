@@ -942,7 +942,7 @@
     }
 }
 </code></pre>
-<p>细节视图就像 <code>View</code>型别的其他 SwiftUI 视图一样，它的布局非常简单，只显示餐厅的图片及名称。<code>RestaurantDetailView</code> 结构还带入一个 <code>Restaurant</code> 物件，以检索餐厅的图片及名称。</p>
+<p>细节视图就像 <code>View</code>类型的其他 SwiftUI 视图一样，它的布局非常简单，只显示餐厅的图片及名称。<code>RestaurantDetailView</code> 结构还带入一个 <code>Restaurant</code> 物件，以检索餐厅的图片及名称。</p>
 <p>好的，细节视图已经准备就绪，问题是你如何将内容视图中所选的餐厅传送至此细节视图呢？ </p>
 <p>SwiftUI 提供一个名为 <code>NavigationLink</code> 的特殊按钮，它能够侦测使用者的触控，并触发导航显示，NavigationLink 的基本用法如下： </p>
 <pre><code class="lang-swift"><span class="hljs-type">NavigationLink</span>(destination: <span class="hljs-type">DetailView</span>()) {

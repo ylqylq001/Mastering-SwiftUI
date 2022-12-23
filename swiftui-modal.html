@@ -909,7 +909,7 @@
 <a href="https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUIModalStarter.zip</a>。 下载初始项目，下载后开启项目，并看一下预览，如图 12.3 所示。你应该非常熟悉示例 App 了，该 App 仍有一个导航列，但导航连结已被删除。</p>
 <figure id="fig12.3"><img src="images/modal/swiftui-modal-3.png" alt="图 12.3.　初始项目"><figcaption>图 12.3.　初始项目</figcaption></figure>
 <h3 id="%E4%BD%BF%E7%94%A8-ispresented-%E5%AF%A6%E4%BD%9C%E5%BC%B7%E5%88%B6%E5%9B%9E%E6%87%89%E8%A6%96%E5%9C%96">使用 isPresented 实现强制回应视图</h3>
-<p>如前所述，<code>sheet</code> 修饰器提供我们两种显示模式的方式。我将展示这两种方法如何工作，我们从 <code>isPresented</code> 方法开始，对于这个方法，我们需要一个Bool 型别的状态变量来追踪强制回应视图的状态。在 <code>ContentView</code>中声明这个变量：</p>
+<p>如前所述，<code>sheet</code> 修饰器提供我们两种显示模式的方式。我将展示这两种方法如何工作，我们从 <code>isPresented</code> 方法开始，对于这个方法，我们需要一个Bool 类型的状态变量来追踪强制回应视图的状态。在 <code>ContentView</code>中声明这个变量：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> <span class="hljs-keyword">var</span> showDetailView = <span class="hljs-built_in">false</span>
 </code></pre>
 <p>默认情况下，它设定为 <code>false</code>。当点击其中一列时，该变量的值将会设定为 <code>true</code>。稍后， 我们会在代码中做这个修改。</p>

@@ -950,14 +950,14 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 <p>如果你已修改相关代码，你的预览画布应该会显示一个没有任何间距的网格视图。</p>
 <figure id="fig29.5"><img src="images/gridlayout/swiftui-gridlayout-5.png" alt="Figure 5. Removing the spacing between columns and rows"><figcaption>Figure 5. Removing the spacing between columns and rows</figcaption></figure>
 <h2 id="%E5%88%A9%E7%94%A8-griditem-%E6%9B%B4%E6%94%B9-grid-%E4%BD%88%E5%B1%80-flexible-fixed-adaptive">利用 GridItem 修改 Grid 布局 (Flexible/ Fixed/ Adaptive)</h2>
-<p>让我们进一步看看 <code>GridItem</code>。你可以使用 <code>GridItem</code> 实例在 <code>LazyHGrid</code> 和 <code>LazyVGrid</code> 视图中配置项目的布局。在前文中，我们定义了一个有三个 <code>GridItem</code> 实例的数组，而每个实例都使用尺寸型别 (Size Type) <code>.flexible()</code>。Flexible 尺寸型别让我们可以创建三个大小相等的列。如果想要一个 6 列的 Grid，则可以如此创建 <code>GridItem</code> 数组：</p>
+<p>让我们进一步看看 <code>GridItem</code>。你可以使用 <code>GridItem</code> 实例在 <code>LazyHGrid</code> 和 <code>LazyVGrid</code> 视图中配置项目的布局。在前文中，我们定义了一个有三个 <code>GridItem</code> 实例的数组，而每个实例都使用尺寸类型 (Size Type) <code>.flexible()</code>。Flexible 尺寸类型让我们可以创建三个大小相等的列。如果想要一个 6 列的 Grid，则可以如此创建 <code>GridItem</code> 数组：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> sixColumnGrid: [<span class="hljs-type">GridItem</span>] = <span class="hljs-type">Array</span>(repeating: .<span class="hljs-keyword">init</span>(.flexible()), <span class="hljs-built_in">count</span>: <span class="hljs-number">6</span>)
 </code></pre>
-<p><code>.flexible()</code> 只是其中一个用于控制 Grid 布局的尺寸型别。如果要在一行中放置尽可能多的项目，你可以使用如下的 <em>adaptive</em> 尺寸型别：</p>
+<p><code>.flexible()</code> 只是其中一个用于控制 Grid 布局的尺寸类型。如果要在一行中放置尽可能多的项目，你可以使用如下的 <em>adaptive</em> 尺寸类型：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">50</span>))]
 </code></pre>
-<p><em>Adaptive</em> 尺寸型别要求你指定项目的最小尺寸 (minimum size)。在上面的代码中，我们设定了每个 Grid 项目的最小尺寸为 50。如果你像这样修改 <code>gridItemLayout</code> 变量，就可以达到以下的 Grid 布局。</p>
-<figure id="fig29.6"><img src="images/gridlayout/swiftui-gridlayout-6.png" alt="图 29.6. 使用 adaptive 尺寸型别"><figcaption>图 29.6. 使用 adaptive 尺寸型别</figcaption></figure>
+<p><em>Adaptive</em> 尺寸类型要求你指定项目的最小尺寸 (minimum size)。在上面的代码中，我们设定了每个 Grid 项目的最小尺寸为 50。如果你像这样修改 <code>gridItemLayout</code> 变量，就可以达到以下的 Grid 布局。</p>
+<figure id="fig29.6"><img src="images/gridlayout/swiftui-gridlayout-6.png" alt="图 29.6. 使用 adaptive 尺寸类型"><figcaption>图 29.6. 使用 adaptive 尺寸类型</figcaption></figure>
 <p>我们使用了 <code>.adaptive(minimum: 50)</code>，指示 <code>LazyVGrid</code> 在一行中填满尽可能多的图像，而每个项目的最小尺寸为 50 point。</p>
 <p><em>注意：我使用 iPhone 13 Pro 作为模拟器。 如果你使用其他屏幕尺寸不同的 iOS 模拟器，你可能会获得不同的结果。</em></p>
 <p>除了 <code>.flexible</code> 和 <code>.adaptive</code> 之外，如果想创建固定宽度的列，我们可以使用 <code>.fixed</code>。例如，我们想将图像分为两列，第一列的宽度为 100 point，第二列的宽度为 150 point，我们可以这样编写代码：</p>
@@ -965,11 +965,11 @@ private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hlj
 </code></pre>
 <p>同样地，如果你像这样修改 <code>gridItemLayout</code> 变量，就会出现尺寸不同的两列 Grid。</p>
 <figure id="fig29.7"><img src="images/gridlayout/swiftui-gridlayout-7.png" alt="图 29.7. 具有固定大小项目的网格"><figcaption>图 29.7. 具有固定大小项目的网格</figcaption></figure>
-<p>你可以混合使用不同的尺寸型别，来创建更复杂的 Grid 布局。例如，你可以定义一个 <code>.fixed</code> 的<code>GridItem</code>，然后定义一个 <code>.adaptive</code> 的GridItem，像这样：</p>
+<p>你可以混合使用不同的尺寸类型，来创建更复杂的 Grid 布局。例如，你可以定义一个 <code>.fixed</code> 的<code>GridItem</code>，然后定义一个 <code>.adaptive</code> 的GridItem，像这样：</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> gridItemLayout = [<span class="hljs-type">GridItem</span>(.fixed(<span class="hljs-number">150</span>)), <span class="hljs-type">GridItem</span>(.adaptive(minimum: <span class="hljs-number">50</span>))]
 </code></pre>
 <p>在这个情况下，<code>LazyVGrid</code> 将创建一个固定尺寸的列，其宽度为 100 point。然后，它会让尽可能多的项目填满剩余空间。</p>
-<figure id="fig29.8"><img src="images/gridlayout/swiftui-gridlayout-8.png" alt="图 29.8. 混合使用不同的尺寸型别"><figcaption>图 29.8. 混合使用不同的尺寸型别</figcaption></figure>
+<figure id="fig29.8"><img src="images/gridlayout/swiftui-gridlayout-8.png" alt="图 29.8. 混合使用不同的尺寸类型"><figcaption>图 29.8. 混合使用不同的尺寸类型</figcaption></figure>
 <h4 id="%E4%BD%BF%E7%94%A8-lazyhgrid-%E4%BE%86%E5%89%B5%E5%BB%BA%E6%B0%B4%E5%B9%B3-grid">使用 LazyHGrid 来创建水平 Grid</h4>
 <p>现在，你已经创建了垂直 Grid，<code>LazyHGrid</code> 可以很容易地将垂直 Grid 转换为水平 Grid。水平 Grid 的用法与 <code>LazyVGrid</code> 几乎完全相同，只是我们会将其嵌入到水平滚动视图中。此外，<code>LazyHGrid</code>的参数是 <code>rows</code> 而不是 <code>columns</code>。</p>
 <p>因此，我们只需要重写几行代码，就可以将 Grid 视图从垂直方向转换为水平方向：</p>

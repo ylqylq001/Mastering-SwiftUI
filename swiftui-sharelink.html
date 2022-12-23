@@ -878,7 +878,7 @@
                     
                         <h1 id="%E7%AC%AC-40-%E7%AB%A0-br-%E9%80%8F%E9%81%8E-sharelink-%E4%BE%86%E5%88%86%E4%BA%AB%E6%96%87%E6%9C%AC%E5%92%8C%E5%9C%96%E5%83%8F%E7%AD%89%E8%B3%87%E6%96%99">第 40 章<br>通过 ShareLink 来分享文本和图像等数据</h1>
 <p>在 iOS 16 中，SwiftUI 带来了一个新的视图 <code>ShareLink</code>。使用者点击 Share Link 时，视图就会显示一个 Share Sheet，让使用者可以分享内容到其他 App 或复制数据。</p>
-<p><code>ShareLink</code> 视图可以分享任何型别的数据。此章我们会一起看看如何使用 <code>ShareLink</code> 让使用者分享文本、URL 和图像。</p>
+<p><code>ShareLink</code> 视图可以分享任何类型的数据。此章我们会一起看看如何使用 <code>ShareLink</code> 让使用者分享文本、URL 和图像。</p>
 <h3 id="sharelink-%E7%9A%84%E5%9F%BA%E7%A4%8E%E4%BD%BF%E7%94%A8">ShareLink 的基础使用</h3>
 <p>让我们先看看以下例子。如果想建立一个 Share Link 来分享一个 URL，我们可以如此编写代码：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
@@ -939,7 +939,7 @@
 <p>在 <code>item</code> 参数中，我们指定了要分享的图像。另外，我们也传递了一个 <code>SharePreview</code> 的实例，来提供图像的预览。在预览中，我们指定了图像的 title 和 thumbnail。使用者点击 <em>Share</em> 按钮后，iOS 就会显示一个有图像预览的 Share Sheet。</p>
 <figure id="fig40.5"><img src="images/sharelink/swiftui-sharelink-image.png" alt="图 40.5. 显示一个有图像预览的 Share Sheet"><figcaption>图 40.5. 显示一个有图像预览的 Share Sheet</figcaption></figure>
 <h2 id="%E7%AC%A6%E5%90%88-transferable-%E5%8D%94%E5%AE%9A">符合 Transferable 协议</h2>
-<p>除了 URL 外，<code>item</code> 参数也接受任何遵守 <code>Transferable</code> 协议的物件。在 iOS 中，以下都是标准的 <code>Transferable</code> 型别：</p>
+<p>除了 URL 外，<code>item</code> 参数也接受任何遵守 <code>Transferable</code> 协议的物件。在 iOS 中，以下都是标准的 <code>Transferable</code> 类型：</p>
 <ul>
 <li>String</li>
 <li>Data</li>
@@ -948,7 +948,7 @@
 <li>Image</li>
 </ul>
 <blockquote>
-<p><em>Transferable 协议可以用来描述型别如何与 Transport API 交互，例如拖放动作 (drag and drop)、或复制和贴上 (copy and paste)。</em></p>
+<p><em>Transferable 协议可以用来描述类型如何与 Transport API 交互，例如拖放动作 (drag and drop)、或复制和贴上 (copy and paste)。</em></p>
 </blockquote>
 <p>那我们如何让一个客制物件变成 Transferable 呢？假设，我们建立了以下的 <code>Photo</code> 结构：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Photo</span>: <span class="hljs-title">Identifiable</span> </span>{
@@ -965,15 +965,15 @@
     }
 }
 </code></pre>
-<p>我们有不同的 Transfer Representation，包括：<code>ProxyRepresentation</code>、<code>CodableRepresentation</code>、<code>DataRepresentation</code>、和 <code>FileRepresentation</code>。在以上的代码中，我们使用了 <code>ProxyRepresentation</code>，它会使用另一种型别的 Transfer Representation 作为自己的 Representation。 在这里，我们使用了 <code>Image</code> 内建的 <code>Transferable</code> 协议。</p>
+<p>我们有不同的 Transfer Representation，包括：<code>ProxyRepresentation</code>、<code>CodableRepresentation</code>、<code>DataRepresentation</code>、和 <code>FileRepresentation</code>。在以上的代码中，我们使用了 <code>ProxyRepresentation</code>，它会使用另一种类型的 Transfer Representation 作为自己的 Representation。 在这里，我们使用了 <code>Image</code> 内建的 <code>Transferable</code> 协议。</p>
 <figure id="fig40.6"><img src="images/sharelink/swiftui-sharelink-photo-transferable.png" alt="图 40.6. 使用了 Image 内建的 Transferable 协议"><figcaption>图 40.6. 使用了 Image 内建的 Transferable 协议</figcaption></figure>
 <p>因为 <code>Photo</code> 现在遵守 <code>Transferable</code> 协议，我们就可以把 <code>Photo</code> 实例传递给 <code>ShareLink</code>：</p>
 <pre><code class="lang-swift"><span class="hljs-type">ShareLink</span>(item: photo, preview: <span class="hljs-type">SharePreview</span>(photo.caption, image: photo.image))
 </code></pre>
 <p>现在，当使用者点击 <em>Share</em> 按钮，App 就会显示分享图片的 Share Sheet。</p>
 <h3 id="%E7%B8%BD%E7%B5%90">总结</h3>
-<p>这章教了大家如何使用 <code>ShareLink</code> 分享文本、URL、和图像。事实上，只要型别遵守 <code>Transferable</code> 协议，我们都可以用这个新的视图分享任何型别的数据。</p>
-<p>要分享客制化型别，我们可以采用协议，并使用其中一个内建的 <code>TransferRepresentation</code> 型别，来提供 Transfer Representation。 我们简单讨论了 <code>ProxyRepresentation</code> 型别。如果我们想要在 App 之间分享一个文件，就可以使用 <code>FileRepresentation</code> 型别。我们会在之后的教学文章中，再深入探讨这个题目。</p>
+<p>这章教了大家如何使用 <code>ShareLink</code> 分享文本、URL、和图像。事实上，只要类型遵守 <code>Transferable</code> 协议，我们都可以用这个新的视图分享任何类型的数据。</p>
+<p>要分享客制化类型，我们可以采用协议，并使用其中一个内建的 <code>TransferRepresentation</code> 类型，来提供 Transfer Representation。 我们简单讨论了 <code>ProxyRepresentation</code> 类型。如果我们想要在 App 之间分享一个文件，就可以使用 <code>FileRepresentation</code> 类型。我们会在之后的教学文章中，再深入探讨这个题目。</p>
 <p>在本章所准备的示例档中，有最后完整的 Xcode 项目，可供你下载参考：</p>
 <ul>
 <li><a href="https://www.appcoda.com/resources/swiftui4/SwiftUILiveText.zip" target="_blank">https://www.appcoda.com/resources/swiftui4/SwiftUILiveText.zip</a></li>

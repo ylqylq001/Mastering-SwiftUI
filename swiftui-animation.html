@@ -1303,7 +1303,7 @@
         .transition(.scale(scale: <span class="hljs-number">0</span>, anchor: .bottom))
 }
 </code></pre>
-<p>这个 <code>transition</code> 修饰器会带入一个 <code>AnyTransition</code> 型别的参数。这里我们使用scale 转场， 锚点（anchor ）设定为 <code>.bottom</code>，这就是你修改转场效果所需要做的事情。在模拟器中运行该 App，并看一下结果为何，当 App 显示紫色矩形时，你应该会看到一个弹出动画。我建议使用内建的模拟器来测试动画，而不采用 App 预览的方式，因为预览画布可能无法正确的渲染转场动作。</p>
+<p>这个 <code>transition</code> 修饰器会带入一个 <code>AnyTransition</code> 类型的参数。这里我们使用scale 转场， 锚点（anchor ）设定为 <code>.bottom</code>，这就是你修改转场效果所需要做的事情。在模拟器中运行该 App，并看一下结果为何，当 App 显示紫色矩形时，你应该会看到一个弹出动画。我建议使用内建的模拟器来测试动画，而不采用 App 预览的方式，因为预览画布可能无法正确的渲染转场动作。</p>
 <figure id="fig9.13"><img src="images/animation/swiftui-animation-13.png" alt="图 9.13.　缩放转场效果"><figcaption>图 9.13.　缩放转场效果</figcaption></figure>
 <p>除了 .scale 之外，SwiftUI 框架还有多个内建的转场效果，包括 <code>.opaque</code>、<code>.offset</code>、<code>.move</code> 与 <code>.slide</code>。试着以位移转场（offset transition）取代缩放转场（scale transition），如下所示： </p>
 <pre><code class="lang-swift">.transition(.offset(x: -<span class="hljs-number">600</span>, y: <span class="hljs-number">0</span>))

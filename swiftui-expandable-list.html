@@ -895,7 +895,7 @@
     <span class="hljs-keyword">var</span> subMenuItems: [<span class="hljs-type">MenuItem</span>]?
 }
 </code></pre>
-<p>在上面的代码中，我们有一个用来建造选单物件的结构 (struct)。要创建一个巢状列表 (nested list)，关键就是要加入一个属性，包含子级的可选数组 (optional array) <code>subMenuItems</code>。请注意，子级与其父级的型别 (type) 是一样的。</p>
+<p>在上面的代码中，我们有一个用来建造选单物件的结构 (struct)。要创建一个巢状列表 (nested list)，关键就是要加入一个属性，包含子级的可选数组 (optional array) <code>subMenuItems</code>。请注意，子级与其父级的类型 (type) 是一样的。</p>
 <p>对于顶层 (top level) 选单物件，我们可以如此创建一个 <code>MenuItem</code> 数组：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// Main menu items</span>
 <span class="hljs-keyword">let</span> sampleMenuItems = [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Espresso Machines&quot;</span>, image: <span class="hljs-string">&quot;linea-mini&quot;</span>, subMenuItems: espressoMachineMenuItems),

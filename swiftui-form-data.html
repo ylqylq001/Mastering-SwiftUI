@@ -888,7 +888,7 @@
 <h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%88%89%E9%87%8D%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC">使用枚举重构代码</h3>
 <p>我们目前使用一个数组来储存“Display Order”的三个选项，它虽然能够正常运作，不过还有一个更好的方式可以改善代码。</p>
 <blockquote>
-<p>枚举为一组相关的值定义一般型别，并使你在代码中以型别安全的方式使用这些值。</p>
+<p>枚举为一组相关的值定义一般类型，并使你在代码中以类型安全的方式使用这些值。</p>
 <p>- Apple 的官方文件 (<a href="https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html" target="_blank">https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html</a>)</p>
 </blockquote>
 <p>由于这组固定值是和“Display Order”有关，因此我们可以使用枚举（ <code>Enum</code> ）来存放它们，每个情况（case ）指定一个整数值，如下所示： </p>
@@ -915,7 +915,7 @@
     }
 }
 </code></pre>
-<p>使用枚举的优点是我们可在代码中以型别安全的方式使用这些值。最重要的是， Swift 中的 <code>Enum</code> 本身就是一级型别，这表示你可以建立实例方法来提供与值相关的附加功能。稍后，我们将会加入一个处理筛选的功能。同时，我们建立一个名为 <code>SettingStore. swift</code> 的新 Swift 档来储存 Enum，如图 14.1 所示，你可以在项目导航处的 <code>SwiftUIForm</code> 数据夹点击右键，并选取 “ New File... ”来建立这个文件。</p>
+<p>使用枚举的优点是我们可在代码中以类型安全的方式使用这些值。最重要的是， Swift 中的 <code>Enum</code> 本身就是一级类型，这表示你可以建立实例方法来提供与值相关的附加功能。稍后，我们将会加入一个处理筛选的功能。同时，我们建立一个名为 <code>SettingStore. swift</code> 的新 Swift 档来储存 Enum，如图 14.1 所示，你可以在项目导航处的 <code>SwiftUIForm</code> 数据夹点击右键，并选取 “ New File... ”来建立这个文件。</p>
 <figure id="fig14.1"><img src="images/formdata/swiftui-formdata-1.png" alt="图 14.1　建立一个新的 Swift 档"><figcaption>图 14.1　建立一个新的 Swift 档</figcaption></figure>
 <p>建立 <code>SettingStore.swift</code> 之后，将上列的代码片段插入文件中。接下来，回到 <code>Setting View.swift</code>，我们将修改代码来使用 <code>DisplayOrder</code> 枚举，而不是使用 <code>displayOrders</code> 数组。</p>
 <p>首先，从 <code>SettingView</code> 删除下列这行代码： </p>
@@ -1037,7 +1037,7 @@
 <p>我来介绍三个关键字： </p>
 <ol>
 <li><strong>@EnvironmentObject</strong> - 以技术而言，这就是一个属性包裹器（ property wrapper ），不过，你可将此关键字视为一个特殊的标记，当你声明一个属性为环境物件时，SwiftUI 会监控该属性的值，并在有任何改变时，使对应的视图无效。@EnvironmentObject 的运作方式与 @State 几乎相同，不过属性被声明为环境物件时， 整个 App 中的所有视图皆可存取它。举例而言，如果你的App 有很多共享相同数据（例如：使用者设定）的视图，则环境物件在这种情况下可运作得很好，你不需要在视图间传送属性，就可以自动存取它。</li>
-<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协议。当你声明一个属性为环境物件时， 该属性的型别必须实现此协议。回到我们的问题：我们如何让清单视图知道使用者偏好已经修改？通过实现此协议，这个物件可以作为一个发布者，发出修改后的值。而那些监控值的订阅者将会收到通知。</li>
+<li><strong>ObservableObject</strong> - 这是一个 Combine框架的协议。当你声明一个属性为环境物件时， 该属性的类型必须实现此协议。回到我们的问题：我们如何让清单视图知道使用者偏好已经修改？通过实现此协议，这个物件可以作为一个发布者，发出修改后的值。而那些监控值的订阅者将会收到通知。</li>
 <li><strong>@Published</strong> - 这是一个与  <code>ObservableObject</code> 一起使用的属性包裹器。当一个属性以 <code>@Publisher</code> 为前缀时，这表示发布者应该在值发生修改时通知所有订阅者。</li>
 </ol>
 <p>我知道这有点令人困惑。不过，当我们看完代码后，你将会更加了解。</p>

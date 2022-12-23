@@ -1049,7 +1049,7 @@
 </code></pre>
 <p>这告诉 <code>List</code> 视图使用餐厅的 <code>id</code> 属性作为唯一的识别码。再看一遍预览，第二笔的“Homei”纪录应该显示它自己的图片了，如图 10.9 所示。</p>
 <figure id="fig10.9"><img src="images/list/swiftui-list-9.png" alt="图 10.9.　错误已被修正而可显示正确的图片"><figcaption>图 10.9.　错误已被修正而可显示正确的图片</figcaption></figure>
-<p>通过让 <code>Restaurant</code>  结构遵守 <code>Identifiable</code> 协议，我们可进一步简化代码。这个协议只有一个要求，就是实现协议的型别应该具备某种 <code>id</code> 作为唯一识别码。现在修改 <code>Restauran</code>t 来实现 <code>Identifiable</code> 协议，如下所示：</p>
+<p>通过让 <code>Restaurant</code>  结构遵守 <code>Identifiable</code> 协议，我们可进一步简化代码。这个协议只有一个要求，就是实现协议的类型应该具备某种 <code>id</code> 作为唯一识别码。现在修改 <code>Restauran</code>t 来实现 <code>Identifiable</code> 协议，如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Restaurant</span>: <span class="hljs-title">Identifiable</span> </span>{
     <span class="hljs-keyword">var</span> id = <span class="hljs-type">UUID</span>()
     <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>

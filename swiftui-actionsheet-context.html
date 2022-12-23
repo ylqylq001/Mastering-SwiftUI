@@ -1019,7 +1019,7 @@
 <pre><code class="lang-swift"><span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">actionSheet</span><span class="hljs-generics">&lt;T&gt;</span><span class="hljs-params">(item: Binding&lt;T?&gt;, content: <span class="hljs-params">(T)</span> -&gt; ActionSheet)</span> -&gt; <span class="hljs-title">some</span> <span class="hljs-title">View</span> <span class="hljs-title">where</span> <span class="hljs-title">T</span> : <span class="hljs-title">Identifiable</span>
 </span></code></pre>
 <p>我们将使用这两个方法来显示动作表，你将可了解何时使用哪个方法。</p>
-<p>于第一种方法，我们需要一个布林变量来表示动作的状态，以及一个 <code>Restaurant</code> 型别的变量来储存所选的餐厅。因此，在 <code>ContentView</code>中声明这两个变量： </p>
+<p>于第一种方法，我们需要一个布林变量来表示动作的状态，以及一个 <code>Restaurant</code> 类型的变量来储存所选的餐厅。因此，在 <code>ContentView</code>中声明这两个变量： </p>
 <pre><code class="lang-swift">@<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> showActionSheet = <span class="hljs-built_in">false</span>
 
 @<span class="hljs-type">State</span> private <span class="hljs-keyword">var</span> selectedRestaurant: <span class="hljs-type">Restaurant</span>?
@@ -1063,7 +1063,7 @@
 }
 </code></pre>
 <p>加到每列的 <code>onTapGesture</code>修饰器， 是用于侦测使用者的触控。当点击一列后， <code>onTapGesture</code> 中的代码区块将会运行。这里，我们切换 <code>showActionSheet</code> 变量，并设定 <code>selectedRestaurant</code>。</p>
-<p>之前， 我已经解释过 <code>actionSheet</code> 修饰器的用法。在上列的代码中， 我们使用 <code>showActionSheet</code> 的绑定来传送 <code>isPresented</code> 参数，当 <code>showActionSheet</code> 设定为<code>true</code>时， 则会运行该代码区块。我们建立一个具有“标记为最爱”（Mark as Favorite ）、“删除”（Delete ）与“取消”（Cancel ）等三个按钮的<code>ActionSheet</code>，而动作表有三种按钮型别， 包括“默认”（default ）、“破坏性”（destructive）与“取消”（cancel ）。对于一般动作， 动作表通常使用默认按钮型别；破坏性按钮与默认按钮非常相似，但是字型颜色设定为“红色”，以表示为一些破坏性的动作（例如：删除）；“取消”按钮是一个特别的型别， 用于解除动作表。</p>
+<p>之前， 我已经解释过 <code>actionSheet</code> 修饰器的用法。在上列的代码中， 我们使用 <code>showActionSheet</code> 的绑定来传送 <code>isPresented</code> 参数，当 <code>showActionSheet</code> 设定为<code>true</code>时， 则会运行该代码区块。我们建立一个具有“标记为最爱”（Mark as Favorite ）、“删除”（Delete ）与“取消”（Cancel ）等三个按钮的<code>ActionSheet</code>，而动作表有三种按钮类型， 包括“默认”（default ）、“破坏性”（destructive）与“取消”（cancel ）。对于一般动作， 动作表通常使用默认按钮类型；破坏性按钮与默认按钮非常相似，但是字型颜色设定为“红色”，以表示为一些破坏性的动作（例如：删除）；“取消”按钮是一个特别的类型， 用于解除动作表。</p>
 <p>对于“标记为最爱”（Mark as Favorite ）按钮，我们将其建立为默认按钮。在action 闭包中，我们调用 <code>setFavorite</code> 函式来加入星星。对于“删除”（Delete ）按钮，则建立为破坏性按钮，其与内容选单的“删除”（Delete ）按钮类似，我们调用 <code>delete</code> 函式来删除所选餐厅。</p>
 <p>如果你已正确进行修改，则在清单视图中点击其中一列时应可弹出动作表。当选择“删除”（Delete）按钮，将会删除该列。若是你选择“标记为最爱”（Mark as Favorite）选项， 则将使用黄色星星标记该列，如图16.6 所示</p>
 <figure id="fig16.6"><img src="images/actionsheet/swiftui-actionsheet-6.png" alt="图 16.6.　点击一列来显示动作表"><figcaption>图 16.6.　点击一列来显示动作表</figcaption></figure>
