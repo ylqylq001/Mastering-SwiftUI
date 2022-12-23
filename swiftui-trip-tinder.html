@@ -322,7 +322,7 @@
                         
                             <b>16.</b>
                         
-                        滑动删除、内容选单与动作列表
+                        滑动删除、内容菜单与动作列表
                     </a>
                 
             
@@ -910,12 +910,12 @@
 #endif
 </code></pre>
 <p>假如你希望使用自己的图片与数据，则只需替换素材目录中的图片，并修改 <code>Trip.swift</code> 档。</p>
-<h3 id="%E5%BB%BA%E7%AB%8B%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E8%88%87%E9%81%B8%E5%96%AE%E5%88%97">建立卡片视图与选单列</h3>
+<h3 id="%E5%BB%BA%E7%AB%8B%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96%E8%88%87%E9%81%B8%E5%96%AE%E5%88%97">建立卡片视图与菜单列</h3>
 <p>在实现滑动功能之前，我们先建立主UI，我将主屏幕分成三个部分，如图 19.3 所示： </p>
 <ol>
-<li>顶部选单列（top menu bar）。</li>
-<li>顶部选单列（top menu bar）。</li>
-<li>底部选单列（bottom menu bar）。</li>
+<li>顶部菜单列（top menu bar）。</li>
+<li>顶部菜单列（top menu bar）。</li>
+<li>底部菜单列（bottom menu bar）。</li>
 </ol>
 <figure id="fig19.3"><img src="images/triptinder/swiftui-trip-tinder-3.png" alt="图 19.3.　主屏幕"><figcaption>图 19.3.　主屏幕</figcaption></figure>
 <h4 id="%E5%8D%A1%E7%89%87%E8%A6%96%E5%9C%96">卡片视图</h4>
@@ -971,9 +971,9 @@
 </code></pre>
 <p>我只是使用素材目录中的其中一张图片来进行预览，你可以依自己的需求随意修改图片及标题。在预览画布中，你现在应该看到类似图 19.4 的卡片视图。</p>
 <figure id="fig19.4"><img src="images/triptinder/swiftui-trip-tinder-4.png" alt="图 19.4.　预览卡片视图"><figcaption>图 19.4.　预览卡片视图</figcaption></figure>
-<h4 id="%E9%81%B8%E5%96%AE%E5%88%97%E8%88%87%E4%B8%BB-ui">选单列与主 UI</h4>
-<p>准备好卡片视图后，我们可以继续实现主 UI。如前所述，主 UI 有卡片与两个选单列， 对于这两个选单列，我将为它们个别建立一个单独的 <code>struct</code>。</p>
-<p>现在开启 <code>ContentView.swift</code> 并开始实现。对于顶部选单列，建立一个新的 <code>struct</code>，如下所示： </p>
+<h4 id="%E9%81%B8%E5%96%AE%E5%88%97%E8%88%87%E4%B8%BB-ui">菜单列与主 UI</h4>
+<p>准备好卡片视图后，我们可以继续实现主 UI。如前所述，主 UI 有卡片与两个菜单列， 对于这两个菜单列，我将为它们个别建立一个单独的 <code>struct</code>。</p>
+<p>现在开启 <code>ContentView.swift</code> 并开始实现。对于顶部菜单列，建立一个新的 <code>struct</code>，如下所示： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TopBarMenu</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">HStack</span> {
@@ -990,7 +990,7 @@
     }
 }
 </code></pre>
-<p>这三个图示使用等距的水平堆叠来排列。对于底部选单列，实现几乎相同。在 <code>Content View.swift</code>  中插入下列的代码，以建立选单列： </p>
+<p>这三个图示使用等距的水平堆叠来排列。对于底部菜单列，实现几乎相同。在 <code>Content View.swift</code>  中插入下列的代码，以建立菜单列： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BottomBarMenu</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
         <span class="hljs-type">HStack</span> {
@@ -1021,7 +1021,7 @@
 }
 </code></pre>
 <p>我们不打算实现“Book Trip”功能，因此将动作区块留空。假设你了解堆叠与图片的工作原理，则其余的代码应该无需解释。</p>
-<p>在建立主UI 之前，让我教你一个预览这两个选单列的技巧。而在 <code>ContentView</code> 中放置这些列，来预览它们的外观及感觉，并不是强制的。</p>
+<p>在建立主UI 之前，让我教你一个预览这两个菜单列的技巧。而在 <code>ContentView</code> 中放置这些列，来预览它们的外观及感觉，并不是强制的。</p>
 <p>现在修改 <code>ContentView_Previews</code> 结构如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
@@ -1036,7 +1036,7 @@
 }
 </code></pre>
 <p>这里，我们使用 <code>Group</code> 来将多个组件的预览进行分组。不指定任何的预览选项（如ContentView），Xcode 会在目前模拟器上显示预览。对于 <code>TopBarMenu</code> 与 <code>BottomBarMenu</code>， 我们告诉 Xcode 在容器视图中预览布局，图19.5 可让你更加了解预览是什么样。</p>
-<figure id="fig19.5"><img src="images/triptinder/swiftui-trip-tinder-5.png" alt="图 19.5　预览选单列"><figcaption>图 19.5　预览选单列</figcaption></figure>
+<figure id="fig19.5"><img src="images/triptinder/swiftui-trip-tinder-5.png" alt="图 19.5　预览菜单列"><figcaption>图 19.5　预览菜单列</figcaption></figure>
 <p>好的，我们继续布局主UI。修改 <code>ContentView</code> 如下： </p>
 <pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
     <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {

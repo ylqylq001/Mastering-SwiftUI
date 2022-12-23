@@ -322,7 +322,7 @@
                         
                             <b>16.</b>
                         
-                        滑动删除、内容选单与动作列表
+                        滑动删除、内容菜单与动作列表
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
 <figure id="fig33.9"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-9.gif" alt="图 33.9. 英雄动画效果"><figcaption>图 33.9. 英雄动画效果</figcaption></figure>
 <h3 id="%E5%9C%A8%E8%A6%96%E5%9C%96%E4%B9%8B%E9%96%93%E5%82%B3%E9%81%9E-namespace">在视图之间传递@Namespace</h3>
 <p>参考前面的例子，我们可以将两个不同的堆栈视图分成为子视图让代码整理得更好。 但问题是我们如何在视图之间传递<code>@Namespace</code> 变量， 让我们可以怎样做。</p>
-<p>首先，按住command键并单击第一个堆栈视图的<code>VStack</code>。 从选单中选择 <em>Extract Subview</em> 并将子视图命名为<code>ArticleExcerptView</code>。</p>
+<p>首先，按住command键并单击第一个堆栈视图的<code>VStack</code>。 从菜单中选择 <em>Extract Subview</em> 并将子视图命名为<code>ArticleExcerptView</code>。</p>
 <figure id="fig33.10"><img src="images/matchedgeometryeffect/swiftui-matchedgeometryeffect-10.png" alt="图 33.10. 将堆栈视图分成为子视图"><figcaption>图 33.10. 将堆栈视图分成为子视图</figcaption></figure>
 <p>你应该会在 <code>ArticleExcerptView</code> 结构中看到很多错误，说缺少namespace 和 <code>showDetail</code> 变量。 要改正 <code>showDetail</code> 变量的错误，你可以在 <code>ArticleExcerptView</code> 中声明一个绑定，如下所示：</p>
 <pre><code class="lang-swift">@<span class="hljs-type">Binding</span> <span class="hljs-keyword">var</span> showDetail: <span class="hljs-type">Bool</span>

@@ -322,7 +322,7 @@
                         
                             <b>16.</b>
                         
-                        滑动删除、内容选单与动作列表
+                        滑动删除、内容菜单与动作列表
                     </a>
                 
             
@@ -1529,8 +1529,8 @@ private <span class="hljs-keyword">var</span> totalBalance: <span class="hljs-ty
     <span class="hljs-type">PaymentFormView</span>(payment: <span class="hljs-keyword">self</span>.selectedPaymentActivity).environment(\.managedObjectContext, <span class="hljs-keyword">self</span>.context)
 }
 </code></pre>
-<p>当使用者按住其中一行时，它会显示一个包含删除和编辑选项的内容选单（Context Menu）。 选择编辑选项时，App将使用所选的交易创建<code>PaymentFormView</code>。 对于删除动作，我们通过 Core Data 从数据库中完全删除交易记录。</p>
-<figure id="fig25.7"><img src="images/real-world-app/real-world-app-7.png" alt="图 25.7. 内容选单"><figcaption>图 25.7. 内容选单</figcaption></figure>
+<p>当使用者按住其中一行时，它会显示一个包含删除和编辑选项的内容菜单（Context Menu）。 选择编辑选项时，App将使用所选的交易创建<code>PaymentFormView</code>。 对于删除动作，我们通过 Core Data 从数据库中完全删除交易记录。</p>
+<figure id="fig25.7"><img src="images/real-world-app/real-world-app-7.png" alt="图 25.7. 内容菜单"><figcaption>图 25.7. 内容菜单</figcaption></figure>
 <p>不知你没有注意到 <code>paymentDataForView</code> 变量？ 列表视图并没有使用 <code>paymentActivities</code>，而是显示存放在 <code>paymentDataForView</code> 中的项目。 为什么是这样？</p>
 <p>在 <em>Recent Transactions</em> 部分，App为使用者提供了三个选项来过滤交易活动，包括全部（All）、收入（Income）和支出（Expense）。 例如，如果选择了 <em>expense</em> 选项，就仅显示与与支出相关的交易。</p>
 <pre><code class="lang-swift">private <span class="hljs-keyword">var</span> paymentDataForView: [<span class="hljs-type">PaymentActivity</span>] {

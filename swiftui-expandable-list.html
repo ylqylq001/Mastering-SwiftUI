@@ -322,7 +322,7 @@
                         
                             <b>16.</b>
                         
-                        滑动删除、内容选单与动作列表
+                        滑动删除、内容菜单与动作列表
                     </a>
                 
             
@@ -880,7 +880,7 @@
 <p>SwiftUI 列表视图 (list view) 和 UIKit 的 UITableView 很类似。在 SwiftUI 最初的版本中，Apple 的工程师已经把建立列表视图的过程变得轻而易举，我们不需要创建 prototype cell，也不需要委派 (delegate) 或 data source 的协议。我们只需要用几行代码，就可以使用客制化单元格来建构一个列表视图。</p>
 <p>在 iOS 14 （和以上版本），Apple 继续改善列表视图，并添加了一些新功能。在本篇教学文章中，我们将会看看如何建构一个展开式列表视图 (expandable list view) 或大纲视图 (outline view)，并探索 inset grouped 的列表样式 (list style)。</p>
 <h3 id="%E7%AF%84%E4%BE%8B-app">示例 App</h3>
-<p>首先，让我们看看本篇教学的成品。我十分喜欢 <a href="https://international.lamarzocco.com/en/" target="_blank">La Marzocco</a>，所以我用了它网站的导航选单 (navigation menu) 为例子。以下的列表视图展示了选单的大纲，使用者可以点击显示按钮来展开列表。</p>
+<p>首先，让我们看看本篇教学的成品。我十分喜欢 <a href="https://international.lamarzocco.com/en/" target="_blank">La Marzocco</a>，所以我用了它网站的导航菜单 (navigation menu) 为例子。以下的列表视图展示了菜单的大纲，使用者可以点击显示按钮来展开列表。</p>
 <figure id="fig28.1"><img src="images/expandablelist/swiftui-expandablelist-1.jpg" alt="图 28.1. 展开式列表视图"><figcaption>图 28.1. 展开式列表视图</figcaption></figure>
 <p>当然，你也可以用自己的实现方法，来建构这个大纲视图。但在最新版本的 SwiftUI 中，Apple 让开发者可以更简单地建构这种大纲视图，并自动适应于 iOS、iPadOS、和 macOS 版本。</p>
 <h3 id="%E5%BB%BA%E6%A7%8B%E5%A4%A7%E7%B6%B1%E8%A6%96%E5%9C%96">建构大纲视图</h3>
@@ -895,15 +895,15 @@
     <span class="hljs-keyword">var</span> subMenuItems: [<span class="hljs-type">MenuItem</span>]?
 }
 </code></pre>
-<p>在上面的代码中，我们有一个用来建造选单物件的结构 (struct)。要创建一个巢状列表 (nested list)，关键就是要加入一个属性，包含子级的可选数组 (optional array) <code>subMenuItems</code>。请注意，子级与其父级的类型 (type) 是一样的。</p>
-<p>对于顶层 (top level) 选单物件，我们可以如此创建一个 <code>MenuItem</code> 数组：</p>
+<p>在上面的代码中，我们有一个用来建造菜单物件的结构 (struct)。要创建一个巢状列表 (nested list)，关键就是要加入一个属性，包含子级的可选数组 (optional array) <code>subMenuItems</code>。请注意，子级与其父级的类型 (type) 是一样的。</p>
+<p>对于顶层 (top level) 菜单物件，我们可以如此创建一个 <code>MenuItem</code> 数组：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// Main menu items</span>
 <span class="hljs-keyword">let</span> sampleMenuItems = [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Espresso Machines&quot;</span>, image: <span class="hljs-string">&quot;linea-mini&quot;</span>, subMenuItems: espressoMachineMenuItems),
                         <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Grinders&quot;</span>, image: <span class="hljs-string">&quot;swift-mini&quot;</span>, subMenuItems: grinderMenuItems),
                         <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Other Equipment&quot;</span>, image: <span class="hljs-string">&quot;espresso-ep&quot;</span>, subMenuItems: otherMenuItems)
                     ]
 </code></pre>
-<p>我们会针对每个选单物件，指定子选单 (sub-menu) 物件的数组。如果没有子选单物件，则可以省略 <code>subMenuItems</code> 参数，或传递 <code>nil</code> 值。我们可以这样定义子选单物件：</p>
+<p>我们会针对每个菜单物件，指定子菜单 (sub-menu) 物件的数组。如果没有子菜单物件，则可以省略 <code>subMenuItems</code> 参数，或传递 <code>nil</code> 值。我们可以这样定义子菜单物件：</p>
 <pre><code class="lang-swift"><span class="hljs-comment">// Sub-menu items for Espressco Machines</span>
 <span class="hljs-keyword">let</span> espressoMachineMenuItems = [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Leva&quot;</span>, image: <span class="hljs-string">&quot;leva-x&quot;</span>, subMenuItems: [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Leva X&quot;</span>, image: <span class="hljs-string">&quot;leva-x&quot;</span>), <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Leva S&quot;</span>, image: <span class="hljs-string">&quot;leva-s&quot;</span>) ]),
                                  <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada&quot;</span>, image: <span class="hljs-string">&quot;strada-ep&quot;</span>, subMenuItems: [ <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada EP&quot;</span>, image: <span class="hljs-string">&quot;strada-ep&quot;</span>), <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada AV&quot;</span>, image: <span class="hljs-string">&quot;strada-av&quot;</span>), <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada MP&quot;</span>, image: <span class="hljs-string">&quot;strada-mp&quot;</span>), <span class="hljs-type">MenuItem</span>(name: <span class="hljs-string">&quot;Strada EE&quot;</span>, image: <span class="hljs-string">&quot;strada-ee&quot;</span>) ]),
@@ -928,7 +928,7 @@
                         ]
 </code></pre>
 <h4 id="%E9%A1%AF%E7%A4%BA%E5%88%97%E8%A1%A8">显示列表</h4>
-<p>准备好数据模型后，我们可以编写代码以呈现列表视图。<code>List</code> 视图现在有了可选的 <code>children</code> 参数。所以如果有任何子物件，你可以提供其 key path <code>\.subMenuItems</code>。 然后，SwiftUI 将递归 (recursively) 查找子选单物件，并以大纲形式显示。打开 <code>ContentView.swift</code> 并在 <code>body</code> 中插入以下代码：</p>
+<p>准备好数据模型后，我们可以编写代码以呈现列表视图。<code>List</code> 视图现在有了可选的 <code>children</code> 参数。所以如果有任何子物件，你可以提供其 key path <code>\.subMenuItems</code>。 然后，SwiftUI 将递归 (recursively) 查找子菜单物件，并以大纲形式显示。打开 <code>ContentView.swift</code> 并在 <code>body</code> 中插入以下代码：</p>
 <pre><code class="lang-swift"><span class="hljs-type">List</span>(sampleMenuItems, children: \.subMenuItems) { item <span class="hljs-keyword">in</span>
     <span class="hljs-type">HStack</span> {
         <span class="hljs-type">Image</span>(item.image)

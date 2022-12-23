@@ -322,7 +322,7 @@
                         
                             <b>16.</b>
                         
-                        滑动删除、内容选单与动作列表
+                        滑动删除、内容菜单与动作列表
                     </a>
                 
             
@@ -882,7 +882,7 @@
 <h3 id="%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%B0%88%E6%A1%88%E4%BE%86%E9%AB%94%E9%A9%97-swiftui">建立新项目来体验 SwiftUI</h3>
 <p>首先，开启  Xcode 并使用 <em>Single View App</em>  模板来建立一个新项目，输入项目名称，我设定为 <em>SwiftUIText</em> ，不过你可以使用任何的名称。在组织名称（ organization name），你可以设定为你的公司或组织的名字。组织识别码（organization identifier）是 App  的唯一识别码，这里我使用 <em>com.appcoda</em>，不过这里需要填入你自己的内容，如果你有一个网站，则可以将网域名称以倒过来写的方式作为设定。要使用 SwiftUI 的话，则需要在User Interface选项勾选 <em>SwiftUI</em> ，点选  <em>Next</em> 并选取一个数据夹来建立项目。</p>
 <figure id="fig2.1"><img src="images/text/swiftui-text-1.png" alt="图 1. 建立一个新项目"><figcaption>图 1. 建立一个新项目</figcaption></figure>
-<p>储存完项目之后，Xcode 即会载入 <code>ContentView.swift</code>  档，并显示一个设计划布（ design canvas ）与预览画布（preview canvas）。如果你没有见到这个画布，你可以至  Xcode 选单，并选取  <em>Editor</em> &gt; <em>Canvas</em> 来启用它。</p>
+<p>储存完项目之后，Xcode 即会载入 <code>ContentView.swift</code>  档，并显示一个设计划布（ design canvas ）与预览画布（preview canvas）。如果你没有见到这个画布，你可以至  Xcode 菜单，并选取  <em>Editor</em> &gt; <em>Canvas</em> 来启用它。</p>
 <p>Xcode 默认会在  <code>ContentView.swift</code> 上建立一些  SwiftUI 代码。在 Xcode 14，这个预览画布会自动渲染（render）App 预览画面。Xcode 会依照你在模拟器选项（例如 iPhone 13 Pro）中的选择来将预览画面渲染在模拟器中。在旧版的 Xcode，你必须点选 <em>Resume</em>  按钮才能看到这个预览画面。</p>
 <p>为了让程序编辑器与画布能显示，你可以隐藏项目导航器（project navigator ）与工具面板来释放更多空间。</p>
 <figure id="fig2.2"><img src="images/text/swiftui-text-2.png" alt="图 2. 程序编辑器与画布"><figcaption>图 2. 程序编辑器与画布</figcaption></figure>
@@ -928,7 +928,7 @@
 <p><code>foregroundColor</code> 修饰器接收 <code>颜色</code> 的值。这里我们指定使用  <code>.green</code>，这个值是内建颜色，你也可以使用其他像是 <code>.red</code> 、<code>.purple</code> 等内建颜色值。</p>
 <figure id="fig2.7"><img src="images/text/swiftui-text-7.png" alt="图 7. 修改字体颜色"><figcaption>图 7. 修改字体颜色</figcaption></figure>
 <p>虽然我们比较喜欢使用代码自订一个控制组件的属性，你也可以使用设计划布来编辑。在默认情况下，预览在 <em>Live</em> 模式下运行。 要编辑视图的属性，你必须首先切换到 <em>Selectable</em> 模式。</p>
-<p>按住 command 键不放，并点选文字来弹出弹出选单， 选取 <em>Show SwiftUI Inspector</em> ，然后你可以编辑 text/font 属性。 最棒的是，当你修改字体属性时，代码也会自动修改。</p>
+<p>按住 command 键不放，并点选文字来弹出弹出菜单， 选取 <em>Show SwiftUI Inspector</em> ，然后你可以编辑 text/font 属性。 最棒的是，当你修改字体属性时，代码也会自动修改。</p>
 <figure id="fig2.8"><img src="images/text/swiftui-text-8.png" alt="图 8. 使用 Inspect 功能来编辑文字属性"><figcaption>图 8. 使用 Inspect 功能来编辑文字属性</figcaption></figure>
 <h3 id="%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E8%99%95%E7%90%86">多行文字的处理</h3>
 <p><code>Text</code> 默认支持多行文字，所以它可以显示一段文字，而不需要使用任何其他修饰器，将程序以下面这段替换：</p>

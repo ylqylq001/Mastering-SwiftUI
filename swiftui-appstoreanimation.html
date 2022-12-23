@@ -322,7 +322,7 @@
                         
                             <b>16.</b>
                         
-                        滑动删除、内容选单与动作列表
+                        滑动删除、内容菜单与动作列表
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
 <figure id="fig26.10"><img src="images/appstore/swiftui-appstore-10.png" alt="图 26.10. 图像宽度设定为屏幕宽度"><figcaption>图 26.10. 图像宽度设定为屏幕宽度</figcaption></figure>
 <h4 id="%E6%B7%BB%E5%8A%A0%E9%97%9C%E9%96%89%E6%8C%89%E9%88%95">添加关闭按钮</h4>
 <p>卡片视图几乎完成了，但还剩下一件事。 我们还没有加入关闭按钮。 为了将按钮覆盖在图像顶部，我们要将滚动视图嵌入到<code>ZStack</code>中。 你可以直接修改代码以添加<code>ZStack</code>，但这里让我试范另一种方法。</p>
-<p>按住 command 键并单击<code>ScrollView</code>，你应该会看到一个选单。 选择 <em>Embed in ZStack</em> 将滚动视图嵌入到 <code>ZStack</code> 中。</p>
+<p>按住 command 键并单击<code>ScrollView</code>，你应该会看到一个菜单。 选择 <em>Embed in ZStack</em> 将滚动视图嵌入到 <code>ZStack</code> 中。</p>
 <figure id="fig26.11"><img src="images/appstore/swiftui-appstore-11.png" alt="图 26.11. 将滚动视图嵌入到ZStack中"><figcaption>图 26.11. 将滚动视图嵌入到ZStack中</figcaption></figure>
 <p>Xcode 会自动将代码缩排并将滚动视图嵌入到 <code>ZStack</code> 中。 现在修改 <code>ZStack</code> ，将 <code>alignment</code> 设定为 <code>.topTrailing</code>。这样就可以将关闭按钮放置在右上角的地方。 你的代码应如下所示：</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
